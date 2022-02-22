@@ -3,8 +3,8 @@ package com.baidu.tieba.personPolymeric.tab.fragments;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.y2.j.l;
-import c.a.t0.z2.g;
+import c.a.u0.a3.g;
+import c.a.u0.z2.k.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.data.MetaData;
@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.User;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public abstract class PersonCenterTabBaseFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public l f47276e;
+    public l f47422e;
 
     public PersonCenterTabBaseFragment() {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
     public void hideNetRefreshView(View view) {
         l lVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || (lVar = this.f47276e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || (lVar = this.f47422e) == null) {
             return;
         }
         lVar.dettachView(view);
@@ -56,7 +56,7 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             super.onChangeSkinType(i2);
-            l lVar = this.f47276e;
+            l lVar = this.f47422e;
             if (lVar != null) {
                 lVar.onChangeSkinType();
             }
@@ -77,17 +77,17 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
     public void showNetRefreshView(View view, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, view, str, z) == null) {
-            if (this.f47276e == null) {
+            if (this.f47422e == null) {
                 l lVar = new l(getPageContext().getPageActivity(), getNetRefreshListener());
-                this.f47276e = lVar;
+                this.f47422e = lVar;
                 lVar.e(getPageContext().getResources().getString(g.refresh_view_title_text));
-                this.f47276e.d(null);
-                this.f47276e.c(getPageContext().getResources().getString(g.refresh_view_button_text));
-                this.f47276e.f();
-                this.f47276e.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+                this.f47422e.d(null);
+                this.f47422e.c(getPageContext().getResources().getString(g.refresh_view_button_text));
+                this.f47422e.f();
+                this.f47422e.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             }
-            this.f47276e.onChangeSkinType();
-            this.f47276e.attachView(view, z);
+            this.f47422e.onChangeSkinType();
+            this.f47422e.attachView(view, z);
         }
     }
 }

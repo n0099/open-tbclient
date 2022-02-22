@@ -14,7 +14,7 @@ public final class v<T> implements h.c<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.a<T> f61967e;
+    public final d.a<T> f62134e;
 
     /* loaded from: classes4.dex */
     public static final class a<T> extends i.j<T> {
@@ -22,10 +22,10 @@ public final class v<T> implements h.c<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final i.i<? super T> f61968i;
+        public final i.i<? super T> f62135i;
 
         /* renamed from: j  reason: collision with root package name */
-        public T f61969j;
+        public T f62136j;
         public int k;
 
         public a(i.i<? super T> iVar) {
@@ -43,7 +43,7 @@ public final class v<T> implements h.c<T> {
                     return;
                 }
             }
-            this.f61968i = iVar;
+            this.f62135i = iVar;
         }
 
         @Override // i.e
@@ -52,12 +52,12 @@ public final class v<T> implements h.c<T> {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 int i2 = this.k;
                 if (i2 == 0) {
-                    this.f61968i.b(new NoSuchElementException());
+                    this.f62135i.b(new NoSuchElementException());
                 } else if (i2 == 1) {
                     this.k = 2;
-                    T t = this.f61969j;
-                    this.f61969j = null;
-                    this.f61968i.c(t);
+                    T t = this.f62136j;
+                    this.f62136j = null;
+                    this.f62135i.c(t);
                 }
             }
         }
@@ -70,8 +70,8 @@ public final class v<T> implements h.c<T> {
                     i.r.c.j(th);
                     return;
                 }
-                this.f61969j = null;
-                this.f61968i.b(th);
+                this.f62136j = null;
+                this.f62135i.b(th);
             }
         }
 
@@ -82,10 +82,10 @@ public final class v<T> implements h.c<T> {
                 int i2 = this.k;
                 if (i2 == 0) {
                     this.k = 1;
-                    this.f61969j = t;
+                    this.f62136j = t;
                 } else if (i2 == 1) {
                     this.k = 2;
-                    this.f61968i.b(new IndexOutOfBoundsException("The upstream produced more than one value"));
+                    this.f62135i.b(new IndexOutOfBoundsException("The upstream produced more than one value"));
                 }
             }
         }
@@ -106,7 +106,7 @@ public final class v<T> implements h.c<T> {
                 return;
             }
         }
-        this.f61967e = aVar;
+        this.f62134e = aVar;
     }
 
     @Override // i.h.c, i.n.b
@@ -119,7 +119,7 @@ public final class v<T> implements h.c<T> {
         if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
             a aVar = new a(iVar);
             iVar.a(aVar);
-            this.f61967e.call(aVar);
+            this.f62134e.call(aVar);
         }
     }
 }

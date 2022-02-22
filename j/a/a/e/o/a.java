@@ -9,7 +9,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.HiidoReport;
 import com.yy.mobile.framework.revenuesdk.payapi.reporter.IPayReporter;
 import tv.athena.revenue.RevenueManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

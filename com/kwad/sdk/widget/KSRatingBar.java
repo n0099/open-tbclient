@@ -10,41 +10,41 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.kwad.sdk.R;
 import java.math.BigDecimal;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class KSRatingBar extends LinearLayout {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f58056b;
+    public boolean f58223b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f58057c;
+    public int f58224c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f58058d;
+    public int f58225d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f58059e;
+    public a f58226e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f58060f;
+    public float f58227f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f58061g;
+    public float f58228g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f58062h;
+    public float f58229h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Drawable f58063i;
+    public Drawable f58230i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Drawable f58064j;
+    public Drawable f58231j;
     public Drawable k;
     public int l;
     public boolean m;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(float f2);
     }
@@ -58,16 +58,16 @@ public class KSRatingBar extends LinearLayout {
         setShowDividers(2);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_KSRatingBar);
         this.k = obtainStyledAttributes.getDrawable(R.styleable.ksad_KSRatingBar_ksad_starHalf);
-        this.f58063i = obtainStyledAttributes.getDrawable(R.styleable.ksad_KSRatingBar_ksad_starEmpty);
-        this.f58064j = obtainStyledAttributes.getDrawable(R.styleable.ksad_KSRatingBar_ksad_starFill);
-        this.f58060f = obtainStyledAttributes.getDimension(R.styleable.ksad_KSRatingBar_ksad_starImageWidth, 60.0f);
-        this.f58061g = obtainStyledAttributes.getDimension(R.styleable.ksad_KSRatingBar_ksad_starImageHeight, 120.0f);
-        this.f58062h = obtainStyledAttributes.getDimension(R.styleable.ksad_KSRatingBar_ksad_starImagePadding, 15.0f);
-        this.f58057c = obtainStyledAttributes.getInteger(R.styleable.ksad_KSRatingBar_ksad_totalStarCount, 5);
-        this.f58058d = obtainStyledAttributes.getInteger(R.styleable.ksad_KSRatingBar_ksad_starCount, 5);
+        this.f58230i = obtainStyledAttributes.getDrawable(R.styleable.ksad_KSRatingBar_ksad_starEmpty);
+        this.f58231j = obtainStyledAttributes.getDrawable(R.styleable.ksad_KSRatingBar_ksad_starFill);
+        this.f58227f = obtainStyledAttributes.getDimension(R.styleable.ksad_KSRatingBar_ksad_starImageWidth, 60.0f);
+        this.f58228g = obtainStyledAttributes.getDimension(R.styleable.ksad_KSRatingBar_ksad_starImageHeight, 120.0f);
+        this.f58229h = obtainStyledAttributes.getDimension(R.styleable.ksad_KSRatingBar_ksad_starImagePadding, 15.0f);
+        this.f58224c = obtainStyledAttributes.getInteger(R.styleable.ksad_KSRatingBar_ksad_totalStarCount, 5);
+        this.f58225d = obtainStyledAttributes.getInteger(R.styleable.ksad_KSRatingBar_ksad_starCount, 5);
         this.a = obtainStyledAttributes.getBoolean(R.styleable.ksad_KSRatingBar_ksad_clickable, true);
-        this.f58056b = obtainStyledAttributes.getBoolean(R.styleable.ksad_KSRatingBar_ksad_halfstart, false);
-        for (int i2 = 0; i2 < this.f58057c; i2++) {
+        this.f58223b = obtainStyledAttributes.getBoolean(R.styleable.ksad_KSRatingBar_ksad_halfstart, false);
+        for (int i2 = 0; i2 < this.f58224c; i2++) {
             ImageView a2 = a(context, this.m);
             a2.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.widget.KSRatingBar.1
                 @Override // android.view.View.OnClickListener
@@ -77,11 +77,11 @@ public class KSRatingBar extends LinearLayout {
                     a aVar;
                     float indexOfChild2;
                     if (KSRatingBar.this.a) {
-                        if (!KSRatingBar.this.f58056b) {
+                        if (!KSRatingBar.this.f58223b) {
                             KSRatingBar kSRatingBar2 = KSRatingBar.this;
                             kSRatingBar2.setStar(kSRatingBar2.indexOfChild(view) + 1.0f);
-                            if (KSRatingBar.this.f58059e != null) {
-                                KSRatingBar.this.f58059e.a(KSRatingBar.this.indexOfChild(view) + 1.0f);
+                            if (KSRatingBar.this.f58226e != null) {
+                                KSRatingBar.this.f58226e.a(KSRatingBar.this.indexOfChild(view) + 1.0f);
                                 return;
                             }
                             return;
@@ -94,12 +94,12 @@ public class KSRatingBar extends LinearLayout {
                             indexOfChild = kSRatingBar.indexOfChild(view) + 0.5f;
                         }
                         kSRatingBar.setStar(indexOfChild);
-                        if (KSRatingBar.this.f58059e != null) {
+                        if (KSRatingBar.this.f58226e != null) {
                             if (KSRatingBar.this.l % 2 == 0) {
-                                aVar = KSRatingBar.this.f58059e;
+                                aVar = KSRatingBar.this.f58226e;
                                 indexOfChild2 = KSRatingBar.this.indexOfChild(view) + 1.0f;
                             } else {
-                                aVar = KSRatingBar.this.f58059e;
+                                aVar = KSRatingBar.this.f58226e;
                                 indexOfChild2 = KSRatingBar.this.indexOfChild(view) + 0.5f;
                             }
                             aVar.a(indexOfChild2);
@@ -110,14 +110,14 @@ public class KSRatingBar extends LinearLayout {
             });
             addView(a2);
         }
-        setStar(this.f58058d);
+        setStar(this.f58225d);
     }
 
     private ImageView a(Context context, boolean z) {
         ImageView imageView = new ImageView(context);
-        imageView.setLayoutParams(new ViewGroup.LayoutParams(Math.round(this.f58060f), Math.round(this.f58061g)));
-        imageView.setPadding(0, 0, Math.round(this.f58062h), 0);
-        imageView.setImageDrawable(z ? this.f58063i : this.f58064j);
+        imageView.setLayoutParams(new ViewGroup.LayoutParams(Math.round(this.f58227f), Math.round(this.f58228g)));
+        imageView.setPadding(0, 0, Math.round(this.f58229h), 0);
+        imageView.setImageDrawable(z ? this.f58230i : this.f58231j);
         return imageView;
     }
 
@@ -128,52 +128,52 @@ public class KSRatingBar extends LinearLayout {
     }
 
     public void setImagePadding(float f2) {
-        this.f58062h = f2;
+        this.f58229h = f2;
     }
 
     public void setOnRatingChangeListener(a aVar) {
-        this.f58059e = aVar;
+        this.f58226e = aVar;
     }
 
     public void setStar(float f2) {
         int i2 = (int) f2;
         float floatValue = new BigDecimal(Float.toString(f2)).subtract(new BigDecimal(Integer.toString(i2))).floatValue();
-        int i3 = this.f58057c;
+        int i3 = this.f58224c;
         float f3 = i2 > i3 ? i3 : i2;
         if (f3 < 0.0f) {
             f3 = 0.0f;
         }
         for (int i4 = 0; i4 < f3; i4++) {
-            ((ImageView) getChildAt(i4)).setImageDrawable(this.f58064j);
+            ((ImageView) getChildAt(i4)).setImageDrawable(this.f58231j);
         }
         if (floatValue > 0.0f) {
             ((ImageView) getChildAt(i2)).setImageDrawable(this.k);
-            int i5 = this.f58057c;
+            int i5 = this.f58224c;
             while (true) {
                 i5--;
                 if (i5 < 1.0f + f3) {
                     return;
                 }
-                ((ImageView) getChildAt(i5)).setImageDrawable(this.f58063i);
+                ((ImageView) getChildAt(i5)).setImageDrawable(this.f58230i);
             }
         } else {
-            int i6 = this.f58057c;
+            int i6 = this.f58224c;
             while (true) {
                 i6--;
                 if (i6 < f3) {
                     return;
                 }
-                ((ImageView) getChildAt(i6)).setImageDrawable(this.f58063i);
+                ((ImageView) getChildAt(i6)).setImageDrawable(this.f58230i);
             }
         }
     }
 
     public void setStarEmptyDrawable(Drawable drawable) {
-        this.f58063i = drawable;
+        this.f58230i = drawable;
     }
 
     public void setStarFillDrawable(Drawable drawable) {
-        this.f58064j = drawable;
+        this.f58231j = drawable;
     }
 
     public void setStarHalfDrawable(Drawable drawable) {
@@ -181,15 +181,15 @@ public class KSRatingBar extends LinearLayout {
     }
 
     public void setStarImageHeight(float f2) {
-        this.f58061g = f2;
+        this.f58228g = f2;
     }
 
     public void setStarImageWidth(float f2) {
-        this.f58060f = f2;
+        this.f58227f = f2;
     }
 
     public void setTotalStarCount(int i2) {
-        this.f58057c = i2;
+        this.f58224c = i2;
     }
 
     public void setmClickable(boolean z) {

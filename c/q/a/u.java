@@ -24,31 +24,31 @@ public class u {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a5 f30496b;
+    public a5 f30702b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Info f30497c;
+    public Info f30703c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f30498d;
+    public View f30704d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List f30499e;
+    public List f30705e;
 
     /* renamed from: f  reason: collision with root package name */
-    public s f30500f;
+    public s f30706f;
 
     /* renamed from: g  reason: collision with root package name */
-    public h4 f30501g;
+    public h4 f30707g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f30502h;
+    public long f30708h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e5 f30503i;
+    public e5 f30709i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f30504j;
+    public boolean f30710j;
     public long k;
     public float l;
     public float m;
@@ -80,16 +80,16 @@ public class u {
                 return;
             }
         }
-        this.f30499e = Collections.synchronizedList(new ArrayList());
-        this.f30502h = 0L;
-        this.f30503i = new f6(this);
-        this.f30504j = false;
+        this.f30705e = Collections.synchronizedList(new ArrayList());
+        this.f30708h = 0L;
+        this.f30709i = new f6(this);
+        this.f30710j = false;
         this.k = 0L;
         this.a = context;
-        a5 a5Var = new a5(context, str, L.f60843e);
-        this.f30496b = a5Var;
-        a5Var.f30303g = this.f30503i;
-        this.f30501g = new h4(context);
+        a5 a5Var = new a5(context, str, L.f61010e);
+        this.f30702b = a5Var;
+        a5Var.f30509g = this.f30709i;
+        this.f30707g = new h4(context);
     }
 
     public static /* synthetic */ void d(u uVar, View view) {
@@ -129,12 +129,12 @@ public class u {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 g();
-                if (this.f30496b != null) {
-                    this.f30496b.b();
-                    this.f30496b = null;
+                if (this.f30702b != null) {
+                    this.f30702b.b();
+                    this.f30702b = null;
                 }
-                if (this.f30500f != null) {
-                    this.f30500f = null;
+                if (this.f30706f != null) {
+                    this.f30706f = null;
                 }
             } catch (Exception unused) {
             }
@@ -151,17 +151,17 @@ public class u {
             if (view == null || arrayList == null || arrayList.size() == 0 || !f()) {
                 return;
             }
-            this.f30502h = 0L;
-            if (this.f30498d != null) {
+            this.f30708h = 0L;
+            if (this.f30704d != null) {
                 g();
             }
-            this.f30498d = view;
+            this.f30704d = view;
             try {
                 q qVar = new q(this);
                 for (View view2 : arrayList) {
                     if (view2 != null && !(view2 instanceof PBMediaView)) {
-                        if (!this.f30499e.contains(view2)) {
-                            this.f30499e.add(view2);
+                        if (!this.f30705e.contains(view2)) {
+                            this.f30705e.add(view2);
                         }
                         if (!(view2 instanceof CircleProgressbar)) {
                             view2.setOnClickListener(qVar);
@@ -175,26 +175,26 @@ public class u {
                 try {
                     if (pBMediaView.getHtmlWebView() != null) {
                         j3 htmlWebView = pBMediaView.getHtmlWebView();
-                        htmlWebView.a(f() ? this.f30497c.getLoad() : "", this.f30497c);
-                        if (this.f30497c.isNat()) {
-                            htmlWebView.f30372c.setOnTouchListener(new i(this));
+                        htmlWebView.a(f() ? this.f30703c.getLoad() : "", this.f30703c);
+                        if (this.f30703c.isNat()) {
+                            htmlWebView.f30578c.setOnTouchListener(new i(this));
                         }
-                        htmlWebView.f30371b = new m(this);
+                        htmlWebView.f30577b = new m(this);
                     }
                 } catch (Exception unused2) {
                 }
             }
             y2 a = c3.a(this.a);
-            a.o(new g3(this.f30497c));
+            a.o(new g3(this.f30703c));
             a.m();
-            s sVar = this.f30500f;
+            s sVar = this.f30706f;
             if (sVar != null) {
                 sVar.onDisplayed();
             }
-            if (this.f30497c != null) {
-                m2.m(this.a, this.f30497c.getId() + ":" + System.currentTimeMillis(), false);
+            if (this.f30703c != null) {
+                m2.m(this.a, this.f30703c.getId() + ":" + System.currentTimeMillis(), false);
             }
-            new s0().a(view, this.f30497c, new e(this, view));
+            new s0().a(view, this.f30703c, new e(this, view));
         }
     }
 
@@ -202,7 +202,7 @@ public class u {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Info info = this.f30497c;
+            Info info = this.f30703c;
             return info != null && info.isEffective();
         }
         return invokeV.booleanValue;
@@ -212,14 +212,14 @@ public class u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             try {
-                for (View view : this.f30499e) {
+                for (View view : this.f30705e) {
                     if (view != null) {
                         view.setOnClickListener(null);
                     }
                 }
-                this.f30499e.clear();
-                if (this.f30498d != null) {
-                    this.f30498d = null;
+                this.f30705e.clear();
+                if (this.f30704d != null) {
+                    this.f30704d = null;
                 }
             } catch (Exception unused) {
             }

@@ -1,6 +1,6 @@
 package com.baidu.ugc.editvideo.magicmusic;
 
-import c.a.a1.t.h;
+import c.a.b1.t.h;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;

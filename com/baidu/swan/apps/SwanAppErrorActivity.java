@@ -6,15 +6,15 @@ import android.text.TextUtils;
 import android.view.ViewGroup;
 import android.view.Window;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.a.a;
-import c.a.r0.a.f;
-import c.a.r0.a.f1.e.b;
-import c.a.r0.a.g;
-import c.a.r0.a.h0.g.e;
-import c.a.r0.a.k;
-import c.a.r0.a.y1.c.f.c;
-import c.a.r0.a.z2.q0;
-import c.a.r0.r.a.a.o;
+import c.a.s0.a.a;
+import c.a.s0.a.f;
+import c.a.s0.a.f1.e.b;
+import c.a.s0.a.g;
+import c.a.s0.a.h0.g.e;
+import c.a.s0.a.k;
+import c.a.s0.a.y1.c.f.c;
+import c.a.s0.a.z2.q0;
+import c.a.s0.r.a.a.o;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
 import com.baidu.swan.support.v4.app.FragmentActivity;
@@ -56,7 +56,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
     public b mLaunchInfo;
     public int mMenuNoticeCount;
     public int mMenuPrivateCount;
-    public c.a.r0.a.j2.b mSkinDecorator;
+    public c.a.s0.a.j2.b mSkinDecorator;
     public int mWebPermit;
     public String mWebUrl;
 
@@ -173,7 +173,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mLaunchInfo : (b) invokeV.objValue;
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, c.a.r0.r.a.a.g, android.app.Activity
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, c.a.s0.r.a.a.g, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
@@ -206,7 +206,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
                 return;
             }
             if (this.mSkinDecorator == null) {
-                this.mSkinDecorator = new c.a.r0.a.j2.b();
+                this.mSkinDecorator = new c.a.s0.a.j2.b();
             }
             ViewGroup viewGroup = (ViewGroup) window.getDecorView();
             if (z) {
@@ -232,8 +232,8 @@ public class SwanAppErrorActivity extends FragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onStart();
-            if (TextUtils.equals(this.mErrorType, TYPE_APP_FORBIDDEN) && (i2 = c.a.r0.a.y1.c.f.e.k().i(this.mForbiddenInfo.appId)) != null && i2.D()) {
-                c.a.r0.a.f2.f.f0.a.J(this.mForbiddenInfo.appId);
+            if (TextUtils.equals(this.mErrorType, TYPE_APP_FORBIDDEN) && (i2 = c.a.s0.a.y1.c.f.e.k().i(this.mForbiddenInfo.appId)) != null && i2.D()) {
+                c.a.s0.a.f2.f.f0.a.J(this.mForbiddenInfo.appId);
             }
         }
     }
@@ -241,7 +241,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
     public void updateCurrentNightMode() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            onNightModeCoverChanged(c.a.r0.a.c1.a.M().a());
+            onNightModeCoverChanged(c.a.s0.a.c1.a.M().a());
         }
     }
 }

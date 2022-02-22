@@ -33,7 +33,7 @@ import java.util.List;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AdLandPageActivityProxy extends com.kwad.sdk.h.a {
     public static final String KEY_DIALOG_URL = "key_dialog_url";
     public static final String KEY_TEMPLATE = "key_template_json";
@@ -70,8 +70,8 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.h.a {
         aVar.a(this.mAdTemplate);
         com.kwad.sdk.core.webview.a aVar2 = this.mJsBridgeContext;
         aVar2.a = 0;
-        aVar2.f56375e = this.mAdWebView;
-        aVar2.f56374d = this.mWebContainer;
+        aVar2.f56542e = this.mAdWebView;
+        aVar2.f56541d = this.mWebContainer;
     }
 
     private void initTipBarView() {

@@ -11,10 +11,10 @@ public class a {
     public static final char[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f5102b;
+    public static final char[] f5172b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f5103c;
+    public static final byte[] f5173c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,10 +31,10 @@ public class a {
             }
         }
         a = "0123456789ABCDEF".toCharArray();
-        f5102b = "0123456789abcdef".toCharArray();
-        f5103c = new byte[128];
+        f5172b = "0123456789abcdef".toCharArray();
+        f5173c = new byte[128];
         for (int i2 = 0; i2 < 10; i2++) {
-            byte[] bArr = f5103c;
+            byte[] bArr = f5173c;
             bArr[i2 + 48] = (byte) i2;
             byte b2 = (byte) (i2 + 10);
             bArr[i2 + 65] = b2;
@@ -46,7 +46,7 @@ public class a {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, bArr, z)) == null) {
-            char[] cArr = z ? a : f5102b;
+            char[] cArr = z ? a : f5172b;
             char[] cArr2 = new char[bArr.length * 2];
             int i2 = 0;
             for (byte b2 : bArr) {

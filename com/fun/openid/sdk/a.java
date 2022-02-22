@@ -13,19 +13,19 @@ public interface a extends IInterface {
 
     /* renamed from: com.fun.openid.sdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static abstract class AbstractBinderC2065a extends Binder implements a {
+    public static abstract class AbstractBinderC2075a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int a = 0;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.fun.openid.sdk.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static class C2066a implements a {
+        public static class C2076a implements a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C2066a(IBinder iBinder) {
+            public C2076a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();

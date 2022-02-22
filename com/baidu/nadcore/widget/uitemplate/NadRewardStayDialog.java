@@ -11,34 +11,34 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import c.a.c0.d.e;
-import c.a.c0.d.g;
-import c.a.c0.d.h;
-import c.a.c0.d.i;
-import c.a.c0.g0.p;
-import c.a.c0.s.o;
+import c.a.d0.d.e;
+import c.a.d0.d.g;
+import c.a.d0.d.h;
+import c.a.d0.d.i;
+import c.a.d0.h0.r;
+import c.a.d0.s.s;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class NadRewardStayDialog extends Dialog implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public final b f37409e;
+    public final b f37641e;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NadRewardStayDialog f37410e;
+        public final /* synthetic */ NadRewardStayDialog f37642e;
 
         public a(NadRewardStayDialog nadRewardStayDialog) {
             Interceptable interceptable = $ic;
@@ -55,19 +55,19 @@ public class NadRewardStayDialog extends Dialog implements View.OnClickListener 
                     return;
                 }
             }
-            this.f37410e = nadRewardStayDialog;
+            this.f37642e = nadRewardStayDialog;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f37410e.f37409e.a(false);
+                this.f37642e.f37641e.a(false);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface b {
         void a(boolean z);
     }
@@ -91,18 +91,18 @@ public class NadRewardStayDialog extends Dialog implements View.OnClickListener 
             }
         }
         c(adBaseModel);
-        this.f37409e = bVar;
+        this.f37641e = bVar;
     }
 
     public final void b(AdBaseModel adBaseModel) {
-        o oVar;
+        s sVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adBaseModel) == null) {
-            o.b bVar = (adBaseModel == null || (oVar = adBaseModel.l) == null) ? null : oVar.f2255d;
+            s.b bVar = (adBaseModel == null || (sVar = adBaseModel.q) == null) ? null : sVar.f3122f;
             View inflate = LayoutInflater.from(getContext()).inflate(g.nad_reward_stay_view, (ViewGroup) null);
             String string = (bVar == null || TextUtils.isEmpty(bVar.a)) ? getContext().getResources().getString(h.nad_reward_stay_title) : bVar.a;
-            String string2 = (bVar == null || TextUtils.isEmpty(bVar.f2264b)) ? getContext().getResources().getString(h.nad_reward_stay_confirm) : bVar.f2264b;
-            String string3 = (bVar == null || TextUtils.isEmpty(bVar.f2265c)) ? getContext().getResources().getString(h.nad_reward_stay_cancel) : bVar.f2265c;
+            String string2 = (bVar == null || TextUtils.isEmpty(bVar.f3135b)) ? getContext().getResources().getString(h.nad_reward_stay_confirm) : bVar.f3135b;
+            String string3 = (bVar == null || TextUtils.isEmpty(bVar.f3136c)) ? getContext().getResources().getString(h.nad_reward_stay_cancel) : bVar.f3136c;
             ((TextView) inflate.findViewById(e.nad_reward_stay_content)).setText(string);
             TextView textView = (TextView) inflate.findViewById(e.nad_reward_stay_continue);
             textView.setText(string2);
@@ -137,9 +137,9 @@ public class NadRewardStayDialog extends Dialog implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
             if (view.getId() == e.nad_reward_stay_continue) {
-                this.f37409e.a(false);
+                this.f37641e.a(false);
             } else if (view.getId() == e.nad_reward_stay_cancel) {
-                this.f37409e.a(true);
+                this.f37641e.a(true);
             }
         }
     }
@@ -155,7 +155,7 @@ public class NadRewardStayDialog extends Dialog implements View.OnClickListener 
             }
             window.setFlags(8, 8);
             super.show();
-            p.a(window);
+            r.a(window);
             window.clearFlags(8);
         }
     }

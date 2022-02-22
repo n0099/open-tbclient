@@ -95,12 +95,12 @@ public class MtjConfig {
         public static final PushPlatform XINGE;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final /* synthetic */ PushPlatform[] f36832c;
+        public static final /* synthetic */ PushPlatform[] f37038c;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f36833b;
+        public int f37039b;
 
         static {
             InterceptResult invokeClinit;
@@ -126,7 +126,7 @@ public class MtjConfig {
             OPPO = new PushPlatform("OPPO", 8, RomUtils.MANUFACTURER_OPPO, 8);
             PushPlatform pushPlatform = new PushPlatform("MEIZU", 9, "meizu", 9);
             MEIZU = pushPlatform;
-            f36832c = new PushPlatform[]{BAIDUYUN, JIGUANG, GETUI, HUAWEI, XIAOMI, UMENG, XINGE, ALIYUN, OPPO, pushPlatform};
+            f37038c = new PushPlatform[]{BAIDUYUN, JIGUANG, GETUI, HUAWEI, XIAOMI, UMENG, XINGE, ALIYUN, OPPO, pushPlatform};
         }
 
         public PushPlatform(String str, int i2, String str2, int i3) {
@@ -148,7 +148,7 @@ public class MtjConfig {
                 }
             }
             this.a = str2;
-            this.f36833b = i3;
+            this.f37039b = i3;
         }
 
         public static PushPlatform valueOf(String str) {
@@ -160,7 +160,7 @@ public class MtjConfig {
         public static PushPlatform[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PushPlatform[]) f36832c.clone() : (PushPlatform[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PushPlatform[]) f37038c.clone() : (PushPlatform[]) invokeV.objValue;
         }
 
         public String showName() {
@@ -173,7 +173,7 @@ public class MtjConfig {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "p" + this.f36833b;
+                return "p" + this.f37039b;
             }
             return (String) invokeV.objValue;
         }

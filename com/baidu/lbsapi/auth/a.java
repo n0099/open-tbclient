@@ -13,7 +13,7 @@ public class a {
     public static boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f34632b = "BaiduApiAuth";
+    public static String f34838b = "BaiduApiAuth";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

@@ -129,7 +129,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c, NoNetView.a {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern R;
@@ -163,31 +163,31 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<d> f51702b;
+    public WeakReference<d> f51869b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LightappJsClient f51703c;
+    public LightappJsClient f51870c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LightappBusinessClient f51704d;
+    public LightappBusinessClient f51871d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ValueCallback<Uri> f51705e;
+    public ValueCallback<Uri> f51872e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ValueCallback<Uri[]> f51706f;
+    public ValueCallback<Uri[]> f51873f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f51707g;
+    public boolean f51874g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f51708h;
+    public boolean f51875h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f51709i;
+    public View f51876i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Context f51710j;
+    public Context f51877j;
     public LangbridgeSlideLayout k;
     public LightappBrowserWebView l;
     public Bundle m;
@@ -204,17 +204,17 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
     public TextView y;
     public boolean z;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public class CustomWebViewClient extends SafeWebView.SafeWebViewClient implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LangbridgeCell a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Pattern f51740b;
+        public Pattern f51907b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f51741c;
+        public String f51908c;
 
         public CustomWebViewClient(LangbridgeCell langbridgeCell) {
             Interceptable interceptable = $ic;
@@ -232,7 +232,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                 }
             }
             this.a = langbridgeCell;
-            this.f51740b = Pattern.compile("\\s*https?://.*");
+            this.f51907b = Pattern.compile("\\s*https?://.*");
         }
 
         private boolean a(String str, String str2) {
@@ -247,12 +247,12 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
             if (interceptable == null || interceptable.invokeLLZ(1048576, this, webView, str, z) == null) {
                 super.doUpdateVisitedHistory(webView, str, z);
                 LangbridgeCell langbridgeCell = this.a;
-                if (langbridgeCell.f51707g) {
+                if (langbridgeCell.f51874g) {
                     langbridgeCell.l.clearHistory();
                     if (str == null || str.contains("about:blank")) {
                         return;
                     }
-                    this.a.f51707g = false;
+                    this.a.f51874g = false;
                 }
             }
         }
@@ -269,21 +269,21 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                 LangbridgeCell langbridgeCell = this.a;
                 com.baidu.wallet.lightapp.base.a a = com.baidu.wallet.lightapp.base.a.a();
                 LangbridgeCell langbridgeCell2 = this.a;
-                langbridgeCell.U = a.a(langbridgeCell2.f51710j, str, langbridgeCell2.U);
+                langbridgeCell.U = a.a(langbridgeCell2.f51877j, str, langbridgeCell2.U);
                 this.a.B = str;
                 String host = Uri.parse(str).getHost();
-                this.f51741c = str;
+                this.f51908c = str;
                 if (TextUtils.isEmpty(host)) {
                     this.a.y.setVisibility(8);
                 } else {
                     this.a.y.setVisibility(0);
                     LangbridgeCell langbridgeCell3 = this.a;
-                    langbridgeCell3.y.setText(langbridgeCell3.f51710j.getResources().getString(ResUtils.string(this.a.f51710j, "wallet_langbridge_url_outer"), host));
+                    langbridgeCell3.y.setText(langbridgeCell3.f51877j.getResources().getString(ResUtils.string(this.a.f51877j, "wallet_langbridge_url_outer"), host));
                 }
                 String title = this.a.w.getTitle();
                 if (title != null && title.equals("")) {
                     String title2 = webView.getTitle();
-                    if (title2 == null || this.f51740b.matcher(title2).matches()) {
+                    if (title2 == null || this.f51907b.matcher(title2).matches()) {
                         this.a.d((String) null);
                     } else {
                         this.a.d(title2);
@@ -318,7 +318,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                     return;
                 }
                 LangbridgeCell langbridgeCell4 = this.a;
-                if (langbridgeCell4.f51707g) {
+                if (langbridgeCell4.f51874g) {
                     return;
                 }
                 langbridgeCell4.x();
@@ -338,7 +338,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                 }
                 this.a.C = str;
                 if (TextUtils.isEmpty(str) || (!str.contains("isInitTitleBar=0") && !str.contains("isInitTitleBar%3d0"))) {
-                    this.a.setFullScreenInMainThread(false, a(str, this.f51741c) && (this.a.X != null && this.a.X.isHideTitle), false, false, "", "");
+                    this.a.setFullScreenInMainThread(false, a(str, this.f51908c) && (this.a.X != null && this.a.X.isHideTitle), false, false, "", "");
                 } else if (this.a.Y != null && !this.a.Y.equals(this.a.X)) {
                     LangbridgeCell langbridgeCell = this.a;
                     langbridgeCell.setFullScreenInMainThread(langbridgeCell.Y.isFullScreen, this.a.Y.isHideTitle, this.a.Y.isHideHost, this.a.Y.isIconWhite, StringUtil.getHexColorStr(this.a.Y.fullScreenActionBarColor), StringUtil.getHexColorStr(this.a.Y.fullScreenTitleColor));
@@ -358,13 +358,13 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                 }
                 LangbridgeCell langbridgeCell3 = this.a;
                 langbridgeCell3.v = null;
-                LightappBusinessClient lightappBusinessClient = langbridgeCell3.f51704d;
+                LightappBusinessClient lightappBusinessClient = langbridgeCell3.f51871d;
                 if (lightappBusinessClient != null) {
                     lightappBusinessClient.setH5BackCb(null);
                 }
                 LangbridgeCell langbridgeCell4 = this.a;
                 langbridgeCell4.a = null;
-                langbridgeCell4.f51703c.setUrlLocal(str);
+                langbridgeCell4.f51870c.setUrlLocal(str);
                 super.onPageStarted(webView, str, bitmap);
                 DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.LIGHT_APP_BEGIN_LOAD, Arrays.asList(CheckUtils.stripUrlParams(this.a.B), this.a.s(), "", "", "", URLUtil.getHost(this.a.B)));
                 if (this.a.isActiveCell()) {
@@ -375,11 +375,11 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                 } else {
                     z = false;
                 }
-                if (!NetworkUtils.isNetworkAvailable(this.a.f51710j) && !z) {
+                if (!NetworkUtils.isNetworkAvailable(this.a.f51877j) && !z) {
                     this.a.c(str);
                     DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.LIGHT_APP_WEBVIEW_SHOW_ERROR, Arrays.asList(CheckUtils.stripUrlParams(str)));
                 }
-                if (a(str, this.f51741c)) {
+                if (a(str, this.f51908c)) {
                     return;
                 }
                 com.baidu.wallet.lightapp.base.c.a(this.a.getActivity());
@@ -435,8 +435,8 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                     str = this.a.b().hashCode() + "";
                 }
                 strArr[2] = str;
-                if (this.a.f51703c != null) {
-                    str2 = this.a.f51703c.hashCode() + "";
+                if (this.a.f51870c != null) {
+                    str2 = this.a.f51870c.hashCode() + "";
                 }
                 strArr[3] = str2;
                 DXMSdkSAUtils.onEventWithValues("#LightApp_Load_Failed", Arrays.asList(strArr));
@@ -515,9 +515,9 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, webView, webResourceRequest)) == null) {
-                if (this.a.isActiveCell() && this.a.f51708h) {
+                if (this.a.isActiveCell() && this.a.f51875h) {
                     LangbridgeCacheManager.getInstance().handleLoadUrl(this.a.q().getLangbridgeHash(), webResourceRequest.getUrl().toString());
-                    this.a.f51708h = false;
+                    this.a.f51875h = false;
                 }
                 if (this.a.isActiveCell()) {
                     return LangbridgeCacheManager.getInstance().interceptRequest(webResourceRequest.getUrl().toString(), webResourceRequest.getRequestHeaders());
@@ -549,7 +549,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                         return true;
                     } catch (Exception e3) {
                         e3.printStackTrace();
-                        GlobalUtils.toast(this.a.f51710j, "请先配置邮箱");
+                        GlobalUtils.toast(this.a.f51877j, "请先配置邮箱");
                     }
                 } else if (!str.toLowerCase(Locale.CHINA).startsWith("http") && !str.toLowerCase(Locale.CHINA).startsWith("https") && !str.toLowerCase(Locale.CHINA).startsWith("file")) {
                     try {
@@ -564,7 +564,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                     } catch (Exception e4) {
                         com.baidu.apollon.utils.LogUtil.d("LangbridgeCell", e4.getMessage());
                     }
-                } else if (webView.getOriginalUrl() != null && !webView.getOriginalUrl().equals("about:blank") && i.a().a(this.a.f51710j).MW_ON && !i.a().a(this.a.f51710j).MW_USE_OLD && i.a().a(this.a.f51710j).MW_HOLDLINK_ON && i.a().a(this.a.f51710j).MW_MULTI_ON && this.a.isActiveCell()) {
+                } else if (webView.getOriginalUrl() != null && !webView.getOriginalUrl().equals("about:blank") && i.a().a(this.a.f51877j).MW_ON && !i.a().a(this.a.f51877j).MW_USE_OLD && i.a().a(this.a.f51877j).MW_HOLDLINK_ON && i.a().a(this.a.f51877j).MW_MULTI_ON && this.a.isActiveCell()) {
                     LangbridgePreloadCellCenter.getInstance(this.a.getContext());
                     if (LangbridgePreloadCellCenter.needNewWebviewOpen(str)) {
                         this.a.q().createLangbridgeCell(str, false, false, "");
@@ -633,7 +633,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                     str3 = this.a.b().hashCode() + "";
                 }
                 strArr[2] = str3;
-                strArr[3] = this.a.f51703c.hashCode() + "";
+                strArr[3] = this.a.f51870c.hashCode() + "";
                 DXMSdkSAUtils.onEventWithValues("#LightApp_Load_Failed", Arrays.asList(strArr));
                 LogUtil.d("LangbridgeCell", "onReceivedError1.showErrorPage");
                 super.onReceivedError(webView, i2, str, str2);
@@ -641,7 +641,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static class LoadTimeLine implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -670,7 +670,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public class WebviewMenu extends LangBridgeMenuDialog implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MENU_ITEM_INDEX_CLOSE = 34;
@@ -707,29 +707,29 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public class a extends LangBridgeMenuDialog implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LangbridgeCell a;
 
         /* renamed from: com.baidu.wallet.lightapp.multipage.LangbridgeCell$a$a  reason: collision with other inner class name */
-        /* loaded from: classes13.dex */
-        public class C2010a {
+        /* loaded from: classes2.dex */
+        public class C2020a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public String f51745b;
+            public String f51912b;
 
             /* renamed from: c  reason: collision with root package name */
-            public String f51746c;
+            public String f51913c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ a f51747d;
+            public final /* synthetic */ a f51914d;
 
-            public C2010a(a aVar) {
+            public C2020a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -744,7 +744,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                         return;
                     }
                 }
-                this.f51747d = aVar;
+                this.f51914d = aVar;
             }
         }
 
@@ -776,15 +776,15 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                         if (!jSONArray.isNull(i4)) {
                             JSONObject jSONObject = jSONArray.getJSONObject(i4);
                             if (jSONObject.has("title") && jSONObject.has("icon") && jSONObject.has(com.baidu.webkit.sdk.WebChromeClient.KEY_ARG_CALLBACK)) {
-                                C2010a c2010a = new C2010a();
-                                c2010a.a = jSONObject.optString("title", null);
-                                c2010a.f51745b = jSONObject.optString("icon", null);
-                                c2010a.f51746c = jSONObject.optString(com.baidu.webkit.sdk.WebChromeClient.KEY_ARG_CALLBACK, null);
-                                if (compile.matcher(c2010a.a).matches() && !TextUtils.isEmpty(c2010a.f51745b) && !TextUtils.isEmpty(c2010a.f51746c)) {
+                                C2020a c2020a = new C2020a();
+                                c2020a.a = jSONObject.optString("title", null);
+                                c2020a.f51912b = jSONObject.optString("icon", null);
+                                c2020a.f51913c = jSONObject.optString(com.baidu.webkit.sdk.WebChromeClient.KEY_ARG_CALLBACK, null);
+                                if (compile.matcher(c2020a.a).matches() && !TextUtils.isEmpty(c2020a.f51912b) && !TextUtils.isEmpty(c2020a.f51913c)) {
                                     if (5 <= arrayList.size()) {
                                         break;
                                     }
-                                    arrayList.add(c2010a);
+                                    arrayList.add(c2020a);
                                 }
                             }
                         }
@@ -795,8 +795,8 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
             }
             int size = arrayList.size();
             for (int i5 = 0; i5 < size; i5++) {
-                C2010a c2010a2 = (C2010a) arrayList.get(i5);
-                add(i5 + 256, c2010a2.a, c2010a2.f51745b);
+                C2020a c2020a2 = (C2020a) arrayList.get(i5);
+                add(i5 + 256, c2020a2.a, c2020a2.f51912b);
             }
             add(GDiffPatcher.COPY_INT_USHORT, ResUtils.getString(context, "wallet_lightapp_refresh"), ResUtils.getDrawable(context, "wallet_langbrige_icon_refresh"));
             if (langbridgeCell.m.getBoolean("lang_showshare", false)) {
@@ -809,13 +809,13 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                 public final /* synthetic */ LangbridgeCell a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f51742b;
+                public final /* synthetic */ int f51909b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ ArrayList f51743c;
+                public final /* synthetic */ ArrayList f51910c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ a f51744d;
+                public final /* synthetic */ a f51911d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -832,10 +832,10 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                             return;
                         }
                     }
-                    this.f51744d = this;
+                    this.f51911d = this;
                     this.a = langbridgeCell;
-                    this.f51742b = size;
-                    this.f51743c = arrayList;
+                    this.f51909b = size;
+                    this.f51910c = arrayList;
                 }
 
                 @Override // com.baidu.wallet.base.widget.BdMenuItem.OnItemClickListener
@@ -844,27 +844,27 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, bdMenuItem) == null) {
                         int itemId = bdMenuItem.getItemId();
                         if (255 == itemId) {
-                            DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_CLOSE, Arrays.asList(CheckUtils.stripUrlParams(this.f51744d.a.B), this.f51744d.a.s()));
-                            if (this.f51744d.a.isActiveCell()) {
-                                this.f51744d.a.q().setRnAuthResult(2, "实名认证取消");
-                                this.f51744d.a.q().closeWindow();
+                            DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_CLOSE, Arrays.asList(CheckUtils.stripUrlParams(this.f51911d.a.B), this.f51911d.a.s()));
+                            if (this.f51911d.a.isActiveCell()) {
+                                this.f51911d.a.q().setRnAuthResult(2, "实名认证取消");
+                                this.f51911d.a.q().closeWindow();
                             }
                         } else if (254 == itemId) {
-                            DXMSdkSAUtils.onEventWithValues("#callShare", Arrays.asList(CheckUtils.stripUrlParams(this.f51744d.a.B)));
-                            LightAppWrapper.getInstance().callShare(this.f51744d.a.getActivity(), new LightAppShareModel(this.f51744d.a.l.getTitle(), this.f51744d.a.l.getTitle(), this.f51744d.a.l.getUrl(), null), null);
+                            DXMSdkSAUtils.onEventWithValues("#callShare", Arrays.asList(CheckUtils.stripUrlParams(this.f51911d.a.B)));
+                            LightAppWrapper.getInstance().callShare(this.f51911d.a.getActivity(), new LightAppShareModel(this.f51911d.a.l.getTitle(), this.f51911d.a.l.getTitle(), this.f51911d.a.l.getUrl(), null), null);
                         } else if (253 == itemId) {
-                            DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_REFRESH, Arrays.asList(CheckUtils.stripUrlParams(this.f51744d.a.B)));
-                            if (this.f51744d.a.isActiveCell()) {
-                                LangbridgeCacheManager.getInstance().onLangbridgeRefresh(this.f51744d.a.getActivity(), this.f51744d.a.B);
+                            DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_REFRESH, Arrays.asList(CheckUtils.stripUrlParams(this.f51911d.a.B)));
+                            if (this.f51911d.a.isActiveCell()) {
+                                LangbridgeCacheManager.getInstance().onLangbridgeRefresh(this.f51911d.a.getActivity(), this.f51911d.a.B);
                             }
-                            this.f51744d.a.l.reload();
-                            LangbridgeCell langbridgeCell2 = this.f51744d.a;
+                            this.f51911d.a.l.reload();
+                            LangbridgeCell langbridgeCell2 = this.f51911d.a;
                             langbridgeCell2.B = langbridgeCell2.l.getUrl();
-                            this.f51744d.a.z = false;
+                            this.f51911d.a.z = false;
                         } else {
                             int i6 = itemId - 256;
-                            if (i6 <= this.f51742b) {
-                                this.f51744d.a.executeJsFunction(((C2010a) this.f51743c.get(i6)).f51746c, "");
+                            if (i6 <= this.f51909b) {
+                                this.f51911d.a.executeJsFunction(((C2020a) this.f51910c.get(i6)).f51913c, "");
                             }
                         }
                     }
@@ -874,7 +874,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static class b extends FrameLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -944,8 +944,8 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                 return;
             }
         }
-        this.f51707g = true;
-        this.f51708h = false;
+        this.f51874g = true;
+        this.f51875h = false;
         this.m = new Bundle();
         this.o = false;
         this.p = false;
@@ -958,7 +958,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
         this.U = -1;
         this.X = new LangbridgeBarParams();
         this.Y = null;
-        this.f51710j = DxmApplicationContextImpl.getApplicationContext(context);
+        this.f51877j = DxmApplicationContextImpl.getApplicationContext(context);
         this.l = lightappBrowserWebView;
         this.T = str;
         if ("PRELOAD".equals(str)) {
@@ -1055,7 +1055,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                                             }
                                             if (this.a.a.X.fullScreenActionBarColor != -1) {
                                                 LangbridgeCell langbridgeCell2 = this.a.a;
-                                                langbridgeCell2.w.setTitlebgColor(LangbridgeCell.a(f3, langbridgeCell2.X.fullScreenActionBarColor, ResUtils.getColor(this.a.a.f51710j, "wallet_extend_color_actionbar_bg")));
+                                                langbridgeCell2.w.setTitlebgColor(LangbridgeCell.a(f3, langbridgeCell2.X.fullScreenActionBarColor, ResUtils.getColor(this.a.a.f51877j, "wallet_extend_color_actionbar_bg")));
                                                 return;
                                             }
                                             return;
@@ -1067,7 +1067,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                                             this.a.a.w.setIconFlag(false);
                                         }
                                         LangbridgeCell langbridgeCell3 = this.a.a;
-                                        langbridgeCell3.w.setTitlebgColor(ResUtils.getColor(langbridgeCell3.f51710j, "wallet_extend_color_actionbar_bg"));
+                                        langbridgeCell3.w.setTitlebgColor(ResUtils.getColor(langbridgeCell3.f51877j, "wallet_extend_color_actionbar_bg"));
                                         this.a.a.w.resetFullScreenTextColor();
                                         return;
                                     }
@@ -1333,7 +1333,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                 public boolean a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LangbridgeCell f51727b;
+                public final /* synthetic */ LangbridgeCell f51894b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1350,7 +1350,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                             return;
                         }
                     }
-                    this.f51727b = this;
+                    this.f51894b = this;
                     this.a = false;
                 }
 
@@ -1360,7 +1360,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                     if (!(interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) || this.a) {
                         return;
                     }
-                    WalletGlobalUtils.showLoadingDialog(this.f51727b.getActivity());
+                    WalletGlobalUtils.showLoadingDialog(this.f51894b.getActivity());
                     this.a = true;
                 }
 
@@ -1372,11 +1372,11 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                         try {
                             JSONObject jSONObject = new JSONObject(str2);
                             if (!jSONObject.optBoolean("isOnline", true)) {
-                                GlobalUtils.toast(this.f51727b.getContext(), ResUtils.getString(this.f51727b.getActivity(), "network_no_connected"));
+                                GlobalUtils.toast(this.f51894b.getContext(), ResUtils.getString(this.f51894b.getActivity(), "network_no_connected"));
                             } else if (!jSONObject.optBoolean("isInternetConnected", true)) {
-                                GlobalUtils.toast(this.f51727b.getContext(), ResUtils.getString(this.f51727b.getActivity(), "network_no_internet_connected"));
+                                GlobalUtils.toast(this.f51894b.getContext(), ResUtils.getString(this.f51894b.getActivity(), "network_no_internet_connected"));
                             } else {
-                                GlobalUtils.toast(this.f51727b.getContext(), ResUtils.getString(this.f51727b.getActivity(), "network_tomography_done"));
+                                GlobalUtils.toast(this.f51894b.getContext(), ResUtils.getString(this.f51894b.getActivity(), "network_tomography_done"));
                             }
                         } catch (JSONException unused) {
                         }
@@ -1477,7 +1477,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f51710j : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f51877j : (Context) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.lightapp.multipage.a
@@ -1497,7 +1497,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LangbridgeCell f51723b;
+                public final /* synthetic */ LangbridgeCell f51890b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1514,15 +1514,15 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                             return;
                         }
                     }
-                    this.f51723b = this;
+                    this.f51890b = this;
                     this.a = i2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f51723b.isActiveCell()) {
-                        this.f51723b.q().historyGo(this.a);
+                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f51890b.isActiveCell()) {
+                        this.f51890b.q().historyGo(this.a);
                     }
                 }
             });
@@ -1534,8 +1534,8 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            WeakReference<d> weakReference = this.f51702b;
-            return (weakReference == null || weakReference.get() == null || this.f51702b.get().getControllerActivity() == null || !this.f51702b.get().isActiveCell(this)) ? false : true;
+            WeakReference<d> weakReference = this.f51869b;
+            return (weakReference == null || weakReference.get() == null || this.f51869b.get().getControllerActivity() == null || !this.f51869b.get().isActiveCell(this)) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -1567,7 +1567,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
         if (!(interceptable == null || interceptable.invokeL(1048612, this, str) == null) || getActivity() == null) {
             return;
         }
-        this.S = new com.baidu.wallet.lightapp.business.presenter.a(getActivity(), this.f51704d, str);
+        this.S = new com.baidu.wallet.lightapp.business.presenter.a(getActivity(), this.f51871d, str);
         Intent intent = new Intent();
         intent.addCategory("android.intent.category.OPENABLE");
         if (Build.VERSION.SDK_INT < 19) {
@@ -1589,32 +1589,32 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
         if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
             n();
             a(this.l);
-            this.f51704d = (LightappBusinessClient) this.f51703c.getLightappBusiness();
+            this.f51871d = (LightappBusinessClient) this.f51870c.getLightappBusiness();
         }
     }
 
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
-            View inflate = LayoutInflater.from(this.f51710j).inflate(ResUtils.layout(this.f51710j, "wallet_langbrige_cell"), (ViewGroup) null);
-            this.f51709i = inflate;
-            LangbridgeSlideLayout langbridgeSlideLayout = (LangbridgeSlideLayout) inflate.findViewById(ResUtils.id(this.f51710j, "bd_langbridge_slide"));
+            View inflate = LayoutInflater.from(this.f51877j).inflate(ResUtils.layout(this.f51877j, "wallet_langbrige_cell"), (ViewGroup) null);
+            this.f51876i = inflate;
+            LangbridgeSlideLayout langbridgeSlideLayout = (LangbridgeSlideLayout) inflate.findViewById(ResUtils.id(this.f51877j, "bd_langbridge_slide"));
             this.k = langbridgeSlideLayout;
             langbridgeSlideLayout.setTarget(this.l);
-            this.K = (FrameLayout) this.f51709i.findViewById(ResUtils.id(this.f51710j, "bd_ab_container"));
-            this.L = (FrameLayout) this.f51709i.findViewById(ResUtils.id(this.f51710j, "bd_trans_container"));
-            this.I = (FrameLayout) this.f51709i.findViewById(ResUtils.id(this.f51710j, "progress_line_container"));
-            this.J = (FrameLayout) this.f51709i.findViewById(ResUtils.id(this.f51710j, "progress_trans_container"));
-            View view = new View(this.f51710j);
+            this.K = (FrameLayout) this.f51876i.findViewById(ResUtils.id(this.f51877j, "bd_ab_container"));
+            this.L = (FrameLayout) this.f51876i.findViewById(ResUtils.id(this.f51877j, "bd_trans_container"));
+            this.I = (FrameLayout) this.f51876i.findViewById(ResUtils.id(this.f51877j, "progress_line_container"));
+            this.J = (FrameLayout) this.f51876i.findViewById(ResUtils.id(this.f51877j, "progress_trans_container"));
+            View view = new View(this.f51877j);
             this.t = view;
             view.setVisibility(8);
             this.w = b(this.m.getBoolean("lang_longtitle", true));
-            this.q = (NoNetView) this.f51709i.findViewById(ResUtils.id(this.f51710j, "nonet_view"));
+            this.q = (NoNetView) this.f51876i.findViewById(ResUtils.id(this.f51877j, "nonet_view"));
             a(false);
             w();
             b("");
-            this.x = (LinearLayout) this.f51709i.findViewById(ResUtils.id(this.f51710j, "walelt_app_host_background"));
-            this.y = (TextView) this.f51709i.findViewById(ResUtils.id(this.f51710j, "walelt_base_light_app_host"));
+            this.x = (LinearLayout) this.f51876i.findViewById(ResUtils.id(this.f51877j, "walelt_app_host_background"));
+            this.y = (TextView) this.f51876i.findViewById(ResUtils.id(this.f51877j, "walelt_base_light_app_host"));
         }
     }
 
@@ -1628,8 +1628,8 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
     public void onReloadClick(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048616, this, str) == null) {
-            if (!NetworkUtils.isNetworkAvailable(this.f51710j)) {
-                GlobalUtils.toast(p(), ResUtils.getString(this.f51710j, "ebpay_no_network"));
+            if (!NetworkUtils.isNetworkAvailable(this.f51877j)) {
+                GlobalUtils.toast(p(), ResUtils.getString(this.f51877j, "ebpay_no_network"));
                 return;
             }
             LightappBrowserWebView lightappBrowserWebView = this.l;
@@ -1650,10 +1650,10 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f51738b;
+                public final /* synthetic */ String f51905b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ LangbridgeCell f51739c;
+                public final /* synthetic */ LangbridgeCell f51906c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1670,32 +1670,32 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                             return;
                         }
                     }
-                    this.f51739c = this;
+                    this.f51906c = this;
                     this.a = str;
-                    this.f51738b = str2;
+                    this.f51905b = str2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f51739c.isActiveCell()) {
-                        String str3 = this.f51739c.B;
-                        if (str3 != null && (!str3.equals(this.a) || !this.f51739c.B.equals(this.f51738b))) {
-                            if (!TextUtils.isEmpty(this.f51738b)) {
-                                LangbridgeCacheManager.getInstance().handleLoadUrl(this.f51739c.q().getLangbridgeHash(), this.f51738b);
+                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f51906c.isActiveCell()) {
+                        String str3 = this.f51906c.B;
+                        if (str3 != null && (!str3.equals(this.a) || !this.f51906c.B.equals(this.f51905b))) {
+                            if (!TextUtils.isEmpty(this.f51905b)) {
+                                LangbridgeCacheManager.getInstance().handleLoadUrl(this.f51906c.q().getLangbridgeHash(), this.f51905b);
                             } else {
-                                LangbridgeCacheManager.getInstance().handleLoadUrl(this.f51739c.q().getLangbridgeHash(), this.a);
+                                LangbridgeCacheManager.getInstance().handleLoadUrl(this.f51906c.q().getLangbridgeHash(), this.a);
                             }
-                            if (this.f51739c.q().createLangbridgeCell(this.a, false, false, this.f51738b)) {
-                                this.f51739c.x();
+                            if (this.f51906c.q().createLangbridgeCell(this.a, false, false, this.f51905b)) {
+                                this.f51906c.x();
                                 return;
                             }
                             return;
                         }
-                        LightappBrowserWebView lightappBrowserWebView = this.f51739c.l;
+                        LightappBrowserWebView lightappBrowserWebView = this.f51906c.l;
                         if (lightappBrowserWebView != null) {
                             lightappBrowserWebView.reload();
-                            this.f51739c.z = false;
+                            this.f51906c.z = false;
                         }
                     }
                 }
@@ -1727,10 +1727,10 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ArrayList f51713b;
+                public final /* synthetic */ ArrayList f51880b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ LangbridgeCell f51714c;
+                public final /* synthetic */ LangbridgeCell f51881c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1747,19 +1747,19 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                             return;
                         }
                     }
-                    this.f51714c = this;
+                    this.f51881c = this;
                     this.a = i2;
-                    this.f51713b = arrayList;
+                    this.f51880b = arrayList;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f51714c.isActiveCell()) {
+                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f51881c.isActiveCell()) {
                         if (this.a == -1) {
-                            LangbridgePreloadCellCenter.getInstance(this.f51714c.getContext()).preload(this.f51713b, this.f51714c.q().getOwnerTag(), this.f51714c.q().getLangbridgeStamp());
+                            LangbridgePreloadCellCenter.getInstance(this.f51881c.getContext()).preload(this.f51880b, this.f51881c.q().getOwnerTag(), this.f51881c.q().getLangbridgeStamp());
                         } else {
-                            LangbridgePreloadCellCenter.getInstance(this.f51714c.getContext()).preload(this.f51713b, this.a, this.f51714c.q().getOwnerTag(), this.f51714c.q().getLangbridgeStamp());
+                            LangbridgePreloadCellCenter.getInstance(this.f51881c.getContext()).preload(this.f51880b, this.a, this.f51881c.q().getOwnerTag(), this.f51881c.q().getLangbridgeStamp());
                         }
                     }
                 }
@@ -1771,7 +1771,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
-            WeakReference<d> weakReference = this.f51702b;
+            WeakReference<d> weakReference = this.f51869b;
             if (weakReference != null) {
                 return weakReference.get();
             }
@@ -1790,7 +1790,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
     public void rmFromPreloadPool() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
-            LangbridgePreloadCellCenter.getInstance(this.f51710j).removeCellByCell(this);
+            LangbridgePreloadCellCenter.getInstance(this.f51877j).removeCellByCell(this);
         }
     }
 
@@ -1810,7 +1810,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
     public void selectPhoneFromAddressBook() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048625, this) == null) && isActiveCell()) {
-            this.E = new ContactInfoPresenter(getActivity(), this.f51704d);
+            this.E = new ContactInfoPresenter(getActivity(), this.f51871d);
             ContactManager.getIContactsImpl().pickContactsByPhoneContentType(getActivity(), 4);
         }
     }
@@ -1826,22 +1826,22 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                 public final /* synthetic */ boolean a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f51731b;
+                public final /* synthetic */ boolean f51898b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ boolean f51732c;
+                public final /* synthetic */ boolean f51899c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f51733d;
+                public final /* synthetic */ String f51900d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f51734e;
+                public final /* synthetic */ String f51901e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ boolean f51735f;
+                public final /* synthetic */ boolean f51902f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ LangbridgeCell f51736g;
+                public final /* synthetic */ LangbridgeCell f51903g;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1858,71 +1858,71 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                             return;
                         }
                     }
-                    this.f51736g = this;
+                    this.f51903g = this;
                     this.a = z4;
-                    this.f51731b = z3;
-                    this.f51732c = z;
-                    this.f51733d = str2;
-                    this.f51734e = str;
-                    this.f51735f = z2;
+                    this.f51898b = z3;
+                    this.f51899c = z;
+                    this.f51900d = str2;
+                    this.f51901e = str;
+                    this.f51902f = z2;
                 }
 
                 private void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(65537, this) == null) {
-                        this.f51736g.X.isFullScreen = this.f51732c;
-                        if (!TextUtils.isEmpty(this.f51733d)) {
+                        this.f51903g.X.isFullScreen = this.f51899c;
+                        if (!TextUtils.isEmpty(this.f51900d)) {
                             try {
-                                this.f51736g.X.fullScreenTitleColor = Color.parseColor(this.f51733d);
+                                this.f51903g.X.fullScreenTitleColor = Color.parseColor(this.f51900d);
                             } catch (Throwable th) {
                                 LogUtil.d("error", th.toString());
-                                this.f51736g.X.fullScreenTitleColor = 0;
+                                this.f51903g.X.fullScreenTitleColor = 0;
                             }
                         } else {
-                            this.f51736g.X.fullScreenTitleColor = 0;
+                            this.f51903g.X.fullScreenTitleColor = 0;
                         }
-                        if (!TextUtils.isEmpty(this.f51734e)) {
+                        if (!TextUtils.isEmpty(this.f51901e)) {
                             try {
-                                this.f51736g.X.fullScreenActionBarColor = Color.parseColor(this.f51734e);
+                                this.f51903g.X.fullScreenActionBarColor = Color.parseColor(this.f51901e);
                             } catch (Throwable unused) {
-                                this.f51736g.X.fullScreenActionBarColor = -1;
+                                this.f51903g.X.fullScreenActionBarColor = -1;
                             }
                         } else {
-                            this.f51736g.X.fullScreenActionBarColor = -1;
+                            this.f51903g.X.fullScreenActionBarColor = -1;
                         }
-                        this.f51736g.X.isHideTitle = this.f51735f;
-                        this.f51736g.X.isIconWhite = this.a;
-                        this.f51736g.X.isHideHost = this.f51731b;
+                        this.f51903g.X.isHideTitle = this.f51902f;
+                        this.f51903g.X.isIconWhite = this.a;
+                        this.f51903g.X.isHideHost = this.f51898b;
                     }
                 }
 
                 private void b() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(65538, this) == null) {
-                        if (this.f51736g.X.fullScreenTitleColor != 0) {
-                            LangbridgeCell langbridgeCell = this.f51736g;
+                        if (this.f51903g.X.fullScreenTitleColor != 0) {
+                            LangbridgeCell langbridgeCell = this.f51903g;
                             langbridgeCell.w.setFullScreenTextColor(langbridgeCell.X.fullScreenTitleColor);
                             return;
                         }
-                        this.f51736g.w.resetFullScreenTextColor();
+                        this.f51903g.w.resetFullScreenTextColor();
                     }
                 }
 
                 private void c() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(65539, this) == null) {
-                        if (this.f51736g.X.fullScreenActionBarColor != -1) {
-                            LangbridgeCell langbridgeCell = this.f51736g;
+                        if (this.f51903g.X.fullScreenActionBarColor != -1) {
+                            LangbridgeCell langbridgeCell = this.f51903g;
                             langbridgeCell.w.setTitlebgColor(langbridgeCell.X.fullScreenActionBarColor);
-                            this.f51736g.w.setBottomSeperatorvisible(false);
-                            LangbridgeCell langbridgeCell2 = this.f51736g;
+                            this.f51903g.w.setBottomSeperatorvisible(false);
+                            LangbridgeCell langbridgeCell2 = this.f51903g;
                             langbridgeCell2.a(Color.alpha(langbridgeCell2.X.fullScreenActionBarColor) != 255);
                             return;
                         }
-                        LangbridgeCell langbridgeCell3 = this.f51736g;
-                        langbridgeCell3.w.setTitlebgColor(ResUtils.getColor(langbridgeCell3.f51710j, "wallet_extend_color_actionbar_bg"));
-                        this.f51736g.w.setBottomSeperatorvisible(true);
-                        LangbridgeCell langbridgeCell4 = this.f51736g;
+                        LangbridgeCell langbridgeCell3 = this.f51903g;
+                        langbridgeCell3.w.setTitlebgColor(ResUtils.getColor(langbridgeCell3.f51877j, "wallet_extend_color_actionbar_bg"));
+                        this.f51903g.w.setBottomSeperatorvisible(true);
+                        LangbridgeCell langbridgeCell4 = this.f51903g;
                         langbridgeCell4.a(Color.alpha(langbridgeCell4.X.fullScreenActionBarColor) != 255);
                     }
                 }
@@ -1930,20 +1930,20 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                 private void d() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-                        if (this.f51736g.X.fullScreenActionBarColor != -1 && (this.f51736g.X.fullScreenActionBarColor | (-16777216)) != -1) {
-                            LangbridgeCell langbridgeCell = this.f51736g;
+                        if (this.f51903g.X.fullScreenActionBarColor != -1 && (this.f51903g.X.fullScreenActionBarColor | (-16777216)) != -1) {
+                            LangbridgeCell langbridgeCell = this.f51903g;
                             langbridgeCell.x.setBackgroundColor(langbridgeCell.X.fullScreenActionBarColor);
                         } else {
-                            LangbridgeCell langbridgeCell2 = this.f51736g;
-                            langbridgeCell2.x.setBackgroundColor(ResUtils.getColor(langbridgeCell2.f51710j, "wallet_base_background1_color_7f"));
+                            LangbridgeCell langbridgeCell2 = this.f51903g;
+                            langbridgeCell2.x.setBackgroundColor(ResUtils.getColor(langbridgeCell2.f51877j, "wallet_base_background1_color_7f"));
                         }
-                        if (this.f51736g.X.fullScreenTitleColor != 0) {
-                            LangbridgeCell langbridgeCell3 = this.f51736g;
+                        if (this.f51903g.X.fullScreenTitleColor != 0) {
+                            LangbridgeCell langbridgeCell3 = this.f51903g;
                             langbridgeCell3.y.setTextColor(langbridgeCell3.X.fullScreenTitleColor);
                             return;
                         }
-                        LangbridgeCell langbridgeCell4 = this.f51736g;
-                        langbridgeCell4.y.setTextColor(ResUtils.getColor(langbridgeCell4.f51710j, "wallet_base_font_text4Color"));
+                        LangbridgeCell langbridgeCell4 = this.f51903g;
+                        langbridgeCell4.y.setTextColor(ResUtils.getColor(langbridgeCell4.f51877j, "wallet_base_font_text4Color"));
                     }
                 }
 
@@ -1952,22 +1952,22 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         a();
-                        this.f51736g.w.setIconFlag(this.a);
-                        LangbridgeSlideLayout langbridgeSlideLayout = this.f51736g.k;
+                        this.f51903g.w.setIconFlag(this.a);
+                        LangbridgeSlideLayout langbridgeSlideLayout = this.f51903g.k;
                         if (langbridgeSlideLayout != null) {
-                            langbridgeSlideLayout.setSupportPullDown(!this.f51731b);
+                            langbridgeSlideLayout.setSupportPullDown(!this.f51898b);
                         }
                         c();
                         b();
-                        this.f51736g.z();
+                        this.f51903g.z();
                         d();
                     }
                 }
             });
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("actionBarHeight", DisplayUtils.px2dip(this.f51710j, this.w.getActionBarHeight()));
-                jSONObject.put("statusBarHeight", DisplayUtils.px2dip(this.f51710j, this.w.getStatusBarHeight()));
+                jSONObject.put("actionBarHeight", DisplayUtils.px2dip(this.f51877j, this.w.getActionBarHeight()));
+                jSONObject.put("statusBarHeight", DisplayUtils.px2dip(this.f51877j, this.w.getStatusBarHeight()));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -1995,7 +1995,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                 public final /* synthetic */ JSONArray a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LangbridgeCell f51737b;
+                public final /* synthetic */ LangbridgeCell f51904b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -2012,20 +2012,20 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                             return;
                         }
                     }
-                    this.f51737b = this;
+                    this.f51904b = this;
                     this.a = jSONArray;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f51737b.w.getRightZoneView() == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f51904b.w.getRightZoneView() == null) {
                         return;
                     }
-                    LangbridgeCell langbridgeCell = this.f51737b;
-                    LangbridgeCell langbridgeCell2 = this.f51737b;
+                    LangbridgeCell langbridgeCell = this.f51904b;
+                    LangbridgeCell langbridgeCell2 = this.f51904b;
                     langbridgeCell.v = new a(langbridgeCell2, langbridgeCell2.p(), this.a);
-                    this.f51737b.w.setRightImgZone2OnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.lightapp.multipage.LangbridgeCell.8.1
+                    this.f51904b.w.setRightImgZone2OnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.lightapp.multipage.LangbridgeCell.8.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AnonymousClass8 a;
@@ -2052,7 +2052,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                         public void onClick(View view) {
                             Interceptable interceptable3 = $ic;
                             if (interceptable3 == null || interceptable3.invokeL(1048576, this, view) == null) {
-                                LangbridgeCell langbridgeCell3 = this.a.f51737b;
+                                LangbridgeCell langbridgeCell3 = this.a.f51904b;
                                 a aVar = langbridgeCell3.v;
                                 if (aVar != null) {
                                     aVar.show();
@@ -2082,10 +2082,10 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ NetImageView f51715b;
+                public final /* synthetic */ NetImageView f51882b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ LangbridgeCell f51716c;
+                public final /* synthetic */ LangbridgeCell f51883c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -2102,20 +2102,20 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                             return;
                         }
                     }
-                    this.f51716c = this;
+                    this.f51883c = this;
                     this.a = i2;
-                    this.f51715b = netImageView;
+                    this.f51882b = netImageView;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f51716c.w.setRightImgZone1Visibility(this.a);
-                        this.f51715b.setImageDrawable(null);
-                        this.f51715b.setVisibility(this.a);
+                        this.f51883c.w.setRightImgZone1Visibility(this.a);
+                        this.f51882b.setImageDrawable(null);
+                        this.f51882b.setVisibility(this.a);
                         if (this.a == 4) {
-                            this.f51716c.w.hideBubble(false);
+                            this.f51883c.w.hideBubble(false);
                         }
                     }
                 }
@@ -2124,22 +2124,22 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                 return;
             }
             netImageView.setEnabled(true);
-            ImageLoader.getInstance(this.f51710j).getBitmap(str, new ImageLoader.OnGetBitmapListener(this, str2, netImageView, relativeLayout, str3) { // from class: com.baidu.wallet.lightapp.multipage.LangbridgeCell.13
+            ImageLoader.getInstance(this.f51877j).getBitmap(str, new ImageLoader.OnGetBitmapListener(this, str2, netImageView, relativeLayout, str3) { // from class: com.baidu.wallet.lightapp.multipage.LangbridgeCell.13
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ NetImageView f51717b;
+                public final /* synthetic */ NetImageView f51884b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ RelativeLayout f51718c;
+                public final /* synthetic */ RelativeLayout f51885c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f51719d;
+                public final /* synthetic */ String f51886d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ LangbridgeCell f51720e;
+                public final /* synthetic */ LangbridgeCell f51887e;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -2156,11 +2156,11 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                             return;
                         }
                     }
-                    this.f51720e = this;
+                    this.f51887e = this;
                     this.a = str2;
-                    this.f51717b = netImageView;
-                    this.f51718c = relativeLayout;
-                    this.f51719d = str3;
+                    this.f51884b = netImageView;
+                    this.f51885c = relativeLayout;
+                    this.f51886d = str3;
                 }
 
                 @Override // com.baidu.apollon.imagemanager.ImageLoader.OnGetBitmapListener
@@ -2193,7 +2193,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                         public final /* synthetic */ Bitmap a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ AnonymousClass13 f51721b;
+                        public final /* synthetic */ AnonymousClass13 f51888b;
 
                         {
                             Interceptable interceptable3 = $ic;
@@ -2210,7 +2210,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                                     return;
                                 }
                             }
-                            this.f51721b = this;
+                            this.f51888b = this;
                             this.a = bitmap;
                         }
 
@@ -2218,22 +2218,22 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                         public void run() {
                             Interceptable interceptable3 = $ic;
                             if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                if (!this.f51721b.f51717b.isEnabled()) {
-                                    LogUtil.d(FileHelper.FILE_CACHE_BUBBLE, "icon getSuccess caller，页面发生其它加载：" + this.f51721b.f51720e.B);
+                                if (!this.f51888b.f51884b.isEnabled()) {
+                                    LogUtil.d(FileHelper.FILE_CACHE_BUBBLE, "icon getSuccess caller，页面发生其它加载：" + this.f51888b.f51887e.B);
                                     return;
                                 }
-                                this.f51721b.f51720e.w.setRightImgZone1Visibility(0);
-                                this.f51721b.f51720e.w.setRightImgZone1Enable(true);
-                                this.f51721b.f51717b.setImageDrawable(new BitmapDrawable(this.a));
-                                if (this.f51721b.f51720e.X.isIconWhite && this.f51721b.f51720e.w.isIconWhite()) {
-                                    this.f51721b.f51717b.setColorFilter(-1, PorterDuff.Mode.SRC_IN);
+                                this.f51888b.f51887e.w.setRightImgZone1Visibility(0);
+                                this.f51888b.f51887e.w.setRightImgZone1Enable(true);
+                                this.f51888b.f51884b.setImageDrawable(new BitmapDrawable(this.a));
+                                if (this.f51888b.f51887e.X.isIconWhite && this.f51888b.f51887e.w.isIconWhite()) {
+                                    this.f51888b.f51884b.setColorFilter(-1, PorterDuff.Mode.SRC_IN);
                                 } else {
-                                    this.f51721b.f51717b.clearColorFilter();
+                                    this.f51888b.f51884b.clearColorFilter();
                                 }
-                                this.f51721b.f51717b.setVisibility(0);
-                                if (this.f51721b.f51718c.getVisibility() == 0) {
-                                    AnonymousClass13 anonymousClass13 = this.f51721b;
-                                    anonymousClass13.f51720e.w.showBubble(anonymousClass13.f51719d, true);
+                                this.f51888b.f51884b.setVisibility(0);
+                                if (this.f51888b.f51885c.getVisibility() == 0) {
+                                    AnonymousClass13 anonymousClass13 = this.f51888b;
+                                    anonymousClass13.f51887e.w.showBubble(anonymousClass13.f51886d, true);
                                 }
                             }
                         }
@@ -2246,7 +2246,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LangbridgeCell f51722b;
+                public final /* synthetic */ LangbridgeCell f51889b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -2263,7 +2263,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                             return;
                         }
                     }
-                    this.f51722b = this;
+                    this.f51889b = this;
                     this.a = str2;
                 }
 
@@ -2271,7 +2271,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f51722b.w.setRightImgZone1OnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.lightapp.multipage.LangbridgeCell.14.1
+                        this.f51889b.w.setRightImgZone1OnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.lightapp.multipage.LangbridgeCell.14.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass14 a;
@@ -2299,9 +2299,9 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(1048576, this, view) == null) {
                                     LogUtil.d(FileHelper.FILE_CACHE_BUBBLE, "执行js");
-                                    this.a.f51722b.w.hideBubble(true);
+                                    this.a.f51889b.w.hideBubble(true);
                                     AnonymousClass14 anonymousClass14 = this.a;
-                                    anonymousClass14.f51722b.executeJsFunction(anonymousClass14.a, null);
+                                    anonymousClass14.f51889b.executeJsFunction(anonymousClass14.a, null);
                                 }
                             }
                         });
@@ -2321,13 +2321,13 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f51728b;
+                public final /* synthetic */ String f51895b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ boolean f51729c;
+                public final /* synthetic */ boolean f51896c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ LangbridgeCell f51730d;
+                public final /* synthetic */ LangbridgeCell f51897d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -2344,10 +2344,10 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                             return;
                         }
                     }
-                    this.f51730d = this;
+                    this.f51897d = this;
                     this.a = str;
-                    this.f51728b = str2;
-                    this.f51729c = z;
+                    this.f51895b = str2;
+                    this.f51896c = z;
                 }
 
                 @Override // java.lang.Runnable
@@ -2355,60 +2355,60 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                     String str3;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        LangbridgeCell langbridgeCell = this.f51730d;
+                        LangbridgeCell langbridgeCell = this.f51897d;
                         if (langbridgeCell.w != null) {
                             String str4 = "";
-                            if (!NetworkUtils.isNetworkConnected(langbridgeCell.f51710j)) {
-                                this.f51730d.w.setTitleCenterSafeTipText("");
+                            if (!NetworkUtils.isNetworkConnected(langbridgeCell.f51877j)) {
+                                this.f51897d.w.setTitleCenterSafeTipText("");
                             } else {
                                 if (TextUtils.isEmpty(this.a)) {
-                                    if (!TextUtils.isEmpty(this.f51730d.l.getTitle()) && !LangbridgeCell.R.matcher(this.f51730d.l.getTitle()).matches()) {
-                                        str3 = this.f51730d.l.getTitle();
-                                        LangbridgeCell langbridgeCell2 = this.f51730d;
+                                    if (!TextUtils.isEmpty(this.f51897d.l.getTitle()) && !LangbridgeCell.R.matcher(this.f51897d.l.getTitle()).matches()) {
+                                        str3 = this.f51897d.l.getTitle();
+                                        LangbridgeCell langbridgeCell2 = this.f51897d;
                                         langbridgeCell2.a = langbridgeCell2.l.getTitle();
                                     } else {
-                                        this.f51730d.a = null;
+                                        this.f51897d.a = null;
                                         str3 = "";
                                     }
-                                    LogUtil.d("mWebView.getTitle =", this.f51730d.l.getTitle());
-                                    this.f51730d.w.setTitleCenterSafeTipText("");
+                                    LogUtil.d("mWebView.getTitle =", this.f51897d.l.getTitle());
+                                    this.f51897d.w.setTitleCenterSafeTipText("");
                                 } else {
                                     str3 = this.a;
-                                    this.f51730d.a = str3;
-                                    if (!TextUtils.isEmpty(this.f51728b)) {
-                                        String trim = this.f51728b.trim();
+                                    this.f51897d.a = str3;
+                                    if (!TextUtils.isEmpty(this.f51895b)) {
+                                        String trim = this.f51895b.trim();
                                         if (!TextUtils.isEmpty(trim)) {
-                                            this.f51730d.w.setTitleCenterSafeTipText(trim);
+                                            this.f51897d.w.setTitleCenterSafeTipText(trim);
                                         }
                                     } else {
-                                        this.f51730d.w.setTitleCenterSafeTipText("");
+                                        this.f51897d.w.setTitleCenterSafeTipText("");
                                     }
                                 }
                                 str4 = str3;
                             }
-                            this.f51730d.d(str4);
-                            int[] titleSizeRange = this.f51730d.w.getTitleSizeRange();
+                            this.f51897d.d(str4);
+                            int[] titleSizeRange = this.f51897d.w.getTitleSizeRange();
                             int i2 = titleSizeRange[0];
                             int i3 = titleSizeRange[1];
-                            if (this.f51729c) {
-                                int mainTitleViewWidth = this.f51730d.w.getMainTitleViewWidth();
+                            if (this.f51896c) {
+                                int mainTitleViewWidth = this.f51897d.w.getMainTitleViewWidth();
                                 float f2 = i2;
-                                float stringWidth = StringUtil.getStringWidth(this.f51730d.w.getTitle(), f2);
-                                this.f51730d.w.setTitleEllipsize(TextUtils.TruncateAt.END);
+                                float stringWidth = StringUtil.getStringWidth(this.f51897d.w.getTitle(), f2);
+                                this.f51897d.w.setTitleEllipsize(TextUtils.TruncateAt.END);
                                 float f3 = mainTitleViewWidth;
                                 if (stringWidth <= f3) {
-                                    this.f51730d.w.setTitleSize(i2);
+                                    this.f51897d.w.setTitleSize(i2);
                                     return;
                                 }
                                 float f4 = f3 / stringWidth;
                                 if (1.0f > f4 && i3 / f2 <= f4) {
-                                    this.f51730d.w.setTitleSize(Math.round(f2 * f4));
+                                    this.f51897d.w.setTitleSize(Math.round(f2 * f4));
                                     return;
                                 }
-                                this.f51730d.w.setTitleSize(i3);
+                                this.f51897d.w.setTitleSize(i3);
                                 return;
                             }
-                            this.f51730d.w.setTitleSize(i2);
+                            this.f51897d.w.setTitleSize(i2);
                         }
                     }
                 }
@@ -2428,7 +2428,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048632, this) == null) {
             this.t.setVisibility(0);
-            this.t.setBackgroundColor(ResUtils.getColor(this.f51710j, "ebpay_blue"));
+            this.t.setBackgroundColor(ResUtils.getColor(this.f51877j, "ebpay_blue"));
             a(5);
         }
     }
@@ -2436,7 +2436,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
     public void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048633, this) == null) {
-            this.t.setBackgroundColor(ResUtils.getColor(this.f51710j, "ebpay_transparent"));
+            this.t.setBackgroundColor(ResUtils.getColor(this.f51877j, "ebpay_transparent"));
         }
     }
 
@@ -2447,7 +2447,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             LogUtil.d("LangbridgeCell", "handleBackPressed ");
             if (this.r == null && this.G == null) {
-                LightappBusinessClient lightappBusinessClient = this.f51704d;
+                LightappBusinessClient lightappBusinessClient = this.f51871d;
                 if ((lightappBusinessClient != null ? lightappBusinessClient.getH5BackCb() : null) != null) {
                     executeJsFunction(LightappBusinessClient.MTD_H5GOBCK, null);
                     return true;
@@ -2508,7 +2508,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             this.z = false;
-            this.f51708h = true;
+            this.f51875h = true;
         }
     }
 
@@ -2517,7 +2517,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             if (this.Q) {
-                this.f51704d.checkPermission();
+                this.f51871d.checkPermission();
                 this.Q = false;
             }
             if (this.F == null || TextUtils.isEmpty(this.B)) {
@@ -2575,7 +2575,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
-            LightappJsClient lightappJsClient = this.f51703c;
+            LightappJsClient lightappJsClient = this.f51870c;
             if (lightappJsClient != null) {
                 lightappJsClient.destroy();
             }
@@ -2586,9 +2586,9 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                 this.H = null;
             }
             if (this.l != null) {
-                WeakReference<d> weakReference = this.f51702b;
-                if (weakReference != null && weakReference.get() != null && this.f51702b.get().getControllerActivity() != null) {
-                    LightappWebViewCenter.getInstance().releaseLightappWebView2Pool(this.f51702b.get().getControllerActivity(), this.l);
+                WeakReference<d> weakReference = this.f51869b;
+                if (weakReference != null && weakReference.get() != null && this.f51869b.get().getControllerActivity() != null) {
+                    LightappWebViewCenter.getInstance().releaseLightappWebView2Pool(this.f51869b.get().getControllerActivity(), this.l);
                 } else {
                     LightappWebViewCenter.getInstance().releaseLightappWebView2Pool(null, this.l);
                 }
@@ -2669,7 +2669,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public class CustomChromeClient extends SafeWebView.SafeChromeClient implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2730,10 +2730,10 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                         linkedHashMap.put("owner", this.a.o());
                         if (this.a.b() != null && this.a.b().getJsBridge() != null) {
                             linkedHashMap.put(AlbumActivityConfig.FROM_WEB_VIEW, this.a.b().hashCode() + "");
-                            if (this.a.f51703c == null) {
+                            if (this.a.f51870c == null) {
                                 str = com.baidu.android.common.others.lang.StringUtil.NULL_STRING;
                             } else {
-                                str = this.a.f51703c.hashCode() + "";
+                                str = this.a.f51870c.hashCode() + "";
                             }
                             linkedHashMap.put("jsclient", str);
                         }
@@ -2796,7 +2796,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                 super.onReceivedTitle(webView, str);
                 if (this.a.w != null) {
                     String str2 = "";
-                    if (!TextUtils.isEmpty("") && !NetworkUtils.isNetworkConnected(this.a.f51710j)) {
+                    if (!TextUtils.isEmpty("") && !NetworkUtils.isNetworkConnected(this.a.f51877j)) {
                         this.a.w.setTitleCenterSafeTipText("");
                     } else {
                         LangbridgeCell langbridgeCell = this.a;
@@ -2851,7 +2851,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
             String[] acceptTypes;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, webView, valueCallback, fileChooserParams)) == null) {
-                this.a.f51706f = valueCallback;
+                this.a.f51873f = valueCallback;
                 if (webView != null && !TextUtils.isEmpty(webView.getUrl())) {
                     DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.LIGHT_APP_INPUT_FILE, Arrays.asList(webView.getUrl()));
                 }
@@ -2866,7 +2866,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
         public void openFileChooser(ValueCallback<Uri> valueCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, valueCallback) == null) {
-                this.a.f51705e = valueCallback;
+                this.a.f51872e = valueCallback;
                 Intent intent = new Intent("android.intent.action.GET_CONTENT");
                 intent.addCategory("android.intent.category.OPENABLE");
                 intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
@@ -2881,7 +2881,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
         public void openFileChooser(ValueCallback<Uri> valueCallback, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048585, this, valueCallback, str) == null) {
-                this.a.f51705e = valueCallback;
+                this.a.f51872e = valueCallback;
                 Intent intent = new Intent("android.intent.action.GET_CONTENT");
                 intent.addCategory("android.intent.category.OPENABLE");
                 intent.setType(str);
@@ -2896,7 +2896,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
         public void openFileChooser(ValueCallback<Uri> valueCallback, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048586, this, valueCallback, str, str2) == null) {
-                this.a.f51705e = valueCallback;
+                this.a.f51872e = valueCallback;
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
@@ -2951,7 +2951,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
         }
         this.w.setRightImgZone2Visibility(0);
         this.w.setRightImgZone2Enable(true);
-        this.w.setRightImgZone2Src(ResUtils.drawable(this.f51710j, "wallet_langbridge_actionbar_more"), ResUtils.getString(this.f51710j, "wallet_base_bdaction_more"));
+        this.w.setRightImgZone2Src(ResUtils.drawable(this.f51877j, "wallet_langbridge_actionbar_more"), ResUtils.getString(this.f51877j, "wallet_base_bdaction_more"));
         this.w.setRightImgZone2OnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.lightapp.multipage.LangbridgeCell.19
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -2993,7 +2993,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
             settings.setJavaScriptEnabled(true);
             settings.setDomStorageEnabled(true);
             settings.setDatabaseEnabled(true);
-            settings.setGeolocationDatabasePath(this.f51710j.getDir("database", 0).getPath());
+            settings.setGeolocationDatabasePath(this.f51877j.getDir("database", 0).getPath());
             settings.setSupportZoom(true);
             settings.setBuiltInZoomControls(true);
             settings.setDisplayZoomControls(false);
@@ -3017,10 +3017,10 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                 lightappWebView.removeJavascriptInterface("accessibilityTraversal");
             }
             LightappJsClient lightappJsClient = new LightappJsClient(this, this.l);
-            this.f51703c = lightappJsClient;
+            this.f51870c = lightappJsClient;
             lightappWebView.addJavascriptInterface(lightappJsClient, LightappJsClient.LIGHTAPP_JS_NAME);
-            DXMSdkSAUtils.onEventWithValues("#injectJavaObject", Arrays.asList(o(), this.f51703c.hashCode() + "", lightappWebView.hashCode() + ""));
-            LangbridgeSettings a2 = i.a().a(this.f51710j);
+            DXMSdkSAUtils.onEventWithValues("#injectJavaObject", Arrays.asList(o(), this.f51870c.hashCode() + "", lightappWebView.hashCode() + ""));
+            LangbridgeSettings a2 = i.a().a(this.f51877j);
             if (a2.MW_ON && a2.MW_INJECTJS_FOR_HS) {
                 lightappWebView.addJsCode(LangbridgeSettings.MW_JSHOOK_HISTORY_NAME, i.a().a(LangbridgeSettings.MW_JSHOOK_HISTORY_NAME, a2.MW_JSHOOK_HISTORY));
             }
@@ -3039,10 +3039,10 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                 public Pattern a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public Matcher f51711b;
+                public Matcher f51878b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ LangbridgeCell f51712c;
+                public final /* synthetic */ LangbridgeCell f51879c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -3059,28 +3059,28 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                             return;
                         }
                     }
-                    this.f51712c = this;
+                    this.f51879c = this;
                     Pattern compile = Pattern.compile(".*");
                     this.a = compile;
-                    this.f51711b = compile.matcher("");
+                    this.f51878b = compile.matcher("");
                 }
 
                 @Override // android.webkit.DownloadListener
                 public void onDownloadStart(String str, String str2, String str3, String str4, long j2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j2)}) == null) {
-                        if (this.f51712c.V == null) {
-                            this.f51712c.V = new LinkedList();
+                        if (this.f51879c.V == null) {
+                            this.f51879c.V = new LinkedList();
                         }
-                        this.f51712c.V.add(str);
+                        this.f51879c.V.add(str);
                         try {
                             if (TextUtils.isEmpty(str)) {
                                 return;
                             }
-                            this.f51712c.a(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                            this.f51879c.a(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                         } catch (Exception e2) {
                             LogUtil.e("LangbridgeCell", "Download Error", e2);
-                            GlobalUtils.toast(this.f51712c.f51710j, "下载出现异常");
+                            GlobalUtils.toast(this.f51879c.f51877j, "下载出现异常");
                         }
                     }
                 }
@@ -3148,8 +3148,8 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                 return;
             }
         }
-        this.f51707g = true;
-        this.f51708h = false;
+        this.f51874g = true;
+        this.f51875h = false;
         this.m = new Bundle();
         this.o = false;
         this.p = false;
@@ -3162,7 +3162,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
         this.U = -1;
         this.X = new LangbridgeBarParams();
         this.Y = null;
-        this.f51710j = DxmApplicationContextImpl.getApplicationContext(dVar.getControllerActivity());
+        this.f51877j = DxmApplicationContextImpl.getApplicationContext(dVar.getControllerActivity());
         this.l = lightappBrowserWebView;
         this.T = str;
         if (bundle != null) {
@@ -3191,13 +3191,13 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                 public final /* synthetic */ boolean a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ com.baidu.wallet.lightapp.multipage.b f51724b;
+                public final /* synthetic */ com.baidu.wallet.lightapp.multipage.b f51891b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f51725c;
+                public final /* synthetic */ String f51892c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ LangbridgeCell f51726d;
+                public final /* synthetic */ LangbridgeCell f51893d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -3214,10 +3214,10 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                             return;
                         }
                     }
-                    this.f51726d = this;
+                    this.f51893d = this;
                     this.a = z;
-                    this.f51724b = bVar;
-                    this.f51725c = str;
+                    this.f51891b = bVar;
+                    this.f51892c = str;
                 }
 
                 @Override // java.lang.Runnable
@@ -3225,22 +3225,22 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            if (!LangbridgeCell.R.matcher(this.f51726d.B).matches()) {
-                                LangbridgeCell langbridgeCell = this.f51726d;
-                                langbridgeCell.B = "https://" + this.f51726d.B;
+                            if (!LangbridgeCell.R.matcher(this.f51893d.B).matches()) {
+                                LangbridgeCell langbridgeCell = this.f51893d;
+                                langbridgeCell.B = "https://" + this.f51893d.B;
                             }
-                            this.f51726d.p = this.a;
-                            this.f51726d.l.loadUrl(this.f51726d.B.trim());
-                            this.f51726d.z = false;
+                            this.f51893d.p = this.a;
+                            this.f51893d.l.loadUrl(this.f51893d.B.trim());
+                            this.f51893d.z = false;
                         } catch (Exception e2) {
                             LogUtil.d("Url error");
-                            this.f51726d.p = false;
-                            com.baidu.wallet.lightapp.multipage.b bVar2 = this.f51724b;
+                            this.f51893d.p = false;
+                            com.baidu.wallet.lightapp.multipage.b bVar2 = this.f51891b;
                             if (bVar2 != null) {
-                                bVar2.a(1102, e2.toString(), this.f51725c);
+                                bVar2.a(1102, e2.toString(), this.f51892c);
                             }
-                            if (this.f51726d.isActiveCell()) {
-                                this.f51726d.q().closeWindow();
+                            if (this.f51893d.isActiveCell()) {
+                                this.f51893d.q().closeWindow();
                             }
                         }
                     }
@@ -3285,7 +3285,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
         if (!(interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) || dVar == null) {
             return;
         }
-        this.f51702b = new WeakReference<>(dVar);
+        this.f51869b = new WeakReference<>(dVar);
     }
 
     @Override // com.baidu.wallet.lightapp.multipage.c
@@ -3293,8 +3293,8 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, strArr, iArr) == null) {
-            this.f51703c.onRequestPermissionsResultLocal(i2, strArr, iArr);
-            LightappBusinessClient lightappBusinessClient = this.f51704d;
+            this.f51870c.onRequestPermissionsResultLocal(i2, strArr, iArr);
+            LightappBusinessClient lightappBusinessClient = this.f51871d;
             if (lightappBusinessClient != null) {
                 lightappBusinessClient.onRequestPermissionsResult(this.C, i2, strArr, iArr);
             }
@@ -3335,17 +3335,17 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
             }
             if (z) {
                 if (this.N == 1) {
-                    ValueCallback<Uri> valueCallback = this.f51705e;
+                    ValueCallback<Uri> valueCallback = this.f51872e;
                     if (valueCallback != null) {
                         valueCallback.onReceiveValue(null);
-                        this.f51705e = null;
+                        this.f51872e = null;
                     }
                     this.Z = null;
                 } else if (i2 == 2) {
-                    ValueCallback<Uri[]> valueCallback2 = this.f51706f;
+                    ValueCallback<Uri[]> valueCallback2 = this.f51873f;
                     if (valueCallback2 != null) {
                         valueCallback2.onReceiveValue(new Uri[0]);
-                        this.f51706f = null;
+                        this.f51873f = null;
                     }
                     this.Z = null;
                 }
@@ -3368,7 +3368,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                     contactInfoPresenter.a(intent.getData());
                     return;
                 }
-                LightappBusinessClient lightappBusinessClient = this.f51704d;
+                LightappBusinessClient lightappBusinessClient = this.f51871d;
                 if (lightappBusinessClient != null) {
                     lightappBusinessClient.onContactsSelected("", 1, null, "取消", "0");
                     return;
@@ -3388,50 +3388,50 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                 try {
                     jSONObject.put("errCode", LightappConstants.ERRCODE_CANCEL);
                     jSONObject.put("des", "用户取消选择");
-                    this.f51704d.setAlubmPhotoData(1, jSONObject);
+                    this.f51871d.setAlubmPhotoData(1, jSONObject);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
             } else if (i2 == 1) {
-                if (this.f51705e == null) {
+                if (this.f51872e == null) {
                     return;
                 }
                 Uri data = (intent == null || i3 != -1) ? null : intent.getData();
                 if (data != null) {
-                    this.f51705e.onReceiveValue(data);
+                    this.f51872e.onReceiveValue(data);
                 } else {
-                    this.f51705e.onReceiveValue(this.Z);
+                    this.f51872e.onReceiveValue(this.Z);
                 }
-                this.f51705e = null;
+                this.f51872e = null;
                 this.Z = null;
             } else if (i2 == 2) {
-                if (this.f51706f == null) {
+                if (this.f51873f == null) {
                     return;
                 }
                 Uri data2 = (intent == null || i3 != -1) ? null : intent.getData();
                 if (data2 != null) {
-                    this.f51706f.onReceiveValue(new Uri[]{data2});
+                    this.f51873f.onReceiveValue(new Uri[]{data2});
                 } else {
                     Uri uri = this.Z;
                     if (uri != null) {
-                        this.f51706f.onReceiveValue(new Uri[]{uri});
+                        this.f51873f.onReceiveValue(new Uri[]{uri});
                     } else {
-                        this.f51706f.onReceiveValue(new Uri[0]);
+                        this.f51873f.onReceiveValue(new Uri[0]);
                     }
                 }
-                this.f51706f = null;
+                this.f51873f = null;
                 this.Z = null;
             } else if (i2 == 3) {
                 if (i3 == -1) {
-                    this.f51703c.onCallCameraPicCallbackLocal();
+                    this.f51870c.onCallCameraPicCallbackLocal();
                 }
             } else if (i2 != 4) {
                 if (i2 == 6) {
-                    this.f51703c.onInsertCalendarEventDone(i3 == -1);
+                    this.f51870c.onInsertCalendarEventDone(i3 == -1);
                 }
             } else if (i3 == -1) {
                 if (intent != null && intent.getData() != null) {
-                    List<String> loadRawPhone = ContactManager.getIContactsImpl().loadRawPhone(intent.getData(), this.f51710j);
+                    List<String> loadRawPhone = ContactManager.getIContactsImpl().loadRawPhone(intent.getData(), this.f51877j);
                     this.D = loadRawPhone;
                     if (loadRawPhone != null && loadRawPhone.size() > 1) {
                         if (this.D.size() == 2) {
@@ -3440,7 +3440,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                             if (!TextUtils.isEmpty(str) && str.equals(str2)) {
                                 str = "";
                             }
-                            this.f51703c.onContactsSelectedLocal(0, new String[]{str, StringUtils.trimAll(str2)}, "");
+                            this.f51870c.onContactsSelectedLocal(0, new String[]{str, StringUtils.trimAll(str2)}, "");
                             return;
                         }
                         a(this.D, new AdapterView.OnItemClickListener(this) { // from class: com.baidu.wallet.lightapp.multipage.LangbridgeCell.24
@@ -3474,13 +3474,13 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                                 }
                                 String replace = this.a.D.get(i4).replace(" ", "").replace("-", "");
                                 LangbridgeCell langbridgeCell = this.a;
-                                langbridgeCell.f51703c.onContactsSelectedLocal(0, new String[]{langbridgeCell.D.get(0), replace}, "");
+                                langbridgeCell.f51870c.onContactsSelectedLocal(0, new String[]{langbridgeCell.D.get(0), replace}, "");
                             }
                         });
                         return;
                     }
                 }
-                this.f51703c.onContactsSelectedLocal(1, null, ResUtils.getString(this.f51710j, "wallet_base_select_phone_fail"));
+                this.f51870c.onContactsSelectedLocal(1, null, ResUtils.getString(this.f51877j, "wallet_base_select_phone_fail"));
             }
         }
     }
@@ -3489,7 +3489,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51709i : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51876i : (View) invokeV.objValue;
     }
 
     public void a(String str) {
@@ -3518,7 +3518,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65547, this, i2) == null) {
             ViewGroup.LayoutParams layoutParams = this.t.getLayoutParams();
-            layoutParams.width = (int) ((DisplayUtils.getDisplayWidth(this.f51710j) * i2) / 100.0f);
+            layoutParams.width = (int) ((DisplayUtils.getDisplayWidth(this.f51877j) * i2) / 100.0f);
             this.t.setLayoutParams(layoutParams);
         }
     }
@@ -3559,7 +3559,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
         Intent intent2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65555, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            if (!PermissionManager.checkCallingPermission(getActivity(), s.f55293i) && !PermissionManager.checkCallingPermission(getActivity(), "android.permission.WRITE_EXTERNAL_STORAGE")) {
+            if (!PermissionManager.checkCallingPermission(getActivity(), s.f55460i) && !PermissionManager.checkCallingPermission(getActivity(), "android.permission.WRITE_EXTERNAL_STORAGE")) {
                 this.O = str;
                 this.P = z;
                 this.N = i2;
@@ -3591,9 +3591,9 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
                             if (bool.booleanValue()) {
-                                PermissionManager.checkCallingOrSelfPermission(this.a.getActivity(), new String[]{s.f55293i, "android.permission.WRITE_EXTERNAL_STORAGE"}, 102);
+                                PermissionManager.checkCallingOrSelfPermission(this.a.getActivity(), new String[]{s.f55460i, "android.permission.WRITE_EXTERNAL_STORAGE"}, 102);
                             } else {
-                                this.a.a(102, new String[]{s.f55293i, "android.permission.WRITE_EXTERNAL_STORAGE"}, new int[]{-1, -1});
+                                this.a.a(102, new String[]{s.f55460i, "android.permission.WRITE_EXTERNAL_STORAGE"}, new int[]{-1, -1});
                             }
                         }
                     }
@@ -3840,7 +3840,7 @@ public class LangbridgeCell implements com.baidu.wallet.lightapp.multipage.a, c,
             frameLayout.removeAllViews();
             frameLayout3.removeAllViews();
             frameLayout2.addView(this.w);
-            frameLayout4.addView(this.t, new ViewGroup.LayoutParams(DisplayUtils.dip2px(this.f51710j, 10.0f), DisplayUtils.dip2px(this.f51710j, 2.0f)));
+            frameLayout4.addView(this.t, new ViewGroup.LayoutParams(DisplayUtils.dip2px(this.f51877j, 10.0f), DisplayUtils.dip2px(this.f51877j, 2.0f)));
         }
     }
 }

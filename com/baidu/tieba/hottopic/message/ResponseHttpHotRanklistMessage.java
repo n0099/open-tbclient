@@ -1,6 +1,6 @@
 package com.baidu.tieba.hottopic.message;
 
-import c.a.t0.r1.l.j;
+import c.a.u0.r1.i.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
@@ -65,6 +65,6 @@ public class ResponseHttpHotRanklistMessage extends TbHttpResponsedMessage {
         }
         j jVar = new j();
         this.ranklistData = jVar;
-        jVar.c(topicListResIdl.data);
+        jVar.b(topicListResIdl.data);
     }
 }

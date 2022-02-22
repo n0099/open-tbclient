@@ -19,16 +19,16 @@ public final class e {
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f61526b;
+    public Context f61693b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.b f61527c;
+    public com.yxcorp.kuaishou.addfp.a.b.b f61694c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownLatch f61528d;
+    public CountDownLatch f61695d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f61529e;
+    public ServiceConnection f61696e;
 
     public e(Context context) {
         Interceptable interceptable = $ic;
@@ -45,9 +45,9 @@ public final class e {
                 return;
             }
         }
-        this.f61528d = new CountDownLatch(1);
-        this.f61529e = new f(this);
-        this.f61526b = context;
+        this.f61695d = new CountDownLatch(1);
+        this.f61696e = new f(this);
+        this.f61693b = context;
     }
 
     private void a(boolean z) {
@@ -57,7 +57,7 @@ public final class e {
                 try {
                     String a = this.a.a();
                     if (!TextUtils.isEmpty(a)) {
-                        this.f61527c.a(a);
+                        this.f61694c.a(a);
                         return;
                     }
                 } catch (Throwable th) {
@@ -65,7 +65,7 @@ public final class e {
                     return;
                 }
             }
-            this.f61527c.e();
+            this.f61694c.e();
         }
     }
 
@@ -73,7 +73,7 @@ public final class e {
         ServiceConnection serviceConnection;
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (serviceConnection = this.f61529e) == null || (context = this.f61526b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (serviceConnection = this.f61696e) == null || (context = this.f61693b) == null) {
             return;
         }
         context.unbindService(serviceConnection);
@@ -83,16 +83,16 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             try {
-                this.f61527c = bVar;
+                this.f61694c = bVar;
                 Intent intent = new Intent("com.asus.msa.action.ACCESS_DID");
                 ComponentName componentName = new ComponentName("com.asus.msa.SupplementaryDID", "com.asus.msa.SupplementaryDID.SupplementaryDIDService");
                 Intent intent2 = new Intent(intent);
                 intent2.setComponent(componentName);
-                if (!this.f61526b.bindService(intent2, this.f61529e, 1)) {
+                if (!this.f61693b.bindService(intent2, this.f61696e, 1)) {
                     a(false);
                     return;
                 }
-                this.f61528d.await(10L, TimeUnit.SECONDS);
+                this.f61695d.await(10L, TimeUnit.SECONDS);
                 if (this.a != null) {
                     a(true);
                 } else {

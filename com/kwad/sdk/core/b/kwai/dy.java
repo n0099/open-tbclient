@@ -4,7 +4,7 @@ import com.kwad.sdk.core.request.model.TaskStat;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class dy implements com.kwad.sdk.core.d<com.kwad.sdk.core.request.model.j> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
@@ -12,15 +12,15 @@ public class dy implements com.kwad.sdk.core.d<com.kwad.sdk.core.request.model.j
         if (jSONObject == null) {
             return;
         }
-        jVar.f56224b = jSONObject.optInt("personalRecommend");
-        jVar.f56225c = jSONObject.optInt("programmaticRecommend");
-        jVar.f56226d = new ArrayList();
+        jVar.f56391b = jSONObject.optInt("personalRecommend");
+        jVar.f56392c = jSONObject.optInt("programmaticRecommend");
+        jVar.f56393d = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("taskStats");
         if (optJSONArray != null) {
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 TaskStat taskStat = new TaskStat();
                 taskStat.parseJson(optJSONArray.optJSONObject(i2));
-                jVar.f56226d.add(taskStat);
+                jVar.f56393d.add(taskStat);
             }
         }
     }
@@ -31,9 +31,9 @@ public class dy implements com.kwad.sdk.core.d<com.kwad.sdk.core.request.model.j
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "personalRecommend", jVar.f56224b);
-        com.kwad.sdk.utils.t.a(jSONObject, "programmaticRecommend", jVar.f56225c);
-        com.kwad.sdk.utils.t.a(jSONObject, "taskStats", jVar.f56226d);
+        com.kwad.sdk.utils.t.a(jSONObject, "personalRecommend", jVar.f56391b);
+        com.kwad.sdk.utils.t.a(jSONObject, "programmaticRecommend", jVar.f56392c);
+        com.kwad.sdk.utils.t.a(jSONObject, "taskStats", jVar.f56393d);
         return jSONObject;
     }
 }

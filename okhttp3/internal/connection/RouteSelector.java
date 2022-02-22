@@ -24,7 +24,7 @@ import okhttp3.EventListener;
 import okhttp3.HttpUrl;
 import okhttp3.Route;
 import okhttp3.internal.Util;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class RouteSelector {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public final class RouteSelector {
     public List<Proxy> proxies;
     public final RouteDatabase routeDatabase;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class Selection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

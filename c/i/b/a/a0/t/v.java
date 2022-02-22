@@ -8,6 +8,7 @@ import c.i.b.a.a0.t.w;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.tieba.advert.sdk.stretagy.SplashNativePolicy;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,31 +31,31 @@ public final class v implements c.i.b.a.a0.e {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<c.i.b.a.i0.s> f28986b;
+    public final List<c.i.b.a.i0.s> f29192b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.i.b.a.i0.l f28987c;
+    public final c.i.b.a.i0.l f29193c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final SparseIntArray f28988d;
+    public final SparseIntArray f29194d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final w.c f28989e;
+    public final w.c f29195e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final SparseArray<w> f28990f;
+    public final SparseArray<w> f29196f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final SparseBooleanArray f28991g;
+    public final SparseBooleanArray f29197g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.i.b.a.a0.g f28992h;
+    public c.i.b.a.a0.g f29198h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f28993i;
+    public int f29199i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f28994j;
+    public boolean f29200j;
     public w k;
 
     /* loaded from: classes9.dex */
@@ -64,7 +65,7 @@ public final class v implements c.i.b.a.a0.e {
         public final c.i.b.a.i0.k a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ v f28995b;
+        public final /* synthetic */ v f29201b;
 
         public a(v vVar) {
             Interceptable interceptable = $ic;
@@ -81,7 +82,7 @@ public final class v implements c.i.b.a.a0.e {
                     return;
                 }
             }
-            this.f28995b = vVar;
+            this.f29201b = vVar;
             this.a = new c.i.b.a.i0.k(new byte[4]);
         }
 
@@ -106,12 +107,12 @@ public final class v implements c.i.b.a.a0.e {
                         this.a.n(13);
                     } else {
                         int g3 = this.a.g(13);
-                        this.f28995b.f28990f.put(g3, new s(new b(this.f28995b, g3)));
-                        v.i(this.f28995b);
+                        this.f29201b.f29196f.put(g3, new s(new b(this.f29201b, g3)));
+                        v.i(this.f29201b);
                     }
                 }
-                if (this.f28995b.a != 2) {
-                    this.f28995b.f28990f.remove(0);
+                if (this.f29201b.a != 2) {
+                    this.f29201b.f29196f.remove(0);
                 }
             }
         }
@@ -124,16 +125,16 @@ public final class v implements c.i.b.a.a0.e {
         public final c.i.b.a.i0.k a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final SparseArray<w> f28996b;
+        public final SparseArray<w> f29202b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final SparseIntArray f28997c;
+        public final SparseIntArray f29203c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f28998d;
+        public final int f29204d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ v f28999e;
+        public final /* synthetic */ v f29205e;
 
         public b(v vVar, int i2) {
             Interceptable interceptable = $ic;
@@ -150,11 +151,11 @@ public final class v implements c.i.b.a.a0.e {
                     return;
                 }
             }
-            this.f28999e = vVar;
+            this.f29205e = vVar;
             this.a = new c.i.b.a.i0.k(new byte[5]);
-            this.f28996b = new SparseArray<>();
-            this.f28997c = new SparseIntArray();
-            this.f28998d = i2;
+            this.f29202b = new SparseArray<>();
+            this.f29203c = new SparseIntArray();
+            this.f29204d = i2;
         }
 
         @Override // c.i.b.a.a0.t.r
@@ -186,7 +187,7 @@ public final class v implements c.i.b.a.a0.e {
                             }
                             i4 = 135;
                         }
-                        i4 = 129;
+                        i4 = SplashNativePolicy.SPLASH_CMD_SHOW_PLG;
                     } else {
                         if (x != 106) {
                             if (x != 122) {
@@ -208,7 +209,7 @@ public final class v implements c.i.b.a.a0.e {
                             }
                             i4 = 135;
                         }
-                        i4 = 129;
+                        i4 = SplashNativePolicy.SPLASH_CMD_SHOW_PLG;
                     }
                     lVar.K(c3 - lVar.c());
                 }
@@ -223,11 +224,11 @@ public final class v implements c.i.b.a.a0.e {
             c.i.b.a.i0.s sVar;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lVar) == null) && lVar.x() == 2) {
-                if (this.f28999e.a == 1 || this.f28999e.a == 2 || this.f28999e.f28993i == 1) {
-                    sVar = (c.i.b.a.i0.s) this.f28999e.f28986b.get(0);
+                if (this.f29205e.a == 1 || this.f29205e.a == 2 || this.f29205e.f29199i == 1) {
+                    sVar = (c.i.b.a.i0.s) this.f29205e.f29192b.get(0);
                 } else {
-                    sVar = new c.i.b.a.i0.s(((c.i.b.a.i0.s) this.f28999e.f28986b.get(0)).c());
-                    this.f28999e.f28986b.add(sVar);
+                    sVar = new c.i.b.a.i0.s(((c.i.b.a.i0.s) this.f29205e.f29192b.get(0)).c());
+                    this.f29205e.f29192b.add(sVar);
                 }
                 lVar.K(2);
                 int D = lVar.D();
@@ -237,14 +238,14 @@ public final class v implements c.i.b.a.a0.e {
                 int i3 = 4;
                 this.a.n(4);
                 lVar.K(this.a.g(12));
-                if (this.f28999e.a == 2 && this.f28999e.k == null) {
+                if (this.f29205e.a == 2 && this.f29205e.k == null) {
                     w.b bVar = new w.b(21, null, null, new byte[0]);
-                    v vVar = this.f28999e;
-                    vVar.k = vVar.f28989e.a(21, bVar);
-                    this.f28999e.k.a(sVar, this.f28999e.f28992h, new w.d(D, 21, 8192));
+                    v vVar = this.f29205e;
+                    vVar.k = vVar.f29195e.a(21, bVar);
+                    this.f29205e.k.a(sVar, this.f29205e.f29198h, new w.d(D, 21, 8192));
                 }
-                this.f28996b.clear();
-                this.f28997c.clear();
+                this.f29202b.clear();
+                this.f29203c.clear();
                 int a = lVar.a();
                 while (a > 0) {
                     lVar.f(this.a, i2);
@@ -258,44 +259,44 @@ public final class v implements c.i.b.a.a0.e {
                         g2 = b2.a;
                     }
                     a -= g4 + 5;
-                    int i4 = this.f28999e.a == 2 ? g2 : g3;
-                    if (!this.f28999e.f28991g.get(i4)) {
-                        w a2 = (this.f28999e.a == 2 && g2 == 21) ? this.f28999e.k : this.f28999e.f28989e.a(g2, b2);
-                        if (this.f28999e.a != 2 || g3 < this.f28997c.get(i4, 8192)) {
-                            this.f28997c.put(i4, g3);
-                            this.f28996b.put(i4, a2);
+                    int i4 = this.f29205e.a == 2 ? g2 : g3;
+                    if (!this.f29205e.f29197g.get(i4)) {
+                        w a2 = (this.f29205e.a == 2 && g2 == 21) ? this.f29205e.k : this.f29205e.f29195e.a(g2, b2);
+                        if (this.f29205e.a != 2 || g3 < this.f29203c.get(i4, 8192)) {
+                            this.f29203c.put(i4, g3);
+                            this.f29202b.put(i4, a2);
                         }
                     }
                     i2 = 5;
                     i3 = 4;
                 }
-                int size = this.f28997c.size();
+                int size = this.f29203c.size();
                 for (int i5 = 0; i5 < size; i5++) {
-                    int keyAt = this.f28997c.keyAt(i5);
-                    this.f28999e.f28991g.put(keyAt, true);
-                    w valueAt = this.f28996b.valueAt(i5);
+                    int keyAt = this.f29203c.keyAt(i5);
+                    this.f29205e.f29197g.put(keyAt, true);
+                    w valueAt = this.f29202b.valueAt(i5);
                     if (valueAt != null) {
-                        if (valueAt != this.f28999e.k) {
-                            valueAt.a(sVar, this.f28999e.f28992h, new w.d(D, keyAt, 8192));
+                        if (valueAt != this.f29205e.k) {
+                            valueAt.a(sVar, this.f29205e.f29198h, new w.d(D, keyAt, 8192));
                         }
-                        this.f28999e.f28990f.put(this.f28997c.valueAt(i5), valueAt);
+                        this.f29205e.f29196f.put(this.f29203c.valueAt(i5), valueAt);
                     }
                 }
-                if (this.f28999e.a == 2) {
-                    if (this.f28999e.f28994j) {
+                if (this.f29205e.a == 2) {
+                    if (this.f29205e.f29200j) {
                         return;
                     }
-                    this.f28999e.f28992h.j();
-                    this.f28999e.f28993i = 0;
-                    this.f28999e.f28994j = true;
+                    this.f29205e.f29198h.j();
+                    this.f29205e.f29199i = 0;
+                    this.f29205e.f29200j = true;
                     return;
                 }
-                this.f28999e.f28990f.remove(this.f28998d);
-                v vVar2 = this.f28999e;
-                vVar2.f28993i = vVar2.a != 1 ? this.f28999e.f28993i - 1 : 0;
-                if (this.f28999e.f28993i == 0) {
-                    this.f28999e.f28992h.j();
-                    this.f28999e.f28994j = true;
+                this.f29205e.f29196f.remove(this.f29204d);
+                v vVar2 = this.f29205e;
+                vVar2.f29199i = vVar2.a != 1 ? this.f29205e.f29199i - 1 : 0;
+                if (this.f29205e.f29199i == 0) {
+                    this.f29205e.f29198h.j();
+                    this.f29205e.f29200j = true;
                 }
             }
         }
@@ -341,8 +342,8 @@ public final class v implements c.i.b.a.a0.e {
     }
 
     public static /* synthetic */ int i(v vVar) {
-        int i2 = vVar.f28993i;
-        vVar.f28993i = i2 + 1;
+        int i2 = vVar.f29199i;
+        vVar.f29199i = i2 + 1;
         return i2;
     }
 
@@ -350,12 +351,12 @@ public final class v implements c.i.b.a.a0.e {
     public void a(long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            int size = this.f28986b.size();
+            int size = this.f29192b.size();
             for (int i2 = 0; i2 < size; i2++) {
-                this.f28986b.get(i2).g();
+                this.f29192b.get(i2).g();
             }
-            this.f28987c.F();
-            this.f28988d.clear();
+            this.f29193c.F();
+            this.f29194d.clear();
             u();
         }
     }
@@ -371,7 +372,7 @@ public final class v implements c.i.b.a.a0.e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar)) == null) {
-            byte[] bArr = this.f28987c.a;
+            byte[] bArr = this.f29193c.a;
             fVar.c(bArr, 0, CyberPlayerManager.MEDIA_INFO_VIDEO_FRAMERATE);
             int i2 = 0;
             while (i2 < 188) {
@@ -393,64 +394,64 @@ public final class v implements c.i.b.a.a0.e {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fVar, kVar)) == null) {
-            c.i.b.a.i0.l lVar = this.f28987c;
+            c.i.b.a.i0.l lVar = this.f29193c;
             byte[] bArr = lVar.a;
             if (9400 - lVar.c() < 188) {
-                int a2 = this.f28987c.a();
+                int a2 = this.f29193c.a();
                 if (a2 > 0) {
-                    System.arraycopy(bArr, this.f28987c.c(), bArr, 0, a2);
+                    System.arraycopy(bArr, this.f29193c.c(), bArr, 0, a2);
                 }
-                this.f28987c.H(bArr, a2);
+                this.f29193c.H(bArr, a2);
             }
-            while (this.f28987c.a() < 188) {
-                int d2 = this.f28987c.d();
+            while (this.f29193c.a() < 188) {
+                int d2 = this.f29193c.d();
                 int read = fVar.read(bArr, d2, 9400 - d2);
                 if (read == -1) {
                     return -1;
                 }
-                this.f28987c.I(d2 + read);
+                this.f29193c.I(d2 + read);
             }
-            int d3 = this.f28987c.d();
-            int c2 = this.f28987c.c();
+            int d3 = this.f29193c.d();
+            int c2 = this.f29193c.c();
             while (c2 < d3 && bArr[c2] != 71) {
                 c2++;
             }
-            this.f28987c.J(c2);
+            this.f29193c.J(c2);
             int i2 = c2 + Opcodes.NEWARRAY;
             if (i2 > d3) {
                 return 0;
             }
-            int i3 = this.f28987c.i();
+            int i3 = this.f29193c.i();
             if ((8388608 & i3) != 0) {
-                this.f28987c.J(i2);
+                this.f29193c.J(i2);
                 return 0;
             }
             boolean z = (4194304 & i3) != 0;
             int i4 = (2096896 & i3) >> 8;
             boolean z2 = (i3 & 32) != 0;
-            w wVar = (i3 & 16) != 0 ? this.f28990f.get(i4) : null;
+            w wVar = (i3 & 16) != 0 ? this.f29196f.get(i4) : null;
             if (wVar == null) {
-                this.f28987c.J(i2);
+                this.f29193c.J(i2);
                 return 0;
             }
             if (this.a != 2) {
                 int i5 = i3 & 15;
-                int i6 = this.f28988d.get(i4, i5 - 1);
-                this.f28988d.put(i4, i5);
+                int i6 = this.f29194d.get(i4, i5 - 1);
+                this.f29194d.put(i4, i5);
                 if (i6 == i5) {
-                    this.f28987c.J(i2);
+                    this.f29193c.J(i2);
                     return 0;
                 } else if (i5 != ((i6 + 1) & 15)) {
                     wVar.b();
                 }
             }
             if (z2) {
-                this.f28987c.K(this.f28987c.x());
+                this.f29193c.K(this.f29193c.x());
             }
-            this.f28987c.I(i2);
-            wVar.c(this.f28987c, z);
-            this.f28987c.I(d3);
-            this.f28987c.J(i2);
+            this.f29193c.I(i2);
+            wVar.c(this.f29193c, z);
+            this.f29193c.I(d3);
+            this.f29193c.J(i2);
             return 0;
         }
         return invokeLL.intValue;
@@ -460,7 +461,7 @@ public final class v implements c.i.b.a.a0.e {
     public void f(c.i.b.a.a0.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, gVar) == null) {
-            this.f28992h = gVar;
+            this.f29198h = gVar;
             gVar.p(new l.a(-9223372036854775807L));
         }
     }
@@ -475,14 +476,14 @@ public final class v implements c.i.b.a.a0.e {
     public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f28991g.clear();
-            this.f28990f.clear();
-            SparseArray<w> b2 = this.f28989e.b();
+            this.f29197g.clear();
+            this.f29196f.clear();
+            SparseArray<w> b2 = this.f29195e.b();
             int size = b2.size();
             for (int i2 = 0; i2 < size; i2++) {
-                this.f28990f.put(b2.keyAt(i2), b2.valueAt(i2));
+                this.f29196f.put(b2.keyAt(i2), b2.valueAt(i2));
             }
-            this.f28990f.put(0, new s(new a(this)));
+            this.f29196f.put(0, new s(new a(this)));
             this.k = null;
         }
     }
@@ -503,19 +504,19 @@ public final class v implements c.i.b.a.a0.e {
             }
         }
         c.i.b.a.i0.a.e(cVar);
-        this.f28989e = cVar;
+        this.f29195e = cVar;
         this.a = i2;
         if (i2 != 1 && i2 != 2) {
             ArrayList arrayList = new ArrayList();
-            this.f28986b = arrayList;
+            this.f29192b = arrayList;
             arrayList.add(sVar);
         } else {
-            this.f28986b = Collections.singletonList(sVar);
+            this.f29192b = Collections.singletonList(sVar);
         }
-        this.f28987c = new c.i.b.a.i0.l(9400);
-        this.f28991g = new SparseBooleanArray();
-        this.f28990f = new SparseArray<>();
-        this.f28988d = new SparseIntArray();
+        this.f29193c = new c.i.b.a.i0.l(9400);
+        this.f29197g = new SparseBooleanArray();
+        this.f29196f = new SparseArray<>();
+        this.f29194d = new SparseIntArray();
         u();
     }
 }

@@ -2,8 +2,8 @@ package com.baidu.tieba.personExtra;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.d.l;
-import c.a.s0.s.q.h1;
-import c.a.s0.s.r.a;
+import c.a.t0.s.r.h1;
+import c.a.t0.s.s.a;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CACHETIME = 604800000;

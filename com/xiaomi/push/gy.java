@@ -33,8 +33,8 @@ public class gy extends bi.a {
     @Override // com.xiaomi.push.service.bi.a
     public void a(du.b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) && bVar.m328e()) {
-            gx.m427a().m431a(bVar.e());
+        if ((interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) && bVar.m327e()) {
+            gx.m426a().m430a(bVar.e());
         }
     }
 }

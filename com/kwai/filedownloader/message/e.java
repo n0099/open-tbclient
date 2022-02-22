@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile b f58360b;
+    public volatile b f58527b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final e a;
@@ -40,7 +40,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(MessageSnapshot messageSnapshot);
     }
@@ -69,8 +69,8 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, messageSnapshot) == null) {
             if (messageSnapshot instanceof com.kwai.filedownloader.message.b) {
-                if (this.f58360b != null) {
-                    this.f58360b.a(messageSnapshot);
+                if (this.f58527b != null) {
+                    this.f58527b.a(messageSnapshot);
                 }
             } else if (this.a != null) {
                 this.a.a(messageSnapshot);
@@ -81,7 +81,7 @@ public class e {
     public void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f58360b = bVar;
+            this.f58527b = bVar;
             if (bVar == null) {
                 this.a = null;
             } else {

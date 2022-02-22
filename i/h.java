@@ -26,10 +26,10 @@ public class h<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ i.n.b f61849f;
+        public final /* synthetic */ i.n.b f62016f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ i.n.b f61850g;
+        public final /* synthetic */ i.n.b f62017g;
 
         public a(h hVar, i.n.b bVar, i.n.b bVar2) {
             Interceptable interceptable = $ic;
@@ -46,8 +46,8 @@ public class h<T> {
                     return;
                 }
             }
-            this.f61849f = bVar;
-            this.f61850g = bVar2;
+            this.f62016f = bVar;
+            this.f62017g = bVar2;
         }
 
         @Override // i.i
@@ -55,7 +55,7 @@ public class h<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
                 try {
-                    this.f61849f.call(th);
+                    this.f62016f.call(th);
                 } finally {
                     unsubscribe();
                 }
@@ -67,7 +67,7 @@ public class h<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
                 try {
-                    this.f61850g.call(t);
+                    this.f62017g.call(t);
                 } finally {
                     unsubscribe();
                 }
@@ -81,7 +81,7 @@ public class h<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i.n.b f61851e;
+        public final /* synthetic */ i.n.b f62018e;
 
         public b(h hVar, i.n.b bVar) {
             Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public class h<T> {
                     return;
                 }
             }
-            this.f61851e = bVar;
+            this.f62018e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -106,7 +106,7 @@ public class h<T> {
         public void call(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                this.f61851e.call(th);
+                this.f62018e.call(th);
             }
         }
     }

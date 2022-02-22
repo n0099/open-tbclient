@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.s;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class DeviceUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean DEBUG;
@@ -118,7 +118,7 @@ public class DeviceUtil {
             if (i2 >= 29) {
                 return "";
             }
-            if (i2 < 23 || context.checkSelfPermission(s.f55287c) == 0) {
+            if (i2 < 23 || context.checkSelfPermission(s.f55454c) == 0) {
                 String str = null;
                 try {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");

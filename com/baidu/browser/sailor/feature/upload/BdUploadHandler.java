@@ -55,7 +55,7 @@ public class BdUploadHandler implements INoProGuard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdUploadHandler f33083e;
+        public final /* synthetic */ BdUploadHandler f33289e;
 
         public a(BdUploadHandler bdUploadHandler) {
             Interceptable interceptable = $ic;
@@ -72,7 +72,7 @@ public class BdUploadHandler implements INoProGuard {
                     return;
                 }
             }
-            this.f33083e = bdUploadHandler;
+            this.f33289e = bdUploadHandler;
         }
 
         @Override // com.baidu.permissionhelper.app.ActivityCompat.OnRequestPermissionsResultCallback
@@ -86,9 +86,9 @@ public class BdUploadHandler implements INoProGuard {
                     }
                 }
                 if (z) {
-                    Intent createCameraIntentAfterCheckPermission = this.f33083e.createCameraIntentAfterCheckPermission();
-                    this.f33083e.mCanHandleResult = true;
-                    this.f33083e.startActivityForResult(createCameraIntentAfterCheckPermission, 11);
+                    Intent createCameraIntentAfterCheckPermission = this.f33289e.createCameraIntentAfterCheckPermission();
+                    this.f33289e.mCanHandleResult = true;
+                    this.f33289e.startActivityForResult(createCameraIntentAfterCheckPermission, 11);
                 }
                 c.a.k.a.p.a.b().d(4099);
             }
@@ -101,7 +101,7 @@ public class BdUploadHandler implements INoProGuard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdUploadHandler f33084e;
+        public final /* synthetic */ BdUploadHandler f33290e;
 
         public b(BdUploadHandler bdUploadHandler) {
             Interceptable interceptable = $ic;
@@ -118,7 +118,7 @@ public class BdUploadHandler implements INoProGuard {
                     return;
                 }
             }
-            this.f33084e = bdUploadHandler;
+            this.f33290e = bdUploadHandler;
         }
 
         @Override // com.baidu.permissionhelper.app.ActivityCompat.OnRequestPermissionsResultCallback
@@ -132,8 +132,8 @@ public class BdUploadHandler implements INoProGuard {
                     }
                 }
                 if (z) {
-                    this.f33084e.mCanHandleResult = true;
-                    this.f33084e.mActivity.startActivityForResult(this.f33084e.createCamcorderIntent(), 11);
+                    this.f33290e.mCanHandleResult = true;
+                    this.f33290e.mActivity.startActivityForResult(this.f33290e.createCamcorderIntent(), 11);
                 }
                 c.a.k.a.p.a.b().d(4099);
             }

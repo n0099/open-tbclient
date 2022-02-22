@@ -3,7 +3,7 @@ package com.kwad.sdk.api.core;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResUtil {
     public static int getAttrId(Context context, String str) {
         return getIdentifier(context, str, "attr");

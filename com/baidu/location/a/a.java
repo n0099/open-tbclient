@@ -19,20 +19,20 @@ public class a implements LBSAuthManagerListener {
     public static Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f34961b;
+    public static a f35167b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f34962c;
+    public int f35168c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f34963d;
+    public Context f35169d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f34964e;
+    public long f35170e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f34965f;
+    public String f35171f;
 
     static {
         InterceptResult invokeClinit;
@@ -63,10 +63,10 @@ public class a implements LBSAuthManagerListener {
                 return;
             }
         }
-        this.f34962c = 0;
-        this.f34963d = null;
-        this.f34964e = 0L;
-        this.f34965f = null;
+        this.f35168c = 0;
+        this.f35169d = null;
+        this.f35170e = 0L;
+        this.f35171f = null;
     }
 
     public static a a() {
@@ -75,10 +75,10 @@ public class a implements LBSAuthManagerListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (a) {
-                if (f34961b == null) {
-                    f34961b = new a();
+                if (f35167b == null) {
+                    f35167b = new a();
                 }
-                aVar = f34961b;
+                aVar = f35167b;
             }
             return aVar;
         }
@@ -116,9 +116,9 @@ public class a implements LBSAuthManagerListener {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f34963d = context;
+            this.f35169d = context;
             LBSAuthManager.getInstance(context).authenticate(false, "lbs_locsdk", null, this);
-            this.f34964e = System.currentTimeMillis();
+            this.f35170e = System.currentTimeMillis();
         }
     }
 
@@ -126,13 +126,13 @@ public class a implements LBSAuthManagerListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i2 = this.f34962c;
+            int i2 = this.f35168c;
             boolean z = i2 == 0 || i2 == 602 || i2 == 601 || i2 == -10 || i2 == -11;
-            if (this.f34963d != null) {
-                long currentTimeMillis = System.currentTimeMillis() - this.f34964e;
+            if (this.f35169d != null) {
+                long currentTimeMillis = System.currentTimeMillis() - this.f35170e;
                 if (!z ? currentTimeMillis < 0 || currentTimeMillis > 10000 : currentTimeMillis > 86400000) {
-                    LBSAuthManager.getInstance(this.f34963d).authenticate(false, "lbs_locsdk", null, this);
-                    this.f34964e = System.currentTimeMillis();
+                    LBSAuthManager.getInstance(this.f35169d).authenticate(false, "lbs_locsdk", null, this);
+                    this.f35170e = System.currentTimeMillis();
                 }
             }
             return z;
@@ -144,7 +144,7 @@ public class a implements LBSAuthManagerListener {
     public void onAuthResult(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) == null) {
-            this.f34962c = i2;
+            this.f35168c = i2;
             if (i2 == 0) {
                 String str2 = com.baidu.location.e.a.a;
             } else {
@@ -155,7 +155,7 @@ public class a implements LBSAuthManagerListener {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     if (jSONObject.getString("token") != null) {
-                        this.f34965f = jSONObject.getString("token");
+                        this.f35171f = jSONObject.getString("token");
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();

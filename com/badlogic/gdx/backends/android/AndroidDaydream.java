@@ -40,7 +40,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @TargetApi(17)
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AndroidDaydream extends DreamService implements c.b.b.l.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public class AndroidDaydream extends DreamService implements c.b.b.l.a.a {
     public q net;
     public final c.b.b.q.a<Runnable> runnables;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements c.b.b.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,13 +109,13 @@ public class AndroidDaydream extends DreamService implements c.b.b.l.a.a {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AndroidDaydream f31072e;
+        public final /* synthetic */ AndroidDaydream f31278e;
 
         public b(AndroidDaydream androidDaydream) {
             Interceptable interceptable = $ic;
@@ -132,14 +132,14 @@ public class AndroidDaydream extends DreamService implements c.b.b.l.a.a {
                     return;
                 }
             }
-            this.f31072e = androidDaydream;
+            this.f31278e = androidDaydream;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f31072e.finish();
+                this.f31278e.finish();
             }
         }
     }
@@ -190,7 +190,7 @@ public class AndroidDaydream extends DreamService implements c.b.b.l.a.a {
             }
             k kVar = new k(this, bVar, cVar2);
             this.graphics = kVar;
-            this.input = createInput(this, this, kVar.f27062e, bVar);
+            this.input = createInput(this, this, kVar.f27268e, bVar);
             this.audio = createAudio(this, bVar);
             this.files = createFiles();
             this.net = new q(this, bVar);
@@ -200,9 +200,9 @@ public class AndroidDaydream extends DreamService implements c.b.b.l.a.a {
             addLifecycleListener(new a(this));
             f.a = this;
             getInput();
-            f.f26965c = getAudio();
-            f.f26966d = getFiles();
-            f.f26964b = getGraphics();
+            f.f27171c = getAudio();
+            f.f27172d = getFiles();
+            f.f27170b = getGraphics();
             getNet();
             if (!z) {
                 setFullscreen(true);
@@ -244,7 +244,7 @@ public class AndroidDaydream extends DreamService implements c.b.b.l.a.a {
     public m createInput(Application application, Context context, Object obj, c.b.b.l.a.b bVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, application, context, obj, bVar)) == null) ? new z(this, this, this.graphics.f27062e, bVar) : (m) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, application, context, obj, bVar)) == null) ? new z(this, this, this.graphics.f27268e, bVar) : (m) invokeLLLL.objValue;
     }
 
     public FrameLayout.LayoutParams createLayoutParams() {
@@ -467,9 +467,9 @@ public class AndroidDaydream extends DreamService implements c.b.b.l.a.a {
         if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
             f.a = this;
             getInput();
-            f.f26965c = getAudio();
-            f.f26966d = getFiles();
-            f.f26964b = getGraphics();
+            f.f27171c = getAudio();
+            f.f27172d = getFiles();
+            f.f27170b = getGraphics();
             getNet();
             this.input.h();
             k kVar = this.graphics;
@@ -507,7 +507,7 @@ public class AndroidDaydream extends DreamService implements c.b.b.l.a.a {
         if (interceptable == null || interceptable.invokeL(1048619, this, runnable) == null) {
             synchronized (this.runnables) {
                 this.runnables.a(runnable);
-                f.f26964b.c();
+                f.f27170b.c();
             }
         }
     }

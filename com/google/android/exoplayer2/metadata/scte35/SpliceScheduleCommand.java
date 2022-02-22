@@ -67,7 +67,7 @@ public final class SpliceScheduleCommand extends SpliceCommand {
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f54313b;
+        public final long f54480b;
 
         public /* synthetic */ b(int i2, long j2, a aVar) {
             this(i2, j2);
@@ -83,7 +83,7 @@ public final class SpliceScheduleCommand extends SpliceCommand {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, parcel) == null) {
                 parcel.writeInt(this.a);
-                parcel.writeLong(this.f54313b);
+                parcel.writeLong(this.f54480b);
             }
         }
 
@@ -103,7 +103,7 @@ public final class SpliceScheduleCommand extends SpliceCommand {
                 }
             }
             this.a = i2;
-            this.f54313b = j2;
+            this.f54480b = j2;
         }
     }
 
@@ -201,31 +201,31 @@ public final class SpliceScheduleCommand extends SpliceCommand {
         public final long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f54314b;
+        public final boolean f54481b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final boolean f54315c;
+        public final boolean f54482c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final boolean f54316d;
+        public final boolean f54483d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final long f54317e;
+        public final long f54484e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final List<b> f54318f;
+        public final List<b> f54485f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final boolean f54319g;
+        public final boolean f54486g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final long f54320h;
+        public final long f54487h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final int f54321i;
+        public final int f54488i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final int f54322j;
+        public final int f54489j;
         public final int k;
 
         public c(long j2, boolean z, boolean z2, boolean z3, List<b> list, long j3, boolean z4, long j4, int i2, int i3, int i4) {
@@ -244,15 +244,15 @@ public final class SpliceScheduleCommand extends SpliceCommand {
                 }
             }
             this.a = j2;
-            this.f54314b = z;
-            this.f54315c = z2;
-            this.f54316d = z3;
-            this.f54318f = Collections.unmodifiableList(list);
-            this.f54317e = j3;
-            this.f54319g = z4;
-            this.f54320h = j4;
-            this.f54321i = i2;
-            this.f54322j = i3;
+            this.f54481b = z;
+            this.f54482c = z2;
+            this.f54483d = z3;
+            this.f54485f = Collections.unmodifiableList(list);
+            this.f54484e = j3;
+            this.f54486g = z4;
+            this.f54487h = j4;
+            this.f54488i = i2;
+            this.f54489j = i3;
             this.k = i4;
         }
 
@@ -336,19 +336,19 @@ public final class SpliceScheduleCommand extends SpliceCommand {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, parcel) == null) {
                 parcel.writeLong(this.a);
-                parcel.writeByte(this.f54314b ? (byte) 1 : (byte) 0);
-                parcel.writeByte(this.f54315c ? (byte) 1 : (byte) 0);
-                parcel.writeByte(this.f54316d ? (byte) 1 : (byte) 0);
-                int size = this.f54318f.size();
+                parcel.writeByte(this.f54481b ? (byte) 1 : (byte) 0);
+                parcel.writeByte(this.f54482c ? (byte) 1 : (byte) 0);
+                parcel.writeByte(this.f54483d ? (byte) 1 : (byte) 0);
+                int size = this.f54485f.size();
                 parcel.writeInt(size);
                 for (int i2 = 0; i2 < size; i2++) {
-                    this.f54318f.get(i2).d(parcel);
+                    this.f54485f.get(i2).d(parcel);
                 }
-                parcel.writeLong(this.f54317e);
-                parcel.writeByte(this.f54319g ? (byte) 1 : (byte) 0);
-                parcel.writeLong(this.f54320h);
-                parcel.writeInt(this.f54321i);
-                parcel.writeInt(this.f54322j);
+                parcel.writeLong(this.f54484e);
+                parcel.writeByte(this.f54486g ? (byte) 1 : (byte) 0);
+                parcel.writeLong(this.f54487h);
+                parcel.writeInt(this.f54488i);
+                parcel.writeInt(this.f54489j);
                 parcel.writeInt(this.k);
             }
         }
@@ -369,20 +369,20 @@ public final class SpliceScheduleCommand extends SpliceCommand {
                 }
             }
             this.a = parcel.readLong();
-            this.f54314b = parcel.readByte() == 1;
-            this.f54315c = parcel.readByte() == 1;
-            this.f54316d = parcel.readByte() == 1;
+            this.f54481b = parcel.readByte() == 1;
+            this.f54482c = parcel.readByte() == 1;
+            this.f54483d = parcel.readByte() == 1;
             int readInt = parcel.readInt();
             ArrayList arrayList = new ArrayList(readInt);
             for (int i4 = 0; i4 < readInt; i4++) {
                 arrayList.add(b.c(parcel));
             }
-            this.f54318f = Collections.unmodifiableList(arrayList);
-            this.f54317e = parcel.readLong();
-            this.f54319g = parcel.readByte() == 1;
-            this.f54320h = parcel.readLong();
-            this.f54321i = parcel.readInt();
-            this.f54322j = parcel.readInt();
+            this.f54485f = Collections.unmodifiableList(arrayList);
+            this.f54484e = parcel.readLong();
+            this.f54486g = parcel.readByte() == 1;
+            this.f54487h = parcel.readLong();
+            this.f54488i = parcel.readInt();
+            this.f54489j = parcel.readInt();
             this.k = parcel.readInt();
         }
     }

@@ -1,5 +1,5 @@
 package com.kwad.sdk.pngencrypt;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public enum ErrorBehaviour {
     STRICT(0),
     LENIENT1_CRC(1),
@@ -8,9 +8,9 @@ public enum ErrorBehaviour {
     
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f57064c;
+    public final int f57231c;
 
     ErrorBehaviour(int i2) {
-        this.f57064c = i2;
+        this.f57231c = i2;
     }
 }

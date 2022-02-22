@@ -12,20 +12,20 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.plugin.DevelopMangerPlugin;
 import com.kwad.sdk.plugin.f;
 import com.kwad.sdk.reward.n;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b implements KsFullScreenVideoAd {
     @NonNull
     public AdTemplate a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdInfo f56976b;
+    public AdInfo f57143b;
 
     /* renamed from: c  reason: collision with root package name */
-    public KsFullScreenVideoAd.FullScreenVideoAdInteractionListener f56977c;
+    public KsFullScreenVideoAd.FullScreenVideoAdInteractionListener f57144c;
 
     public b(@NonNull AdTemplate adTemplate) {
         this.a = adTemplate;
-        this.f56976b = d.j(adTemplate);
+        this.f57143b = d.j(adTemplate);
     }
 
     private void a(Context context, KsVideoPlayConfig ksVideoPlayConfig) {
@@ -40,22 +40,22 @@ public class b implements KsFullScreenVideoAd {
         if (a != null) {
             ksVideoPlayConfig.setVideoSoundEnable(((Boolean) a.getValue()).booleanValue());
         }
-        KsFullScreenVideoActivityProxy.launch(context, this.a, ksVideoPlayConfig, this.f56977c);
+        KsFullScreenVideoActivityProxy.launch(context, this.a, ksVideoPlayConfig, this.f57144c);
     }
 
     @Override // com.kwad.sdk.api.KsFullScreenVideoAd
     public int getECPM() {
-        return com.kwad.sdk.core.response.a.a.F(this.f56976b);
+        return com.kwad.sdk.core.response.a.a.F(this.f57143b);
     }
 
     @Override // com.kwad.sdk.api.KsFullScreenVideoAd
     public int getInteractionType() {
-        return com.kwad.sdk.core.response.a.a.E(this.f56976b);
+        return com.kwad.sdk.core.response.a.a.E(this.f57143b);
     }
 
     @Override // com.kwad.sdk.api.KsFullScreenVideoAd
     public int getMaterialType() {
-        return com.kwad.sdk.core.response.a.a.R(this.f56976b);
+        return com.kwad.sdk.core.response.a.a.R(this.f57143b);
     }
 
     @Override // com.kwad.sdk.api.KsFullScreenVideoAd
@@ -80,7 +80,7 @@ public class b implements KsFullScreenVideoAd {
 
     @Override // com.kwad.sdk.api.KsFullScreenVideoAd
     public void setFullScreenVideoAdInteractionListener(KsFullScreenVideoAd.FullScreenVideoAdInteractionListener fullScreenVideoAdInteractionListener) {
-        this.f56977c = fullScreenVideoAdInteractionListener;
+        this.f57144c = fullScreenVideoAdInteractionListener;
     }
 
     @Override // com.kwad.sdk.api.KsFullScreenVideoAd

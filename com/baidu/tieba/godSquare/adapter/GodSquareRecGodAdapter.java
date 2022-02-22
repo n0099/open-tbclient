@@ -3,9 +3,9 @@ package com.baidu.tieba.godSquare.adapter;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.t0.g0.d0;
-import c.a.t0.g0.f0.h;
-import c.a.t0.j1.d.b;
+import c.a.u0.g0.b0;
+import c.a.u0.g0.d0.h;
+import c.a.u0.j1.d.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
@@ -21,12 +21,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes12.dex */
-public class GodSquareRecGodAdapter extends c.a.d.n.e.a<h, ViewHolder> {
+public class GodSquareRecGodAdapter extends c.a.d.o.e.a<h, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> m;
     public b n;
-    public d0 o;
+    public b0 o;
 
     /* loaded from: classes12.dex */
     public class ViewHolder extends TypeAdapter.ViewHolder {
@@ -57,12 +57,12 @@ public class GodSquareRecGodAdapter extends c.a.d.n.e.a<h, ViewHolder> {
     }
 
     /* loaded from: classes12.dex */
-    public class a extends d0 {
+    public class a extends b0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GodSquareRecGodAdapter f44080b;
+        public final /* synthetic */ GodSquareRecGodAdapter f44325b;
 
         public a(GodSquareRecGodAdapter godSquareRecGodAdapter) {
             Interceptable interceptable = $ic;
@@ -79,31 +79,31 @@ public class GodSquareRecGodAdapter extends c.a.d.n.e.a<h, ViewHolder> {
                     return;
                 }
             }
-            this.f44080b = godSquareRecGodAdapter;
+            this.f44325b = godSquareRecGodAdapter;
         }
 
-        @Override // c.a.t0.g0.d0
+        @Override // c.a.u0.g0.b0
         public void a(View view, BaseCardInfo baseCardInfo) {
             h hVar;
             MetaData metaData;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, view, baseCardInfo) == null) || view == null || this.f44080b.n == null || !(baseCardInfo instanceof h) || (metaData = (hVar = (h) baseCardInfo).f17616e) == null || StringUtils.isNull(metaData.getUserId())) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, view, baseCardInfo) == null) || view == null || this.f44325b.n == null || !(baseCardInfo instanceof h) || (metaData = (hVar = (h) baseCardInfo).f17902e) == null || StringUtils.isNull(metaData.getUserId())) {
                 return;
             }
-            if (view.getId() != this.f44080b.n.m.getId()) {
-                if (view.getId() == this.f44080b.n.j().getId() || view.getId() == this.f44080b.n.o.getId()) {
-                    TiebaStatic.log(new StatisticItem("c10951").param("obj_id", hVar.f17616e.getUserId()));
+            if (view.getId() != this.f44325b.n.m.getId()) {
+                if (view.getId() == this.f44325b.n.j().getId() || view.getId() == this.f44325b.n.o.getId()) {
+                    TiebaStatic.log(new StatisticItem("c10951").param("obj_id", hVar.f17902e.getUserId()));
                     return;
                 }
                 return;
             }
-            TiebaStatic.log(new StatisticItem("c10803").param("obj_locate", 4).param("obj_id", hVar.f17616e.getUserId()));
+            TiebaStatic.log(new StatisticItem("c10803").param("obj_locate", 4).param("obj_id", hVar.f17902e.getUserId()));
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GodSquareRecGodAdapter(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), h.f17615i);
+        super(tbPageContext.getPageActivity(), h.f17901i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -125,7 +125,7 @@ public class GodSquareRecGodAdapter extends c.a.d.n.e.a<h, ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.n.e.a
+    @Override // c.a.d.o.e.a
     /* renamed from: a0 */
     public ViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -141,7 +141,7 @@ public class GodSquareRecGodAdapter extends c.a.d.n.e.a<h, ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.n.e.a
+    @Override // c.a.d.o.e.a
     /* renamed from: b0 */
     public View S(int i2, View view, ViewGroup viewGroup, h hVar, ViewHolder viewHolder) {
         InterceptResult invokeCommon;

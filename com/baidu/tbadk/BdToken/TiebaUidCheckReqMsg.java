@@ -1,7 +1,7 @@
 package com.baidu.tbadk.BdToken;
 
-import c.a.s0.a.e;
-import c.a.s0.d1.b0;
+import c.a.t0.a.e;
+import c.a.t0.d1.c0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -47,7 +47,7 @@ public class TiebaUidCheckReqMsg extends NetMessage {
                 if (this.mTiebaUidData.b() != null) {
                     builder.tieba_uid = this.mTiebaUidData.b();
                 }
-                b0.c(builder, true, true, true);
+                c0.c(builder, true, true, true);
                 GetUserByTiebaUidReqIdl.Builder builder2 = new GetUserByTiebaUidReqIdl.Builder();
                 builder2.data = builder.build(true);
                 return builder2.build(true);

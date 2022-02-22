@@ -10,11 +10,11 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.c0.j0.d;
-import c.a.c0.j0.n.a.a;
-import c.a.c0.j0.n.a.b;
-import c.a.c0.j0.p.c;
-import c.a.c0.l.h;
+import c.a.d0.k0.d;
+import c.a.d0.k0.n.a.a;
+import c.a.d0.k0.n.a.b;
+import c.a.d0.k0.p.c;
+import c.a.d0.l.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.appframework.BaseActivity;
 import com.baidu.nadcore.webview.container.base.AbsContainer;
@@ -46,7 +46,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, a, 
                 return;
             }
         }
-        this.mBaseBrowserContainer = c.a.c0.j0.a.a.a(this, this, h.b().info().a(KEY_WEBVIEW_CORE_TYPE, 0));
+        this.mBaseBrowserContainer = c.a.d0.k0.a.a.a(this, this, h.b().info().a(KEY_WEBVIEW_CORE_TYPE, 0));
     }
 
     public void addSpeedLogOnCreateBegin(Intent intent) {
@@ -61,7 +61,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, a, 
         }
     }
 
-    @Override // c.a.c0.j0.n.a.a
+    @Override // c.a.d0.k0.n.a.a
     public void doFinish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -78,7 +78,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, a, 
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.c0.j0.n.a.a
+    @Override // c.a.d0.k0.n.a.a
     @NonNull
     public Activity getActivity() {
         InterceptResult invokeV;
@@ -95,7 +95,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, a, 
         return invokeIL.booleanValue;
     }
 
-    @Override // c.a.c0.j0.n.a.b
+    @Override // c.a.d0.k0.n.a.b
     public boolean handleLoadUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -105,7 +105,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, a, 
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.c0.j0.n.a.a
+    @Override // c.a.d0.k0.n.a.a
     public boolean handleSetContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -237,7 +237,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, a, 
             }
             this.mBaseBrowserContainer.setFrom("1");
             this.mBaseBrowserContainer.onCreate();
-            c.a.c0.j0.p.b.g().a(getActivity());
+            c.a.d0.k0.p.b.g().a(getActivity());
         }
     }
 

@@ -16,31 +16,31 @@ public class i {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f32247b;
+    public String f32453b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f32248c;
+    public String f32454c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f32249d;
+    public String f32455d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f32250e;
+    public String f32456e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f32251f;
+    public String f32457f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f32252g;
+    public String f32458g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f32253h;
+    public boolean f32459h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f32254i;
+    public String f32460i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f32255j;
+    public boolean f32461j;
     public boolean k;
 
     public i() {
@@ -57,15 +57,15 @@ public class i {
             }
         }
         this.a = "";
-        this.f32247b = "";
-        this.f32248c = "";
-        this.f32249d = "";
-        this.f32250e = "";
-        this.f32251f = "";
-        this.f32252g = "";
-        this.f32253h = false;
-        this.f32254i = "";
-        this.f32255j = true;
+        this.f32453b = "";
+        this.f32454c = "";
+        this.f32455d = "";
+        this.f32456e = "";
+        this.f32457f = "";
+        this.f32458g = "";
+        this.f32459h = false;
+        this.f32460i = "";
+        this.f32461j = true;
     }
 
     public i(Intent intent) {
@@ -84,30 +84,30 @@ public class i {
             }
         }
         this.a = "";
-        this.f32247b = "";
-        this.f32248c = "";
-        this.f32249d = "";
-        this.f32250e = "";
-        this.f32251f = "";
-        this.f32252g = "";
-        this.f32253h = false;
-        this.f32254i = "";
-        this.f32255j = true;
+        this.f32453b = "";
+        this.f32454c = "";
+        this.f32455d = "";
+        this.f32456e = "";
+        this.f32457f = "";
+        this.f32458g = "";
+        this.f32459h = false;
+        this.f32460i = "";
+        this.f32461j = true;
         PendingIntent pendingIntent = (PendingIntent) intent.getParcelableExtra("app");
         if (pendingIntent != null) {
-            this.f32249d = pendingIntent.getTargetPackage();
+            this.f32455d = pendingIntent.getTargetPackage();
         }
-        if (TextUtils.isEmpty(this.f32249d)) {
-            this.f32249d = intent.getStringExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME);
+        if (TextUtils.isEmpty(this.f32455d)) {
+            this.f32455d = intent.getStringExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME);
         }
-        this.f32248c = intent.getStringExtra("access_token");
-        this.f32252g = intent.getStringExtra("secret_key");
+        this.f32454c = intent.getStringExtra("access_token");
+        this.f32458g = intent.getStringExtra("secret_key");
         this.a = intent.getStringExtra("method");
-        this.f32247b = intent.getStringExtra("method_type");
-        this.f32250e = intent.getStringExtra("appid");
-        this.f32253h = intent.getBooleanExtra("bd_push_extra_is_baidu_app", false);
-        this.f32254i = intent.getStringExtra("push_proxy");
-        this.f32255j = intent.getBooleanExtra("should_notify_user", true);
+        this.f32453b = intent.getStringExtra("method_type");
+        this.f32456e = intent.getStringExtra("appid");
+        this.f32459h = intent.getBooleanExtra("bd_push_extra_is_baidu_app", false);
+        this.f32460i = intent.getStringExtra("push_proxy");
+        this.f32461j = intent.getBooleanExtra("should_notify_user", true);
         this.k = intent.getBooleanExtra("ignore_token", false);
     }
 
@@ -115,7 +115,7 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "method=" + this.a + ", accessToken=" + this.f32248c + ", packageName=" + this.f32249d + ", appId=" + this.f32250e + ", userId=" + this.f32251f;
+            return "method=" + this.a + ", accessToken=" + this.f32454c + ", packageName=" + this.f32455d + ", appId=" + this.f32456e + ", userId=" + this.f32457f;
         }
         return (String) invokeV.objValue;
     }

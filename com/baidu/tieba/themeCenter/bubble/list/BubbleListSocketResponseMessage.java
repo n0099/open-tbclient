@@ -1,6 +1,6 @@
 package com.baidu.tieba.themeCenter.bubble.list;
 
-import c.a.t0.c4.h.e;
+import c.a.u0.f4.h.e;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;

@@ -21,19 +21,19 @@ public class d implements e {
     public InputStream a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28145b;
+    public int f28351b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28146c;
+    public String f28352c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, List<String>> f28147d;
+    public Map<String, List<String>> f28353d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.f.a.g.c.a f28148e;
+    public c.f.a.g.c.a f28354e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InputStream f28149f;
+    public InputStream f28355f;
 
     public d(InputStream inputStream, int i2, String str, Map<String, List<String>> map) {
         Interceptable interceptable = $ic;
@@ -51,16 +51,16 @@ public class d implements e {
             }
         }
         this.a = inputStream;
-        this.f28145b = i2;
-        this.f28146c = str;
-        this.f28147d = map;
+        this.f28351b = i2;
+        this.f28352c = str;
+        this.f28353d = map;
     }
 
     @Override // c.f.a.g.d.e
     public String a() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28146c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28352c : (String) invokeV.objValue;
     }
 
     @Override // c.f.a.g.d.e
@@ -81,10 +81,10 @@ public class d implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f28148e == null) {
-                this.f28148e = new c.f.a.g.c.a(this.f28147d, false);
+            if (this.f28354e == null) {
+                this.f28354e = new c.f.a.g.c.a(this.f28353d, false);
             }
-            return this.f28148e;
+            return this.f28354e;
         }
         return (c.f.a.g.c.a) invokeV.objValue;
     }
@@ -100,7 +100,7 @@ public class d implements e {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            InputStream inputStream = this.f28149f;
+            InputStream inputStream = this.f28355f;
             if (inputStream != null) {
                 try {
                     inputStream.close();
@@ -122,7 +122,7 @@ public class d implements e {
     public int f() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f28145b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f28351b : invokeV.intValue;
     }
 
     public final boolean g() {
@@ -139,10 +139,10 @@ public class d implements e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) {
-            if (this.f28149f == null) {
-                this.f28149f = new GZIPInputStream(inputStream);
+            if (this.f28355f == null) {
+                this.f28355f = new GZIPInputStream(inputStream);
             }
-            return this.f28149f;
+            return this.f28355f;
         }
         return (InputStream) invokeL.objValue;
     }

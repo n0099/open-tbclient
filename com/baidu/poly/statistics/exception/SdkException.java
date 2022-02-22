@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SdkException extends Exception {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

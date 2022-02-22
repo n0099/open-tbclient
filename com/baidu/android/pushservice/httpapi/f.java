@@ -14,7 +14,7 @@ public class f {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f32242b;
+    public String f32448b;
 
     public f(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class f {
             }
         }
         this.a = str;
-        this.f32242b = str2;
+        this.f32448b = str2;
     }
 
     public String a() {
@@ -44,14 +44,14 @@ public class f {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32242b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32448b : (String) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "BindCache [mApiKey=" + this.a + ", mContent=" + this.f32242b + PreferencesUtil.RIGHT_MOUNT;
+            return "BindCache [mApiKey=" + this.a + ", mContent=" + this.f32448b + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }

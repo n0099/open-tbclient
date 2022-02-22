@@ -13,7 +13,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f61857b;
+    public static final a f62024b;
     public transient /* synthetic */ FieldHolder $fh;
     public final AtomicReference<b> a;
 
@@ -30,7 +30,7 @@ public final class a {
                 return;
             }
         }
-        f61857b = new a();
+        f62024b = new a();
     }
 
     public a() {
@@ -52,7 +52,7 @@ public final class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f61857b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f62024b : (a) invokeV.objValue;
     }
 
     public b b() {

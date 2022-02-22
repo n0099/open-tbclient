@@ -1,12 +1,13 @@
 package com.baidu.tieba;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.g0.a;
-import c.a.t0.m;
+import c.a.t0.s.h0.a;
+import c.a.u0.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
@@ -19,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"HandlerLeak"})
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class LogoActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +60,7 @@ public class LogoActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.s0.q0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.t0.q0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -98,6 +99,7 @@ public class LogoActivity extends BaseFragmentActivity {
             this.newLogoDelegate = mVar;
             mVar.d(bundle);
             SpeedStatsManager.getInstance().addStatsTimeStamp(3001);
+            c.a.t0.s.a0.a.k();
         }
     }
 
@@ -112,6 +114,7 @@ public class LogoActivity extends BaseFragmentActivity {
             }
             this.newLogoDelegate.e();
             SpeedStatsManager.getInstance().addStatsTimeStamp(3005);
+            c.a.t0.s.a0.a.l();
         }
     }
 
@@ -128,10 +131,19 @@ public class LogoActivity extends BaseFragmentActivity {
         return invokeIL.booleanValue;
     }
 
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onNewIntent(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent) == null) {
+            super.onNewIntent(intent);
+            c.a.t0.s.a0.a.k();
+        }
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onPause();
             this.newLogoDelegate.g();
         }
@@ -140,7 +152,7 @@ public class LogoActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(3002);
             super.onResume();
             if (this.mTriggerSafeModeStatus == 2) {
@@ -154,7 +166,7 @@ public class LogoActivity extends BaseFragmentActivity {
     @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
             bundle.putBoolean("is_first", LogoActivityConfig.isFirst);
         }

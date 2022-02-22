@@ -22,7 +22,7 @@ public class e extends BaseBean<Object> {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f51052b;
+    public String f51219b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> e(Context context) {
@@ -43,14 +43,14 @@ public class e extends BaseBean<Object> {
             }
         }
         this.a = "";
-        this.f51052b = "";
+        this.f51219b = "";
     }
 
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
             this.a = str;
-            this.f51052b = str2;
+            this.f51219b = str2;
         }
     }
 
@@ -71,7 +71,7 @@ public class e extends BaseBean<Object> {
             arrayList.add(new RestNameValuePair("mobile_num", PayUtils.encrypt("phone_number", this.a)));
             arrayList.add(new RestNameValuePair("cmd", "1067"));
             arrayList.add(new RestNameValuePair(WebChromeClient.KEY_ARG_CALLBACK, "phonePriceInfo_common"));
-            arrayList.add(new RestNameValuePair("device_token", this.f51052b));
+            arrayList.add(new RestNameValuePair("device_token", this.f51219b));
             return arrayList;
         }
         return (List) invokeV.objValue;

@@ -18,13 +18,13 @@ public class CustomExitDialog extends Dialog {
     public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f34418b;
+    public TextView f34624b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f34419c;
+    public TextView f34625c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f34420d;
+    public TextView f34626d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomExitDialog(Context context) {
@@ -54,17 +54,17 @@ public class CustomExitDialog extends Dialog {
             setContentView(R.layout.layout_sapi_liveness_dialog_exit);
             setCanceledOnTouchOutside(false);
             this.a = (TextView) findViewById(R.id.exit_dialog_title);
-            this.f34418b = (TextView) findViewById(R.id.exit_dialog_content);
-            this.f34419c = (TextView) findViewById(R.id.exit_dialog_positive);
-            this.f34420d = (TextView) findViewById(R.id.exit_dialog_negative);
+            this.f34624b = (TextView) findViewById(R.id.exit_dialog_content);
+            this.f34625c = (TextView) findViewById(R.id.exit_dialog_positive);
+            this.f34626d = (TextView) findViewById(R.id.exit_dialog_negative);
         }
     }
 
     public void setDialogContext(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f34418b.setVisibility(0);
-            this.f34418b.setText(str);
+            this.f34624b.setVisibility(0);
+            this.f34624b.setText(str);
         }
     }
 
@@ -78,16 +78,16 @@ public class CustomExitDialog extends Dialog {
     public void setNegativeText(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, onClickListener) == null) {
-            this.f34420d.setText(str);
-            this.f34420d.setOnClickListener(onClickListener);
+            this.f34626d.setText(str);
+            this.f34626d.setOnClickListener(onClickListener);
         }
     }
 
     public void setPositiveText(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, onClickListener) == null) {
-            this.f34419c.setText(str);
-            this.f34419c.setOnClickListener(onClickListener);
+            this.f34625c.setText(str);
+            this.f34625c.setOnClickListener(onClickListener);
         }
     }
 

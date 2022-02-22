@@ -6,9 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.x.n;
-import c.a.t0.g2.h.e.g;
-import c.a.t0.g2.h.e.h;
+import c.a.t0.x.n;
+import c.a.u0.h2.h.e.g;
+import c.a.u0.h2.h.e.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -25,33 +25,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class TailToolController extends NoPressedLinearLayout implements n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f46000e;
+    public int f46142e;
 
     /* renamed from: f  reason: collision with root package name */
-    public h f46001f;
+    public h f46143f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f46002g;
+    public g f46144g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.t0.g2.h.e.b f46003h;
+    public c.a.u0.h2.h.e.b f46145h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f46004i;
+    public Context f46146i;
 
     /* renamed from: j  reason: collision with root package name */
-    public EditorTools f46005j;
+    public EditorTools f46147j;
     public CustomMessageListener k;
     public CustomMessageListener l;
     public View.OnClickListener m;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +90,7 @@ public class TailToolController extends NoPressedLinearLayout implements n {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,20 +121,20 @@ public class TailToolController extends NoPressedLinearLayout implements n {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && this.a.f46002g.h()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && this.a.f46144g.h()) {
                 this.a.setVisibility(0);
-                this.a.f46002g.m(false);
+                this.a.f46144g.m(false);
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TailToolController f46006e;
+        public final /* synthetic */ TailToolController f46148e;
 
         public c(TailToolController tailToolController) {
             Interceptable interceptable = $ic;
@@ -151,15 +151,15 @@ public class TailToolController extends NoPressedLinearLayout implements n {
                     return;
                 }
             }
-            this.f46006e = tailToolController;
+            this.f46148e = tailToolController;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f46006e.f();
-                this.f46006e.g();
+                this.f46148e.f();
+                this.f46148e.g();
             }
         }
     }
@@ -182,38 +182,38 @@ public class TailToolController extends NoPressedLinearLayout implements n {
                 return;
             }
         }
-        this.f46000e = 0;
+        this.f46142e = 0;
         this.k = new a(this, 2001344);
         this.l = new b(this, 2001348);
         this.m = new c(this);
         e(context);
     }
 
-    @Override // c.a.s0.x.n
+    @Override // c.a.t0.x.n
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setVisibility(0);
-            this.f46002g.j();
+            this.f46144g.j();
         }
     }
 
     public final void e(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f46004i = context;
-            this.f46001f = new h((ViewGroup) LayoutInflater.from(context).inflate(R.layout.tail_tool, (ViewGroup) this, true));
-            this.f46002g = new g(context);
-            c.a.t0.g2.h.e.b bVar = new c.a.t0.g2.h.e.b(context, this.f46002g, this.m);
-            this.f46003h = bVar;
-            this.f46001f.a(bVar);
+            this.f46146i = context;
+            this.f46143f = new h((ViewGroup) LayoutInflater.from(context).inflate(R.layout.tail_tool, (ViewGroup) this, true));
+            this.f46144g = new g(context);
+            c.a.u0.h2.h.e.b bVar = new c.a.u0.h2.h.e.b(context, this.f46144g, this.m);
+            this.f46145h = bVar;
+            this.f46143f.a(bVar);
         }
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TailEditActivityConfig(this.f46004i, this.f46002g.i().isEmpty())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TailEditActivityConfig(this.f46146i, this.f46144g.i().isEmpty())));
         }
     }
 
@@ -221,24 +221,24 @@ public class TailToolController extends NoPressedLinearLayout implements n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             hide();
-            this.f46002g.m(true);
+            this.f46144g.m(true);
         }
     }
 
-    @Override // c.a.s0.x.n
+    @Override // c.a.t0.x.n
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f46000e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f46142e : invokeV.intValue;
     }
 
     public final void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             if (z) {
-                sendAction(new c.a.s0.x.a(2, 16, " "));
+                sendAction(new c.a.t0.x.a(2, 16, " "));
             } else {
-                sendAction(new c.a.s0.x.a(2, 16, null));
+                sendAction(new c.a.t0.x.a(2, 16, null));
             }
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
@@ -247,7 +247,7 @@ public class TailToolController extends NoPressedLinearLayout implements n {
         }
     }
 
-    @Override // c.a.s0.x.n
+    @Override // c.a.t0.x.n
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -264,7 +264,7 @@ public class TailToolController extends NoPressedLinearLayout implements n {
         h(currentAccountObj.getIsSelectTail());
     }
 
-    @Override // c.a.s0.x.n
+    @Override // c.a.t0.x.n
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -272,8 +272,8 @@ public class TailToolController extends NoPressedLinearLayout implements n {
         }
     }
 
-    @Override // c.a.s0.x.b
-    public void onAction(c.a.s0.x.a aVar) {
+    @Override // c.a.t0.x.b
+    public void onAction(c.a.t0.x.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
         }
@@ -284,13 +284,13 @@ public class TailToolController extends NoPressedLinearLayout implements n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onAttachedToWindow();
-            this.f46002g.k();
+            this.f46144g.k();
             MessageManager.getInstance().registerListener(this.k);
             MessageManager.getInstance().registerListener(this.l);
         }
     }
 
-    @Override // c.a.s0.x.n
+    @Override // c.a.t0.x.n
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
@@ -302,35 +302,35 @@ public class TailToolController extends NoPressedLinearLayout implements n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDetachedFromWindow();
-            this.f46002g.l();
+            this.f46144g.l();
             MessageManager.getInstance().unRegisterListener(this.k);
             MessageManager.getInstance().unRegisterListener(this.l);
         }
     }
 
-    @Override // c.a.s0.x.n
-    public void sendAction(c.a.s0.x.a aVar) {
+    @Override // c.a.t0.x.n
+    public void sendAction(c.a.t0.x.a aVar) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) || (editorTools = this.f46005j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) || (editorTools = this.f46147j) == null) {
             return;
         }
         editorTools.sendAction(aVar);
     }
 
-    @Override // c.a.s0.x.n
+    @Override // c.a.t0.x.n
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, editorTools) == null) {
-            this.f46005j = editorTools;
+            this.f46147j = editorTools;
         }
     }
 
-    @Override // c.a.s0.x.n
+    @Override // c.a.t0.x.n
     public void setToolId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.f46000e = i2;
+            this.f46142e = i2;
         }
     }
 
@@ -353,7 +353,7 @@ public class TailToolController extends NoPressedLinearLayout implements n {
                 return;
             }
         }
-        this.f46000e = 0;
+        this.f46142e = 0;
         this.k = new a(this, 2001344);
         this.l = new b(this, 2001348);
         this.m = new c(this);

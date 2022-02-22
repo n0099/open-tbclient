@@ -79,7 +79,7 @@ public class a implements Application.ActivityLifecycleCallbacks {
         Intent intent;
         el a;
         String packageName;
-        String m350a;
+        String m349a;
         int i2;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, activity) == null) || (intent = activity.getIntent()) == null) {
@@ -94,17 +94,17 @@ public class a implements Application.ActivityLifecycleCallbacks {
         if (intExtra == 3000) {
             a = el.a(activity.getApplicationContext());
             packageName = activity.getPackageName();
-            m350a = ek.m350a(intExtra);
+            m349a = ek.m349a(intExtra);
             i2 = SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_CREATE_END_STAMP_KEY;
         } else if (intExtra != 1000) {
             return;
         } else {
             a = el.a(activity.getApplicationContext());
             packageName = activity.getPackageName();
-            m350a = ek.m350a(intExtra);
+            m349a = ek.m349a(intExtra);
             i2 = 1008;
         }
-        a.a(packageName, m350a, stringExtra, i2, null);
+        a.a(packageName, m349a, stringExtra, i2, null);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks

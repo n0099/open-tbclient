@@ -1,7 +1,7 @@
 package com.kwad.sdk.live.mode;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static String a(@NonNull LiveInfo liveInfo) {
         return liveInfo.liveStreamId;

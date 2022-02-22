@@ -7,7 +7,7 @@ import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import androidx.core.content.ContextCompat;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ad {
     public static boolean a(Context context) {
         ConnectivityManager connectivityManager;

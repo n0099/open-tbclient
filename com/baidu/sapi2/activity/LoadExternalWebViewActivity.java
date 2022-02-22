@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e0.a.f;
+import c.a.f0.a.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.sapi2.CoreViewRouter;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class LoadExternalWebViewActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_BUSINESS_FROM = "business_from";

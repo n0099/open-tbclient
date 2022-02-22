@@ -34,18 +34,18 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f59093b;
+    public static final a f59260b;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile Boolean a;
 
     /* renamed from: com.qq.e.comm.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C2181a implements NetworkCallBack {
+    public class C2191a implements NetworkCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PM a;
 
-        public C2181a(a aVar, PM pm) {
+        public C2191a(a aVar, PM pm) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -139,7 +139,7 @@ public class a {
                 return;
             }
         }
-        f59093b = new a();
+        f59260b = new a();
     }
 
     public a() {
@@ -161,7 +161,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f59093b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f59260b : (a) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:25:0x00c4  */
@@ -209,7 +209,7 @@ public class a {
                     if (StringUtil.isEmpty(sm.getSuid())) {
                     }
                     System.currentTimeMillis();
-                    NetworkClientImpl.getInstance().submit(new S2SSRequest(r7, jSONObject6.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C2181a(this, pm));
+                    NetworkClientImpl.getInstance().submit(new S2SSRequest(r7, jSONObject6.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C2191a(this, pm));
                 }
             } catch (JSONException unused2) {
             }
@@ -217,7 +217,7 @@ public class a {
             GDTLogger.d("launch request: " + jSONObject62);
             String str = StringUtil.isEmpty(sm.getSuid()) ? "http://sdk.e.qq.com/launch" : "http://sdk.e.qq.com/activate";
             System.currentTimeMillis();
-            NetworkClientImpl.getInstance().submit(new S2SSRequest(str, jSONObject62.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C2181a(this, pm));
+            NetworkClientImpl.getInstance().submit(new S2SSRequest(str, jSONObject62.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C2191a(this, pm));
         }
     }
 

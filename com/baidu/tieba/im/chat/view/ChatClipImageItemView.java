@@ -10,13 +10,13 @@ import android.os.Build;
 import android.util.AttributeSet;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.d.g.a.g;
-import c.a.d.g.a.j;
-import c.a.d.g.a.m;
+import c.a.d.h.a.g;
+import c.a.d.h.a.j;
+import c.a.d.h.a.m;
+import c.a.u0.a4.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -61,7 +61,7 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         }
     }
 
-    @Override // c.a.d.g.a.j.a
+    @Override // c.a.d.h.a.j.a
     public void drawWhenPathAvailable(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
@@ -69,11 +69,11 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
-    public c.a.d.n.d.a getBdImage() {
+    public c.a.d.o.d.a getBdImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            c.a.d.n.d.a bdImage = super.getBdImage();
+            c.a.d.o.d.a bdImage = super.getBdImage();
             boolean z = true;
             boolean z2 = (getDrawable() == null || !(getDrawable() instanceof BitmapDrawable) || ((BitmapDrawable) getDrawable()).getBitmap() == null) ? false : true;
             boolean z3 = bdImage != null && bdImage.w();
@@ -84,18 +84,18 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
             jVar.u(z);
             return bdImage;
         }
-        return (c.a.d.n.d.a) invokeV.objValue;
+        return (c.a.d.o.d.a) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
-    public c.a.d.n.d.a getDefaultBdImage() {
+    public c.a.d.o.d.a getDefaultBdImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             this.pathClipDrawer.u(false);
             return super.getDefaultBdImage();
         }
-        return (c.a.d.n.d.a) invokeV.objValue;
+        return (c.a.d.o.d.a) invokeV.objValue;
     }
 
     public boolean isLeft() {
@@ -104,7 +104,7 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.P : invokeV.booleanValue;
     }
 
-    @Override // c.a.d.g.a.j.a
+    @Override // c.a.d.h.a.j.a
     public Path makePath(RectF rectF) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -135,7 +135,7 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
             a aVar = this.S;
             if (aVar == null) {
-                SkinManager.setBackgroundColor(this, R.color.CAM_X0204);
+                SkinManager.setBackgroundColor(this, d.CAM_X0204);
             } else {
                 aVar.a(canvas);
             }

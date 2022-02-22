@@ -2,6 +2,7 @@ package com.baidu.down.manage;
 
 import android.provider.BaseColumns;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -71,7 +72,7 @@ public final class DownloadConstants {
             AUTO = new DestinationMode("AUTO", 0);
             INTERNAL_ONLY = new DestinationMode("INTERNAL_ONLY", 1);
             EXTERNAL_ONLY = new DestinationMode("EXTERNAL_ONLY", 2);
-            DestinationMode destinationMode = new DestinationMode("CUSTOM", 3);
+            DestinationMode destinationMode = new DestinationMode(EngineName.CUSTOM_ENGINE, 3);
             CUSTOM = destinationMode;
             $VALUES = new DestinationMode[]{AUTO, INTERNAL_ONLY, EXTERNAL_ONLY, destinationMode};
         }

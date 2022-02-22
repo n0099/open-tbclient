@@ -15,14 +15,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class UpdateInfoService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a.c locationCallBack;
     public ReportUserInfoModel mModel;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a implements ReportUserInfoModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +71,7 @@ public class UpdateInfoService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class b implements a.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,9 +101,9 @@ public class UpdateInfoService extends BdBaseService {
             if ((interceptable == null || interceptable.invokeILL(1048576, this, i2, str, address) == null) && i2 == 0 && address != null) {
                 float longitude = (float) address.getLongitude();
                 float latitude = (float) address.getLatitude();
-                c.a.t0.k3.j0.a.e().j(String.valueOf(longitude));
-                c.a.t0.k3.j0.a.e().i(String.valueOf(latitude));
-                c.a.t0.k3.j0.a.e().k(System.currentTimeMillis());
+                c.a.u0.l3.j0.a.e().j(String.valueOf(longitude));
+                c.a.u0.l3.j0.a.e().i(String.valueOf(latitude));
+                c.a.u0.l3.j0.a.e().k(System.currentTimeMillis());
                 if (this.a.mModel.x() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                     this.a.mModel.z(1, longitude, latitude);
                     this.a.mModel.A();

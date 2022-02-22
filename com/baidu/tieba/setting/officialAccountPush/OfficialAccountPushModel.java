@@ -16,21 +16,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetOfficialSwitch.OfficialList;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class OfficialAccountPushModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public static int NET_SUCCESS;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f47886e;
+    public b f48032e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.d.c.g.a f47887f;
+    public c.a.d.c.g.a f48033f;
     public ArrayList<OfficialAccountPushInfo> list;
     public List<OfficialList> official_list;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,17 +68,17 @@ public class OfficialAccountPushModel extends BdBaseModel {
                     if (officialAccountPushSocketResponseMessage == null || officialAccountPushSocketResponseMessage.getList() == null) {
                         return;
                     }
-                    this.a.f47886e.a(officialAccountPushSocketResponseMessage.getList(), officialAccountPushSocketResponseMessage.getError(), officialAccountPushSocketResponseMessage.getErrorString());
+                    this.a.f48032e.a(officialAccountPushSocketResponseMessage.getList(), officialAccountPushSocketResponseMessage.getError(), officialAccountPushSocketResponseMessage.getErrorString());
                 }
                 if (!(responsedMessage instanceof OfficialAccountPushHttpResponseMessage) || (officialAccountPushHttpResponseMessage = (OfficialAccountPushHttpResponseMessage) responsedMessage) == null) {
                     return;
                 }
-                this.a.f47886e.a(officialAccountPushHttpResponseMessage.getList(), officialAccountPushHttpResponseMessage.getError(), officialAccountPushHttpResponseMessage.getErrorString());
+                this.a.f48032e.a(officialAccountPushHttpResponseMessage.getList(), officialAccountPushHttpResponseMessage.getError(), officialAccountPushHttpResponseMessage.getErrorString());
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface b {
         void a(ArrayList<OfficialAccountPushInfo> arrayList, int i2, String str);
     }
@@ -115,11 +115,11 @@ public class OfficialAccountPushModel extends BdBaseModel {
         }
         this.list = new ArrayList<>();
         a aVar = new a(this, CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, 309620);
-        this.f47887f = aVar;
-        this.f47886e = bVar;
+        this.f48033f = aVar;
+        this.f48032e = bVar;
         registerListener(aVar);
-        c.a.t0.x3.f0.a.f(309620, OfficialAccountPushSocketResponseMessage.class, false);
-        c.a.t0.x3.f0.a.c(309620, CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, TbConfig.CHECK_OFFICIAL_SWITCH_URL, OfficialAccountPushHttpResponseMessage.class, true, false, true, false);
+        c.a.u0.z3.g0.a.f(309620, OfficialAccountPushSocketResponseMessage.class, false);
+        c.a.u0.z3.g0.a.c(309620, CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, TbConfig.CHECK_OFFICIAL_SWITCH_URL, OfficialAccountPushHttpResponseMessage.class, true, false, true, false);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -146,7 +146,7 @@ public class OfficialAccountPushModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f47887f);
+            MessageManager.getInstance().unRegisterListener(this.f48033f);
         }
     }
 

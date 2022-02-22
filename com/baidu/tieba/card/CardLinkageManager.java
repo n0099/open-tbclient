@@ -2,15 +2,16 @@ package com.baidu.tieba.card;
 
 import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.d.n.e.n;
-import c.a.d.n.e.s;
-import c.a.s0.d1.f;
-import c.a.s0.s.u.c;
+import c.a.d.o.e.n;
+import c.a.d.o.e.s;
+import c.a.t0.d1.f;
+import c.a.t0.s.v.c;
+import c.a.u0.a4.d;
+import c.a.u0.a4.j;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -122,20 +123,20 @@ public final class CardLinkageManager {
                             if (baseCardInfo2.isSupportFull()) {
                                 c d2 = c.d(findViewByPosition);
                                 d2.m(0);
-                                d2.n(R.string.J_X06);
-                                d2.f(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
+                                d2.n(j.J_X06);
+                                d2.f(z ? d.CAM_X0206 : d.CAM_X0205);
                             } else if (baseCardInfo2.isSupportTop()) {
                                 c d3 = c.d(findViewByPosition);
                                 d3.m(1);
-                                d3.n(R.string.J_X06);
-                                d3.f(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
+                                d3.n(j.J_X06);
+                                d3.f(z ? d.CAM_X0206 : d.CAM_X0205);
                             } else if (baseCardInfo2.isSupportBottom()) {
                                 c d4 = c.d(findViewByPosition);
                                 d4.m(2);
-                                d4.n(R.string.J_X06);
-                                d4.f(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
+                                d4.n(j.J_X06);
+                                d4.f(z ? d.CAM_X0206 : d.CAM_X0205);
                             } else if (baseCardInfo2.isSupportContent() || baseCardInfo2.isSupportExtend()) {
-                                SkinManager.setBackgroundColor(findViewByPosition, z ? R.color.CAM_X0206 : R.color.CAM_X0205);
+                                SkinManager.setBackgroundColor(findViewByPosition, z ? d.CAM_X0206 : d.CAM_X0205);
                             }
                         }
                     }
@@ -163,7 +164,7 @@ public final class CardLinkageManager {
             BaseCardInfo baseCardInfo = (BaseCardInfo) item;
             for (int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition(); firstVisiblePosition <= lastVisiblePosition; firstVisiblePosition++) {
                 Object item2 = ListUtils.getItem(data, firstVisiblePosition - headerViewsCount);
-                if (!f.d(item2)) {
+                if (!f.h(item2)) {
                     if (!(item2 instanceof BaseCardInfo)) {
                         if ((item2 instanceof n) && (findViewByPosition2 = layoutManager.findViewByPosition(firstVisiblePosition)) != null) {
                             findViewByPosition2.setTranslationY(f2);

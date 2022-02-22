@@ -29,7 +29,7 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m124a(String str) {
+    public static boolean m123a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? str == null || str.length() <= 0 : invokeL.booleanValue;

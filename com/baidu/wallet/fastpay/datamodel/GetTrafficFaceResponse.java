@@ -60,13 +60,13 @@ public class GetTrafficFaceResponse implements IBeanResponse, Serializable {
         public final /* synthetic */ GetTrafficFaceResponse a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f51053b;
+        public String f51220b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f51054c;
+        public String f51221c;
 
         /* renamed from: d  reason: collision with root package name */
-        public ArrayList<TrafficFaceModel> f51055d;
+        public ArrayList<TrafficFaceModel> f51222d;
 
         public a(GetTrafficFaceResponse getTrafficFaceResponse) {
             Interceptable interceptable = $ic;
@@ -84,28 +84,28 @@ public class GetTrafficFaceResponse implements IBeanResponse, Serializable {
                 }
             }
             this.a = getTrafficFaceResponse;
-            this.f51053b = "";
-            this.f51054c = "";
+            this.f51220b = "";
+            this.f51221c = "";
         }
 
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f51053b = str;
+                this.f51220b = str;
             }
         }
 
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f51054c = str;
+                this.f51221c = str;
             }
         }
 
         public void a(ArrayList<TrafficFaceModel> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-                this.f51055d = arrayList;
+                this.f51222d = arrayList;
             }
         }
     }

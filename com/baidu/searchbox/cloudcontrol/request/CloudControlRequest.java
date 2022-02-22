@@ -34,7 +34,7 @@ import okhttp3.Response;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CloudControlRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_TIME = "300";
@@ -51,7 +51,7 @@ public class CloudControlRequest {
     public transient /* synthetic */ FieldHolder $fh;
     public final SharedPrefsWrapper mSharedPrefsWrapper;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class CloudControlResponseCallback extends ResponseCallback<CloudControlData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

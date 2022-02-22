@@ -4,7 +4,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import c.a.t0.v.g.e;
+import c.a.u0.a;
+import c.a.u0.v.g.e;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -47,7 +48,7 @@ public class AppNotificationReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         String extractPackageName;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null || a.h().y()) {
             return;
         }
         if (PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction())) {

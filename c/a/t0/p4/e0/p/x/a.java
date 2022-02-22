@@ -1,5 +1,0 @@
-package c.a.t0.p4.e0.p.x;
-/* loaded from: classes8.dex */
-public interface a {
-    void onMixStateChanged(int i2);
-}

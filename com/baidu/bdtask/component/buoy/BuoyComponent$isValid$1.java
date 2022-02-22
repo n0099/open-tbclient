@@ -49,7 +49,7 @@ public final class BuoyComponent$isValid$1 extends Lambda implements Function0<S
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             z = this.this$0.a;
             if (!z && BuoyComponent.x(this.this$0, null, 1, null)) {
-                z4 = this.this$0.f32962b;
+                z4 = this.this$0.f33168b;
                 if (!z4) {
                     return "cur component is valid";
                 }
@@ -61,7 +61,7 @@ public final class BuoyComponent$isValid$1 extends Lambda implements Function0<S
             sb.append(" taskSignCheck:");
             sb.append(BuoyComponent.x(this.this$0, null, 1, null));
             sb.append(" bindTaskHasUnRegistered:");
-            z3 = this.this$0.f32962b;
+            z3 = this.this$0.f33168b;
             sb.append(z3);
             return sb.toString();
         }

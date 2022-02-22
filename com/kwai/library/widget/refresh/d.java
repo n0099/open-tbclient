@@ -1,5 +1,5 @@
 package com.kwai.library.widget.refresh;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface d {
     boolean canPullToRefresh();
 }

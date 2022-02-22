@@ -10,121 +10,121 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import com.kwad.sdk.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SkipView extends LinearLayout {
     public final b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f58100b;
+    public View f58267b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f58101c;
+    public TextView f58268c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f58102d;
+    public TextView f58269d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f58103e;
+    public a f58270e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f58104f;
+    public int f58271f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f58105g;
+    public boolean f58272g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Runnable f58106h;
+    public Runnable f58273h;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a();
 
         void b();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f58107b;
+        public String f58274b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f58108c;
+        public int f58275c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f58109d;
+        public int f58276d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f58110e;
+        public boolean f58277e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f58111f;
+        public boolean f58278f;
 
         public b() {
             this.a = "跳过";
-            this.f58107b = "";
-            this.f58108c = 5;
-            this.f58109d = 5;
-            this.f58110e = true;
-            this.f58111f = true;
+            this.f58274b = "";
+            this.f58275c = 5;
+            this.f58276d = 5;
+            this.f58277e = true;
+            this.f58278f = true;
         }
 
         public static /* synthetic */ int a(b bVar) {
-            int i2 = bVar.f58109d;
-            bVar.f58109d = i2 - 1;
+            int i2 = bVar.f58276d;
+            bVar.f58276d = i2 - 1;
             return i2;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public boolean c() {
-            return this.f58110e && this.f58111f;
+            return this.f58277e && this.f58278f;
         }
 
         public String a() {
             StringBuilder sb;
             int i2;
-            int i3 = this.f58109d;
+            int i3 = this.f58276d;
             if (i3 < 0) {
-                return this.f58107b;
+                return this.f58274b;
             }
             if (i3 == 0) {
                 sb = new StringBuilder();
-                sb.append(this.f58107b);
+                sb.append(this.f58274b);
                 i2 = 1;
             } else {
                 sb = new StringBuilder();
-                sb.append(this.f58107b);
-                i2 = this.f58109d;
+                sb.append(this.f58274b);
+                i2 = this.f58276d;
             }
             sb.append(i2);
             return sb.toString();
         }
 
         public void a(int i2) {
-            this.f58108c = i2;
-            this.f58109d = i2;
+            this.f58275c = i2;
+            this.f58276d = i2;
         }
 
         public void a(String str) {
-            this.f58109d = -1;
-            this.f58107b = str;
+            this.f58276d = -1;
+            this.f58274b = str;
         }
 
         public boolean b() {
-            return this.f58109d <= 0;
+            return this.f58276d <= 0;
         }
     }
 
     public SkipView(Context context) {
         super(context);
         this.a = new b();
-        this.f58104f = -1;
-        this.f58105g = false;
-        this.f58106h = new Runnable() { // from class: com.kwad.sdk.widget.SkipView.1
+        this.f58271f = -1;
+        this.f58272g = false;
+        this.f58273h = new Runnable() { // from class: com.kwad.sdk.widget.SkipView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (SkipView.this.f58105g) {
+                if (SkipView.this.f58272g) {
                     SkipView.this.postDelayed(this, 300L);
                     return;
                 }
@@ -133,8 +133,8 @@ public class SkipView extends LinearLayout {
                 if (!SkipView.this.a.b()) {
                     SkipView.this.postDelayed(this, 1000L);
                     b.a(SkipView.this.a);
-                } else if (SkipView.this.f58103e != null) {
-                    SkipView.this.f58103e.b();
+                } else if (SkipView.this.f58270e != null) {
+                    SkipView.this.f58270e.b();
                 }
             }
         };
@@ -144,12 +144,12 @@ public class SkipView extends LinearLayout {
     public SkipView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.a = new b();
-        this.f58104f = -1;
-        this.f58105g = false;
-        this.f58106h = new Runnable() { // from class: com.kwad.sdk.widget.SkipView.1
+        this.f58271f = -1;
+        this.f58272g = false;
+        this.f58273h = new Runnable() { // from class: com.kwad.sdk.widget.SkipView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (SkipView.this.f58105g) {
+                if (SkipView.this.f58272g) {
                     SkipView.this.postDelayed(this, 300L);
                     return;
                 }
@@ -158,8 +158,8 @@ public class SkipView extends LinearLayout {
                 if (!SkipView.this.a.b()) {
                     SkipView.this.postDelayed(this, 1000L);
                     b.a(SkipView.this.a);
-                } else if (SkipView.this.f58103e != null) {
-                    SkipView.this.f58103e.b();
+                } else if (SkipView.this.f58270e != null) {
+                    SkipView.this.f58270e.b();
                 }
             }
         };
@@ -169,12 +169,12 @@ public class SkipView extends LinearLayout {
     public SkipView(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
         this.a = new b();
-        this.f58104f = -1;
-        this.f58105g = false;
-        this.f58106h = new Runnable() { // from class: com.kwad.sdk.widget.SkipView.1
+        this.f58271f = -1;
+        this.f58272g = false;
+        this.f58273h = new Runnable() { // from class: com.kwad.sdk.widget.SkipView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (SkipView.this.f58105g) {
+                if (SkipView.this.f58272g) {
                     SkipView.this.postDelayed(this, 300L);
                     return;
                 }
@@ -183,8 +183,8 @@ public class SkipView extends LinearLayout {
                 if (!SkipView.this.a.b()) {
                     SkipView.this.postDelayed(this, 1000L);
                     b.a(SkipView.this.a);
-                } else if (SkipView.this.f58103e != null) {
-                    SkipView.this.f58103e.b();
+                } else if (SkipView.this.f58270e != null) {
+                    SkipView.this.f58270e.b();
                 }
             }
         };
@@ -195,12 +195,12 @@ public class SkipView extends LinearLayout {
     public SkipView(Context context, AttributeSet attributeSet, int i2, int i3) {
         super(context, attributeSet, i2, i3);
         this.a = new b();
-        this.f58104f = -1;
-        this.f58105g = false;
-        this.f58106h = new Runnable() { // from class: com.kwad.sdk.widget.SkipView.1
+        this.f58271f = -1;
+        this.f58272g = false;
+        this.f58273h = new Runnable() { // from class: com.kwad.sdk.widget.SkipView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (SkipView.this.f58105g) {
+                if (SkipView.this.f58272g) {
                     SkipView.this.postDelayed(this, 300L);
                     return;
                 }
@@ -209,8 +209,8 @@ public class SkipView extends LinearLayout {
                 if (!SkipView.this.a.b()) {
                     SkipView.this.postDelayed(this, 1000L);
                     b.a(SkipView.this.a);
-                } else if (SkipView.this.f58103e != null) {
-                    SkipView.this.f58103e.b();
+                } else if (SkipView.this.f58270e != null) {
+                    SkipView.this.f58270e.b();
                 }
             }
         };
@@ -220,14 +220,14 @@ public class SkipView extends LinearLayout {
     private void a(Context context, AttributeSet attributeSet, int i2, int i3) {
         setOrientation(0);
         LayoutInflater.from(context).inflate(R.layout.ksad_skip_view, this);
-        this.f58101c = (TextView) findViewById(R.id.ksad_skip_view_skip);
-        this.f58102d = (TextView) findViewById(R.id.ksad_skip_view_timer);
-        this.f58100b = findViewById(R.id.ksad_skip_view_divider);
+        this.f58268c = (TextView) findViewById(R.id.ksad_skip_view_skip);
+        this.f58269d = (TextView) findViewById(R.id.ksad_skip_view_timer);
+        this.f58267b = findViewById(R.id.ksad_skip_view_divider);
         setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.widget.SkipView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (SkipView.this.f58103e != null) {
-                    SkipView.this.f58103e.a();
+                if (SkipView.this.f58270e != null) {
+                    SkipView.this.f58270e.a();
                 }
             }
         });
@@ -241,27 +241,27 @@ public class SkipView extends LinearLayout {
         if (bVar == null) {
             return;
         }
-        if (this.f58101c != null) {
+        if (this.f58268c != null) {
             if (bVar.a != null) {
-                this.f58101c.setText(bVar.a);
+                this.f58268c.setText(bVar.a);
             }
-            this.f58101c.setVisibility(this.a.f58110e ? 0 : 8);
+            this.f58268c.setVisibility(this.a.f58277e ? 0 : 8);
         }
         String a2 = bVar.a();
-        TextView textView = this.f58102d;
+        TextView textView = this.f58269d;
         if (textView != null) {
             if (a2 != null) {
                 textView.setText(a2);
             }
-            this.f58102d.setVisibility(this.a.f58111f ? 0 : 8);
+            this.f58269d.setVisibility(this.a.f58278f ? 0 : 8);
         }
-        if (this.f58100b != null) {
+        if (this.f58267b != null) {
             boolean c2 = this.a.c();
-            this.f58100b.setVisibility(c2 ? 0 : 8);
+            this.f58267b.setVisibility(c2 ? 0 : 8);
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             if (layoutParams != null) {
                 if (c2) {
-                    i2 = this.f58104f;
+                    i2 = this.f58271f;
                     if (i2 <= 0) {
                         return;
                     }
@@ -276,7 +276,7 @@ public class SkipView extends LinearLayout {
 
     public void a() {
         a(this.a);
-        post(this.f58106h);
+        post(this.f58273h);
     }
 
     public void a(String str) {
@@ -297,11 +297,11 @@ public class SkipView extends LinearLayout {
     }
 
     public void c() {
-        this.f58105g = true;
+        this.f58272g = true;
     }
 
     public void d() {
-        this.f58105g = false;
+        this.f58272g = false;
     }
 
     public void e() {
@@ -309,22 +309,22 @@ public class SkipView extends LinearLayout {
     }
 
     public boolean f() {
-        TextView textView = this.f58102d;
+        TextView textView = this.f58269d;
         return textView != null && textView.getVisibility() == 0;
     }
 
     @Override // android.view.View
     public void setLayoutParams(ViewGroup.LayoutParams layoutParams) {
         super.setLayoutParams(layoutParams);
-        this.f58104f = layoutParams.width;
+        this.f58271f = layoutParams.width;
     }
 
     public void setOnViewListener(a aVar) {
-        this.f58103e = aVar;
+        this.f58270e = aVar;
     }
 
     public void setSkipBtnVisible(boolean z) {
-        this.a.f58110e = z;
+        this.a.f58277e = z;
         a(this.a);
     }
 
@@ -334,12 +334,12 @@ public class SkipView extends LinearLayout {
     }
 
     public void setTimerBtnVisible(boolean z) {
-        this.a.f58111f = z;
+        this.a.f58278f = z;
         a(this.a);
     }
 
     public void setTimerPrefixText(String str) {
-        this.a.f58107b = str;
+        this.a.f58274b = str;
         a(this.a);
     }
 

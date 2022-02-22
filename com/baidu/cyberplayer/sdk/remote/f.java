@@ -26,19 +26,19 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     public CyberPlayer a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f33584b;
+    public int f33790b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RemotePlayerService f33585c;
+    public RemotePlayerService f33791c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RemoteCallbackList<d> f33586d;
+    public RemoteCallbackList<d> f33792d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Surface f33587e;
+    public Surface f33793e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Object f33588f;
+    public final Object f33794f;
 
     public f(int i2, RemotePlayerService remotePlayerService) {
         Interceptable interceptable = $ic;
@@ -55,10 +55,10 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                 return;
             }
         }
-        this.f33586d = new RemoteCallbackList<>();
-        this.f33588f = new Object();
-        this.f33584b = i2;
-        this.f33585c = remotePlayerService;
+        this.f33792d = new RemoteCallbackList<>();
+        this.f33794f = new Object();
+        this.f33790b = i2;
+        this.f33791c = remotePlayerService;
         CyberPlayer cyberPlayer = new CyberPlayer(i2, this, false);
         this.a = cyberPlayer;
         cyberPlayer.setIsInMainProcess(false);
@@ -140,11 +140,11 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, surface) == null) {
             q().setSurface(surface);
-            synchronized (this.f33588f) {
-                if (this.f33587e != null && this.f33587e != surface) {
-                    this.f33587e.release();
+            synchronized (this.f33794f) {
+                if (this.f33793e != null && this.f33793e != surface) {
+                    this.f33793e.release();
                 }
-                this.f33587e = surface;
+                this.f33793e = surface;
             }
         }
     }
@@ -153,7 +153,7 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dVar) == null) {
-            this.f33586d.register(dVar);
+            this.f33792d.register(dVar);
         }
     }
 
@@ -195,17 +195,17 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
             if (!str.equals(CyberPlayerManager.OPT_KERNEL_NET_NETHANDLE)) {
                 q().setOption(str, str2);
                 return;
-            } else if (TextUtils.isEmpty(str2) || this.f33585c == null) {
+            } else if (TextUtils.isEmpty(str2) || this.f33791c == null) {
                 return;
             } else {
                 q = q();
-                kernelNetHandle = this.f33585c.getKernelNetHandle();
+                kernelNetHandle = this.f33791c.getKernelNetHandle();
             }
-        } else if (TextUtils.isEmpty(str2) || this.f33585c == null) {
+        } else if (TextUtils.isEmpty(str2) || this.f33791c == null) {
             return;
         } else {
             q = q();
-            kernelNetHandle = this.f33585c.getPCDNNetHandle();
+            kernelNetHandle = this.f33791c.getPCDNNetHandle();
         }
         q.setOption(str3, String.valueOf(kernelNetHandle));
     }
@@ -246,7 +246,7 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     public void b(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, dVar) == null) {
-            this.f33586d.unregister(dVar);
+            this.f33792d.unregister(dVar);
         }
     }
 
@@ -326,11 +326,11 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
         ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) {
-            synchronized (this.f33586d) {
-                int beginBroadcast = this.f33586d.beginBroadcast();
+            synchronized (this.f33792d) {
+                int beginBroadcast = this.f33792d.beginBroadcast();
                 arrayList = null;
                 for (int i2 = 0; i2 < beginBroadcast; i2++) {
-                    d broadcastItem = this.f33586d.getBroadcastItem(i2);
+                    d broadcastItem = this.f33792d.getBroadcastItem(i2);
                     if (broadcastItem != null) {
                         try {
                             ArrayList arrayList2 = new ArrayList();
@@ -344,7 +344,7 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                         }
                     }
                 }
-                this.f33586d.finishBroadcast();
+                this.f33792d.finishBroadcast();
             }
             return arrayList;
         }
@@ -388,15 +388,15 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                     this.a.release();
                 }
             }
-            synchronized (this.f33586d) {
-                this.f33586d.kill();
+            synchronized (this.f33792d) {
+                this.f33792d.kill();
             }
-            if (this.f33587e != null) {
-                synchronized (this.f33588f) {
-                    if (this.f33587e != null && this.f33587e.isValid()) {
+            if (this.f33793e != null) {
+                synchronized (this.f33794f) {
+                    if (this.f33793e != null && this.f33793e.isValid()) {
                         CyberLog.i("remotePlayer", "release mSurface");
-                        this.f33587e.release();
-                        this.f33587e = null;
+                        this.f33793e.release();
+                        this.f33793e = null;
                     }
                 }
             }
@@ -429,10 +429,10 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     public void onBufferingUpdate(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
-            synchronized (this.f33586d) {
-                int beginBroadcast = this.f33586d.beginBroadcast();
+            synchronized (this.f33792d) {
+                int beginBroadcast = this.f33792d.beginBroadcast();
                 for (int i3 = 0; i3 < beginBroadcast; i3++) {
-                    d broadcastItem = this.f33586d.getBroadcastItem(i3);
+                    d broadcastItem = this.f33792d.getBroadcastItem(i3);
                     if (broadcastItem != null) {
                         try {
                             broadcastItem.a(i2);
@@ -441,7 +441,7 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                         }
                     }
                 }
-                this.f33586d.finishBroadcast();
+                this.f33792d.finishBroadcast();
             }
         }
     }
@@ -450,10 +450,10 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     public void onCompletion() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
-            synchronized (this.f33586d) {
-                int beginBroadcast = this.f33586d.beginBroadcast();
+            synchronized (this.f33792d) {
+                int beginBroadcast = this.f33792d.beginBroadcast();
                 for (int i2 = 0; i2 < beginBroadcast; i2++) {
-                    d broadcastItem = this.f33586d.getBroadcastItem(i2);
+                    d broadcastItem = this.f33792d.getBroadcastItem(i2);
                     if (broadcastItem != null) {
                         try {
                             broadcastItem.b();
@@ -462,7 +462,7 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                         }
                     }
                 }
-                this.f33586d.finishBroadcast();
+                this.f33792d.finishBroadcast();
             }
         }
     }
@@ -473,11 +473,11 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048613, this, i2, i3, obj)) == null) {
-            synchronized (this.f33586d) {
-                int beginBroadcast = this.f33586d.beginBroadcast();
+            synchronized (this.f33792d) {
+                int beginBroadcast = this.f33792d.beginBroadcast();
                 z = false;
                 for (int i4 = 0; i4 < beginBroadcast; i4++) {
-                    d broadcastItem = this.f33586d.getBroadcastItem(i4);
+                    d broadcastItem = this.f33792d.getBroadcastItem(i4);
                     if (broadcastItem != null) {
                         try {
                             z = broadcastItem.a(i2, i3, obj instanceof String ? (String) obj : null);
@@ -486,7 +486,7 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                         }
                     }
                 }
-                this.f33586d.finishBroadcast();
+                this.f33792d.finishBroadcast();
             }
             return z;
         }
@@ -499,11 +499,11 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048614, this, i2, i3, obj)) == null) {
-            synchronized (this.f33586d) {
-                int beginBroadcast = this.f33586d.beginBroadcast();
+            synchronized (this.f33792d) {
+                int beginBroadcast = this.f33792d.beginBroadcast();
                 z = false;
                 for (int i4 = 0; i4 < beginBroadcast; i4++) {
-                    d broadcastItem = this.f33586d.getBroadcastItem(i4);
+                    d broadcastItem = this.f33792d.getBroadcastItem(i4);
                     if (broadcastItem != null) {
                         try {
                             z = broadcastItem.b(i2, i3, obj instanceof String ? (String) obj : null);
@@ -512,7 +512,7 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                         }
                     }
                 }
-                this.f33586d.finishBroadcast();
+                this.f33792d.finishBroadcast();
             }
             return z;
         }
@@ -525,11 +525,11 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048615, this, i2, i3, obj)) == null) {
-            synchronized (this.f33586d) {
-                int beginBroadcast = this.f33586d.beginBroadcast();
+            synchronized (this.f33792d) {
+                int beginBroadcast = this.f33792d.beginBroadcast();
                 z = false;
                 for (int i4 = 0; i4 < beginBroadcast; i4++) {
-                    d broadcastItem = this.f33586d.getBroadcastItem(i4);
+                    d broadcastItem = this.f33792d.getBroadcastItem(i4);
                     if (broadcastItem != null) {
                         try {
                             z = broadcastItem.c(i2, i3, obj instanceof String ? (String) obj : null);
@@ -538,7 +538,7 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                         }
                     }
                 }
-                this.f33586d.finishBroadcast();
+                this.f33792d.finishBroadcast();
             }
             return z;
         }
@@ -549,10 +549,10 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     public void onPrepared() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
-            synchronized (this.f33586d) {
-                int beginBroadcast = this.f33586d.beginBroadcast();
+            synchronized (this.f33792d) {
+                int beginBroadcast = this.f33792d.beginBroadcast();
                 for (int i2 = 0; i2 < beginBroadcast; i2++) {
-                    d broadcastItem = this.f33586d.getBroadcastItem(i2);
+                    d broadcastItem = this.f33792d.getBroadcastItem(i2);
                     if (broadcastItem != null) {
                         try {
                             broadcastItem.a();
@@ -561,7 +561,7 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                         }
                     }
                 }
-                this.f33586d.finishBroadcast();
+                this.f33792d.finishBroadcast();
             }
         }
     }
@@ -570,10 +570,10 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     public void onSeekComplete() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
-            synchronized (this.f33586d) {
-                int beginBroadcast = this.f33586d.beginBroadcast();
+            synchronized (this.f33792d) {
+                int beginBroadcast = this.f33792d.beginBroadcast();
                 for (int i2 = 0; i2 < beginBroadcast; i2++) {
-                    d broadcastItem = this.f33586d.getBroadcastItem(i2);
+                    d broadcastItem = this.f33792d.getBroadcastItem(i2);
                     if (broadcastItem != null) {
                         try {
                             broadcastItem.c();
@@ -582,7 +582,7 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                         }
                     }
                 }
-                this.f33586d.finishBroadcast();
+                this.f33792d.finishBroadcast();
             }
         }
     }
@@ -591,10 +591,10 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     public void onVideoSizeChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048618, this, i2, i3, i4, i5) == null) {
-            synchronized (this.f33586d) {
-                int beginBroadcast = this.f33586d.beginBroadcast();
+            synchronized (this.f33792d) {
+                int beginBroadcast = this.f33792d.beginBroadcast();
                 for (int i6 = 0; i6 < beginBroadcast; i6++) {
-                    d broadcastItem = this.f33586d.getBroadcastItem(i6);
+                    d broadcastItem = this.f33792d.getBroadcastItem(i6);
                     if (broadcastItem != null) {
                         try {
                             broadcastItem.a(i2, i3, i4, i5);
@@ -603,7 +603,7 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                         }
                     }
                 }
-                this.f33586d.finishBroadcast();
+                this.f33792d.finishBroadcast();
             }
         }
     }

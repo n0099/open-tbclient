@@ -12,7 +12,7 @@ public class n3 {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f30413b;
+    public long f30619b;
 
     public n3() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class n3 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a + ":" + this.f30413b;
+            return this.a + ":" + this.f30619b;
         }
         return (String) invokeV.objValue;
     }

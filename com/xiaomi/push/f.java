@@ -11,13 +11,13 @@ public final class f {
     public static final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f61115b;
+    public static final int f61282b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f61116c;
+    public static final int f61283c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f61117d;
+    public static final int f61284d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,9 +34,9 @@ public final class f {
             }
         }
         a = a(1, 3);
-        f61115b = a(1, 4);
-        f61116c = a(2, 0);
-        f61117d = a(3, 2);
+        f61282b = a(1, 4);
+        f61283c = a(2, 0);
+        f61284d = a(3, 2);
     }
 
     public static int a(int i2) {

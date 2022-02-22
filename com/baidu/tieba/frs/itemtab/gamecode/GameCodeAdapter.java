@@ -12,13 +12,13 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import c.a.d.f.p.n;
-import c.a.s0.s.k0.p.b;
-import c.a.s0.s.u.c;
-import c.a.t0.e1.c1;
-import c.a.t0.e1.d1;
-import c.a.t0.e1.e1;
-import c.a.t0.e1.i1;
-import c.a.t0.e1.n2.h.a;
+import c.a.t0.s.l0.p.b;
+import c.a.t0.s.v.c;
+import c.a.u0.e1.c1;
+import c.a.u0.e1.d1;
+import c.a.u0.e1.e1;
+import c.a.u0.e1.i1;
+import c.a.u0.e1.n2.h.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -44,7 +44,7 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
     public List<GameCodeList> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f43635b;
+    public Context f43870b;
 
     /* loaded from: classes12.dex */
     public static class GameCodeViewHolder extends RecyclerView.ViewHolder {
@@ -53,19 +53,19 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
         public ImageView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public EMTextView f43636b;
+        public EMTextView f43871b;
 
         /* renamed from: c  reason: collision with root package name */
-        public EMTextView f43637c;
+        public EMTextView f43872c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TBSpecificationBtn f43638d;
+        public TBSpecificationBtn f43873d;
 
         /* renamed from: e  reason: collision with root package name */
-        public GameCodeList f43639e;
+        public GameCodeList f43874e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f43640f;
+        public int f43875f;
 
         /* loaded from: classes12.dex */
         public class a implements View.OnClickListener {
@@ -73,7 +73,7 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ GameCodeViewHolder f43641e;
+            public final /* synthetic */ GameCodeViewHolder f43876e;
 
             public a(GameCodeViewHolder gameCodeViewHolder) {
                 Interceptable interceptable = $ic;
@@ -90,15 +90,15 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
                         return;
                     }
                 }
-                this.f43641e = gameCodeViewHolder;
+                this.f43876e = gameCodeViewHolder;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f43641e.gameCodeClickLog(1);
-                    this.f43641e.sendGetGameCodeMessage();
+                    this.f43876e.gameCodeClickLog(1);
+                    this.f43876e.sendGetGameCodeMessage();
                 }
             }
         }
@@ -109,10 +109,10 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ GameCodeList f43642e;
+            public final /* synthetic */ GameCodeList f43877e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ GameCodeViewHolder f43643f;
+            public final /* synthetic */ GameCodeViewHolder f43878f;
 
             public b(GameCodeViewHolder gameCodeViewHolder, GameCodeList gameCodeList) {
                 Interceptable interceptable = $ic;
@@ -129,17 +129,17 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
                         return;
                     }
                 }
-                this.f43643f = gameCodeViewHolder;
-                this.f43642e = gameCodeList;
+                this.f43878f = gameCodeViewHolder;
+                this.f43877e = gameCodeList;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f43643f.gameCodeClickLog(2);
-                    ((ClipboardManager) view.getContext().getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setPrimaryClip(ClipData.newPlainText(null, this.f43642e.claimed_value));
-                    new BdTopToast(this.f43643f.f43638d.getContext()).setIcon(true).setContent(TbadkCoreApplication.getInst().getResources().getString(i1.copy_success)).show((ViewGroup) ((Activity) this.f43643f.f43638d.getContext()).findViewById(16908290));
+                    this.f43878f.gameCodeClickLog(2);
+                    ((ClipboardManager) view.getContext().getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setPrimaryClip(ClipData.newPlainText(null, this.f43877e.claimed_value));
+                    new BdTopToast(this.f43878f.f43873d.getContext()).setIcon(true).setContent(TbadkCoreApplication.getInst().getResources().getString(i1.copy_success)).show((ViewGroup) ((Activity) this.f43878f.f43873d.getContext()).findViewById(16908290));
                 }
             }
         }
@@ -163,48 +163,48 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
                 }
             }
             RelativeLayout relativeLayout = (RelativeLayout) view;
-            this.f43638d = (TBSpecificationBtn) relativeLayout.getChildAt(0);
+            this.f43873d = (TBSpecificationBtn) relativeLayout.getChildAt(0);
             RelativeLayout relativeLayout2 = (RelativeLayout) relativeLayout.getChildAt(1);
             this.a = (ImageView) relativeLayout2.getChildAt(0);
-            this.f43636b = (EMTextView) relativeLayout2.getChildAt(1);
-            this.f43637c = (EMTextView) relativeLayout2.getChildAt(2);
+            this.f43871b = (EMTextView) relativeLayout2.getChildAt(1);
+            this.f43872c = (EMTextView) relativeLayout2.getChildAt(2);
         }
 
         public void bindData(GameCodeList gameCodeList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, gameCodeList) == null) {
-                this.f43639e = gameCodeList;
-                this.f43640f = getAdapterPosition();
-                this.f43636b.setText(gameCodeList.label);
+                this.f43874e = gameCodeList;
+                this.f43875f = getAdapterPosition();
+                this.f43871b.setText(gameCodeList.label);
                 if (gameCodeList.claimed_status.intValue() == 1) {
-                    this.f43637c.setVisibility(8);
-                    c.a.s0.s.k0.n.b bVar = new c.a.s0.s.k0.n.b();
+                    this.f43872c.setVisibility(8);
+                    c.a.t0.s.l0.n.b bVar = new c.a.t0.s.l0.n.b();
                     bVar.p(c1.CAM_X0302, c1.CAM_X0101);
-                    this.f43638d.setConfig(bVar);
-                    this.f43638d.setText(TbadkCoreApplication.getInst().getResources().getString(i1.default_get_gift));
-                    this.f43638d.setClickState(true);
-                    this.f43638d.setClickable(true);
-                    this.f43638d.setOnClickListener(new a(this));
+                    this.f43873d.setConfig(bVar);
+                    this.f43873d.setText(TbadkCoreApplication.getInst().getResources().getString(i1.default_get_gift));
+                    this.f43873d.setClickState(true);
+                    this.f43873d.setClickable(true);
+                    this.f43873d.setOnClickListener(new a(this));
                 } else if (gameCodeList.claimed_status.intValue() == 2) {
-                    this.f43637c.setVisibility(0);
-                    this.f43637c.setText(gameCodeList.claimed_value);
-                    c.a.s0.s.k0.n.b bVar2 = new c.a.s0.s.k0.n.b();
+                    this.f43872c.setVisibility(0);
+                    this.f43872c.setText(gameCodeList.claimed_value);
+                    c.a.t0.s.l0.n.b bVar2 = new c.a.t0.s.l0.n.b();
                     bVar2.p(c1.CAM_X0302, c1.CAM_X0101);
                     bVar2.i(e1.icon_pure_copy, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                    this.f43638d.setConfig(bVar2);
-                    this.f43638d.setText(TbadkCoreApplication.getInst().getResources().getString(i1.copy));
-                    this.f43638d.setClickState(true);
-                    this.f43638d.setClickable(true);
-                    this.f43638d.setOnClickListener(new b(this, gameCodeList));
+                    this.f43873d.setConfig(bVar2);
+                    this.f43873d.setText(TbadkCoreApplication.getInst().getResources().getString(i1.copy));
+                    this.f43873d.setClickState(true);
+                    this.f43873d.setClickable(true);
+                    this.f43873d.setOnClickListener(new b(this, gameCodeList));
                 } else if (gameCodeList.claimed_status.intValue() == 3) {
-                    this.f43637c.setVisibility(8);
-                    c.a.s0.s.k0.n.b bVar3 = new c.a.s0.s.k0.n.b();
+                    this.f43872c.setVisibility(8);
+                    c.a.t0.s.l0.n.b bVar3 = new c.a.t0.s.l0.n.b();
                     bVar3.p(c1.CAM_X0201, c1.CAM_X0109);
-                    this.f43638d.setConfig(bVar3);
-                    this.f43638d.setText(TbadkCoreApplication.getInst().getResources().getString(i1.game_code_finished));
-                    this.f43638d.setClickState(false);
-                    this.f43638d.setClickable(false);
-                    this.f43638d.setOnClickListener(null);
+                    this.f43873d.setConfig(bVar3);
+                    this.f43873d.setText(TbadkCoreApplication.getInst().getResources().getString(i1.game_code_finished));
+                    this.f43873d.setClickState(false);
+                    this.f43873d.setClickable(false);
+                    this.f43873d.setOnClickListener(null);
                 }
                 if (gameCodeList.type.intValue() == 1) {
                     WebPManager.setPureDrawable(this.a, e1.icon_pure_activacode, c1.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
@@ -217,8 +217,8 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
         public void gameCodeClickLog(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                c.a.s0.s.k0.p.b bVar = new c.a.s0.s.k0.p.b(16);
-                bVar.m(this.f43639e.list_id.intValue());
+                c.a.t0.s.l0.p.b bVar = new c.a.t0.s.l0.p.b(16);
+                bVar.m(this.f43874e.list_id.intValue());
                 bVar.o(i2);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, bVar));
             }
@@ -227,18 +227,18 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
         public void onChangSkinType() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.f43639e.type.intValue() == 1) {
+                if (this.f43874e.type.intValue() == 1) {
                     WebPManager.setPureDrawable(this.a, e1.icon_pure_activacode, c1.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
-                } else if (this.f43639e.type.intValue() == 2) {
+                } else if (this.f43874e.type.intValue() == 2) {
                     WebPManager.setPureDrawable(this.a, e1.icon_pure_giftcode, c1.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
                 }
-                c d2 = c.d(this.f43636b);
+                c d2 = c.d(this.f43871b);
                 d2.v(c1.CAM_X0105);
                 d2.z(d1.T_X06);
-                c d3 = c.d(this.f43637c);
+                c d3 = c.d(this.f43872c);
                 d3.v(c1.CAM_X0109);
                 d3.z(d1.T_X09);
-                TBSpecificationBtn tBSpecificationBtn = this.f43638d;
+                TBSpecificationBtn tBSpecificationBtn = this.f43873d;
                 if (tBSpecificationBtn != null) {
                     tBSpecificationBtn.changeSkinType();
                 }
@@ -249,10 +249,10 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 MessageManager messageManager = MessageManager.getInstance();
-                int i2 = this.f43640f;
-                Integer num = this.f43639e.item_id;
+                int i2 = this.f43875f;
+                Integer num = this.f43874e.item_id;
                 int intValue = num == null ? 0 : num.intValue();
-                Integer num2 = this.f43639e.list_id;
+                Integer num2 = this.f43874e.list_id;
                 messageManager.sendMessage(new GameCodeGetMsg(i2, intValue, num2 != null ? num2.intValue() : 0));
             }
         }
@@ -274,7 +274,7 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
             }
         }
         this.a = new ArrayList();
-        this.f43635b = context;
+        this.f43870b = context;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -298,7 +298,7 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
             GameCodeList gameCodeList = this.a.get(aVar.a);
             GameCodeList.Builder builder = new GameCodeList.Builder();
             builder.claimed_status = 2;
-            builder.claimed_value = aVar.f16679b;
+            builder.claimed_value = aVar.f16863b;
             builder.type = gameCodeList.type;
             builder.label = gameCodeList.label;
             builder.begin_time = gameCodeList.begin_time;

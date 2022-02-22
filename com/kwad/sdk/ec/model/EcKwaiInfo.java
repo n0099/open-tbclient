@@ -9,7 +9,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.aa;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class EcKwaiInfo extends BaseRealData {
     public static final String DEFAULT_PULLNEW = "https://promotion-partner.kuaishou.com/rest/n/promotion/p?adid=7348&imei=__IMEI2__&idfa=__IDFA2__&oaid=__OAID__&ip=__IP__&mac=__MAC2__&androidId=__ANDROIDID2__&callback=__CALLBACK__&siteSet=XXX";
     public String appDescription;

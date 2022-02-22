@@ -22,19 +22,19 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f42828e;
+    public a f43061e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FacePackageDownloadData f42829f;
+    public FacePackageDownloadData f43062f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f42830g;
+    public int f43063g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f42831h;
+    public int f43064h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f42832i;
+    public float f43065i;
 
     /* loaded from: classes12.dex */
     public class a extends BdAsyncTask<Object, FacePackageDownloadData, FacePackageDownloadData> {
@@ -43,10 +43,10 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
         public NetWork a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f42833b;
+        public String f43066b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ FacePackageDownloadModel f42834c;
+        public final /* synthetic */ FacePackageDownloadModel f43067c;
 
         public a(FacePackageDownloadModel facePackageDownloadModel, String str) {
             Interceptable interceptable = $ic;
@@ -63,8 +63,8 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
                     return;
                 }
             }
-            this.f42834c = facePackageDownloadModel;
-            this.f42833b = str;
+            this.f43067c = facePackageDownloadModel;
+            this.f43066b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -75,19 +75,19 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
                 try {
-                    if (this.f42833b != null && this.f42833b.length() > 0) {
+                    if (this.f43066b != null && this.f43066b.length() > 0) {
                         NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_PACKAGE_DOWNLOAD_URL);
                         this.a = netWork;
-                        netWork.addPostData("pid", this.f42833b);
-                        this.a.addPostData("scr_w", String.valueOf(this.f42834c.f42830g));
-                        this.a.addPostData("scr_h", String.valueOf(this.f42834c.f42831h));
-                        this.a.addPostData("scr_dip", String.valueOf(this.f42834c.f42832i));
-                        this.f42834c.f42829f = (FacePackageDownloadData) OrmObject.objectWithJsonStr(this.a.postNetData(), FacePackageDownloadData.class);
+                        netWork.addPostData("pid", this.f43066b);
+                        this.a.addPostData("scr_w", String.valueOf(this.f43067c.f43063g));
+                        this.a.addPostData("scr_h", String.valueOf(this.f43067c.f43064h));
+                        this.a.addPostData("scr_dip", String.valueOf(this.f43067c.f43065i));
+                        this.f43067c.f43062f = (FacePackageDownloadData) OrmObject.objectWithJsonStr(this.a.postNetData(), FacePackageDownloadData.class);
                     }
                 } catch (Exception e2) {
                     BdLog.detailException(e2);
                 }
-                return this.f42834c.f42829f;
+                return this.f43067c.f43062f;
             }
             return (FacePackageDownloadData) invokeL.objValue;
         }
@@ -98,8 +98,8 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
         public void onPostExecute(FacePackageDownloadData facePackageDownloadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, facePackageDownloadData) == null) {
-                this.f42834c.f42828e = null;
-                this.f42834c.mLoadDataCallBack.c(facePackageDownloadData);
+                this.f43067c.f43061e = null;
+                this.f43067c.mLoadDataCallBack.c(facePackageDownloadData);
                 super.onPostExecute(facePackageDownloadData);
             }
         }
@@ -114,7 +114,7 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
                     netWork.cancelNetConnect();
                     this.a = null;
                 }
-                this.f42834c.f42828e = null;
+                this.f43067c.f43061e = null;
             }
         }
     }
@@ -137,23 +137,23 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
                 return;
             }
         }
-        this.f42829f = null;
-        this.f42830g = 0;
-        this.f42831h = 0;
-        this.f42828e = null;
+        this.f43062f = null;
+        this.f43063g = 0;
+        this.f43064h = 0;
+        this.f43061e = null;
         TbadkApplication inst = TbadkApplication.getInst();
-        this.f42830g = n.k(inst);
-        this.f42831h = n.i(inst);
-        this.f42832i = inst.getResources().getDisplayMetrics().density;
+        this.f43063g = n.k(inst);
+        this.f43064h = n.i(inst);
+        this.f43065i = inst.getResources().getDisplayMetrics().density;
     }
 
     public void D(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.f42828e == null) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.f43061e == null) {
             a aVar = new a(this, str);
-            this.f42828e = aVar;
+            this.f43061e = aVar;
             aVar.setPriority(3);
-            this.f42828e.execute(new Object[0]);
+            this.f43061e.execute(new Object[0]);
         }
     }
 
@@ -162,7 +162,7 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            a aVar = this.f42828e;
+            a aVar = this.f43061e;
             if (aVar != null) {
                 aVar.cancel();
                 return false;

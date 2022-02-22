@@ -2,8 +2,8 @@ package com.baidu.tieba.setting.more;
 
 import android.os.Bundle;
 import android.view.View;
-import c.a.s0.t.d.d;
-import c.a.t0.n3.l.f;
+import c.a.t0.t.d.d;
+import c.a.u0.o3.l.f;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> implements BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
     public OfficialAccountPushModel mOfficialPushModel;
     public f mView;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a implements MsgRemindModel.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +88,7 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class b implements OfficialAccountPushModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

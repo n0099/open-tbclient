@@ -32,34 +32,34 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f38469d;
+    public static long f38697d;
     public transient /* synthetic */ FieldHolder $fh;
     public com.baidu.sofire.h.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f38470b;
+    public Context f38698b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Receiver f38471c;
+    public Receiver f38699c;
 
     /* renamed from: e  reason: collision with root package name */
-    public HandlerC1871a f38472e;
+    public HandlerC1881a f38700e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.baidu.sofire.f.a f38473f;
+    public com.baidu.sofire.f.a f38701f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f38474g;
+    public long f38702g;
 
     /* renamed from: com.baidu.sofire.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public class HandlerC1871a extends Handler {
+    public class HandlerC1881a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC1871a(a aVar, Looper looper) {
+        public HandlerC1881a(a aVar, Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -89,14 +89,14 @@ public final class a {
                             a.b(this.a);
                             return;
                         case 1:
-                            com.baidu.sofire.d.a.a(this.a.f38470b).a((com.baidu.sofire.e.a) message.obj);
+                            com.baidu.sofire.d.a.a(this.a.f38698b).a((com.baidu.sofire.e.a) message.obj);
                             Message message2 = new Message();
                             message2.what = 10;
                             sendMessage(message2);
                             return;
                         case 2:
                             a.b(this.a);
-                            a.a(this.a, 0, c.m(this.a.f38470b));
+                            a.a(this.a, 0, c.m(this.a.f38698b));
                             return;
                         case 3:
                         default:
@@ -106,13 +106,13 @@ public final class a {
                             if (TextUtils.isEmpty(valueOf)) {
                                 return;
                             }
-                            com.baidu.sofire.d.a.a(this.a.f38470b).a(q.a(valueOf));
+                            com.baidu.sofire.d.a.a(this.a.f38698b).a(q.a(valueOf));
                             return;
                         case 5:
                             a.a(this.a);
                             return;
                         case 6:
-                            int m = c.m(this.a.f38470b);
+                            int m = c.m(this.a.f38698b);
                             if (2 == m) {
                                 a.a(this.a, 0, m);
                                 return;
@@ -122,7 +122,7 @@ public final class a {
                             }
                         case 7:
                             a.b(this.a);
-                            int m2 = c.m(this.a.f38470b);
+                            int m2 = c.m(this.a.f38698b);
                             if (2 == m2) {
                                 a.a(this.a, 0, m2);
                                 return;
@@ -131,25 +131,25 @@ public final class a {
                                 return;
                             }
                         case 8:
-                            a.a(this.a, 3, c.m(this.a.f38470b));
+                            a.a(this.a, 3, c.m(this.a.f38698b));
                             return;
                         case 9:
                             a.a(this.a, 0, 2);
                             return;
                         case 10:
-                            if (System.currentTimeMillis() - this.a.f38474g >= 180000) {
-                                this.a.f38474g = System.currentTimeMillis();
-                                int m3 = c.m(this.a.f38470b);
+                            if (System.currentTimeMillis() - this.a.f38702g >= 180000) {
+                                this.a.f38702g = System.currentTimeMillis();
+                                int m3 = c.m(this.a.f38698b);
                                 if (2 != m3) {
                                     if (1 == m3) {
                                         a.a(this.a, 4, m3);
                                         return;
                                     }
                                     return;
-                                } else if (com.baidu.sofire.d.a.a(this.a.f38470b).b() >= com.baidu.sofire.h.a.a(this.a.f38470b).f38479e.getInt("up_nu_co", 50)) {
+                                } else if (com.baidu.sofire.d.a.a(this.a.f38698b).b() >= com.baidu.sofire.h.a.a(this.a.f38698b).f38707e.getInt("up_nu_co", 50)) {
                                     a.a(this.a, 0, m3);
                                     return;
-                                } else if (com.baidu.sofire.d.a.a(this.a.f38470b).a(true, m3).size() > 0) {
+                                } else if (com.baidu.sofire.d.a.a(this.a.f38698b).a(true, m3).size() > 0) {
                                     a.a(this.a, 0, m3);
                                     return;
                                 } else {
@@ -159,14 +159,14 @@ public final class a {
                             return;
                         case 11:
                             String valueOf2 = String.valueOf(message.obj);
-                            JSONObject a = c.a(this.a.f38470b, new JSONObject(valueOf2));
-                            com.baidu.sofire.f.a aVar = this.a.f38473f;
+                            JSONObject a = c.a(this.a.f38698b, new JSONObject(valueOf2));
+                            com.baidu.sofire.f.a aVar = this.a.f38701f;
                             String jSONArray = new JSONArray().put(a).toString();
                             a.b(new JSONObject(valueOf2));
                             if (aVar.a(jSONArray)) {
                                 return;
                             }
-                            c.a(this.a.f38470b, valueOf2, false);
+                            c.a(this.a.f38698b, valueOf2, false);
                             return;
                     }
                 } catch (Throwable unused) {
@@ -206,11 +206,11 @@ public final class a {
                 return;
             }
         }
-        this.f38474g = 0L;
-        this.f38470b = context.getApplicationContext();
-        this.f38472e = new HandlerC1871a(this, m.a());
-        this.a = com.baidu.sofire.h.a.a(this.f38470b);
-        this.f38473f = new com.baidu.sofire.f.a(this.f38470b);
+        this.f38702g = 0L;
+        this.f38698b = context.getApplicationContext();
+        this.f38700e = new HandlerC1881a(this, m.a());
+        this.a = com.baidu.sofire.h.a.a(this.f38698b);
+        this.f38701f = new com.baidu.sofire.f.a(this.f38698b);
     }
 
     public static String b(JSONObject jSONObject) {
@@ -237,7 +237,7 @@ public final class a {
     public final void a(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            this.f38472e.sendMessage(message);
+            this.f38700e.sendMessage(message);
         }
     }
 
@@ -245,11 +245,11 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (f38469d > 0) {
-                if (System.currentTimeMillis() - f38469d < 300000) {
+            if (f38697d > 0) {
+                if (System.currentTimeMillis() - f38697d < 300000) {
                     return false;
                 }
-                f38469d = 0L;
+                f38697d = 0L;
                 return true;
             }
             return true;
@@ -261,7 +261,7 @@ public final class a {
         List<com.baidu.sofire.c.a> t = aVar.a.t();
         if (t != null) {
             for (com.baidu.sofire.c.a aVar2 : t) {
-                if (aVar.a(aVar.a.f38479e.getString("li_pk_s", ""), aVar2.f38392b)) {
+                if (aVar.a(aVar.a.f38707e.getString("li_pk_s", ""), aVar2.f38620b)) {
                     aVar.a(aVar2);
                 }
             }
@@ -273,7 +273,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, i3)) == null) {
             if (i2 == 0 && i3 == 2) {
-                return com.baidu.sofire.d.a.a(this.f38470b).a(i3);
+                return com.baidu.sofire.d.a.a(this.f38698b).a(i3);
             }
             return null;
         }
@@ -285,13 +285,13 @@ public final class a {
         int length;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{list, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            int i3 = this.a.f38479e.getInt("re_net_one_lt", 5);
+            int i3 = this.a.f38707e.getInt("re_net_one_lt", 5);
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
             int i4 = 0;
             for (com.baidu.sofire.e.a aVar : list) {
                 try {
-                    String jSONObject2 = c.a(this.f38470b, new JSONObject(aVar.f38460d)).toString();
+                    String jSONObject2 = c.a(this.f38698b, new JSONObject(aVar.f38688d)).toString();
                     try {
                         jSONObject = new JSONObject(jSONObject2);
                         length = jSONObject2.length() + i4;
@@ -305,7 +305,7 @@ public final class a {
                     break;
                 }
                 arrayList.add(Integer.valueOf(aVar.a));
-                arrayList2.add(new b(jSONObject, aVar.f38466j, aVar.a));
+                arrayList2.add(new b(jSONObject, aVar.f38694j, aVar.a));
                 i4 = length;
             }
             HashMap hashMap = new HashMap();
@@ -315,10 +315,10 @@ public final class a {
             for (int i5 = 0; i5 < arrayList2.size(); i5++) {
                 b bVar = (b) arrayList2.get(i5);
                 if (bVar != null) {
-                    String str = bVar.f38467b;
+                    String str = bVar.f38695b;
                     if (TextUtils.isEmpty(str)) {
                         jSONArray.put(bVar.a);
-                        arrayList3.add(Integer.valueOf(bVar.f38468c));
+                        arrayList3.add(Integer.valueOf(bVar.f38696c));
                     } else {
                         if (hashMap.containsKey(str)) {
                             JSONArray jSONArray2 = (JSONArray) hashMap.get(str);
@@ -336,31 +336,31 @@ public final class a {
                         if (arrayList4 == null) {
                             arrayList4 = new ArrayList();
                         }
-                        arrayList4.add(Integer.valueOf(bVar.f38468c));
+                        arrayList4.add(Integer.valueOf(bVar.f38696c));
                         hashMap2.put(str, arrayList4);
                     }
                 }
             }
             if (jSONArray.length() > 0) {
-                if (this.f38473f.a(jSONArray.toString())) {
-                    com.baidu.sofire.d.a.a(this.f38470b).a(arrayList3);
+                if (this.f38701f.a(jSONArray.toString())) {
+                    com.baidu.sofire.d.a.a(this.f38698b).a(arrayList3);
                 } else {
-                    f38469d = System.currentTimeMillis();
+                    f38697d = System.currentTimeMillis();
                 }
             }
             if (hashMap.size() > 0) {
                 for (String str2 : hashMap.keySet()) {
                     JSONArray jSONArray4 = (JSONArray) hashMap.get(str2);
                     if (jSONArray4 != null && jSONArray4.length() > 0) {
-                        if (this.f38473f.a(jSONArray4.toString())) {
-                            com.baidu.sofire.d.a.a(this.f38470b).a((List) hashMap2.get(str2));
+                        if (this.f38701f.a(jSONArray4.toString())) {
+                            com.baidu.sofire.d.a.a(this.f38698b).a((List) hashMap2.get(str2));
                         } else {
-                            f38469d = System.currentTimeMillis();
+                            f38697d = System.currentTimeMillis();
                         }
                     }
                 }
             }
-            com.baidu.sofire.d.a.a(this.f38470b).c();
+            com.baidu.sofire.d.a.a(this.f38698b).c();
             if (2 != i2) {
                 this.a.c(i4 + j2);
             }
@@ -374,7 +374,7 @@ public final class a {
             if (TextUtils.isEmpty(str2)) {
                 return false;
             }
-            if (str2.equals(this.f38470b.getPackageName())) {
+            if (str2.equals(this.f38698b.getPackageName())) {
                 return true;
             }
             if (TextUtils.isEmpty(str)) {
@@ -400,78 +400,78 @@ public final class a {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             synchronized (this) {
                 com.baidu.sofire.h.a aVar2 = this.a;
-                String str = aVar.f38394d;
-                SharedPreferences sharedPreferences = aVar2.f38479e;
+                String str = aVar.f38622d;
+                SharedPreferences sharedPreferences = aVar2.f38707e;
                 String string = sharedPreferences.getString("re_net_ali2_" + str, "");
                 String c2 = c.c();
                 if (string.equals(c2)) {
                     return;
                 }
-                String e2 = this.a.e(aVar.f38394d);
+                String e2 = this.a.e(aVar.f38622d);
                 com.baidu.sofire.e.a aVar3 = new com.baidu.sofire.e.a();
-                aVar3.f38458b = aVar.f38394d;
-                aVar3.f38463g = 0;
-                aVar3.f38459c = 2;
-                aVar3.f38461e = System.currentTimeMillis();
-                aVar3.f38462f = 1;
-                aVar3.f38465i = 5;
-                aVar3.f38460d = c.a(this.f38470b, aVar, e2, true).toString();
-                com.baidu.sofire.d.a.a(this.f38470b).a(aVar3);
-                String a = q.a(c.l(this.f38470b).toString());
-                if (com.baidu.sofire.d.a.a(this.f38470b).b(a)) {
-                    aVar3.f38458b = GameCenterCoreUtils.REF_TYPE_SINGLE_RECOMMEND;
-                    aVar3.f38465i = 0;
-                    aVar3.f38460d = c.a(this.f38470b, aVar.a, aVar.f38393c, GameCenterCoreUtils.REF_TYPE_SINGLE_RECOMMEND, c.l(this.f38470b).toString()).toString();
-                    com.baidu.sofire.d.a.a(this.f38470b).a(aVar3);
-                    com.baidu.sofire.d.a.a(this.f38470b).a(a);
+                aVar3.f38686b = aVar.f38622d;
+                aVar3.f38691g = 0;
+                aVar3.f38687c = 2;
+                aVar3.f38689e = System.currentTimeMillis();
+                aVar3.f38690f = 1;
+                aVar3.f38693i = 5;
+                aVar3.f38688d = c.a(this.f38698b, aVar, e2, true).toString();
+                com.baidu.sofire.d.a.a(this.f38698b).a(aVar3);
+                String a = q.a(c.l(this.f38698b).toString());
+                if (com.baidu.sofire.d.a.a(this.f38698b).b(a)) {
+                    aVar3.f38686b = GameCenterCoreUtils.REF_TYPE_SINGLE_RECOMMEND;
+                    aVar3.f38693i = 0;
+                    aVar3.f38688d = c.a(this.f38698b, aVar.a, aVar.f38621c, GameCenterCoreUtils.REF_TYPE_SINGLE_RECOMMEND, c.l(this.f38698b).toString()).toString();
+                    com.baidu.sofire.d.a.a(this.f38698b).a(aVar3);
+                    com.baidu.sofire.d.a.a(this.f38698b).a(a);
                 }
                 com.baidu.sofire.h.a aVar4 = this.a;
-                String str2 = aVar.f38394d;
-                SharedPreferences.Editor editor = aVar4.f38480f;
+                String str2 = aVar.f38622d;
+                SharedPreferences.Editor editor = aVar4.f38708f;
                 editor.putString("re_net_ali2_" + str2, c2);
-                aVar4.f38480f.commit();
+                aVar4.f38708f.commit();
             }
         }
     }
 
     public static /* synthetic */ void a(a aVar) {
-        com.baidu.sofire.h.a a = com.baidu.sofire.h.a.a(aVar.f38470b);
+        com.baidu.sofire.h.a a = com.baidu.sofire.h.a.a(aVar.f38698b);
         int u = a.u();
-        long currentTimeMillis = System.currentTimeMillis() - a.f38479e.getLong("re_last_ofline_time", 0L);
+        long currentTimeMillis = System.currentTimeMillis() - a.f38707e.getLong("re_last_ofline_time", 0L);
         long j2 = u * 3600000;
         if (currentTimeMillis >= j2) {
-            d.a(aVar.f38470b).c();
-            c.a(aVar.f38470b, j2);
+            d.a(aVar.f38698b).c();
+            c.a(aVar.f38698b, j2);
             a.b(System.currentTimeMillis());
             return;
         }
-        c.a(aVar.f38470b, j2 - currentTimeMillis);
+        c.a(aVar.f38698b, j2 - currentTimeMillis);
     }
 
     public static /* synthetic */ void a(a aVar, int i2, int i3) {
         List<com.baidu.sofire.e.a> a;
         if (i3 != 0 && a()) {
             if (i2 == 1) {
-                a = com.baidu.sofire.d.a.a(aVar.f38470b).a();
+                a = com.baidu.sofire.d.a.a(aVar.f38698b).a();
             } else if (i2 == 3) {
-                a = com.baidu.sofire.d.a.a(aVar.f38470b).a(false, i3);
+                a = com.baidu.sofire.d.a.a(aVar.f38698b).a(false, i3);
             } else if (i2 == 4) {
-                a = com.baidu.sofire.d.a.a(aVar.f38470b).a(true, i3);
+                a = com.baidu.sofire.d.a.a(aVar.f38698b).a(true, i3);
             } else {
-                a = com.baidu.sofire.d.a.a(aVar.f38470b).a(i3);
+                a = com.baidu.sofire.d.a.a(aVar.f38698b).a(i3);
             }
             if (a.size() > 0) {
-                long j2 = aVar.a.f38479e.getLong("re_day_len", 0L);
+                long j2 = aVar.a.f38707e.getLong("re_day_len", 0L);
                 long currentTimeMillis = System.currentTimeMillis();
-                long j3 = aVar.a.f38479e.getLong("re_day_b_t", 0L);
-                int i4 = aVar.a.f38479e.getInt("re_net_dy_lt", 50);
+                long j3 = aVar.a.f38707e.getLong("re_day_b_t", 0L);
+                int i4 = aVar.a.f38707e.getInt("re_net_dy_lt", 50);
                 if (j3 == 0) {
                     aVar.a.d(currentTimeMillis);
                     j3 = currentTimeMillis;
                 }
                 if (currentTimeMillis - j3 < 86400000) {
                     if (i2 == 3) {
-                        int i5 = aVar.a.f38479e.getInt("g_r_d_d_n", 0);
+                        int i5 = aVar.a.f38707e.getInt("g_r_d_d_n", 0);
                         if (i5 >= 5) {
                             return;
                         }

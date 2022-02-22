@@ -31,25 +31,25 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends c {
     public static volatile Message a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static AtomicBoolean f55529d = new AtomicBoolean(false);
+    public static AtomicBoolean f55696d = new AtomicBoolean(false);
 
     /* renamed from: b  reason: collision with root package name */
-    public HandlerC2098a f55530b = new HandlerC2098a();
+    public HandlerC2108a f55697b = new HandlerC2108a();
 
     /* renamed from: c  reason: collision with root package name */
-    public Messenger f55531c = new Messenger(this.f55530b);
+    public Messenger f55698c = new Messenger(this.f55697b);
 
     /* renamed from: com.kwad.sdk.collector.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class HandlerC2098a extends Handler {
+    /* loaded from: classes4.dex */
+    public static class HandlerC2108a extends Handler {
         public WeakReference<Service> a;
 
-        public HandlerC2098a() {
+        public HandlerC2108a() {
         }
 
         public void a(@Nullable Service service) {
@@ -117,7 +117,7 @@ public class a extends c {
     }
 
     public static AtomicBoolean a() {
-        return f55529d;
+        return f55696d;
     }
 
     public static void a(@NonNull Context context, ServiceConnection serviceConnection) {
@@ -161,7 +161,7 @@ public class a extends c {
 
     @Override // com.kwad.sdk.h.c, com.kwad.sdk.api.proxy.IServiceProxy
     public IBinder onBind(@NonNull Service service, Intent intent) {
-        return this.f55531c.getBinder();
+        return this.f55698c.getBinder();
     }
 
     @Override // com.kwad.sdk.h.c, com.kwad.sdk.api.proxy.IServiceProxy
@@ -176,15 +176,15 @@ public class a extends c {
         }
         com.kwad.sdk.core.d.a.a("RemoteService", "onCreate processName:" + al.a(service));
         if (SystemUtil.b(service)) {
-            f55529d.set(true);
+            f55696d.set(true);
         } else {
             d.a(service, new d.a() { // from class: com.kwad.sdk.collector.b.a.1
                 @Override // com.kwad.sdk.collector.d.a
                 public void a() {
                     com.kwad.sdk.core.d.a.a("RemoteService", "onLoaded");
-                    a.f55529d.set(true);
+                    a.f55696d.set(true);
                     if (a.a != null) {
-                        a.this.f55530b.handleMessage(a.a);
+                        a.this.f55697b.handleMessage(a.a);
                         a.a = null;
                     }
                 }
@@ -192,18 +192,18 @@ public class a extends c {
                 @Override // com.kwad.sdk.collector.d.a
                 public void a(String str) {
                     com.kwad.sdk.core.d.a.e("RemoteService", "onLoadError: " + str);
-                    a.f55529d.set(false);
+                    a.f55696d.set(false);
                 }
             });
         }
-        this.f55530b.a(service);
+        this.f55697b.a(service);
     }
 
     @Override // com.kwad.sdk.h.c, com.kwad.sdk.api.proxy.IServiceProxy
     public void onDestroy(@NonNull Service service) {
         super.onDestroy(service);
         com.kwad.sdk.core.d.a.a("RemoteService", MissionEvent.MESSAGE_DESTROY);
-        this.f55530b.a(null);
+        this.f55697b.a(null);
         if (a(service)) {
             com.kwad.sdk.core.d.a.a("RemoteService", "goto kill myself");
             Process.killProcess(Process.myPid());

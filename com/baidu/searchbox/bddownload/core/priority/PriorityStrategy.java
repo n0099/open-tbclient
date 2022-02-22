@@ -1,6 +1,7 @@
 package com.baidu.searchbox.bddownload.core.priority;
 
 import com.baidu.searchbox.bddownload.DownloadTask;
+import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class PriorityStrategy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class Priority {
         public static final /* synthetic */ Priority[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -37,7 +38,7 @@ public class PriorityStrategy {
                     return;
                 }
             }
-            DEFAULT = new Priority("DEFAULT", 0);
+            DEFAULT = new Priority(EngineName.DEFAULT_ENGINE, 0);
             BACKGROUND = new Priority("BACKGROUND", 1);
             USER_INTERACTIVE = new Priority("USER_INTERACTIVE", 2);
             Priority priority = new Priority("SPECIAL", 3);

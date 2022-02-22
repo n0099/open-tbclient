@@ -1,9 +1,9 @@
 package com.baidu.tieba.themeCenter.background;
 
 import android.os.Bundle;
-import c.a.s0.s.k0.f;
-import c.a.t0.c4.e.d;
-import c.a.t0.c4.h.e;
+import c.a.t0.s.l0.f;
+import c.a.u0.f4.e.d;
+import c.a.u0.f4.h.e;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -26,7 +26,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
     public final f.g mOnPullRefreshListener;
     public TbPageContext<?> mPageContext;
     public BdListView.p mScrollToBottomListener;
-    public c.a.t0.c4.e.f mView;
+    public c.a.u0.f4.e.f mView;
 
     /* loaded from: classes13.dex */
     public class a implements BackgroundListModel.c {
@@ -75,7 +75,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BackgroundListActivity f48433e;
+        public final /* synthetic */ BackgroundListActivity f48600e;
 
         public b(BackgroundListActivity backgroundListActivity) {
             Interceptable interceptable = $ic;
@@ -92,16 +92,16 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
                     return;
                 }
             }
-            this.f48433e = backgroundListActivity;
+            this.f48600e = backgroundListActivity;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f48433e.mModel == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f48600e.mModel == null) {
                 return;
             }
-            this.f48433e.mModel.w();
+            this.f48600e.mModel.w();
         }
     }
 
@@ -111,7 +111,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BackgroundListActivity f48434e;
+        public final /* synthetic */ BackgroundListActivity f48601e;
 
         public c(BackgroundListActivity backgroundListActivity) {
             Interceptable interceptable = $ic;
@@ -128,16 +128,16 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
                     return;
                 }
             }
-            this.f48434e = backgroundListActivity;
+            this.f48601e = backgroundListActivity;
         }
 
-        @Override // c.a.s0.s.k0.f.g
+        @Override // c.a.t0.s.l0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f48434e.mModel == null) {
+            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f48601e.mModel == null) {
                 return;
             }
-            this.f48434e.mModel.loadData();
+            this.f48601e.mModel.loadData();
         }
     }
 
@@ -159,7 +159,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         this.mOnPullRefreshListener = new c(this);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.s0.q0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.t0.q0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -167,17 +167,17 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public c.a.s0.q0.d getPageStayDurationItem() {
+    public c.a.t0.q0.d getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            c.a.s0.q0.d pageStayDurationItem = super.getPageStayDurationItem();
+            c.a.t0.q0.d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
             }
             return pageStayDurationItem;
         }
-        return (c.a.s0.q0.d) invokeV.objValue;
+        return (c.a.t0.q0.d) invokeV.objValue;
     }
 
     public int getPropId() {
@@ -191,7 +191,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             super.onChangeSkinType(i2);
-            c.a.t0.c4.e.f fVar = this.mView;
+            c.a.u0.f4.e.f fVar = this.mView;
             if (fVar != null) {
                 fVar.d();
             }
@@ -211,7 +211,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
             d dVar = new d(this.mPageContext, this.mModel.getUniqueId());
             this.mItemController = dVar;
             dVar.c(0);
-            c.a.t0.c4.e.f fVar = new c.a.t0.c4.e.f(this, this.mItemController);
+            c.a.u0.f4.e.f fVar = new c.a.u0.f4.e.f(this, this.mItemController);
             this.mView = fVar;
             fVar.g(this.mScrollToBottomListener, this.mOnPullRefreshListener);
             showLoadingView(this.mView.c());
@@ -233,7 +233,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        c.a.t0.c4.e.f fVar;
+        c.a.u0.f4.e.f fVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.mModel == null || (fVar = this.mView) == null) {
             return;

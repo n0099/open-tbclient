@@ -20,24 +20,24 @@ public class APayEntranceActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f30763c = "ap_order_info";
+    public static final String f30969c = "ap_order_info";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f30764d = "ap_target_packagename";
+    public static final String f30970d = "ap_target_packagename";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f30765e = "ap_session";
+    public static final String f30971e = "ap_session";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f30766f = "ap_local_info";
+    public static final String f30972f = "ap_local_info";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, a> f30767g;
+    public static final ConcurrentHashMap<String, a> f30973g;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30768b;
+    public String f30974b;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -57,7 +57,7 @@ public class APayEntranceActivity extends Activity {
                 return;
             }
         }
-        f30767g = new ConcurrentHashMap<>();
+        f30973g = new ConcurrentHashMap<>();
     }
 
     public APayEntranceActivity() {
@@ -78,7 +78,7 @@ public class APayEntranceActivity extends Activity {
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a remove = f30767g.remove(this.f30768b);
+            a remove = f30973g.remove(this.f30974b);
             if (TextUtils.isEmpty(this.a)) {
                 this.a = b.a();
             }
@@ -124,10 +124,10 @@ public class APayEntranceActivity extends Activity {
                     LogUtil.logActivity(this, "onCreate");
                     return;
                 }
-                String string = extras.getString(f30763c);
-                String string2 = extras.getString(f30764d);
-                this.f30768b = extras.getString(f30765e);
-                String string3 = extras.getString(f30766f, StringUtil.EMPTY_ARRAY);
+                String string = extras.getString(f30969c);
+                String string2 = extras.getString(f30970d);
+                this.f30974b = extras.getString(f30971e);
+                String string3 = extras.getString(f30972f, StringUtil.EMPTY_ARRAY);
                 Intent intent = new Intent();
                 intent.putExtra("order_info", string);
                 intent.putExtra("localInfo", string3);

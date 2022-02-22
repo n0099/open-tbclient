@@ -14,16 +14,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import c.a.d.f.p.n;
-import c.a.s0.s.u.c;
-import c.a.t0.e1.c1;
-import c.a.t0.e1.d1;
-import c.a.t0.e1.e1;
-import c.a.t0.e1.f1;
-import c.a.t0.e1.g1;
-import c.a.t0.e1.i1;
-import c.a.t0.e1.z2.l;
-import c.a.t0.e1.z2.m;
-import c.a.t0.x3.x;
+import c.a.t0.s.v.c;
+import c.a.u0.e1.b3.l;
+import c.a.u0.e1.b3.m;
+import c.a.u0.e1.c1;
+import c.a.u0.e1.d1;
+import c.a.u0.e1.e1;
+import c.a.u0.e1.f1;
+import c.a.u0.e1.g1;
+import c.a.u0.e1.i1;
+import c.a.u0.z3.y;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -46,22 +46,22 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f43826e;
+    public TbPageContext f44071e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ForumData f43827f;
+    public ForumData f44072f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ConstraintLayout f43828g;
+    public ConstraintLayout f44073g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f43829h;
+    public TbImageView f44074h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HeadImageView f43830i;
+    public HeadImageView f44075i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f43831j;
+    public TextView f44076j;
     public TextView k;
     public TextView l;
     public TextView m;
@@ -103,24 +103,24 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
             this.a = frsLikeShareDialogView;
         }
 
-        @Override // c.a.t0.e1.z2.l.b
+        @Override // c.a.u0.e1.b3.l.b
         public void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f43829h == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f44074h == null) {
                 return;
             }
-            this.a.f43829h.clearCornerFlag();
-            this.a.f43829h.setRadiusById(i1.J_X02);
+            this.a.f44074h.clearCornerFlag();
+            this.a.f44074h.setRadiusById(i1.J_X02);
         }
 
-        @Override // c.a.t0.e1.z2.l.b
+        @Override // c.a.u0.e1.b3.l.b
         public void b() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.f43829h == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.f44074h == null) {
                 return;
             }
-            this.a.f43829h.setConrers(3);
-            this.a.f43829h.setRadiusById(i1.J_X14);
+            this.a.f44074h.setConrers(3);
+            this.a.f44074h.setRadiusById(i1.J_X14);
         }
     }
 
@@ -154,31 +154,31 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
         this.n.setImageBitmap((Bitmap) runTask.getData());
     }
 
-    public void bind(TbPageContext tbPageContext, x xVar, ForumData forumData) {
+    public void bind(TbPageContext tbPageContext, y yVar, ForumData forumData) {
         AccountData currentAccountInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, xVar, forumData) == null) || xVar == null || forumData == null || (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, yVar, forumData) == null) || yVar == null || forumData == null || (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) == null) {
             return;
         }
-        this.f43826e = tbPageContext;
-        this.f43827f = forumData;
-        this.f43830i.setBorderColor(SkinManager.getColor(0, c1.CAM_X0402));
-        this.f43830i.setBorderWidth(n.f(getContext(), d1.tbds6));
-        this.f43830i.setUrl(currentAccountInfo.getAvatar());
-        this.f43830i.startLoad(currentAccountInfo.getAvatar(), 12, false);
-        this.f43831j.setText(StringHelper.cutChineseAndEnglishWithEmoji(currentAccountInfo.getAccountNameShow(), 12, "..."));
+        this.f44071e = tbPageContext;
+        this.f44072f = forumData;
+        this.f44075i.setBorderColor(SkinManager.getColor(0, c1.CAM_X0402));
+        this.f44075i.setBorderWidth(n.f(getContext(), d1.tbds6));
+        this.f44075i.setUrl(currentAccountInfo.getAvatar());
+        this.f44075i.startLoad(currentAccountInfo.getAvatar(), 12, false);
+        this.f44076j.setText(StringHelper.cutChineseAndEnglishWithEmoji(currentAccountInfo.getAccountNameShow(), 12, "..."));
         TextView textView = this.k;
-        textView.setText(StringHelper.cutChineseAndEnglishWithEmoji(this.f43827f.getName() + getContext().getString(i1.core_bar), 16, "..."));
-        this.l.setText(getContext().getString(i1.frs_like_become_forum_member, xVar.k()));
-        String h2 = xVar.h();
+        textView.setText(StringHelper.cutChineseAndEnglishWithEmoji(this.f44072f.getName() + getContext().getString(i1.core_bar), 16, "..."));
+        this.l.setText(getContext().getString(i1.frs_like_become_forum_member, yVar.k()));
+        String h2 = yVar.h();
         int length = !TextUtils.isEmpty(h2) ? h2.length() : 0;
         SpannableString spannableString = new SpannableString(getContext().getString(i1.frs_like_get_level_title, h2));
         int i2 = length + 2;
         spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(0, c1.CAM_X0304)), 2, i2, 17);
         spannableString.setSpan(new StyleSpan(1), 2, i2, 17);
         this.m.setText(spannableString);
-        b(c.a.t0.e1.z2.n.c(this.f43827f) + "&source=focusbar");
-        l lVar = new l(this.f43826e, getContext(), this.f43828g, new a(this));
+        b(c.a.u0.e1.b3.n.c(this.f44072f) + "&source=focusbar");
+        l lVar = new l(this.f44071e, getContext(), this.f44073g, new a(this));
         this.z = lVar;
         lVar.h(forumData);
     }
@@ -187,10 +187,10 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             LayoutInflater.from(context).inflate(g1.frs_like_share_dialog_layout, this);
-            this.f43828g = (ConstraintLayout) findViewById(f1.frs_like_share_canvas);
-            this.f43829h = (TbImageView) findViewById(f1.frs_like_share_top_img);
-            this.f43830i = (HeadImageView) findViewById(f1.frs_like_share_avatar);
-            this.f43831j = (TextView) findViewById(f1.frs_like_share_username);
+            this.f44073g = (ConstraintLayout) findViewById(f1.frs_like_share_canvas);
+            this.f44074h = (TbImageView) findViewById(f1.frs_like_share_top_img);
+            this.f44075i = (HeadImageView) findViewById(f1.frs_like_share_avatar);
+            this.f44076j = (TextView) findViewById(f1.frs_like_share_username);
             this.k = (TextView) findViewById(f1.frs_like_share_forum_name);
             this.l = (TextView) findViewById(f1.frs_like_share_member_count);
             this.m = (TextView) findViewById(f1.frs_like_share_level_title);
@@ -231,14 +231,14 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f43830i.setAutoChangeStyle(false);
-            this.f43830i.setUseNightOrDarkMask(false);
-            this.f43829h.setAutoChangeStyle(false);
-            this.f43829h.setUseNightOrDarkMask(false);
-            this.f43829h.setRadiusById(i1.J_X14);
-            this.f43829h.setConrers(3);
-            this.f43829h.setIsBitmapPic(true);
-            SkinManager.setImageResource(this.f43829h, e1.img_frs_share, 0);
+            this.f44075i.setAutoChangeStyle(false);
+            this.f44075i.setUseNightOrDarkMask(false);
+            this.f44074h.setAutoChangeStyle(false);
+            this.f44074h.setUseNightOrDarkMask(false);
+            this.f44074h.setRadiusById(i1.J_X14);
+            this.f44074h.setConrers(3);
+            this.f44074h.setIsBitmapPic(true);
+            SkinManager.setImageResource(this.f44074h, e1.img_frs_share, 0);
             c d2 = c.d(this.y);
             d2.n(i1.J_X06);
             d2.f(c1.CAM_X0501);
@@ -255,7 +255,7 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
             } else if (i2 != 2) {
                 i3 = i2 == 8 ? 9 : i2 == -1 ? 17 : -1;
             }
-            if (i3 == -1 || (forumData = this.f43827f) == null) {
+            if (i3 == -1 || (forumData = this.f44072f) == null) {
                 return;
             }
             m.b(forumData.getId(), i3);

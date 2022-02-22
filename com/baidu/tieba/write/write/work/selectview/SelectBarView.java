@@ -11,13 +11,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.s0.s.u.c;
-import c.a.t0.p4.d;
-import c.a.t0.p4.e;
-import c.a.t0.p4.f;
-import c.a.t0.p4.g;
-import c.a.t0.p4.h;
-import c.a.t0.p4.j;
+import c.a.t0.s.v.c;
+import c.a.u0.s4.d;
+import c.a.u0.s4.e;
+import c.a.u0.s4.f;
+import c.a.u0.s4.g;
+import c.a.u0.s4.h;
+import c.a.u0.s4.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -41,7 +41,7 @@ public class SelectBarView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f50010e;
+    public boolean f50177e;
     public View mBottomLine;
     public TextView mCenterContent;
     public TextView mCenterContentPos;
@@ -69,7 +69,7 @@ public class SelectBarView extends LinearLayout {
                 return;
             }
         }
-        this.f50010e = true;
+        this.f50177e = true;
         init();
     }
 
@@ -126,7 +126,7 @@ public class SelectBarView extends LinearLayout {
     public final boolean getMCanChangeBarName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f50010e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f50177e : invokeV.booleanValue;
     }
 
     public final TextView getMCenterContent() {
@@ -253,7 +253,7 @@ public class SelectBarView extends LinearLayout {
             Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.bottom_line)");
             setMBottomLine(findViewById6);
             onChangeSkin();
-            setOnClickListener(new View.OnClickListener() { // from class: c.a.t0.p4.e0.p.z.c
+            setOnClickListener(new View.OnClickListener() { // from class: c.a.u0.s4.e0.p.z.c
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -323,7 +323,7 @@ public class SelectBarView extends LinearLayout {
     public final void setMCanChangeBarName(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.f50010e = z;
+            this.f50177e = z;
         }
     }
 
@@ -402,7 +402,7 @@ public class SelectBarView extends LinearLayout {
                 return;
             }
         }
-        this.f50010e = true;
+        this.f50177e = true;
         init();
     }
 
@@ -425,7 +425,7 @@ public class SelectBarView extends LinearLayout {
                 return;
             }
         }
-        this.f50010e = true;
+        this.f50177e = true;
         init();
     }
 }

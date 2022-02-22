@@ -7,9 +7,9 @@ import android.os.StatFs;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a1.t.b;
-import c.a.a1.t.c;
-import c.a.a1.t.w;
+import c.a.b1.t.b;
+import c.a.b1.t.c;
+import c.a.b1.t.w;
 import com.baidu.minivideo.plugin.capture.bean.FaceItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -429,7 +429,7 @@ public class FileUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
-            File file = new File(isSDMounted() ? c.a.a1.b.c().getContext().getExternalFilesDir(null) : null, FaceItem.DIR_UGC_DEFAULT);
+            File file = new File(isSDMounted() ? c.a.b1.b.c().getContext().getExternalFilesDir(null) : null, FaceItem.DIR_UGC_DEFAULT);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -524,8 +524,8 @@ public class FileUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, str)) == null) {
-            File file = new File(c.a.a1.b.c().a(), str);
-            return (file.exists() || file.mkdirs()) ? file : c.a.a1.b.c().getContext().getCacheDir();
+            File file = new File(c.a.b1.b.c().a(), str);
+            return (file.exists() || file.mkdirs()) ? file : c.a.b1.b.c().getContext().getCacheDir();
         }
         return (File) invokeL.objValue;
     }

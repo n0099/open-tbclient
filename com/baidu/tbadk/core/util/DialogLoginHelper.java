@@ -1,8 +1,8 @@
 package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.b.d;
-import c.a.s0.s.q.t0;
+import c.a.t0.b.d;
+import c.a.t0.s.r.t0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;

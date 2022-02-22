@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.core.imageloader.core.DisplayImageOptionsCompat;
 import com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface IImageLoader {
     void clearMemory(Context context);
 

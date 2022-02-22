@@ -15,10 +15,10 @@ public class RelationSpaceItemDecoration extends RecyclerView.ItemDecoration {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f43278b;
+    public int f43512b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f43279c;
+    public int f43513c;
 
     public RelationSpaceItemDecoration(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class RelationSpaceItemDecoration extends RecyclerView.ItemDecoration {
             }
         }
         this.a = i2;
-        this.f43278b = i3;
-        this.f43279c = i4;
+        this.f43512b = i3;
+        this.f43513c = i4;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -49,10 +49,10 @@ public class RelationSpaceItemDecoration extends RecyclerView.ItemDecoration {
                 if (recyclerView.getChildAdapterPosition(view) == 0) {
                     rect.top = this.a;
                 } else {
-                    rect.top = this.f43278b;
+                    rect.top = this.f43512b;
                 }
                 if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-                    rect.bottom = this.f43279c;
+                    rect.bottom = this.f43513c;
                     return;
                 }
                 return;
@@ -60,10 +60,10 @@ public class RelationSpaceItemDecoration extends RecyclerView.ItemDecoration {
             if (recyclerView.getChildAdapterPosition(view) == 0) {
                 rect.left = this.a;
             } else {
-                rect.left = this.f43278b;
+                rect.left = this.f43512b;
             }
             if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-                rect.right = this.f43279c;
+                rect.right = this.f43513c;
             }
         }
     }

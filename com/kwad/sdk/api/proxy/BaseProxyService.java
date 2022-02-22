@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.loader.Wrapper;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseProxyService extends Service {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public IServiceProxy mDelegate;

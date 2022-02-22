@@ -3,9 +3,9 @@ package com.baidu.nadcore.stats.request;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.c0.a0.c.c;
-import c.a.c0.a0.c.d;
-import c.a.c0.x.b;
+import c.a.d0.a0.c.c;
+import c.a.d0.a0.c.d;
+import c.a.d0.x.b;
 import com.alipay.sdk.encrypt.a;
 import com.baidu.adp.ApsConstants;
 import com.baidu.android.imsdk.internal.Constants;
@@ -29,7 +29,7 @@ public class ClogBuilder extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final JSONObject f37138c;
+    public final JSONObject f37368c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes10.dex */
@@ -44,7 +44,9 @@ public class ClogBuilder extends c {
         public static final Area AD_NOTIFICATION_SHOW;
         public static final Area APP_PERMISSION;
         public static final Area APP_PRIVACY;
+        public static final Area AUTO_HIDE;
         public static final Area BUTTON;
+        public static final Area CLOSE_BTN;
         public static final Area DIALOG;
         public static final Area DIALOG_KEYBACK;
         public static final Area DIALOG_NEGATIVE;
@@ -52,6 +54,7 @@ public class ClogBuilder extends c {
         public static final Area FLOATING;
         public static final Area HOTAREA;
         public static final Area ICON;
+        public static final Area IMAGE;
         public static final Area INSTALL_LATER_BUTTON;
         public static final Area INSTALL_NOW_BUTTON;
         public static final Area INVALID;
@@ -91,9 +94,12 @@ public class ClogBuilder extends c {
             APP_PRIVACY = new Area("APP_PRIVACY", 16, "app_privacy");
             APP_PERMISSION = new Area("APP_PERMISSION", 17, "app_permission");
             FLOATING = new Area("FLOATING", 18, "floating_btn");
-            Area area = new Area("INVALID", 19, "INVALID");
+            IMAGE = new Area("IMAGE", 19, "image");
+            CLOSE_BTN = new Area("CLOSE_BTN", 20, "close_btn");
+            AUTO_HIDE = new Area("AUTO_HIDE", 21, "auto_hide");
+            Area area = new Area("INVALID", 22, "INVALID");
             INVALID = area;
-            $VALUES = new Area[]{ICON, NAME, BUTTON, INSTALL_NOW_BUTTON, INSTALL_LATER_BUTTON, HOTAREA, AD_NOTIFICATION_ITEM_CLICK, AD_NOTIFICATION_BTN_CLICK, AD_NOTIFICATION_SHOW, AD_NOTIFICATION_NOTIFY, AD_NOTIFICATION_REMOVE, DIALOG, DIALOG_POSITIVE, DIALOG_NEGATIVE, DIALOG_KEYBACK, AD_CALL, APP_PRIVACY, APP_PERMISSION, FLOATING, area};
+            $VALUES = new Area[]{ICON, NAME, BUTTON, INSTALL_NOW_BUTTON, INSTALL_LATER_BUTTON, HOTAREA, AD_NOTIFICATION_ITEM_CLICK, AD_NOTIFICATION_BTN_CLICK, AD_NOTIFICATION_SHOW, AD_NOTIFICATION_NOTIFY, AD_NOTIFICATION_REMOVE, DIALOG, DIALOG_POSITIVE, DIALOG_NEGATIVE, DIALOG_KEYBACK, AD_CALL, APP_PRIVACY, APP_PERMISSION, FLOATING, IMAGE, CLOSE_BTN, AUTO_HIDE, area};
         }
 
         public Area(String str, int i2, String str2) {
@@ -435,11 +441,11 @@ public class ClogBuilder extends c {
                 return;
             }
         }
-        this.f37138c = b.b(null);
+        this.f37368c = b.b(null);
         c("origin_time", String.valueOf(System.currentTimeMillis()));
     }
 
-    @Override // c.a.c0.a0.c.a, c.a.c0.a0.c.d
+    @Override // c.a.d0.a0.c.a, c.a.d0.a0.c.d
     public <T extends d> T a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -450,7 +456,7 @@ public class ClogBuilder extends c {
         return (T) invokeLL.objValue;
     }
 
-    @Override // c.a.c0.a0.c.a
+    @Override // c.a.d0.a0.c.a
     public <T extends d> T c(String str, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -458,27 +464,24 @@ public class ClogBuilder extends c {
             if (TextUtils.isEmpty(str)) {
                 return this;
             }
-            b.e(this.f37138c, str, obj);
+            b.e(this.f37368c, str, obj);
             return this;
         }
         return (T) invokeLL.objValue;
     }
 
-    public ClogBuilder f(Area area) {
-        InterceptResult invokeL;
+    @NonNull
+    public JSONObject f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, area)) == null) {
-            c("da_area", area.type);
-            return this;
-        }
-        return (ClogBuilder) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37368c : (JSONObject) invokeV.objValue;
     }
 
-    public ClogBuilder g(String str) {
+    public ClogBuilder g(Area area) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            c("da_area", str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, area)) == null) {
+            c("da_area", area.type);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
@@ -488,7 +491,7 @@ public class ClogBuilder extends c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            c("da_ext1", str);
+            c("da_area", str);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
@@ -498,18 +501,18 @@ public class ClogBuilder extends c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            c("da_ext2", str);
+            c("da_ext1", str);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
     }
 
-    @Override // c.a.c0.a0.c.c, c.a.c0.a0.c.d
+    @Override // c.a.d0.a0.c.c, c.a.d0.a0.c.d
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (TextUtils.isEmpty(this.f37138c.optString("da_type"))) {
+            if (TextUtils.isEmpty(this.f37368c.optString("da_type"))) {
                 return false;
             }
             return super.isValid();
@@ -521,7 +524,7 @@ public class ClogBuilder extends c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            c("da_ext3", str);
+            c("da_ext2", str);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
@@ -531,7 +534,7 @@ public class ClogBuilder extends c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            c("da_ext4", str);
+            c("da_ext3", str);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
@@ -541,7 +544,7 @@ public class ClogBuilder extends c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            c("da_ext5", str);
+            c("da_ext4", str);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
@@ -551,7 +554,7 @@ public class ClogBuilder extends c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            c("extra_param", str);
+            c("da_ext5", str);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
@@ -561,82 +564,92 @@ public class ClogBuilder extends c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            c("extra_param", str);
+            return this;
+        }
+        return (ClogBuilder) invokeL.objValue;
+    }
+
+    public ClogBuilder o(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
             c("da_menu1", str);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
     }
 
-    public ClogBuilder o(@NonNull String str) {
+    public ClogBuilder p(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
             c("da_menu2", str);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
     }
 
-    public ClogBuilder p(Page page) {
+    public ClogBuilder q(Page page) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, page)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, page)) == null) {
             c(BdVideoAd.AD_VIDEO_DAPAGE, page.type);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
     }
 
-    public ClogBuilder q(String str) {
+    public ClogBuilder r(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
             c(BdVideoAd.AD_VIDEO_DAPAGE, str);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
     }
 
-    public ClogBuilder r(LogType logType) {
+    public ClogBuilder s(LogType logType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, logType)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, logType)) == null) {
             c("da_type", logType.type);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
     }
 
-    public ClogBuilder s(String str) {
+    public ClogBuilder t(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
             c("da_type", str);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
     }
 
-    @Override // c.a.c0.a0.c.c, c.a.c0.a0.c.a, c.a.c0.a0.c.d
+    @Override // c.a.d0.a0.c.c, c.a.d0.a0.c.a, c.a.d0.a0.c.d
     @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             super.toString();
             if (this.a.toString().contains("ad")) {
                 return this.a.toString();
             }
             try {
                 JSONArray jSONArray = new JSONArray();
-                jSONArray.put(this.f37138c);
+                jSONArray.put(this.f37368c);
                 String encode = URLEncoder.encode(jSONArray.toString(), "utf-8");
                 if (this.a.length() > 0) {
                     this.a.append(Typography.amp);
                 }
                 StringBuilder sb = this.a;
                 sb.append("ad");
-                sb.append(a.f30893h);
+                sb.append(a.f31099h);
                 sb.append(encode);
                 return sb.toString();
             } catch (Exception unused) {

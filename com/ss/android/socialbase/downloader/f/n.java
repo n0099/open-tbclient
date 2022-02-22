@@ -8,7 +8,7 @@ public class n {
     public final JSONObject a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f60096b;
+    public int f60263b;
 
     public n(JSONObject jSONObject) {
         this.a = jSONObject;
@@ -19,7 +19,7 @@ public class n {
     }
 
     public void a(int i2) {
-        this.f60096b = b(i2);
+        this.f60263b = b(i2);
     }
 
     public boolean b() {
@@ -113,7 +113,7 @@ public class n {
     }
 
     public int a() {
-        return this.f60096b;
+        return this.f60263b;
     }
 
     @NonNull

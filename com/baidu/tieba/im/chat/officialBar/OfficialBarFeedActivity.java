@@ -2,8 +2,8 @@ package com.baidu.tieba.im.chat.officialBar;
 
 import android.os.Bundle;
 import android.util.LongSparseArray;
-import c.a.t0.t1.h.o.a;
-import c.a.t0.t1.l.c.b;
+import c.a.u0.t1.h.o.a;
+import c.a.u0.t1.l.c.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -123,7 +123,7 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
     }
 
     @Override // com.baidu.tieba.im.model.OfficialBarFeedMsglistModel.IFeedHeadLoadCallback
-    public void onReadCountLoad(LongSparseArray<c.a.t0.t1.i.a.b.b> longSparseArray) {
+    public void onReadCountLoad(LongSparseArray<c.a.u0.t1.i.a.b.b> longSparseArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, longSparseArray) == null) {
             this.mCurrentMsgListView.k(longSparseArray);

@@ -13,7 +13,7 @@ public class c0 {
     public static final SharedPreferences a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SharedPreferences.Editor f28400b;
+    public static final SharedPreferences.Editor f28606b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class c0 {
         }
         SharedPreferences sharedPreferences = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk_price", 0);
         a = sharedPreferences;
-        f28400b = sharedPreferences.edit();
+        f28606b = sharedPreferences.edit();
     }
 
     public static double a() {

@@ -2,12 +2,12 @@ package com.baidu.tieba.person.holder;
 
 import android.view.View;
 import android.widget.TextView;
-import c.a.d.n.e.n;
-import c.a.t0.v2.g.e;
-import c.a.t0.v2.g.f;
-import c.a.t0.z2.a;
-import c.a.t0.z2.b;
-import c.a.t0.z2.d;
+import c.a.d.o.e.n;
+import c.a.u0.a3.a;
+import c.a.u0.a3.b;
+import c.a.u0.a3.d;
+import c.a.u0.w2.g.e;
+import c.a.u0.w2.g.f;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +70,7 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
                 return list;
             }
             ArrayList arrayList = new ArrayList(list);
-            c.a.t0.v2.d dVar = new c.a.t0.v2.d(c.a.d.f.p.n.f(this.mPageContext.getPageActivity(), b.ds32), c.a.d.f.p.n.f(this.mPageContext.getPageActivity(), b.ds120));
+            c.a.u0.w2.d dVar = new c.a.u0.w2.d(c.a.d.f.p.n.f(this.mPageContext.getPageActivity(), b.ds32), c.a.d.f.p.n.f(this.mPageContext.getPageActivity(), b.ds120));
             ListUtils.add(arrayList, 0, dVar);
             ListUtils.add(arrayList, dVar);
             return arrayList;

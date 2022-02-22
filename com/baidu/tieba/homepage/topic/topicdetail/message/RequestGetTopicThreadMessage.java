@@ -1,9 +1,10 @@
 package com.baidu.tieba.homepage.topic.topicdetail.message;
 
-import c.a.s0.d1.b0;
+import c.a.t0.d1.c0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +20,7 @@ public class RequestGetTopicThreadMessage extends NetMessage {
     public String callFrom;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f44522common;
+    public CommonReq f44780common;
     public long lastFeedId;
     public long pageNo;
     public long topicId;
@@ -49,13 +50,13 @@ public class RequestGetTopicThreadMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f62864common = this.f44522common;
+            builder.f63031common = this.f44780common;
             builder.topic_id = Long.valueOf(this.topicId);
             builder.page_no = Long.valueOf(this.pageNo);
             builder.last_feed_id = Long.valueOf(this.lastFeedId);
             builder.call_from = this.callFrom;
-            if (z) {
-                b0.a(builder, true);
+            if (z || SocketAddCommonParamSwitch.getIsOn()) {
+                c0.a(builder, true);
             }
             NewTopicThreadReqIdl.Builder builder2 = new NewTopicThreadReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -74,7 +75,7 @@ public class RequestGetTopicThreadMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, commonReq) == null) {
-            this.f44522common = commonReq;
+            this.f44780common = commonReq;
         }
     }
 

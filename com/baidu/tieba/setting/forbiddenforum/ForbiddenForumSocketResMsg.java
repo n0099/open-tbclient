@@ -1,6 +1,6 @@
 package com.baidu.tieba.setting.forbiddenforum;
 
-import c.a.t0.n3.j.d;
+import c.a.u0.o3.j.d;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetDislikeList.GetDislikeListResIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class ForbiddenForumSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

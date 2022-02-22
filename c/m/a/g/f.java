@@ -24,7 +24,7 @@ public final class f {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<g> f30195b;
+    public final List<g> f30401b;
 
     public f(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
@@ -57,13 +57,13 @@ public final class f {
                 }
             }
         }
-        this.f30195b = CollectionsKt___CollectionsKt.toList(arrayList);
+        this.f30401b = CollectionsKt___CollectionsKt.toList(arrayList);
     }
 
     public final List<g> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30195b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30401b : (List) invokeV.objValue;
     }
 
     public final String b() {
@@ -105,6 +105,6 @@ public final class f {
         } else {
             emptyList = CollectionsKt__CollectionsKt.emptyList();
         }
-        this.f30195b = emptyList;
+        this.f30401b = emptyList;
     }
 }

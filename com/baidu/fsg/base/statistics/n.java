@@ -23,10 +23,10 @@ public class n {
     public static final String a = "LogSender";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f33848b = 10000;
+    public static final int f34054b = 10000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f33849c = 10001;
+    public static final int f34055c = 10001;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes10.dex */

@@ -26,7 +26,7 @@ public class ThreadUtils {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Exception f62493e;
+        public Exception f62660e;
 
         public C1CaughtException() {
             Interceptable interceptable = $ic;
@@ -252,18 +252,18 @@ public class ThreadUtils {
                         try {
                             this.val$result.value = this.val$callable.call();
                         } catch (Exception e3) {
-                            this.val$caughtException.f62493e = e3;
+                            this.val$caughtException.f62660e = e3;
                         }
                         this.val$barrier.countDown();
                     }
                 }
             });
             awaitUninterruptibly(countDownLatch);
-            if (c1CaughtException.f62493e == null) {
+            if (c1CaughtException.f62660e == null) {
                 return c1Result.value;
             }
-            RuntimeException runtimeException = new RuntimeException(c1CaughtException.f62493e);
-            runtimeException.setStackTrace(concatStackTraces(c1CaughtException.f62493e.getStackTrace(), runtimeException.getStackTrace()));
+            RuntimeException runtimeException = new RuntimeException(c1CaughtException.f62660e);
+            runtimeException.setStackTrace(concatStackTraces(c1CaughtException.f62660e.getStackTrace(), runtimeException.getStackTrace()));
             throw runtimeException;
         }
         return (V) invokeLL.objValue;

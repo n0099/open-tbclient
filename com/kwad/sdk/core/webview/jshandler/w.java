@@ -5,19 +5,19 @@ import com.kwad.sdk.core.webview.request.WebCardGetDataResponse;
 import com.kwad.sdk.core.webview.request.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class w implements com.kwad.sdk.core.webview.kwai.a {
     public com.kwad.sdk.core.webview.kwai.c a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f56504b;
+        public String f56671b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f56505c;
+        public String f56672c;
     }
 
     private void a(a aVar) {

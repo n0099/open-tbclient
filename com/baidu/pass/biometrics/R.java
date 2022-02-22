@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class R {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class anim {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_fade_in = 0x7f010000;
@@ -57,7 +57,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class array {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int pass_liveness_head_pose = 0x7f030012;
@@ -78,7 +78,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class attr {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int actionBarDivider = 0x7f040047;
@@ -397,7 +397,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class bool {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_action_bar_embed_tabs = 0x7f050000;
@@ -420,117 +420,117 @@ public final class R {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class color {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int abc_background_cache_hint_selector_material_dark = 0x7f060349;
-        public static final int abc_background_cache_hint_selector_material_light = 0x7f06034a;
-        public static final int abc_btn_colored_borderless_text_material = 0x7f06034b;
-        public static final int abc_btn_colored_text_material = 0x7f06034c;
-        public static final int abc_color_highlight_material = 0x7f06034d;
-        public static final int abc_hint_foreground_material_dark = 0x7f060350;
-        public static final int abc_hint_foreground_material_light = 0x7f060351;
-        public static final int abc_primary_text_disable_only_material_dark = 0x7f060352;
-        public static final int abc_primary_text_disable_only_material_light = 0x7f060353;
-        public static final int abc_primary_text_material_dark = 0x7f060354;
-        public static final int abc_primary_text_material_light = 0x7f060355;
-        public static final int abc_search_url_text = 0x7f060356;
-        public static final int abc_search_url_text_normal = 0x7f060357;
-        public static final int abc_search_url_text_pressed = 0x7f060358;
-        public static final int abc_search_url_text_selected = 0x7f060359;
-        public static final int abc_secondary_text_material_dark = 0x7f06035a;
-        public static final int abc_secondary_text_material_light = 0x7f06035b;
-        public static final int abc_tint_btn_checkable = 0x7f06035c;
-        public static final int abc_tint_default = 0x7f06035d;
-        public static final int abc_tint_edittext = 0x7f06035e;
-        public static final int abc_tint_seek_thumb = 0x7f06035f;
-        public static final int abc_tint_spinner = 0x7f060360;
-        public static final int abc_tint_switch_track = 0x7f060361;
-        public static final int accent_material_dark = 0x7f060362;
-        public static final int accent_material_light = 0x7f060363;
-        public static final int background_floating_material_dark = 0x7f0603f7;
-        public static final int background_floating_material_light = 0x7f0603f8;
-        public static final int background_material_dark = 0x7f0603f9;
-        public static final int background_material_light = 0x7f0603fa;
-        public static final int bright_foreground_disabled_material_dark = 0x7f060493;
-        public static final int bright_foreground_disabled_material_light = 0x7f060494;
-        public static final int bright_foreground_inverse_material_dark = 0x7f060495;
-        public static final int bright_foreground_inverse_material_light = 0x7f060496;
-        public static final int bright_foreground_material_dark = 0x7f060497;
-        public static final int bright_foreground_material_light = 0x7f060498;
-        public static final int button_material_dark = 0x7f06049f;
-        public static final int button_material_light = 0x7f0604a0;
-        public static final int dim_foreground_disabled_material_dark = 0x7f06077f;
-        public static final int dim_foreground_disabled_material_light = 0x7f060780;
-        public static final int dim_foreground_material_dark = 0x7f060781;
-        public static final int dim_foreground_material_light = 0x7f060782;
-        public static final int error_color_material_dark = 0x7f060834;
-        public static final int error_color_material_light = 0x7f060835;
-        public static final int foreground_material_dark = 0x7f060839;
-        public static final int foreground_material_light = 0x7f06083a;
-        public static final int highlighted_text_material_dark = 0x7f060851;
-        public static final int highlighted_text_material_light = 0x7f060852;
-        public static final int material_blue_grey_800 = 0x7f0608ba;
-        public static final int material_blue_grey_900 = 0x7f0608bb;
-        public static final int material_blue_grey_950 = 0x7f0608bc;
-        public static final int material_deep_teal_200 = 0x7f0608bd;
-        public static final int material_deep_teal_500 = 0x7f0608be;
-        public static final int material_grey_100 = 0x7f0608bf;
-        public static final int material_grey_300 = 0x7f0608c0;
-        public static final int material_grey_50 = 0x7f0608c1;
-        public static final int material_grey_600 = 0x7f0608c2;
-        public static final int material_grey_800 = 0x7f0608c3;
-        public static final int material_grey_850 = 0x7f0608c4;
-        public static final int material_grey_900 = 0x7f0608c5;
-        public static final int notification_action_color_filter = 0x7f0609a1;
-        public static final int notification_icon_bg_color = 0x7f0609a2;
-        public static final int pass_bio_dialog_content_text_color = 0x7f0609b3;
-        public static final int pass_bio_dialog_content_text_color_night = 0x7f0609b4;
-        public static final int pass_bio_dialog_negative_btn_bg_color = 0x7f0609b5;
-        public static final int pass_bio_dialog_negative_btn_bg_color_night = 0x7f0609b6;
-        public static final int pass_bio_dialog_negative_btn_text_color = 0x7f0609b7;
-        public static final int pass_bio_dialog_negative_btn_text_color_night = 0x7f0609b8;
-        public static final int pass_bio_dialog_positive_btn_bg_color = 0x7f0609b9;
-        public static final int pass_bio_dialog_positive_btn_bg_color_night = 0x7f0609ba;
-        public static final int pass_bio_dialog_positive_btn_text_color = 0x7f0609bb;
-        public static final int pass_bio_dialog_positive_btn_text_color_night = 0x7f0609bc;
-        public static final int pass_bio_dialog_time_out_msg_color = 0x7f0609bd;
-        public static final int pass_bio_dialog_time_out_msg_color_night = 0x7f0609be;
-        public static final int pass_bio_dialog_title_text_color = 0x7f0609bf;
-        public static final int pass_bio_dialog_title_text_color_night = 0x7f0609c0;
-        public static final int pass_bio_liveness_dialog_bg_color = 0x7f0609c1;
-        public static final int pass_bio_liveness_dialog_bg_color_night = 0x7f0609c2;
-        public static final int pass_bio_liveness_face_loading_mask_layer = 0x7f0609c3;
-        public static final int pass_bio_liveness_recog_bg = 0x7f0609c4;
-        public static final int pass_bio_liveness_recog_circle_border = 0x7f0609c5;
-        public static final int pass_bio_liveness_recog_line = 0x7f0609c6;
-        public static final int pass_bio_liveness_recog_loading_color = 0x7f0609c7;
-        public static final int pass_bio_liveness_recog_tip_text = 0x7f0609c8;
-        public static final int pass_bio_yy_agree_btn_bg_color = 0x7f0609c9;
-        public static final int pass_bio_yy_tips_btn_tv_center_color = 0x7f0609ca;
-        public static final int pass_bio_yy_tips_btn_tv_color = 0x7f0609cb;
-        public static final int primary_dark_material_dark = 0x7f0609f1;
-        public static final int primary_dark_material_light = 0x7f0609f2;
-        public static final int primary_material_dark = 0x7f0609f3;
-        public static final int primary_material_light = 0x7f0609f4;
-        public static final int primary_text_default_material_dark = 0x7f0609f5;
-        public static final int primary_text_default_material_light = 0x7f0609f6;
-        public static final int primary_text_disabled_material_dark = 0x7f0609f7;
-        public static final int primary_text_disabled_material_light = 0x7f0609f8;
-        public static final int ripple_material_dark = 0x7f060a9a;
-        public static final int ripple_material_light = 0x7f060a9b;
-        public static final int secondary_text_default_material_dark = 0x7f060bd0;
-        public static final int secondary_text_default_material_light = 0x7f060bd1;
-        public static final int secondary_text_disabled_material_dark = 0x7f060bd2;
-        public static final int secondary_text_disabled_material_light = 0x7f060bd3;
-        public static final int switch_thumb_disabled_material_dark = 0x7f060c77;
-        public static final int switch_thumb_disabled_material_light = 0x7f060c78;
-        public static final int switch_thumb_material_dark = 0x7f060c79;
-        public static final int switch_thumb_material_light = 0x7f060c7a;
-        public static final int switch_thumb_normal_material_dark = 0x7f060c7b;
-        public static final int switch_thumb_normal_material_light = 0x7f060c7c;
-        public static final int tooltip_background_dark = 0x7f060c8d;
-        public static final int tooltip_background_light = 0x7f060c8e;
+        public static final int abc_background_cache_hint_selector_material_dark = 0x7f06034b;
+        public static final int abc_background_cache_hint_selector_material_light = 0x7f06034c;
+        public static final int abc_btn_colored_borderless_text_material = 0x7f06034d;
+        public static final int abc_btn_colored_text_material = 0x7f06034e;
+        public static final int abc_color_highlight_material = 0x7f06034f;
+        public static final int abc_hint_foreground_material_dark = 0x7f060352;
+        public static final int abc_hint_foreground_material_light = 0x7f060353;
+        public static final int abc_primary_text_disable_only_material_dark = 0x7f060354;
+        public static final int abc_primary_text_disable_only_material_light = 0x7f060355;
+        public static final int abc_primary_text_material_dark = 0x7f060356;
+        public static final int abc_primary_text_material_light = 0x7f060357;
+        public static final int abc_search_url_text = 0x7f060358;
+        public static final int abc_search_url_text_normal = 0x7f060359;
+        public static final int abc_search_url_text_pressed = 0x7f06035a;
+        public static final int abc_search_url_text_selected = 0x7f06035b;
+        public static final int abc_secondary_text_material_dark = 0x7f06035c;
+        public static final int abc_secondary_text_material_light = 0x7f06035d;
+        public static final int abc_tint_btn_checkable = 0x7f06035e;
+        public static final int abc_tint_default = 0x7f06035f;
+        public static final int abc_tint_edittext = 0x7f060360;
+        public static final int abc_tint_seek_thumb = 0x7f060361;
+        public static final int abc_tint_spinner = 0x7f060362;
+        public static final int abc_tint_switch_track = 0x7f060363;
+        public static final int accent_material_dark = 0x7f060364;
+        public static final int accent_material_light = 0x7f060365;
+        public static final int background_floating_material_dark = 0x7f0603f9;
+        public static final int background_floating_material_light = 0x7f0603fa;
+        public static final int background_material_dark = 0x7f0603fb;
+        public static final int background_material_light = 0x7f0603fc;
+        public static final int bright_foreground_disabled_material_dark = 0x7f060495;
+        public static final int bright_foreground_disabled_material_light = 0x7f060496;
+        public static final int bright_foreground_inverse_material_dark = 0x7f060497;
+        public static final int bright_foreground_inverse_material_light = 0x7f060498;
+        public static final int bright_foreground_material_dark = 0x7f060499;
+        public static final int bright_foreground_material_light = 0x7f06049a;
+        public static final int button_material_dark = 0x7f0604a1;
+        public static final int button_material_light = 0x7f0604a2;
+        public static final int dim_foreground_disabled_material_dark = 0x7f060781;
+        public static final int dim_foreground_disabled_material_light = 0x7f060782;
+        public static final int dim_foreground_material_dark = 0x7f060783;
+        public static final int dim_foreground_material_light = 0x7f060784;
+        public static final int error_color_material_dark = 0x7f060836;
+        public static final int error_color_material_light = 0x7f060837;
+        public static final int foreground_material_dark = 0x7f06083b;
+        public static final int foreground_material_light = 0x7f06083c;
+        public static final int highlighted_text_material_dark = 0x7f060853;
+        public static final int highlighted_text_material_light = 0x7f060854;
+        public static final int material_blue_grey_800 = 0x7f0608bc;
+        public static final int material_blue_grey_900 = 0x7f0608bd;
+        public static final int material_blue_grey_950 = 0x7f0608be;
+        public static final int material_deep_teal_200 = 0x7f0608bf;
+        public static final int material_deep_teal_500 = 0x7f0608c0;
+        public static final int material_grey_100 = 0x7f0608c1;
+        public static final int material_grey_300 = 0x7f0608c2;
+        public static final int material_grey_50 = 0x7f0608c3;
+        public static final int material_grey_600 = 0x7f0608c4;
+        public static final int material_grey_800 = 0x7f0608c5;
+        public static final int material_grey_850 = 0x7f0608c6;
+        public static final int material_grey_900 = 0x7f0608c7;
+        public static final int notification_action_color_filter = 0x7f0609a5;
+        public static final int notification_icon_bg_color = 0x7f0609a6;
+        public static final int pass_bio_dialog_content_text_color = 0x7f0609b7;
+        public static final int pass_bio_dialog_content_text_color_night = 0x7f0609b8;
+        public static final int pass_bio_dialog_negative_btn_bg_color = 0x7f0609b9;
+        public static final int pass_bio_dialog_negative_btn_bg_color_night = 0x7f0609ba;
+        public static final int pass_bio_dialog_negative_btn_text_color = 0x7f0609bb;
+        public static final int pass_bio_dialog_negative_btn_text_color_night = 0x7f0609bc;
+        public static final int pass_bio_dialog_positive_btn_bg_color = 0x7f0609bd;
+        public static final int pass_bio_dialog_positive_btn_bg_color_night = 0x7f0609be;
+        public static final int pass_bio_dialog_positive_btn_text_color = 0x7f0609bf;
+        public static final int pass_bio_dialog_positive_btn_text_color_night = 0x7f0609c0;
+        public static final int pass_bio_dialog_time_out_msg_color = 0x7f0609c1;
+        public static final int pass_bio_dialog_time_out_msg_color_night = 0x7f0609c2;
+        public static final int pass_bio_dialog_title_text_color = 0x7f0609c3;
+        public static final int pass_bio_dialog_title_text_color_night = 0x7f0609c4;
+        public static final int pass_bio_liveness_dialog_bg_color = 0x7f0609c5;
+        public static final int pass_bio_liveness_dialog_bg_color_night = 0x7f0609c6;
+        public static final int pass_bio_liveness_face_loading_mask_layer = 0x7f0609c7;
+        public static final int pass_bio_liveness_recog_bg = 0x7f0609c8;
+        public static final int pass_bio_liveness_recog_circle_border = 0x7f0609c9;
+        public static final int pass_bio_liveness_recog_line = 0x7f0609ca;
+        public static final int pass_bio_liveness_recog_loading_color = 0x7f0609cb;
+        public static final int pass_bio_liveness_recog_tip_text = 0x7f0609cc;
+        public static final int pass_bio_yy_agree_btn_bg_color = 0x7f0609cd;
+        public static final int pass_bio_yy_tips_btn_tv_center_color = 0x7f0609ce;
+        public static final int pass_bio_yy_tips_btn_tv_color = 0x7f0609cf;
+        public static final int primary_dark_material_dark = 0x7f0609f5;
+        public static final int primary_dark_material_light = 0x7f0609f6;
+        public static final int primary_material_dark = 0x7f0609f7;
+        public static final int primary_material_light = 0x7f0609f8;
+        public static final int primary_text_default_material_dark = 0x7f0609f9;
+        public static final int primary_text_default_material_light = 0x7f0609fa;
+        public static final int primary_text_disabled_material_dark = 0x7f0609fb;
+        public static final int primary_text_disabled_material_light = 0x7f0609fc;
+        public static final int ripple_material_dark = 0x7f060a9e;
+        public static final int ripple_material_light = 0x7f060a9f;
+        public static final int secondary_text_default_material_dark = 0x7f060bd4;
+        public static final int secondary_text_default_material_light = 0x7f060bd5;
+        public static final int secondary_text_disabled_material_dark = 0x7f060bd6;
+        public static final int secondary_text_disabled_material_light = 0x7f060bd7;
+        public static final int switch_thumb_disabled_material_dark = 0x7f060c7b;
+        public static final int switch_thumb_disabled_material_light = 0x7f060c7c;
+        public static final int switch_thumb_material_dark = 0x7f060c7d;
+        public static final int switch_thumb_material_light = 0x7f060c7e;
+        public static final int switch_thumb_normal_material_dark = 0x7f060c7f;
+        public static final int switch_thumb_normal_material_light = 0x7f060c80;
+        public static final int tooltip_background_dark = 0x7f060c91;
+        public static final int tooltip_background_light = 0x7f060c92;
         public transient /* synthetic */ FieldHolder $fh;
 
         public color() {
@@ -548,7 +548,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class dimen {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_action_bar_content_inset_material = 0x7f07008b;
@@ -645,34 +645,34 @@ public final class R {
         public static final int hint_alpha_material_light = 0x7f070404;
         public static final int hint_pressed_alpha_material_dark = 0x7f070405;
         public static final int hint_pressed_alpha_material_light = 0x7f070406;
-        public static final int notification_action_icon_size = 0x7f070664;
-        public static final int notification_action_text_size = 0x7f070665;
-        public static final int notification_big_circle_margin = 0x7f070668;
-        public static final int notification_content_margin_start = 0x7f070669;
-        public static final int notification_large_icon_height = 0x7f07066a;
-        public static final int notification_large_icon_width = 0x7f07066b;
-        public static final int notification_main_column_padding_top = 0x7f07066c;
-        public static final int notification_media_narrow_margin = 0x7f07066d;
-        public static final int notification_right_icon_size = 0x7f07066e;
-        public static final int notification_right_side_padding_top = 0x7f07066f;
-        public static final int notification_small_icon_background_padding = 0x7f070670;
-        public static final int notification_small_icon_size_as_large = 0x7f070671;
-        public static final int notification_subtext_size = 0x7f070672;
-        public static final int notification_top_pad = 0x7f070674;
-        public static final int notification_top_pad_large_text = 0x7f070675;
-        public static final int pass_bio_standard_margin = 0x7f070677;
-        public static final int pass_bio_standard_padding = 0x7f070678;
-        public static final int pass_liveness_face_loading_progress_size = 0x7f070679;
-        public static final int pass_liveness_face_round_height = 0x7f07067a;
-        public static final int pass_liveness_face_round_width = 0x7f07067b;
-        public static final int tooltip_corner_radius = 0x7f070ac5;
-        public static final int tooltip_horizontal_padding = 0x7f070ac6;
-        public static final int tooltip_margin = 0x7f070ac7;
-        public static final int tooltip_precise_anchor_extra_offset = 0x7f070ac8;
-        public static final int tooltip_precise_anchor_threshold = 0x7f070ac9;
-        public static final int tooltip_vertical_padding = 0x7f070aca;
-        public static final int tooltip_y_offset_non_touch = 0x7f070acb;
-        public static final int tooltip_y_offset_touch = 0x7f070acc;
+        public static final int notification_action_icon_size = 0x7f070665;
+        public static final int notification_action_text_size = 0x7f070666;
+        public static final int notification_big_circle_margin = 0x7f070669;
+        public static final int notification_content_margin_start = 0x7f07066a;
+        public static final int notification_large_icon_height = 0x7f07066b;
+        public static final int notification_large_icon_width = 0x7f07066c;
+        public static final int notification_main_column_padding_top = 0x7f07066d;
+        public static final int notification_media_narrow_margin = 0x7f07066e;
+        public static final int notification_right_icon_size = 0x7f07066f;
+        public static final int notification_right_side_padding_top = 0x7f070670;
+        public static final int notification_small_icon_background_padding = 0x7f070671;
+        public static final int notification_small_icon_size_as_large = 0x7f070672;
+        public static final int notification_subtext_size = 0x7f070674;
+        public static final int notification_top_pad = 0x7f070675;
+        public static final int notification_top_pad_large_text = 0x7f070676;
+        public static final int pass_bio_standard_margin = 0x7f070678;
+        public static final int pass_bio_standard_padding = 0x7f070679;
+        public static final int pass_liveness_face_loading_progress_size = 0x7f07067a;
+        public static final int pass_liveness_face_round_height = 0x7f07067b;
+        public static final int pass_liveness_face_round_width = 0x7f07067c;
+        public static final int tooltip_corner_radius = 0x7f070ac6;
+        public static final int tooltip_horizontal_padding = 0x7f070ac7;
+        public static final int tooltip_margin = 0x7f070ac8;
+        public static final int tooltip_precise_anchor_extra_offset = 0x7f070ac9;
+        public static final int tooltip_precise_anchor_threshold = 0x7f070aca;
+        public static final int tooltip_vertical_padding = 0x7f070acb;
+        public static final int tooltip_y_offset_non_touch = 0x7f070acc;
+        public static final int tooltip_y_offset_touch = 0x7f070acd;
         public transient /* synthetic */ FieldHolder $fh;
 
         public dimen() {
@@ -690,7 +690,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_ab_share_pack_mtrl_alpha = 0x7f080065;
@@ -787,41 +787,41 @@ public final class R {
         public static final int btn_radio_off_to_on_mtrl_animation = 0x7f0803fe;
         public static final int btn_radio_on_mtrl = 0x7f0803ff;
         public static final int btn_radio_on_to_off_mtrl_animation = 0x7f080400;
-        public static final int notification_action_background = 0x7f080f79;
-        public static final int notification_bg = 0x7f080f7a;
-        public static final int notification_bg_low = 0x7f080f7b;
-        public static final int notification_bg_low_normal = 0x7f080f7c;
-        public static final int notification_bg_low_pressed = 0x7f080f7d;
-        public static final int notification_bg_normal = 0x7f080f7e;
-        public static final int notification_bg_normal_pressed = 0x7f080f7f;
-        public static final int notification_icon_background = 0x7f080f80;
-        public static final int notification_template_icon_bg = 0x7f080f81;
-        public static final int notification_template_icon_low_bg = 0x7f080f82;
-        public static final int notification_tile_bg = 0x7f080f83;
-        public static final int notify_panel_notification_icon_bg = 0x7f080f85;
-        public static final int pass_bio_toast_bg = 0x7f080f95;
-        public static final int pass_face_timeout_reason1 = 0x7f080f96;
-        public static final int pass_face_timeout_reason2 = 0x7f080f97;
-        public static final int pass_face_timeout_reason3 = 0x7f080f98;
-        public static final int pass_liveness_agree_btn_bg = 0x7f080f99;
-        public static final int pass_liveness_bio_dialog_negative_btn_bg = 0x7f080f9a;
-        public static final int pass_liveness_bio_dialog_negative_btn_bg_night = 0x7f080f9b;
-        public static final int pass_liveness_bio_dialog_positive_btn_bg = 0x7f080f9c;
-        public static final int pass_liveness_bio_dialog_positive_btn_bg_night = 0x7f080f9d;
-        public static final int pass_liveness_bio_face_loading_mask_layer = 0x7f080f9e;
-        public static final int pass_liveness_bio_loading = 0x7f080f9f;
-        public static final int pass_liveness_dialog_bg = 0x7f080fa0;
-        public static final int pass_liveness_dialog_bg_night = 0x7f080fa1;
-        public static final int pass_liveness_face_icon_loading = 0x7f080fa2;
-        public static final int pass_liveness_face_recognizing_close = 0x7f080fa3;
-        public static final int pass_liveness_face_recognizing_waring = 0x7f080fa4;
-        public static final int pass_liveness_face_yy_default = 0x7f080fa5;
-        public static final int pass_liveness_loading_circle2 = 0x7f080fa6;
-        public static final int pass_liveness_loading_logo = 0x7f080fa7;
-        public static final int pass_liveness_recog_face_mask = 0x7f080fa8;
-        public static final int pass_liveness_toast_bg = 0x7f080fa9;
-        public static final int tooltip_frame_dark = 0x7f08138c;
-        public static final int tooltip_frame_light = 0x7f08138d;
+        public static final int notification_action_background = 0x7f080f7f;
+        public static final int notification_bg = 0x7f080f80;
+        public static final int notification_bg_low = 0x7f080f81;
+        public static final int notification_bg_low_normal = 0x7f080f82;
+        public static final int notification_bg_low_pressed = 0x7f080f83;
+        public static final int notification_bg_normal = 0x7f080f84;
+        public static final int notification_bg_normal_pressed = 0x7f080f85;
+        public static final int notification_icon_background = 0x7f080f86;
+        public static final int notification_template_icon_bg = 0x7f080f87;
+        public static final int notification_template_icon_low_bg = 0x7f080f88;
+        public static final int notification_tile_bg = 0x7f080f89;
+        public static final int notify_panel_notification_icon_bg = 0x7f080f8b;
+        public static final int pass_bio_toast_bg = 0x7f080f9b;
+        public static final int pass_face_timeout_reason1 = 0x7f080f9c;
+        public static final int pass_face_timeout_reason2 = 0x7f080f9d;
+        public static final int pass_face_timeout_reason3 = 0x7f080f9e;
+        public static final int pass_liveness_agree_btn_bg = 0x7f080f9f;
+        public static final int pass_liveness_bio_dialog_negative_btn_bg = 0x7f080fa0;
+        public static final int pass_liveness_bio_dialog_negative_btn_bg_night = 0x7f080fa1;
+        public static final int pass_liveness_bio_dialog_positive_btn_bg = 0x7f080fa2;
+        public static final int pass_liveness_bio_dialog_positive_btn_bg_night = 0x7f080fa3;
+        public static final int pass_liveness_bio_face_loading_mask_layer = 0x7f080fa4;
+        public static final int pass_liveness_bio_loading = 0x7f080fa5;
+        public static final int pass_liveness_dialog_bg = 0x7f080fa6;
+        public static final int pass_liveness_dialog_bg_night = 0x7f080fa7;
+        public static final int pass_liveness_face_icon_loading = 0x7f080fa8;
+        public static final int pass_liveness_face_recognizing_close = 0x7f080fa9;
+        public static final int pass_liveness_face_recognizing_waring = 0x7f080faa;
+        public static final int pass_liveness_face_yy_default = 0x7f080fab;
+        public static final int pass_liveness_loading_circle2 = 0x7f080fac;
+        public static final int pass_liveness_loading_logo = 0x7f080fad;
+        public static final int pass_liveness_recog_face_mask = 0x7f080fae;
+        public static final int pass_liveness_toast_bg = 0x7f080faf;
+        public static final int tooltip_frame_dark = 0x7f081394;
+        public static final int tooltip_frame_light = 0x7f081395;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -839,7 +839,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int accessibility_action_clickable_span = 0x7f09002c;
@@ -897,128 +897,128 @@ public final class R {
         public static final int add = 0x7f090107;
         public static final int alertTitle = 0x7f09025f;
         public static final int async = 0x7f0902c5;
-        public static final int blocking = 0x7f090404;
-        public static final int buttonPanel = 0x7f0904e9;
-        public static final int checkbox = 0x7f090714;
-        public static final int checked = 0x7f090718;
-        public static final int chronometer = 0x7f090757;
-        public static final int content = 0x7f0907e7;
-        public static final int contentPanel = 0x7f0907eb;
-        public static final int custom = 0x7f09087b;
-        public static final int customPanel = 0x7f09087c;
-        public static final int decor_content_parent = 0x7f0908aa;
-        public static final int default_activity_button = 0x7f0908ad;
-        public static final int dialog_button = 0x7f0908e6;
-        public static final int dialog_msg = 0x7f090901;
-        public static final int dialog_title = 0x7f09090b;
-        public static final int edit_query = 0x7f090a01;
-        public static final int expand_activities_button = 0x7f090ae6;
-        public static final int expanded_menu = 0x7f090af2;
-        public static final int forever = 0x7f090be4;
-        public static final int group_divider = 0x7f090ebe;
-        public static final int home = 0x7f090f44;
-        public static final int icon = 0x7f090ffc;
-        public static final int icon_group = 0x7f09100e;
-        public static final int image = 0x7f09106e;
-        public static final int info = 0x7f091105;
-        public static final int italic = 0x7f09116c;
-        public static final int iv_back = 0x7f0911da;
-        public static final int iv_pose_warning_tip = 0x7f091212;
-        public static final int iv_recog_circle = 0x7f091214;
-        public static final int iv_recog_logo = 0x7f091215;
-        public static final int layout_pose_warning = 0x7f091417;
-        public static final int line1 = 0x7f09149e;
-        public static final int line3 = 0x7f0914a0;
-        public static final int listMode = 0x7f0914c2;
-        public static final int list_item = 0x7f0914c7;
-        public static final int message = 0x7f091651;
-        public static final int msg_text = 0x7f0916b8;
-        public static final int multiply = 0x7f0916dd;
-        public static final int negative_btn = 0x7f09178c;
-        public static final int neutral_btn = 0x7f09179a;
-        public static final int none = 0x7f09180e;
-        public static final int normal = 0x7f091815;
-        public static final int notification_background = 0x7f091824;
-        public static final int notification_main_column = 0x7f091826;
-        public static final int notification_main_column_container = 0x7f091827;
-        public static final int off = 0x7f091846;
-        public static final int on = 0x7f091863;
-        public static final int parentPanel = 0x7f0918ba;
-        public static final int pass_bio_camera_pre_view = 0x7f0918c4;
-        public static final int pass_bio_circle_hide_view = 0x7f0918c5;
-        public static final int pass_bio_circle_image_view = 0x7f0918c6;
-        public static final int pass_bio_circle_image_yy_view = 0x7f0918c7;
-        public static final int pass_bio_dialog_alert_ll_content = 0x7f0918c8;
-        public static final int pass_bio_dialog_ll_content = 0x7f0918c9;
-        public static final int pass_bio_dialog_time_center = 0x7f0918ca;
-        public static final int pass_bio_dialog_time_left = 0x7f0918cb;
-        public static final int pass_bio_dialog_time_right = 0x7f0918cc;
-        public static final int pass_bio_liveness_recog_argee_btn = 0x7f0918cd;
-        public static final int pass_bio_liveness_recog_close = 0x7f0918ce;
-        public static final int pass_bio_liveness_recog_cpv = 0x7f0918cf;
-        public static final int pass_bio_liveness_recog_tip_text = 0x7f0918d0;
-        public static final int pass_bio_liveness_recog_tv_href = 0x7f0918d1;
-        public static final int pass_bio_liveness_recog_yy_bottom = 0x7f0918d2;
-        public static final int pass_bio_loading_view = 0x7f0918d3;
-        public static final int positive_btn = 0x7f091b57;
-        public static final int progress_circular = 0x7f091bdd;
-        public static final int progress_horizontal = 0x7f091bdf;
-        public static final int radio = 0x7f091c83;
-        public static final int right_icon = 0x7f091d87;
-        public static final int right_side = 0x7f091d8d;
-        public static final int rim_base_toast_icon = 0x7f091d96;
-        public static final int rim_base_toast_message = 0x7f091d97;
-        public static final int sapi_sdk_titlebar_title_tv = 0x7f091ed3;
-        public static final int screen = 0x7f091efc;
-        public static final int scrollIndicatorDown = 0x7f091f07;
-        public static final int scrollIndicatorUp = 0x7f091f08;
-        public static final int scrollView = 0x7f091f09;
-        public static final int search_badge = 0x7f091f1c;
-        public static final int search_bar = 0x7f091f1d;
-        public static final int search_button = 0x7f091f23;
-        public static final int search_close_btn = 0x7f091f24;
-        public static final int search_edit_frame = 0x7f091f27;
-        public static final int search_go_btn = 0x7f091f32;
-        public static final int search_mag_icon = 0x7f091f41;
-        public static final int search_plate = 0x7f091f42;
-        public static final int search_src_text = 0x7f091f49;
-        public static final int search_voice_btn = 0x7f091f52;
-        public static final int select_dialog_listview = 0x7f091f78;
-        public static final int shortcut = 0x7f091ff6;
-        public static final int spacer = 0x7f09205f;
-        public static final int split_action_bar = 0x7f092075;
-        public static final int src_atop = 0x7f09209b;
-        public static final int src_in = 0x7f09209c;
-        public static final int src_over = 0x7f09209d;
-        public static final int submenuarrow = 0x7f0920f6;
-        public static final int submit_area = 0x7f0920f7;
-        public static final int tabMode = 0x7f092160;
-        public static final int tag_accessibility_actions = 0x7f09218a;
-        public static final int tag_accessibility_clickable_spans = 0x7f09218b;
-        public static final int tag_accessibility_heading = 0x7f09218c;
-        public static final int tag_accessibility_pane_title = 0x7f09218d;
-        public static final int tag_screen_reader_focusable = 0x7f0921d0;
-        public static final int tag_transition_group = 0x7f0921de;
-        public static final int tag_unhandled_key_event_manager = 0x7f0921df;
-        public static final int tag_unhandled_key_listeners = 0x7f0921e0;
-        public static final int text = 0x7f092248;
-        public static final int text2 = 0x7f09224a;
-        public static final int textSpacerNoButtons = 0x7f092251;
-        public static final int textSpacerNoTitle = 0x7f092252;
-        public static final int time = 0x7f09232b;
-        public static final int time_out_dialog_msg = 0x7f09232c;
-        public static final int title = 0x7f09235c;
-        public static final int titleDividerNoCustom = 0x7f09235e;
-        public static final int title_template = 0x7f0923a3;
-        public static final int title_text = 0x7f0923a4;
-        public static final int topPanel = 0x7f0923f3;
-        public static final int tv_pose_warning_tip = 0x7f09256d;
-        public static final int unchecked = 0x7f092611;
-        public static final int uniform = 0x7f092616;
-        public static final int up = 0x7f09262e;
-        public static final int view_switcher = 0x7f0927a1;
-        public static final int webView = 0x7f092899;
-        public static final int wrap_content = 0x7f0928e8;
+        public static final int blocking = 0x7f090405;
+        public static final int buttonPanel = 0x7f0904ec;
+        public static final int checkbox = 0x7f090717;
+        public static final int checked = 0x7f09071c;
+        public static final int chronometer = 0x7f09075c;
+        public static final int content = 0x7f0907ef;
+        public static final int contentPanel = 0x7f0907f3;
+        public static final int custom = 0x7f090883;
+        public static final int customPanel = 0x7f090884;
+        public static final int decor_content_parent = 0x7f0908b2;
+        public static final int default_activity_button = 0x7f0908b5;
+        public static final int dialog_button = 0x7f0908ee;
+        public static final int dialog_msg = 0x7f090909;
+        public static final int dialog_title = 0x7f090913;
+        public static final int edit_query = 0x7f090a09;
+        public static final int expand_activities_button = 0x7f090aee;
+        public static final int expanded_menu = 0x7f090afa;
+        public static final int forever = 0x7f090bec;
+        public static final int group_divider = 0x7f090ed4;
+        public static final int home = 0x7f090f5a;
+        public static final int icon = 0x7f091015;
+        public static final int icon_group = 0x7f091027;
+        public static final int image = 0x7f091087;
+        public static final int info = 0x7f09111e;
+        public static final int italic = 0x7f091185;
+        public static final int iv_back = 0x7f0911f3;
+        public static final int iv_pose_warning_tip = 0x7f09122b;
+        public static final int iv_recog_circle = 0x7f09122d;
+        public static final int iv_recog_logo = 0x7f09122e;
+        public static final int layout_pose_warning = 0x7f091430;
+        public static final int line1 = 0x7f0914b7;
+        public static final int line3 = 0x7f0914b9;
+        public static final int listMode = 0x7f0914db;
+        public static final int list_item = 0x7f0914e0;
+        public static final int message = 0x7f09166d;
+        public static final int msg_text = 0x7f0916d4;
+        public static final int multiply = 0x7f0916f9;
+        public static final int negative_btn = 0x7f0917aa;
+        public static final int neutral_btn = 0x7f0917b8;
+        public static final int none = 0x7f09182d;
+        public static final int normal = 0x7f091834;
+        public static final int notification_background = 0x7f091843;
+        public static final int notification_main_column = 0x7f091845;
+        public static final int notification_main_column_container = 0x7f091846;
+        public static final int off = 0x7f091865;
+        public static final int on = 0x7f091882;
+        public static final int parentPanel = 0x7f0918d9;
+        public static final int pass_bio_camera_pre_view = 0x7f0918e3;
+        public static final int pass_bio_circle_hide_view = 0x7f0918e4;
+        public static final int pass_bio_circle_image_view = 0x7f0918e5;
+        public static final int pass_bio_circle_image_yy_view = 0x7f0918e6;
+        public static final int pass_bio_dialog_alert_ll_content = 0x7f0918e7;
+        public static final int pass_bio_dialog_ll_content = 0x7f0918e8;
+        public static final int pass_bio_dialog_time_center = 0x7f0918e9;
+        public static final int pass_bio_dialog_time_left = 0x7f0918ea;
+        public static final int pass_bio_dialog_time_right = 0x7f0918eb;
+        public static final int pass_bio_liveness_recog_argee_btn = 0x7f0918ec;
+        public static final int pass_bio_liveness_recog_close = 0x7f0918ed;
+        public static final int pass_bio_liveness_recog_cpv = 0x7f0918ee;
+        public static final int pass_bio_liveness_recog_tip_text = 0x7f0918ef;
+        public static final int pass_bio_liveness_recog_tv_href = 0x7f0918f0;
+        public static final int pass_bio_liveness_recog_yy_bottom = 0x7f0918f1;
+        public static final int pass_bio_loading_view = 0x7f0918f2;
+        public static final int positive_btn = 0x7f091b7c;
+        public static final int progress_circular = 0x7f091c02;
+        public static final int progress_horizontal = 0x7f091c04;
+        public static final int radio = 0x7f091ca8;
+        public static final int right_icon = 0x7f091dae;
+        public static final int right_side = 0x7f091db4;
+        public static final int rim_base_toast_icon = 0x7f091dbd;
+        public static final int rim_base_toast_message = 0x7f091dbe;
+        public static final int sapi_sdk_titlebar_title_tv = 0x7f091efa;
+        public static final int screen = 0x7f091f23;
+        public static final int scrollIndicatorDown = 0x7f091f2e;
+        public static final int scrollIndicatorUp = 0x7f091f2f;
+        public static final int scrollView = 0x7f091f30;
+        public static final int search_badge = 0x7f091f43;
+        public static final int search_bar = 0x7f091f44;
+        public static final int search_button = 0x7f091f4a;
+        public static final int search_close_btn = 0x7f091f4b;
+        public static final int search_edit_frame = 0x7f091f4e;
+        public static final int search_go_btn = 0x7f091f59;
+        public static final int search_mag_icon = 0x7f091f68;
+        public static final int search_plate = 0x7f091f69;
+        public static final int search_src_text = 0x7f091f70;
+        public static final int search_voice_btn = 0x7f091f79;
+        public static final int select_dialog_listview = 0x7f091fa0;
+        public static final int shortcut = 0x7f09201f;
+        public static final int spacer = 0x7f092088;
+        public static final int split_action_bar = 0x7f09209e;
+        public static final int src_atop = 0x7f0920c4;
+        public static final int src_in = 0x7f0920c5;
+        public static final int src_over = 0x7f0920c6;
+        public static final int submenuarrow = 0x7f09211f;
+        public static final int submit_area = 0x7f092120;
+        public static final int tabMode = 0x7f092189;
+        public static final int tag_accessibility_actions = 0x7f0921b3;
+        public static final int tag_accessibility_clickable_spans = 0x7f0921b4;
+        public static final int tag_accessibility_heading = 0x7f0921b5;
+        public static final int tag_accessibility_pane_title = 0x7f0921b6;
+        public static final int tag_screen_reader_focusable = 0x7f0921f9;
+        public static final int tag_transition_group = 0x7f092207;
+        public static final int tag_unhandled_key_event_manager = 0x7f092208;
+        public static final int tag_unhandled_key_listeners = 0x7f092209;
+        public static final int text = 0x7f092271;
+        public static final int text2 = 0x7f092273;
+        public static final int textSpacerNoButtons = 0x7f09227a;
+        public static final int textSpacerNoTitle = 0x7f09227b;
+        public static final int time = 0x7f092355;
+        public static final int time_out_dialog_msg = 0x7f092356;
+        public static final int title = 0x7f092386;
+        public static final int titleDividerNoCustom = 0x7f092388;
+        public static final int title_template = 0x7f0923cd;
+        public static final int title_text = 0x7f0923ce;
+        public static final int topPanel = 0x7f09241d;
+        public static final int tv_pose_warning_tip = 0x7f092598;
+        public static final int unchecked = 0x7f09263c;
+        public static final int uniform = 0x7f092641;
+        public static final int up = 0x7f092659;
+        public static final int view_switcher = 0x7f0927cc;
+        public static final int webView = 0x7f0928c7;
+        public static final int wrap_content = 0x7f09291e;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -1036,7 +1036,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class integer {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_config_activityDefaultDur = 0x7f0a0000;
@@ -1061,7 +1061,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class interpolator {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int btn_checkbox_checked_mtrl_animation_interpolator_0 = 0x7f0c0000;
@@ -1088,7 +1088,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class layout {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_action_bar_title_item = 0x7f0d0000;
@@ -1119,23 +1119,23 @@ public final class R {
         public static final int abc_search_view = 0x7f0d0019;
         public static final int abc_select_dialog_material = 0x7f0d001a;
         public static final int abc_tooltip = 0x7f0d001b;
-        public static final int custom_dialog = 0x7f0d020d;
-        public static final int layout_pass_liveness_alert_dialog = 0x7f0d04b8;
-        public static final int layout_pass_liveness_constrast_loading = 0x7f0d04b9;
-        public static final int layout_pass_liveness_dialog_alert = 0x7f0d04ba;
-        public static final int layout_pass_liveness_protocol = 0x7f0d04bb;
-        public static final int layout_pass_liveness_recognize_new = 0x7f0d04bc;
-        public static final int notification_action = 0x7f0d0643;
-        public static final int notification_action_tombstone = 0x7f0d0644;
-        public static final int notification_template_custom_big = 0x7f0d064b;
-        public static final int notification_template_icon_group = 0x7f0d064c;
-        public static final int notification_template_part_chronometer = 0x7f0d0650;
-        public static final int notification_template_part_time = 0x7f0d0651;
-        public static final int pass_bio_toast_tips = 0x7f0d0677;
-        public static final int select_dialog_item_material = 0x7f0d0782;
-        public static final int select_dialog_multichoice_material = 0x7f0d0783;
-        public static final int select_dialog_singlechoice_material = 0x7f0d0784;
-        public static final int support_simple_spinner_dropdown_item = 0x7f0d07dc;
+        public static final int custom_dialog = 0x7f0d020e;
+        public static final int layout_pass_liveness_alert_dialog = 0x7f0d04bf;
+        public static final int layout_pass_liveness_constrast_loading = 0x7f0d04c0;
+        public static final int layout_pass_liveness_dialog_alert = 0x7f0d04c1;
+        public static final int layout_pass_liveness_protocol = 0x7f0d04c2;
+        public static final int layout_pass_liveness_recognize_new = 0x7f0d04c3;
+        public static final int notification_action = 0x7f0d064b;
+        public static final int notification_action_tombstone = 0x7f0d064c;
+        public static final int notification_template_custom_big = 0x7f0d0653;
+        public static final int notification_template_icon_group = 0x7f0d0654;
+        public static final int notification_template_part_chronometer = 0x7f0d0658;
+        public static final int notification_template_part_time = 0x7f0d0659;
+        public static final int pass_bio_toast_tips = 0x7f0d067f;
+        public static final int select_dialog_item_material = 0x7f0d078d;
+        public static final int select_dialog_multichoice_material = 0x7f0d078e;
+        public static final int select_dialog_singlechoice_material = 0x7f0d078f;
+        public static final int support_simple_spinner_dropdown_item = 0x7f0d07e7;
         public transient /* synthetic */ FieldHolder $fh;
 
         public layout() {
@@ -1153,7 +1153,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_action_bar_home_description = 0x7f0f0038;
@@ -1184,119 +1184,119 @@ public final class R {
         public static final int abc_shareactionprovider_share_with_application = 0x7f0f0051;
         public static final int abc_toolbar_collapse_description = 0x7f0f0052;
         public static final int app_name = 0x7f0f029e;
-        public static final int collect_bottom_txt = 0x7f0f045d;
-        public static final int detect_face_in = 0x7f0f052f;
-        public static final int detect_head_down = 0x7f0f0530;
-        public static final int detect_head_left = 0x7f0f0531;
-        public static final int detect_head_right = 0x7f0f0532;
-        public static final int detect_head_up = 0x7f0f0533;
-        public static final int detect_keep = 0x7f0f0534;
-        public static final int detect_left_eye_close = 0x7f0f0535;
-        public static final int detect_low_light = 0x7f0f0536;
-        public static final int detect_no_face = 0x7f0f0537;
-        public static final int detect_occ_chin = 0x7f0f0538;
-        public static final int detect_occ_face = 0x7f0f0539;
-        public static final int detect_occ_left_check = 0x7f0f053a;
-        public static final int detect_occ_left_eye = 0x7f0f053b;
-        public static final int detect_occ_mouth = 0x7f0f053c;
-        public static final int detect_occ_nose = 0x7f0f053d;
-        public static final int detect_occ_right_check = 0x7f0f053e;
-        public static final int detect_occ_right_eye = 0x7f0f053f;
-        public static final int detect_right_eye_close = 0x7f0f0540;
-        public static final int detect_standard = 0x7f0f0541;
-        public static final int detect_timeout = 0x7f0f0542;
-        public static final int detect_zoom_in = 0x7f0f0543;
-        public static final int detect_zoom_out = 0x7f0f0544;
-        public static final int home_agreement_functional_explain_old_txt = 0x7f0f09df;
-        public static final int home_agreement_functional_explain_txt = 0x7f0f09e0;
-        public static final int home_agreement_functional_txt = 0x7f0f09e1;
-        public static final int home_agreement_permission_explain_txt = 0x7f0f09e2;
-        public static final int home_agreement_permission_txt = 0x7f0f09e3;
-        public static final int home_agreement_rmation_security_explaoin_txt = 0x7f0f09e4;
-        public static final int home_agreement_rmation_security_txt = 0x7f0f09e5;
-        public static final int home_agreement_titlebar_txt = 0x7f0f09e6;
-        public static final int home_but_txt = 0x7f0f09e7;
-        public static final int home_face_yy_btn_agree = 0x7f0f09ea;
-        public static final int home_face_yy_tips = 0x7f0f09eb;
-        public static final int home_face_yy_tips_center = 0x7f0f09ec;
-        public static final int home_face_yy_tips_left = 0x7f0f09ed;
-        public static final int home_face_yy_tips_right = 0x7f0f09ee;
-        public static final int home_face_yy_title = 0x7f0f09ef;
-        public static final int home_greet_sdk_txt = 0x7f0f09f0;
-        public static final int home_greet_txt = 0x7f0f09f1;
-        public static final int home_handset_explain_txt = 0x7f0f09f2;
-        public static final int home_handset_txt = 0x7f0f09f3;
-        public static final int home_light_explain_txt = 0x7f0f09f4;
-        public static final int home_light_txt = 0x7f0f09f5;
-        public static final int home_mask_explain_txt = 0x7f0f09f8;
-        public static final int home_mask_txt = 0x7f0f09f9;
-        public static final int liveness_eye = 0x7f0f0bd9;
-        public static final int liveness_good = 0x7f0f0bda;
-        public static final int liveness_head_down = 0x7f0f0bdb;
-        public static final int liveness_head_left = 0x7f0f0bdc;
-        public static final int liveness_head_right = 0x7f0f0bdd;
-        public static final int liveness_head_up = 0x7f0f0bde;
-        public static final int liveness_mouth = 0x7f0f0bdf;
-        public static final int pass_bio_alert_dialog_btn_again = 0x7f0f0ee3;
-        public static final int pass_bio_alert_dialog_btn_back = 0x7f0f0ee4;
-        public static final int pass_bio_alert_dialog_btn_cancel = 0x7f0f0ee5;
-        public static final int pass_bio_alert_dialog_btn_go_setting = 0x7f0f0ee6;
-        public static final int pass_bio_alert_dialog_btn_ok = 0x7f0f0ee7;
-        public static final int pass_bio_alert_dialog_default_msg_text = 0x7f0f0ee8;
-        public static final int pass_bio_cancel = 0x7f0f0ee9;
-        public static final int pass_bio_error_msg_contrast_fail = 0x7f0f0eea;
-        public static final int pass_bio_error_msg_dangerous_protocol_error = 0x7f0f0eeb;
-        public static final int pass_bio_error_msg_face_sdk_init_fail = 0x7f0f0eec;
-        public static final int pass_bio_error_msg_image_file_empty = 0x7f0f0eed;
-        public static final int pass_bio_error_msg_liveness_recognize_time_out = 0x7f0f0eee;
-        public static final int pass_bio_error_msg_may_be_no_camera_permission = 0x7f0f0eef;
-        public static final int pass_bio_error_msg_network_unavailable = 0x7f0f0ef0;
-        public static final int pass_bio_error_msg_no_login = 0x7f0f0ef1;
-        public static final int pass_bio_error_msg_open_camera_failure = 0x7f0f0ef2;
-        public static final int pass_bio_error_msg_param = 0x7f0f0ef3;
-        public static final int pass_bio_error_msg_server_error = 0x7f0f0ef4;
-        public static final int pass_bio_error_msg_so_error = 0x7f0f0ef5;
-        public static final int pass_bio_error_msg_ssl_peer_unverified = 0x7f0f0ef6;
-        public static final int pass_bio_error_msg_unknown = 0x7f0f0ef7;
-        public static final int pass_bio_error_msg_user_cancel = 0x7f0f0ef8;
-        public static final int pass_bio_multi_window_tips = 0x7f0f0ef9;
-        public static final int pass_bio_permission_request = 0x7f0f0efa;
-        public static final int pass_bio_pmn_camera = 0x7f0f0efb;
-        public static final int pass_bio_pmn_cancel = 0x7f0f0efc;
-        public static final int pass_bio_pmn_msg_liveness = 0x7f0f0efd;
-        public static final int pass_bio_pmn_ok = 0x7f0f0efe;
-        public static final int pass_bio_pmn_title_liveness = 0x7f0f0eff;
-        public static final int pass_bio_result_msg_success = 0x7f0f0f00;
-        public static final int pass_face_timeout_dialog_fail_reason = 0x7f0f0f01;
-        public static final int pass_face_timeout_dialog_fail_reason2 = 0x7f0f0f02;
-        public static final int pass_face_timeout_dialog_fail_reason3 = 0x7f0f0f03;
-        public static final int pass_face_timeout_dialog_msg = 0x7f0f0f04;
-        public static final int pass_face_timeout_dialog_title = 0x7f0f0f05;
-        public static final int pass_liveness_brightness_too_dark = 0x7f0f0f06;
-        public static final int pass_liveness_face_to_screen = 0x7f0f0f07;
-        public static final int pass_liveness_frist_text = 0x7f0f0f08;
-        public static final int pass_liveness_loading_text = 0x7f0f0f09;
-        public static final int pass_liveness_permission_camera = 0x7f0f0f0a;
-        public static final int pass_liveness_put_face_round = 0x7f0f0f0b;
-        public static final int pass_liveness_recog_fail_dialog_msg = 0x7f0f0f0c;
-        public static final int pass_liveness_recog_fail_dialog_title = 0x7f0f0f0d;
-        public static final int pass_liveness_tofar_from_camera = 0x7f0f0f0e;
-        public static final int pass_liveness_tonear_from_camera = 0x7f0f0f0f;
-        public static final int search_menu_title = 0x7f0f1329;
-        public static final int setting_actionlive_blink_txt = 0x7f0f137e;
-        public static final int setting_actionlive_look_up_txt = 0x7f0f137f;
-        public static final int setting_actionlive_nod_txt = 0x7f0f1380;
-        public static final int setting_actionlive_open_mouth_txt = 0x7f0f1381;
-        public static final int setting_actionlive_shake_head_txt = 0x7f0f1382;
-        public static final int setting_actionlive_turn_left_txt = 0x7f0f1383;
-        public static final int setting_actionlive_turn_right_txt = 0x7f0f1384;
-        public static final int setting_actionlive_txt = 0x7f0f1385;
-        public static final int setting_announcements_txt = 0x7f0f1386;
-        public static final int setting_live_detect_txt = 0x7f0f1388;
-        public static final int setting_prompt_txt = 0x7f0f1389;
-        public static final int setting_quality_txt = 0x7f0f138a;
-        public static final int setting_titlebar_txt = 0x7f0f138d;
-        public static final int status_bar_notification_info_overflow = 0x7f0f1452;
+        public static final int collect_bottom_txt = 0x7f0f0462;
+        public static final int detect_face_in = 0x7f0f0536;
+        public static final int detect_head_down = 0x7f0f0537;
+        public static final int detect_head_left = 0x7f0f0538;
+        public static final int detect_head_right = 0x7f0f0539;
+        public static final int detect_head_up = 0x7f0f053a;
+        public static final int detect_keep = 0x7f0f053b;
+        public static final int detect_left_eye_close = 0x7f0f053c;
+        public static final int detect_low_light = 0x7f0f053d;
+        public static final int detect_no_face = 0x7f0f053e;
+        public static final int detect_occ_chin = 0x7f0f053f;
+        public static final int detect_occ_face = 0x7f0f0540;
+        public static final int detect_occ_left_check = 0x7f0f0541;
+        public static final int detect_occ_left_eye = 0x7f0f0542;
+        public static final int detect_occ_mouth = 0x7f0f0543;
+        public static final int detect_occ_nose = 0x7f0f0544;
+        public static final int detect_occ_right_check = 0x7f0f0545;
+        public static final int detect_occ_right_eye = 0x7f0f0546;
+        public static final int detect_right_eye_close = 0x7f0f0547;
+        public static final int detect_standard = 0x7f0f0548;
+        public static final int detect_timeout = 0x7f0f0549;
+        public static final int detect_zoom_in = 0x7f0f054a;
+        public static final int detect_zoom_out = 0x7f0f054b;
+        public static final int home_agreement_functional_explain_old_txt = 0x7f0f09ec;
+        public static final int home_agreement_functional_explain_txt = 0x7f0f09ed;
+        public static final int home_agreement_functional_txt = 0x7f0f09ee;
+        public static final int home_agreement_permission_explain_txt = 0x7f0f09ef;
+        public static final int home_agreement_permission_txt = 0x7f0f09f0;
+        public static final int home_agreement_rmation_security_explaoin_txt = 0x7f0f09f1;
+        public static final int home_agreement_rmation_security_txt = 0x7f0f09f2;
+        public static final int home_agreement_titlebar_txt = 0x7f0f09f3;
+        public static final int home_but_txt = 0x7f0f09f4;
+        public static final int home_face_yy_btn_agree = 0x7f0f09f7;
+        public static final int home_face_yy_tips = 0x7f0f09f8;
+        public static final int home_face_yy_tips_center = 0x7f0f09f9;
+        public static final int home_face_yy_tips_left = 0x7f0f09fa;
+        public static final int home_face_yy_tips_right = 0x7f0f09fb;
+        public static final int home_face_yy_title = 0x7f0f09fc;
+        public static final int home_greet_sdk_txt = 0x7f0f09fd;
+        public static final int home_greet_txt = 0x7f0f09fe;
+        public static final int home_handset_explain_txt = 0x7f0f09ff;
+        public static final int home_handset_txt = 0x7f0f0a00;
+        public static final int home_light_explain_txt = 0x7f0f0a01;
+        public static final int home_light_txt = 0x7f0f0a02;
+        public static final int home_mask_explain_txt = 0x7f0f0a05;
+        public static final int home_mask_txt = 0x7f0f0a06;
+        public static final int liveness_eye = 0x7f0f0be8;
+        public static final int liveness_good = 0x7f0f0be9;
+        public static final int liveness_head_down = 0x7f0f0bea;
+        public static final int liveness_head_left = 0x7f0f0beb;
+        public static final int liveness_head_right = 0x7f0f0bec;
+        public static final int liveness_head_up = 0x7f0f0bed;
+        public static final int liveness_mouth = 0x7f0f0bee;
+        public static final int pass_bio_alert_dialog_btn_again = 0x7f0f0ef6;
+        public static final int pass_bio_alert_dialog_btn_back = 0x7f0f0ef7;
+        public static final int pass_bio_alert_dialog_btn_cancel = 0x7f0f0ef8;
+        public static final int pass_bio_alert_dialog_btn_go_setting = 0x7f0f0ef9;
+        public static final int pass_bio_alert_dialog_btn_ok = 0x7f0f0efa;
+        public static final int pass_bio_alert_dialog_default_msg_text = 0x7f0f0efb;
+        public static final int pass_bio_cancel = 0x7f0f0efc;
+        public static final int pass_bio_error_msg_contrast_fail = 0x7f0f0efd;
+        public static final int pass_bio_error_msg_dangerous_protocol_error = 0x7f0f0efe;
+        public static final int pass_bio_error_msg_face_sdk_init_fail = 0x7f0f0eff;
+        public static final int pass_bio_error_msg_image_file_empty = 0x7f0f0f00;
+        public static final int pass_bio_error_msg_liveness_recognize_time_out = 0x7f0f0f01;
+        public static final int pass_bio_error_msg_may_be_no_camera_permission = 0x7f0f0f02;
+        public static final int pass_bio_error_msg_network_unavailable = 0x7f0f0f03;
+        public static final int pass_bio_error_msg_no_login = 0x7f0f0f04;
+        public static final int pass_bio_error_msg_open_camera_failure = 0x7f0f0f05;
+        public static final int pass_bio_error_msg_param = 0x7f0f0f06;
+        public static final int pass_bio_error_msg_server_error = 0x7f0f0f07;
+        public static final int pass_bio_error_msg_so_error = 0x7f0f0f08;
+        public static final int pass_bio_error_msg_ssl_peer_unverified = 0x7f0f0f09;
+        public static final int pass_bio_error_msg_unknown = 0x7f0f0f0a;
+        public static final int pass_bio_error_msg_user_cancel = 0x7f0f0f0b;
+        public static final int pass_bio_multi_window_tips = 0x7f0f0f0c;
+        public static final int pass_bio_permission_request = 0x7f0f0f0d;
+        public static final int pass_bio_pmn_camera = 0x7f0f0f0e;
+        public static final int pass_bio_pmn_cancel = 0x7f0f0f0f;
+        public static final int pass_bio_pmn_msg_liveness = 0x7f0f0f10;
+        public static final int pass_bio_pmn_ok = 0x7f0f0f11;
+        public static final int pass_bio_pmn_title_liveness = 0x7f0f0f12;
+        public static final int pass_bio_result_msg_success = 0x7f0f0f13;
+        public static final int pass_face_timeout_dialog_fail_reason = 0x7f0f0f14;
+        public static final int pass_face_timeout_dialog_fail_reason2 = 0x7f0f0f15;
+        public static final int pass_face_timeout_dialog_fail_reason3 = 0x7f0f0f16;
+        public static final int pass_face_timeout_dialog_msg = 0x7f0f0f17;
+        public static final int pass_face_timeout_dialog_title = 0x7f0f0f18;
+        public static final int pass_liveness_brightness_too_dark = 0x7f0f0f19;
+        public static final int pass_liveness_face_to_screen = 0x7f0f0f1a;
+        public static final int pass_liveness_frist_text = 0x7f0f0f1b;
+        public static final int pass_liveness_loading_text = 0x7f0f0f1c;
+        public static final int pass_liveness_permission_camera = 0x7f0f0f1d;
+        public static final int pass_liveness_put_face_round = 0x7f0f0f1e;
+        public static final int pass_liveness_recog_fail_dialog_msg = 0x7f0f0f1f;
+        public static final int pass_liveness_recog_fail_dialog_title = 0x7f0f0f20;
+        public static final int pass_liveness_tofar_from_camera = 0x7f0f0f21;
+        public static final int pass_liveness_tonear_from_camera = 0x7f0f0f22;
+        public static final int search_menu_title = 0x7f0f1344;
+        public static final int setting_actionlive_blink_txt = 0x7f0f1399;
+        public static final int setting_actionlive_look_up_txt = 0x7f0f139a;
+        public static final int setting_actionlive_nod_txt = 0x7f0f139b;
+        public static final int setting_actionlive_open_mouth_txt = 0x7f0f139c;
+        public static final int setting_actionlive_shake_head_txt = 0x7f0f139d;
+        public static final int setting_actionlive_turn_left_txt = 0x7f0f139e;
+        public static final int setting_actionlive_turn_right_txt = 0x7f0f139f;
+        public static final int setting_actionlive_txt = 0x7f0f13a0;
+        public static final int setting_announcements_txt = 0x7f0f13a1;
+        public static final int setting_live_detect_txt = 0x7f0f13a3;
+        public static final int setting_prompt_txt = 0x7f0f13a4;
+        public static final int setting_quality_txt = 0x7f0f13a5;
+        public static final int setting_titlebar_txt = 0x7f0f13a8;
+        public static final int status_bar_notification_info_overflow = 0x7f0f1471;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {
@@ -1314,7 +1314,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class style {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int AlertDialog_AppCompat = 0x7f100003;
@@ -1692,7 +1692,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class styleable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int[] ActionBar;

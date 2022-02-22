@@ -6,11 +6,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.f;
-import c.a.s0.b.d;
-import c.a.s0.s.s.j;
-import c.a.t0.t2.i;
-import c.a.t0.t2.l;
-import c.a.t0.t2.r.t;
+import c.a.t0.b.d;
+import c.a.t0.s.t.j;
+import c.a.u0.u2.i;
+import c.a.u0.u2.l;
+import c.a.u0.u2.r.t;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.dialog.PopupDialog;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PbMoreDialog extends PopupDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,13 +40,13 @@ public class PbMoreDialog extends PopupDialog {
     public TextView y;
     public TbPageContext<?> z;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a implements j.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbMoreDialog f46630e;
+        public final /* synthetic */ PbMoreDialog f46772e;
 
         public a(PbMoreDialog pbMoreDialog) {
             Interceptable interceptable = $ic;
@@ -63,15 +63,15 @@ public class PbMoreDialog extends PopupDialog {
                     return;
                 }
             }
-            this.f46630e = pbMoreDialog;
+            this.f46772e = pbMoreDialog;
         }
 
-        @Override // c.a.s0.s.s.j.e
+        @Override // c.a.t0.s.t.j.e
         public void onItemClick(j jVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, jVar, i2, view) == null) {
-                this.f46630e.dismiss();
-                this.f46630e.A.onClick(view);
+                this.f46772e.dismiss();
+                this.f46772e.A.onClick(view);
             }
         }
     }
@@ -149,7 +149,7 @@ public class PbMoreDialog extends PopupDialog {
             int i7 = i.tag_forbid_user_portrait;
             sparseArray3.put(i7, sparseArray.get(i7));
             sparseArray3.put(i.tag_forbid_user_post_id, str);
-            if (!c.a.t0.t2.u.f.h1.a.i(tVar) && booleanValue2) {
+            if (!c.a.u0.u2.u.f.h1.a.i(tVar) && booleanValue2) {
                 sparseArray3.put(i.tag_user_mute_visible, Boolean.TRUE);
                 int i8 = i.tag_is_mem;
                 sparseArray3.put(i8, sparseArray.get(i8));
@@ -218,7 +218,7 @@ public class PbMoreDialog extends PopupDialog {
         }
         boolean booleanValue6 = sparseArray.get(i.tag_user_mute_visible) instanceof Boolean ? ((Boolean) sparseArray.get(i.tag_user_mute_visible)).booleanValue() : false;
         boolean booleanValue7 = sparseArray.get(i.tag_should_manage_visible) instanceof Boolean ? ((Boolean) sparseArray.get(i.tag_should_manage_visible)).booleanValue() : false;
-        if (!c.a.t0.t2.u.f.h1.a.i(tVar) && !booleanValue7 && booleanValue6) {
+        if (!c.a.u0.u2.u.f.h1.a.i(tVar) && !booleanValue7 && booleanValue6) {
             SparseArray sparseArray5 = new SparseArray();
             sparseArray5.put(i.tag_user_mute_visible, Boolean.TRUE);
             int i21 = i.tag_is_mem;
@@ -262,7 +262,7 @@ public class PbMoreDialog extends PopupDialog {
         getEmotionTextView().setVisibility(8);
         getMarkTextView().setVisibility(8);
         getSaveLocalTextView().setVisibility(8);
-        c.a.t0.t2.u.f.h1.a.l(this.w, postData, tVar);
+        c.a.u0.u2.u.f.h1.a.l(this.w, postData, tVar);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:110:0x045b  */
@@ -310,7 +310,7 @@ public class PbMoreDialog extends PopupDialog {
             int i6 = i.tag_forbid_user_portrait;
             sparseArray4.put(i6, sparseArray.get(i6));
             sparseArray4.put(i.tag_forbid_user_post_id, str);
-            if (!c.a.t0.t2.u.f.h1.a.i(tVar) && booleanValue3) {
+            if (!c.a.u0.u2.u.f.h1.a.i(tVar) && booleanValue3) {
                 sparseArray4.put(i.tag_user_mute_visible, Boolean.TRUE);
                 int i7 = i.tag_is_mem;
                 sparseArray4.put(i7, sparseArray.get(i7));
@@ -379,7 +379,7 @@ public class PbMoreDialog extends PopupDialog {
         }
         boolean booleanValue7 = sparseArray.get(i.tag_user_mute_visible) instanceof Boolean ? ((Boolean) sparseArray.get(i.tag_user_mute_visible)).booleanValue() : false;
         boolean booleanValue8 = sparseArray.get(i.tag_should_manage_visible) instanceof Boolean ? ((Boolean) sparseArray.get(i.tag_should_manage_visible)).booleanValue() : false;
-        if (!c.a.t0.t2.u.f.h1.a.i(tVar) && !booleanValue8 && booleanValue7) {
+        if (!c.a.u0.u2.u.f.h1.a.i(tVar) && !booleanValue8 && booleanValue7) {
             SparseArray sparseArray6 = new SparseArray();
             sparseArray6.put(i.tag_user_mute_visible, Boolean.TRUE);
             int i20 = i.tag_is_mem;
@@ -460,7 +460,7 @@ public class PbMoreDialog extends PopupDialog {
                 getManageTextView().setVisibility(8);
                 getReportTextView().setVisibility(8);
             }
-            if (d.T()) {
+            if (d.X()) {
                 if (postData != null) {
                     SparseArray sparseArray7 = new SparseArray();
                     sparseArray7.put(i.tag_load_sub_data, postData);
@@ -491,7 +491,7 @@ public class PbMoreDialog extends PopupDialog {
                     getDisagreeTextView().setText(string);
                 }
             }
-            c.a.t0.t2.u.f.h1.a.l(this.w, postData, tVar);
+            c.a.u0.u2.u.f.h1.a.l(this.w, postData, tVar);
         }
         z3 = false;
         if (!(sparseArray.get(i.tag_richtext_image) instanceof Boolean)) {
@@ -506,16 +506,16 @@ public class PbMoreDialog extends PopupDialog {
         getDisagreeTextView().setVisibility(8);
         if (z2) {
         }
-        if (d.T()) {
+        if (d.X()) {
         }
-        c.a.t0.t2.u.f.h1.a.l(this.w, postData, tVar);
+        c.a.u0.u2.u.f.h1.a.l(this.w, postData, tVar);
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             a aVar = new a(this);
-            if (d.T()) {
+            if (d.X()) {
                 setDefaultContentView(null, new String[]{this.z.getString(l.action_reply), this.z.getString(l.action_share), this.z.getString(l.action_dislike), this.z.getString(l.no_interesting), this.z.getString(l.save_to_emotion), this.z.getString(l.save_to_local), this.z.getString(l.copy), this.z.getString(l.mark), this.z.getString(l.report_text), this.z.getString(l.delete), this.z.getString(l.mute), this.z.getString(l.block_user)}, aVar);
                 this.x = h(getItemView(0));
                 this.y = h(getItemView(1));

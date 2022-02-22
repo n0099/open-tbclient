@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class ForbidTplData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -2159666579341742989L;
@@ -15,7 +15,7 @@ public class ForbidTplData extends OrmObject implements Serializable {
     public String[] reason;
     public int type;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class ErrorInfo extends OrmObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

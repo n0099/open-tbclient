@@ -24,16 +24,16 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public MediaRecorder f38498b;
+    public MediaRecorder f38726b;
 
     /* renamed from: c  reason: collision with root package name */
-    public File f38499c;
+    public File f38727c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f38500d;
+    public volatile boolean f38728d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f38501e;
+    public Context f38729e;
 
     /* loaded from: classes11.dex */
     public static class a {
@@ -42,7 +42,7 @@ public class c {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f38503b;
+        public int f38731b;
 
         public a(int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class c {
                 }
             }
             this.a = i2;
-            this.f38503b = i3;
+            this.f38731b = i3;
         }
     }
 
@@ -79,8 +79,8 @@ public class c {
                 return;
             }
         }
-        this.f38500d = false;
-        this.f38501e = context;
+        this.f38728d = false;
+        this.f38729e = context;
     }
 
     public static synchronized c a(Context context) {
@@ -107,14 +107,14 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                this.f38500d = false;
-                if (this.f38498b != null) {
-                    this.f38498b.release();
-                    this.f38498b = null;
+                this.f38728d = false;
+                if (this.f38726b != null) {
+                    this.f38726b.release();
+                    this.f38726b = null;
                 }
-                if (this.f38499c != null) {
-                    this.f38499c.delete();
-                    this.f38499c = null;
+                if (this.f38727c != null) {
+                    this.f38727c.delete();
+                    this.f38727c = null;
                 }
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
@@ -139,12 +139,12 @@ public class c {
                         file.mkdirs();
                     }
                     if (file.getFreeSpace() >= 100) {
-                        if (this.f38500d) {
+                        if (this.f38728d) {
                             return 2;
                         }
-                        this.f38500d = true;
+                        this.f38728d = true;
                         if (!a(camera, str, i2)) {
-                            this.f38500d = false;
+                            this.f38728d = false;
                             return -2;
                         }
                         new Thread(this, aVar) { // from class: com.baidu.sofire.j.c.1
@@ -153,7 +153,7 @@ public class c {
                             public final /* synthetic */ com.baidu.sofire.j.a a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ c f38502b;
+                            public final /* synthetic */ c f38730b;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -170,7 +170,7 @@ public class c {
                                         return;
                                     }
                                 }
-                                this.f38502b = this;
+                                this.f38730b = this;
                                 this.a = aVar;
                             }
 
@@ -179,13 +179,13 @@ public class c {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                     try {
-                                        if (this.f38502b.f38498b != null) {
-                                            this.f38502b.f38498b.start();
+                                        if (this.f38730b.f38726b != null) {
+                                            this.f38730b.f38726b.start();
                                         } else {
-                                            this.f38502b.f38500d = false;
+                                            this.f38730b.f38728d = false;
                                         }
                                     } catch (Throwable unused) {
-                                        this.f38502b.f38500d = false;
+                                        this.f38730b.f38728d = false;
                                         com.baidu.sofire.j.a aVar2 = this.a;
                                         if (aVar2 != null) {
                                             aVar2.a();
@@ -199,7 +199,7 @@ public class c {
                     }
                     return -4;
                 } catch (Exception unused) {
-                    this.f38500d = false;
+                    this.f38728d = false;
                     com.baidu.sofire.utility.c.a();
                     return -3;
                 }
@@ -213,14 +213,14 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             try {
-                if (this.f38498b != null) {
-                    this.f38498b.release();
-                    this.f38498b = null;
+                if (this.f38726b != null) {
+                    this.f38726b.release();
+                    this.f38726b = null;
                 }
-                this.f38500d = false;
-                return this.f38499c != null ? this.f38499c.getAbsolutePath() : "";
+                this.f38728d = false;
+                return this.f38727c != null ? this.f38727c.getAbsolutePath() : "";
             } catch (Throwable unused) {
-                this.f38500d = false;
+                this.f38728d = false;
                 com.baidu.sofire.utility.c.a();
                 return "";
             }
@@ -242,7 +242,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, this, camera, str, i2)) == null) {
             try {
-                Context context = this.f38501e;
+                Context context = this.f38729e;
                 List<Camera.Size> supportedPreviewSizes = camera.getParameters().getSupportedPreviewSizes();
                 File file2 = null;
                 if (supportedPreviewSizes != null && supportedPreviewSizes.size() != 0) {
@@ -250,9 +250,9 @@ public class c {
                     a aVar2 = new a(defaultDisplay.getWidth(), defaultDisplay.getHeight());
                     int i4 = 153600;
                     int i5 = 921600;
-                    if ((aVar2.a * aVar2.f38503b) / 4 > 921600) {
-                        i5 = CameraUtils.f34347b;
-                        i4 = (aVar2.a * aVar2.f38503b) / 8;
+                    if ((aVar2.a * aVar2.f38731b) / 4 > 921600) {
+                        i5 = CameraUtils.f34553b;
+                        i4 = (aVar2.a * aVar2.f38731b) / 8;
                     }
                     arrayList = new ArrayList();
                     for (int i6 = 0; i6 < supportedPreviewSizes.size(); i6++) {
@@ -265,11 +265,11 @@ public class c {
                     if (arrayList != null && arrayList.size() != 0) {
                         Display defaultDisplay2 = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
                         a aVar3 = new a(defaultDisplay2.getWidth(), defaultDisplay2.getHeight());
-                        float f2 = aVar3.f38503b / aVar3.a;
-                        float f3 = aVar.a / aVar.f38503b;
+                        float f2 = aVar3.f38731b / aVar3.a;
+                        float f3 = aVar.a / aVar.f38731b;
                         for (i3 = 0; i3 < arrayList.size(); i3++) {
                             a aVar4 = (a) arrayList.get(i3);
-                            float abs = Math.abs((aVar4.a / aVar4.f38503b) - f2);
+                            float abs = Math.abs((aVar4.a / aVar4.f38731b) - f2);
                             if (abs < f3) {
                                 aVar = aVar4;
                                 f3 = abs;
@@ -278,26 +278,26 @@ public class c {
                     }
                     a a2 = d.a(camera.getParameters(), aVar);
                     camera.unlock();
-                    if (this.f38498b == null) {
-                        this.f38498b = new MediaRecorder();
+                    if (this.f38726b == null) {
+                        this.f38726b = new MediaRecorder();
                     }
-                    this.f38498b.setCamera(camera);
-                    this.f38498b.setAudioSource(1);
-                    this.f38498b.setVideoSource(1);
-                    this.f38498b.setOutputFormat(2);
-                    this.f38498b.setAudioEncoder(3);
-                    this.f38498b.setVideoEncoder(2);
-                    this.f38498b.setVideoSize(a2.a, a2.f38503b);
+                    this.f38726b.setCamera(camera);
+                    this.f38726b.setAudioSource(1);
+                    this.f38726b.setVideoSource(1);
+                    this.f38726b.setOutputFormat(2);
+                    this.f38726b.setAudioEncoder(3);
+                    this.f38726b.setVideoEncoder(2);
+                    this.f38726b.setVideoSize(a2.a, a2.f38731b);
                     file = new File(str, ".records");
                     if (!file.exists() || file.mkdirs()) {
                         file2 = new File(file.getPath() + File.separator + "bdv_" + String.valueOf(System.currentTimeMillis()) + ".mp4");
                     }
-                    this.f38499c = file2;
-                    this.f38498b.setOutputFile(file2.getAbsolutePath());
+                    this.f38727c = file2;
+                    this.f38726b.setOutputFile(file2.getAbsolutePath());
                     Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
                     Camera.getCameraInfo(i2, cameraInfo);
-                    this.f38498b.setOrientationHint(cameraInfo.orientation);
-                    this.f38498b.prepare();
+                    this.f38726b.setOrientationHint(cameraInfo.orientation);
+                    this.f38726b.prepare();
                     return true;
                 }
                 arrayList = null;
@@ -305,32 +305,32 @@ public class c {
                 if (arrayList != null) {
                     Display defaultDisplay22 = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
                     a aVar32 = new a(defaultDisplay22.getWidth(), defaultDisplay22.getHeight());
-                    float f22 = aVar32.f38503b / aVar32.a;
-                    float f32 = aVar.a / aVar.f38503b;
+                    float f22 = aVar32.f38731b / aVar32.a;
+                    float f32 = aVar.a / aVar.f38731b;
                     while (i3 < arrayList.size()) {
                     }
                 }
                 a a22 = d.a(camera.getParameters(), aVar);
                 camera.unlock();
-                if (this.f38498b == null) {
+                if (this.f38726b == null) {
                 }
-                this.f38498b.setCamera(camera);
-                this.f38498b.setAudioSource(1);
-                this.f38498b.setVideoSource(1);
-                this.f38498b.setOutputFormat(2);
-                this.f38498b.setAudioEncoder(3);
-                this.f38498b.setVideoEncoder(2);
-                this.f38498b.setVideoSize(a22.a, a22.f38503b);
+                this.f38726b.setCamera(camera);
+                this.f38726b.setAudioSource(1);
+                this.f38726b.setVideoSource(1);
+                this.f38726b.setOutputFormat(2);
+                this.f38726b.setAudioEncoder(3);
+                this.f38726b.setVideoEncoder(2);
+                this.f38726b.setVideoSize(a22.a, a22.f38731b);
                 file = new File(str, ".records");
                 if (!file.exists()) {
                 }
                 file2 = new File(file.getPath() + File.separator + "bdv_" + String.valueOf(System.currentTimeMillis()) + ".mp4");
-                this.f38499c = file2;
-                this.f38498b.setOutputFile(file2.getAbsolutePath());
+                this.f38727c = file2;
+                this.f38726b.setOutputFile(file2.getAbsolutePath());
                 Camera.CameraInfo cameraInfo2 = new Camera.CameraInfo();
                 Camera.getCameraInfo(i2, cameraInfo2);
-                this.f38498b.setOrientationHint(cameraInfo2.orientation);
-                this.f38498b.prepare();
+                this.f38726b.setOrientationHint(cameraInfo2.orientation);
+                this.f38726b.prepare();
                 return true;
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();

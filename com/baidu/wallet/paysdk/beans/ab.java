@@ -19,14 +19,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class ab extends BaseBean<VerifyByBankResponse> {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List f51957b;
+    public final List f52124b;
 
     static {
         InterceptResult invokeClinit;
@@ -62,7 +62,7 @@ public class ab extends BaseBean<VerifyByBankResponse> {
                 return;
             }
         }
-        this.f51957b = Arrays.asList(a);
+        this.f52124b = Arrays.asList(a);
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
@@ -81,7 +81,7 @@ public class ab extends BaseBean<VerifyByBankResponse> {
             ArrayList arrayList = new ArrayList(PayDataCache.getInstance().getPrePayRequestParams());
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
-                if (this.f51957b.indexOf(((RestNameValuePair) it.next()).getName()) != -1) {
+                if (this.f52124b.indexOf(((RestNameValuePair) it.next()).getName()) != -1) {
                     it.remove();
                 }
             }

@@ -28,6 +28,6 @@ public class h0 extends l0 {
                 return;
             }
         }
-        this.f28458c = "GET";
+        this.f28664c = "GET";
     }
 }

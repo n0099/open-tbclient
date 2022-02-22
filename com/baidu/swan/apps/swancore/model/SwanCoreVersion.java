@@ -3,7 +3,7 @@ package com.baidu.swan.apps.swancore.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.a.z2.l0;
+import c.a.s0.a.z2.l0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.process.SwanAppIPCData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;

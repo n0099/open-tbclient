@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import c.a.s0.s.u.c;
+import c.a.t0.s.v.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -29,22 +29,22 @@ public class NewUserRewardDialogView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AlphaVideo f49156e;
+    public AlphaVideo f49323e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RoundRelativeLayout f49157f;
+    public RoundRelativeLayout f49324f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f49158g;
+    public TextView f49325g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f49159h;
+    public TextView f49326h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f49160i;
+    public ImageView f49327i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f49161j;
+    public TextView f49328j;
     public TextView k;
     public final CustomMessageListener l;
 
@@ -79,10 +79,10 @@ public class NewUserRewardDialogView extends LinearLayout {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || !(customResponsedMessage instanceof BackgroundSwitchMessage) || ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue() || this.a.f49156e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || !(customResponsedMessage instanceof BackgroundSwitchMessage) || ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue() || this.a.f49323e == null) {
                 return;
             }
-            this.a.f49156e.requestRender();
+            this.a.f49323e.requestRender();
         }
     }
 
@@ -111,16 +111,16 @@ public class NewUserRewardDialogView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.new_user_reward_dialog_layout, this);
-            this.f49156e = (AlphaVideo) findViewById(R.id.new_user_anim);
-            this.f49157f = (RoundRelativeLayout) findViewById(R.id.new_user_dialog_text_area);
-            this.f49158g = (TextView) findViewById(R.id.new_user_dialog_title);
-            this.f49159h = (TextView) findViewById(R.id.new_user_dialog_desc);
-            this.f49160i = (ImageView) findViewById(R.id.new_user_dialog_close);
-            this.f49161j = (TextView) findViewById(R.id.new_user_dialog_look);
+            this.f49323e = (AlphaVideo) findViewById(R.id.new_user_anim);
+            this.f49324f = (RoundRelativeLayout) findViewById(R.id.new_user_dialog_text_area);
+            this.f49325g = (TextView) findViewById(R.id.new_user_dialog_title);
+            this.f49326h = (TextView) findViewById(R.id.new_user_dialog_desc);
+            this.f49327i = (ImageView) findViewById(R.id.new_user_dialog_close);
+            this.f49328j = (TextView) findViewById(R.id.new_user_dialog_look);
             this.k = (TextView) findViewById(R.id.new_user_dialog_share);
-            this.f49156e.setKeepLastFrame(true);
+            this.f49323e.setKeepLastFrame(true);
             MessageManager.getInstance().registerListener(this.l);
-            this.f49157f.setRoundLayoutRadius(c.a.s0.s.u.a.y(R.string.J_X06));
+            this.f49324f.setRoundLayoutRadius(c.a.t0.s.v.a.y(R.string.J_X06));
         }
     }
 
@@ -133,17 +133,17 @@ public class NewUserRewardDialogView extends LinearLayout {
     public View getNewsUserDialogLookView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f49161j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f49328j : (View) invokeV.objValue;
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            SkinManager.setBackgroundColor(this.f49157f, R.color.CAM_X0211);
-            SkinManager.setViewTextColor(this.f49158g, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f49159h, R.color.CAM_X0107);
-            SkinManager.setImageResource(this.f49160i, R.drawable.icon_use_close_n);
-            c d2 = c.d(this.f49161j);
+            SkinManager.setBackgroundColor(this.f49324f, R.color.CAM_X0211);
+            SkinManager.setViewTextColor(this.f49325g, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f49326h, R.color.CAM_X0107);
+            SkinManager.setImageResource(this.f49327i, R.drawable.icon_use_close_n);
+            c d2 = c.d(this.f49328j);
             d2.l(R.dimen.L_X01);
             d2.k(R.color.CAM_X0902);
             d2.n(R.string.J_X01);
@@ -159,7 +159,7 @@ public class NewUserRewardDialogView extends LinearLayout {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f49156e.destroy();
+            this.f49323e.destroy();
             MessageManager.getInstance().unRegisterListener(this.l);
         }
     }
@@ -167,7 +167,7 @@ public class NewUserRewardDialogView extends LinearLayout {
     public void setCloseListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            this.f49160i.setOnClickListener(onClickListener);
+            this.f49327i.setOnClickListener(onClickListener);
         }
     }
 
@@ -176,19 +176,19 @@ public class NewUserRewardDialogView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, iconStampData) == null) || iconStampData == null) {
             return;
         }
-        this.f49158g.setText(iconStampData.stampTitle);
-        this.f49159h.setText(iconStampData.stampText);
+        this.f49325g.setText(iconStampData.stampTitle);
+        this.f49326h.setText(iconStampData.stampText);
         int i2 = iconStampData.stampType;
         if (i2 == 1) {
-            this.f49156e.setSourceAssets("post_1_times.mp4");
+            this.f49323e.setSourceAssets("post_1_times.mp4");
         } else if (i2 == 2) {
-            this.f49156e.setSourceAssets("reply_1_times.mp4");
+            this.f49323e.setSourceAssets("reply_1_times.mp4");
         } else if (i2 == 3) {
-            this.f49156e.setSourceAssets("post_7_times.mp4");
+            this.f49323e.setSourceAssets("post_7_times.mp4");
         } else {
-            this.f49156e.setSourceAssets("reply_7_times.mp4");
+            this.f49323e.setSourceAssets("reply_7_times.mp4");
         }
-        this.f49156e.play();
+        this.f49323e.play();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

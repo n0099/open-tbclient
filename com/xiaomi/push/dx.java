@@ -18,7 +18,7 @@ public final class dx implements Runnable {
     public final /* synthetic */ String f314a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f61071b;
+    public final /* synthetic */ String f61238b;
 
     public dx(Context context, String str, int i2, String str2) {
         Interceptable interceptable = $ic;
@@ -38,14 +38,14 @@ public final class dx implements Runnable {
         this.f313a = context;
         this.f314a = str;
         this.a = i2;
-        this.f61071b = str2;
+        this.f61238b = str2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            dw.c(this.f313a, this.f314a, this.a, this.f61071b);
+            dw.c(this.f313a, this.f314a, this.a, this.f61238b);
         }
     }
 }

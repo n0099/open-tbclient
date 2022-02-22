@@ -26,30 +26,30 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.w;
 import com.tachikoma.core.component.anim.AnimationProperty;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class KsAuthorIconView extends FrameLayout {
     public ViewGroup a;
 
     /* renamed from: b  reason: collision with root package name */
-    public KSCornerImageView f58070b;
+    public KSCornerImageView f58237b;
 
     /* renamed from: c  reason: collision with root package name */
-    public KSCornerImageView f58071c;
+    public KSCornerImageView f58238c;
 
     /* renamed from: d  reason: collision with root package name */
-    public KSCornerImageView f58072d;
+    public KSCornerImageView f58239d;
 
     /* renamed from: e  reason: collision with root package name */
-    public KSCornerImageView f58073e;
+    public KSCornerImageView f58240e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f58074f;
+    public TextView f58241f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f58075g;
+    public View f58242g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f58076h;
+    public ImageView f58243h;
 
     public KsAuthorIconView(@NonNull Context context) {
         super(context);
@@ -114,13 +114,13 @@ public class KsAuthorIconView extends FrameLayout {
     private void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
         FrameLayout.inflate(context, R.layout.ksad_author_icon, this);
         this.a = (ViewGroup) findViewById(R.id.ksad_author_icon_frame);
-        this.f58071c = (KSCornerImageView) findViewById(R.id.ksad_author_icon);
-        this.f58070b = (KSCornerImageView) findViewById(R.id.ksad_author_icon_outer);
-        this.f58072d = (KSCornerImageView) findViewById(R.id.ksad_author_animator);
-        this.f58073e = (KSCornerImageView) findViewById(R.id.ksad_author_animator2);
-        this.f58074f = (TextView) findViewById(R.id.ksad_fans_count);
-        this.f58075g = findViewById(R.id.ksad_author_btn_follow);
-        this.f58076h = (ImageView) findViewById(R.id.ksad_author_arrow_down);
+        this.f58238c = (KSCornerImageView) findViewById(R.id.ksad_author_icon);
+        this.f58237b = (KSCornerImageView) findViewById(R.id.ksad_author_icon_outer);
+        this.f58239d = (KSCornerImageView) findViewById(R.id.ksad_author_animator);
+        this.f58240e = (KSCornerImageView) findViewById(R.id.ksad_author_animator2);
+        this.f58241f = (TextView) findViewById(R.id.ksad_fans_count);
+        this.f58242g = findViewById(R.id.ksad_author_btn_follow);
+        this.f58243h = (ImageView) findViewById(R.id.ksad_author_arrow_down);
     }
 
     private void a(c cVar, Drawable drawable) {
@@ -149,18 +149,18 @@ public class KsAuthorIconView extends FrameLayout {
         AdInfo j2 = com.kwad.sdk.core.response.a.d.j(adTemplate);
         String aE = com.kwad.sdk.core.response.a.a.aE(j2);
         if (!TextUtils.isEmpty(aE)) {
-            KSImageLoader.loadImage(this.f58071c, aE, adTemplate);
+            KSImageLoader.loadImage(this.f58238c, aE, adTemplate);
         }
-        this.f58074f.setText(com.kwad.sdk.core.response.a.a.aB(j2));
-        this.f58072d.post(new Runnable() { // from class: com.kwad.sdk.widget.KsAuthorIconView.1
+        this.f58241f.setText(com.kwad.sdk.core.response.a.a.aB(j2));
+        this.f58239d.post(new Runnable() { // from class: com.kwad.sdk.widget.KsAuthorIconView.1
             @Override // java.lang.Runnable
             public void run() {
                 KsAuthorIconView ksAuthorIconView = KsAuthorIconView.this;
-                final Animator a = ksAuthorIconView.a(ksAuthorIconView.f58072d, 900L);
+                final Animator a = ksAuthorIconView.a(ksAuthorIconView.f58239d, 900L);
                 KsAuthorIconView ksAuthorIconView2 = KsAuthorIconView.this;
-                final Animator a2 = ksAuthorIconView2.a(ksAuthorIconView2.f58073e, 1000L);
+                final Animator a2 = ksAuthorIconView2.a(ksAuthorIconView2.f58240e, 1000L);
                 KsAuthorIconView ksAuthorIconView3 = KsAuthorIconView.this;
-                final Animator a3 = ksAuthorIconView3.a(ksAuthorIconView3.f58071c);
+                final Animator a3 = ksAuthorIconView3.a(ksAuthorIconView3.f58238c);
                 if (a == null || a2 == null || a3 == null) {
                     return;
                 }
@@ -185,16 +185,16 @@ public class KsAuthorIconView extends FrameLayout {
         int i2;
         w.a(cVar, this);
         if (z) {
-            imageView = this.f58076h;
+            imageView = this.f58243h;
             i2 = R.drawable.ksad_reward_follow_arrow_down;
         } else {
-            imageView = this.f58076h;
+            imageView = this.f58243h;
             i2 = R.drawable.ksad_reward_follow_arrow_down_orange;
         }
         imageView.setImageResource(i2);
-        a(cVar, this.f58072d.getBackground());
-        a(cVar, this.f58070b.getBackground());
-        a(cVar, this.f58073e.getBackground());
+        a(cVar, this.f58239d.getBackground());
+        a(cVar, this.f58237b.getBackground());
+        a(cVar, this.f58240e.getBackground());
         a(cVar, this.a.getBackground());
     }
 }

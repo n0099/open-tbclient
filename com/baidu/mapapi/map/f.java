@@ -12,7 +12,7 @@ public /* synthetic */ class f {
     public static final /* synthetic */ int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ int[] f35485b;
+    public static final /* synthetic */ int[] f35691b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,13 +29,13 @@ public /* synthetic */ class f {
             }
         }
         int[] iArr = new int[com.baidu.mapsdkplatform.comapi.map.aa.values().length];
-        f35485b = iArr;
+        f35691b = iArr;
         try {
-            iArr[com.baidu.mapsdkplatform.comapi.map.aa.f35842b.ordinal()] = 1;
+            iArr[com.baidu.mapsdkplatform.comapi.map.aa.f36048b.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f35485b[com.baidu.mapsdkplatform.comapi.map.aa.a.ordinal()] = 2;
+            f35691b[com.baidu.mapsdkplatform.comapi.map.aa.a.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         int[] iArr2 = new int[MyLocationConfiguration.LocationMode.values().length];

@@ -46,7 +46,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class WebKitFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARCH_ARM = "armv";
@@ -106,7 +106,7 @@ public final class WebKitFactory {
     public static boolean sZeusSupportedLoaded;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class DelayedInitTask extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -299,7 +299,7 @@ public final class WebKitFactory {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface IForceInitZeusListener {
         @Keep
         void onForceInitZeusFinish(boolean z);
@@ -309,7 +309,7 @@ public final class WebKitFactory {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SwitchState {
         public static final /* synthetic */ SwitchState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -370,7 +370,7 @@ public final class WebKitFactory {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface WebkitInstallListener {
         public static final int RET_CANCELED = 3;
         public static final int RET_FAILED_ALREADY_RUNNING = 8;

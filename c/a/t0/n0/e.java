@@ -1,74 +1,78 @@
 package c.a.t0.n0;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardHot;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.net.Uri;
+import android.text.TextUtils;
+import c.a.d.f.d.l;
+import c.a.d.f.p.m;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.novel.ReadRecordsData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class e extends BaseCardInfo {
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class e {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f19683f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: e  reason: collision with root package name */
-    public FeatureCardHot f19684e;
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? TbadkCoreApplication.getCurrentAccount() : (String) invokeV.objValue;
+    }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(981848054, "Lc/a/t0/n0/e;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static String b(String str, String str2) {
+        InterceptResult invokeLL;
+        l<String> i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            if ((TbadkCoreApplication.isLogin() || !StringUtils.isNull(str)) && TextUtils.equals(a(), str2) && (i2 = c.a.t0.s.s.a.i("tb.novel_thread_read_record", a(), str)) != null && !StringUtils.isNull(i2.get(str))) {
+                return i2.get(str);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(981848054, "Lc/a/t0/n0/e;");
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void c(String str, ReadRecordsData readRecordsData) {
+        l<String> i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, readRecordsData) == null) {
+            if ((!TbadkCoreApplication.isLogin() && StringUtils.isNull(str)) || (i2 = c.a.t0.s.s.a.i("tb.novel_thread_read_record", a(), str)) == null || readRecordsData == null) {
                 return;
             }
+            i2.g(str, OrmObject.jsonStrWithObject(readRecordsData));
         }
-        f19683f = BdUniqueId.gen();
     }
 
-    public e() {
+    public static String d(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, str3)) == null) {
+            Uri parse = Uri.parse(str);
+            if (parse == null) {
+                return str;
+            }
+            String queryParameter = parse.getQueryParameter(str2);
+            if (m.isEmpty(queryParameter)) {
+                return str;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(queryParameter);
+                jSONObject.put("cid", str3);
+                int indexOf = str.indexOf("&data");
+                if (indexOf > 0) {
+                    String substring = str.substring(0, indexOf);
+                    return substring + "&data=" + jSONObject.toString();
+                }
+                return null;
+            } catch (Exception e2) {
+                c.a.b1.t.c.g(e2);
+                return str;
             }
         }
-    }
-
-    public FeatureCardHot g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19684e : (FeatureCardHot) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f19683f : (BdUniqueId) invokeV.objValue;
-    }
-
-    public void i(FeatureCardHot featureCardHot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, featureCardHot) == null) {
-            this.f19684e = featureCardHot;
-        }
+        return (String) invokeLLL.objValue;
     }
 }

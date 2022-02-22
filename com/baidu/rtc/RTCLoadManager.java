@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class RTCLoadManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JINGLE_LIB_NAME = "jingle_peerconnection_so";
@@ -32,7 +32,7 @@ public class RTCLoadManager {
     public LoadStatus mLoadStatus;
     public c mSoCallback;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface LoadListener {
         void onLoadError(int i2, String str);
 
@@ -42,7 +42,7 @@ public class RTCLoadManager {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class LoadStatus {
         public static final /* synthetic */ LoadStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

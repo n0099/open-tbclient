@@ -13,18 +13,18 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.x3.c;
+import c.a.u0.a4.d;
+import c.a.u0.z3.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class OvalActionButton extends ImageView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SVG = "svg";
@@ -32,22 +32,22 @@ public class OvalActionButton extends ImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f41201e;
+    public boolean f41430e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f41202f;
+    public boolean f41431f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f41203g;
+    public boolean f41432g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f41204h;
+    public int f41433h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f41205i;
+    public int f41434i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Path f41206j;
+    public Path f41435j;
     public Paint k;
     public Paint l;
     public float[] m;
@@ -105,7 +105,7 @@ public class OvalActionButton extends ImageView {
             this.k.setAntiAlias(true);
             Paint paint2 = new Paint();
             this.l = paint2;
-            paint2.setColor(SkinManager.getColor(R.color.CAM_X0101));
+            paint2.setColor(SkinManager.getColor(d.CAM_X0101));
             this.l.setStrokeCap(Paint.Cap.ROUND);
             this.l.setAntiAlias(true);
             setLayerType(1, null);
@@ -118,14 +118,14 @@ public class OvalActionButton extends ImageView {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             this.x = skinType;
             if (skinType == 0) {
-                this.p = c.d("#00E1FF");
-                this.q = c.d("#00A2FF");
+                this.p = c.e("#00E1FF");
+                this.q = c.e("#00A2FF");
             } else if (skinType == 1) {
-                this.p = c.d("#00BBD4");
-                this.q = c.d("#0086D4");
+                this.p = c.e("#00BBD4");
+                this.q = c.e("#0086D4");
             } else if (skinType == 4) {
-                this.p = c.d("#2BE6FF");
-                this.q = c.d("#2BB1FF");
+                this.p = c.e("#2BE6FF");
+                this.q = c.e("#2BB1FF");
             }
         }
     }
@@ -175,9 +175,9 @@ public class OvalActionButton extends ImageView {
             return;
         }
         c();
-        this.r = SkinManager.getColor(this.x, R.color.CAM_X0306);
-        this.l.setColor(SkinManager.getColor(R.color.CAM_X0101));
-        this.f41201e = true;
+        this.r = SkinManager.getColor(this.x, d.CAM_X0306);
+        this.l.setColor(SkinManager.getColor(d.CAM_X0101));
+        this.f41430e = true;
         invalidate();
     }
 
@@ -188,7 +188,7 @@ public class OvalActionButton extends ImageView {
         float f2;
         float f3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, canvas) == null) || this.f41204h <= 0 || this.f41205i <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, canvas) == null) || this.f41433h <= 0 || this.f41434i <= 0) {
             return;
         }
         if (getDrawable() != null) {
@@ -197,7 +197,7 @@ public class OvalActionButton extends ImageView {
             }
             int saveCount = canvas.getSaveCount();
             canvas.save();
-            canvas.scale(0.7f, 0.7f, this.f41204h / 2, this.f41205i / 2);
+            canvas.scale(0.7f, 0.7f, this.f41433h / 2, this.f41434i / 2);
             super.onDraw(canvas);
             if (saveCount < 1 || saveCount > canvas.getSaveCount()) {
                 return;
@@ -211,42 +211,42 @@ public class OvalActionButton extends ImageView {
         int saveCount2 = canvas.getSaveCount();
         canvas.save();
         a(canvas);
-        canvas.rotate(45.0f, this.f41204h / 2, this.f41205i / 2);
-        Path path = this.f41206j;
+        canvas.rotate(45.0f, this.f41433h / 2, this.f41434i / 2);
+        Path path = this.f41435j;
         if (path != null) {
             path.reset();
-            int i3 = this.f41204h;
+            int i3 = this.f41433h;
             float f4 = i3 * 0.15f;
             float f5 = i3 * 0.85f;
             float f6 = (f4 + f5) / 2.0f;
-            int i4 = this.f41205i;
+            int i4 = this.f41434i;
             float f7 = 0.15f * i4;
             float f8 = i4 * 0.85f;
             float f9 = (f7 + f8) / 2.0f;
             float f10 = (((f5 - f4) / 2.0f) * 51.0f) / 65.0f;
             float f11 = (((f8 - f7) / 2.0f) * 51.0f) / 65.0f;
-            this.f41206j.moveTo(f6, f7);
+            this.f41435j.moveTo(f6, f7);
             float f12 = f6 + f10;
             float f13 = f9 - f11;
-            this.f41206j.cubicTo(f12, f7, f5, f13, f5, f9);
+            this.f41435j.cubicTo(f12, f7, f5, f13, f5, f9);
             float f14 = f9 + f11;
-            this.f41206j.cubicTo(f5, f14, f12, f8, f6, f8);
+            this.f41435j.cubicTo(f5, f14, f12, f8, f6, f8);
             float f15 = f6 - f10;
-            this.f41206j.cubicTo(f15, f8, f4, f14, f4, f9);
-            this.f41206j.cubicTo(f4, f13, f15, f7, f6, f7);
-            this.f41206j.close();
-            if (this.f41201e) {
+            this.f41435j.cubicTo(f15, f8, f4, f14, f4, f9);
+            this.f41435j.cubicTo(f4, f13, f15, f7, f6, f7);
+            this.f41435j.close();
+            if (this.f41430e) {
                 c2 = 0;
                 this.o = new LinearGradient(f4, 0.0f, f5, 0.0f, new int[]{this.p, this.q}, (float[]) null, Shader.TileMode.CLAMP);
-                this.f41201e = false;
+                this.f41430e = false;
             } else {
                 c2 = 0;
             }
-            if (this.f41203g) {
-                if (this.f41202f) {
+            if (this.f41432g) {
+                if (this.f41431f) {
                     this.k.setShadowLayer(16.0f, 5.0f, 5.0f, c.a(this.o == null ? this.r : this.q, 0.5f));
                 } else {
-                    int i5 = this.f41204h;
+                    int i5 = this.f41433h;
                     float f16 = i5 * 0.054f;
                     double radians = Math.toRadians(getRotation() - 45.0f);
                     double d2 = i5 * 0.0226f;
@@ -259,15 +259,15 @@ public class OvalActionButton extends ImageView {
             } else {
                 this.k.setColor(this.r);
             }
-            float f17 = this.f41204h * 0.032f;
-            if (this.f41202f) {
+            float f17 = this.f41433h * 0.032f;
+            if (this.f41431f) {
                 f2 = f9;
                 f3 = f6;
                 canvas.drawCircle(f3, f2, (i2 / 2) - 20, this.k);
             } else {
                 f2 = f9;
                 f3 = f6;
-                canvas.drawPath(this.f41206j, this.k);
+                canvas.drawPath(this.f41435j, this.k);
             }
             float[] fArr = this.m;
             float f18 = f3 * 3.0f;
@@ -302,8 +302,8 @@ public class OvalActionButton extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            if (z && this.f41206j == null) {
-                this.f41206j = new Path();
+            if (z && this.f41435j == null) {
+                this.f41435j = new Path();
             }
         }
     }
@@ -313,8 +313,8 @@ public class OvalActionButton extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048585, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            this.f41204h = getMeasuredWidth();
-            this.f41205i = getMeasuredHeight();
+            this.f41433h = getMeasuredWidth();
+            this.f41434i = getMeasuredHeight();
         }
     }
 
@@ -375,9 +375,9 @@ public class OvalActionButton extends ImageView {
         if (interceptable == null || interceptable.invokeIIL(1048589, this, i2, i3, str) == null) {
             if (i2 > 0) {
                 if (WEBP.equals(str)) {
-                    this.v = WebPManager.getPureDrawable(i2, SkinManager.getColor(R.color.CAM_X0107), null);
+                    this.v = WebPManager.getPureDrawable(i2, SkinManager.getColor(d.CAM_X0107), null);
                 } else {
-                    this.v = SvgManager.getInstance().getPureDrawable(i2, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+                    this.v = SvgManager.getInstance().getPureDrawable(i2, d.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
                 }
             } else {
                 this.v = null;
@@ -389,7 +389,7 @@ public class OvalActionButton extends ImageView {
     public void setHasShadow(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.f41203g = z;
+            this.f41432g = z;
         }
     }
 
@@ -414,7 +414,7 @@ public class OvalActionButton extends ImageView {
     public void setIsCircle(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.f41202f = z;
+            this.f41431f = z;
         }
     }
 
@@ -430,9 +430,9 @@ public class OvalActionButton extends ImageView {
     public void setStartAndEndColor(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048595, this, str, str2) == null) {
-            this.p = c.d(str);
-            this.q = c.d(str2);
-            this.f41201e = true;
+            this.p = c.e(str);
+            this.q = c.e(str2);
+            this.f41430e = true;
             invalidate();
         }
     }
@@ -477,11 +477,11 @@ public class OvalActionButton extends ImageView {
                 return;
             }
         }
-        this.f41201e = true;
-        this.f41203g = true;
+        this.f41430e = true;
+        this.f41432g = true;
         this.m = new float[4];
         this.n = new float[4];
-        this.r = SkinManager.getColor(R.color.CAM_X0306);
+        this.r = SkinManager.getColor(d.CAM_X0306);
         this.s = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
         this.t = new PorterDuffXfermode(PorterDuff.Mode.SRC);
         this.x = 3;
@@ -493,7 +493,7 @@ public class OvalActionButton extends ImageView {
         if (interceptable == null || interceptable.invokeII(1048594, this, i2, i3) == null) {
             this.p = i2;
             this.q = i3;
-            this.f41201e = true;
+            this.f41430e = true;
             invalidate();
         }
     }

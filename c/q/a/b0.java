@@ -34,8 +34,8 @@ public class b0 implements ViewTreeObserver.OnWindowFocusChangeListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             String str = "onWindowFocusChanged:" + z;
-            if (this.a.f30463c != null) {
-                this.a.f30463c.a(z);
+            if (this.a.f30669c != null) {
+                this.a.f30669c.a(z);
             }
         }
     }

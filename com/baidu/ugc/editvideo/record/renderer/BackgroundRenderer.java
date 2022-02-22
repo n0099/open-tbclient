@@ -1,8 +1,8 @@
 package com.baidu.ugc.editvideo.record.renderer;
 
 import android.opengl.GLES20;
-import c.a.b0.b.a.e;
-import c.a.b0.b.a.k.c;
+import c.a.c0.b.a.e;
+import c.a.c0.b.a.k.c;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;

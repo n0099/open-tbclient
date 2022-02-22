@@ -4,45 +4,45 @@ import android.app.Dialog;
 import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
-import c.a.h0.g;
-import c.a.h0.h;
-import c.a.h0.j;
+import c.a.i0.g;
+import c.a.i0.h;
+import c.a.i0.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CommonDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f37787e;
+    public TextView f38016e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f37788f;
+    public TextView f38017f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f37789g;
+    public View f38018g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f37790h;
+    public TextView f38019h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f37791i;
+    public TextView f38020i;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f37792e;
+        public final /* synthetic */ e f38021e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CommonDialog f37793f;
+        public final /* synthetic */ CommonDialog f38022f;
 
         public a(CommonDialog commonDialog, e eVar) {
             Interceptable interceptable = $ic;
@@ -59,30 +59,30 @@ public class CommonDialog extends Dialog {
                     return;
                 }
             }
-            this.f37793f = commonDialog;
-            this.f37792e = eVar;
+            this.f38022f = commonDialog;
+            this.f38021e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f37792e.b() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f38021e.b() == null) {
                 return;
             }
-            this.f37792e.b().a(this.f37793f);
+            this.f38021e.b().a(this.f38022f);
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f37794e;
+        public final /* synthetic */ e f38023e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CommonDialog f37795f;
+        public final /* synthetic */ CommonDialog f38024f;
 
         public b(CommonDialog commonDialog, e eVar) {
             Interceptable interceptable = $ic;
@@ -99,30 +99,30 @@ public class CommonDialog extends Dialog {
                     return;
                 }
             }
-            this.f37795f = commonDialog;
-            this.f37794e = eVar;
+            this.f38024f = commonDialog;
+            this.f38023e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f37794e.b() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f38023e.b() == null) {
                 return;
             }
-            this.f37794e.b().a(this.f37795f);
+            this.f38023e.b().a(this.f38024f);
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f37796e;
+        public final /* synthetic */ e f38025e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CommonDialog f37797f;
+        public final /* synthetic */ CommonDialog f38026f;
 
         public c(CommonDialog commonDialog, e eVar) {
             Interceptable interceptable = $ic;
@@ -139,37 +139,37 @@ public class CommonDialog extends Dialog {
                     return;
                 }
             }
-            this.f37797f = commonDialog;
-            this.f37796e = eVar;
+            this.f38026f = commonDialog;
+            this.f38025e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f37796e.b() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f38025e.b() == null) {
                 return;
             }
-            this.f37796e.b().a(this.f37797f);
+            this.f38025e.b().a(this.f38026f);
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f37798b;
+        public String f38027b;
 
         /* renamed from: c  reason: collision with root package name */
-        public e f37799c;
+        public e f38028c;
 
         /* renamed from: d  reason: collision with root package name */
-        public e f37800d;
+        public e f38029d;
 
         /* renamed from: e  reason: collision with root package name */
-        public e f37801e;
+        public e f38030e;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -192,18 +192,18 @@ public class CommonDialog extends Dialog {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
                 CommonDialog commonDialog = new CommonDialog(context);
                 commonDialog.i(this.a);
-                commonDialog.g(this.f37798b);
-                if (this.f37801e != null && this.f37799c != null && this.f37800d != null) {
+                commonDialog.g(this.f38027b);
+                if (this.f38030e != null && this.f38028c != null && this.f38029d != null) {
                     throw new IllegalArgumentException(d.class.getSimpleName() + "CommonDialog button can't support both single & double");
-                } else if (this.f37801e == null && (this.f37799c == null || this.f37800d == null)) {
+                } else if (this.f38030e == null && (this.f38028c == null || this.f38029d == null)) {
                     throw new IllegalArgumentException(d.class.getSimpleName() + "CommonDialog button double mode should set left & right, if you want to use a single button, you can setSingleButtonEntity()");
                 } else {
-                    e eVar2 = this.f37801e;
+                    e eVar2 = this.f38030e;
                     if (eVar2 != null) {
                         commonDialog.h(eVar2);
                     }
-                    e eVar3 = this.f37799c;
-                    if (eVar3 != null && (eVar = this.f37800d) != null) {
+                    e eVar3 = this.f38028c;
+                    if (eVar3 != null && (eVar = this.f38029d) != null) {
                         commonDialog.f(eVar3, eVar);
                     }
                     return commonDialog;
@@ -216,8 +216,8 @@ public class CommonDialog extends Dialog {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, eVar2)) == null) {
-                this.f37799c = eVar;
-                this.f37800d = eVar2;
+                this.f38028c = eVar;
+                this.f38029d = eVar2;
                 return this;
             }
             return (d) invokeLL.objValue;
@@ -227,7 +227,7 @@ public class CommonDialog extends Dialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f37798b = str;
+                this.f38027b = str;
                 return this;
             }
             return (d) invokeL.objValue;
@@ -237,7 +237,7 @@ public class CommonDialog extends Dialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, eVar)) == null) {
-                this.f37801e = eVar;
+                this.f38030e = eVar;
                 return this;
             }
             return (d) invokeL.objValue;
@@ -254,7 +254,7 @@ public class CommonDialog extends Dialog {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static abstract class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -278,7 +278,7 @@ public class CommonDialog extends Dialog {
         public abstract f b();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface f {
         void a(Dialog dialog);
     }
@@ -308,30 +308,30 @@ public class CommonDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setContentView(h.dialog_common_cashiersdk);
-            this.f37787e = (TextView) findViewById(g.cashiersdk_common_dialog_tv_title);
-            this.f37788f = (TextView) findViewById(g.cashiersdk_common_dialog_tv_content);
-            this.f37790h = (TextView) findViewById(g.cashiersdk_conmon_dialog_btn_left);
-            this.f37791i = (TextView) findViewById(g.cashiersdk_conmon_dialog_btn_right);
-            this.f37789g = findViewById(g.cashiersdk_conmon_dialog_line);
+            this.f38016e = (TextView) findViewById(g.cashiersdk_common_dialog_tv_title);
+            this.f38017f = (TextView) findViewById(g.cashiersdk_common_dialog_tv_content);
+            this.f38019h = (TextView) findViewById(g.cashiersdk_conmon_dialog_btn_left);
+            this.f38020i = (TextView) findViewById(g.cashiersdk_conmon_dialog_btn_right);
+            this.f38018g = findViewById(g.cashiersdk_conmon_dialog_line);
         }
     }
 
     public final void f(e eVar, e eVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, eVar2) == null) {
-            this.f37789g.setVisibility(0);
-            this.f37791i.setVisibility(0);
-            this.f37790h.setText(eVar.a());
-            this.f37790h.setOnClickListener(new a(this, eVar));
-            this.f37791i.setText(eVar2.a());
-            this.f37791i.setOnClickListener(new b(this, eVar2));
+            this.f38018g.setVisibility(0);
+            this.f38020i.setVisibility(0);
+            this.f38019h.setText(eVar.a());
+            this.f38019h.setOnClickListener(new a(this, eVar));
+            this.f38020i.setText(eVar2.a());
+            this.f38020i.setOnClickListener(new b(this, eVar2));
         }
     }
 
     public final void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            TextView textView = this.f37788f;
+            TextView textView = this.f38017f;
             if (str == null) {
                 str = "";
             }
@@ -344,16 +344,16 @@ public class CommonDialog extends Dialog {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) || eVar == null) {
             return;
         }
-        this.f37789g.setVisibility(8);
-        this.f37790h.setVisibility(8);
-        this.f37791i.setText(eVar.a());
-        this.f37791i.setOnClickListener(new c(this, eVar));
+        this.f38018g.setVisibility(8);
+        this.f38019h.setVisibility(8);
+        this.f38020i.setText(eVar.a());
+        this.f38020i.setOnClickListener(new c(this, eVar));
     }
 
     public final void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            TextView textView = this.f37787e;
+            TextView textView = this.f38016e;
             if (str == null) {
                 str = "";
             }

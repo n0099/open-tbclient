@@ -19,12 +19,12 @@ public class MusicPlayer {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static MusicPlayer f49317c;
+    public static MusicPlayer f49484c;
     public transient /* synthetic */ FieldHolder $fh;
     public MediaPlayer a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MusicPlayerState f49318b;
+    public MusicPlayerState f49485b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes13.dex */
@@ -100,10 +100,10 @@ public class MusicPlayer {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList f49319e;
+        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList f49486e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MusicPlayer f49320f;
+        public final /* synthetic */ MusicPlayer f49487f;
 
         public a(MusicPlayer musicPlayer, CloudMusicData.MusicTagList.MusicList musicList) {
             Interceptable interceptable = $ic;
@@ -120,19 +120,19 @@ public class MusicPlayer {
                     return;
                 }
             }
-            this.f49320f = musicPlayer;
-            this.f49319e = musicList;
+            this.f49487f = musicPlayer;
+            this.f49486e = musicList;
         }
 
         @Override // android.media.MediaPlayer.OnPreparedListener
         public void onPrepared(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                c.a.t0.n4.l.i.a.b().d(this.f49319e);
+                c.a.u0.q4.l.i.a.b().d(this.f49486e);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921307));
-                this.f49320f.a.setLooping(true);
-                this.f49320f.a.start();
-                this.f49320f.f49318b = MusicPlayerState.PREPARED;
+                this.f49487f.a.setLooping(true);
+                this.f49487f.a.start();
+                this.f49487f.f49485b = MusicPlayerState.PREPARED;
             }
         }
     }
@@ -170,7 +170,7 @@ public class MusicPlayer {
                 return;
             }
         }
-        this.f49318b = MusicPlayerState.WAIT;
+        this.f49485b = MusicPlayerState.WAIT;
     }
 
     public static synchronized MusicPlayer c() {
@@ -179,10 +179,10 @@ public class MusicPlayer {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (MusicPlayer.class) {
-                if (f49317c == null) {
-                    f49317c = new MusicPlayer();
+                if (f49484c == null) {
+                    f49484c = new MusicPlayer();
                 }
-                musicPlayer = f49317c;
+                musicPlayer = f49484c;
             }
             return musicPlayer;
         }
@@ -196,13 +196,13 @@ public class MusicPlayer {
             if (mediaPlayer != null && mediaPlayer.isPlaying()) {
                 this.a.pause();
             }
-            this.f49318b = MusicPlayerState.PAUSE;
+            this.f49485b = MusicPlayerState.PAUSE;
         }
     }
 
     public void e(String str, CloudMusicData.MusicTagList.MusicList musicList, b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, musicList, bVar) == null) || this.f49318b == MusicPlayerState.PAUSE) {
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, musicList, bVar) == null) || this.f49485b == MusicPlayerState.PAUSE) {
             return;
         }
         if (this.a == null) {
@@ -214,11 +214,11 @@ public class MusicPlayer {
             this.a.reset();
             this.a.setDataSource(str);
             this.a.prepare();
-            this.f49318b = MusicPlayerState.WAIT;
+            this.f49485b = MusicPlayerState.WAIT;
             this.a.setOnPreparedListener(new a(this, musicList));
         } catch (IOException e2) {
             e2.printStackTrace();
-            this.f49318b = MusicPlayerState.ERROR;
+            this.f49485b = MusicPlayerState.ERROR;
             if (bVar != null) {
                 bVar.a();
             }
@@ -246,7 +246,7 @@ public class MusicPlayer {
                 mediaPlayer.start();
                 this.a.seekTo(0);
             }
-            this.f49318b = MusicPlayerState.RESUME;
+            this.f49485b = MusicPlayerState.RESUME;
         }
     }
 }

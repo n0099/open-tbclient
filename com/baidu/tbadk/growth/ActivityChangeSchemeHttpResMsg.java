@@ -1,6 +1,6 @@
 package com.baidu.tbadk.growth;
 
-import c.a.s0.b0.b;
+import c.a.t0.b0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;

@@ -17,7 +17,7 @@ import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.nio.LongBuffer;
 import java.util.Arrays;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class Tensor implements AutoCloseable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

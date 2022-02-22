@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WebStorage {
     public static /* synthetic */ Interceptable $ic;
     public static final WebStorage mInstance;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Origin {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class WebStorage {
     }
 
     @Deprecated
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface QuotaUpdater {
         void updateQuota(long j2);
     }

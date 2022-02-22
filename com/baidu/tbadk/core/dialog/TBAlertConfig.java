@@ -149,10 +149,10 @@ public final class TBAlertConfig {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public OperateBtnStyle f40223b;
+        public OperateBtnStyle f40452b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View.OnClickListener f40224c;
+        public View.OnClickListener f40453c;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public a(@NonNull String str, @NonNull OperateBtnStyle operateBtnStyle) {
@@ -178,7 +178,7 @@ public final class TBAlertConfig {
         public void a(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-                this.f40224c = onClickListener;
+                this.f40453c = onClickListener;
             }
         }
 
@@ -219,8 +219,8 @@ public final class TBAlertConfig {
                 }
             }
             this.a = str;
-            this.f40223b = operateBtnStyle;
-            this.f40224c = onClickListener;
+            this.f40452b = operateBtnStyle;
+            this.f40453c = onClickListener;
         }
 
         public a(@StringRes int i2, @NonNull OperateBtnStyle operateBtnStyle, View.OnClickListener onClickListener) {
@@ -239,8 +239,8 @@ public final class TBAlertConfig {
                 }
             }
             this.a = TbadkCoreApplication.getInst().getResources().getString(i2);
-            this.f40223b = operateBtnStyle;
-            this.f40224c = onClickListener;
+            this.f40452b = operateBtnStyle;
+            this.f40453c = onClickListener;
         }
     }
 
@@ -251,13 +251,13 @@ public final class TBAlertConfig {
         public final OperateType a;
 
         /* renamed from: b  reason: collision with root package name */
-        public a f40225b;
+        public a f40454b;
 
         /* renamed from: c  reason: collision with root package name */
-        public a f40226c;
+        public a f40455c;
 
         /* renamed from: d  reason: collision with root package name */
-        public a f40227d;
+        public a f40456d;
 
         public b(OperateType operateType) {
             Interceptable interceptable = $ic;
@@ -282,7 +282,7 @@ public final class TBAlertConfig {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, aVar)) == null) {
                 b bVar = new b(OperateType.ONE);
-                bVar.f40225b = aVar;
+                bVar.f40454b = aVar;
                 return bVar;
             }
             return (b) invokeL.objValue;
@@ -293,9 +293,9 @@ public final class TBAlertConfig {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, aVar, aVar2, aVar3)) == null) {
                 b bVar = new b(OperateType.THREE);
-                bVar.f40225b = aVar;
-                bVar.f40226c = aVar2;
-                bVar.f40227d = aVar3;
+                bVar.f40454b = aVar;
+                bVar.f40455c = aVar2;
+                bVar.f40456d = aVar3;
                 return bVar;
             }
             return (b) invokeLLL.objValue;
@@ -306,8 +306,8 @@ public final class TBAlertConfig {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, aVar, aVar2)) == null) {
                 b bVar = new b(OperateType.TWO);
-                bVar.f40225b = aVar;
-                bVar.f40226c = aVar2;
+                bVar.f40454b = aVar;
+                bVar.f40455c = aVar2;
                 return bVar;
             }
             return (b) invokeLL.objValue;

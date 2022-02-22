@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public final class JavascriptInterfaceManager {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<String, Permission> a;

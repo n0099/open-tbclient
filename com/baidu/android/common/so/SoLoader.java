@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import c.a.t0.s.e;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,10 +31,10 @@ import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class SoLoader {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final boolean DEBUG = false;
+    public static final boolean DEBUG;
     public static final String TAG = "SoLoader";
     public static final Set<String> sLoadedLibraries;
     public static final List<File> soSources;
@@ -53,6 +54,7 @@ public final class SoLoader {
                 return;
             }
         }
+        DEBUG = e.e();
         sLoadedLibraries = Collections.synchronizedSet(new HashSet());
         soSources = new ArrayList();
     }
@@ -271,6 +273,7 @@ public final class SoLoader {
                     }
                     return 0L;
                 } catch (Exception unused) {
+                    boolean z = DEBUG;
                     return 0L;
                 }
             }
@@ -282,6 +285,7 @@ public final class SoLoader {
     private void initSoSource(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, context) == null) {
+            boolean z = DEBUG;
             addSysSoLibraryDirectory();
             addLocalSoLibraryDirectory(context);
         }
@@ -409,6 +413,7 @@ public final class SoLoader {
                 iCallingSoLoader.loadLibrary(simpleName);
                 return true;
             } catch (Throwable th) {
+                boolean z = DEBUG;
                 StringBuilder sb = this.sb;
                 sb.append(str2 + ":::" + simpleName + ":" + Log.getStackTraceString(th));
                 return false;
@@ -417,6 +422,11 @@ public final class SoLoader {
         return invokeLLL.booleanValue;
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:78:0x0075 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:87:0x007f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private boolean releaseFileFromApk(ZipFile zipFile, File file, String str) {
         InterceptResult invokeLLL;
         FileOutputStream fileOutputStream;
@@ -450,47 +460,57 @@ public final class SoLoader {
                                 inputStream = inputStream2;
                             } catch (Exception unused) {
                                 inputStream = inputStream2;
-                                if (inputStream != null) {
-                                    try {
-                                        inputStream.close();
-                                    } catch (Exception e4) {
-                                        e4.printStackTrace();
+                                try {
+                                    boolean z = DEBUG;
+                                    if (inputStream != null) {
+                                        try {
+                                            inputStream.close();
+                                        } catch (Exception e4) {
+                                            e4.printStackTrace();
+                                        }
                                     }
-                                }
-                                if (fileOutputStream != null) {
-                                    fileOutputStream.close();
+                                    if (fileOutputStream != null) {
+                                        fileOutputStream.close();
+                                        return false;
+                                    }
                                     return false;
+                                } catch (Throwable th) {
+                                    th = th;
+                                    if (inputStream != null) {
+                                        try {
+                                            inputStream.close();
+                                        } catch (Exception e5) {
+                                            e5.printStackTrace();
+                                        }
+                                    }
+                                    if (fileOutputStream != null) {
+                                        try {
+                                            fileOutputStream.close();
+                                        } catch (Exception e6) {
+                                            e6.printStackTrace();
+                                        }
+                                    }
+                                    throw th;
                                 }
-                                return false;
-                            } catch (Throwable th) {
-                                th = th;
+                            } catch (Throwable th2) {
+                                th = th2;
                                 inputStream = inputStream2;
                                 if (inputStream != null) {
-                                    try {
-                                        inputStream.close();
-                                    } catch (Exception e5) {
-                                        e5.printStackTrace();
-                                    }
                                 }
                                 if (fileOutputStream != null) {
-                                    try {
-                                        fileOutputStream.close();
-                                    } catch (Exception e6) {
-                                        e6.printStackTrace();
-                                    }
                                 }
                                 throw th;
                             }
                         } catch (Exception unused2) {
                             fileOutputStream = null;
-                        } catch (Throwable th2) {
-                            th = th2;
+                        } catch (Throwable th3) {
+                            th = th3;
                             fileOutputStream = null;
                         }
                     } catch (Exception unused3) {
                         fileOutputStream = null;
-                    } catch (Throwable th3) {
-                        th = th3;
+                    } catch (Throwable th4) {
+                        th = th4;
                         fileOutputStream = null;
                     }
                 } else {
@@ -520,12 +540,19 @@ public final class SoLoader {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) {
+            if (DEBUG) {
+                String str2 = "unpackLibDep is called, shortName=" + str;
+            }
             String fullName = SoUtils.getFullName(str);
             try {
                 if (soSources.size() == 0 || 0 >= soSources.size()) {
                     return null;
                 }
-                return new File(soSources.get(0), fullName);
+                File file = new File(soSources.get(0), fullName);
+                if (DEBUG) {
+                    String str3 = "unpackLibDep soFile path is: " + file.getAbsolutePath();
+                }
+                return file;
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return null;
@@ -574,6 +601,7 @@ public final class SoLoader {
                 iCallingSoLoader.load(str);
                 return true;
             } catch (Throwable th) {
+                boolean z = DEBUG;
                 StringBuilder sb = this.sb;
                 sb.append(str2 + ":::" + str + ":" + Log.getStackTraceString(th));
                 return false;

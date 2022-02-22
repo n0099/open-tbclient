@@ -10,27 +10,27 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, c> f60280b;
+    public final Map<String, c> f60447b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, d> f60281c;
+    public final Map<String, d> f60448c;
 
     /* renamed from: com.ss.android.socialbase.downloader.network.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C2229a {
+    public static final class C2239a {
         public static final a a = new a();
     }
 
     public void a(String str, c cVar) {
-        synchronized (this.f60280b) {
-            this.f60280b.put(str, cVar);
+        synchronized (this.f60447b) {
+            this.f60447b.put(str, cVar);
         }
     }
 
     public d b(String str, List<com.ss.android.socialbase.downloader.model.c> list) {
         d remove;
-        synchronized (this.f60281c) {
-            remove = this.f60281c.remove(str);
+        synchronized (this.f60448c) {
+            remove = this.f60448c.remove(str);
         }
         if (remove != null) {
             if (f.a(remove.f(), list)) {
@@ -54,8 +54,8 @@ public class a {
     }
 
     public a() {
-        this.f60280b = new HashMap();
-        this.f60281c = new LinkedHashMap(3);
+        this.f60447b = new HashMap();
+        this.f60448c = new LinkedHashMap(3);
         this.a = 3;
     }
 
@@ -65,8 +65,8 @@ public class a {
 
     public c a(String str, List<com.ss.android.socialbase.downloader.model.c> list) {
         c remove;
-        synchronized (this.f60280b) {
-            remove = this.f60280b.remove(str);
+        synchronized (this.f60447b) {
+            remove = this.f60447b.remove(str);
         }
         if (remove != null) {
             if (f.a(remove.h(), list)) {
@@ -90,7 +90,7 @@ public class a {
     }
 
     public boolean a(String str) {
-        c cVar = this.f60280b.get(str);
+        c cVar = this.f60447b.get(str);
         if (cVar != null) {
             if (cVar.g()) {
                 return true;
@@ -101,6 +101,6 @@ public class a {
     }
 
     public static a a() {
-        return C2229a.a;
+        return C2239a.a;
     }
 }

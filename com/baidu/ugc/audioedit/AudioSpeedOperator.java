@@ -1,6 +1,6 @@
 package com.baidu.ugc.audioedit;
 
-import c.a.a1.g.a;
+import c.a.b1.g.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,7 +28,7 @@ public class AudioSpeedOperator implements a {
         }
     }
 
-    @Override // c.a.a1.g.a
+    @Override // c.a.b1.g.a
     public int availableBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class AudioSpeedOperator implements a {
         return invokeV.intValue;
     }
 
-    @Override // c.a.a1.g.a
+    @Override // c.a.b1.g.a
     public void close() {
         Sonic sonic;
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class AudioSpeedOperator implements a {
         sonic.b();
     }
 
-    @Override // c.a.a1.g.a
+    @Override // c.a.b1.g.a
     public void flush() {
         Sonic sonic;
         Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class AudioSpeedOperator implements a {
         sonic.c();
     }
 
-    @Override // c.a.a1.g.a
+    @Override // c.a.b1.g.a
     public byte[] getOutPutBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -75,7 +75,7 @@ public class AudioSpeedOperator implements a {
         return (byte[]) invokeV.objValue;
     }
 
-    @Override // c.a.a1.g.a
+    @Override // c.a.b1.g.a
     public void init(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
@@ -83,7 +83,7 @@ public class AudioSpeedOperator implements a {
         }
     }
 
-    @Override // c.a.a1.g.a
+    @Override // c.a.b1.g.a
     public boolean putBytes(byte[] bArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public class AudioSpeedOperator implements a {
         return invokeLI.booleanValue;
     }
 
-    @Override // c.a.a1.g.a
+    @Override // c.a.b1.g.a
     public int receiveBytes(byte[] bArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -112,7 +112,7 @@ public class AudioSpeedOperator implements a {
         return invokeLI.intValue;
     }
 
-    @Override // c.a.a1.g.a
+    @Override // c.a.b1.g.a
     public void setSpeed(float f2) {
         Sonic sonic;
         Interceptable interceptable = $ic;

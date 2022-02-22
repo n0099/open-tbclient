@@ -14,10 +14,10 @@ public class Gradient {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f35277b;
+    public final int[] f35483b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final float[] f35278c;
+    public final float[] f35484c;
 
     /* loaded from: classes10.dex */
     public class a {
@@ -26,13 +26,13 @@ public class Gradient {
         public final /* synthetic */ Gradient a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f35279b;
+        public final int f35485b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f35280c;
+        public final int f35486c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final float f35281d;
+        public final float f35487d;
 
         public a(Gradient gradient, int i2, int i3, float f2) {
             Interceptable interceptable = $ic;
@@ -50,9 +50,9 @@ public class Gradient {
                 }
             }
             this.a = gradient;
-            this.f35279b = i2;
-            this.f35280c = i3;
-            this.f35281d = f2;
+            this.f35485b = i2;
+            this.f35486c = i3;
+            this.f35487d = f2;
         }
 
         public /* synthetic */ a(Gradient gradient, int i2, int i3, float f2, i iVar) {
@@ -112,10 +112,10 @@ public class Gradient {
         }
         this.a = i2;
         int[] iArr2 = new int[iArr.length];
-        this.f35277b = iArr2;
-        this.f35278c = new float[fArr.length];
+        this.f35483b = iArr2;
+        this.f35484c = new float[fArr.length];
         System.arraycopy(iArr, 0, iArr2, 0, iArr.length);
-        System.arraycopy(fArr, 0, this.f35278c, 0, fArr.length);
+        System.arraycopy(fArr, 0, this.f35484c, 0, fArr.length);
     }
 
     public static int a(int i2, int i3, float f2) {
@@ -146,24 +146,24 @@ public class Gradient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             HashMap<Integer, a> hashMap = new HashMap<>();
-            if (this.f35278c[0] != 0.0f) {
-                hashMap.put(0, new a(this, Color.argb(0, Color.red(this.f35277b[0]), Color.green(this.f35277b[0]), Color.blue(this.f35277b[0])), this.f35277b[0], this.a * this.f35278c[0], null));
+            if (this.f35484c[0] != 0.0f) {
+                hashMap.put(0, new a(this, Color.argb(0, Color.red(this.f35483b[0]), Color.green(this.f35483b[0]), Color.blue(this.f35483b[0])), this.f35483b[0], this.a * this.f35484c[0], null));
             }
-            for (int i2 = 1; i2 < this.f35277b.length; i2++) {
+            for (int i2 = 1; i2 < this.f35483b.length; i2++) {
                 int i3 = i2 - 1;
-                Integer valueOf = Integer.valueOf((int) (this.a * this.f35278c[i3]));
-                int[] iArr = this.f35277b;
+                Integer valueOf = Integer.valueOf((int) (this.a * this.f35484c[i3]));
+                int[] iArr = this.f35483b;
                 int i4 = iArr[i3];
                 int i5 = iArr[i2];
-                float[] fArr = this.f35278c;
+                float[] fArr = this.f35484c;
                 hashMap.put(valueOf, new a(this, i4, i5, (fArr[i2] - fArr[i3]) * this.a, null));
             }
-            float[] fArr2 = this.f35278c;
+            float[] fArr2 = this.f35484c;
             if (fArr2[fArr2.length - 1] != 1.0f) {
                 int length = fArr2.length - 1;
                 Integer valueOf2 = Integer.valueOf((int) (this.a * fArr2[length]));
-                int[] iArr2 = this.f35277b;
-                hashMap.put(valueOf2, new a(this, iArr2[length], iArr2[length], this.a * (1.0f - this.f35278c[length]), null));
+                int[] iArr2 = this.f35483b;
+                hashMap.put(valueOf2, new a(this, iArr2[length], iArr2[length], this.a * (1.0f - this.f35484c[length]), null));
             }
             return hashMap;
         }
@@ -183,7 +183,7 @@ public class Gradient {
                     aVar = a2.get(Integer.valueOf(i3));
                     i2 = i3;
                 }
-                iArr[i3] = a(aVar.f35279b, aVar.f35280c, (i3 - i2) / aVar.f35281d);
+                iArr[i3] = a(aVar.f35485b, aVar.f35486c, (i3 - i2) / aVar.f35487d);
             }
             if (d2 != 1.0d) {
                 for (int i4 = 0; i4 < this.a; i4++) {

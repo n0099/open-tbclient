@@ -22,29 +22,29 @@ public class k<T> implements Serializable {
     public static final String a = "com.sdk.base.framework.a.k";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f59257b;
+    public static final Boolean f59424b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f59258c;
+    public String f59425c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f59259d;
+    public String f59426d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TreeMap<String, Object> f59260e;
+    public TreeMap<String, Object> f59427e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<File> f59261f;
+    public ArrayList<File> f59428f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HashMap<String, Object> f59262g;
+    public HashMap<String, Object> f59429g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f59263h;
+    public int f59430h;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.sdk.base.framework.b.b<T> f59264i;
+    public com.sdk.base.framework.b.b<T> f59431i;
 
     static {
         InterceptResult invokeClinit;
@@ -59,7 +59,7 @@ public class k<T> implements Serializable {
                 return;
             }
         }
-        f59257b = Boolean.valueOf(com.sdk.base.framework.c.f.f59281b);
+        f59424b = Boolean.valueOf(com.sdk.base.framework.c.f.f59448b);
     }
 
     public k() {
@@ -75,8 +75,8 @@ public class k<T> implements Serializable {
                 return;
             }
         }
-        this.f59258c = j.a.toString();
-        this.f59263h = 0;
+        this.f59425c = j.a.toString();
+        this.f59430h = 0;
     }
 
     public static String b(TreeMap<String, Object> treeMap) {
@@ -92,7 +92,7 @@ public class k<T> implements Serializable {
                         Object value = entry.getValue();
                         if (value != null && com.sdk.base.framework.a.a.c.b(key).booleanValue()) {
                             String encode = URLEncoder.encode(value.toString(), "UTF-8");
-                            boolean z = com.sdk.base.framework.c.f.f59284e;
+                            boolean z = com.sdk.base.framework.c.f.f59451e;
                             sb.append(key);
                             sb.append("=");
                             sb.append(encode);
@@ -101,7 +101,7 @@ public class k<T> implements Serializable {
                     }
                     sb.deleteCharAt(sb.length() - 1);
                 } catch (Exception e2) {
-                    com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f59257b);
+                    com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f59424b);
                     throw new Exception("http请求参数出错");
                 }
             } else {
@@ -118,61 +118,61 @@ public class k<T> implements Serializable {
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59258c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59425c : (String) invokeV.objValue;
     }
 
     public final void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f59263h = i2;
+            this.f59430h = i2;
         }
     }
 
     public final void a(com.sdk.base.framework.b.b<T> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f59264i = bVar;
+            this.f59431i = bVar;
         }
     }
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && com.sdk.base.framework.a.a.c.b(str).booleanValue()) {
-            this.f59258c = str;
+            this.f59425c = str;
         }
     }
 
     public final void a(ArrayList<File> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
-            this.f59261f = arrayList;
+            this.f59428f = arrayList;
         }
     }
 
     public final void a(HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, hashMap) == null) {
-            this.f59262g = hashMap;
+            this.f59429g = hashMap;
         }
     }
 
     public final void a(TreeMap<String, Object> treeMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, treeMap) == null) {
-            this.f59260e = treeMap;
+            this.f59427e = treeMap;
         }
     }
 
     public final ArrayList<File> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f59261f : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f59428f : (ArrayList) invokeV.objValue;
     }
 
     public final void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f59259d = str;
+            this.f59426d = str;
         }
     }
 
@@ -180,7 +180,7 @@ public class k<T> implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            ArrayList<File> arrayList = this.f59261f;
+            ArrayList<File> arrayList = this.f59428f;
             return (arrayList == null || arrayList.size() == 0) ? false : true;
         }
         return invokeV.booleanValue;
@@ -189,30 +189,30 @@ public class k<T> implements Serializable {
     public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f59259d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f59426d : (String) invokeV.objValue;
     }
 
     public final TreeMap<String, Object> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f59260e : (TreeMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f59427e : (TreeMap) invokeV.objValue;
     }
 
     public final int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f59263h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f59430h : invokeV.intValue;
     }
 
     public final com.sdk.base.framework.b.b<T> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f59264i : (com.sdk.base.framework.b.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f59431i : (com.sdk.base.framework.b.b) invokeV.objValue;
     }
 
     public final HashMap<String, Object> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f59262g : (HashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f59429g : (HashMap) invokeV.objValue;
     }
 }

@@ -41,10 +41,10 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
     public static boolean f977a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f61510b = 1;
+    public static int f61677b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f61511c = 2;
+    public static int f61678c = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with other field name */
@@ -64,7 +64,7 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
             }
         }
         f975a = new LinkedBlockingQueue();
-        f976a = new ThreadPoolExecutor(a, f61510b, f61511c, TimeUnit.SECONDS, f975a);
+        f976a = new ThreadPoolExecutor(a, f61677b, f61678c, TimeUnit.SECONDS, f975a);
         f977a = false;
     }
 
@@ -108,7 +108,7 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            if (!an.a(context).m168a() && b.m175a(context).m184c() && !b.m175a(context).m187f()) {
+            if (!an.a(context).m167a() && b.m174a(context).m183c() && !b.m174a(context).m186f()) {
                 try {
                     Intent intent = new Intent();
                     intent.setComponent(new ComponentName(context, "com.xiaomi.push.service.XMPushService"));
@@ -118,27 +118,27 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
                     com.xiaomi.channel.commonutils.logger.b.a(e2);
                 }
             }
-            gq.m423a(context);
-            if (bg.b(context) && an.a(context).m171b()) {
-                an.a(context).m172c();
+            gq.m422a(context);
+            if (bg.b(context) && an.a(context).m170b()) {
+                an.a(context).m171c();
             }
             if (bg.b(context)) {
                 if ("syncing".equals(ae.a(context).a(at.a))) {
                     MiPushClient.disablePush(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f60931b))) {
+                if ("syncing".equals(ae.a(context).a(at.f61098b))) {
                     MiPushClient.enablePush(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f60932c))) {
+                if ("syncing".equals(ae.a(context).a(at.f61099c))) {
                     MiPushClient.syncAssemblePushToken(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f60933d))) {
+                if ("syncing".equals(ae.a(context).a(at.f61100d))) {
                     MiPushClient.syncAssembleFCMPushToken(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f60934e))) {
+                if ("syncing".equals(ae.a(context).a(at.f61101e))) {
                     MiPushClient.syncAssembleCOSPushToken(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f60935f))) {
+                if ("syncing".equals(ae.a(context).a(at.f61102f))) {
                     MiPushClient.syncAssembleFTOSPushToken(context);
                 }
                 if (HWPushHelper.needConnect() && HWPushHelper.shouldTryConnect(context)) {

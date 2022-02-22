@@ -27,31 +27,31 @@ public class t1 {
     public URL a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f30480b;
+    public byte[] f30686b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map f30481c;
+    public Map f30687c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map f30482d;
+    public Map f30688d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30483e;
+    public String f30689e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30484f;
+    public int f30690f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f30485g;
+    public boolean f30691g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f30486h;
+    public boolean f30692h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f30487i;
+    public int f30693i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f30488j;
+    public int f30694j;
 
     public t1(String str, String str2, Map map) {
         Interceptable interceptable = $ic;
@@ -68,15 +68,15 @@ public class t1 {
                 return;
             }
         }
-        this.f30483e = "GET";
-        this.f30484f = -1;
-        this.f30485g = false;
-        this.f30486h = true;
+        this.f30689e = "GET";
+        this.f30690f = -1;
+        this.f30691g = false;
+        this.f30692h = true;
         this.a = new URL(str);
-        this.f30483e = str2;
-        this.f30481c = map;
-        this.f30487i = 20000;
-        this.f30488j = 20000;
+        this.f30689e = str2;
+        this.f30687c = map;
+        this.f30693i = 20000;
+        this.f30694j = 20000;
     }
 
     public w1 a() {
@@ -92,12 +92,12 @@ public class t1 {
             } else {
                 httpURLConnection = (HttpsURLConnection) this.a.openConnection();
             }
-            httpURLConnection.setRequestMethod(this.f30483e);
-            httpURLConnection.setInstanceFollowRedirects(this.f30486h);
-            httpURLConnection.setReadTimeout(this.f30488j);
-            httpURLConnection.setConnectTimeout(this.f30487i);
+            httpURLConnection.setRequestMethod(this.f30689e);
+            httpURLConnection.setInstanceFollowRedirects(this.f30692h);
+            httpURLConnection.setReadTimeout(this.f30694j);
+            httpURLConnection.setConnectTimeout(this.f30693i);
             httpURLConnection.setDoInput(true);
-            Map map = this.f30481c;
+            Map map = this.f30687c;
             if (map != null && map.size() > 0) {
                 for (Map.Entry entry : map.entrySet()) {
                     String str = (String) entry.getKey();
@@ -107,14 +107,14 @@ public class t1 {
                     }
                 }
             }
-            if (this.f30483e.equals("POST")) {
+            if (this.f30689e.equals("POST")) {
                 httpURLConnection.setDoInput(true);
                 httpURLConnection.setDoOutput(true);
                 PrintWriter printWriter = null;
                 PrintWriter printWriter2 = null;
                 try {
                     OutputStream outputStream = httpURLConnection.getOutputStream();
-                    byte[] bArr = this.f30480b;
+                    byte[] bArr = this.f30686b;
                     if (bArr == null) {
                         PrintWriter printWriter3 = new PrintWriter((Writer) new OutputStreamWriter(outputStream, "UTF-8"), true);
                         try {
@@ -141,10 +141,10 @@ public class t1 {
                     th = th2;
                 }
             }
-            this.f30484f = httpURLConnection.getResponseCode();
+            this.f30690f = httpURLConnection.getResponseCode();
             httpURLConnection.getContentLength();
             if (httpURLConnection.getHeaderFields() != null) {
-                this.f30482d = httpURLConnection.getHeaderFields();
+                this.f30688d = httpURLConnection.getHeaderFields();
             }
             try {
                 String contentEncoding = httpURLConnection.getContentEncoding();
@@ -158,7 +158,7 @@ public class t1 {
             BufferedInputStream bufferedInputStream = new BufferedInputStream(errorStream);
             byte[] bArr2 = new byte[4096];
             int i2 = 0;
-            while (!this.f30485g && i2 != -1) {
+            while (!this.f30691g && i2 != -1) {
                 i2 = bufferedInputStream.read(bArr2);
                 if (i2 > 0) {
                     byteArrayOutputStream.write(bArr2, 0, i2);
@@ -167,7 +167,7 @@ public class t1 {
             httpURLConnection.disconnect();
             byteArrayOutputStream.flush();
             errorStream.close();
-            return new w1(this.f30484f, byteArrayOutputStream.toByteArray(), this.f30482d);
+            return new w1(this.f30690f, byteArrayOutputStream.toByteArray(), this.f30688d);
         }
         return (w1) invokeV.objValue;
     }

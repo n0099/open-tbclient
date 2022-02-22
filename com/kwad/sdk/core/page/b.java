@@ -23,60 +23,60 @@ import com.kwad.sdk.feed.widget.k;
 import com.kwad.sdk.mvp.Presenter;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b extends com.kwad.sdk.core.page.recycle.a {
     public AdTemplate a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WebView f55964b;
+    public WebView f56131b;
 
     /* renamed from: c  reason: collision with root package name */
-    public k f55965c;
+    public k f56132c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.b f55966d;
+    public com.kwad.sdk.core.download.a.b f56133d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f55967e;
+    public LinearLayout f56134e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f55968f;
+    public TextView f56135f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f55969g;
+    public ImageView f56136g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends com.kwad.sdk.core.page.recycle.d {
         public AdTemplate a;
 
         /* renamed from: b  reason: collision with root package name */
-        public e f55971b;
+        public e f56138b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Context f55972c;
+        public Context f56139c;
 
         public a(AdTemplate adTemplate, Context context, e eVar) {
             this.a = adTemplate;
-            this.f55972c = context;
-            this.f55971b = eVar;
+            this.f56139c = context;
+            this.f56138b = eVar;
         }
 
         @Override // com.kwad.sdk.core.page.recycle.d
         public com.kwad.sdk.core.page.recycle.c a(ViewGroup viewGroup, int i2) {
             if (i2 == 1) {
-                View inflate = LayoutInflater.from(this.f55972c).inflate(R.layout.ksad_datail_webview_container, viewGroup, false);
+                View inflate = LayoutInflater.from(this.f56139c).inflate(R.layout.ksad_datail_webview_container, viewGroup, false);
                 Presenter presenter = new Presenter();
                 presenter.a((Presenter) new com.kwad.sdk.core.page.kwai.b());
-                return new com.kwad.sdk.core.page.recycle.c(inflate, presenter, this.f55971b);
+                return new com.kwad.sdk.core.page.recycle.c(inflate, presenter, this.f56138b);
             } else if (i2 != 0) {
                 View view = new View(viewGroup.getContext());
                 view.setLayoutParams(new ViewGroup.LayoutParams(-1, com.kwad.sdk.a.kwai.a.a(viewGroup.getContext(), 64.0f)));
-                return new com.kwad.sdk.core.page.recycle.c(view, new Presenter(), this.f55971b);
+                return new com.kwad.sdk.core.page.recycle.c(view, new Presenter(), this.f56138b);
             } else {
                 k kVar = new k(viewGroup.getContext());
                 Presenter presenter2 = new Presenter();
                 presenter2.a((Presenter) new com.kwad.sdk.core.page.kwai.a());
-                return new com.kwad.sdk.core.page.recycle.c(kVar, presenter2, this.f55971b);
+                return new com.kwad.sdk.core.page.recycle.c(kVar, presenter2, this.f56138b);
             }
         }
 
@@ -109,45 +109,45 @@ public class b extends com.kwad.sdk.core.page.recycle.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view) {
-        this.f55967e = (LinearLayout) view.findViewById(R.id.ksad_web_tip_bar);
-        this.f55968f = (TextView) view.findViewById(R.id.ksad_web_tip_bar_textview);
+        this.f56134e = (LinearLayout) view.findViewById(R.id.ksad_web_tip_bar);
+        this.f56135f = (TextView) view.findViewById(R.id.ksad_web_tip_bar_textview);
         ImageView imageView = (ImageView) view.findViewById(R.id.ksad_web_tip_close_btn);
-        this.f55969g = imageView;
+        this.f56136g = imageView;
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                b.this.f55967e.setVisibility(8);
+                b.this.f56134e.setVisibility(8);
             }
         });
         AdInfo j2 = com.kwad.sdk.core.response.a.d.j(this.a);
         boolean af = com.kwad.sdk.core.response.a.a.af(j2);
         String ab = com.kwad.sdk.core.response.a.a.ab(j2);
         if (!af) {
-            this.f55967e.setVisibility(8);
+            this.f56134e.setVisibility(8);
             return;
         }
-        this.f55967e.setVisibility(0);
-        this.f55968f.setText(ab);
-        this.f55968f.setSelected(true);
+        this.f56134e.setVisibility(0);
+        this.f56135f.setText(ab);
+        this.f56135f.setSelected(true);
     }
 
     @Override // com.kwad.sdk.core.page.recycle.a
     public com.kwad.sdk.core.page.recycle.d a(RecyclerView recyclerView) {
-        return new a(this.a, recyclerView.getContext(), new e(this.a, this.f55966d, recyclerView));
+        return new a(this.a, recyclerView.getContext(), new e(this.a, this.f56133d, recyclerView));
     }
 
     public void a(com.kwad.sdk.core.download.a.b bVar) {
-        this.f55966d = bVar;
+        this.f56133d = bVar;
     }
 
     @Override // com.kwad.sdk.h.d, com.kwad.sdk.h.kwai.b
     public boolean a_() {
-        WebView webView = this.f55964b;
+        WebView webView = this.f56131b;
         if (webView != null && webView.canGoBack()) {
-            this.f55964b.goBack();
+            this.f56131b.goBack();
             return true;
         }
-        k kVar = this.f55965c;
+        k kVar = this.f56132c;
         if (kVar != null) {
             return kVar.d();
         }
@@ -200,12 +200,12 @@ public class b extends com.kwad.sdk.core.page.recycle.a {
                     detailWebRecycleView.setTopViewHeight(findViewHolderForAdapterPosition.itemView.getHeight());
                     View view2 = detailWebRecycleView.findViewHolderForAdapterPosition(0).itemView;
                     if (view2 instanceof k) {
-                        b.this.f55965c = (k) view2;
+                        b.this.f56132c = (k) view2;
                     }
                 }
                 if (detailWebRecycleView.getChildCount() > 1) {
                     View view3 = detailWebRecycleView.findViewHolderForAdapterPosition(1).itemView;
-                    b.this.f55964b = (WebView) view3.findViewById(R.id.ksad_video_webView);
+                    b.this.f56131b = (WebView) view3.findViewById(R.id.ksad_video_webView);
                     b.this.a(view3);
                 }
                 com.kwad.sdk.core.d.a.a("AdRecycleWebFragment", "onGlobalLayout");

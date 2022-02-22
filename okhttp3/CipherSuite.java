@@ -18,7 +18,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class CipherSuite {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<String, CipherSuite> INSTANCES;

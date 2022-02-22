@@ -54,7 +54,7 @@ public final class u extends XMPushService.i {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 ib a = q.a((Context) this.f982a, this.a);
-                a.m514a().a("miui_message_unrecognized", "1");
+                a.m513a().a("miui_message_unrecognized", "1");
                 y.a(this.f982a, a);
             } catch (fw e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);

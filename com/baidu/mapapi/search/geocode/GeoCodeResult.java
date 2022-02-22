@@ -21,16 +21,16 @@ public class GeoCodeResult extends SearchResult implements Parcelable {
     public LatLng a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35564b;
+    public String f35770b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f35565c;
+    public int f35771c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f35566d;
+    public int f35772d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f35567e;
+    public String f35773e;
 
     static {
         InterceptResult invokeClinit;
@@ -78,10 +78,10 @@ public class GeoCodeResult extends SearchResult implements Parcelable {
             }
         }
         this.a = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
-        this.f35564b = parcel.readString();
-        this.f35565c = parcel.readInt();
-        this.f35566d = parcel.readInt();
-        this.f35567e = parcel.readString();
+        this.f35770b = parcel.readString();
+        this.f35771c = parcel.readInt();
+        this.f35772d = parcel.readInt();
+        this.f35773e = parcel.readString();
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -98,19 +98,19 @@ public class GeoCodeResult extends SearchResult implements Parcelable {
     public String getAddress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35564b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35770b : (String) invokeV.objValue;
     }
 
     public int getConfidence() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35566d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35772d : invokeV.intValue;
     }
 
     public String getLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35567e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35773e : (String) invokeV.objValue;
     }
 
     public LatLng getLocation() {
@@ -122,28 +122,28 @@ public class GeoCodeResult extends SearchResult implements Parcelable {
     public int getPrecise() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f35565c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f35771c : invokeV.intValue;
     }
 
     @Deprecated
     public void setAddress(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f35564b = str;
+            this.f35770b = str;
         }
     }
 
     public void setConfidence(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f35566d = i2;
+            this.f35772d = i2;
         }
     }
 
     public void setLevel(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f35567e = str;
+            this.f35773e = str;
         }
     }
 
@@ -157,7 +157,7 @@ public class GeoCodeResult extends SearchResult implements Parcelable {
     public void setPrecise(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f35565c = i2;
+            this.f35771c = i2;
         }
     }
 
@@ -169,11 +169,11 @@ public class GeoCodeResult extends SearchResult implements Parcelable {
             stringBuffer.append("location = ");
             stringBuffer.append(this.a);
             stringBuffer.append("; precise = ");
-            stringBuffer.append(this.f35565c);
+            stringBuffer.append(this.f35771c);
             stringBuffer.append("; confidence = ");
-            stringBuffer.append(this.f35566d);
+            stringBuffer.append(this.f35772d);
             stringBuffer.append("; level = ");
-            stringBuffer.append(this.f35567e);
+            stringBuffer.append(this.f35773e);
             return stringBuffer.toString();
         }
         return (String) invokeV.objValue;
@@ -184,10 +184,10 @@ public class GeoCodeResult extends SearchResult implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048588, this, parcel, i2) == null) {
             parcel.writeValue(this.a);
-            parcel.writeString(this.f35564b);
-            parcel.writeInt(this.f35565c);
-            parcel.writeInt(this.f35566d);
-            parcel.writeString(this.f35567e);
+            parcel.writeString(this.f35770b);
+            parcel.writeInt(this.f35771c);
+            parcel.writeInt(this.f35772d);
+            parcel.writeString(this.f35773e);
         }
     }
 }

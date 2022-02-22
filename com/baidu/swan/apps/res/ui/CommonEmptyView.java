@@ -15,11 +15,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.a.c;
-import c.a.r0.a.d;
-import c.a.r0.a.e;
-import c.a.r0.a.f;
-import c.a.r0.a.g;
+import c.a.s0.a.c;
+import c.a.s0.a.d;
+import c.a.s0.a.e;
+import c.a.s0.a.f;
+import c.a.s0.a.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -38,7 +38,7 @@ public class CommonEmptyView extends RelativeLayout {
     public TextView mTitle;
 
     /* loaded from: classes11.dex */
-    public class a implements c.a.r0.a.j2.a {
+    public class a implements c.a.s0.a.j2.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CommonEmptyView a;
@@ -104,7 +104,7 @@ public class CommonEmptyView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onAttachedToWindow();
-            c.a.r0.a.c1.a.M().f(this, new a(this));
+            c.a.s0.a.c1.a.M().f(this, new a(this));
         }
     }
 
@@ -133,7 +133,7 @@ public class CommonEmptyView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDetachedFromWindow();
-            c.a.r0.a.c1.a.M().g(this);
+            c.a.s0.a.c1.a.M().g(this);
         }
     }
 

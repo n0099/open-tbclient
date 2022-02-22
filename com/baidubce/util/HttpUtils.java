@@ -20,7 +20,7 @@ import java.util.Map;
 import okhttp3.Headers;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HttpUtils {
     public static /* synthetic */ Interceptable $ic;
     public static boolean HTTP_VERBOSE;
@@ -136,9 +136,9 @@ public class HttpUtils {
                     CheckUtils.isNotNull(key, "parameter key should not be null");
                     String value = entry.getValue();
                     if (value != null) {
-                        arrayList.add(normalize(key) + a.f30893h + normalize(value));
+                        arrayList.add(normalize(key) + a.f31099h + normalize(value));
                     } else if (z) {
-                        arrayList.add(normalize(key) + a.f30893h);
+                        arrayList.add(normalize(key) + a.f31099h);
                     } else {
                         arrayList.add(normalize(key));
                     }

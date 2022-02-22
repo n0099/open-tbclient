@@ -15,25 +15,25 @@ public class f<K, V> {
     public final LinkedHashMap<K, V> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f4247b;
+    public int f4327b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f4248c;
+    public int f4328c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f4249d;
+    public int f4329d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f4250e;
+    public int f4330e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f4251f;
+    public int f4331f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f4252g;
+    public int f4332g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f4253h;
+    public int f4333h;
 
     public f(int i2) {
         Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public class f<K, V> {
             }
         }
         if (i2 > 0) {
-            this.f4248c = i2;
+            this.f4328c = i2;
             this.a = new LinkedHashMap<>(0, 0.75f, true);
             return;
         }
@@ -82,28 +82,28 @@ public class f<K, V> {
                 synchronized (this) {
                     V v = this.a.get(k);
                     if (v != null) {
-                        this.f4252g++;
+                        this.f4332g++;
                         return v;
                     }
-                    this.f4253h++;
+                    this.f4333h++;
                     V a = a(k);
                     if (a == null) {
                         return null;
                     }
                     synchronized (this) {
-                        this.f4250e++;
+                        this.f4330e++;
                         put = this.a.put(k, a);
                         if (put != null) {
                             this.a.put(k, put);
                         } else {
-                            this.f4247b += e(k, a);
+                            this.f4327b += e(k, a);
                         }
                     }
                     if (put != null) {
                         b(false, k, a, put);
                         return put;
                     }
-                    g(this.f4248c);
+                    g(this.f4328c);
                     return a;
                 }
             }
@@ -119,17 +119,17 @@ public class f<K, V> {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, k, v)) == null) {
             if (k != null && v != null) {
                 synchronized (this) {
-                    this.f4249d++;
-                    this.f4247b += e(k, v);
+                    this.f4329d++;
+                    this.f4327b += e(k, v);
                     put = this.a.put(k, v);
                     if (put != null) {
-                        this.f4247b -= e(k, put);
+                        this.f4327b -= e(k, put);
                     }
                 }
                 if (put != null) {
                     b(false, k, put, v);
                 }
-                g(this.f4248c);
+                g(this.f4328c);
                 return put;
             }
             throw new NullPointerException("key == null || value == null");
@@ -172,16 +172,16 @@ public class f<K, V> {
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
             while (true) {
                 synchronized (this) {
-                    if (this.f4247b >= 0 && (!this.a.isEmpty() || this.f4247b == 0)) {
-                        if (this.f4247b <= i2 || this.a.isEmpty()) {
+                    if (this.f4327b >= 0 && (!this.a.isEmpty() || this.f4327b == 0)) {
+                        if (this.f4327b <= i2 || this.a.isEmpty()) {
                             break;
                         }
                         Map.Entry<K, V> next = this.a.entrySet().iterator().next();
                         key = next.getKey();
                         value = next.getValue();
                         this.a.remove(key);
-                        this.f4247b -= e(key, value);
-                        this.f4251f++;
+                        this.f4327b -= e(key, value);
+                        this.f4331f++;
                     } else {
                         break;
                     }
@@ -197,8 +197,8 @@ public class f<K, V> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             synchronized (this) {
-                int i2 = this.f4252g + this.f4253h;
-                format = String.format("LruCache[maxSize=%d,hits=%d,misses=%d,hitRate=%d%%]", Integer.valueOf(this.f4248c), Integer.valueOf(this.f4252g), Integer.valueOf(this.f4253h), Integer.valueOf(i2 != 0 ? (this.f4252g * 100) / i2 : 0));
+                int i2 = this.f4332g + this.f4333h;
+                format = String.format("LruCache[maxSize=%d,hits=%d,misses=%d,hitRate=%d%%]", Integer.valueOf(this.f4328c), Integer.valueOf(this.f4332g), Integer.valueOf(this.f4333h), Integer.valueOf(i2 != 0 ? (this.f4332g * 100) / i2 : 0));
             }
             return format;
         }

@@ -1,7 +1,7 @@
 package com.baidu.nps.interfa;
 
 import android.content.res.Resources;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface IResourcesFetcher {
     Resources getBaseContextResources();
 

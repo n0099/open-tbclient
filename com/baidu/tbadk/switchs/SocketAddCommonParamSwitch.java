@@ -1,0 +1,45 @@
+package com.baidu.tbadk.switchs;
+
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.tieba.debugtool.annotation.Modify;
+import com.baidu.tieba.debugtool.annotation.ModifyClass;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@ModifyClass
+/* loaded from: classes12.dex */
+public class SocketAddCommonParamSwitch extends BaseNormalSwitch {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String SOCKET_ADD_COMMON_PARAM_ENABLE = "android_lcs_common_param";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public SocketAddCommonParamSwitch() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Modify(description = "长连接默认添加公参的开关", type = 100)
+    public static boolean getIsOn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? SwitchManager.getInstance().findType(SOCKET_ADD_COMMON_PARAM_ENABLE) == 1 : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, c.a.d.f.f.a
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SOCKET_ADD_COMMON_PARAM_ENABLE : (String) invokeV.objValue;
+    }
+}

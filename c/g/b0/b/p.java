@@ -13,7 +13,7 @@ public class p implements o.e {
     public final /* synthetic */ com.fun.module.gdt.w a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ NativeUnifiedADData f28298b;
+    public final /* synthetic */ NativeUnifiedADData f28504b;
 
     public p(o oVar, com.fun.module.gdt.w wVar, NativeUnifiedADData nativeUnifiedADData) {
         Interceptable interceptable = $ic;
@@ -31,14 +31,14 @@ public class p implements o.e {
             }
         }
         this.a = wVar;
-        this.f28298b = nativeUnifiedADData;
+        this.f28504b = nativeUnifiedADData;
     }
 
     @Override // c.g.b0.b.o.e
     public void onADStatusChanged() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.b(this.f28298b);
+            this.a.b(this.f28504b);
         }
     }
 }

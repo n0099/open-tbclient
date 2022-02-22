@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class CustomPlayerSwitch extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CUSTOM_PLAYER_SWITCH = "android_custom_player_enabled_2";

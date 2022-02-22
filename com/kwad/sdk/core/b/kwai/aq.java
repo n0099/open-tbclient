@@ -4,7 +4,7 @@ import com.kwad.sdk.contentalliance.coupon.model.CouponStatus;
 import com.kwad.sdk.contentalliance.coupon.model.CouponStatusInfo;
 import com.kwad.sdk.core.response.model.SdkConfigData;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class aq implements com.kwad.sdk.core.d<CouponStatus> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d

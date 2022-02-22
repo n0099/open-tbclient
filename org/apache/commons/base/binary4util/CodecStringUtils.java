@@ -10,7 +10,7 @@ import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import org.apache.commons.base.Charsets;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CodecStringUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

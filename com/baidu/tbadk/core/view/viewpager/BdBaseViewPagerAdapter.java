@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.PagerAdapter;
-import c.a.d.n.e.n;
-import c.a.s0.s.k0.u.b;
+import c.a.d.o.e.n;
+import c.a.t0.s.l0.u.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
@@ -27,19 +27,19 @@ public class BdBaseViewPagerAdapter<T extends n, V extends a> extends PagerAdapt
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f40738e;
+    public Context f40967e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap<BdUniqueId, b<T, V>> f40739f;
+    public HashMap<BdUniqueId, b<T, V>> f40968f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<n> f40740g;
+    public List<n> f40969g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<View> f40741h;
+    public List<View> f40970h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f40742i;
+    public int f40971i;
 
     /* loaded from: classes11.dex */
     public static class a {
@@ -47,13 +47,13 @@ public class BdBaseViewPagerAdapter<T extends n, V extends a> extends PagerAdapt
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f40743e;
+        public int f40972e;
 
         /* renamed from: f  reason: collision with root package name */
-        public View f40744f;
+        public View f40973f;
 
         /* renamed from: g  reason: collision with root package name */
-        public n f40745g;
+        public n f40974g;
 
         public a(View view) {
             Interceptable interceptable = $ic;
@@ -70,10 +70,10 @@ public class BdBaseViewPagerAdapter<T extends n, V extends a> extends PagerAdapt
                     return;
                 }
             }
-            this.f40743e = 3;
-            this.f40744f = null;
-            this.f40745g = null;
-            this.f40744f = view;
+            this.f40972e = 3;
+            this.f40973f = null;
+            this.f40974g = null;
+            this.f40973f = view;
             if (view != null) {
                 view.setTag(this);
                 return;
@@ -84,19 +84,19 @@ public class BdBaseViewPagerAdapter<T extends n, V extends a> extends PagerAdapt
         public n a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40745g : (n) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40974g : (n) invokeV.objValue;
         }
 
         public View b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40744f : (View) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40973f : (View) invokeV.objValue;
         }
 
         public void c(n nVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nVar) == null) {
-                this.f40745g = nVar;
+                this.f40974g = nVar;
             }
         }
     }
@@ -116,18 +116,18 @@ public class BdBaseViewPagerAdapter<T extends n, V extends a> extends PagerAdapt
                 return;
             }
         }
-        this.f40739f = new HashMap<>();
-        this.f40740g = new ArrayList();
-        this.f40741h = new ArrayList();
-        this.f40742i = 0;
-        this.f40738e = context;
+        this.f40968f = new HashMap<>();
+        this.f40969g = new ArrayList();
+        this.f40970h = new ArrayList();
+        this.f40971i = 0;
+        this.f40967e = context;
     }
 
     public final View a(n nVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, nVar)) == null) {
-            b<T, V> bVar = this.f40739f.get(nVar.getType());
+            b<T, V> bVar = this.f40968f.get(nVar.getType());
             if (bVar != null) {
                 V b2 = bVar.b(null);
                 if (BdBaseApplication.getInst().isDebugMode()) {
@@ -147,7 +147,7 @@ public class BdBaseViewPagerAdapter<T extends n, V extends a> extends PagerAdapt
     public final void b(a aVar, n nVar) {
         b<T, V> bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, nVar) == null) || aVar == null || nVar == null || (bVar = this.f40739f.get(nVar.getType())) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, nVar) == null) || aVar == null || nVar == null || (bVar = this.f40968f.get(nVar.getType())) == null) {
             return;
         }
         aVar.c(nVar);
@@ -170,18 +170,18 @@ public class BdBaseViewPagerAdapter<T extends n, V extends a> extends PagerAdapt
         b<T, V> bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            List<View> list = this.f40741h;
+            List<View> list = this.f40970h;
             if (list != null) {
                 for (View view : list) {
                     a c2 = c(view);
-                    if (c2 != null && c2.a() != null && (bVar = this.f40739f.get(c2.a().getType())) != null) {
+                    if (c2 != null && c2.a() != null && (bVar = this.f40968f.get(c2.a().getType())) != null) {
                         bVar.c(c2, c2.a());
                     }
                 }
-                this.f40741h.clear();
-                this.f40741h = null;
+                this.f40970h.clear();
+                this.f40970h = null;
             }
-            List<n> list2 = this.f40740g;
+            List<n> list2 = this.f40969g;
             if (list2 != null) {
                 list2.clear();
             }
@@ -192,7 +192,7 @@ public class BdBaseViewPagerAdapter<T extends n, V extends a> extends PagerAdapt
     public void destroyItem(ViewGroup viewGroup, int i2, Object obj) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048580, this, viewGroup, i2, obj) == null) || this.f40741h.size() <= 0 || i2 < 0 || i2 >= this.f40741h.size() || (view = this.f40741h.get(i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(1048580, this, viewGroup, i2, obj) == null) || this.f40970h.size() <= 0 || i2 < 0 || i2 >= this.f40970h.size() || (view = this.f40970h.get(i2)) == null) {
             return;
         }
         viewGroup.removeView(view);
@@ -202,20 +202,20 @@ public class BdBaseViewPagerAdapter<T extends n, V extends a> extends PagerAdapt
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f40740g.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f40969g.size() : invokeV.intValue;
     }
 
     public View getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            if (i2 >= this.f40741h.size() || i2 >= this.f40740g.size()) {
+            if (i2 >= this.f40970h.size() || i2 >= this.f40969g.size()) {
                 return null;
             }
-            View view = this.f40741h.get(i2);
+            View view = this.f40970h.get(i2);
             a c2 = c(view);
             if (c2 != null && c2.a() == null) {
-                b((a) view.getTag(), this.f40740g.get(i2));
+                b((a) view.getTag(), this.f40969g.get(i2));
             }
             return view;
         }
@@ -227,9 +227,9 @@ public class BdBaseViewPagerAdapter<T extends n, V extends a> extends PagerAdapt
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
-            int i2 = this.f40742i;
+            int i2 = this.f40971i;
             if (i2 > 0) {
-                this.f40742i = i2 - 1;
+                this.f40971i = i2 - 1;
                 return -2;
             }
             return super.getItemPosition(obj);
@@ -242,7 +242,7 @@ public class BdBaseViewPagerAdapter<T extends n, V extends a> extends PagerAdapt
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup, i2)) == null) {
-            if (i2 >= this.f40740g.size()) {
+            if (i2 >= this.f40969g.size()) {
                 return null;
             }
             View item = getItem(i2);
@@ -265,7 +265,7 @@ public class BdBaseViewPagerAdapter<T extends n, V extends a> extends PagerAdapt
     public void notifyDataSetChanged() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f40742i = getCount();
+            this.f40971i = getCount();
             super.notifyDataSetChanged();
         }
     }
@@ -275,7 +275,7 @@ public class BdBaseViewPagerAdapter<T extends n, V extends a> extends PagerAdapt
         a c2;
         b<T, V> bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, view) == null) || (c2 = c(view)) == null || c2.a() == null || c2.a().getType() == null || (bVar = this.f40739f.get(c2.a().getType())) == null || bVar.a() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, view) == null) || (c2 = c(view)) == null || c2.a() == null || c2.a().getType() == null || (bVar = this.f40968f.get(c2.a().getType())) == null || bVar.a() == null) {
             return;
         }
         bVar.a().a(c2, c2.a());
@@ -285,12 +285,12 @@ public class BdBaseViewPagerAdapter<T extends n, V extends a> extends PagerAdapt
         List<View> list;
         b<T, V> bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || (list = this.f40741h) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || (list = this.f40970h) == null) {
             return;
         }
         for (View view : list) {
             a c2 = c(view);
-            if (c2 != null && c2.a() != null && (bVar = this.f40739f.get(c2.a().getType())) != null) {
+            if (c2 != null && c2.a() != null && (bVar = this.f40968f.get(c2.a().getType())) != null) {
                 bVar.e(i2, c2, c2.a());
             }
         }
@@ -301,7 +301,7 @@ public class BdBaseViewPagerAdapter<T extends n, V extends a> extends PagerAdapt
         if (!(interceptable == null || interceptable.invokeLL(1048589, this, context, bVar) == null) || bVar == null || bVar.getType() == null) {
             return;
         }
-        this.f40739f.put(bVar.getType(), bVar);
+        this.f40968f.put(bVar.getType(), bVar);
     }
 
     public void registerAdapters(Context context, List<b<T, V>> list) {
@@ -326,16 +326,16 @@ public class BdBaseViewPagerAdapter<T extends n, V extends a> extends PagerAdapt
             return;
         }
         destory();
-        this.f40740g = list;
-        if (this.f40741h == null) {
-            this.f40741h = new ArrayList();
+        this.f40969g = list;
+        if (this.f40970h == null) {
+            this.f40970h = new ArrayList();
         }
-        for (int i2 = 0; i2 < this.f40740g.size(); i2++) {
-            n nVar = this.f40740g.get(i2);
+        for (int i2 = 0; i2 < this.f40969g.size(); i2++) {
+            n nVar = this.f40969g.get(i2);
             if (nVar != null) {
                 View a2 = a(nVar);
                 a2.setOnClickListener(this);
-                this.f40741h.add(a2);
+                this.f40970h.add(a2);
             }
         }
     }

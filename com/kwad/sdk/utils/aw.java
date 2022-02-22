@@ -3,7 +3,7 @@ package com.kwad.sdk.utils;
 import com.baidu.searchbox.player.widget.BdPlayerProgressView;
 import java.util.Formatter;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class aw {
     public static String a(long j2) {
         if (j2 <= 0 || j2 >= 86400000) {

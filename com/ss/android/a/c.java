@@ -12,16 +12,16 @@ public class c {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f59339b;
+        public int f59506b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f59340c;
+        public int f59507c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f59341d;
+        public long f59508d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f59342e;
+        public String f59509e;
 
         public a() {
         }
@@ -82,8 +82,8 @@ public class c {
                     if (a2.a > 1) {
                         return 3;
                     }
-                    i2 = a2.f59340c;
-                    j2 = a2.f59341d;
+                    i2 = a2.f59507c;
+                    j2 = a2.f59508d;
                 }
                 a aVar = null;
                 if (bVar != null) {
@@ -92,13 +92,13 @@ public class c {
                     b2 = b(file, i2, j2);
                 }
                 if (b2 != null && b2.length() != 0) {
-                    if (a2 != null && (a2.a != 1 || a2.f59339b != 1)) {
-                        if (a2.f59342e != null) {
+                    if (a2 != null && (a2.a != 1 || a2.f59506b != 1)) {
+                        if (a2.f59509e != null) {
                             try {
                                 aVar = a(b2);
                             } catch (Throwable unused2) {
                             }
-                            if (aVar != null && a2.f59340c == aVar.f59340c && a2.f59341d == aVar.f59341d && a2.f59342e.equals(aVar.f59342e)) {
+                            if (aVar != null && a2.f59507c == aVar.f59507c && a2.f59508d == aVar.f59508d && a2.f59509e.equals(aVar.f59509e)) {
                                 return 0;
                             }
                         }
@@ -227,11 +227,11 @@ public class c {
             if (aVar.a > 1) {
                 return aVar;
             }
-            aVar.f59339b = Integer.parseInt(split2[2]);
+            aVar.f59506b = Integer.parseInt(split2[2]);
             String[] split3 = split2[3].split("g");
-            aVar.f59340c = (int) b(split3[0]);
-            aVar.f59341d = b(split3[1]);
-            aVar.f59342e = split[1];
+            aVar.f59507c = (int) b(split3[0]);
+            aVar.f59508d = b(split3[1]);
+            aVar.f59509e = split[1];
             return aVar;
         }
         return null;

@@ -1,7 +1,7 @@
 package com.baidu.minivideo.plugin.capture.bean;
 
 import android.text.TextUtils;
-import c.a.b0.a.a;
+import c.a.c0.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.plugin.capture.download.utils.LogUtils;
 import com.baidu.minivideo.plugin.capture.utils.FileUtils;

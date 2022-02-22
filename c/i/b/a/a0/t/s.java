@@ -13,19 +13,19 @@ public final class s implements w {
     public final r a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.i.b.a.i0.l f28978b;
+    public final c.i.b.a.i0.l f29184b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28979c;
+    public int f29185c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f28980d;
+    public int f29186d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f28981e;
+    public boolean f29187e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f28982f;
+    public boolean f29188f;
 
     public s(r rVar) {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public final class s implements w {
             }
         }
         this.a = rVar;
-        this.f28978b = new c.i.b.a.i0.l(32);
+        this.f29184b = new c.i.b.a.i0.l(32);
     }
 
     @Override // c.i.b.a.a0.t.w
@@ -51,7 +51,7 @@ public final class s implements w {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, sVar, gVar, dVar) == null) {
             this.a.a(sVar, gVar, dVar);
-            this.f28982f = true;
+            this.f29188f = true;
         }
     }
 
@@ -59,7 +59,7 @@ public final class s implements w {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f28982f = true;
+            this.f29188f = true;
         }
     }
 
@@ -68,65 +68,65 @@ public final class s implements w {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, lVar, z) == null) {
             int c2 = z ? lVar.c() + lVar.x() : -1;
-            if (this.f28982f) {
+            if (this.f29188f) {
                 if (!z) {
                     return;
                 }
-                this.f28982f = false;
+                this.f29188f = false;
                 lVar.J(c2);
-                this.f28980d = 0;
+                this.f29186d = 0;
             }
             while (lVar.a() > 0) {
-                int i2 = this.f28980d;
+                int i2 = this.f29186d;
                 if (i2 < 3) {
                     if (i2 == 0) {
                         int x = lVar.x();
                         lVar.J(lVar.c() - 1);
                         if (x == 255) {
-                            this.f28982f = true;
+                            this.f29188f = true;
                             return;
                         }
                     }
-                    int min = Math.min(lVar.a(), 3 - this.f28980d);
-                    lVar.g(this.f28978b.a, this.f28980d, min);
-                    int i3 = this.f28980d + min;
-                    this.f28980d = i3;
+                    int min = Math.min(lVar.a(), 3 - this.f29186d);
+                    lVar.g(this.f29184b.a, this.f29186d, min);
+                    int i3 = this.f29186d + min;
+                    this.f29186d = i3;
                     if (i3 == 3) {
-                        this.f28978b.G(3);
-                        this.f28978b.K(1);
-                        int x2 = this.f28978b.x();
-                        int x3 = this.f28978b.x();
-                        this.f28981e = (x2 & 128) != 0;
-                        this.f28979c = (((x2 & 15) << 8) | x3) + 3;
-                        int b2 = this.f28978b.b();
-                        int i4 = this.f28979c;
+                        this.f29184b.G(3);
+                        this.f29184b.K(1);
+                        int x2 = this.f29184b.x();
+                        int x3 = this.f29184b.x();
+                        this.f29187e = (x2 & 128) != 0;
+                        this.f29185c = (((x2 & 15) << 8) | x3) + 3;
+                        int b2 = this.f29184b.b();
+                        int i4 = this.f29185c;
                         if (b2 < i4) {
-                            c.i.b.a.i0.l lVar2 = this.f28978b;
+                            c.i.b.a.i0.l lVar2 = this.f29184b;
                             byte[] bArr = lVar2.a;
                             lVar2.G(Math.min(4098, Math.max(i4, bArr.length * 2)));
-                            System.arraycopy(bArr, 0, this.f28978b.a, 0, 3);
+                            System.arraycopy(bArr, 0, this.f29184b.a, 0, 3);
                         }
                     }
                 } else {
-                    int min2 = Math.min(lVar.a(), this.f28979c - this.f28980d);
-                    lVar.g(this.f28978b.a, this.f28980d, min2);
-                    int i5 = this.f28980d + min2;
-                    this.f28980d = i5;
-                    int i6 = this.f28979c;
+                    int min2 = Math.min(lVar.a(), this.f29185c - this.f29186d);
+                    lVar.g(this.f29184b.a, this.f29186d, min2);
+                    int i5 = this.f29186d + min2;
+                    this.f29186d = i5;
+                    int i6 = this.f29185c;
                     if (i5 != i6) {
                         continue;
                     } else {
-                        if (this.f28981e) {
-                            if (c.i.b.a.i0.v.m(this.f28978b.a, 0, i6, -1) != 0) {
-                                this.f28982f = true;
+                        if (this.f29187e) {
+                            if (c.i.b.a.i0.v.m(this.f29184b.a, 0, i6, -1) != 0) {
+                                this.f29188f = true;
                                 return;
                             }
-                            this.f28978b.G(this.f28979c - 4);
+                            this.f29184b.G(this.f29185c - 4);
                         } else {
-                            this.f28978b.G(i6);
+                            this.f29184b.G(i6);
                         }
-                        this.a.c(this.f28978b);
-                        this.f28980d = 0;
+                        this.a.c(this.f29184b);
+                        this.f29186d = 0;
                     }
                 }
             }

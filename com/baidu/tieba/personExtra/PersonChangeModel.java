@@ -3,7 +3,7 @@ package com.baidu.tieba.personExtra;
 import android.text.TextUtils;
 import c.a.d.a.f;
 import c.a.d.f.p.l;
-import c.a.t0.z2.g;
+import c.a.u0.a3.g;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,21 +25,21 @@ import tbclient.BirthdayInfo;
 import tbclient.BusinessAccountInfo;
 import tbclient.Profile.NicknameInfo;
 import tbclient.User;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PersonChangeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public PersonChangeData f47195e;
+    public PersonChangeData f47337e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f47196f;
+    public b f47338f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.d.c.g.a f47197g;
+    public c.a.d.c.g.a f47339g;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,8 +74,8 @@ public class PersonChangeModel extends BdBaseModel {
                 boolean z = responsedMessage instanceof ProfileSocketResponseMessage;
                 if (z || (responsedMessage instanceof ProfileHttpResponseMessage)) {
                     if (responsedMessage.getError() != 0) {
-                        if (this.a.f47196f != null) {
-                            this.a.f47196f.a(responsedMessage.getErrorString());
+                        if (this.a.f47338f != null) {
+                            this.a.f47338f.a(responsedMessage.getErrorString());
                             return;
                         }
                         return;
@@ -88,15 +88,15 @@ public class PersonChangeModel extends BdBaseModel {
                         ProfileHttpResponseMessage profileHttpResponseMessage = (ProfileHttpResponseMessage) responsedMessage;
                         this.a.z(profileHttpResponseMessage.getNicknameInfo(), profileHttpResponseMessage.GetUser());
                     }
-                    if (this.a.f47196f != null) {
-                        this.a.f47196f.b();
+                    if (this.a.f47338f != null) {
+                        this.a.f47338f.b();
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface b {
         void a(String str);
 
@@ -121,27 +121,27 @@ public class PersonChangeModel extends BdBaseModel {
                 return;
             }
         }
-        this.f47195e = null;
-        this.f47197g = new a(this, CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
-        this.f47195e = personChangeData;
+        this.f47337e = null;
+        this.f47339g = new a(this, CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
+        this.f47337e = personChangeData;
         if (personChangeData == null) {
-            this.f47195e = new PersonChangeData();
+            this.f47337e = new PersonChangeData();
         }
-        this.f47197g.getHttpMessageListener().setSelfListener(true);
-        this.f47197g.getSocketMessageListener().setSelfListener(true);
-        registerListener(this.f47197g);
+        this.f47339g.getHttpMessageListener().setSelfListener(true);
+        this.f47339g.getSocketMessageListener().setSelfListener(true);
+        registerListener(this.f47339g);
     }
 
     public PersonChangeData A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f47195e : (PersonChangeData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f47337e : (PersonChangeData) invokeV.objValue;
     }
 
     public void B(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f47196f = bVar;
+            this.f47338f = bVar;
         }
     }
 
@@ -161,7 +161,7 @@ public class PersonChangeModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (!l.A()) {
-                this.f47196f.a(TbadkCoreApplication.getInst().getString(g.neterror));
+                this.f47338f.a(TbadkCoreApplication.getInst().getString(g.neterror));
                 return false;
             } else if (TbadkCoreApplication.getCurrentAccount() == null) {
                 return false;
@@ -189,11 +189,11 @@ public class PersonChangeModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            PersonChangeData personChangeData = this.f47195e;
+            PersonChangeData personChangeData = this.f47337e;
             if (personChangeData == null) {
                 return false;
             }
-            return ((TextUtils.isEmpty(personChangeData.getNameShow()) && TextUtils.isEmpty(this.f47195e.getTempNickName())) || TextUtils.isEmpty(this.f47195e.getPortrait()) || ListUtils.isEmpty(this.f47195e.getInterestedForums()) || this.f47195e.getBirthdayTime() == 0) ? false : true;
+            return ((TextUtils.isEmpty(personChangeData.getNameShow()) && TextUtils.isEmpty(this.f47337e.getTempNickName())) || TextUtils.isEmpty(this.f47337e.getPortrait()) || ListUtils.isEmpty(this.f47337e.getInterestedForums()) || this.f47337e.getBirthdayTime() == 0) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -201,37 +201,37 @@ public class PersonChangeModel extends BdBaseModel {
     public final void z(NicknameInfo nicknameInfo, User user) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, nicknameInfo, user) == null) {
-            this.f47195e = new PersonChangeData();
+            this.f47337e = new PersonChangeData();
             AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
             if (currentAccountInfo != null) {
-                this.f47195e.setPortrait(currentAccountInfo.getPortrait());
-                this.f47195e.setName(currentAccountInfo.getDisplayName());
-                this.f47195e.setSex(currentAccountInfo.getSex());
-                this.f47195e.setNameShow(currentAccountInfo.getAccountNameShow());
-                this.f47195e.setMem(currentAccountInfo.getMemberType());
+                this.f47337e.setPortrait(currentAccountInfo.getPortrait());
+                this.f47337e.setName(currentAccountInfo.getDisplayName());
+                this.f47337e.setSex(currentAccountInfo.getSex());
+                this.f47337e.setNameShow(currentAccountInfo.getAccountNameShow());
+                this.f47337e.setMem(currentAccountInfo.getMemberType());
             }
             if (nicknameInfo != null) {
-                this.f47195e.setNickNameLeftDays(nicknameInfo.left_days.intValue());
+                this.f47337e.setNickNameLeftDays(nicknameInfo.left_days.intValue());
             }
             if (user != null) {
-                this.f47195e.setName(user.name_show);
-                this.f47195e.setSex(user.sex.intValue());
-                this.f47195e.setIntro(user.intro);
-                this.f47195e.setForumAge(user.tb_age);
-                this.f47195e.setTiebaId(user.tieba_uid);
+                this.f47337e.setName(user.name_show);
+                this.f47337e.setSex(user.sex.intValue());
+                this.f47337e.setIntro(user.intro);
+                this.f47337e.setForumAge(user.tb_age);
+                this.f47337e.setTiebaId(user.tieba_uid);
                 AlaUserInfo alaUserInfo = user.ala_info;
                 if (alaUserInfo != null) {
-                    this.f47195e.setAlaId(alaUserInfo.ala_id.longValue());
+                    this.f47337e.setAlaId(alaUserInfo.ala_id.longValue());
                 }
                 BirthdayInfo birthdayInfo = user.birthday_info;
                 if (birthdayInfo != null) {
-                    this.f47195e.setUserAge(birthdayInfo.age.intValue());
-                    this.f47195e.setBirthdayTime(user.birthday_info.birthday_time.longValue());
-                    this.f47195e.setBirthdayShowStatus(user.birthday_info.birthday_show_status.intValue());
+                    this.f47337e.setUserAge(birthdayInfo.age.intValue());
+                    this.f47337e.setBirthdayTime(user.birthday_info.birthday_time.longValue());
+                    this.f47337e.setBirthdayShowStatus(user.birthday_info.birthday_show_status.intValue());
                 }
                 BusinessAccountInfo businessAccountInfo = user.business_account_info;
                 if (businessAccountInfo != null) {
-                    PersonChangeData personChangeData = this.f47195e;
+                    PersonChangeData personChangeData = this.f47337e;
                     Integer num = businessAccountInfo.is_business_account;
                     personChangeData.setIsBusinessAccount(num != null ? num.toString() : "0");
                 }

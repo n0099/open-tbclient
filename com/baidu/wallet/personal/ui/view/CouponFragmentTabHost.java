@@ -32,28 +32,28 @@ public class CouponFragmentTabHost extends TabHost implements TabHost.OnTabChang
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ArrayList<c> f52638b;
+    public final ArrayList<c> f52805b;
 
     /* renamed from: c  reason: collision with root package name */
-    public FrameLayout f52639c;
+    public FrameLayout f52806c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f52640d;
+    public Context f52807d;
 
     /* renamed from: e  reason: collision with root package name */
-    public FragmentManager f52641e;
+    public FragmentManager f52808e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f52642f;
+    public int f52809f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TabHost.OnTabChangeListener f52643g;
+    public TabHost.OnTabChangeListener f52810g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f52644h;
+    public c f52811h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f52645i;
+    public boolean f52812i;
 
     /* loaded from: classes2.dex */
     public static class a implements TabHost.TabContentFactory {
@@ -218,16 +218,16 @@ public class CouponFragmentTabHost extends TabHost implements TabHost.OnTabChang
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f52646b;
+        public final String f52813b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Class<?> f52647c;
+        public final Class<?> f52814c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Bundle f52648d;
+        public final Bundle f52815d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Fragment f52649e;
+        public Fragment f52816e;
 
         public c(String str, Class<?> cls, Bundle bundle) {
             Interceptable interceptable = $ic;
@@ -244,9 +244,9 @@ public class CouponFragmentTabHost extends TabHost implements TabHost.OnTabChang
                     return;
                 }
             }
-            this.f52646b = str;
-            this.f52647c = cls;
-            this.f52648d = bundle;
+            this.f52813b = str;
+            this.f52814c = cls;
+            this.f52815d = bundle;
             this.a = 0;
         }
 
@@ -308,7 +308,7 @@ public class CouponFragmentTabHost extends TabHost implements TabHost.OnTabChang
                 return;
             }
         }
-        this.f52638b = new ArrayList<>();
+        this.f52805b = new ArrayList<>();
         a(context, (AttributeSet) null);
     }
 
@@ -331,7 +331,7 @@ public class CouponFragmentTabHost extends TabHost implements TabHost.OnTabChang
                 return;
             }
         }
-        this.f52638b = new ArrayList<>();
+        this.f52805b = new ArrayList<>();
         a(context, attributeSet);
     }
 
@@ -340,44 +340,44 @@ public class CouponFragmentTabHost extends TabHost implements TabHost.OnTabChang
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, str, fragmentTransaction)) == null) {
             c cVar = null;
-            for (int i2 = 0; i2 < this.f52638b.size(); i2++) {
-                c cVar2 = this.f52638b.get(i2);
-                if (cVar2.f52646b.equals(str)) {
+            for (int i2 = 0; i2 < this.f52805b.size(); i2++) {
+                c cVar2 = this.f52805b.get(i2);
+                if (cVar2.f52813b.equals(str)) {
                     cVar = cVar2;
                 }
             }
             if (cVar == null) {
                 throw new IllegalStateException("No tab known for tag " + str);
             } else if (cVar.a == 1) {
-                c cVar3 = this.f52644h;
-                if (cVar3 != null && !TextUtils.isEmpty(cVar3.f52646b)) {
-                    setCurrentTabByTag(this.f52644h.f52646b);
+                c cVar3 = this.f52811h;
+                if (cVar3 != null && !TextUtils.isEmpty(cVar3.f52813b)) {
+                    setCurrentTabByTag(this.f52811h.f52813b);
                 }
                 return null;
             } else {
-                if (this.f52644h != cVar) {
+                if (this.f52811h != cVar) {
                     if (fragmentTransaction == null) {
-                        fragmentTransaction = this.f52641e.beginTransaction();
+                        fragmentTransaction = this.f52808e.beginTransaction();
                     }
-                    c cVar4 = this.f52644h;
-                    if (cVar4 != null && cVar4.f52649e != null) {
-                        if (this.f52644h.a == 2) {
-                            fragmentTransaction.hide(this.f52644h.f52649e);
+                    c cVar4 = this.f52811h;
+                    if (cVar4 != null && cVar4.f52816e != null) {
+                        if (this.f52811h.a == 2) {
+                            fragmentTransaction.hide(this.f52811h.f52816e);
                         } else {
-                            fragmentTransaction.detach(this.f52644h.f52649e);
+                            fragmentTransaction.detach(this.f52811h.f52816e);
                         }
                     }
-                    if (cVar.f52649e == null) {
-                        cVar.f52649e = Fragment.instantiate(this.f52640d, cVar.f52647c.getName(), cVar.f52648d);
-                        if (!cVar.f52649e.isAdded()) {
-                            fragmentTransaction.add(this.f52642f, cVar.f52649e, cVar.f52646b);
+                    if (cVar.f52816e == null) {
+                        cVar.f52816e = Fragment.instantiate(this.f52807d, cVar.f52814c.getName(), cVar.f52815d);
+                        if (!cVar.f52816e.isAdded()) {
+                            fragmentTransaction.add(this.f52809f, cVar.f52816e, cVar.f52813b);
                         }
                     } else {
                         int unused = cVar.a;
-                        fragmentTransaction.attach(cVar.f52649e);
-                        fragmentTransaction.show(cVar.f52649e);
+                        fragmentTransaction.attach(cVar.f52816e);
+                        fragmentTransaction.show(cVar.f52816e);
                     }
-                    this.f52644h = cVar;
+                    this.f52811h = cVar;
                 }
                 return fragmentTransaction;
             }
@@ -401,17 +401,17 @@ public class CouponFragmentTabHost extends TabHost implements TabHost.OnTabChang
                 frameLayout.setId(16908305);
                 linearLayout.addView(frameLayout, new LinearLayout.LayoutParams(0, 0, 0.0f));
                 FrameLayout frameLayout2 = new FrameLayout(context);
-                this.f52639c = frameLayout2;
-                frameLayout2.setId(this.f52642f);
+                this.f52806c = frameLayout2;
+                frameLayout2.setId(this.f52809f);
                 linearLayout.addView(frameLayout2, new LinearLayout.LayoutParams(-1, 0, 1.0f));
             }
-            if (this.f52639c == null) {
-                FrameLayout frameLayout3 = (FrameLayout) findViewById(this.f52642f);
-                this.f52639c = frameLayout3;
+            if (this.f52806c == null) {
+                FrameLayout frameLayout3 = (FrameLayout) findViewById(this.f52809f);
+                this.f52806c = frameLayout3;
                 if (frameLayout3 != null) {
                     return;
                 }
-                throw new IllegalStateException("No tab content FrameLayout found for id " + this.f52642f);
+                throw new IllegalStateException("No tab content FrameLayout found for id " + this.f52809f);
             }
         }
     }
@@ -420,7 +420,7 @@ public class CouponFragmentTabHost extends TabHost implements TabHost.OnTabChang
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, this, context, attributeSet) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16842995}, 0, 0);
-            this.f52642f = obtainStyledAttributes.getResourceId(0, 0);
+            this.f52809f = obtainStyledAttributes.getResourceId(0, 0);
             obtainStyledAttributes.recycle();
             super.setOnTabChangedListener(this);
         }
@@ -433,26 +433,26 @@ public class CouponFragmentTabHost extends TabHost implements TabHost.OnTabChang
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             String currentTabTag = getCurrentTabTag();
             FragmentTransaction fragmentTransaction = null;
-            for (int i2 = 0; i2 < this.f52638b.size(); i2++) {
-                c cVar = this.f52638b.get(i2);
-                cVar.f52649e = this.f52641e.findFragmentByTag(cVar.f52646b);
-                if (cVar.f52649e != null && !cVar.f52649e.isDetached()) {
-                    if (cVar.f52646b.equals(currentTabTag)) {
-                        this.f52644h = cVar;
+            for (int i2 = 0; i2 < this.f52805b.size(); i2++) {
+                c cVar = this.f52805b.get(i2);
+                cVar.f52816e = this.f52808e.findFragmentByTag(cVar.f52813b);
+                if (cVar.f52816e != null && !cVar.f52816e.isDetached()) {
+                    if (cVar.f52813b.equals(currentTabTag)) {
+                        this.f52811h = cVar;
                     } else {
                         if (fragmentTransaction == null) {
-                            fragmentTransaction = this.f52641e.beginTransaction();
+                            fragmentTransaction = this.f52808e.beginTransaction();
                         }
-                        fragmentTransaction.detach(cVar.f52649e);
+                        fragmentTransaction.detach(cVar.f52816e);
                     }
                 }
             }
-            this.f52645i = true;
+            this.f52812i = true;
             if (TextUtils.isEmpty(currentTabTag) || (a2 = a(currentTabTag, fragmentTransaction)) == null) {
                 return;
             }
             a2.commitAllowingStateLoss();
-            this.f52641e.executePendingTransactions();
+            this.f52808e.executePendingTransactions();
         }
     }
 
@@ -460,11 +460,11 @@ public class CouponFragmentTabHost extends TabHost implements TabHost.OnTabChang
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, context, fragmentManager, i2) == null) {
             super.setup();
-            this.f52640d = context;
-            this.f52641e = fragmentManager;
-            this.f52642f = i2;
+            this.f52807d = context;
+            this.f52808e = fragmentManager;
+            this.f52809f = i2;
             a();
-            this.f52639c.setId(i2);
+            this.f52806c.setId(i2);
             if (getId() == -1) {
                 setId(16908306);
             }
@@ -474,18 +474,18 @@ public class CouponFragmentTabHost extends TabHost implements TabHost.OnTabChang
     public void a(TabHost.TabSpec tabSpec, Class<?> cls, Bundle bundle, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tabSpec, cls, bundle, i2) == null) {
-            tabSpec.setContent(new a(this.f52640d));
+            tabSpec.setContent(new a(this.f52807d));
             String tag = tabSpec.getTag();
             c cVar = new c(tag, cls, bundle, i2);
-            if (this.f52645i) {
-                cVar.f52649e = this.f52641e.findFragmentByTag(tag);
-                if (cVar.f52649e != null && !cVar.f52649e.isDetached()) {
-                    FragmentTransaction beginTransaction = this.f52641e.beginTransaction();
-                    beginTransaction.detach(cVar.f52649e);
+            if (this.f52812i) {
+                cVar.f52816e = this.f52808e.findFragmentByTag(tag);
+                if (cVar.f52816e != null && !cVar.f52816e.isDetached()) {
+                    FragmentTransaction beginTransaction = this.f52808e.beginTransaction();
+                    beginTransaction.detach(cVar.f52816e);
                     beginTransaction.commitAllowingStateLoss();
                 }
             }
-            this.f52638b.add(cVar);
+            this.f52805b.add(cVar);
             addTab(tabSpec);
         }
     }
@@ -531,25 +531,25 @@ public class CouponFragmentTabHost extends TabHost implements TabHost.OnTabChang
                 return;
             }
             FragmentTransaction fragmentTransaction = null;
-            for (int i2 = 0; i2 < this.f52638b.size(); i2++) {
-                c cVar = this.f52638b.get(i2);
-                cVar.f52649e = this.f52641e.findFragmentByTag(cVar.f52646b);
-                if (cVar.f52649e != null && !cVar.f52649e.isDetached()) {
-                    if (cVar.f52646b.equals(currentTabTag)) {
-                        this.f52644h = cVar;
+            for (int i2 = 0; i2 < this.f52805b.size(); i2++) {
+                c cVar = this.f52805b.get(i2);
+                cVar.f52816e = this.f52808e.findFragmentByTag(cVar.f52813b);
+                if (cVar.f52816e != null && !cVar.f52816e.isDetached()) {
+                    if (cVar.f52813b.equals(currentTabTag)) {
+                        this.f52811h = cVar;
                     } else {
                         if (fragmentTransaction == null) {
-                            fragmentTransaction = this.f52641e.beginTransaction();
+                            fragmentTransaction = this.f52808e.beginTransaction();
                         }
-                        fragmentTransaction.detach(cVar.f52649e);
+                        fragmentTransaction.detach(cVar.f52816e);
                     }
                 }
             }
-            this.f52645i = true;
+            this.f52812i = true;
             FragmentTransaction a2 = a(currentTabTag, fragmentTransaction);
             if (a2 != null) {
                 a2.commitAllowingStateLoss();
-                this.f52641e.executePendingTransactions();
+                this.f52808e.executePendingTransactions();
             }
         }
     }
@@ -559,7 +559,7 @@ public class CouponFragmentTabHost extends TabHost implements TabHost.OnTabChang
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDetachedFromWindow();
-            this.f52645i = false;
+            this.f52812i = false;
         }
     }
 
@@ -590,10 +590,10 @@ public class CouponFragmentTabHost extends TabHost implements TabHost.OnTabChang
         FragmentTransaction a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            if (this.f52645i && (a2 = a(str, (FragmentTransaction) null)) != null) {
+            if (this.f52812i && (a2 = a(str, (FragmentTransaction) null)) != null) {
                 a2.commitAllowingStateLoss();
             }
-            TabHost.OnTabChangeListener onTabChangeListener = this.f52643g;
+            TabHost.OnTabChangeListener onTabChangeListener = this.f52810g;
             if (onTabChangeListener != null) {
                 onTabChangeListener.onTabChanged(str);
             }
@@ -604,7 +604,7 @@ public class CouponFragmentTabHost extends TabHost implements TabHost.OnTabChang
     public void setOnTabChangedListener(TabHost.OnTabChangeListener onTabChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, onTabChangeListener) == null) {
-            this.f52643g = onTabChangeListener;
+            this.f52810g = onTabChangeListener;
         }
     }
 

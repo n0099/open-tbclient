@@ -26,31 +26,31 @@ public class PlayDrawable extends Drawable {
     public final ValueAnimator a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f37215b;
+    public float f37445b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float[] f37216c;
+    public float[] f37446c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float[] f37217d;
+    public float[] f37447d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float[] f37218e;
+    public float[] f37448e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float[] f37219f;
+    public float[] f37449f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Path f37220g;
+    public final Path f37450g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Path f37221h;
+    public final Path f37451h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Paint f37222i;
+    public final Paint f37452i;
 
     /* renamed from: j  reason: collision with root package name */
-    public IconState f37223j;
+    public IconState f37453j;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes10.dex */
@@ -118,7 +118,7 @@ public class PlayDrawable extends Drawable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PlayDrawable f37224e;
+        public final /* synthetic */ PlayDrawable f37454e;
 
         public a(PlayDrawable playDrawable) {
             Interceptable interceptable = $ic;
@@ -135,14 +135,14 @@ public class PlayDrawable extends Drawable {
                     return;
                 }
             }
-            this.f37224e = playDrawable;
+            this.f37454e = playDrawable;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f37224e.s(valueAnimator.getAnimatedFraction());
+                this.f37454e.s(valueAnimator.getAnimatedFraction());
             }
         }
     }
@@ -177,11 +177,11 @@ public class PlayDrawable extends Drawable {
             }
         }
         this.a = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.f37220g = new Path();
-        this.f37221h = new Path();
+        this.f37450g = new Path();
+        this.f37451h = new Path();
         Paint paint = new Paint(1);
-        this.f37222i = paint;
-        this.f37223j = IconState.PLAY_STATE;
+        this.f37452i = paint;
+        this.f37453j = IconState.PLAY_STATE;
         paint.setColor(-1);
         this.a.setDuration(150L);
         this.a.addUpdateListener(new a(this));
@@ -221,8 +221,8 @@ public class PlayDrawable extends Drawable {
     public void draw(@NonNull Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            d(canvas, this.f37216c, this.f37218e, this.f37215b, this.f37220g, this.f37222i);
-            d(canvas, this.f37217d, this.f37219f, this.f37215b, this.f37221h, this.f37222i);
+            d(canvas, this.f37446c, this.f37448e, this.f37445b, this.f37450g, this.f37452i);
+            d(canvas, this.f37447d, this.f37449f, this.f37445b, this.f37451h, this.f37452i);
         }
     }
 
@@ -321,12 +321,12 @@ public class PlayDrawable extends Drawable {
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             Rect e2 = e();
             int m = (int) (m() * 0.074f);
-            this.f37216c = new float[]{e2.left + m, e2.top, ((int) h()) + m, (e2.height() * 0.25f) + e2.top, ((int) h()) + m, (e2.height() * 0.75f) + e2.top, e2.left + m, e2.height() + e2.top};
+            this.f37446c = new float[]{e2.left + m, e2.top, ((int) h()) + m, (e2.height() * 0.25f) + e2.top, ((int) h()) + m, (e2.height() * 0.75f) + e2.top, e2.left + m, e2.height() + e2.top};
             int i2 = e2.top;
-            this.f37217d = new float[]{((int) h()) + m, (e2.height() * 0.25f) + e2.top, e2.left + e2.width() + m, i(), e2.left + e2.width() + m, i(), ((int) h()) + m, (e2.height() * 0.75f) + i2};
+            this.f37447d = new float[]{((int) h()) + m, (e2.height() * 0.25f) + e2.top, e2.left + e2.width() + m, i(), e2.left + e2.width() + m, i(), ((int) h()) + m, (e2.height() * 0.75f) + i2};
             int i3 = e2.left;
-            this.f37218e = new float[]{i3, i2, i3 + (e2.width() * 0.285f), e2.top, e2.left + (e2.width() * 0.285f), e2.top + e2.height(), e2.left, e2.top + e2.height()};
-            this.f37219f = new float[]{e2.left + (e2.width() * 0.715f), e2.top, e2.left + e2.width(), e2.top, e2.left + e2.width(), e2.top + e2.height(), e2.left + (e2.width() * 0.715f), e2.top + e2.height()};
+            this.f37448e = new float[]{i3, i2, i3 + (e2.width() * 0.285f), e2.top, e2.left + (e2.width() * 0.285f), e2.top + e2.height(), e2.left, e2.top + e2.height()};
+            this.f37449f = new float[]{e2.left + (e2.width() * 0.715f), e2.top, e2.left + e2.width(), e2.top, e2.left + e2.width(), e2.top + e2.height(), e2.left + (e2.width() * 0.715f), e2.top + e2.height()};
         }
     }
 
@@ -351,7 +351,7 @@ public class PlayDrawable extends Drawable {
             if (o()) {
                 this.a.cancel();
             }
-            this.f37215b = iconState == IconState.PLAY_STATE ? 0.0f : 1.0f;
+            this.f37445b = iconState == IconState.PLAY_STATE ? 0.0f : 1.0f;
             t(iconState);
             invalidateSelf();
         }
@@ -362,7 +362,7 @@ public class PlayDrawable extends Drawable {
         if (!(interceptable == null || interceptable.invokeL(1048594, this, iconState) == null) || o()) {
             return;
         }
-        this.f37215b = iconState == IconState.PLAY_STATE ? 0.0f : 1.0f;
+        this.f37445b = iconState == IconState.PLAY_STATE ? 0.0f : 1.0f;
         t(iconState);
         invalidateSelf();
     }
@@ -370,7 +370,7 @@ public class PlayDrawable extends Drawable {
     public void r(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            IconState iconState = this.f37223j;
+            IconState iconState = this.f37453j;
             IconState iconState2 = IconState.PLAY_STATE;
             if (iconState == iconState2) {
                 iconState2 = IconState.PAUSE_STATE;
@@ -386,7 +386,7 @@ public class PlayDrawable extends Drawable {
     public final void s(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048596, this, f2) == null) {
-            this.f37215b = f2;
+            this.f37445b = f2;
             invalidateSelf();
         }
     }
@@ -395,7 +395,7 @@ public class PlayDrawable extends Drawable {
     public void setAlpha(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.f37222i.setAlpha(i2);
+            this.f37452i.setAlpha(i2);
             invalidateSelf();
         }
     }
@@ -404,7 +404,7 @@ public class PlayDrawable extends Drawable {
     public void setColorFilter(@Nullable ColorFilter colorFilter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, colorFilter) == null) {
-            this.f37222i.setColorFilter(colorFilter);
+            this.f37452i.setColorFilter(colorFilter);
             invalidateSelf();
         }
     }
@@ -412,7 +412,7 @@ public class PlayDrawable extends Drawable {
     public final void t(IconState iconState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, iconState) == null) {
-            this.f37223j = iconState;
+            this.f37453j = iconState;
         }
     }
 }

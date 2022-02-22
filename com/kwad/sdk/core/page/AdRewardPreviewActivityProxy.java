@@ -28,7 +28,7 @@ import com.kwad.sdk.reward.j;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AdRewardPreviewActivityProxy extends com.kwad.sdk.h.a {
     public static final String KEY_TEMPLATE = "key_template_json";
     public static final String KEY_URL = "key_langingpage_url";

@@ -21,10 +21,10 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
     public List<a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f45322b;
+    public int f45464b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f45323c;
+    public boolean f45465c;
 
     /* loaded from: classes12.dex */
     public static class a {
@@ -33,7 +33,7 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
         public Fragment a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f45324b;
+        public String f45466b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
                 return;
             }
         }
-        this.f45322b = -1;
+        this.f45464b = -1;
         this.a = new ArrayList();
     }
 
@@ -142,7 +142,7 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
             if (list == null || i2 < 0 || i2 >= list.size() || this.a.get(i2) == null) {
                 return null;
             }
-            return this.a.get(i2).f45324b;
+            return this.a.get(i2).f45466b;
         }
         return (CharSequence) invokeI.objValue;
     }
@@ -150,7 +150,7 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
     public void setPrimary(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f45323c = z;
+            this.f45465c = z;
         }
     }
 
@@ -160,13 +160,13 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048585, this, viewGroup, i2, obj) == null) {
             super.setPrimaryItem(viewGroup, i2, obj);
-            if (!this.f45323c || (i3 = this.f45322b) == i2) {
+            if (!this.f45465c || (i3 = this.f45464b) == i2) {
                 return;
             }
             if (i3 != -1) {
                 ((BaseFragment) getItem(i3)).setPrimary(false);
             }
-            this.f45322b = i2;
+            this.f45464b = i2;
             if (obj instanceof BaseFragment) {
                 ((BaseFragment) obj).setPrimary(true);
             }
@@ -191,7 +191,7 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
                 return;
             }
         }
-        this.f45322b = -1;
+        this.f45464b = -1;
         this.a = new ArrayList();
         if (list == null || list.size() <= 0) {
             return;

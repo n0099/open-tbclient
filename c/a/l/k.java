@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class k extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.s0.s.q.a l;
+    public c.a.t0.s.r.a l;
     public ForumEnterLayout m;
     public final View.OnClickListener n;
 
@@ -27,7 +27,7 @@ public class k extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f4314e;
+        public final /* synthetic */ k f4381e;
 
         public a(k kVar) {
             Interceptable interceptable = $ic;
@@ -44,16 +44,16 @@ public class k extends h {
                     return;
                 }
             }
-            this.f4314e = kVar;
+            this.f4381e = kVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f4314e.c() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f4381e.c() == null) {
                 return;
             }
-            this.f4314e.c().a(view, this.f4314e.l);
+            this.f4381e.c().a(view, this.f4381e.l);
         }
     }
 
@@ -77,11 +77,11 @@ public class k extends h {
         }
         this.n = new a(this);
         int f2 = c.a.d.f.p.n.f(context, R.dimen.M_H_X003);
-        int f3 = c.a.d.f.p.n.f(context, c.a.s0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
+        int f3 = c.a.d.f.p.n.f(context, c.a.t0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
         q(f2);
         p(f3);
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f13623e instanceof ForumEnterLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f13623e.getParent() == null) {
-            this.m = (ForumEnterLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f13623e;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f13902e instanceof ForumEnterLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f13902e.getParent() == null) {
+            this.m = (ForumEnterLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f13902e;
         } else {
             this.m = new ForumEnterLayout(context);
         }
@@ -106,14 +106,14 @@ public class k extends h {
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (c.a.s0.b.d.A0()) {
-                int f2 = c.a.d.f.p.n.f(this.f4286f, R.dimen.M_H_X003);
-                int f3 = c.a.d.f.p.n.f(this.f4286f, c.a.s0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
+            if (c.a.t0.b.d.L0()) {
+                int f2 = c.a.d.f.p.n.f(this.f4353f, R.dimen.M_H_X003);
+                int f3 = c.a.d.f.p.n.f(this.f4353f, c.a.t0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
                 q(f2);
                 p(f3);
                 return;
             }
-            int f4 = c.a.d.f.p.n.f(this.f4286f, R.dimen.tbds10);
+            int f4 = c.a.d.f.p.n.f(this.f4353f, R.dimen.tbds10);
             q(f4);
             p(0);
             u(this.m, f4, 0);
@@ -123,11 +123,11 @@ public class k extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: t */
-    public void onBindDataToView(c.a.s0.s.q.a aVar) {
+    public void onBindDataToView(c.a.t0.s.r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.l = aVar;
-            this.m.setSourceForPb(this.f4285e.i());
+            this.m.setSourceForPb(this.f4352e.i());
             this.m.setData(aVar);
         }
     }

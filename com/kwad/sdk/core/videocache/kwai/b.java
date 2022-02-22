@@ -4,15 +4,15 @@ import com.kwad.sdk.core.videocache.ProxyCacheException;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b implements com.kwad.sdk.core.videocache.a {
     public File a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f56349b;
+    public final a f56516b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RandomAccessFile f56350c;
+    public RandomAccessFile f56517c;
 
     public b(File file, a aVar) {
         File file2;
@@ -20,7 +20,7 @@ public class b implements com.kwad.sdk.core.videocache.a {
             if (aVar == null) {
                 throw new NullPointerException();
             }
-            this.f56349b = aVar;
+            this.f56516b = aVar;
             d.a(file.getParentFile());
             boolean exists = file.exists();
             if (exists) {
@@ -30,7 +30,7 @@ public class b implements com.kwad.sdk.core.videocache.a {
                 file2 = new File(parentFile, file.getName() + ".download");
             }
             this.a = file2;
-            this.f56350c = new RandomAccessFile(this.a, exists ? "r" : "rw");
+            this.f56517c = new RandomAccessFile(this.a, exists ? "r" : "rw");
         } catch (IOException e2) {
             throw new ProxyCacheException("Error using file " + file + " as disc cache", e2);
         }
@@ -43,11 +43,11 @@ public class b implements com.kwad.sdk.core.videocache.a {
     @Override // com.kwad.sdk.core.videocache.a
     public synchronized int a(byte[] bArr, long j2, int i2) {
         try {
-            this.f56350c.seek(j2);
+            this.f56517c.seek(j2);
         } catch (IOException e2) {
             throw new ProxyCacheException(String.format("Error reading %d bytes with offset %d from file[%d bytes] to buffer[%d bytes]", Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(a()), Integer.valueOf(bArr.length)), e2);
         }
-        return this.f56350c.read(bArr, 0, i2);
+        return this.f56517c.read(bArr, 0, i2);
     }
 
     @Override // com.kwad.sdk.core.videocache.a
@@ -56,7 +56,7 @@ public class b implements com.kwad.sdk.core.videocache.a {
         } catch (IOException e2) {
             throw new ProxyCacheException("Error reading length of file " + this.a, e2);
         }
-        return (int) this.f56350c.length();
+        return (int) this.f56517c.length();
     }
 
     @Override // com.kwad.sdk.core.videocache.a
@@ -65,18 +65,18 @@ public class b implements com.kwad.sdk.core.videocache.a {
             if (d()) {
                 throw new ProxyCacheException("Error append cache: cache file " + this.a + " is completed!");
             }
-            this.f56350c.seek(a());
-            this.f56350c.write(bArr, 0, i2);
+            this.f56517c.seek(a());
+            this.f56517c.write(bArr, 0, i2);
         } catch (IOException e2) {
-            throw new ProxyCacheException(String.format("Error writing %d bytes to %s from buffer with size %d", Integer.valueOf(i2), this.f56350c, Integer.valueOf(bArr.length)), e2);
+            throw new ProxyCacheException(String.format("Error writing %d bytes to %s from buffer with size %d", Integer.valueOf(i2), this.f56517c, Integer.valueOf(bArr.length)), e2);
         }
     }
 
     @Override // com.kwad.sdk.core.videocache.a
     public synchronized void b() {
         try {
-            this.f56350c.close();
-            this.f56349b.a(this.a);
+            this.f56517c.close();
+            this.f56516b.a(this.a);
         } catch (IOException e2) {
             throw new ProxyCacheException("Error closing file " + this.a, e2);
         }
@@ -94,8 +94,8 @@ public class b implements com.kwad.sdk.core.videocache.a {
         }
         this.a = file;
         try {
-            this.f56350c = new RandomAccessFile(this.a, "r");
-            this.f56349b.a(this.a);
+            this.f56517c = new RandomAccessFile(this.a, "r");
+            this.f56516b.a(this.a);
         } catch (IOException e2) {
             throw new ProxyCacheException("Error opening " + this.a + " as disc cache", e2);
         }

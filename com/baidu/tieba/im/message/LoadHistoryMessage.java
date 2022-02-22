@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.message;
 
-import c.a.t0.t1.f.c;
+import c.a.u0.t1.f.c;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,13 +21,13 @@ public class LoadHistoryMessage extends CustomMessage<a> {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f45083b;
+        public String f45225b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f45084c;
+        public int f45226c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f45085d;
+        public String f45227d;
 
         public a() {
             Interceptable interceptable = $ic;

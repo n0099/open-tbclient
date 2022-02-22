@@ -7,7 +7,8 @@ import android.util.AttributeSet;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
-import c.a.t0.k4.h;
+import c.a.u0.a4.d;
+import c.a.u0.n4.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -19,7 +20,6 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tieba.R;
 import com.baidu.tieba.ala.TbLiveCyberView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -140,8 +140,8 @@ public class TbLiveCyberView extends CyberVideoView {
                 BdLog.e(e2);
             }
             new WeakReference(TbadkCoreApplication.getInst());
-            SkinManager.setBackgroundResource(this, R.color.black_alpha100);
-            setOnErrorListener(new CyberPlayerManager.OnErrorListener() { // from class: c.a.t0.a0.a
+            SkinManager.setBackgroundResource(this, d.black_alpha100);
+            setOnErrorListener(new CyberPlayerManager.OnErrorListener() { // from class: c.a.u0.a0.a
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -152,7 +152,7 @@ public class TbLiveCyberView extends CyberVideoView {
                     return (interceptable2 == null || (invokeIIL = interceptable2.invokeIIL(1048576, this, i2, i3, obj)) == null) ? TbLiveCyberView.this.l(i2, i3, obj) : invokeIIL.booleanValue;
                 }
             });
-            setOnPreparedListener(new CyberPlayerManager.OnPreparedListener() { // from class: c.a.t0.a0.b
+            setOnPreparedListener(new CyberPlayerManager.OnPreparedListener() { // from class: c.a.u0.a0.b
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

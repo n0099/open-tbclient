@@ -6,7 +6,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import tv.athena.revenue.payui.YYPayUIKit;
 import tv.athena.revenue.payui.model.PayFlowType;
 import tv.athena.revenue.payui.view.dialog.PayDialogType;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

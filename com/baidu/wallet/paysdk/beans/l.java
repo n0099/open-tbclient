@@ -25,7 +25,7 @@ public class l extends BaseBean<Object> {
     public BindFastRequest a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PwdRequest f51979b;
+    public PwdRequest f52146b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> l(Context context) {
@@ -46,8 +46,8 @@ public class l extends BaseBean<Object> {
             }
         }
         this.a = null;
-        this.f51979b = null;
-        this.f51979b = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
+        this.f52146b = null;
+        this.f52146b = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
@@ -66,12 +66,12 @@ public class l extends BaseBean<Object> {
             if (this.a != null) {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.a.getmBankCard())));
-                String handlePwdSimple = PasswordController.handlePwdSimple(this.f51979b.mPayPass);
+                String handlePwdSimple = PasswordController.handlePwdSimple(this.f52146b.mPayPass);
                 String seed = PasswordController.getSeed();
-                String handlePwd = PasswordController.handlePwd(this.f51979b.mConfirmPayPass, seed);
+                String handlePwd = PasswordController.handlePwd(this.f52146b.mConfirmPayPass, seed);
                 arrayList.add(new RestNameValuePair("mobile_pwd", SecurePay.getInstance().encryptProxy(handlePwdSimple)));
                 arrayList.add(new RestNameValuePair("confirm_mobile_pwd", handlePwd));
-                arrayList.add(new RestNameValuePair("mobile_pwd_psp", PasswordController.handlePwdForPassport(this.f51979b.mConfirmPayPass)));
+                arrayList.add(new RestNameValuePair("mobile_pwd_psp", PasswordController.handlePwdForPassport(this.f52146b.mConfirmPayPass)));
                 arrayList.add(new RestNameValuePair("seed", SecurePay.getInstance().encryptProxy(seed)));
                 arrayList.add(new RestNameValuePair("key", SecurePay.getInstance().getpwProxy()));
                 arrayList.add(new RestNameValuePair("sms_token", this.a.getSmsToken()));

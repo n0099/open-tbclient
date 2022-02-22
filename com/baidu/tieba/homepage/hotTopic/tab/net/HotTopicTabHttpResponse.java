@@ -1,8 +1,8 @@
 package com.baidu.tieba.homepage.hotTopic.tab.net;
 
-import c.a.d.n.e.n;
-import c.a.t0.p1.f.a.c;
-import c.a.t0.p1.f.a.f.a;
+import c.a.d.o.e.n;
+import c.a.u0.p1.g.a.c;
+import c.a.u0.p1.g.a.f.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
@@ -39,14 +39,14 @@ public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements a
         }
     }
 
-    @Override // c.a.t0.p1.f.a.f.a
+    @Override // c.a.u0.p1.g.a.f.a
     public List<n> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mHotTopicDataList : (List) invokeV.objValue;
     }
 
-    @Override // c.a.t0.p1.f.a.f.a
+    @Override // c.a.u0.p1.g.a.f.a
     public HotThreadListResIdl getResData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

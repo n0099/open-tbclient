@@ -2,7 +2,7 @@ package com.baidu.tieba.write.write.work.selectview;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import c.a.t0.p4.j;
+import c.a.u0.s4.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 import com.baidu.titan.sdk.runtime.FieldHolder;

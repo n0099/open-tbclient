@@ -5,12 +5,12 @@ import android.view.ViewGroup;
 import android.view.Window;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.r0.a.j2.b;
-import c.a.r0.a.k;
-import c.a.r0.a.v1.g;
-import c.a.r0.a.y1.c.a;
-import c.a.r0.a.y1.c.c;
-import c.a.r0.a.z2.q0;
+import c.a.s0.a.j2.b;
+import c.a.s0.a.k;
+import c.a.s0.a.v1.g;
+import c.a.s0.a.y1.c.a;
+import c.a.s0.a.y1.c.c;
+import c.a.s0.a.z2.q0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.support.v4.app.FragmentActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -67,7 +67,7 @@ public class SwanAppBaseActivity extends FragmentActivity {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mSkinDecorator : (b) invokeV.objValue;
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, c.a.r0.r.a.a.g, android.app.Activity
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, c.a.s0.r.a.a.g, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
@@ -108,13 +108,13 @@ public class SwanAppBaseActivity extends FragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onPostCreate(bundle);
-            boolean a = c.a.r0.a.c1.a.M().a();
-            c.a.r0.a.f1.c.a.e(Boolean.valueOf(a));
+            boolean a = c.a.s0.a.c1.a.M().a();
+            c.a.s0.a.f1.c.a.e(Boolean.valueOf(a));
             onNightModeCoverChanged(a, false);
         }
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, c.a.r0.r.a.a.a.b
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, c.a.s0.r.a.a.a.b
     public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048580, this, i2, strArr, iArr) == null) {

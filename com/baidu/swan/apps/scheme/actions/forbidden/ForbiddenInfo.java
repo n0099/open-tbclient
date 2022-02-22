@@ -3,7 +3,7 @@ package com.baidu.swan.apps.scheme.actions.forbidden;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.a.f1.e.b;
+import c.a.s0.a.f1.e.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,7 +23,7 @@ public class ForbiddenInfo implements Parcelable {
     public String appKey;
     public String appTitle;
     public int enableSlidingFlag;
-    public c.a.r0.a.u2.a errCode;
+    public c.a.s0.a.u2.a errCode;
     public String forbiddenDetail;
     public String forbiddenInformation;
     public String forbiddenReason;

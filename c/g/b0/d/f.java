@@ -23,13 +23,13 @@ public class f implements FunNativeAd2Bridger<KsDrawAd, View> {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.b f28364b;
+    public final c.b f28570b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ Context f28365c;
+    public final /* synthetic */ Context f28571c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ c f28366d;
+    public final /* synthetic */ c f28572d;
 
     public f(c cVar, KsDrawAd ksDrawAd, String str, Context context) {
         Interceptable interceptable = $ic;
@@ -46,9 +46,9 @@ public class f implements FunNativeAd2Bridger<KsDrawAd, View> {
                 return;
             }
         }
-        this.f28366d = cVar;
-        this.f28365c = context;
-        this.f28364b = new c.b(cVar, ksDrawAd, str);
+        this.f28572d = cVar;
+        this.f28571c = context;
+        this.f28570b = new c.b(cVar, ksDrawAd, str);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -56,7 +56,7 @@ public class f implements FunNativeAd2Bridger<KsDrawAd, View> {
     public View createExpressView(KsDrawAd ksDrawAd) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ksDrawAd)) == null) ? ksDrawAd.getDrawView(this.f28365c) : (View) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ksDrawAd)) == null) ? ksDrawAd.getDrawView(this.f28571c) : (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
@@ -72,10 +72,10 @@ public class f implements FunNativeAd2Bridger<KsDrawAd, View> {
     public void showExpress(Activity activity, ExpressInflater expressInflater, String str, KsDrawAd ksDrawAd, BaseNativeAd2<KsDrawAd, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, ksDrawAd, baseNativeAd2, funAdInteractionListener}) == null) {
-            this.f28366d.onShowStart(this.a);
+            this.f28572d.onShowStart(this.a);
             this.a = true;
-            c.b bVar = this.f28364b;
-            bVar.f28362e = funAdInteractionListener;
+            c.b bVar = this.f28570b;
+            bVar.f28568e = funAdInteractionListener;
             ksDrawAd.setAdInteractionListener(bVar);
             expressInflater.inflate();
         }

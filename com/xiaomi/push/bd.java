@@ -13,7 +13,7 @@ public class bd implements bf {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f60984b;
+    public final String f61151b;
 
     public bd(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class bd implements bf {
             throw new IllegalArgumentException("Name may not be null");
         }
         this.a = str;
-        this.f60984b = str2;
+        this.f61151b = str2;
     }
 
     @Override // com.xiaomi.push.bf
@@ -48,6 +48,6 @@ public class bd implements bf {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60984b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61151b : (String) invokeV.objValue;
     }
 }

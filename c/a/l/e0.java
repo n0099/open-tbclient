@@ -3,8 +3,8 @@ package c.a.l;
 import android.content.Context;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.q.q1;
-import c.a.s0.s.q.r1;
+import c.a.t0.s.r.q1;
+import c.a.t0.s.r.r1;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.view.RecommendForumLayout;
@@ -21,7 +21,7 @@ public class e0 extends a<r1> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public RecommendForumLayout f4303j;
+    public RecommendForumLayout f4370j;
     public int k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -44,16 +44,16 @@ public class e0 extends a<r1> {
         }
         this.k = 3;
         RecommendForumLayout recommendForumLayout = new RecommendForumLayout(tbPageContext);
-        this.f4303j = recommendForumLayout;
+        this.f4370j = recommendForumLayout;
         recommendForumLayout.setPageUniqueId(bdUniqueId);
-        this.f4303j.setShowMore(true);
+        this.f4370j.setShowMore(true);
     }
 
     @Override // c.a.l.a
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4303j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4370j : (View) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -62,14 +62,14 @@ public class e0 extends a<r1> {
     public void onBindDataToView(r1 r1Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r1Var) == null) {
-            this.f4303j.setData(r1Var);
+            this.f4370j.setData(r1Var);
         }
     }
 
     public void o(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f4303j.setEnableShowInto(z);
+            this.f4370j.setEnableShowInto(z);
         }
     }
 
@@ -78,7 +78,7 @@ public class e0 extends a<r1> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i2) == null) {
             if (this.k != i2) {
-                this.f4303j.onChangeSkinType(tbPageContext, i2);
+                this.f4370j.onChangeSkinType(tbPageContext, i2);
             }
             this.k = i2;
         }
@@ -87,35 +87,35 @@ public class e0 extends a<r1> {
     public void p(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            this.f4303j.setOnClickRightArrowListener(onClickListener);
+            this.f4370j.setOnClickRightArrowListener(onClickListener);
         }
     }
 
-    public void q(c.a.s0.n.f<q1> fVar) {
+    public void q(c.a.t0.n.f<q1> fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, fVar) == null) {
-            this.f4303j.setOnItemCoverListener(fVar);
+            this.f4370j.setOnItemCoverListener(fVar);
         }
     }
 
     public void r(PullLeftRefreshLayout.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, fVar) == null) {
-            this.f4303j.setOnRullOkCallbackr(fVar);
+            this.f4370j.setOnRullOkCallbackr(fVar);
         }
     }
 
     public void s(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f4303j.setShowMore(z);
+            this.f4370j.setShowMore(z);
         }
     }
 
     public void t(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f4303j.setShowSquareEntrance(z);
+            this.f4370j.setShowSquareEntrance(z);
         }
     }
 }

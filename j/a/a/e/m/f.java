@@ -14,7 +14,7 @@ import tv.athena.revenue.payui.view.IYYPayResultView;
 import tv.athena.revenue.payui.view.IYYPayWayView;
 import tv.athena.revenue.payui.view.dialog.CancelType;
 import tv.athena.revenue.payui.view.dialog.PayDialogType;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface f {
     void a(Activity activity, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
 

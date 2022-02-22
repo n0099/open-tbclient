@@ -42,17 +42,17 @@ public final class e implements ServiceConnection {
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             try {
                 this.a.a = b.a(iBinder);
-                countDownLatch3 = this.a.f61577d;
+                countDownLatch3 = this.a.f61744d;
                 if (countDownLatch3 == null) {
                     return;
                 }
             } catch (Throwable unused) {
-                countDownLatch = this.a.f61577d;
+                countDownLatch = this.a.f61744d;
                 if (countDownLatch == null) {
                     return;
                 }
             }
-            countDownLatch2 = this.a.f61577d;
+            countDownLatch2 = this.a.f61744d;
             countDownLatch2.countDown();
         }
     }

@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TableDefine {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DB_NAME_PREFIX = "bdimsdk_";
@@ -47,7 +47,7 @@ public class TableDefine {
     public static final String SQL_CREATE_TABLE_ZHIDAINFO = "CREATE TABLE zhida_info ( zhidaid LONG PRIMARY KEY, apikey TEXT,description TEXT, entry_url TEXT,icon_url TEXT,is_subscribe INTEGER,paid LONG,name TEXT,acceptpush INTEGER, sfot_ttl LONG,status INTEGER);";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class DRColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_CATEGORY = "category";
@@ -74,7 +74,7 @@ public class TableDefine {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class FriendGroupColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_FRIEND_GROUP_ID = "friend_group_id";
@@ -96,7 +96,7 @@ public class TableDefine {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class FriendRelationColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_FRIEND_GROUP_ID = "friend_group_id";
@@ -120,7 +120,7 @@ public class TableDefine {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class GroupInfoColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_DESCRIPTION = "description";
@@ -144,7 +144,7 @@ public class TableDefine {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class GroupMemberColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_GROUP_ID = "group_id";
@@ -168,7 +168,7 @@ public class TableDefine {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class MessageColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUME_EXPIRES_TIME = "expires_time";
@@ -212,7 +212,7 @@ public class TableDefine {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class NoDuplicateMessageColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_CATEGORY = "category";
@@ -239,7 +239,7 @@ public class TableDefine {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class PaCmdQueueColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_EXTRA_DATA = "extra";
@@ -266,7 +266,7 @@ public class TableDefine {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class PaSubscribeColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_ACCEPT_PUSH = "acceptpush";
@@ -317,7 +317,7 @@ public class TableDefine {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class ReliableMessageColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_CATEGORY = "category";
@@ -348,7 +348,7 @@ public class TableDefine {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class SessionColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_CATEGORY = "category";
@@ -399,7 +399,7 @@ public class TableDefine {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class StudioUsePaMessageColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_CATEGORY = "category";
@@ -428,7 +428,7 @@ public class TableDefine {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class UserInfoColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_ACCOUNTTYPE = "account_type";
@@ -479,7 +479,7 @@ public class TableDefine {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class ZhiDaColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_ACCEPT_PUSH = "acceptpush";

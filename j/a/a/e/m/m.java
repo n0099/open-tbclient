@@ -13,20 +13,20 @@ import tv.athena.revenue.api.IMiddleRevenue;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.payui.model.PayFlowType;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class m implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f62293b;
+    public int f62460b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PayUIKitConfig f62294c;
+    public PayUIKitConfig f62461c;
 
     /* renamed from: d  reason: collision with root package name */
-    public j.a.a.e.n.b f62295d;
+    public j.a.a.e.n.b f62462d;
 
     public m(int i2, int i3, PayUIKitConfig payUIKitConfig, j.a.a.e.n.b bVar) {
         Interceptable interceptable = $ic;
@@ -44,16 +44,16 @@ public class m implements e {
             }
         }
         this.a = i2;
-        this.f62293b = i3;
-        this.f62294c = payUIKitConfig;
-        this.f62295d = bVar;
+        this.f62460b = i3;
+        this.f62461c = payUIKitConfig;
+        this.f62462d = bVar;
     }
 
     @Override // j.a.a.e.m.e
     public void a(Activity activity, PayFlowType payFlowType, j.a.a.e.n.f fVar, j.a.a.e.n.c cVar, AppCustomExpand appCustomExpand, IPayCallback iPayCallback, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, payFlowType, fVar, cVar, appCustomExpand, iPayCallback, str}) == null) {
-            j.a.a.e.n.b bVar = this.f62295d;
+            j.a.a.e.n.b bVar = this.f62462d;
             if (bVar == null) {
                 RLog.error("PayCoreImpl", "payRequest error modelProvider null", new Object[0]);
                 return;
@@ -68,9 +68,9 @@ public class m implements e {
             b2.v(payFlowType.getTypeId());
             PayType payType = fVar.a;
             if (payType == PayType.DXM_PAY_KJ || payType == PayType.UNION_PAY) {
-                b2.x(j.a.a.e.n.e.b(this.f62294c));
+                b2.x(j.a.a.e.n.e.b(this.f62461c));
             }
-            IMiddleRevenue middleRevenue = RevenueManager.instance().getMiddleRevenue(this.a, this.f62293b);
+            IMiddleRevenue middleRevenue = RevenueManager.instance().getMiddleRevenue(this.a, this.f62460b);
             if (middleRevenue != null && middleRevenue.getMiddlePayService() != null) {
                 middleRevenue.getMiddlePayService().a(b2);
             } else {

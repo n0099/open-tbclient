@@ -27,27 +27,27 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Map<String, byte[]> f5089h;
+    public static final Map<String, byte[]> f5159h;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f5090b;
+    public final int f5160b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SecureRandom f5091c;
+    public SecureRandom f5161c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f5092d;
+    public final int f5162d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MessageDigest f5093e;
+    public MessageDigest f5163e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MessageDigest f5094f;
+    public MessageDigest f5164f;
 
     /* renamed from: g  reason: collision with root package name */
-    public byte[] f5095g;
+    public byte[] f5165g;
 
     static {
         InterceptResult invokeClinit;
@@ -62,7 +62,7 @@ public final class d {
                 return;
             }
         }
-        f5089h = Collections.synchronizedMap(new HashMap());
+        f5159h = Collections.synchronizedMap(new HashMap());
     }
 
     public d(int i2, int i3, SecureRandom secureRandom, OAEPParameterSpec oAEPParameterSpec) throws InvalidKeyException, InvalidAlgorithmParameterException {
@@ -82,8 +82,8 @@ public final class d {
             }
         }
         this.a = i2;
-        this.f5090b = i3;
-        this.f5091c = secureRandom;
+        this.f5160b = i3;
+        this.f5161c = secureRandom;
         if (i3 < 64) {
             throw new InvalidKeyException("Padded size must be at least 64");
         }
@@ -119,12 +119,12 @@ public final class d {
                 str = "SHA-1";
             }
             try {
-                this.f5093e = MessageDigest.getInstance(str);
-                this.f5094f = MessageDigest.getInstance(str2);
-                byte[] e3 = e(this.f5093e, bArr);
-                this.f5095g = e3;
+                this.f5163e = MessageDigest.getInstance(str);
+                this.f5164f = MessageDigest.getInstance(str2);
+                byte[] e3 = e(this.f5163e, bArr);
+                this.f5165g = e3;
                 int length = (i3 - 2) - (e3.length * 2);
-                this.f5092d = length;
+                this.f5162d = length;
                 if (length > 0) {
                     return;
                 }
@@ -135,7 +135,7 @@ public final class d {
                 throw new InvalidKeyException("Digest " + str2 + " not available", e);
             }
         }
-        this.f5092d = i3;
+        this.f5162d = i3;
     }
 
     public static d b(int i2, int i3, SecureRandom secureRandom) throws InvalidKeyException, InvalidAlgorithmParameterException {
@@ -156,10 +156,10 @@ public final class d {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, messageDigest, bArr)) == null) {
             if (bArr == null || bArr.length == 0) {
                 String algorithm = messageDigest.getAlgorithm();
-                byte[] bArr2 = f5089h.get(algorithm);
+                byte[] bArr2 = f5159h.get(algorithm);
                 if (bArr2 == null) {
                     byte[] digest = messageDigest.digest();
-                    f5089h.put(algorithm, digest);
+                    f5159h.put(algorithm, digest);
                     return digest;
                 }
                 return bArr2;
@@ -172,7 +172,7 @@ public final class d {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5092d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5162d : invokeV.intValue;
     }
 
     public final void d(byte[] bArr, int i2, int i3, byte[] bArr2, int i4, int i5) throws BadPaddingException {
@@ -182,10 +182,10 @@ public final class d {
             byte[] bArr3 = new byte[4];
             byte[] bArr4 = new byte[20];
             while (i5 > 0) {
-                this.f5094f.update(bArr, i2, i3);
-                this.f5094f.update(bArr3);
+                this.f5164f.update(bArr, i2, i3);
+                this.f5164f.update(bArr3);
                 try {
-                    this.f5094f.digest(bArr4, 0, 20);
+                    this.f5164f.digest(bArr4, 0, 20);
                     for (int i7 = 0; i7 < 20 && i5 > 0; i7++) {
                         bArr2[i4] = (byte) (bArr4[i7] ^ bArr2[i4]);
                         i5--;
@@ -209,8 +209,8 @@ public final class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
-            if (bArr.length > this.f5092d) {
-                throw new BadPaddingException("Data must be shorter than " + (this.f5092d + 1) + " bytes");
+            if (bArr.length > this.f5162d) {
+                throw new BadPaddingException("Data must be shorter than " + (this.f5162d + 1) + " bytes");
             }
             int i2 = this.a;
             if (i2 == 1 || i2 == 2) {
@@ -237,8 +237,8 @@ public final class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bArr)) == null) {
-            if (bArr.length != this.f5090b) {
-                throw new BadPaddingException("Padded length must be " + this.f5090b);
+            if (bArr.length != this.f5160b) {
+                throw new BadPaddingException("Padded length must be " + this.f5160b);
             }
             int i2 = this.a;
             if (i2 == 1 || i2 == 2) {
@@ -261,18 +261,18 @@ public final class d {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bArr)) == null) {
-            int i4 = this.f5090b;
+            int i4 = this.f5160b;
             byte[] bArr2 = new byte[i4];
             System.arraycopy(bArr, 0, bArr2, i4 - bArr.length, bArr.length);
-            int length = (this.f5090b - 3) - bArr.length;
+            int length = (this.f5160b - 3) - bArr.length;
             bArr2[0] = 0;
             int i5 = this.a;
             bArr2[1] = (byte) i5;
             int i6 = -1;
             int i7 = 2;
             if (i5 != 1) {
-                if (this.f5091c == null) {
-                    this.f5091c = a.a;
+                if (this.f5161c == null) {
+                    this.f5161c = a.a;
                 }
                 byte[] bArr3 = new byte[64];
                 while (true) {
@@ -282,7 +282,7 @@ public final class d {
                     }
                     while (true) {
                         if (i6 < 0) {
-                            this.f5091c.nextBytes(bArr3);
+                            this.f5161c.nextBytes(bArr3);
                             i6 = 63;
                         }
                         i2 = i6 - 1;
@@ -331,7 +331,7 @@ public final class d {
             int i4 = bArr[i2] & 255;
             if (i4 == 0) {
                 int length = bArr.length - i3;
-                if (length <= this.f5092d) {
+                if (length <= this.f5162d) {
                     byte[] bArr2 = new byte[length];
                     System.arraycopy(bArr, bArr.length - length, bArr2, 0, length);
                     return bArr2;
@@ -352,19 +352,19 @@ public final class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bArr)) == null) {
-            if (this.f5091c == null) {
-                this.f5091c = a.a;
+            if (this.f5161c == null) {
+                this.f5161c = a.a;
             }
-            int length = this.f5095g.length;
+            int length = this.f5165g.length;
             byte[] bArr2 = new byte[length];
-            this.f5091c.nextBytes(bArr2);
-            int i2 = this.f5090b;
+            this.f5161c.nextBytes(bArr2);
+            int i2 = this.f5160b;
             byte[] bArr3 = new byte[i2];
             System.arraycopy(bArr2, 0, bArr3, 1, length);
             int i3 = length + 1;
             int i4 = i2 - i3;
-            int length2 = this.f5090b - bArr.length;
-            System.arraycopy(this.f5095g, 0, bArr3, i3, length);
+            int length2 = this.f5160b - bArr.length;
+            System.arraycopy(this.f5165g, 0, bArr3, i3, length);
             bArr3[length2 - 1] = 1;
             System.arraycopy(bArr, 0, bArr3, length2, bArr.length);
             d(bArr3, 1, length, bArr3, i3, i4);
@@ -378,14 +378,14 @@ public final class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr)) == null) {
-            int length = this.f5095g.length;
+            int length = this.f5165g.length;
             if (bArr[0] == 0) {
                 int i2 = length + 1;
                 int length2 = bArr.length - i2;
                 d(bArr, i2, length2, bArr, 1, length);
                 d(bArr, 1, length, bArr, i2, length2);
                 for (int i3 = 0; i3 < length; i3++) {
-                    if (this.f5095g[i3] != bArr[i2 + i3]) {
+                    if (this.f5165g[i3] != bArr[i2 + i3]) {
                         throw new BadPaddingException("lHash mismatch");
                     }
                 }

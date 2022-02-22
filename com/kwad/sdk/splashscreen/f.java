@@ -1,5 +1,5 @@
 package com.kwad.sdk.splashscreen;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface f {
     void a(boolean z, boolean z2);
 }

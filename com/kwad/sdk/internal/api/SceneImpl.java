@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsScene, Serializable, Cloneable {
     public static final long serialVersionUID = 93865491903408451L;
     public int action;
@@ -107,7 +107,7 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
     /* JADX DEBUG: Method merged with bridge method */
     @NonNull
     /* renamed from: clone */
-    public SceneImpl m122clone() {
+    public SceneImpl m121clone() {
         String jSONObject = toJson().toString();
         try {
             SceneImpl sceneImpl = new SceneImpl();
@@ -272,13 +272,13 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
         a aVar2 = new a();
         this.mKsAdLabel = aVar2;
         aVar2.a = aVar.a();
-        this.mKsAdLabel.f57038b = aVar.b();
-        this.mKsAdLabel.f57039c = aVar.c();
-        this.mKsAdLabel.f57040d = aVar.d();
-        this.mKsAdLabel.f57041e = aVar.e();
-        this.mKsAdLabel.f57042f = aVar.f();
-        this.mKsAdLabel.f57043g = aVar.g();
-        this.mKsAdLabel.f57044h = aVar.h();
+        this.mKsAdLabel.f57205b = aVar.b();
+        this.mKsAdLabel.f57206c = aVar.c();
+        this.mKsAdLabel.f57207d = aVar.d();
+        this.mKsAdLabel.f57208e = aVar.e();
+        this.mKsAdLabel.f57209f = aVar.f();
+        this.mKsAdLabel.f57210g = aVar.g();
+        this.mKsAdLabel.f57211h = aVar.h();
     }
 
     @Override // com.kwad.sdk.api.KsScene
@@ -332,7 +332,7 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
         t.a(jSONObject, "height", this.height);
         a aVar = this.mKsAdLabel;
         if (aVar != null) {
-            long j2 = aVar.f57044h;
+            long j2 = aVar.f57211h;
             if (j2 != 0) {
                 t.a(jSONObject, "cpmBidFloor", j2);
             }

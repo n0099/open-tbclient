@@ -14,7 +14,7 @@ public class s implements o.e {
     public final /* synthetic */ ChannelNativeAds.GdtADStatusChangeListener a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ NativeUnifiedADData f28301b;
+    public final /* synthetic */ NativeUnifiedADData f28507b;
 
     public s(u uVar, ChannelNativeAds.GdtADStatusChangeListener gdtADStatusChangeListener, NativeUnifiedADData nativeUnifiedADData) {
         Interceptable interceptable = $ic;
@@ -32,14 +32,14 @@ public class s implements o.e {
             }
         }
         this.a = gdtADStatusChangeListener;
-        this.f28301b = nativeUnifiedADData;
+        this.f28507b = nativeUnifiedADData;
     }
 
     @Override // c.g.b0.b.o.e
     public void onADStatusChanged() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.onADStatusChanged(this.f28301b);
+            this.a.onADStatusChanged(this.f28507b);
         }
     }
 }

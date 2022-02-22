@@ -3,6 +3,7 @@ package com.facebook.imagepipeline.request;
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -80,7 +81,7 @@ public class ImageRequest {
                 }
             }
             SMALL = new CacheChoice("SMALL", 0);
-            CacheChoice cacheChoice = new CacheChoice("DEFAULT", 1);
+            CacheChoice cacheChoice = new CacheChoice(EngineName.DEFAULT_ENGINE, 1);
             DEFAULT = cacheChoice;
             $VALUES = new CacheChoice[]{SMALL, cacheChoice};
         }

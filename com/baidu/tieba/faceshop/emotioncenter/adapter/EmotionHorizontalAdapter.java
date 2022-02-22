@@ -3,8 +3,8 @@ package com.baidu.tieba.faceshop.emotioncenter.adapter;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.d.n.e.a;
-import c.a.t0.z0.x.c.b;
+import c.a.d.o.e.a;
+import c.a.u0.z0.x.c.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -55,7 +55,7 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || (emotionHorizontalView = this.a) == null || bVar == null) {
                 return;
             }
-            emotionHorizontalView.setData(bVar.f26087e);
+            emotionHorizontalView.setData(bVar.f25640e);
         }
     }
 
@@ -82,7 +82,7 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.n.e.a
+    @Override // c.a.d.o.e.a
     /* renamed from: Z */
     public EmotionGridViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -97,7 +97,7 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.n.e.a
+    @Override // c.a.d.o.e.a
     /* renamed from: a0 */
     public View S(int i2, View view, ViewGroup viewGroup, b bVar, EmotionGridViewHolder emotionGridViewHolder) {
         InterceptResult invokeCommon;

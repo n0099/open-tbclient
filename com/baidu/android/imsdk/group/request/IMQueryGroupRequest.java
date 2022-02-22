@@ -32,7 +32,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class IMQueryGroupRequest extends GroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryGroupRequest";
@@ -44,7 +44,7 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
     public String mKey;
     public String mRequestParam;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Mytask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,8 +72,8 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
             this.this$0 = iMQueryGroupRequest;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:43:0x0188  */
-        /* JADX WARN: Removed duplicated region for block: B:52:0x01f8  */
+        /* JADX WARN: Removed duplicated region for block: B:43:0x0186  */
+        /* JADX WARN: Removed duplicated region for block: B:52:0x01f5  */
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         /*
             Code decompiled incorrectly, please refer to instructions dump.

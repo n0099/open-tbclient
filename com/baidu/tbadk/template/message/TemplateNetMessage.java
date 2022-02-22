@@ -1,8 +1,8 @@
 package com.baidu.tbadk.template.message;
 
-import c.a.s0.b1.c.a;
-import c.a.s0.b1.c.b;
-import c.a.s0.b1.c.c;
+import c.a.t0.b1.e.c;
+import c.a.t0.b1.e.d;
+import c.a.t0.b1.e.e;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,22 +10,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class TemplateNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isNeedCache;
-    public a mIReq;
-    public b mIResp;
+    public c mIReq;
+    public d mIResp;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TemplateNetMessage(c cVar, a aVar, b bVar) {
-        super(cVar.b(), cVar.a());
+    public TemplateNetMessage(e eVar, c cVar, d dVar) {
+        super(eVar.e(), eVar.a());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cVar, aVar, bVar};
+            Object[] objArr = {eVar, cVar, dVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -38,8 +38,8 @@ public class TemplateNetMessage extends NetMessage {
             }
         }
         this.isNeedCache = false;
-        this.mIReq = aVar;
-        this.mIResp = bVar;
+        this.mIReq = cVar;
+        this.mIResp = dVar;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -48,21 +48,21 @@ public class TemplateNetMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             String str = "TemplateNetMessage-->isShortConnection=" + z;
-            return this.mIReq.a(z);
+            return this.mIReq.b(z);
         }
         return invokeZ.objValue;
     }
 
-    public a getIReq() {
+    public c getIReq() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mIReq : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mIReq : (c) invokeV.objValue;
     }
 
-    public b getIResp() {
+    public d getIResp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mIResp : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mIResp : (d) invokeV.objValue;
     }
 
     public boolean isNeedCache() {

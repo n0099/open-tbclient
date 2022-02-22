@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Queue;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ExceptionCatchingInputStream extends InputStream {
     public static /* synthetic */ Interceptable $ic;
     public static final Queue<ExceptionCatchingInputStream> QUEUE;

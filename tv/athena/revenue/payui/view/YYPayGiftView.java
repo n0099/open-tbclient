@@ -35,22 +35,22 @@ public class YYPayGiftView extends LinearLayout implements d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f63011e;
+    public int f63178e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f63012f;
+    public int f63179f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Button f63013g;
+    public Button f63180g;
 
     /* renamed from: h  reason: collision with root package name */
-    public GridView f63014h;
+    public GridView f63181h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f63015i;
+    public View f63182i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f63016j;
+    public TextView f63183j;
     public d.a k;
     public GiftBagsInfo l;
     public PayUIKitConfig m;
@@ -63,7 +63,7 @@ public class YYPayGiftView extends LinearLayout implements d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ YYPayGiftView f63017e;
+        public final /* synthetic */ YYPayGiftView f63184e;
 
         public a(YYPayGiftView yYPayGiftView) {
             Interceptable interceptable = $ic;
@@ -80,16 +80,16 @@ public class YYPayGiftView extends LinearLayout implements d {
                     return;
                 }
             }
-            this.f63017e = yYPayGiftView;
+            this.f63184e = yYPayGiftView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f63017e.k == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f63184e.k == null) {
                 return;
             }
-            this.f63017e.k.a();
+            this.f63184e.k.a();
         }
     }
 
@@ -112,11 +112,11 @@ public class YYPayGiftView extends LinearLayout implements d {
             }
         }
         this.mGiftBagList = new ArrayList();
-        this.f63011e = i2;
-        this.f63012f = i3;
+        this.f63178e = i2;
+        this.f63179f = i3;
         this.m = payUIKitConfig;
         b(context);
-        b.d(this.f63011e, this.f63012f, "17", "", "", "");
+        b.d(this.f63178e, this.f63179f, "17", "", "", "");
     }
 
     public final void b(Context context) {
@@ -124,14 +124,14 @@ public class YYPayGiftView extends LinearLayout implements d {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(new ContextThemeWrapper(context, o.a.a(this.m))).inflate(g.pay_ui_layout_pay_success_gift_view, (ViewGroup) this, true);
             Button button = (Button) findViewById(f.btn_know);
-            this.f63013g = button;
+            this.f63180g = button;
             button.setOnClickListener(new a(this));
-            this.f63016j = (TextView) findViewById(f.tv_title);
-            this.f63015i = findViewById(f.rl_container);
-            this.f63014h = (GridView) findViewById(f.grid_pay_gift);
+            this.f63183j = (TextView) findViewById(f.tv_title);
+            this.f63182i = findViewById(f.rl_container);
+            this.f63181h = (GridView) findViewById(f.grid_pay_gift);
             j.a.a.e.q.e.a aVar = new j.a.a.e.q.e.a(context, this.mGiftBagList, this.m);
             this.n = aVar;
-            this.f63014h.setAdapter((ListAdapter) aVar);
+            this.f63181h.setAdapter((ListAdapter) aVar);
         }
     }
 
@@ -140,7 +140,7 @@ public class YYPayGiftView extends LinearLayout implements d {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || TextUtils.isEmpty(this.l.successButtonMsg)) {
             return;
         }
-        this.f63013g.setText(this.l.successButtonMsg);
+        this.f63180g.setText(this.l.successButtonMsg);
     }
 
     public final void d() {
@@ -148,7 +148,7 @@ public class YYPayGiftView extends LinearLayout implements d {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || TextUtils.isEmpty(this.l.successTitle)) {
             return;
         }
-        this.f63016j.setText(this.l.successTitle);
+        this.f63183j.setText(this.l.successTitle);
     }
 
     @Override // j.a.a.e.q.a
@@ -173,7 +173,7 @@ public class YYPayGiftView extends LinearLayout implements d {
                 this.mGiftBagList.clear();
                 this.mGiftBagList.addAll(this.l.giftbag);
                 this.n.notifyDataSetChanged();
-                j.a(this.mGiftBagList.size(), this.f63015i, this.f63014h);
+                j.a(this.mGiftBagList.size(), this.f63182i, this.f63181h);
                 d();
                 c();
                 return;

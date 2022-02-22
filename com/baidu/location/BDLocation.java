@@ -100,31 +100,31 @@ public final class BDLocation implements Parcelable {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34934b;
+    public String f35140b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f34935c;
+    public double f35141c;
 
     /* renamed from: d  reason: collision with root package name */
-    public double f34936d;
+    public double f35142d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f34937e;
+    public boolean f35143e;
 
     /* renamed from: f  reason: collision with root package name */
-    public double f34938f;
+    public double f35144f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f34939g;
+    public boolean f35145g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f34940h;
+    public float f35146h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f34941i;
+    public boolean f35147i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f34942j;
+    public float f35148j;
     public boolean k;
     public int l;
     public float m;
@@ -172,15 +172,15 @@ public final class BDLocation implements Parcelable {
             }
         }
         this.a = 0;
-        this.f34934b = null;
-        this.f34935c = Double.MIN_VALUE;
-        this.f34936d = Double.MIN_VALUE;
-        this.f34937e = false;
-        this.f34938f = Double.MIN_VALUE;
-        this.f34939g = false;
-        this.f34940h = 0.0f;
-        this.f34941i = false;
-        this.f34942j = 0.0f;
+        this.f35140b = null;
+        this.f35141c = Double.MIN_VALUE;
+        this.f35142d = Double.MIN_VALUE;
+        this.f35143e = false;
+        this.f35144f = Double.MIN_VALUE;
+        this.f35145g = false;
+        this.f35146h = 0.0f;
+        this.f35147i = false;
+        this.f35148j = 0.0f;
         this.k = false;
         this.l = -1;
         this.m = -1.0f;
@@ -237,15 +237,15 @@ public final class BDLocation implements Parcelable {
             }
         }
         this.a = 0;
-        this.f34934b = null;
-        this.f34935c = Double.MIN_VALUE;
-        this.f34936d = Double.MIN_VALUE;
-        this.f34937e = false;
-        this.f34938f = Double.MIN_VALUE;
-        this.f34939g = false;
-        this.f34940h = 0.0f;
-        this.f34941i = false;
-        this.f34942j = 0.0f;
+        this.f35140b = null;
+        this.f35141c = Double.MIN_VALUE;
+        this.f35142d = Double.MIN_VALUE;
+        this.f35143e = false;
+        this.f35144f = Double.MIN_VALUE;
+        this.f35145g = false;
+        this.f35146h = 0.0f;
+        this.f35147i = false;
+        this.f35148j = 0.0f;
         this.k = false;
         this.l = -1;
         this.m = -1.0f;
@@ -285,12 +285,12 @@ public final class BDLocation implements Parcelable {
         this.V = Double.MIN_VALUE;
         this.W = false;
         this.a = parcel.readInt();
-        this.f34934b = parcel.readString();
-        this.f34935c = parcel.readDouble();
-        this.f34936d = parcel.readDouble();
-        this.f34938f = parcel.readDouble();
-        this.f34940h = parcel.readFloat();
-        this.f34942j = parcel.readFloat();
+        this.f35140b = parcel.readString();
+        this.f35141c = parcel.readDouble();
+        this.f35142d = parcel.readDouble();
+        this.f35144f = parcel.readDouble();
+        this.f35146h = parcel.readFloat();
+        this.f35148j = parcel.readFloat();
         this.l = parcel.readInt();
         this.m = parcel.readFloat();
         this.v = parcel.readString();
@@ -332,9 +332,9 @@ public final class BDLocation implements Parcelable {
         this.V = parcel.readDouble();
         try {
             parcel.readBooleanArray(zArr);
-            this.f34937e = zArr[0];
-            this.f34939g = zArr[1];
-            this.f34941i = zArr[2];
+            this.f35143e = zArr[0];
+            this.f35145g = zArr[1];
+            this.f35147i = zArr[2];
             this.k = zArr[3];
             this.o = zArr[4];
             this.t = zArr[5];
@@ -378,15 +378,15 @@ public final class BDLocation implements Parcelable {
         }
         this.a = 0;
         ArrayList arrayList = null;
-        this.f34934b = null;
-        this.f34935c = Double.MIN_VALUE;
-        this.f34936d = Double.MIN_VALUE;
-        this.f34937e = false;
-        this.f34938f = Double.MIN_VALUE;
-        this.f34939g = false;
-        this.f34940h = 0.0f;
-        this.f34941i = false;
-        this.f34942j = 0.0f;
+        this.f35140b = null;
+        this.f35141c = Double.MIN_VALUE;
+        this.f35142d = Double.MIN_VALUE;
+        this.f35143e = false;
+        this.f35144f = Double.MIN_VALUE;
+        this.f35145g = false;
+        this.f35146h = 0.0f;
+        this.f35147i = false;
+        this.f35148j = 0.0f;
         this.k = false;
         this.l = -1;
         this.m = -1.0f;
@@ -426,15 +426,15 @@ public final class BDLocation implements Parcelable {
         this.V = Double.MIN_VALUE;
         this.W = false;
         this.a = bDLocation.a;
-        this.f34934b = bDLocation.f34934b;
-        this.f34935c = bDLocation.f34935c;
-        this.f34936d = bDLocation.f34936d;
-        this.f34937e = bDLocation.f34937e;
-        this.f34938f = bDLocation.f34938f;
-        this.f34939g = bDLocation.f34939g;
-        this.f34940h = bDLocation.f34940h;
-        this.f34941i = bDLocation.f34941i;
-        this.f34942j = bDLocation.f34942j;
+        this.f35140b = bDLocation.f35140b;
+        this.f35141c = bDLocation.f35141c;
+        this.f35142d = bDLocation.f35142d;
+        this.f35143e = bDLocation.f35143e;
+        this.f35144f = bDLocation.f35144f;
+        this.f35145g = bDLocation.f35145g;
+        this.f35146h = bDLocation.f35146h;
+        this.f35147i = bDLocation.f35147i;
+        this.f35148j = bDLocation.f35148j;
         this.k = bDLocation.k;
         this.l = bDLocation.l;
         this.m = bDLocation.m;
@@ -482,28 +482,28 @@ public final class BDLocation implements Parcelable {
         this.W = bDLocation.W;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:173:0x03b2 A[Catch: Exception -> 0x065c, Error -> 0x0660, TryCatch #8 {Error -> 0x0660, blocks: (B:9:0x00a3, B:10:0x00a5, B:13:0x00e2, B:15:0x013c, B:16:0x0145, B:18:0x014b, B:19:0x0157, B:20:0x015b, B:23:0x0162, B:24:0x0167, B:27:0x0171, B:29:0x01a4, B:31:0x01ae, B:33:0x01b8, B:34:0x01bb, B:35:0x01bd, B:37:0x01c3, B:38:0x01d3, B:40:0x01d9, B:41:0x01fe, B:43:0x0205, B:45:0x020d, B:47:0x0219, B:48:0x021b, B:50:0x0223, B:52:0x022f, B:54:0x0234, B:57:0x023e, B:61:0x0248, B:63:0x0250, B:65:0x0259, B:67:0x0261, B:69:0x026a, B:71:0x0272, B:73:0x027b, B:75:0x0283, B:77:0x028c, B:79:0x0294, B:81:0x029d, B:83:0x02a5, B:85:0x02ae, B:87:0x02b8, B:89:0x02c7, B:91:0x02cf, B:93:0x02da, B:95:0x02e2, B:173:0x03b2, B:175:0x03f0, B:177:0x03f8, B:179:0x0404, B:180:0x0407, B:182:0x040f, B:184:0x0419, B:185:0x0424, B:187:0x042c, B:189:0x043a, B:190:0x043d, B:192:0x0445, B:194:0x0453, B:195:0x0456, B:197:0x045e, B:199:0x046c, B:200:0x046f, B:202:0x0477, B:204:0x0483, B:205:0x0487, B:208:0x0490, B:209:0x049a, B:211:0x04a2, B:213:0x04b0, B:215:0x04c0, B:218:0x04c8, B:219:0x04cb, B:221:0x04d3, B:222:0x04e4, B:224:0x04ec, B:225:0x04f4, B:227:0x04fc, B:228:0x0504, B:230:0x050c, B:231:0x0515, B:233:0x051d, B:235:0x052d, B:239:0x0545, B:244:0x054e, B:246:0x0556, B:248:0x0564, B:250:0x056a, B:251:0x0576, B:252:0x057a, B:255:0x0581, B:257:0x0588, B:259:0x0590, B:260:0x0598, B:262:0x05a0, B:272:0x05ce, B:273:0x05d1, B:282:0x0605, B:247:0x0560, B:243:0x054b, B:98:0x02ff, B:100:0x030a, B:104:0x0313, B:110:0x0320, B:118:0x032d, B:126:0x033a, B:134:0x034a, B:142:0x0357, B:150:0x0367, B:158:0x0379, B:171:0x039d, B:174:0x03e7, B:290:0x0619, B:291:0x061e), top: B:325:0x00a3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:177:0x03f8 A[Catch: Exception -> 0x065c, Error -> 0x0660, TryCatch #8 {Error -> 0x0660, blocks: (B:9:0x00a3, B:10:0x00a5, B:13:0x00e2, B:15:0x013c, B:16:0x0145, B:18:0x014b, B:19:0x0157, B:20:0x015b, B:23:0x0162, B:24:0x0167, B:27:0x0171, B:29:0x01a4, B:31:0x01ae, B:33:0x01b8, B:34:0x01bb, B:35:0x01bd, B:37:0x01c3, B:38:0x01d3, B:40:0x01d9, B:41:0x01fe, B:43:0x0205, B:45:0x020d, B:47:0x0219, B:48:0x021b, B:50:0x0223, B:52:0x022f, B:54:0x0234, B:57:0x023e, B:61:0x0248, B:63:0x0250, B:65:0x0259, B:67:0x0261, B:69:0x026a, B:71:0x0272, B:73:0x027b, B:75:0x0283, B:77:0x028c, B:79:0x0294, B:81:0x029d, B:83:0x02a5, B:85:0x02ae, B:87:0x02b8, B:89:0x02c7, B:91:0x02cf, B:93:0x02da, B:95:0x02e2, B:173:0x03b2, B:175:0x03f0, B:177:0x03f8, B:179:0x0404, B:180:0x0407, B:182:0x040f, B:184:0x0419, B:185:0x0424, B:187:0x042c, B:189:0x043a, B:190:0x043d, B:192:0x0445, B:194:0x0453, B:195:0x0456, B:197:0x045e, B:199:0x046c, B:200:0x046f, B:202:0x0477, B:204:0x0483, B:205:0x0487, B:208:0x0490, B:209:0x049a, B:211:0x04a2, B:213:0x04b0, B:215:0x04c0, B:218:0x04c8, B:219:0x04cb, B:221:0x04d3, B:222:0x04e4, B:224:0x04ec, B:225:0x04f4, B:227:0x04fc, B:228:0x0504, B:230:0x050c, B:231:0x0515, B:233:0x051d, B:235:0x052d, B:239:0x0545, B:244:0x054e, B:246:0x0556, B:248:0x0564, B:250:0x056a, B:251:0x0576, B:252:0x057a, B:255:0x0581, B:257:0x0588, B:259:0x0590, B:260:0x0598, B:262:0x05a0, B:272:0x05ce, B:273:0x05d1, B:282:0x0605, B:247:0x0560, B:243:0x054b, B:98:0x02ff, B:100:0x030a, B:104:0x0313, B:110:0x0320, B:118:0x032d, B:126:0x033a, B:134:0x034a, B:142:0x0357, B:150:0x0367, B:158:0x0379, B:171:0x039d, B:174:0x03e7, B:290:0x0619, B:291:0x061e), top: B:325:0x00a3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:182:0x040f A[Catch: Exception -> 0x065c, Error -> 0x0660, TryCatch #8 {Error -> 0x0660, blocks: (B:9:0x00a3, B:10:0x00a5, B:13:0x00e2, B:15:0x013c, B:16:0x0145, B:18:0x014b, B:19:0x0157, B:20:0x015b, B:23:0x0162, B:24:0x0167, B:27:0x0171, B:29:0x01a4, B:31:0x01ae, B:33:0x01b8, B:34:0x01bb, B:35:0x01bd, B:37:0x01c3, B:38:0x01d3, B:40:0x01d9, B:41:0x01fe, B:43:0x0205, B:45:0x020d, B:47:0x0219, B:48:0x021b, B:50:0x0223, B:52:0x022f, B:54:0x0234, B:57:0x023e, B:61:0x0248, B:63:0x0250, B:65:0x0259, B:67:0x0261, B:69:0x026a, B:71:0x0272, B:73:0x027b, B:75:0x0283, B:77:0x028c, B:79:0x0294, B:81:0x029d, B:83:0x02a5, B:85:0x02ae, B:87:0x02b8, B:89:0x02c7, B:91:0x02cf, B:93:0x02da, B:95:0x02e2, B:173:0x03b2, B:175:0x03f0, B:177:0x03f8, B:179:0x0404, B:180:0x0407, B:182:0x040f, B:184:0x0419, B:185:0x0424, B:187:0x042c, B:189:0x043a, B:190:0x043d, B:192:0x0445, B:194:0x0453, B:195:0x0456, B:197:0x045e, B:199:0x046c, B:200:0x046f, B:202:0x0477, B:204:0x0483, B:205:0x0487, B:208:0x0490, B:209:0x049a, B:211:0x04a2, B:213:0x04b0, B:215:0x04c0, B:218:0x04c8, B:219:0x04cb, B:221:0x04d3, B:222:0x04e4, B:224:0x04ec, B:225:0x04f4, B:227:0x04fc, B:228:0x0504, B:230:0x050c, B:231:0x0515, B:233:0x051d, B:235:0x052d, B:239:0x0545, B:244:0x054e, B:246:0x0556, B:248:0x0564, B:250:0x056a, B:251:0x0576, B:252:0x057a, B:255:0x0581, B:257:0x0588, B:259:0x0590, B:260:0x0598, B:262:0x05a0, B:272:0x05ce, B:273:0x05d1, B:282:0x0605, B:247:0x0560, B:243:0x054b, B:98:0x02ff, B:100:0x030a, B:104:0x0313, B:110:0x0320, B:118:0x032d, B:126:0x033a, B:134:0x034a, B:142:0x0357, B:150:0x0367, B:158:0x0379, B:171:0x039d, B:174:0x03e7, B:290:0x0619, B:291:0x061e), top: B:325:0x00a3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:187:0x042c A[Catch: Exception -> 0x065c, Error -> 0x0660, TryCatch #8 {Error -> 0x0660, blocks: (B:9:0x00a3, B:10:0x00a5, B:13:0x00e2, B:15:0x013c, B:16:0x0145, B:18:0x014b, B:19:0x0157, B:20:0x015b, B:23:0x0162, B:24:0x0167, B:27:0x0171, B:29:0x01a4, B:31:0x01ae, B:33:0x01b8, B:34:0x01bb, B:35:0x01bd, B:37:0x01c3, B:38:0x01d3, B:40:0x01d9, B:41:0x01fe, B:43:0x0205, B:45:0x020d, B:47:0x0219, B:48:0x021b, B:50:0x0223, B:52:0x022f, B:54:0x0234, B:57:0x023e, B:61:0x0248, B:63:0x0250, B:65:0x0259, B:67:0x0261, B:69:0x026a, B:71:0x0272, B:73:0x027b, B:75:0x0283, B:77:0x028c, B:79:0x0294, B:81:0x029d, B:83:0x02a5, B:85:0x02ae, B:87:0x02b8, B:89:0x02c7, B:91:0x02cf, B:93:0x02da, B:95:0x02e2, B:173:0x03b2, B:175:0x03f0, B:177:0x03f8, B:179:0x0404, B:180:0x0407, B:182:0x040f, B:184:0x0419, B:185:0x0424, B:187:0x042c, B:189:0x043a, B:190:0x043d, B:192:0x0445, B:194:0x0453, B:195:0x0456, B:197:0x045e, B:199:0x046c, B:200:0x046f, B:202:0x0477, B:204:0x0483, B:205:0x0487, B:208:0x0490, B:209:0x049a, B:211:0x04a2, B:213:0x04b0, B:215:0x04c0, B:218:0x04c8, B:219:0x04cb, B:221:0x04d3, B:222:0x04e4, B:224:0x04ec, B:225:0x04f4, B:227:0x04fc, B:228:0x0504, B:230:0x050c, B:231:0x0515, B:233:0x051d, B:235:0x052d, B:239:0x0545, B:244:0x054e, B:246:0x0556, B:248:0x0564, B:250:0x056a, B:251:0x0576, B:252:0x057a, B:255:0x0581, B:257:0x0588, B:259:0x0590, B:260:0x0598, B:262:0x05a0, B:272:0x05ce, B:273:0x05d1, B:282:0x0605, B:247:0x0560, B:243:0x054b, B:98:0x02ff, B:100:0x030a, B:104:0x0313, B:110:0x0320, B:118:0x032d, B:126:0x033a, B:134:0x034a, B:142:0x0357, B:150:0x0367, B:158:0x0379, B:171:0x039d, B:174:0x03e7, B:290:0x0619, B:291:0x061e), top: B:325:0x00a3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:192:0x0445 A[Catch: Exception -> 0x065c, Error -> 0x0660, TryCatch #8 {Error -> 0x0660, blocks: (B:9:0x00a3, B:10:0x00a5, B:13:0x00e2, B:15:0x013c, B:16:0x0145, B:18:0x014b, B:19:0x0157, B:20:0x015b, B:23:0x0162, B:24:0x0167, B:27:0x0171, B:29:0x01a4, B:31:0x01ae, B:33:0x01b8, B:34:0x01bb, B:35:0x01bd, B:37:0x01c3, B:38:0x01d3, B:40:0x01d9, B:41:0x01fe, B:43:0x0205, B:45:0x020d, B:47:0x0219, B:48:0x021b, B:50:0x0223, B:52:0x022f, B:54:0x0234, B:57:0x023e, B:61:0x0248, B:63:0x0250, B:65:0x0259, B:67:0x0261, B:69:0x026a, B:71:0x0272, B:73:0x027b, B:75:0x0283, B:77:0x028c, B:79:0x0294, B:81:0x029d, B:83:0x02a5, B:85:0x02ae, B:87:0x02b8, B:89:0x02c7, B:91:0x02cf, B:93:0x02da, B:95:0x02e2, B:173:0x03b2, B:175:0x03f0, B:177:0x03f8, B:179:0x0404, B:180:0x0407, B:182:0x040f, B:184:0x0419, B:185:0x0424, B:187:0x042c, B:189:0x043a, B:190:0x043d, B:192:0x0445, B:194:0x0453, B:195:0x0456, B:197:0x045e, B:199:0x046c, B:200:0x046f, B:202:0x0477, B:204:0x0483, B:205:0x0487, B:208:0x0490, B:209:0x049a, B:211:0x04a2, B:213:0x04b0, B:215:0x04c0, B:218:0x04c8, B:219:0x04cb, B:221:0x04d3, B:222:0x04e4, B:224:0x04ec, B:225:0x04f4, B:227:0x04fc, B:228:0x0504, B:230:0x050c, B:231:0x0515, B:233:0x051d, B:235:0x052d, B:239:0x0545, B:244:0x054e, B:246:0x0556, B:248:0x0564, B:250:0x056a, B:251:0x0576, B:252:0x057a, B:255:0x0581, B:257:0x0588, B:259:0x0590, B:260:0x0598, B:262:0x05a0, B:272:0x05ce, B:273:0x05d1, B:282:0x0605, B:247:0x0560, B:243:0x054b, B:98:0x02ff, B:100:0x030a, B:104:0x0313, B:110:0x0320, B:118:0x032d, B:126:0x033a, B:134:0x034a, B:142:0x0357, B:150:0x0367, B:158:0x0379, B:171:0x039d, B:174:0x03e7, B:290:0x0619, B:291:0x061e), top: B:325:0x00a3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:197:0x045e A[Catch: Exception -> 0x065c, Error -> 0x0660, TryCatch #8 {Error -> 0x0660, blocks: (B:9:0x00a3, B:10:0x00a5, B:13:0x00e2, B:15:0x013c, B:16:0x0145, B:18:0x014b, B:19:0x0157, B:20:0x015b, B:23:0x0162, B:24:0x0167, B:27:0x0171, B:29:0x01a4, B:31:0x01ae, B:33:0x01b8, B:34:0x01bb, B:35:0x01bd, B:37:0x01c3, B:38:0x01d3, B:40:0x01d9, B:41:0x01fe, B:43:0x0205, B:45:0x020d, B:47:0x0219, B:48:0x021b, B:50:0x0223, B:52:0x022f, B:54:0x0234, B:57:0x023e, B:61:0x0248, B:63:0x0250, B:65:0x0259, B:67:0x0261, B:69:0x026a, B:71:0x0272, B:73:0x027b, B:75:0x0283, B:77:0x028c, B:79:0x0294, B:81:0x029d, B:83:0x02a5, B:85:0x02ae, B:87:0x02b8, B:89:0x02c7, B:91:0x02cf, B:93:0x02da, B:95:0x02e2, B:173:0x03b2, B:175:0x03f0, B:177:0x03f8, B:179:0x0404, B:180:0x0407, B:182:0x040f, B:184:0x0419, B:185:0x0424, B:187:0x042c, B:189:0x043a, B:190:0x043d, B:192:0x0445, B:194:0x0453, B:195:0x0456, B:197:0x045e, B:199:0x046c, B:200:0x046f, B:202:0x0477, B:204:0x0483, B:205:0x0487, B:208:0x0490, B:209:0x049a, B:211:0x04a2, B:213:0x04b0, B:215:0x04c0, B:218:0x04c8, B:219:0x04cb, B:221:0x04d3, B:222:0x04e4, B:224:0x04ec, B:225:0x04f4, B:227:0x04fc, B:228:0x0504, B:230:0x050c, B:231:0x0515, B:233:0x051d, B:235:0x052d, B:239:0x0545, B:244:0x054e, B:246:0x0556, B:248:0x0564, B:250:0x056a, B:251:0x0576, B:252:0x057a, B:255:0x0581, B:257:0x0588, B:259:0x0590, B:260:0x0598, B:262:0x05a0, B:272:0x05ce, B:273:0x05d1, B:282:0x0605, B:247:0x0560, B:243:0x054b, B:98:0x02ff, B:100:0x030a, B:104:0x0313, B:110:0x0320, B:118:0x032d, B:126:0x033a, B:134:0x034a, B:142:0x0357, B:150:0x0367, B:158:0x0379, B:171:0x039d, B:174:0x03e7, B:290:0x0619, B:291:0x061e), top: B:325:0x00a3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:202:0x0477 A[Catch: Exception -> 0x065c, Error -> 0x0660, TryCatch #8 {Error -> 0x0660, blocks: (B:9:0x00a3, B:10:0x00a5, B:13:0x00e2, B:15:0x013c, B:16:0x0145, B:18:0x014b, B:19:0x0157, B:20:0x015b, B:23:0x0162, B:24:0x0167, B:27:0x0171, B:29:0x01a4, B:31:0x01ae, B:33:0x01b8, B:34:0x01bb, B:35:0x01bd, B:37:0x01c3, B:38:0x01d3, B:40:0x01d9, B:41:0x01fe, B:43:0x0205, B:45:0x020d, B:47:0x0219, B:48:0x021b, B:50:0x0223, B:52:0x022f, B:54:0x0234, B:57:0x023e, B:61:0x0248, B:63:0x0250, B:65:0x0259, B:67:0x0261, B:69:0x026a, B:71:0x0272, B:73:0x027b, B:75:0x0283, B:77:0x028c, B:79:0x0294, B:81:0x029d, B:83:0x02a5, B:85:0x02ae, B:87:0x02b8, B:89:0x02c7, B:91:0x02cf, B:93:0x02da, B:95:0x02e2, B:173:0x03b2, B:175:0x03f0, B:177:0x03f8, B:179:0x0404, B:180:0x0407, B:182:0x040f, B:184:0x0419, B:185:0x0424, B:187:0x042c, B:189:0x043a, B:190:0x043d, B:192:0x0445, B:194:0x0453, B:195:0x0456, B:197:0x045e, B:199:0x046c, B:200:0x046f, B:202:0x0477, B:204:0x0483, B:205:0x0487, B:208:0x0490, B:209:0x049a, B:211:0x04a2, B:213:0x04b0, B:215:0x04c0, B:218:0x04c8, B:219:0x04cb, B:221:0x04d3, B:222:0x04e4, B:224:0x04ec, B:225:0x04f4, B:227:0x04fc, B:228:0x0504, B:230:0x050c, B:231:0x0515, B:233:0x051d, B:235:0x052d, B:239:0x0545, B:244:0x054e, B:246:0x0556, B:248:0x0564, B:250:0x056a, B:251:0x0576, B:252:0x057a, B:255:0x0581, B:257:0x0588, B:259:0x0590, B:260:0x0598, B:262:0x05a0, B:272:0x05ce, B:273:0x05d1, B:282:0x0605, B:247:0x0560, B:243:0x054b, B:98:0x02ff, B:100:0x030a, B:104:0x0313, B:110:0x0320, B:118:0x032d, B:126:0x033a, B:134:0x034a, B:142:0x0357, B:150:0x0367, B:158:0x0379, B:171:0x039d, B:174:0x03e7, B:290:0x0619, B:291:0x061e), top: B:325:0x00a3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:246:0x0556 A[Catch: Exception -> 0x065c, Error -> 0x0660, TryCatch #8 {Error -> 0x0660, blocks: (B:9:0x00a3, B:10:0x00a5, B:13:0x00e2, B:15:0x013c, B:16:0x0145, B:18:0x014b, B:19:0x0157, B:20:0x015b, B:23:0x0162, B:24:0x0167, B:27:0x0171, B:29:0x01a4, B:31:0x01ae, B:33:0x01b8, B:34:0x01bb, B:35:0x01bd, B:37:0x01c3, B:38:0x01d3, B:40:0x01d9, B:41:0x01fe, B:43:0x0205, B:45:0x020d, B:47:0x0219, B:48:0x021b, B:50:0x0223, B:52:0x022f, B:54:0x0234, B:57:0x023e, B:61:0x0248, B:63:0x0250, B:65:0x0259, B:67:0x0261, B:69:0x026a, B:71:0x0272, B:73:0x027b, B:75:0x0283, B:77:0x028c, B:79:0x0294, B:81:0x029d, B:83:0x02a5, B:85:0x02ae, B:87:0x02b8, B:89:0x02c7, B:91:0x02cf, B:93:0x02da, B:95:0x02e2, B:173:0x03b2, B:175:0x03f0, B:177:0x03f8, B:179:0x0404, B:180:0x0407, B:182:0x040f, B:184:0x0419, B:185:0x0424, B:187:0x042c, B:189:0x043a, B:190:0x043d, B:192:0x0445, B:194:0x0453, B:195:0x0456, B:197:0x045e, B:199:0x046c, B:200:0x046f, B:202:0x0477, B:204:0x0483, B:205:0x0487, B:208:0x0490, B:209:0x049a, B:211:0x04a2, B:213:0x04b0, B:215:0x04c0, B:218:0x04c8, B:219:0x04cb, B:221:0x04d3, B:222:0x04e4, B:224:0x04ec, B:225:0x04f4, B:227:0x04fc, B:228:0x0504, B:230:0x050c, B:231:0x0515, B:233:0x051d, B:235:0x052d, B:239:0x0545, B:244:0x054e, B:246:0x0556, B:248:0x0564, B:250:0x056a, B:251:0x0576, B:252:0x057a, B:255:0x0581, B:257:0x0588, B:259:0x0590, B:260:0x0598, B:262:0x05a0, B:272:0x05ce, B:273:0x05d1, B:282:0x0605, B:247:0x0560, B:243:0x054b, B:98:0x02ff, B:100:0x030a, B:104:0x0313, B:110:0x0320, B:118:0x032d, B:126:0x033a, B:134:0x034a, B:142:0x0357, B:150:0x0367, B:158:0x0379, B:171:0x039d, B:174:0x03e7, B:290:0x0619, B:291:0x061e), top: B:325:0x00a3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:247:0x0560 A[Catch: Exception -> 0x065c, Error -> 0x0660, TRY_LEAVE, TryCatch #8 {Error -> 0x0660, blocks: (B:9:0x00a3, B:10:0x00a5, B:13:0x00e2, B:15:0x013c, B:16:0x0145, B:18:0x014b, B:19:0x0157, B:20:0x015b, B:23:0x0162, B:24:0x0167, B:27:0x0171, B:29:0x01a4, B:31:0x01ae, B:33:0x01b8, B:34:0x01bb, B:35:0x01bd, B:37:0x01c3, B:38:0x01d3, B:40:0x01d9, B:41:0x01fe, B:43:0x0205, B:45:0x020d, B:47:0x0219, B:48:0x021b, B:50:0x0223, B:52:0x022f, B:54:0x0234, B:57:0x023e, B:61:0x0248, B:63:0x0250, B:65:0x0259, B:67:0x0261, B:69:0x026a, B:71:0x0272, B:73:0x027b, B:75:0x0283, B:77:0x028c, B:79:0x0294, B:81:0x029d, B:83:0x02a5, B:85:0x02ae, B:87:0x02b8, B:89:0x02c7, B:91:0x02cf, B:93:0x02da, B:95:0x02e2, B:173:0x03b2, B:175:0x03f0, B:177:0x03f8, B:179:0x0404, B:180:0x0407, B:182:0x040f, B:184:0x0419, B:185:0x0424, B:187:0x042c, B:189:0x043a, B:190:0x043d, B:192:0x0445, B:194:0x0453, B:195:0x0456, B:197:0x045e, B:199:0x046c, B:200:0x046f, B:202:0x0477, B:204:0x0483, B:205:0x0487, B:208:0x0490, B:209:0x049a, B:211:0x04a2, B:213:0x04b0, B:215:0x04c0, B:218:0x04c8, B:219:0x04cb, B:221:0x04d3, B:222:0x04e4, B:224:0x04ec, B:225:0x04f4, B:227:0x04fc, B:228:0x0504, B:230:0x050c, B:231:0x0515, B:233:0x051d, B:235:0x052d, B:239:0x0545, B:244:0x054e, B:246:0x0556, B:248:0x0564, B:250:0x056a, B:251:0x0576, B:252:0x057a, B:255:0x0581, B:257:0x0588, B:259:0x0590, B:260:0x0598, B:262:0x05a0, B:272:0x05ce, B:273:0x05d1, B:282:0x0605, B:247:0x0560, B:243:0x054b, B:98:0x02ff, B:100:0x030a, B:104:0x0313, B:110:0x0320, B:118:0x032d, B:126:0x033a, B:134:0x034a, B:142:0x0357, B:150:0x0367, B:158:0x0379, B:171:0x039d, B:174:0x03e7, B:290:0x0619, B:291:0x061e), top: B:325:0x00a3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:250:0x056a A[Catch: Exception -> 0x057a, Error -> 0x0660, TryCatch #8 {Error -> 0x0660, blocks: (B:9:0x00a3, B:10:0x00a5, B:13:0x00e2, B:15:0x013c, B:16:0x0145, B:18:0x014b, B:19:0x0157, B:20:0x015b, B:23:0x0162, B:24:0x0167, B:27:0x0171, B:29:0x01a4, B:31:0x01ae, B:33:0x01b8, B:34:0x01bb, B:35:0x01bd, B:37:0x01c3, B:38:0x01d3, B:40:0x01d9, B:41:0x01fe, B:43:0x0205, B:45:0x020d, B:47:0x0219, B:48:0x021b, B:50:0x0223, B:52:0x022f, B:54:0x0234, B:57:0x023e, B:61:0x0248, B:63:0x0250, B:65:0x0259, B:67:0x0261, B:69:0x026a, B:71:0x0272, B:73:0x027b, B:75:0x0283, B:77:0x028c, B:79:0x0294, B:81:0x029d, B:83:0x02a5, B:85:0x02ae, B:87:0x02b8, B:89:0x02c7, B:91:0x02cf, B:93:0x02da, B:95:0x02e2, B:173:0x03b2, B:175:0x03f0, B:177:0x03f8, B:179:0x0404, B:180:0x0407, B:182:0x040f, B:184:0x0419, B:185:0x0424, B:187:0x042c, B:189:0x043a, B:190:0x043d, B:192:0x0445, B:194:0x0453, B:195:0x0456, B:197:0x045e, B:199:0x046c, B:200:0x046f, B:202:0x0477, B:204:0x0483, B:205:0x0487, B:208:0x0490, B:209:0x049a, B:211:0x04a2, B:213:0x04b0, B:215:0x04c0, B:218:0x04c8, B:219:0x04cb, B:221:0x04d3, B:222:0x04e4, B:224:0x04ec, B:225:0x04f4, B:227:0x04fc, B:228:0x0504, B:230:0x050c, B:231:0x0515, B:233:0x051d, B:235:0x052d, B:239:0x0545, B:244:0x054e, B:246:0x0556, B:248:0x0564, B:250:0x056a, B:251:0x0576, B:252:0x057a, B:255:0x0581, B:257:0x0588, B:259:0x0590, B:260:0x0598, B:262:0x05a0, B:272:0x05ce, B:273:0x05d1, B:282:0x0605, B:247:0x0560, B:243:0x054b, B:98:0x02ff, B:100:0x030a, B:104:0x0313, B:110:0x0320, B:118:0x032d, B:126:0x033a, B:134:0x034a, B:142:0x0357, B:150:0x0367, B:158:0x0379, B:171:0x039d, B:174:0x03e7, B:290:0x0619, B:291:0x061e), top: B:325:0x00a3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:251:0x0576 A[Catch: Exception -> 0x057a, Error -> 0x0660, TRY_LEAVE, TryCatch #8 {Error -> 0x0660, blocks: (B:9:0x00a3, B:10:0x00a5, B:13:0x00e2, B:15:0x013c, B:16:0x0145, B:18:0x014b, B:19:0x0157, B:20:0x015b, B:23:0x0162, B:24:0x0167, B:27:0x0171, B:29:0x01a4, B:31:0x01ae, B:33:0x01b8, B:34:0x01bb, B:35:0x01bd, B:37:0x01c3, B:38:0x01d3, B:40:0x01d9, B:41:0x01fe, B:43:0x0205, B:45:0x020d, B:47:0x0219, B:48:0x021b, B:50:0x0223, B:52:0x022f, B:54:0x0234, B:57:0x023e, B:61:0x0248, B:63:0x0250, B:65:0x0259, B:67:0x0261, B:69:0x026a, B:71:0x0272, B:73:0x027b, B:75:0x0283, B:77:0x028c, B:79:0x0294, B:81:0x029d, B:83:0x02a5, B:85:0x02ae, B:87:0x02b8, B:89:0x02c7, B:91:0x02cf, B:93:0x02da, B:95:0x02e2, B:173:0x03b2, B:175:0x03f0, B:177:0x03f8, B:179:0x0404, B:180:0x0407, B:182:0x040f, B:184:0x0419, B:185:0x0424, B:187:0x042c, B:189:0x043a, B:190:0x043d, B:192:0x0445, B:194:0x0453, B:195:0x0456, B:197:0x045e, B:199:0x046c, B:200:0x046f, B:202:0x0477, B:204:0x0483, B:205:0x0487, B:208:0x0490, B:209:0x049a, B:211:0x04a2, B:213:0x04b0, B:215:0x04c0, B:218:0x04c8, B:219:0x04cb, B:221:0x04d3, B:222:0x04e4, B:224:0x04ec, B:225:0x04f4, B:227:0x04fc, B:228:0x0504, B:230:0x050c, B:231:0x0515, B:233:0x051d, B:235:0x052d, B:239:0x0545, B:244:0x054e, B:246:0x0556, B:248:0x0564, B:250:0x056a, B:251:0x0576, B:252:0x057a, B:255:0x0581, B:257:0x0588, B:259:0x0590, B:260:0x0598, B:262:0x05a0, B:272:0x05ce, B:273:0x05d1, B:282:0x0605, B:247:0x0560, B:243:0x054b, B:98:0x02ff, B:100:0x030a, B:104:0x0313, B:110:0x0320, B:118:0x032d, B:126:0x033a, B:134:0x034a, B:142:0x0357, B:150:0x0367, B:158:0x0379, B:171:0x039d, B:174:0x03e7, B:290:0x0619, B:291:0x061e), top: B:325:0x00a3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:254:0x057e  */
-    /* JADX WARN: Removed duplicated region for block: B:256:0x0585  */
-    /* JADX WARN: Removed duplicated region for block: B:259:0x0590 A[Catch: Exception -> 0x065c, Error -> 0x0660, TryCatch #8 {Error -> 0x0660, blocks: (B:9:0x00a3, B:10:0x00a5, B:13:0x00e2, B:15:0x013c, B:16:0x0145, B:18:0x014b, B:19:0x0157, B:20:0x015b, B:23:0x0162, B:24:0x0167, B:27:0x0171, B:29:0x01a4, B:31:0x01ae, B:33:0x01b8, B:34:0x01bb, B:35:0x01bd, B:37:0x01c3, B:38:0x01d3, B:40:0x01d9, B:41:0x01fe, B:43:0x0205, B:45:0x020d, B:47:0x0219, B:48:0x021b, B:50:0x0223, B:52:0x022f, B:54:0x0234, B:57:0x023e, B:61:0x0248, B:63:0x0250, B:65:0x0259, B:67:0x0261, B:69:0x026a, B:71:0x0272, B:73:0x027b, B:75:0x0283, B:77:0x028c, B:79:0x0294, B:81:0x029d, B:83:0x02a5, B:85:0x02ae, B:87:0x02b8, B:89:0x02c7, B:91:0x02cf, B:93:0x02da, B:95:0x02e2, B:173:0x03b2, B:175:0x03f0, B:177:0x03f8, B:179:0x0404, B:180:0x0407, B:182:0x040f, B:184:0x0419, B:185:0x0424, B:187:0x042c, B:189:0x043a, B:190:0x043d, B:192:0x0445, B:194:0x0453, B:195:0x0456, B:197:0x045e, B:199:0x046c, B:200:0x046f, B:202:0x0477, B:204:0x0483, B:205:0x0487, B:208:0x0490, B:209:0x049a, B:211:0x04a2, B:213:0x04b0, B:215:0x04c0, B:218:0x04c8, B:219:0x04cb, B:221:0x04d3, B:222:0x04e4, B:224:0x04ec, B:225:0x04f4, B:227:0x04fc, B:228:0x0504, B:230:0x050c, B:231:0x0515, B:233:0x051d, B:235:0x052d, B:239:0x0545, B:244:0x054e, B:246:0x0556, B:248:0x0564, B:250:0x056a, B:251:0x0576, B:252:0x057a, B:255:0x0581, B:257:0x0588, B:259:0x0590, B:260:0x0598, B:262:0x05a0, B:272:0x05ce, B:273:0x05d1, B:282:0x0605, B:247:0x0560, B:243:0x054b, B:98:0x02ff, B:100:0x030a, B:104:0x0313, B:110:0x0320, B:118:0x032d, B:126:0x033a, B:134:0x034a, B:142:0x0357, B:150:0x0367, B:158:0x0379, B:171:0x039d, B:174:0x03e7, B:290:0x0619, B:291:0x061e), top: B:325:0x00a3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:262:0x05a0 A[Catch: Exception -> 0x065c, Error -> 0x0660, TRY_LEAVE, TryCatch #8 {Error -> 0x0660, blocks: (B:9:0x00a3, B:10:0x00a5, B:13:0x00e2, B:15:0x013c, B:16:0x0145, B:18:0x014b, B:19:0x0157, B:20:0x015b, B:23:0x0162, B:24:0x0167, B:27:0x0171, B:29:0x01a4, B:31:0x01ae, B:33:0x01b8, B:34:0x01bb, B:35:0x01bd, B:37:0x01c3, B:38:0x01d3, B:40:0x01d9, B:41:0x01fe, B:43:0x0205, B:45:0x020d, B:47:0x0219, B:48:0x021b, B:50:0x0223, B:52:0x022f, B:54:0x0234, B:57:0x023e, B:61:0x0248, B:63:0x0250, B:65:0x0259, B:67:0x0261, B:69:0x026a, B:71:0x0272, B:73:0x027b, B:75:0x0283, B:77:0x028c, B:79:0x0294, B:81:0x029d, B:83:0x02a5, B:85:0x02ae, B:87:0x02b8, B:89:0x02c7, B:91:0x02cf, B:93:0x02da, B:95:0x02e2, B:173:0x03b2, B:175:0x03f0, B:177:0x03f8, B:179:0x0404, B:180:0x0407, B:182:0x040f, B:184:0x0419, B:185:0x0424, B:187:0x042c, B:189:0x043a, B:190:0x043d, B:192:0x0445, B:194:0x0453, B:195:0x0456, B:197:0x045e, B:199:0x046c, B:200:0x046f, B:202:0x0477, B:204:0x0483, B:205:0x0487, B:208:0x0490, B:209:0x049a, B:211:0x04a2, B:213:0x04b0, B:215:0x04c0, B:218:0x04c8, B:219:0x04cb, B:221:0x04d3, B:222:0x04e4, B:224:0x04ec, B:225:0x04f4, B:227:0x04fc, B:228:0x0504, B:230:0x050c, B:231:0x0515, B:233:0x051d, B:235:0x052d, B:239:0x0545, B:244:0x054e, B:246:0x0556, B:248:0x0564, B:250:0x056a, B:251:0x0576, B:252:0x057a, B:255:0x0581, B:257:0x0588, B:259:0x0590, B:260:0x0598, B:262:0x05a0, B:272:0x05ce, B:273:0x05d1, B:282:0x0605, B:247:0x0560, B:243:0x054b, B:98:0x02ff, B:100:0x030a, B:104:0x0313, B:110:0x0320, B:118:0x032d, B:126:0x033a, B:134:0x034a, B:142:0x0357, B:150:0x0367, B:158:0x0379, B:171:0x039d, B:174:0x03e7, B:290:0x0619, B:291:0x061e), top: B:325:0x00a3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:266:0x05ae A[Catch: all -> 0x05cc, TryCatch #6 {all -> 0x05cc, blocks: (B:264:0x05a8, B:266:0x05ae, B:268:0x05c9), top: B:321:0x05a8 }] */
-    /* JADX WARN: Removed duplicated region for block: B:313:0x05d9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:317:0x04a2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:173:0x03af A[Catch: Exception -> 0x0658, Error -> 0x065c, TryCatch #5 {Exception -> 0x0658, blocks: (B:10:0x00a5, B:13:0x00e0, B:20:0x0159, B:23:0x015f, B:24:0x0164, B:27:0x016e, B:29:0x01a1, B:31:0x01ab, B:33:0x01b5, B:34:0x01b8, B:35:0x01ba, B:37:0x01c0, B:38:0x01d0, B:40:0x01d6, B:41:0x01fb, B:43:0x0202, B:45:0x020a, B:47:0x0216, B:48:0x0218, B:50:0x0220, B:52:0x022c, B:54:0x0231, B:61:0x0245, B:63:0x024d, B:65:0x0256, B:67:0x025e, B:69:0x0267, B:71:0x026f, B:73:0x0278, B:75:0x0280, B:77:0x0289, B:79:0x0291, B:81:0x029a, B:83:0x02a2, B:85:0x02ab, B:87:0x02b5, B:89:0x02c4, B:91:0x02cc, B:93:0x02d7, B:95:0x02df, B:173:0x03af, B:175:0x03ed, B:177:0x03f5, B:179:0x0401, B:180:0x0404, B:182:0x040c, B:184:0x0416, B:185:0x0421, B:187:0x0429, B:189:0x0437, B:190:0x043a, B:192:0x0442, B:194:0x0450, B:195:0x0453, B:197:0x045b, B:199:0x0469, B:200:0x046c, B:202:0x0474, B:204:0x0480, B:205:0x0484, B:208:0x048d, B:209:0x0497, B:244:0x054b, B:246:0x0553, B:252:0x0577, B:255:0x057d, B:257:0x0584, B:259:0x058c, B:260:0x0594, B:262:0x059c, B:272:0x05ca, B:273:0x05cd, B:282:0x0601, B:247:0x055d, B:243:0x0548, B:171:0x039a, B:174:0x03e4, B:290:0x0615, B:291:0x061a), top: B:319:0x00a5 }] */
+    /* JADX WARN: Removed duplicated region for block: B:177:0x03f5 A[Catch: Exception -> 0x0658, Error -> 0x065c, TryCatch #5 {Exception -> 0x0658, blocks: (B:10:0x00a5, B:13:0x00e0, B:20:0x0159, B:23:0x015f, B:24:0x0164, B:27:0x016e, B:29:0x01a1, B:31:0x01ab, B:33:0x01b5, B:34:0x01b8, B:35:0x01ba, B:37:0x01c0, B:38:0x01d0, B:40:0x01d6, B:41:0x01fb, B:43:0x0202, B:45:0x020a, B:47:0x0216, B:48:0x0218, B:50:0x0220, B:52:0x022c, B:54:0x0231, B:61:0x0245, B:63:0x024d, B:65:0x0256, B:67:0x025e, B:69:0x0267, B:71:0x026f, B:73:0x0278, B:75:0x0280, B:77:0x0289, B:79:0x0291, B:81:0x029a, B:83:0x02a2, B:85:0x02ab, B:87:0x02b5, B:89:0x02c4, B:91:0x02cc, B:93:0x02d7, B:95:0x02df, B:173:0x03af, B:175:0x03ed, B:177:0x03f5, B:179:0x0401, B:180:0x0404, B:182:0x040c, B:184:0x0416, B:185:0x0421, B:187:0x0429, B:189:0x0437, B:190:0x043a, B:192:0x0442, B:194:0x0450, B:195:0x0453, B:197:0x045b, B:199:0x0469, B:200:0x046c, B:202:0x0474, B:204:0x0480, B:205:0x0484, B:208:0x048d, B:209:0x0497, B:244:0x054b, B:246:0x0553, B:252:0x0577, B:255:0x057d, B:257:0x0584, B:259:0x058c, B:260:0x0594, B:262:0x059c, B:272:0x05ca, B:273:0x05cd, B:282:0x0601, B:247:0x055d, B:243:0x0548, B:171:0x039a, B:174:0x03e4, B:290:0x0615, B:291:0x061a), top: B:319:0x00a5 }] */
+    /* JADX WARN: Removed duplicated region for block: B:182:0x040c A[Catch: Exception -> 0x0658, Error -> 0x065c, TryCatch #5 {Exception -> 0x0658, blocks: (B:10:0x00a5, B:13:0x00e0, B:20:0x0159, B:23:0x015f, B:24:0x0164, B:27:0x016e, B:29:0x01a1, B:31:0x01ab, B:33:0x01b5, B:34:0x01b8, B:35:0x01ba, B:37:0x01c0, B:38:0x01d0, B:40:0x01d6, B:41:0x01fb, B:43:0x0202, B:45:0x020a, B:47:0x0216, B:48:0x0218, B:50:0x0220, B:52:0x022c, B:54:0x0231, B:61:0x0245, B:63:0x024d, B:65:0x0256, B:67:0x025e, B:69:0x0267, B:71:0x026f, B:73:0x0278, B:75:0x0280, B:77:0x0289, B:79:0x0291, B:81:0x029a, B:83:0x02a2, B:85:0x02ab, B:87:0x02b5, B:89:0x02c4, B:91:0x02cc, B:93:0x02d7, B:95:0x02df, B:173:0x03af, B:175:0x03ed, B:177:0x03f5, B:179:0x0401, B:180:0x0404, B:182:0x040c, B:184:0x0416, B:185:0x0421, B:187:0x0429, B:189:0x0437, B:190:0x043a, B:192:0x0442, B:194:0x0450, B:195:0x0453, B:197:0x045b, B:199:0x0469, B:200:0x046c, B:202:0x0474, B:204:0x0480, B:205:0x0484, B:208:0x048d, B:209:0x0497, B:244:0x054b, B:246:0x0553, B:252:0x0577, B:255:0x057d, B:257:0x0584, B:259:0x058c, B:260:0x0594, B:262:0x059c, B:272:0x05ca, B:273:0x05cd, B:282:0x0601, B:247:0x055d, B:243:0x0548, B:171:0x039a, B:174:0x03e4, B:290:0x0615, B:291:0x061a), top: B:319:0x00a5 }] */
+    /* JADX WARN: Removed duplicated region for block: B:187:0x0429 A[Catch: Exception -> 0x0658, Error -> 0x065c, TryCatch #5 {Exception -> 0x0658, blocks: (B:10:0x00a5, B:13:0x00e0, B:20:0x0159, B:23:0x015f, B:24:0x0164, B:27:0x016e, B:29:0x01a1, B:31:0x01ab, B:33:0x01b5, B:34:0x01b8, B:35:0x01ba, B:37:0x01c0, B:38:0x01d0, B:40:0x01d6, B:41:0x01fb, B:43:0x0202, B:45:0x020a, B:47:0x0216, B:48:0x0218, B:50:0x0220, B:52:0x022c, B:54:0x0231, B:61:0x0245, B:63:0x024d, B:65:0x0256, B:67:0x025e, B:69:0x0267, B:71:0x026f, B:73:0x0278, B:75:0x0280, B:77:0x0289, B:79:0x0291, B:81:0x029a, B:83:0x02a2, B:85:0x02ab, B:87:0x02b5, B:89:0x02c4, B:91:0x02cc, B:93:0x02d7, B:95:0x02df, B:173:0x03af, B:175:0x03ed, B:177:0x03f5, B:179:0x0401, B:180:0x0404, B:182:0x040c, B:184:0x0416, B:185:0x0421, B:187:0x0429, B:189:0x0437, B:190:0x043a, B:192:0x0442, B:194:0x0450, B:195:0x0453, B:197:0x045b, B:199:0x0469, B:200:0x046c, B:202:0x0474, B:204:0x0480, B:205:0x0484, B:208:0x048d, B:209:0x0497, B:244:0x054b, B:246:0x0553, B:252:0x0577, B:255:0x057d, B:257:0x0584, B:259:0x058c, B:260:0x0594, B:262:0x059c, B:272:0x05ca, B:273:0x05cd, B:282:0x0601, B:247:0x055d, B:243:0x0548, B:171:0x039a, B:174:0x03e4, B:290:0x0615, B:291:0x061a), top: B:319:0x00a5 }] */
+    /* JADX WARN: Removed duplicated region for block: B:192:0x0442 A[Catch: Exception -> 0x0658, Error -> 0x065c, TryCatch #5 {Exception -> 0x0658, blocks: (B:10:0x00a5, B:13:0x00e0, B:20:0x0159, B:23:0x015f, B:24:0x0164, B:27:0x016e, B:29:0x01a1, B:31:0x01ab, B:33:0x01b5, B:34:0x01b8, B:35:0x01ba, B:37:0x01c0, B:38:0x01d0, B:40:0x01d6, B:41:0x01fb, B:43:0x0202, B:45:0x020a, B:47:0x0216, B:48:0x0218, B:50:0x0220, B:52:0x022c, B:54:0x0231, B:61:0x0245, B:63:0x024d, B:65:0x0256, B:67:0x025e, B:69:0x0267, B:71:0x026f, B:73:0x0278, B:75:0x0280, B:77:0x0289, B:79:0x0291, B:81:0x029a, B:83:0x02a2, B:85:0x02ab, B:87:0x02b5, B:89:0x02c4, B:91:0x02cc, B:93:0x02d7, B:95:0x02df, B:173:0x03af, B:175:0x03ed, B:177:0x03f5, B:179:0x0401, B:180:0x0404, B:182:0x040c, B:184:0x0416, B:185:0x0421, B:187:0x0429, B:189:0x0437, B:190:0x043a, B:192:0x0442, B:194:0x0450, B:195:0x0453, B:197:0x045b, B:199:0x0469, B:200:0x046c, B:202:0x0474, B:204:0x0480, B:205:0x0484, B:208:0x048d, B:209:0x0497, B:244:0x054b, B:246:0x0553, B:252:0x0577, B:255:0x057d, B:257:0x0584, B:259:0x058c, B:260:0x0594, B:262:0x059c, B:272:0x05ca, B:273:0x05cd, B:282:0x0601, B:247:0x055d, B:243:0x0548, B:171:0x039a, B:174:0x03e4, B:290:0x0615, B:291:0x061a), top: B:319:0x00a5 }] */
+    /* JADX WARN: Removed duplicated region for block: B:197:0x045b A[Catch: Exception -> 0x0658, Error -> 0x065c, TryCatch #5 {Exception -> 0x0658, blocks: (B:10:0x00a5, B:13:0x00e0, B:20:0x0159, B:23:0x015f, B:24:0x0164, B:27:0x016e, B:29:0x01a1, B:31:0x01ab, B:33:0x01b5, B:34:0x01b8, B:35:0x01ba, B:37:0x01c0, B:38:0x01d0, B:40:0x01d6, B:41:0x01fb, B:43:0x0202, B:45:0x020a, B:47:0x0216, B:48:0x0218, B:50:0x0220, B:52:0x022c, B:54:0x0231, B:61:0x0245, B:63:0x024d, B:65:0x0256, B:67:0x025e, B:69:0x0267, B:71:0x026f, B:73:0x0278, B:75:0x0280, B:77:0x0289, B:79:0x0291, B:81:0x029a, B:83:0x02a2, B:85:0x02ab, B:87:0x02b5, B:89:0x02c4, B:91:0x02cc, B:93:0x02d7, B:95:0x02df, B:173:0x03af, B:175:0x03ed, B:177:0x03f5, B:179:0x0401, B:180:0x0404, B:182:0x040c, B:184:0x0416, B:185:0x0421, B:187:0x0429, B:189:0x0437, B:190:0x043a, B:192:0x0442, B:194:0x0450, B:195:0x0453, B:197:0x045b, B:199:0x0469, B:200:0x046c, B:202:0x0474, B:204:0x0480, B:205:0x0484, B:208:0x048d, B:209:0x0497, B:244:0x054b, B:246:0x0553, B:252:0x0577, B:255:0x057d, B:257:0x0584, B:259:0x058c, B:260:0x0594, B:262:0x059c, B:272:0x05ca, B:273:0x05cd, B:282:0x0601, B:247:0x055d, B:243:0x0548, B:171:0x039a, B:174:0x03e4, B:290:0x0615, B:291:0x061a), top: B:319:0x00a5 }] */
+    /* JADX WARN: Removed duplicated region for block: B:202:0x0474 A[Catch: Exception -> 0x0658, Error -> 0x065c, TryCatch #5 {Exception -> 0x0658, blocks: (B:10:0x00a5, B:13:0x00e0, B:20:0x0159, B:23:0x015f, B:24:0x0164, B:27:0x016e, B:29:0x01a1, B:31:0x01ab, B:33:0x01b5, B:34:0x01b8, B:35:0x01ba, B:37:0x01c0, B:38:0x01d0, B:40:0x01d6, B:41:0x01fb, B:43:0x0202, B:45:0x020a, B:47:0x0216, B:48:0x0218, B:50:0x0220, B:52:0x022c, B:54:0x0231, B:61:0x0245, B:63:0x024d, B:65:0x0256, B:67:0x025e, B:69:0x0267, B:71:0x026f, B:73:0x0278, B:75:0x0280, B:77:0x0289, B:79:0x0291, B:81:0x029a, B:83:0x02a2, B:85:0x02ab, B:87:0x02b5, B:89:0x02c4, B:91:0x02cc, B:93:0x02d7, B:95:0x02df, B:173:0x03af, B:175:0x03ed, B:177:0x03f5, B:179:0x0401, B:180:0x0404, B:182:0x040c, B:184:0x0416, B:185:0x0421, B:187:0x0429, B:189:0x0437, B:190:0x043a, B:192:0x0442, B:194:0x0450, B:195:0x0453, B:197:0x045b, B:199:0x0469, B:200:0x046c, B:202:0x0474, B:204:0x0480, B:205:0x0484, B:208:0x048d, B:209:0x0497, B:244:0x054b, B:246:0x0553, B:252:0x0577, B:255:0x057d, B:257:0x0584, B:259:0x058c, B:260:0x0594, B:262:0x059c, B:272:0x05ca, B:273:0x05cd, B:282:0x0601, B:247:0x055d, B:243:0x0548, B:171:0x039a, B:174:0x03e4, B:290:0x0615, B:291:0x061a), top: B:319:0x00a5 }] */
+    /* JADX WARN: Removed duplicated region for block: B:246:0x0553 A[Catch: Exception -> 0x0658, Error -> 0x065c, TryCatch #5 {Exception -> 0x0658, blocks: (B:10:0x00a5, B:13:0x00e0, B:20:0x0159, B:23:0x015f, B:24:0x0164, B:27:0x016e, B:29:0x01a1, B:31:0x01ab, B:33:0x01b5, B:34:0x01b8, B:35:0x01ba, B:37:0x01c0, B:38:0x01d0, B:40:0x01d6, B:41:0x01fb, B:43:0x0202, B:45:0x020a, B:47:0x0216, B:48:0x0218, B:50:0x0220, B:52:0x022c, B:54:0x0231, B:61:0x0245, B:63:0x024d, B:65:0x0256, B:67:0x025e, B:69:0x0267, B:71:0x026f, B:73:0x0278, B:75:0x0280, B:77:0x0289, B:79:0x0291, B:81:0x029a, B:83:0x02a2, B:85:0x02ab, B:87:0x02b5, B:89:0x02c4, B:91:0x02cc, B:93:0x02d7, B:95:0x02df, B:173:0x03af, B:175:0x03ed, B:177:0x03f5, B:179:0x0401, B:180:0x0404, B:182:0x040c, B:184:0x0416, B:185:0x0421, B:187:0x0429, B:189:0x0437, B:190:0x043a, B:192:0x0442, B:194:0x0450, B:195:0x0453, B:197:0x045b, B:199:0x0469, B:200:0x046c, B:202:0x0474, B:204:0x0480, B:205:0x0484, B:208:0x048d, B:209:0x0497, B:244:0x054b, B:246:0x0553, B:252:0x0577, B:255:0x057d, B:257:0x0584, B:259:0x058c, B:260:0x0594, B:262:0x059c, B:272:0x05ca, B:273:0x05cd, B:282:0x0601, B:247:0x055d, B:243:0x0548, B:171:0x039a, B:174:0x03e4, B:290:0x0615, B:291:0x061a), top: B:319:0x00a5 }] */
+    /* JADX WARN: Removed duplicated region for block: B:247:0x055d A[Catch: Exception -> 0x0658, Error -> 0x065c, TRY_LEAVE, TryCatch #5 {Exception -> 0x0658, blocks: (B:10:0x00a5, B:13:0x00e0, B:20:0x0159, B:23:0x015f, B:24:0x0164, B:27:0x016e, B:29:0x01a1, B:31:0x01ab, B:33:0x01b5, B:34:0x01b8, B:35:0x01ba, B:37:0x01c0, B:38:0x01d0, B:40:0x01d6, B:41:0x01fb, B:43:0x0202, B:45:0x020a, B:47:0x0216, B:48:0x0218, B:50:0x0220, B:52:0x022c, B:54:0x0231, B:61:0x0245, B:63:0x024d, B:65:0x0256, B:67:0x025e, B:69:0x0267, B:71:0x026f, B:73:0x0278, B:75:0x0280, B:77:0x0289, B:79:0x0291, B:81:0x029a, B:83:0x02a2, B:85:0x02ab, B:87:0x02b5, B:89:0x02c4, B:91:0x02cc, B:93:0x02d7, B:95:0x02df, B:173:0x03af, B:175:0x03ed, B:177:0x03f5, B:179:0x0401, B:180:0x0404, B:182:0x040c, B:184:0x0416, B:185:0x0421, B:187:0x0429, B:189:0x0437, B:190:0x043a, B:192:0x0442, B:194:0x0450, B:195:0x0453, B:197:0x045b, B:199:0x0469, B:200:0x046c, B:202:0x0474, B:204:0x0480, B:205:0x0484, B:208:0x048d, B:209:0x0497, B:244:0x054b, B:246:0x0553, B:252:0x0577, B:255:0x057d, B:257:0x0584, B:259:0x058c, B:260:0x0594, B:262:0x059c, B:272:0x05ca, B:273:0x05cd, B:282:0x0601, B:247:0x055d, B:243:0x0548, B:171:0x039a, B:174:0x03e4, B:290:0x0615, B:291:0x061a), top: B:319:0x00a5 }] */
+    /* JADX WARN: Removed duplicated region for block: B:250:0x0567 A[Catch: Exception -> 0x0577, Error -> 0x065c, TryCatch #6 {Exception -> 0x0577, blocks: (B:248:0x0561, B:250:0x0567, B:251:0x0573), top: B:320:0x0561 }] */
+    /* JADX WARN: Removed duplicated region for block: B:251:0x0573 A[Catch: Exception -> 0x0577, Error -> 0x065c, TRY_LEAVE, TryCatch #6 {Exception -> 0x0577, blocks: (B:248:0x0561, B:250:0x0567, B:251:0x0573), top: B:320:0x0561 }] */
+    /* JADX WARN: Removed duplicated region for block: B:254:0x057b  */
+    /* JADX WARN: Removed duplicated region for block: B:256:0x0581  */
+    /* JADX WARN: Removed duplicated region for block: B:259:0x058c A[Catch: Exception -> 0x0658, Error -> 0x065c, TryCatch #5 {Exception -> 0x0658, blocks: (B:10:0x00a5, B:13:0x00e0, B:20:0x0159, B:23:0x015f, B:24:0x0164, B:27:0x016e, B:29:0x01a1, B:31:0x01ab, B:33:0x01b5, B:34:0x01b8, B:35:0x01ba, B:37:0x01c0, B:38:0x01d0, B:40:0x01d6, B:41:0x01fb, B:43:0x0202, B:45:0x020a, B:47:0x0216, B:48:0x0218, B:50:0x0220, B:52:0x022c, B:54:0x0231, B:61:0x0245, B:63:0x024d, B:65:0x0256, B:67:0x025e, B:69:0x0267, B:71:0x026f, B:73:0x0278, B:75:0x0280, B:77:0x0289, B:79:0x0291, B:81:0x029a, B:83:0x02a2, B:85:0x02ab, B:87:0x02b5, B:89:0x02c4, B:91:0x02cc, B:93:0x02d7, B:95:0x02df, B:173:0x03af, B:175:0x03ed, B:177:0x03f5, B:179:0x0401, B:180:0x0404, B:182:0x040c, B:184:0x0416, B:185:0x0421, B:187:0x0429, B:189:0x0437, B:190:0x043a, B:192:0x0442, B:194:0x0450, B:195:0x0453, B:197:0x045b, B:199:0x0469, B:200:0x046c, B:202:0x0474, B:204:0x0480, B:205:0x0484, B:208:0x048d, B:209:0x0497, B:244:0x054b, B:246:0x0553, B:252:0x0577, B:255:0x057d, B:257:0x0584, B:259:0x058c, B:260:0x0594, B:262:0x059c, B:272:0x05ca, B:273:0x05cd, B:282:0x0601, B:247:0x055d, B:243:0x0548, B:171:0x039a, B:174:0x03e4, B:290:0x0615, B:291:0x061a), top: B:319:0x00a5 }] */
+    /* JADX WARN: Removed duplicated region for block: B:262:0x059c A[Catch: Exception -> 0x0658, Error -> 0x065c, TRY_LEAVE, TryCatch #5 {Exception -> 0x0658, blocks: (B:10:0x00a5, B:13:0x00e0, B:20:0x0159, B:23:0x015f, B:24:0x0164, B:27:0x016e, B:29:0x01a1, B:31:0x01ab, B:33:0x01b5, B:34:0x01b8, B:35:0x01ba, B:37:0x01c0, B:38:0x01d0, B:40:0x01d6, B:41:0x01fb, B:43:0x0202, B:45:0x020a, B:47:0x0216, B:48:0x0218, B:50:0x0220, B:52:0x022c, B:54:0x0231, B:61:0x0245, B:63:0x024d, B:65:0x0256, B:67:0x025e, B:69:0x0267, B:71:0x026f, B:73:0x0278, B:75:0x0280, B:77:0x0289, B:79:0x0291, B:81:0x029a, B:83:0x02a2, B:85:0x02ab, B:87:0x02b5, B:89:0x02c4, B:91:0x02cc, B:93:0x02d7, B:95:0x02df, B:173:0x03af, B:175:0x03ed, B:177:0x03f5, B:179:0x0401, B:180:0x0404, B:182:0x040c, B:184:0x0416, B:185:0x0421, B:187:0x0429, B:189:0x0437, B:190:0x043a, B:192:0x0442, B:194:0x0450, B:195:0x0453, B:197:0x045b, B:199:0x0469, B:200:0x046c, B:202:0x0474, B:204:0x0480, B:205:0x0484, B:208:0x048d, B:209:0x0497, B:244:0x054b, B:246:0x0553, B:252:0x0577, B:255:0x057d, B:257:0x0584, B:259:0x058c, B:260:0x0594, B:262:0x059c, B:272:0x05ca, B:273:0x05cd, B:282:0x0601, B:247:0x055d, B:243:0x0548, B:171:0x039a, B:174:0x03e4, B:290:0x0615, B:291:0x061a), top: B:319:0x00a5 }] */
+    /* JADX WARN: Removed duplicated region for block: B:266:0x05aa A[Catch: all -> 0x05c8, TryCatch #4 {all -> 0x05c8, blocks: (B:264:0x05a4, B:266:0x05aa, B:268:0x05c5), top: B:317:0x05a4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:335:0x049f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:340:0x05d5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:349:? A[RETURN, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r3v49 */
     /* JADX WARN: Type inference failed for: r3v6 */
-    /* JADX WARN: Type inference failed for: r3v7, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r3v7, types: [int, boolean] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -554,15 +554,15 @@ public final class BDLocation implements Parcelable {
             }
         }
         this.a = 0;
-        this.f34934b = null;
-        this.f34935c = Double.MIN_VALUE;
-        this.f34936d = Double.MIN_VALUE;
-        this.f34937e = false;
-        this.f34938f = Double.MIN_VALUE;
-        this.f34939g = false;
-        this.f34940h = 0.0f;
-        this.f34941i = false;
-        this.f34942j = 0.0f;
+        this.f35140b = null;
+        this.f35141c = Double.MIN_VALUE;
+        this.f35142d = Double.MIN_VALUE;
+        this.f35143e = false;
+        this.f35144f = Double.MIN_VALUE;
+        this.f35145g = false;
+        this.f35146h = 0.0f;
+        this.f35147i = false;
+        this.f35148j = 0.0f;
         this.k = false;
         this.l = -1;
         this.m = -1.0f;
@@ -610,736 +610,736 @@ public final class BDLocation implements Parcelable {
         }
         try {
             try {
-            } catch (Error e2) {
-                e2.printStackTrace();
-                r3 = 0;
-                this.a = r3;
-                this.o = r3;
-            }
-            try {
-                JSONObject jSONObject2 = new JSONObject(str);
-                JSONObject jSONObject3 = jSONObject2.getJSONObject("result");
-                int parseInt = Integer.parseInt(jSONObject3.getString("error"));
-                setLocType(parseInt);
-                setTime(jSONObject3.getString("time"));
-                if (parseInt == 61) {
-                    JSONObject jSONObject4 = jSONObject2.getJSONObject("content");
-                    JSONObject jSONObject5 = jSONObject4.getJSONObject("point");
-                    setLatitude(Double.parseDouble(jSONObject5.getString("y")));
-                    setLongitude(Double.parseDouble(jSONObject5.getString("x")));
-                    setRadius(Float.parseFloat(jSONObject4.getString("radius")));
-                    setSpeed(Float.parseFloat(jSONObject4.getString("s")));
-                    setDirection(Float.parseFloat(jSONObject4.getString("d")));
-                    setSatelliteNumber(Integer.parseInt(jSONObject4.getString("n")));
-                    if (jSONObject4.has("h")) {
-                        try {
-                            setAltitude(jSONObject4.getDouble("h"));
-                        } catch (Exception unused) {
-                        }
-                    }
-                    try {
-                        if (jSONObject4.has("in_cn")) {
-                            setLocationWhere(Integer.parseInt(jSONObject4.getString("in_cn")));
-                        } else {
-                            setLocationWhere(1);
-                        }
-                    } catch (Exception unused2) {
-                    }
-                    if (this.A != 0) {
-                        setCoorType("gcj02");
-                        return;
-                    }
-                    str2 = CoordinateType.WGS84;
-                } else if (parseInt == 161) {
-                    JSONObject jSONObject6 = jSONObject2.getJSONObject("content");
-                    JSONObject jSONObject7 = jSONObject6.getJSONObject("point");
-                    setLatitude(Double.parseDouble(jSONObject7.getString("y")));
-                    setLongitude(Double.parseDouble(jSONObject7.getString("x")));
-                    setRadius(Float.parseFloat(jSONObject6.getString("radius")));
-                    if (jSONObject6.has("sema")) {
-                        JSONObject jSONObject8 = jSONObject6.getJSONObject("sema");
-                        if (jSONObject8.has("aptag")) {
-                            String string2 = jSONObject8.getString("aptag");
-                            if (TextUtils.isEmpty(string2)) {
-                                this.q = str24;
-                            } else {
-                                this.q = string2;
-                            }
-                        }
-                        if (jSONObject8.has("aptagd")) {
-                            JSONArray jSONArray = jSONObject8.getJSONObject("aptagd").getJSONArray("pois");
-                            ArrayList arrayList = new ArrayList();
-                            int i6 = 0;
-                            while (i6 < jSONArray.length()) {
-                                JSONObject jSONObject9 = jSONArray.getJSONObject(i6);
-                                arrayList.add(new Poi(jSONObject9.getString("pid"), jSONObject9.getString("pname"), jSONObject9.getDouble("pr")));
-                                i6++;
-                                str24 = str24;
-                            }
-                            str3 = str24;
-                            this.L = arrayList;
-                        } else {
-                            str3 = str24;
-                        }
-                        if (jSONObject8.has("poiregion")) {
-                            String string3 = jSONObject8.getString("poiregion");
-                            if (!TextUtils.isEmpty(string3)) {
-                                this.r = string3;
-                            }
-                        }
-                        if (jSONObject8.has("regular")) {
-                            String string4 = jSONObject8.getString("regular");
-                            if (!TextUtils.isEmpty(string4)) {
-                                this.s = string4;
-                            }
-                        }
-                    } else {
-                        str3 = str24;
-                    }
-                    if (jSONObject6.has(DuPaBInfoMsg.B_ADDR)) {
-                        try {
-                            jSONObject = jSONObject6.getJSONObject(DuPaBInfoMsg.B_ADDR);
-                            z2 = true;
-                        } catch (Exception unused3) {
-                            jSONObject = null;
-                            z2 = false;
-                        }
-                        if (jSONObject != null) {
-                            String string5 = jSONObject.has("city") ? jSONObject.getString("city") : str3;
-                            str20 = jSONObject.has("city_code") ? jSONObject.getString("city_code") : str3;
-                            str18 = jSONObject.has("country") ? jSONObject.getString("country") : str3;
-                            str15 = jSONObject.has("country_code") ? jSONObject.getString("country_code") : str3;
-                            str17 = jSONObject.has("province") ? jSONObject.getString("province") : str3;
-                            String string6 = jSONObject.has("district") ? jSONObject.getString("district") : str3;
-                            if (jSONObject.has("street")) {
-                                str19 = jSONObject.getString("street");
-                                str23 = string5;
-                            } else {
-                                str23 = string5;
-                                str19 = str3;
-                            }
-                            String string7 = jSONObject.has("street_number") ? jSONObject.getString("street_number") : str3;
-                            if (jSONObject.has("adcode")) {
-                                String string8 = jSONObject.getString("adcode");
-                                str14 = string6;
-                                str9 = string7;
-                                str16 = string8;
-                                str13 = str23;
-                                str12 = "y";
-                            } else {
-                                str14 = string6;
-                                str13 = str23;
-                                str9 = string7;
-                                str12 = "y";
-                                str16 = str3;
-                            }
-                        } else {
+                try {
+                    JSONObject jSONObject2 = new JSONObject(str);
+                    JSONObject jSONObject3 = jSONObject2.getJSONObject("result");
+                    int parseInt = Integer.parseInt(jSONObject3.getString("error"));
+                    setLocType(parseInt);
+                    setTime(jSONObject3.getString("time"));
+                    if (parseInt == 61) {
+                        JSONObject jSONObject4 = jSONObject2.getJSONObject("content");
+                        JSONObject jSONObject5 = jSONObject4.getJSONObject("point");
+                        setLatitude(Double.parseDouble(jSONObject5.getString("y")));
+                        setLongitude(Double.parseDouble(jSONObject5.getString("x")));
+                        setRadius(Float.parseFloat(jSONObject4.getString("radius")));
+                        setSpeed(Float.parseFloat(jSONObject4.getString("s")));
+                        setDirection(Float.parseFloat(jSONObject4.getString("d")));
+                        setSatelliteNumber(Integer.parseInt(jSONObject4.getString("n")));
+                        if (jSONObject4.has("h")) {
                             try {
-                                String[] split = jSONObject6.getString(DuPaBInfoMsg.B_ADDR).split(",");
-                                int length = split.length;
-                                if (length > 0) {
-                                    str5 = split[0];
-                                    i2 = 1;
+                                setAltitude(jSONObject4.getDouble("h"));
+                            } catch (Exception unused) {
+                            }
+                        }
+                        try {
+                            if (jSONObject4.has("in_cn")) {
+                                setLocationWhere(Integer.parseInt(jSONObject4.getString("in_cn")));
+                            } else {
+                                setLocationWhere(1);
+                            }
+                        } catch (Exception unused2) {
+                        }
+                        if (this.A != 0) {
+                            setCoorType("gcj02");
+                            return;
+                        }
+                        str2 = CoordinateType.WGS84;
+                    } else if (parseInt == 161) {
+                        JSONObject jSONObject6 = jSONObject2.getJSONObject("content");
+                        JSONObject jSONObject7 = jSONObject6.getJSONObject("point");
+                        setLatitude(Double.parseDouble(jSONObject7.getString("y")));
+                        setLongitude(Double.parseDouble(jSONObject7.getString("x")));
+                        setRadius(Float.parseFloat(jSONObject6.getString("radius")));
+                        if (jSONObject6.has("sema")) {
+                            JSONObject jSONObject8 = jSONObject6.getJSONObject("sema");
+                            if (jSONObject8.has("aptag")) {
+                                String string2 = jSONObject8.getString("aptag");
+                                if (TextUtils.isEmpty(string2)) {
+                                    this.q = str24;
                                 } else {
-                                    i2 = 1;
-                                    str5 = null;
+                                    this.q = string2;
                                 }
-                                if (length > i2) {
-                                    try {
-                                        str6 = split[i2];
-                                        i3 = 2;
-                                    } catch (Exception e3) {
-                                        exc2 = e3;
-                                        str4 = null;
-                                        str6 = null;
-                                        str7 = null;
-                                        str8 = null;
-                                        str9 = null;
-                                        str10 = null;
-                                        str11 = null;
-                                        exc2.printStackTrace();
-                                        str12 = "y";
-                                        str13 = str6;
-                                        str14 = str7;
-                                        str15 = str11;
-                                        str16 = null;
-                                        str17 = str5;
-                                        str18 = str8;
-                                        z2 = false;
-                                        String str25 = str10;
-                                        str19 = str4;
-                                        str20 = str25;
-                                        if (z2) {
-                                        }
-                                        if (jSONObject6.has("floor")) {
-                                        }
-                                        if (jSONObject6.has("indoor")) {
-                                        }
-                                        if (jSONObject6.has("loctp")) {
-                                        }
-                                        if (jSONObject6.has("bldgid")) {
-                                        }
-                                        if (jSONObject6.has("bldg")) {
-                                        }
-                                        if (jSONObject6.has("ibav")) {
-                                        }
-                                        if (jSONObject6.has("indoorflags")) {
-                                        }
-                                        if (jSONObject6.has("gpscs")) {
-                                        }
-                                        if (jSONObject6.has("in_cn")) {
-                                        }
-                                        setCoorType(this.A == 0 ? CoordinateType.WGS84 : "gcj02");
-                                        if (jSONObject6.has("navi")) {
-                                        }
-                                        if (jSONObject6.has("navi_client")) {
-                                        }
-                                        if (jSONObject6.has("nrl_point")) {
-                                        }
+                            }
+                            if (jSONObject8.has("aptagd")) {
+                                JSONArray jSONArray = jSONObject8.getJSONObject("aptagd").getJSONArray("pois");
+                                ArrayList arrayList = new ArrayList();
+                                int i6 = 0;
+                                while (i6 < jSONArray.length()) {
+                                    JSONObject jSONObject9 = jSONArray.getJSONObject(i6);
+                                    arrayList.add(new Poi(jSONObject9.getString("pid"), jSONObject9.getString("pname"), jSONObject9.getDouble("pr")));
+                                    i6++;
+                                    str24 = str24;
+                                }
+                                str3 = str24;
+                                this.L = arrayList;
+                            } else {
+                                str3 = str24;
+                            }
+                            if (jSONObject8.has("poiregion")) {
+                                String string3 = jSONObject8.getString("poiregion");
+                                if (!TextUtils.isEmpty(string3)) {
+                                    this.r = string3;
+                                }
+                            }
+                            if (jSONObject8.has("regular")) {
+                                String string4 = jSONObject8.getString("regular");
+                                if (!TextUtils.isEmpty(string4)) {
+                                    this.s = string4;
+                                }
+                            }
+                        } else {
+                            str3 = str24;
+                        }
+                        if (jSONObject6.has(DuPaBInfoMsg.B_ADDR)) {
+                            try {
+                                jSONObject = jSONObject6.getJSONObject(DuPaBInfoMsg.B_ADDR);
+                                z2 = true;
+                            } catch (Exception unused3) {
+                                jSONObject = null;
+                                z2 = false;
+                            }
+                            if (jSONObject != null) {
+                                String string5 = jSONObject.has("city") ? jSONObject.getString("city") : str3;
+                                str20 = jSONObject.has("city_code") ? jSONObject.getString("city_code") : str3;
+                                str18 = jSONObject.has("country") ? jSONObject.getString("country") : str3;
+                                str15 = jSONObject.has("country_code") ? jSONObject.getString("country_code") : str3;
+                                str17 = jSONObject.has("province") ? jSONObject.getString("province") : str3;
+                                String string6 = jSONObject.has("district") ? jSONObject.getString("district") : str3;
+                                if (jSONObject.has("street")) {
+                                    str19 = jSONObject.getString("street");
+                                    str23 = string5;
+                                } else {
+                                    str23 = string5;
+                                    str19 = str3;
+                                }
+                                String string7 = jSONObject.has("street_number") ? jSONObject.getString("street_number") : str3;
+                                if (jSONObject.has("adcode")) {
+                                    String string8 = jSONObject.getString("adcode");
+                                    str14 = string6;
+                                    str9 = string7;
+                                    str16 = string8;
+                                    str13 = str23;
+                                    str12 = "y";
+                                } else {
+                                    str14 = string6;
+                                    str13 = str23;
+                                    str9 = string7;
+                                    str12 = "y";
+                                    str16 = str3;
+                                }
+                            } else {
+                                try {
+                                    String[] split = jSONObject6.getString(DuPaBInfoMsg.B_ADDR).split(",");
+                                    int length = split.length;
+                                    if (length > 0) {
+                                        str5 = split[0];
+                                        i2 = 1;
+                                    } else {
+                                        i2 = 1;
+                                        str5 = null;
                                     }
-                                } else {
-                                    i3 = 2;
-                                    str6 = null;
-                                }
-                                if (length > i3) {
-                                    try {
-                                        str7 = split[i3];
-                                    } catch (Exception e4) {
-                                        exc2 = e4;
-                                        str4 = null;
-                                        str7 = null;
-                                        str8 = null;
-                                        str9 = null;
-                                        str10 = null;
-                                        str11 = null;
-                                        exc2.printStackTrace();
-                                        str12 = "y";
-                                        str13 = str6;
-                                        str14 = str7;
-                                        str15 = str11;
-                                        str16 = null;
-                                        str17 = str5;
-                                        str18 = str8;
-                                        z2 = false;
-                                        String str252 = str10;
-                                        str19 = str4;
-                                        str20 = str252;
-                                        if (z2) {
-                                        }
-                                        if (jSONObject6.has("floor")) {
-                                        }
-                                        if (jSONObject6.has("indoor")) {
-                                        }
-                                        if (jSONObject6.has("loctp")) {
-                                        }
-                                        if (jSONObject6.has("bldgid")) {
-                                        }
-                                        if (jSONObject6.has("bldg")) {
-                                        }
-                                        if (jSONObject6.has("ibav")) {
-                                        }
-                                        if (jSONObject6.has("indoorflags")) {
-                                        }
-                                        if (jSONObject6.has("gpscs")) {
-                                        }
-                                        if (jSONObject6.has("in_cn")) {
-                                        }
-                                        setCoorType(this.A == 0 ? CoordinateType.WGS84 : "gcj02");
-                                        if (jSONObject6.has("navi")) {
-                                        }
-                                        if (jSONObject6.has("navi_client")) {
-                                        }
-                                        if (jSONObject6.has("nrl_point")) {
-                                        }
-                                    }
-                                } else {
-                                    str7 = null;
-                                }
-                                if (length > 3) {
-                                    try {
-                                        str4 = split[3];
-                                    } catch (Exception e5) {
-                                        exc2 = e5;
-                                        str4 = null;
-                                        str8 = null;
-                                        str9 = null;
-                                        str10 = null;
-                                        str11 = null;
-                                        exc2.printStackTrace();
-                                        str12 = "y";
-                                        str13 = str6;
-                                        str14 = str7;
-                                        str15 = str11;
-                                        str16 = null;
-                                        str17 = str5;
-                                        str18 = str8;
-                                        z2 = false;
-                                        String str2522 = str10;
-                                        str19 = str4;
-                                        str20 = str2522;
-                                        if (z2) {
-                                        }
-                                        if (jSONObject6.has("floor")) {
-                                        }
-                                        if (jSONObject6.has("indoor")) {
-                                        }
-                                        if (jSONObject6.has("loctp")) {
-                                        }
-                                        if (jSONObject6.has("bldgid")) {
-                                        }
-                                        if (jSONObject6.has("bldg")) {
-                                        }
-                                        if (jSONObject6.has("ibav")) {
-                                        }
-                                        if (jSONObject6.has("indoorflags")) {
-                                        }
-                                        if (jSONObject6.has("gpscs")) {
-                                        }
-                                        if (jSONObject6.has("in_cn")) {
-                                        }
-                                        setCoorType(this.A == 0 ? CoordinateType.WGS84 : "gcj02");
-                                        if (jSONObject6.has("navi")) {
-                                        }
-                                        if (jSONObject6.has("navi_client")) {
-                                            try {
-                                                if (string.contains(",")) {
-                                                }
-                                            } catch (Throwable th) {
-                                                th.printStackTrace();
+                                    if (length > i2) {
+                                        try {
+                                            str6 = split[i2];
+                                            i3 = 2;
+                                        } catch (Exception e2) {
+                                            exc2 = e2;
+                                            str4 = null;
+                                            str6 = null;
+                                            str7 = null;
+                                            str8 = null;
+                                            str9 = null;
+                                            str10 = null;
+                                            str11 = null;
+                                            exc2.printStackTrace();
+                                            str12 = "y";
+                                            str13 = str6;
+                                            str14 = str7;
+                                            str15 = str11;
+                                            str16 = null;
+                                            str17 = str5;
+                                            str18 = str8;
+                                            z2 = false;
+                                            String str25 = str10;
+                                            str19 = str4;
+                                            str20 = str25;
+                                            if (z2) {
+                                            }
+                                            if (jSONObject6.has("floor")) {
+                                            }
+                                            if (jSONObject6.has("indoor")) {
+                                            }
+                                            if (jSONObject6.has("loctp")) {
+                                            }
+                                            if (jSONObject6.has("bldgid")) {
+                                            }
+                                            if (jSONObject6.has("bldg")) {
+                                            }
+                                            if (jSONObject6.has("ibav")) {
+                                            }
+                                            if (jSONObject6.has("indoorflags")) {
+                                            }
+                                            if (jSONObject6.has("gpscs")) {
+                                            }
+                                            if (jSONObject6.has("in_cn")) {
+                                            }
+                                            setCoorType(this.A == 0 ? CoordinateType.WGS84 : "gcj02");
+                                            if (jSONObject6.has("navi")) {
+                                            }
+                                            if (jSONObject6.has("navi_client")) {
+                                            }
+                                            if (jSONObject6.has("nrl_point")) {
                                             }
                                         }
-                                        if (jSONObject6.has("nrl_point")) {
-                                        }
+                                    } else {
+                                        i3 = 2;
+                                        str6 = null;
                                     }
-                                } else {
-                                    str4 = null;
-                                }
-                                if (length > 4) {
-                                    try {
-                                        str9 = split[4];
-                                    } catch (Exception e6) {
-                                        exc2 = e6;
-                                        str8 = null;
+                                    if (length > i3) {
+                                        try {
+                                            str7 = split[i3];
+                                        } catch (Exception e3) {
+                                            exc2 = e3;
+                                            str4 = null;
+                                            str7 = null;
+                                            str8 = null;
+                                            str9 = null;
+                                            str10 = null;
+                                            str11 = null;
+                                            exc2.printStackTrace();
+                                            str12 = "y";
+                                            str13 = str6;
+                                            str14 = str7;
+                                            str15 = str11;
+                                            str16 = null;
+                                            str17 = str5;
+                                            str18 = str8;
+                                            z2 = false;
+                                            String str252 = str10;
+                                            str19 = str4;
+                                            str20 = str252;
+                                            if (z2) {
+                                            }
+                                            if (jSONObject6.has("floor")) {
+                                            }
+                                            if (jSONObject6.has("indoor")) {
+                                            }
+                                            if (jSONObject6.has("loctp")) {
+                                            }
+                                            if (jSONObject6.has("bldgid")) {
+                                            }
+                                            if (jSONObject6.has("bldg")) {
+                                            }
+                                            if (jSONObject6.has("ibav")) {
+                                            }
+                                            if (jSONObject6.has("indoorflags")) {
+                                            }
+                                            if (jSONObject6.has("gpscs")) {
+                                            }
+                                            if (jSONObject6.has("in_cn")) {
+                                            }
+                                            setCoorType(this.A == 0 ? CoordinateType.WGS84 : "gcj02");
+                                            if (jSONObject6.has("navi")) {
+                                            }
+                                            if (jSONObject6.has("navi_client")) {
+                                            }
+                                            if (jSONObject6.has("nrl_point")) {
+                                            }
+                                        }
+                                    } else {
+                                        str7 = null;
+                                    }
+                                    if (length > 3) {
+                                        try {
+                                            str4 = split[3];
+                                        } catch (Exception e4) {
+                                            exc2 = e4;
+                                            str4 = null;
+                                            str8 = null;
+                                            str9 = null;
+                                            str10 = null;
+                                            str11 = null;
+                                            exc2.printStackTrace();
+                                            str12 = "y";
+                                            str13 = str6;
+                                            str14 = str7;
+                                            str15 = str11;
+                                            str16 = null;
+                                            str17 = str5;
+                                            str18 = str8;
+                                            z2 = false;
+                                            String str2522 = str10;
+                                            str19 = str4;
+                                            str20 = str2522;
+                                            if (z2) {
+                                            }
+                                            if (jSONObject6.has("floor")) {
+                                            }
+                                            if (jSONObject6.has("indoor")) {
+                                            }
+                                            if (jSONObject6.has("loctp")) {
+                                            }
+                                            if (jSONObject6.has("bldgid")) {
+                                            }
+                                            if (jSONObject6.has("bldg")) {
+                                            }
+                                            if (jSONObject6.has("ibav")) {
+                                            }
+                                            if (jSONObject6.has("indoorflags")) {
+                                            }
+                                            if (jSONObject6.has("gpscs")) {
+                                            }
+                                            if (jSONObject6.has("in_cn")) {
+                                            }
+                                            setCoorType(this.A == 0 ? CoordinateType.WGS84 : "gcj02");
+                                            if (jSONObject6.has("navi")) {
+                                            }
+                                            if (jSONObject6.has("navi_client")) {
+                                                try {
+                                                    if (string.contains(",")) {
+                                                    }
+                                                } catch (Throwable th) {
+                                                    th.printStackTrace();
+                                                }
+                                            }
+                                            if (jSONObject6.has("nrl_point")) {
+                                            }
+                                        }
+                                    } else {
+                                        str4 = null;
+                                    }
+                                    if (length > 4) {
+                                        try {
+                                            str9 = split[4];
+                                        } catch (Exception e5) {
+                                            exc2 = e5;
+                                            str8 = null;
+                                            str9 = null;
+                                            str10 = null;
+                                            str11 = null;
+                                            exc2.printStackTrace();
+                                            str12 = "y";
+                                            str13 = str6;
+                                            str14 = str7;
+                                            str15 = str11;
+                                            str16 = null;
+                                            str17 = str5;
+                                            str18 = str8;
+                                            z2 = false;
+                                            String str25222 = str10;
+                                            str19 = str4;
+                                            str20 = str25222;
+                                            if (z2) {
+                                            }
+                                            if (jSONObject6.has("floor")) {
+                                            }
+                                            if (jSONObject6.has("indoor")) {
+                                            }
+                                            if (jSONObject6.has("loctp")) {
+                                            }
+                                            if (jSONObject6.has("bldgid")) {
+                                            }
+                                            if (jSONObject6.has("bldg")) {
+                                            }
+                                            if (jSONObject6.has("ibav")) {
+                                            }
+                                            if (jSONObject6.has("indoorflags")) {
+                                            }
+                                            if (jSONObject6.has("gpscs")) {
+                                            }
+                                            if (jSONObject6.has("in_cn")) {
+                                            }
+                                            setCoorType(this.A == 0 ? CoordinateType.WGS84 : "gcj02");
+                                            if (jSONObject6.has("navi")) {
+                                            }
+                                            if (jSONObject6.has("navi_client")) {
+                                            }
+                                            if (jSONObject6.has("nrl_point")) {
+                                            }
+                                        }
+                                    } else {
                                         str9 = null;
-                                        str10 = null;
-                                        str11 = null;
-                                        exc2.printStackTrace();
-                                        str12 = "y";
-                                        str13 = str6;
-                                        str14 = str7;
-                                        str15 = str11;
-                                        str16 = null;
-                                        str17 = str5;
-                                        str18 = str8;
-                                        z2 = false;
-                                        String str25222 = str10;
-                                        str19 = str4;
-                                        str20 = str25222;
-                                        if (z2) {
-                                        }
-                                        if (jSONObject6.has("floor")) {
-                                        }
-                                        if (jSONObject6.has("indoor")) {
-                                        }
-                                        if (jSONObject6.has("loctp")) {
-                                        }
-                                        if (jSONObject6.has("bldgid")) {
-                                        }
-                                        if (jSONObject6.has("bldg")) {
-                                        }
-                                        if (jSONObject6.has("ibav")) {
-                                        }
-                                        if (jSONObject6.has("indoorflags")) {
-                                        }
-                                        if (jSONObject6.has("gpscs")) {
-                                        }
-                                        if (jSONObject6.has("in_cn")) {
-                                        }
-                                        setCoorType(this.A == 0 ? CoordinateType.WGS84 : "gcj02");
-                                        if (jSONObject6.has("navi")) {
-                                        }
-                                        if (jSONObject6.has("navi_client")) {
-                                        }
-                                        if (jSONObject6.has("nrl_point")) {
-                                        }
                                     }
-                                } else {
-                                    str9 = null;
-                                }
-                                if (length > 5) {
-                                    try {
-                                        str10 = split[5];
-                                    } catch (Exception e7) {
-                                        exc2 = e7;
-                                        str8 = null;
+                                    if (length > 5) {
+                                        try {
+                                            str10 = split[5];
+                                        } catch (Exception e6) {
+                                            exc2 = e6;
+                                            str8 = null;
+                                            str10 = null;
+                                            str11 = null;
+                                            exc2.printStackTrace();
+                                            str12 = "y";
+                                            str13 = str6;
+                                            str14 = str7;
+                                            str15 = str11;
+                                            str16 = null;
+                                            str17 = str5;
+                                            str18 = str8;
+                                            z2 = false;
+                                            String str252222 = str10;
+                                            str19 = str4;
+                                            str20 = str252222;
+                                            if (z2) {
+                                            }
+                                            if (jSONObject6.has("floor")) {
+                                            }
+                                            if (jSONObject6.has("indoor")) {
+                                            }
+                                            if (jSONObject6.has("loctp")) {
+                                            }
+                                            if (jSONObject6.has("bldgid")) {
+                                            }
+                                            if (jSONObject6.has("bldg")) {
+                                            }
+                                            if (jSONObject6.has("ibav")) {
+                                            }
+                                            if (jSONObject6.has("indoorflags")) {
+                                            }
+                                            if (jSONObject6.has("gpscs")) {
+                                            }
+                                            if (jSONObject6.has("in_cn")) {
+                                            }
+                                            setCoorType(this.A == 0 ? CoordinateType.WGS84 : "gcj02");
+                                            if (jSONObject6.has("navi")) {
+                                            }
+                                            if (jSONObject6.has("navi_client")) {
+                                            }
+                                            if (jSONObject6.has("nrl_point")) {
+                                            }
+                                        }
+                                    } else {
                                         str10 = null;
-                                        str11 = null;
-                                        exc2.printStackTrace();
-                                        str12 = "y";
-                                        str13 = str6;
-                                        str14 = str7;
-                                        str15 = str11;
-                                        str16 = null;
-                                        str17 = str5;
-                                        str18 = str8;
-                                        z2 = false;
-                                        String str252222 = str10;
-                                        str19 = str4;
-                                        str20 = str252222;
-                                        if (z2) {
-                                        }
-                                        if (jSONObject6.has("floor")) {
-                                        }
-                                        if (jSONObject6.has("indoor")) {
-                                        }
-                                        if (jSONObject6.has("loctp")) {
-                                        }
-                                        if (jSONObject6.has("bldgid")) {
-                                        }
-                                        if (jSONObject6.has("bldg")) {
-                                        }
-                                        if (jSONObject6.has("ibav")) {
-                                        }
-                                        if (jSONObject6.has("indoorflags")) {
-                                        }
-                                        if (jSONObject6.has("gpscs")) {
-                                        }
-                                        if (jSONObject6.has("in_cn")) {
-                                        }
-                                        setCoorType(this.A == 0 ? CoordinateType.WGS84 : "gcj02");
-                                        if (jSONObject6.has("navi")) {
-                                        }
-                                        if (jSONObject6.has("navi_client")) {
-                                        }
-                                        if (jSONObject6.has("nrl_point")) {
-                                        }
                                     }
-                                } else {
-                                    str10 = null;
-                                }
-                                if (length > 6) {
-                                    try {
-                                        str8 = split[6];
+                                    if (length > 6) {
+                                        try {
+                                            str8 = split[6];
+                                            str21 = str4;
+                                        } catch (Exception e7) {
+                                            exc2 = e7;
+                                            str8 = null;
+                                            str11 = null;
+                                            exc2.printStackTrace();
+                                            str12 = "y";
+                                            str13 = str6;
+                                            str14 = str7;
+                                            str15 = str11;
+                                            str16 = null;
+                                            str17 = str5;
+                                            str18 = str8;
+                                            z2 = false;
+                                            String str2522222 = str10;
+                                            str19 = str4;
+                                            str20 = str2522222;
+                                            if (z2) {
+                                            }
+                                            if (jSONObject6.has("floor")) {
+                                            }
+                                            if (jSONObject6.has("indoor")) {
+                                            }
+                                            if (jSONObject6.has("loctp")) {
+                                            }
+                                            if (jSONObject6.has("bldgid")) {
+                                            }
+                                            if (jSONObject6.has("bldg")) {
+                                            }
+                                            if (jSONObject6.has("ibav")) {
+                                            }
+                                            if (jSONObject6.has("indoorflags")) {
+                                            }
+                                            if (jSONObject6.has("gpscs")) {
+                                            }
+                                            if (jSONObject6.has("in_cn")) {
+                                            }
+                                            setCoorType(this.A == 0 ? CoordinateType.WGS84 : "gcj02");
+                                            if (jSONObject6.has("navi")) {
+                                            }
+                                            if (jSONObject6.has("navi_client")) {
+                                            }
+                                            if (jSONObject6.has("nrl_point")) {
+                                            }
+                                        }
+                                    } else {
                                         str21 = str4;
-                                    } catch (Exception e8) {
-                                        exc2 = e8;
                                         str8 = null;
+                                    }
+                                    if (length > 7) {
+                                        try {
+                                            str11 = split[7];
+                                        } catch (Exception e8) {
+                                            exc2 = e8;
+                                            str4 = str21;
+                                            str11 = null;
+                                            exc2.printStackTrace();
+                                            str12 = "y";
+                                            str13 = str6;
+                                            str14 = str7;
+                                            str15 = str11;
+                                            str16 = null;
+                                            str17 = str5;
+                                            str18 = str8;
+                                            z2 = false;
+                                            String str25222222 = str10;
+                                            str19 = str4;
+                                            str20 = str25222222;
+                                            if (z2) {
+                                            }
+                                            if (jSONObject6.has("floor")) {
+                                            }
+                                            if (jSONObject6.has("indoor")) {
+                                            }
+                                            if (jSONObject6.has("loctp")) {
+                                            }
+                                            if (jSONObject6.has("bldgid")) {
+                                            }
+                                            if (jSONObject6.has("bldg")) {
+                                            }
+                                            if (jSONObject6.has("ibav")) {
+                                            }
+                                            if (jSONObject6.has("indoorflags")) {
+                                            }
+                                            if (jSONObject6.has("gpscs")) {
+                                            }
+                                            if (jSONObject6.has("in_cn")) {
+                                            }
+                                            setCoorType(this.A == 0 ? CoordinateType.WGS84 : "gcj02");
+                                            if (jSONObject6.has("navi")) {
+                                            }
+                                            if (jSONObject6.has("navi_client")) {
+                                            }
+                                            if (jSONObject6.has("nrl_point")) {
+                                            }
+                                        }
+                                    } else {
                                         str11 = null;
-                                        exc2.printStackTrace();
-                                        str12 = "y";
-                                        str13 = str6;
-                                        str14 = str7;
-                                        str15 = str11;
-                                        str16 = null;
-                                        str17 = str5;
-                                        str18 = str8;
-                                        z2 = false;
-                                        String str2522222 = str10;
-                                        str19 = str4;
-                                        str20 = str2522222;
-                                        if (z2) {
-                                        }
-                                        if (jSONObject6.has("floor")) {
-                                        }
-                                        if (jSONObject6.has("indoor")) {
-                                        }
-                                        if (jSONObject6.has("loctp")) {
-                                        }
-                                        if (jSONObject6.has("bldgid")) {
-                                        }
-                                        if (jSONObject6.has("bldg")) {
-                                        }
-                                        if (jSONObject6.has("ibav")) {
-                                        }
-                                        if (jSONObject6.has("indoorflags")) {
-                                        }
-                                        if (jSONObject6.has("gpscs")) {
-                                        }
-                                        if (jSONObject6.has("in_cn")) {
-                                        }
-                                        setCoorType(this.A == 0 ? CoordinateType.WGS84 : "gcj02");
-                                        if (jSONObject6.has("navi")) {
-                                        }
-                                        if (jSONObject6.has("navi_client")) {
-                                        }
-                                        if (jSONObject6.has("nrl_point")) {
-                                        }
                                     }
-                                } else {
-                                    str21 = str4;
-                                    str8 = null;
-                                }
-                                if (length > 7) {
-                                    try {
-                                        str11 = split[7];
-                                    } catch (Exception e9) {
-                                        exc2 = e9;
-                                        str4 = str21;
-                                        str11 = null;
-                                        exc2.printStackTrace();
-                                        str12 = "y";
-                                        str13 = str6;
-                                        str14 = str7;
-                                        str15 = str11;
-                                        str16 = null;
-                                        str17 = str5;
-                                        str18 = str8;
-                                        z2 = false;
-                                        String str25222222 = str10;
-                                        str19 = str4;
-                                        str20 = str25222222;
-                                        if (z2) {
+                                    if (length > 8) {
+                                        try {
+                                            str22 = split[8];
+                                        } catch (Exception e9) {
+                                            exc2 = e9;
+                                            str4 = str21;
+                                            exc2.printStackTrace();
+                                            str12 = "y";
+                                            str13 = str6;
+                                            str14 = str7;
+                                            str15 = str11;
+                                            str16 = null;
+                                            str17 = str5;
+                                            str18 = str8;
+                                            z2 = false;
+                                            String str252222222 = str10;
+                                            str19 = str4;
+                                            str20 = str252222222;
+                                            if (z2) {
+                                            }
+                                            if (jSONObject6.has("floor")) {
+                                            }
+                                            if (jSONObject6.has("indoor")) {
+                                            }
+                                            if (jSONObject6.has("loctp")) {
+                                            }
+                                            if (jSONObject6.has("bldgid")) {
+                                            }
+                                            if (jSONObject6.has("bldg")) {
+                                            }
+                                            if (jSONObject6.has("ibav")) {
+                                            }
+                                            if (jSONObject6.has("indoorflags")) {
+                                            }
+                                            if (jSONObject6.has("gpscs")) {
+                                            }
+                                            if (jSONObject6.has("in_cn")) {
+                                            }
+                                            setCoorType(this.A == 0 ? CoordinateType.WGS84 : "gcj02");
+                                            if (jSONObject6.has("navi")) {
+                                            }
+                                            if (jSONObject6.has("navi_client")) {
+                                            }
+                                            if (jSONObject6.has("nrl_point")) {
+                                            }
                                         }
-                                        if (jSONObject6.has("floor")) {
-                                        }
-                                        if (jSONObject6.has("indoor")) {
-                                        }
-                                        if (jSONObject6.has("loctp")) {
-                                        }
-                                        if (jSONObject6.has("bldgid")) {
-                                        }
-                                        if (jSONObject6.has("bldg")) {
-                                        }
-                                        if (jSONObject6.has("ibav")) {
-                                        }
-                                        if (jSONObject6.has("indoorflags")) {
-                                        }
-                                        if (jSONObject6.has("gpscs")) {
-                                        }
-                                        if (jSONObject6.has("in_cn")) {
-                                        }
-                                        setCoorType(this.A == 0 ? CoordinateType.WGS84 : "gcj02");
-                                        if (jSONObject6.has("navi")) {
-                                        }
-                                        if (jSONObject6.has("navi_client")) {
-                                        }
-                                        if (jSONObject6.has("nrl_point")) {
-                                        }
+                                    } else {
+                                        str22 = null;
                                     }
-                                } else {
-                                    str11 = null;
-                                }
-                                if (length > 8) {
-                                    try {
-                                        str22 = split[8];
-                                    } catch (Exception e10) {
-                                        exc2 = e10;
-                                        str4 = str21;
-                                        exc2.printStackTrace();
-                                        str12 = "y";
-                                        str13 = str6;
-                                        str14 = str7;
-                                        str15 = str11;
-                                        str16 = null;
-                                        str17 = str5;
-                                        str18 = str8;
-                                        z2 = false;
-                                        String str252222222 = str10;
-                                        str19 = str4;
-                                        str20 = str252222222;
-                                        if (z2) {
-                                        }
-                                        if (jSONObject6.has("floor")) {
-                                        }
-                                        if (jSONObject6.has("indoor")) {
-                                        }
-                                        if (jSONObject6.has("loctp")) {
-                                        }
-                                        if (jSONObject6.has("bldgid")) {
-                                        }
-                                        if (jSONObject6.has("bldg")) {
-                                        }
-                                        if (jSONObject6.has("ibav")) {
-                                        }
-                                        if (jSONObject6.has("indoorflags")) {
-                                        }
-                                        if (jSONObject6.has("gpscs")) {
-                                        }
-                                        if (jSONObject6.has("in_cn")) {
-                                        }
-                                        setCoorType(this.A == 0 ? CoordinateType.WGS84 : "gcj02");
-                                        if (jSONObject6.has("navi")) {
-                                        }
-                                        if (jSONObject6.has("navi_client")) {
-                                        }
-                                        if (jSONObject6.has("nrl_point")) {
-                                        }
-                                    }
-                                } else {
-                                    str22 = null;
-                                }
-                                str14 = str7;
-                                str20 = str10;
-                                str19 = str21;
-                                str12 = "y";
-                                str17 = str5;
-                                str18 = str8;
-                                z2 = true;
-                                str16 = str22;
-                                str13 = str6;
-                                str15 = str11;
-                            } catch (Exception e11) {
-                                exc2 = e11;
-                                str4 = null;
-                                str5 = null;
-                            }
-                        }
-                        if (z2) {
-                            this.u = new Address.Builder().country(str18).countryCode(str15).province(str17).city(str13).cityCode(str20).district(str14).street(str19).streetNumber(str9).adcode(str16).build();
-                            this.o = true;
-                        }
-                    } else {
-                        str12 = "y";
-                        this.o = false;
-                        setAddrStr(null);
-                    }
-                    if (jSONObject6.has("floor")) {
-                        String string9 = jSONObject6.getString("floor");
-                        this.v = string9;
-                        if (TextUtils.isEmpty(string9)) {
-                            this.v = null;
-                        }
-                    }
-                    if (jSONObject6.has("indoor")) {
-                        String string10 = jSONObject6.getString("indoor");
-                        if (!TextUtils.isEmpty(string10)) {
-                            setUserIndoorState(Integer.valueOf(string10).intValue());
-                        }
-                    }
-                    if (jSONObject6.has("loctp")) {
-                        String string11 = jSONObject6.getString("loctp");
-                        this.B = string11;
-                        if (TextUtils.isEmpty(string11)) {
-                            this.B = null;
-                        }
-                    }
-                    if (jSONObject6.has("bldgid")) {
-                        String string12 = jSONObject6.getString("bldgid");
-                        this.w = string12;
-                        if (TextUtils.isEmpty(string12)) {
-                            this.w = null;
-                        }
-                    }
-                    if (jSONObject6.has("bldg")) {
-                        String string13 = jSONObject6.getString("bldg");
-                        this.x = string13;
-                        if (TextUtils.isEmpty(string13)) {
-                            this.x = null;
-                        }
-                    }
-                    if (jSONObject6.has("ibav")) {
-                        String string14 = jSONObject6.getString("ibav");
-                        if (!TextUtils.isEmpty(string14) && !string14.equals("0")) {
-                            this.z = Integer.valueOf(string14).intValue();
-                        }
-                        this.z = 0;
-                    }
-                    if (jSONObject6.has("indoorflags")) {
-                        try {
-                            JSONObject jSONObject10 = jSONObject6.getJSONObject("indoorflags");
-                            if (jSONObject10.has(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA)) {
-                                int intValue = Integer.valueOf(jSONObject10.getString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA)).intValue();
-                                if (intValue == 0) {
-                                    setIndoorLocationSurpport(2);
-                                } else if (intValue == 1) {
-                                    setIndoorLocationSurpport(1);
+                                    str14 = str7;
+                                    str20 = str10;
+                                    str19 = str21;
+                                    str12 = "y";
+                                    str17 = str5;
+                                    str18 = str8;
+                                    z2 = true;
+                                    str16 = str22;
+                                    str13 = str6;
+                                    str15 = str11;
+                                } catch (Exception e10) {
+                                    exc2 = e10;
+                                    str4 = null;
+                                    str5 = null;
                                 }
                             }
-                            if (jSONObject10.has("support")) {
-                                setIndoorLocationSource(Integer.valueOf(jSONObject10.getString("support")).intValue());
+                            if (z2) {
+                                this.u = new Address.Builder().country(str18).countryCode(str15).province(str17).city(str13).cityCode(str20).district(str14).street(str19).streetNumber(str9).adcode(str16).build();
+                                this.o = true;
                             }
-                            if (jSONObject10.has("inbldg")) {
-                                this.I = jSONObject10.getString("inbldg");
-                            }
-                            if (jSONObject10.has("inbldgid")) {
-                                this.J = jSONObject10.getString("inbldgid");
-                            }
-                            if (jSONObject10.has("polygon")) {
-                                setIndoorSurpportPolygon(jSONObject10.getString("polygon"));
-                            }
-                            if (jSONObject10.has("ret_fields")) {
-                                try {
-                                    for (String str26 : jSONObject10.getString("ret_fields").split("\\|")) {
-                                        String[] split2 = str26.split("=");
-                                        this.P.putString(split2[0], split2[1]);
-                                    }
-                                } catch (Exception e12) {
-                                    e12.printStackTrace();
-                                }
-                            }
-                        } catch (Exception e13) {
-                            e13.printStackTrace();
-                        }
-                    }
-                    if (jSONObject6.has("gpscs")) {
-                        setGpsCheckStatus(jSONObject6.getInt("gpscs"));
-                    } else {
-                        setGpsCheckStatus(0);
-                    }
-                    try {
-                        if (jSONObject6.has("in_cn")) {
-                            setLocationWhere(Integer.parseInt(jSONObject6.getString("in_cn")));
                         } else {
-                            setLocationWhere(1);
+                            str12 = "y";
+                            this.o = false;
+                            setAddrStr(null);
                         }
-                    } catch (Exception unused4) {
-                    }
-                    setCoorType(this.A == 0 ? CoordinateType.WGS84 : "gcj02");
-                    if (jSONObject6.has("navi")) {
-                        this.T = jSONObject6.getString("navi");
-                    }
-                    if (jSONObject6.has("navi_client") && (string = jSONObject6.getString("navi_client")) != null) {
-                        if (string.contains(",")) {
-                            String[] split3 = string.split(",");
-                            int intValue2 = Integer.valueOf(split3[0]).intValue();
-                            Integer.valueOf(split3[1]).intValue();
-                            if (intValue2 > 0) {
-                                this.W = true;
+                        if (jSONObject6.has("floor")) {
+                            String string9 = jSONObject6.getString("floor");
+                            this.v = string9;
+                            if (TextUtils.isEmpty(string9)) {
+                                this.v = null;
                             }
                         }
-                    }
-                    if (jSONObject6.has("nrl_point")) {
+                        if (jSONObject6.has("indoor")) {
+                            String string10 = jSONObject6.getString("indoor");
+                            if (!TextUtils.isEmpty(string10)) {
+                                setUserIndoorState(Integer.valueOf(string10).intValue());
+                            }
+                        }
+                        if (jSONObject6.has("loctp")) {
+                            String string11 = jSONObject6.getString("loctp");
+                            this.B = string11;
+                            if (TextUtils.isEmpty(string11)) {
+                                this.B = null;
+                            }
+                        }
+                        if (jSONObject6.has("bldgid")) {
+                            String string12 = jSONObject6.getString("bldgid");
+                            this.w = string12;
+                            if (TextUtils.isEmpty(string12)) {
+                                this.w = null;
+                            }
+                        }
+                        if (jSONObject6.has("bldg")) {
+                            String string13 = jSONObject6.getString("bldg");
+                            this.x = string13;
+                            if (TextUtils.isEmpty(string13)) {
+                                this.x = null;
+                            }
+                        }
+                        if (jSONObject6.has("ibav")) {
+                            String string14 = jSONObject6.getString("ibav");
+                            if (!TextUtils.isEmpty(string14) && !string14.equals("0")) {
+                                this.z = Integer.valueOf(string14).intValue();
+                            }
+                            this.z = 0;
+                        }
+                        if (jSONObject6.has("indoorflags")) {
+                            try {
+                                JSONObject jSONObject10 = jSONObject6.getJSONObject("indoorflags");
+                                if (jSONObject10.has(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA)) {
+                                    int intValue = Integer.valueOf(jSONObject10.getString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA)).intValue();
+                                    if (intValue == 0) {
+                                        setIndoorLocationSurpport(2);
+                                    } else if (intValue == 1) {
+                                        setIndoorLocationSurpport(1);
+                                    }
+                                }
+                                if (jSONObject10.has("support")) {
+                                    setIndoorLocationSource(Integer.valueOf(jSONObject10.getString("support")).intValue());
+                                }
+                                if (jSONObject10.has("inbldg")) {
+                                    this.I = jSONObject10.getString("inbldg");
+                                }
+                                if (jSONObject10.has("inbldgid")) {
+                                    this.J = jSONObject10.getString("inbldgid");
+                                }
+                                if (jSONObject10.has("polygon")) {
+                                    setIndoorSurpportPolygon(jSONObject10.getString("polygon"));
+                                }
+                                if (jSONObject10.has("ret_fields")) {
+                                    try {
+                                        for (String str26 : jSONObject10.getString("ret_fields").split("\\|")) {
+                                            String[] split2 = str26.split("=");
+                                            this.P.putString(split2[0], split2[1]);
+                                        }
+                                    } catch (Exception e11) {
+                                        e11.printStackTrace();
+                                    }
+                                }
+                            } catch (Exception e12) {
+                                e12.printStackTrace();
+                            }
+                        }
+                        if (jSONObject6.has("gpscs")) {
+                            setGpsCheckStatus(jSONObject6.getInt("gpscs"));
+                        } else {
+                            setGpsCheckStatus(0);
+                        }
                         try {
-                            JSONObject jSONObject11 = jSONObject6.getJSONObject("nrl_point");
-                            if (jSONObject11.has("x")) {
-                                String str27 = str12;
-                                if (jSONObject11.has(str27)) {
-                                    this.U = Double.parseDouble(jSONObject11.getString(str27));
-                                    this.V = Double.parseDouble(jSONObject11.getString("x"));
+                            if (jSONObject6.has("in_cn")) {
+                                setLocationWhere(Integer.parseInt(jSONObject6.getString("in_cn")));
+                            } else {
+                                setLocationWhere(1);
+                            }
+                        } catch (Exception unused4) {
+                        }
+                        setCoorType(this.A == 0 ? CoordinateType.WGS84 : "gcj02");
+                        if (jSONObject6.has("navi")) {
+                            this.T = jSONObject6.getString("navi");
+                        }
+                        if (jSONObject6.has("navi_client") && (string = jSONObject6.getString("navi_client")) != null) {
+                            if (string.contains(",")) {
+                                String[] split3 = string.split(",");
+                                int intValue2 = Integer.valueOf(split3[0]).intValue();
+                                Integer.valueOf(split3[1]).intValue();
+                                if (intValue2 > 0) {
+                                    this.W = true;
+                                }
+                            }
+                        }
+                        if (jSONObject6.has("nrl_point")) {
+                            try {
+                                JSONObject jSONObject11 = jSONObject6.getJSONObject("nrl_point");
+                                if (jSONObject11.has("x")) {
+                                    String str27 = str12;
+                                    if (jSONObject11.has(str27)) {
+                                        this.U = Double.parseDouble(jSONObject11.getString(str27));
+                                        this.V = Double.parseDouble(jSONObject11.getString("x"));
+                                        return;
+                                    }
                                     return;
                                 }
                                 return;
+                            } catch (Throwable unused5) {
+                                this.U = Double.MIN_VALUE;
+                                this.V = Double.MIN_VALUE;
+                                return;
                             }
-                            return;
-                        } catch (Throwable unused5) {
-                            this.U = Double.MIN_VALUE;
-                            this.V = Double.MIN_VALUE;
-                            return;
-                        }
-                    }
-                    return;
-                } else {
-                    str2 = "gcj02";
-                    if (parseInt != 66 && parseInt != 68) {
-                        if (parseInt == 167) {
-                            setLocationWhere(2);
-                            return;
                         }
                         return;
+                    } else {
+                        str2 = "gcj02";
+                        if (parseInt != 66 && parseInt != 68) {
+                            if (parseInt == 167) {
+                                setLocationWhere(2);
+                                return;
+                            }
+                            return;
+                        }
+                        JSONObject jSONObject12 = jSONObject2.getJSONObject("content");
+                        JSONObject jSONObject13 = jSONObject12.getJSONObject("point");
+                        setLatitude(Double.parseDouble(jSONObject13.getString("y")));
+                        setLongitude(Double.parseDouble(jSONObject13.getString("x")));
+                        setRadius(Float.parseFloat(jSONObject12.getString("radius")));
+                        a(Boolean.valueOf(Boolean.parseBoolean(jSONObject12.getString("isCellChanged"))));
                     }
-                    JSONObject jSONObject12 = jSONObject2.getJSONObject("content");
-                    JSONObject jSONObject13 = jSONObject12.getJSONObject("point");
-                    setLatitude(Double.parseDouble(jSONObject13.getString("y")));
-                    setLongitude(Double.parseDouble(jSONObject13.getString("x")));
-                    setRadius(Float.parseFloat(jSONObject12.getString("radius")));
-                    a(Boolean.valueOf(Boolean.parseBoolean(jSONObject12.getString("isCellChanged"))));
+                    setCoorType(str2);
+                } catch (Exception e13) {
+                    exc = e13;
+                    z = false;
+                    exc.printStackTrace();
+                    r3 = z;
+                    this.a = r3;
+                    this.o = r3;
                 }
-                setCoorType(str2);
-            } catch (Exception e14) {
-                exc = e14;
-                z = false;
-                exc.printStackTrace();
-                r3 = z;
+            } catch (Error e14) {
+                e14.printStackTrace();
+                r3 = 0;
                 this.a = r3;
                 this.o = r3;
             }
@@ -1387,7 +1387,7 @@ public final class BDLocation implements Parcelable {
     public double getAltitude() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f34938f : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f35144f : invokeV.doubleValue;
     }
 
     public String getBuildingID() {
@@ -1537,7 +1537,7 @@ public final class BDLocation implements Parcelable {
     public double getLatitude() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f34935c : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f35141c : invokeV.doubleValue;
     }
 
     public int getLocType() {
@@ -1573,7 +1573,7 @@ public final class BDLocation implements Parcelable {
     public double getLongitude() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.f34936d : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.f35142d : invokeV.doubleValue;
     }
 
     public String getNetworkLocationType() {
@@ -1621,7 +1621,7 @@ public final class BDLocation implements Parcelable {
     public float getRadius() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.f34942j : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.f35148j : invokeV.floatValue;
     }
 
     public String getRetFields(String str) {
@@ -1656,7 +1656,7 @@ public final class BDLocation implements Parcelable {
     public float getSpeed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.f34940h : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.f35146h : invokeV.floatValue;
     }
 
     public String getStreet() {
@@ -1674,7 +1674,7 @@ public final class BDLocation implements Parcelable {
     public String getTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.f34934b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.f35140b : (String) invokeV.objValue;
     }
 
     public int getUserIndoorState() {
@@ -1705,13 +1705,13 @@ public final class BDLocation implements Parcelable {
     public boolean hasAltitude() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this.f34937e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this.f35143e : invokeV.booleanValue;
     }
 
     public boolean hasRadius() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.f34941i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.f35147i : invokeV.booleanValue;
     }
 
     public boolean hasSateNumber() {
@@ -1723,7 +1723,7 @@ public final class BDLocation implements Parcelable {
     public boolean hasSpeed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? this.f34939g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? this.f35145g : invokeV.booleanValue;
     }
 
     public boolean isCellChangeFlag() {
@@ -1778,8 +1778,8 @@ public final class BDLocation implements Parcelable {
         if (!(interceptable == null || interceptable.invokeCommon(1048640, this, new Object[]{Double.valueOf(d2)}) == null) || d2 >= 9999.0d) {
             return;
         }
-        this.f34938f = d2;
-        this.f34937e = true;
+        this.f35144f = d2;
+        this.f35143e = true;
     }
 
     public void setBuildingID(String str) {
@@ -1896,7 +1896,7 @@ public final class BDLocation implements Parcelable {
     public void setLatitude(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048656, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f34935c = d2;
+            this.f35141c = d2;
         }
     }
 
@@ -1971,7 +1971,7 @@ public final class BDLocation implements Parcelable {
     public void setLongitude(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048662, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f34936d = d2;
+            this.f35142d = d2;
         }
     }
 
@@ -2013,8 +2013,8 @@ public final class BDLocation implements Parcelable {
     public void setRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048668, this, f2) == null) {
-            this.f34942j = f2;
-            this.f34941i = true;
+            this.f35148j = f2;
+            this.f35147i = true;
         }
     }
 
@@ -2050,15 +2050,15 @@ public final class BDLocation implements Parcelable {
     public void setSpeed(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048672, this, f2) == null) {
-            this.f34940h = f2;
-            this.f34939g = true;
+            this.f35146h = f2;
+            this.f35145g = true;
         }
     }
 
     public void setTime(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048673, this, str) == null) {
-            this.f34934b = str;
+            this.f35140b = str;
             setLocationID(k.a(str));
         }
     }
@@ -2085,12 +2085,12 @@ public final class BDLocation implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048676, this, parcel, i2) == null) {
             parcel.writeInt(this.a);
-            parcel.writeString(this.f34934b);
-            parcel.writeDouble(this.f34935c);
-            parcel.writeDouble(this.f34936d);
-            parcel.writeDouble(this.f34938f);
-            parcel.writeFloat(this.f34940h);
-            parcel.writeFloat(this.f34942j);
+            parcel.writeString(this.f35140b);
+            parcel.writeDouble(this.f35141c);
+            parcel.writeDouble(this.f35142d);
+            parcel.writeDouble(this.f35144f);
+            parcel.writeFloat(this.f35146h);
+            parcel.writeFloat(this.f35148j);
             parcel.writeInt(this.l);
             parcel.writeFloat(this.m);
             parcel.writeString(this.v);
@@ -2130,7 +2130,7 @@ public final class BDLocation implements Parcelable {
             parcel.writeLong(this.S);
             parcel.writeDouble(this.U);
             parcel.writeDouble(this.V);
-            parcel.writeBooleanArray(new boolean[]{this.f34937e, this.f34939g, this.f34941i, this.k, this.o, this.t, this.y, this.W});
+            parcel.writeBooleanArray(new boolean[]{this.f35143e, this.f35145g, this.f35147i, this.k, this.o, this.t, this.y, this.W});
             parcel.writeList(this.L);
             parcel.writeBundle(this.P);
         }

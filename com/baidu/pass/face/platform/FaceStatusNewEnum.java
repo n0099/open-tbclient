@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.utils.StatHelper;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class FaceStatusNewEnum {
     public static final /* synthetic */ FaceStatusNewEnum[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

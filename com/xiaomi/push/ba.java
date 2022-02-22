@@ -54,9 +54,9 @@ public class ba implements Runnable {
                 e2 = this.f152a.a.e();
                 ay.a aVar = new ay.a(this.f152a.a, null);
                 aVar.f149a = ay.c.a(this.a, packageName, e2, "GUID");
-                aVar.f60968b = ay.c.a(this.a, packageName, e2, "OUID");
-                aVar.f60969c = ay.c.a(this.a, packageName, e2, "DUID");
-                aVar.f60970d = ay.c.a(this.a, packageName, e2, "AUID");
+                aVar.f61135b = ay.c.a(this.a, packageName, e2, "OUID");
+                aVar.f61136c = ay.c.a(this.a, packageName, e2, "DUID");
+                aVar.f61137d = ay.c.a(this.a, packageName, e2, "AUID");
                 this.f152a.a.f147a = aVar;
                 this.f152a.a.b();
                 this.f152a.a.f144a = 2;

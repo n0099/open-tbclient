@@ -39,7 +39,7 @@ public class FrameAnimationView extends TbImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrameAnimationView f49093e;
+        public final /* synthetic */ FrameAnimationView f49260e;
 
         public a(FrameAnimationView frameAnimationView) {
             Interceptable interceptable = $ic;
@@ -56,16 +56,16 @@ public class FrameAnimationView extends TbImageView {
                     return;
                 }
             }
-            this.f49093e = frameAnimationView;
+            this.f49260e = frameAnimationView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e.a().removeCallbacks(this.f49093e.a0);
-                if (this.f49093e.T != null) {
-                    this.f49093e.v();
+                e.a().removeCallbacks(this.f49260e.a0);
+                if (this.f49260e.T != null) {
+                    this.f49260e.v();
                 }
             }
         }
@@ -109,7 +109,7 @@ public class FrameAnimationView extends TbImageView {
             String frameUrl = getFrameUrl();
             this.P++;
             if (!m.isEmpty(frameUrl)) {
-                c.a.d.n.d.a aVar = (c.a.d.n.d.a) d.h().n(frameUrl, 10, new Object[0]);
+                c.a.d.o.d.a aVar = (c.a.d.o.d.a) d.h().n(frameUrl, 10, new Object[0]);
                 if (aVar != null) {
                     return aVar.p();
                 }

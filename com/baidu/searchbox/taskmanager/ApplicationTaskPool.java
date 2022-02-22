@@ -5,28 +5,26 @@ import com.baidu.searchbox.performance.speed.task.BaseTaskPool;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.searchbox.task.async.appcreate.InitAbi64WebViewCompatTask;
 import com.baidu.searchbox.task.async.appcreate.InitAccountChangeTask;
-import com.baidu.searchbox.task.async.appcreate.InitAppSettingTask;
 import com.baidu.searchbox.task.async.appcreate.InitArTask;
-import com.baidu.searchbox.task.async.appcreate.InitCyberPlayerTask;
 import com.baidu.searchbox.task.async.appcreate.InitDiskTask;
+import com.baidu.searchbox.task.async.appcreate.InitEmotionsTask;
 import com.baidu.searchbox.task.async.appcreate.InitFHTask;
 import com.baidu.searchbox.task.async.appcreate.InitFaceTask;
 import com.baidu.searchbox.task.async.appcreate.InitImgLoaderProcTask;
 import com.baidu.searchbox.task.async.appcreate.InitLaunchAsyncTask;
 import com.baidu.searchbox.task.async.appcreate.InitLocationTask;
 import com.baidu.searchbox.task.async.appcreate.InitPersonalizePageDataTask;
-import com.baidu.searchbox.task.async.appcreate.InitPrologueAdTask;
 import com.baidu.searchbox.task.async.appcreate.InitSDKAsyncTask;
 import com.baidu.searchbox.task.async.appcreate.InitSapiTask;
 import com.baidu.searchbox.task.async.appcreate.InitSyncSwitchTask;
-import com.baidu.searchbox.task.async.appcreate.InitTbCrashTask;
-import com.baidu.searchbox.task.async.appcreate.InitViewConfigTask;
 import com.baidu.searchbox.task.async.appcreate.PermissionUtilTask;
 import com.baidu.searchbox.task.async.appcreate.PreInitSwanDataTask;
 import com.baidu.searchbox.task.async.appcreate.PreLoadBaiduClass;
 import com.baidu.searchbox.task.async.appcreate.PreLoadTiebaClass;
 import com.baidu.searchbox.task.async.appcreate.WebViewDataDirectorySuffixTask;
 import com.baidu.searchbox.task.async.homeready.CheckRepackagingTask;
+import com.baidu.searchbox.task.async.homeready.InitCyberPlayerTask;
+import com.baidu.searchbox.task.async.homeready.InitTbCrashTask;
 import com.baidu.searchbox.task.async.homeready.LaunchStatTask;
 import com.baidu.searchbox.task.async.homeready.MainTabLoadFinishTask;
 import com.baidu.searchbox.task.async.privacy.DeleteApkTask;
@@ -34,6 +32,7 @@ import com.baidu.searchbox.task.async.privacy.LaunchWithPrivacyTask;
 import com.baidu.searchbox.task.async.privacy.LogoTask;
 import com.baidu.searchbox.task.async.privacy.NightPluginTask;
 import com.baidu.searchbox.task.sync.appcreate.InitAccountTask;
+import com.baidu.searchbox.task.sync.appcreate.InitAppSettingTask;
 import com.baidu.searchbox.task.sync.appcreate.InitBDPlayerTask;
 import com.baidu.searchbox.task.sync.appcreate.InitBearTask;
 import com.baidu.searchbox.task.sync.appcreate.InitCertVerifyTask;
@@ -46,11 +45,13 @@ import com.baidu.searchbox.task.sync.appcreate.InitLaunchSyncTask;
 import com.baidu.searchbox.task.sync.appcreate.InitLokiTask;
 import com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask;
 import com.baidu.searchbox.task.sync.appcreate.InitMutiProcessManagerTask;
+import com.baidu.searchbox.task.sync.appcreate.InitPrologueAdTask;
 import com.baidu.searchbox.task.sync.appcreate.InitSDKTask;
 import com.baidu.searchbox.task.sync.appcreate.InitStatisticTask;
 import com.baidu.searchbox.task.sync.appcreate.InitSwanDataTask;
 import com.baidu.searchbox.task.sync.appcreate.InitUBCTask;
 import com.baidu.searchbox.task.sync.appcreate.InitVersionTask;
+import com.baidu.searchbox.task.sync.appcreate.InitViewConfigTask;
 import com.baidu.searchbox.task.sync.appcreate.InitWebsocketBaseTask;
 import com.baidu.searchbox.task.sync.privacy.InitSDKWithPrivacyTask;
 import com.baidu.searchbox.task.sync.privacy.SyncAccountTask;
@@ -123,11 +124,11 @@ public class ApplicationTaskPool extends BaseTaskPool {
                 arrayList.add(new InitPersonalizePageDataTask());
                 arrayList.add(new InitSapiTask());
                 arrayList.add(new InitSDKAsyncTask());
+                arrayList.add(new InitFaceTask());
                 arrayList.add(new PreInitSwanDataTask());
                 arrayList.add(new PreLoadBaiduClass());
                 arrayList.add(new InitLocationTask());
                 arrayList.add(new InitDiskTask());
-                arrayList.add(new InitFaceTask());
                 arrayList.add(new InitLaunchAsyncTask());
                 arrayList.add(new PermissionUtilTask());
                 arrayList.add(new InitAccountChangeTask());
@@ -146,6 +147,8 @@ public class ApplicationTaskPool extends BaseTaskPool {
                 if (TbadkCoreApplication.getInst().isDebugMode()) {
                     arrayList.add(new InitDebugTask());
                 }
+            } else if (i2 == 3) {
+                arrayList.add(new InitEmotionsTask());
             }
             return arrayList;
         }

@@ -30,10 +30,10 @@ public final class a {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.alipay.apmobilesecuritysdk.b.a f30725b;
+    public com.alipay.apmobilesecuritysdk.b.a f30931b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30726c;
+    public int f30932c;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -50,8 +50,8 @@ public final class a {
                 return;
             }
         }
-        this.f30725b = com.alipay.apmobilesecuritysdk.b.a.a();
-        this.f30726c = 4;
+        this.f30931b = com.alipay.apmobilesecuritysdk.b.a.a();
+        this.f30932c = 4;
         this.a = context;
     }
 
@@ -135,48 +135,48 @@ public final class a {
                 String securityToken = UmidSdkWrapper.getSecurityToken(context);
                 String d2 = h.d(context);
                 if (com.alipay.security.mobile.module.a.a.b(a2)) {
-                    dVar.f31050c = a2;
+                    dVar.f31256c = a2;
                 } else {
-                    dVar.f31050c = a4;
+                    dVar.f31256c = a4;
                 }
-                dVar.f31051d = securityToken;
-                dVar.f31052e = d2;
+                dVar.f31257d = securityToken;
+                dVar.f31258e = d2;
                 dVar.a = "android";
                 com.alipay.apmobilesecuritysdk.e.c c3 = com.alipay.apmobilesecuritysdk.e.d.c(context);
                 if (c3 != null) {
                     str2 = c3.a;
-                    str = c3.f30732c;
+                    str = c3.f30938c;
                 } else {
                     str = "";
                     str2 = str;
                 }
                 if (com.alipay.security.mobile.module.a.a.a(str2) && (c2 = com.alipay.apmobilesecuritysdk.e.a.c(context)) != null) {
                     str2 = c2.a;
-                    str = c2.f30730c;
+                    str = c2.f30936c;
                 }
                 com.alipay.apmobilesecuritysdk.e.c b3 = com.alipay.apmobilesecuritysdk.e.d.b();
                 if (b3 != null) {
                     str4 = b3.a;
-                    str3 = b3.f30732c;
+                    str3 = b3.f30938c;
                 } else {
                     str3 = "";
                 }
                 if (com.alipay.security.mobile.module.a.a.a(str4) && (b2 = com.alipay.apmobilesecuritysdk.e.a.b()) != null) {
                     str4 = b2.a;
-                    str3 = b2.f30730c;
+                    str3 = b2.f30936c;
                 }
-                dVar.f31055h = str2;
-                dVar.f31054g = str4;
-                dVar.f31057j = a3;
+                dVar.f31261h = str2;
+                dVar.f31260g = str4;
+                dVar.f31263j = a3;
                 if (com.alipay.security.mobile.module.a.a.a(str2)) {
-                    dVar.f31049b = str4;
+                    dVar.f31255b = str4;
                     str = str3;
                 } else {
-                    dVar.f31049b = str2;
+                    dVar.f31255b = str2;
                 }
-                dVar.f31056i = str;
-                dVar.f31053f = e.a(context, map);
-                return com.alipay.security.mobile.module.http.d.b(this.a, this.f30725b.c()).a(dVar);
+                dVar.f31262i = str;
+                dVar.f31259f = e.a(context, map);
+                return com.alipay.security.mobile.module.http.d.b(this.a, this.f30931b.c()).a(dVar);
             } catch (Throwable th) {
                 th.printStackTrace();
                 com.alipay.apmobilesecuritysdk.c.a.a(th);
@@ -235,14 +235,14 @@ public final class a {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x00bf, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x00bd, code lost:
         if (com.alipay.security.mobile.module.a.a.a(b(r9.a)) != false) goto L13;
      */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x00d6  */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x00d8 A[Catch: Exception -> 0x0240, TryCatch #0 {Exception -> 0x0240, blocks: (B:5:0x000c, B:7:0x003d, B:10:0x0046, B:39:0x00c4, B:71:0x01e8, B:73:0x0203, B:75:0x0209, B:77:0x020f, B:81:0x0218, B:83:0x021e, B:42:0x00d8, B:44:0x00f0, B:50:0x00fd, B:51:0x010d, B:53:0x0114, B:57:0x0126, B:59:0x0176, B:61:0x0180, B:63:0x0188, B:65:0x0195, B:67:0x019f, B:69:0x01a7, B:68:0x01a3, B:62:0x0184, B:13:0x005b, B:15:0x0069, B:18:0x0074, B:20:0x007a, B:23:0x0085, B:26:0x008e, B:29:0x009b, B:32:0x00a8, B:35:0x00b5), top: B:93:0x000c }] */
-    /* JADX WARN: Removed duplicated region for block: B:73:0x0203 A[Catch: Exception -> 0x0240, TryCatch #0 {Exception -> 0x0240, blocks: (B:5:0x000c, B:7:0x003d, B:10:0x0046, B:39:0x00c4, B:71:0x01e8, B:73:0x0203, B:75:0x0209, B:77:0x020f, B:81:0x0218, B:83:0x021e, B:42:0x00d8, B:44:0x00f0, B:50:0x00fd, B:51:0x010d, B:53:0x0114, B:57:0x0126, B:59:0x0176, B:61:0x0180, B:63:0x0188, B:65:0x0195, B:67:0x019f, B:69:0x01a7, B:68:0x01a3, B:62:0x0184, B:13:0x005b, B:15:0x0069, B:18:0x0074, B:20:0x007a, B:23:0x0085, B:26:0x008e, B:29:0x009b, B:32:0x00a8, B:35:0x00b5), top: B:93:0x000c }] */
-    /* JADX WARN: Removed duplicated region for block: B:75:0x0209 A[Catch: Exception -> 0x0240, TryCatch #0 {Exception -> 0x0240, blocks: (B:5:0x000c, B:7:0x003d, B:10:0x0046, B:39:0x00c4, B:71:0x01e8, B:73:0x0203, B:75:0x0209, B:77:0x020f, B:81:0x0218, B:83:0x021e, B:42:0x00d8, B:44:0x00f0, B:50:0x00fd, B:51:0x010d, B:53:0x0114, B:57:0x0126, B:59:0x0176, B:61:0x0180, B:63:0x0188, B:65:0x0195, B:67:0x019f, B:69:0x01a7, B:68:0x01a3, B:62:0x0184, B:13:0x005b, B:15:0x0069, B:18:0x0074, B:20:0x007a, B:23:0x0085, B:26:0x008e, B:29:0x009b, B:32:0x00a8, B:35:0x00b5), top: B:93:0x000c }] */
-    /* JADX WARN: Removed duplicated region for block: B:81:0x0218 A[Catch: Exception -> 0x0240, TryCatch #0 {Exception -> 0x0240, blocks: (B:5:0x000c, B:7:0x003d, B:10:0x0046, B:39:0x00c4, B:71:0x01e8, B:73:0x0203, B:75:0x0209, B:77:0x020f, B:81:0x0218, B:83:0x021e, B:42:0x00d8, B:44:0x00f0, B:50:0x00fd, B:51:0x010d, B:53:0x0114, B:57:0x0126, B:59:0x0176, B:61:0x0180, B:63:0x0188, B:65:0x0195, B:67:0x019f, B:69:0x01a7, B:68:0x01a3, B:62:0x0184, B:13:0x005b, B:15:0x0069, B:18:0x0074, B:20:0x007a, B:23:0x0085, B:26:0x008e, B:29:0x009b, B:32:0x00a8, B:35:0x00b5), top: B:93:0x000c }] */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x00d4  */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00d6 A[Catch: Exception -> 0x023e, TryCatch #0 {Exception -> 0x023e, blocks: (B:5:0x000a, B:7:0x003b, B:10:0x0044, B:39:0x00c2, B:71:0x01e6, B:73:0x0201, B:75:0x0207, B:77:0x020d, B:81:0x0216, B:83:0x021c, B:42:0x00d6, B:44:0x00ee, B:50:0x00fb, B:51:0x010b, B:53:0x0112, B:57:0x0124, B:59:0x0174, B:61:0x017e, B:63:0x0186, B:65:0x0193, B:67:0x019d, B:69:0x01a5, B:68:0x01a1, B:62:0x0182, B:13:0x0059, B:15:0x0067, B:18:0x0072, B:20:0x0078, B:23:0x0083, B:26:0x008c, B:29:0x0099, B:32:0x00a6, B:35:0x00b3), top: B:93:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x0201 A[Catch: Exception -> 0x023e, TryCatch #0 {Exception -> 0x023e, blocks: (B:5:0x000a, B:7:0x003b, B:10:0x0044, B:39:0x00c2, B:71:0x01e6, B:73:0x0201, B:75:0x0207, B:77:0x020d, B:81:0x0216, B:83:0x021c, B:42:0x00d6, B:44:0x00ee, B:50:0x00fb, B:51:0x010b, B:53:0x0112, B:57:0x0124, B:59:0x0174, B:61:0x017e, B:63:0x0186, B:65:0x0193, B:67:0x019d, B:69:0x01a5, B:68:0x01a1, B:62:0x0182, B:13:0x0059, B:15:0x0067, B:18:0x0072, B:20:0x0078, B:23:0x0083, B:26:0x008c, B:29:0x0099, B:32:0x00a6, B:35:0x00b3), top: B:93:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:75:0x0207 A[Catch: Exception -> 0x023e, TryCatch #0 {Exception -> 0x023e, blocks: (B:5:0x000a, B:7:0x003b, B:10:0x0044, B:39:0x00c2, B:71:0x01e6, B:73:0x0201, B:75:0x0207, B:77:0x020d, B:81:0x0216, B:83:0x021c, B:42:0x00d6, B:44:0x00ee, B:50:0x00fb, B:51:0x010b, B:53:0x0112, B:57:0x0124, B:59:0x0174, B:61:0x017e, B:63:0x0186, B:65:0x0193, B:67:0x019d, B:69:0x01a5, B:68:0x01a1, B:62:0x0182, B:13:0x0059, B:15:0x0067, B:18:0x0072, B:20:0x0078, B:23:0x0083, B:26:0x008c, B:29:0x0099, B:32:0x00a6, B:35:0x00b3), top: B:93:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:81:0x0216 A[Catch: Exception -> 0x023e, TryCatch #0 {Exception -> 0x023e, blocks: (B:5:0x000a, B:7:0x003b, B:10:0x0044, B:39:0x00c2, B:71:0x01e6, B:73:0x0201, B:75:0x0207, B:77:0x020d, B:81:0x0216, B:83:0x021c, B:42:0x00d6, B:44:0x00ee, B:50:0x00fb, B:51:0x010b, B:53:0x0112, B:57:0x0124, B:59:0x0174, B:61:0x017e, B:63:0x0186, B:65:0x0193, B:67:0x019d, B:69:0x01a5, B:68:0x01a1, B:62:0x0182, B:13:0x0059, B:15:0x0067, B:18:0x0072, B:20:0x0078, B:23:0x0083, B:26:0x008c, B:29:0x0099, B:32:0x00a6, B:35:0x00b3), top: B:93:0x000a }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -259,7 +259,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
             try {
-                com.alipay.apmobilesecuritysdk.c.a.a(this.a, com.alipay.security.mobile.module.a.a.a(map, "tid", ""), com.alipay.security.mobile.module.a.a.a(map, com.alipay.sdk.cons.b.f30852g, ""), a(this.a));
+                com.alipay.apmobilesecuritysdk.c.a.a(this.a, com.alipay.security.mobile.module.a.a.a(map, "tid", ""), com.alipay.security.mobile.module.a.a.a(map, com.alipay.sdk.cons.b.f31058g, ""), a(this.a));
                 a = com.alipay.security.mobile.module.a.a.a(map, "appName", "");
                 b();
                 b(this.a);
@@ -273,7 +273,7 @@ public final class a {
                 e.a();
                 if (!(!com.alipay.security.mobile.module.a.a.a(e.b(this.a, map), i.c()))) {
                     String a2 = com.alipay.security.mobile.module.a.a.a(map, "tid", "");
-                    String a3 = com.alipay.security.mobile.module.a.a.a(map, com.alipay.sdk.cons.b.f30852g, "");
+                    String a3 = com.alipay.security.mobile.module.a.a.a(map, com.alipay.sdk.cons.b.f31058g, "");
                     if (com.alipay.security.mobile.module.a.a.b(a2)) {
                         if (!com.alipay.security.mobile.module.a.a.a(a2, i.d())) {
                         }
@@ -298,7 +298,7 @@ public final class a {
                                 if (c2 != 1) {
                                     if (c2 != 3) {
                                         if (b3 != null) {
-                                            str = "Server error, result:" + b3.f31040b;
+                                            str = "Server error, result:" + b3.f31246b;
                                         } else {
                                             str = "Server error, returned null";
                                         }
@@ -309,8 +309,8 @@ public final class a {
                                     } else {
                                         i2 = 1;
                                     }
-                                    this.f30726c = i2;
-                                    b2 = com.alipay.security.mobile.module.http.d.b(this.a, this.f30725b.c());
+                                    this.f30932c = i2;
+                                    b2 = com.alipay.security.mobile.module.http.d.b(this.a, this.f30931b.c());
                                     context = this.a;
                                     ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
                                     activeNetworkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
@@ -320,18 +320,18 @@ public final class a {
                                     if (z && h.c(context)) {
                                         new com.alipay.security.mobile.module.d.b(context.getFilesDir().getAbsolutePath() + "/log/ap", b2).a();
                                     }
-                                    return this.f30726c;
+                                    return this.f30932c;
                                 }
                                 h.a(this.a, b3.b());
                                 h.d(this.a, b3.a());
-                                h.e(this.a, b3.f31045g);
-                                h.a(this.a, b3.f31046h);
-                                h.f(this.a, b3.f31047i);
+                                h.e(this.a, b3.f31251g);
+                                h.a(this.a, b3.f31252h);
+                                h.f(this.a, b3.f31253i);
                                 h.g(this.a, b3.k);
                                 i.c(e.b(this.a, map));
-                                i.a(a, b3.f31042d);
-                                i.b(b3.f31041c);
-                                i.d(b3.f31048j);
+                                i.a(a, b3.f31248d);
+                                i.b(b3.f31247c);
+                                i.d(b3.f31254j);
                                 String a4 = com.alipay.security.mobile.module.a.a.a(map, "tid", "");
                                 if (!com.alipay.security.mobile.module.a.a.b(a4) || com.alipay.security.mobile.module.a.a.a(a4, i.d())) {
                                     a4 = i.d();
@@ -339,7 +339,7 @@ public final class a {
                                     i.e(a4);
                                 }
                                 i.e(a4);
-                                String a5 = com.alipay.security.mobile.module.a.a.a(map, com.alipay.sdk.cons.b.f30852g, "");
+                                String a5 = com.alipay.security.mobile.module.a.a.a(map, com.alipay.sdk.cons.b.f31058g, "");
                                 if (!com.alipay.security.mobile.module.a.a.b(a5) || com.alipay.security.mobile.module.a.a.a(a5, i.e())) {
                                     a5 = i.e();
                                 } else {
@@ -356,8 +356,8 @@ public final class a {
                                 h.a(this.a, a, System.currentTimeMillis());
                             }
                             i2 = 0;
-                            this.f30726c = i2;
-                            b2 = com.alipay.security.mobile.module.http.d.b(this.a, this.f30725b.c());
+                            this.f30932c = i2;
+                            b2 = com.alipay.security.mobile.module.http.d.b(this.a, this.f30931b.c());
                             context = this.a;
                             ConnectivityManager connectivityManager2 = (ConnectivityManager) context.getSystemService("connectivity");
                             if (connectivityManager2 != null) {
@@ -368,7 +368,7 @@ public final class a {
                             if (z) {
                                 new com.alipay.security.mobile.module.d.b(context.getFilesDir().getAbsolutePath() + "/log/ap", b2).a();
                             }
-                            return this.f30726c;
+                            return this.f30932c;
                         }
                     }
                 }
@@ -379,8 +379,8 @@ public final class a {
                 if (z2) {
                 }
                 i2 = 0;
-                this.f30726c = i2;
-                b2 = com.alipay.security.mobile.module.http.d.b(this.a, this.f30725b.c());
+                this.f30932c = i2;
+                b2 = com.alipay.security.mobile.module.http.d.b(this.a, this.f30931b.c());
                 context = this.a;
                 ConnectivityManager connectivityManager22 = (ConnectivityManager) context.getSystemService("connectivity");
                 if (connectivityManager22 != null) {
@@ -389,7 +389,7 @@ public final class a {
                 }
                 if (z) {
                 }
-                return this.f30726c;
+                return this.f30932c;
             }
             if (!com.alipay.security.mobile.module.a.a.a(a(this.a, a))) {
             }
@@ -400,8 +400,8 @@ public final class a {
             if (z2) {
             }
             i2 = 0;
-            this.f30726c = i2;
-            b2 = com.alipay.security.mobile.module.http.d.b(this.a, this.f30725b.c());
+            this.f30932c = i2;
+            b2 = com.alipay.security.mobile.module.http.d.b(this.a, this.f30931b.c());
             context = this.a;
             ConnectivityManager connectivityManager222 = (ConnectivityManager) context.getSystemService("connectivity");
             if (connectivityManager222 != null) {
@@ -410,7 +410,7 @@ public final class a {
             }
             if (z) {
             }
-            return this.f30726c;
+            return this.f30932c;
         }
         return invokeL.intValue;
     }

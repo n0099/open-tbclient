@@ -59,7 +59,7 @@ public final class DoubleBtnDialog$initExtraView$2 extends Lambda implements Fun
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             c.a.j.j.d.a v2 = BDPTask.m.v();
             if (v2 != null && (d2 = v2.d()) != null) {
-                d2.b(this.$data.getTaskInfoSingleKey(), c.a.j.g.f.a.f4031c.a());
+                d2.b(this.$data.getTaskInfoSingleKey(), c.a.j.g.f.a.f4051c.a());
             }
             if (!TextUtils.isEmpty(this.$data.getCancelBtnSchema()) && (v = BDPTask.m.v()) != null && (b2 = v.b()) != null) {
                 b2.a(this.$data.getCancelBtnSchema(), 1);

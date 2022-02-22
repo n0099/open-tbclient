@@ -4,33 +4,33 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.api.KsAppDownloadListener;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class t implements com.kwad.sdk.core.webview.kwai.a {
     public final com.kwad.sdk.core.webview.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.core.download.a.b f56486b;
+    public final com.kwad.sdk.core.download.a.b f56653b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.kwai.c f56487c;
+    public com.kwad.sdk.core.webview.kwai.c f56654c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public KsAppDownloadListener f56488d;
+    public KsAppDownloadListener f56655d;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class a implements com.kwad.sdk.core.b {
         public float a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f56490b;
+        public int f56657b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f56491c;
+        public long f56658c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f56492d;
+        public long f56659d;
 
         @Override // com.kwad.sdk.core.b
         public void parseJson(@Nullable JSONObject jSONObject) {
@@ -40,26 +40,26 @@ public class t implements com.kwad.sdk.core.webview.kwai.a {
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
             com.kwad.sdk.utils.t.a(jSONObject, "progress", this.a);
-            com.kwad.sdk.utils.t.a(jSONObject, "status", this.f56490b);
-            com.kwad.sdk.utils.t.a(jSONObject, "totalBytes", this.f56491c);
-            com.kwad.sdk.utils.t.a(jSONObject, "creativeId", this.f56492d);
+            com.kwad.sdk.utils.t.a(jSONObject, "status", this.f56657b);
+            com.kwad.sdk.utils.t.a(jSONObject, "totalBytes", this.f56658c);
+            com.kwad.sdk.utils.t.a(jSONObject, "creativeId", this.f56659d);
             return jSONObject;
         }
     }
 
     public t(com.kwad.sdk.core.webview.a aVar, @Nullable com.kwad.sdk.core.download.a.b bVar) {
         this.a = aVar;
-        this.f56486b = bVar;
+        this.f56653b = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i2, float f2) {
-        if (this.f56487c != null) {
+        if (this.f56654c != null) {
             a aVar = new a();
             aVar.a = f2;
-            aVar.f56490b = i2;
-            aVar.f56491c = com.kwad.sdk.core.response.a.d.j(this.a.a()).totalBytes;
-            this.f56487c.a(aVar);
+            aVar.f56657b = i2;
+            aVar.f56658c = com.kwad.sdk.core.response.a.d.j(this.a.a()).totalBytes;
+            this.f56654c.a(aVar);
         }
     }
 
@@ -109,29 +109,29 @@ public class t implements com.kwad.sdk.core.webview.kwai.a {
             cVar.a(-1, "native photo is null");
             return;
         }
-        this.f56487c = cVar;
-        com.kwad.sdk.core.download.a.b bVar = this.f56486b;
+        this.f56654c = cVar;
+        com.kwad.sdk.core.download.a.b bVar = this.f56653b;
         if (bVar != null) {
-            KsAppDownloadListener ksAppDownloadListener = this.f56488d;
+            KsAppDownloadListener ksAppDownloadListener = this.f56655d;
             if (ksAppDownloadListener != null) {
                 bVar.c(ksAppDownloadListener);
                 return;
             }
             KsAppDownloadListener c2 = c();
-            this.f56488d = c2;
-            this.f56486b.a(c2);
+            this.f56655d = c2;
+            this.f56653b.a(c2);
         }
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void b() {
         KsAppDownloadListener ksAppDownloadListener;
-        this.f56487c = null;
-        com.kwad.sdk.core.download.a.b bVar = this.f56486b;
-        if (bVar == null || (ksAppDownloadListener = this.f56488d) == null) {
+        this.f56654c = null;
+        com.kwad.sdk.core.download.a.b bVar = this.f56653b;
+        if (bVar == null || (ksAppDownloadListener = this.f56655d) == null) {
             return;
         }
         bVar.b(ksAppDownloadListener);
-        this.f56488d = null;
+        this.f56655d = null;
     }
 }

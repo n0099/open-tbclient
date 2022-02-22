@@ -9,12 +9,12 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.c0.f0.b;
-import c.a.c0.f0.e;
-import c.a.c0.f0.f;
-import c.a.c0.f0.g;
-import c.a.c0.j.d.a;
-import c.a.c0.j.f.i;
+import c.a.d0.f0.b;
+import c.a.d0.f0.e;
+import c.a.d0.f0.f;
+import c.a.d0.f0.g;
+import c.a.d0.j.d.a;
+import c.a.d0.j.f.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +28,7 @@ public class DefaultDownloadViewLP extends FrameLayout implements i<DefaultDownl
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BannerDownloadView f37040e;
+    public BannerDownloadView f37252e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DefaultDownloadViewLP(@NonNull Context context) {
@@ -56,11 +56,11 @@ public class DefaultDownloadViewLP extends FrameLayout implements i<DefaultDownl
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(f.nad_download_lp_view, this);
             setBackgroundResource(b.nad_white);
-            this.f37040e = (BannerDownloadView) findViewById(e.lp_download_btn);
+            this.f37252e = (BannerDownloadView) findViewById(e.lp_download_btn);
         }
     }
 
-    @Override // c.a.c0.j.f.i
+    @Override // c.a.d0.j.f.i
     public void bind(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) && (viewGroup instanceof RelativeLayout)) {
@@ -73,7 +73,7 @@ public class DefaultDownloadViewLP extends FrameLayout implements i<DefaultDownl
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.c0.j.f.i
+    @Override // c.a.d0.j.f.i
     @NonNull
     public DefaultDownloadViewLP getRealView() {
         InterceptResult invokeV;
@@ -84,7 +84,7 @@ public class DefaultDownloadViewLP extends FrameLayout implements i<DefaultDownl
     public void setProgress(float f2) {
         BannerDownloadView bannerDownloadView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048580, this, f2) == null) || (bannerDownloadView = this.f37040e) == null) {
+        if (!(interceptable == null || interceptable.invokeF(1048580, this, f2) == null) || (bannerDownloadView = this.f37252e) == null) {
             return;
         }
         bannerDownloadView.setProgress(f2);
@@ -93,7 +93,7 @@ public class DefaultDownloadViewLP extends FrameLayout implements i<DefaultDownl
     public void setText(String str) {
         BannerDownloadView bannerDownloadView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (bannerDownloadView = this.f37040e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (bannerDownloadView = this.f37252e) == null) {
             return;
         }
         bannerDownloadView.setText(str);
@@ -108,13 +108,13 @@ public class DefaultDownloadViewLP extends FrameLayout implements i<DefaultDownl
         findViewById.setVisibility(z ? 0 : 8);
     }
 
-    @Override // c.a.c0.j.f.i
+    @Override // c.a.d0.j.f.i
     public void update(String str, @NonNull a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, aVar) == null) {
-            if (aVar.f1951c == AdDownloadStatus.DOWNLOADING) {
+            if (aVar.f2798c == AdDownloadStatus.DOWNLOADING) {
                 str = getResources().getString(g.nad_download_progress_text) + str;
-                setProgress(aVar.f1957i);
+                setProgress(aVar.f2804i);
             } else {
                 setProgress(0.0f);
             }

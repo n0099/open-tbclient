@@ -15,7 +15,7 @@ public class b {
     public static a a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Object f60383d;
+    public static final Object f60550d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class b {
                 return;
             }
         }
-        f60383d = new Object();
+        f60550d = new Object();
     }
 
     public static long a(a aVar) {
@@ -40,7 +40,7 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, aVar)) == null) {
             if (aVar != null) {
                 String format = String.format("%s%s%s%s%s", aVar.f(), aVar.getDeviceId(), Long.valueOf(aVar.a()), aVar.getImsi(), aVar.e());
-                if (g.m124a(format)) {
+                if (g.m123a(format)) {
                     return 0L;
                 }
                 Adler32 adler32 = new Adler32();
@@ -78,9 +78,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             if (context != null) {
-                synchronized (f60383d) {
+                synchronized (f60550d) {
                     String value = c.a(context).getValue();
-                    if (g.m124a(value)) {
+                    if (g.m123a(value)) {
                         return null;
                     }
                     if (value.endsWith(StringUtils.LF)) {

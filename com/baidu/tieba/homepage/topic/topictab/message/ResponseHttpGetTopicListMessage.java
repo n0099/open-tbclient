@@ -1,8 +1,8 @@
 package com.baidu.tieba.homepage.topic.topictab.message;
 
-import c.a.d.n.e.n;
-import c.a.t0.p1.k.c.c.a;
-import c.a.t0.p1.k.c.c.c;
+import c.a.d.o.e.n;
+import c.a.u0.p1.l.c.c.a;
+import c.a.u0.p1.l.c.c.c;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -69,17 +69,17 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
         for (NewTopicList newTopicList : newTopicListResIdl.data.topic_list) {
             if (newTopicList != null && !StringUtils.isNull(newTopicList.topic_name) && !StringUtils.isNull(newTopicList.topic_desc)) {
                 a aVar = new a();
-                aVar.W = i3;
-                aVar.Q(newTopicList);
+                aVar.V = i3;
+                aVar.P(newTopicList);
                 this.mTopicDataList.add(aVar);
                 c cVar = new c();
-                cVar.f21053e = R.dimen.tbds1;
-                cVar.f21054f = R.color.CAM_X0203;
+                cVar.f20939e = R.dimen.tbds1;
+                cVar.f20940f = R.color.CAM_X0203;
                 this.mTopicDataList.add(cVar);
                 i3++;
             }
         }
         List<n> list = this.mTopicDataList;
-        ((c) ListUtils.getItem(list, list.size() - 1)).f21053e = 0;
+        ((c) ListUtils.getItem(list, list.size() - 1)).f20939e = 0;
     }
 }

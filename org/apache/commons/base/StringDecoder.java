@@ -1,5 +1,5 @@
 package org.apache.commons.base;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface StringDecoder extends Decoder {
     String decode(String str) throws DecoderException;
 }

@@ -4,24 +4,24 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.utils.t;
 import java.util.Observable;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class a extends Observable implements com.kwad.sdk.core.b, b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f57257b = false;
+    public boolean f57424b = false;
 
     public void a() {
-        if (this.f57257b) {
+        if (this.f57424b) {
             return;
         }
-        this.f57257b = true;
+        this.f57424b = true;
         f();
     }
 
     public void b() {
-        if (this.f57257b) {
-            this.f57257b = false;
+        if (this.f57424b) {
+            this.f57424b = false;
             f();
         }
     }
@@ -37,18 +37,18 @@ public abstract class a extends Observable implements com.kwad.sdk.core.b, b {
     }
 
     public boolean e() {
-        return this.f57257b;
+        return this.f57424b;
     }
 
     public void f() {
         setChanged();
-        notifyObservers(Boolean.valueOf(this.f57257b));
+        notifyObservers(Boolean.valueOf(this.f57424b));
     }
 
     @Override // com.kwad.sdk.core.b
     public void parseJson(@Nullable JSONObject jSONObject) {
         try {
-            this.f57257b = jSONObject.optBoolean("selfCompleted");
+            this.f57424b = jSONObject.optBoolean("selfCompleted");
         } catch (Throwable unused) {
         }
     }
@@ -56,7 +56,7 @@ public abstract class a extends Observable implements com.kwad.sdk.core.b, b {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        t.a(jSONObject, "selfCompleted", this.f57257b);
+        t.a(jSONObject, "selfCompleted", this.f57424b);
         return jSONObject;
     }
 }

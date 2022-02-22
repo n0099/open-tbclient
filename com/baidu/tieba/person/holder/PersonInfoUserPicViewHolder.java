@@ -2,11 +2,11 @@ package com.baidu.tieba.person.holder;
 
 import android.view.View;
 import android.widget.TextView;
-import c.a.d.n.e.n;
-import c.a.s0.u.q;
-import c.a.t0.z2.a;
-import c.a.t0.z2.c;
-import c.a.t0.z2.d;
+import c.a.d.o.e.n;
+import c.a.t0.u.q;
+import c.a.u0.a3.a;
+import c.a.u0.a3.c;
+import c.a.u0.a3.d;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,17 +19,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public n a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f47095b;
+    public int f47237b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View.OnClickListener f47096c;
+    public View.OnClickListener f47238c;
     public View coverView;
     public TbImageView imageView;
     public TextView tipTextView;
@@ -52,7 +52,7 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f47095b = 3;
+        this.f47237b = 3;
         TbImageView tbImageView = (TbImageView) view.findViewById(d.photo_image_view);
         this.imageView = tbImageView;
         tbImageView.setDefaultBgResource(a.CAM_X0205);
@@ -78,7 +78,7 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
                 this.tipTextView.setVisibility(8);
                 this.imageView.startLoad(qVar.d(), 10, false);
             }
-            getView().setOnClickListener(this.f47096c);
+            getView().setOnClickListener(this.f47238c);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -91,18 +91,18 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f47095b == i2) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f47237b == i2) {
             return;
         }
         SkinManager.setViewTextColor(this.tipTextView, a.CAM_X0111, 1);
         SkinManager.setBackgroundColor(this.tipTextView, a.black_alpha50);
-        this.f47095b = i2;
+        this.f47237b = i2;
     }
 
     public void setOnclickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f47096c = onClickListener;
+            this.f47238c = onClickListener;
         }
     }
 }

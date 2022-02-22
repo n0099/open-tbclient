@@ -8,8 +8,8 @@ import android.view.ViewParent;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewGroupKt;
-import c.a.t0.p4.e;
-import c.a.t0.p4.g;
+import c.a.u0.s4.e;
+import c.a.u0.s4.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.tbadk.core.view.ItemCardView;
@@ -34,10 +34,10 @@ public final class AssociatedItemContainer extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f49712e;
+    public c f49879e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f49713f;
+    public b f49880f;
 
     /* loaded from: classes13.dex */
     public static final class a {
@@ -151,7 +151,7 @@ public final class AssociatedItemContainer extends LinearLayout {
             itemCardView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             itemCardView.showCloseButton();
             itemCardView.setTag(g.key_item_data, itemData);
-            itemCardView.setOnCloseListener(new View.OnClickListener() { // from class: c.a.t0.p4.d0.a
+            itemCardView.setOnCloseListener(new View.OnClickListener() { // from class: c.a.u0.s4.d0.a
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -165,7 +165,7 @@ public final class AssociatedItemContainer extends LinearLayout {
             });
             itemCardView.setData(itemData, 10, "", false);
             addView(itemCardView);
-            b bVar = this.f49713f;
+            b bVar = this.f49880f;
             if (bVar == null) {
                 return;
             }
@@ -176,13 +176,13 @@ public final class AssociatedItemContainer extends LinearLayout {
     public final b getOnAddedListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f49713f : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f49880f : (b) invokeV.objValue;
     }
 
     public final c getOnDeletedListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f49712e : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f49879e : (c) invokeV.objValue;
     }
 
     public final void onChangeSkin() {
@@ -199,14 +199,14 @@ public final class AssociatedItemContainer extends LinearLayout {
     public final void setOnAddedListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f49713f = bVar;
+            this.f49880f = bVar;
         }
     }
 
     public final void setOnDeletedListener(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.f49712e = cVar;
+            this.f49879e = cVar;
         }
     }
 

@@ -68,7 +68,7 @@ public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMu
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, c.a.d.n.e.a
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, c.a.d.o.e.a
     public /* bridge */ /* synthetic */ View S(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
         c0(i2, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view;
@@ -81,23 +81,23 @@ public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMu
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), view, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.S(i2, view, viewGroup, chatMessage, msgViewHolder);
             MsgMultiImageTextView msgItemView = msgViewHolder.getMsgItemView();
-            msgItemView.o(this.o);
-            msgItemView.p(i2);
-            msgItemView.h(this.p);
-            msgItemView.l(chatMessage.getCacheData().getLastMsgTime());
-            msgItemView.A(this.m, chatMessage, viewGroup);
+            msgItemView.u(this.o);
+            msgItemView.v(i2);
+            msgItemView.m(this.p);
+            msgItemView.r(chatMessage.getCacheData().getLastMsgTime());
+            msgItemView.I(this.m, chatMessage, viewGroup);
             this.m.getLayoutMode().k(false);
             this.m.getLayoutMode().j(view);
-            c.a.t0.t1.u.a.c().d(chatMessage, this.m.getPageActivity());
-            c.a.t0.t1.u.a.c().e(chatMessage, this.m.getPageActivity());
+            c.a.u0.t1.u.a.c().d(chatMessage, this.m.getPageActivity());
+            c.a.u0.t1.u.a.c().e(chatMessage, this.m.getPageActivity());
             return view;
         }
         return (View) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.n.e.a
-    /* renamed from: i0 */
+    @Override // c.a.d.o.e.a
+    /* renamed from: l0 */
     public MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

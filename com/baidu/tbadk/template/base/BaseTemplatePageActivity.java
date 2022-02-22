@@ -2,18 +2,18 @@ package com.baidu.tbadk.template.base;
 
 import android.os.Bundle;
 import android.view.ViewGroup;
-import c.a.s0.b1.a;
+import c.a.t0.b1.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class BaseTemplatePageActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a mPageLoader;
+    public b mPageLoader;
     public ViewGroup mRootLayout;
 
     public BaseTemplatePageActivity() {
@@ -30,7 +30,7 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         }
     }
 
-    public abstract a buildPageTemplate();
+    public abstract b buildPageTemplate();
 
     public abstract int getLayoutR();
 
@@ -39,9 +39,9 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             super.onChangeSkinType(i2);
-            a aVar = this.mPageLoader;
-            if (aVar != null) {
-                aVar.a(i2);
+            b bVar = this.mPageLoader;
+            if (bVar != null) {
+                bVar.h(i2);
             }
         }
     }
@@ -63,9 +63,9 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            a aVar = this.mPageLoader;
-            if (aVar != null) {
-                aVar.b();
+            b bVar = this.mPageLoader;
+            if (bVar != null) {
+                bVar.i();
             }
         }
     }
@@ -75,9 +75,9 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onPause();
-            a aVar = this.mPageLoader;
-            if (aVar != null) {
-                aVar.c();
+            b bVar = this.mPageLoader;
+            if (bVar != null) {
+                bVar.j();
             }
         }
     }
@@ -87,9 +87,9 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
-            a aVar = this.mPageLoader;
-            if (aVar != null) {
-                aVar.d();
+            b bVar = this.mPageLoader;
+            if (bVar != null) {
+                bVar.k();
             }
         }
     }

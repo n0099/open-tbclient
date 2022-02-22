@@ -1,7 +1,7 @@
 package com.baidu.searchbox.looper.ioc;
 
-import c.a.k0.a.a;
-import c.a.t0.q3.m;
+import c.a.l0.a.a;
+import c.a.u0.r3.m;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ public class ILooperNeedContext_LooperRuntime_Provider implements a {
         }
     }
 
-    @Override // c.a.k0.a.a
+    @Override // c.a.l0.a.a
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

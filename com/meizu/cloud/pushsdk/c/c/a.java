@@ -8,42 +8,42 @@ import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     public final List<com.meizu.cloud.pushsdk.c.a.b> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f58744b;
+    public final long f58911b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f58745c;
+    public final String f58912c;
 
     /* renamed from: com.meizu.cloud.pushsdk.c.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static abstract class AbstractC2175a<T extends AbstractC2175a<T>> {
+    /* loaded from: classes4.dex */
+    public static abstract class AbstractC2185a<T extends AbstractC2185a<T>> {
         public List<com.meizu.cloud.pushsdk.c.a.b> a = new LinkedList();
 
         /* renamed from: b  reason: collision with root package name */
-        public long f58746b = System.currentTimeMillis();
+        public long f58913b = System.currentTimeMillis();
 
         /* renamed from: c  reason: collision with root package name */
-        public String f58747c = e.b();
+        public String f58914c = e.b();
 
         public abstract T a();
 
         public T a(long j2) {
-            this.f58746b = j2;
+            this.f58913b = j2;
             return a();
         }
     }
 
-    public a(AbstractC2175a<?> abstractC2175a) {
-        d.a(abstractC2175a.a);
-        d.a(abstractC2175a.f58747c);
-        d.a(!abstractC2175a.f58747c.isEmpty(), "eventId cannot be empty");
-        this.a = abstractC2175a.a;
-        this.f58744b = abstractC2175a.f58746b;
-        this.f58745c = abstractC2175a.f58747c;
+    public a(AbstractC2185a<?> abstractC2185a) {
+        d.a(abstractC2185a.a);
+        d.a(abstractC2185a.f58914c);
+        d.a(!abstractC2185a.f58914c.isEmpty(), "eventId cannot be empty");
+        this.a = abstractC2185a.a;
+        this.f58911b = abstractC2185a.f58913b;
+        this.f58912c = abstractC2185a.f58914c;
     }
 
     public c a(c cVar) {
@@ -57,10 +57,10 @@ public class a {
     }
 
     public long b() {
-        return this.f58744b;
+        return this.f58911b;
     }
 
     public String c() {
-        return this.f58745c;
+        return this.f58912c;
     }
 }

@@ -20,14 +20,14 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FileLoader<Data> implements ModelLoader<File, Data> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FileLoader";
     public transient /* synthetic */ FieldHolder $fh;
     public final FileOpener<Data> fileOpener;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Factory<Data> implements ModelLoaderFactory<File, Data> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class FileDescriptorFactory extends Factory<ParcelFileDescriptor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -133,7 +133,7 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class FileFetcher<Data> implements DataFetcher<Data> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -213,7 +213,7 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface FileOpener<Data> {
         void close(Data data) throws IOException;
 
@@ -222,7 +222,7 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
         Data open(File file) throws FileNotFoundException;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class StreamFactory extends Factory<InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -492,7 +492,7 @@ public class HiidoSDKNew implements HiidoApi {
     public boolean imeiPrepared() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65577, this)) == null) ? !HiidoSDK.instance().getOptions().isWaitGrant() || Build.VERSION.SDK_INT > 28 || this.appRunIsCalled || ArdUtil.checkPermissions(this.mContext, s.f55287c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65577, this)) == null) ? !HiidoSDK.instance().getOptions().isWaitGrant() || Build.VERSION.SDK_INT > 28 || this.appRunIsCalled || ArdUtil.checkPermissions(this.mContext, s.f55454c) : invokeV.booleanValue;
     }
 
     private MessageConfig initMessageConfig(Context context, StatisOption statisOption, OnStatisListener onStatisListener) {

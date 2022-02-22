@@ -6,7 +6,8 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.IBinder;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.d1.x0;
+import c.a.t0.d1.y0;
+import c.a.u0.a4.j;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,7 +15,6 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,7 +46,7 @@ public class TiebaPrepareImageService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TiebaPrepareImageService f40283e;
+        public final /* synthetic */ TiebaPrepareImageService f40512e;
 
         public a(TiebaPrepareImageService tiebaPrepareImageService) {
             Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public class TiebaPrepareImageService extends BdBaseService {
                     return;
                 }
             }
-            this.f40283e = tiebaPrepareImageService;
+            this.f40512e = tiebaPrepareImageService;
         }
 
         @Override // java.lang.Runnable
@@ -71,13 +71,13 @@ public class TiebaPrepareImageService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (TiebaPrepareImageService.IS_DECODING) {
-                    this.f40283e.mHandler.postDelayed(this.f40283e.mStartRun, 1000L);
+                    this.f40512e.mHandler.postDelayed(this.f40512e.mStartRun, 1000L);
                     return;
                 }
-                TiebaPrepareImageService tiebaPrepareImageService = this.f40283e;
-                TiebaPrepareImageService tiebaPrepareImageService2 = this.f40283e;
-                tiebaPrepareImageService.mTask = new b(tiebaPrepareImageService2, tiebaPrepareImageService2.mRequestCode, this.f40283e.mUri, this.f40283e.mFileName);
-                this.f40283e.mTask.execute(new Object[0]);
+                TiebaPrepareImageService tiebaPrepareImageService = this.f40512e;
+                TiebaPrepareImageService tiebaPrepareImageService2 = this.f40512e;
+                tiebaPrepareImageService.mTask = new b(tiebaPrepareImageService2, tiebaPrepareImageService2.mRequestCode, this.f40512e.mUri, this.f40512e.mFileName);
+                this.f40512e.mTask.execute(new Object[0]);
             }
         }
     }
@@ -89,16 +89,16 @@ public class TiebaPrepareImageService extends BdBaseService {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Uri f40284b;
+        public Uri f40513b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f40285c;
+        public String f40514c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f40286d;
+        public String f40515d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TiebaPrepareImageService f40287e;
+        public final /* synthetic */ TiebaPrepareImageService f40516e;
 
         public b(TiebaPrepareImageService tiebaPrepareImageService, int i2, Uri uri, String str) {
             Interceptable interceptable = $ic;
@@ -115,14 +115,14 @@ public class TiebaPrepareImageService extends BdBaseService {
                     return;
                 }
             }
-            this.f40287e = tiebaPrepareImageService;
+            this.f40516e = tiebaPrepareImageService;
             this.a = 0;
-            this.f40284b = null;
-            this.f40285c = null;
-            this.f40286d = null;
+            this.f40513b = null;
+            this.f40514c = null;
+            this.f40515d = null;
             this.a = i2;
-            this.f40284b = uri;
-            this.f40285c = str;
+            this.f40513b = uri;
+            this.f40514c = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -137,7 +137,7 @@ public class TiebaPrepareImageService extends BdBaseService {
                 TiebaPrepareImageService.IS_DECODING = true;
                 boolean z2 = false;
                 try {
-                    c2 = x0.c(this.a, this.f40287e, this.f40284b, this.f40285c, this.f40287e.mMaxSize);
+                    c2 = y0.c(this.a, this.f40516e, this.f40513b, this.f40514c, this.f40516e.mMaxSize);
                 } catch (Exception unused) {
                     TiebaPrepareImageService.IS_DECODING = false;
                 } catch (Throwable th) {
@@ -146,19 +146,19 @@ public class TiebaPrepareImageService extends BdBaseService {
                 }
                 if (c2 != null) {
                     if (FileHelper.saveBitmapByRelativelyPath(null, TbConfig.IMAGE_RESIZED_FILE, c2, 85) != null) {
-                        Bitmap resizeBitmap = BitmapHelper.resizeBitmap(c2, this.f40287e.mDisplaySize > 0 ? this.f40287e.mDisplaySize : 100);
+                        Bitmap resizeBitmap = BitmapHelper.resizeBitmap(c2, this.f40516e.mDisplaySize > 0 ? this.f40516e.mDisplaySize : 100);
                         if (resizeBitmap == null || FileHelper.saveBitmapByRelativelyPath(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 85) == null) {
-                            this.f40286d = this.f40287e.getString(R.string.error_sd_error);
+                            this.f40515d = this.f40516e.getString(j.error_sd_error);
                         } else {
                             TiebaPrepareImageService.IS_DECODING = false;
                             z2 = z;
                             return Boolean.valueOf(z2);
                         }
                     } else {
-                        this.f40286d = this.f40287e.getString(R.string.error_sd_error);
+                        this.f40515d = this.f40516e.getString(j.error_sd_error);
                     }
                 } else {
-                    this.f40286d = this.f40287e.getString(R.string.pic_parser_error);
+                    this.f40515d = this.f40516e.getString(j.pic_parser_error);
                 }
                 z = false;
                 TiebaPrepareImageService.IS_DECODING = false;
@@ -172,7 +172,7 @@ public class TiebaPrepareImageService extends BdBaseService {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f40287e.mTask = null;
+                this.f40516e.mTask = null;
                 super.cancel(true);
             }
         }
@@ -186,11 +186,11 @@ public class TiebaPrepareImageService extends BdBaseService {
                 Intent intent = new Intent(TbConfig.getBroadcastActionImageResized());
                 intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
                 intent.putExtra("result", bool);
-                String str = this.f40286d;
+                String str = this.f40515d;
                 if (str != null) {
                     intent.putExtra("error", str);
                 }
-                this.f40287e.sendBroadcast(intent);
+                this.f40516e.sendBroadcast(intent);
             }
         }
     }

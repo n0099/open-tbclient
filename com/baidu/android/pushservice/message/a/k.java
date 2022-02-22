@@ -14,31 +14,31 @@ public final class k {
     public static final k a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final k f32311b;
+    public static final k f32517b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final k f32312c;
+    public static final k f32518c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final k f32313d;
+    public static final k f32519d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final k f32314e;
+    public static final k f32520e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final k f32315f;
+    public static final k f32521f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final k f32316g;
+    public static final k f32522g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final k f32317h;
+    public static final k f32523h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final k f32318i;
+    public static final k f32524i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final k f32319j;
+    public static final k f32525j;
     public static final k k;
     public static final /* synthetic */ k[] m;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,18 +58,18 @@ public final class k {
             }
         }
         a = new k("MSG_TYPE_INVALID", 0, -1);
-        f32311b = new k("MSG_TYPE_SINGLE_PRIVATE", 1, 0);
-        f32312c = new k("MSG_TYPE_MULTI_PRIVATE", 2, 1);
-        f32313d = new k("MSG_TYPE_SINGLE_PUBLIC", 3, 2);
-        f32314e = new k("MSG_TYPE_MULTI_PUBLIC", 4, 3);
-        f32315f = new k("MSG_TYPE_MULTI_PRIVATE_NOTIFICATION", 5, 5);
-        f32316g = new k("MSG_TYPE_PRIVATE_MESSAGE", 6, 6);
-        f32317h = new k("MSG_TYPE_CLEAR_MESSAGE", 7, 8);
-        f32318i = new k("MSG_TYPE_APP_PRIORITY", 8, 30);
-        f32319j = new k("MSG_TYPE_INNERBIND", 9, 101);
+        f32517b = new k("MSG_TYPE_SINGLE_PRIVATE", 1, 0);
+        f32518c = new k("MSG_TYPE_MULTI_PRIVATE", 2, 1);
+        f32519d = new k("MSG_TYPE_SINGLE_PUBLIC", 3, 2);
+        f32520e = new k("MSG_TYPE_MULTI_PUBLIC", 4, 3);
+        f32521f = new k("MSG_TYPE_MULTI_PRIVATE_NOTIFICATION", 5, 5);
+        f32522g = new k("MSG_TYPE_PRIVATE_MESSAGE", 6, 6);
+        f32523h = new k("MSG_TYPE_CLEAR_MESSAGE", 7, 8);
+        f32524i = new k("MSG_TYPE_APP_PRIORITY", 8, 30);
+        f32525j = new k("MSG_TYPE_INNERBIND", 9, 101);
         k kVar = new k("MSG_TYPE_APPSTAT_COMMAND", 10, 104);
         k = kVar;
-        m = new k[]{a, f32311b, f32312c, f32313d, f32314e, f32315f, f32316g, f32317h, f32318i, f32319j, kVar};
+        m = new k[]{a, f32517b, f32518c, f32519d, f32520e, f32521f, f32522g, f32523h, f32524i, f32525j, kVar};
     }
 
     public k(String str, int i2, int i3) {
@@ -96,7 +96,7 @@ public final class k {
     public static k a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 5 ? i2 != 6 ? i2 != 8 ? i2 != 30 ? i2 != 101 ? i2 != 104 ? a : k : f32319j : f32318i : f32317h : f32316g : f32315f : f32314e : f32313d : f32312c : f32311b : (k) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 5 ? i2 != 6 ? i2 != 8 ? i2 != 30 ? i2 != 101 ? i2 != 104 ? a : k : f32525j : f32524i : f32523h : f32522g : f32521f : f32520e : f32519d : f32518c : f32517b : (k) invokeI.objValue;
     }
 
     public static k[] a() {

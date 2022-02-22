@@ -15,22 +15,22 @@ public class VideoOption {
     public final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f58997b;
+    public final int f59164b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f58998c;
+    public final boolean f59165c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f58999d;
+    public final boolean f59166d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f59000e;
+    public final boolean f59167e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f59001f;
+    public final boolean f59168f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f59002g;
+    public final boolean f59169g;
 
     /* renamed from: com.qq.e.ads.cfg.VideoOption$1  reason: invalid class name */
     /* loaded from: classes4.dex */
@@ -69,22 +69,22 @@ public class VideoOption {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f59003b;
+        public int f59170b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f59004c;
+        public boolean f59171c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f59005d;
+        public boolean f59172d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f59006e;
+        public boolean f59173e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f59007f;
+        public boolean f59174f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f59008g;
+        public boolean f59175g;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -100,12 +100,12 @@ public class VideoOption {
                 }
             }
             this.a = true;
-            this.f59003b = 1;
-            this.f59004c = true;
-            this.f59005d = true;
-            this.f59006e = true;
-            this.f59007f = false;
-            this.f59008g = false;
+            this.f59170b = 1;
+            this.f59171c = true;
+            this.f59172d = true;
+            this.f59173e = true;
+            this.f59174f = false;
+            this.f59175g = false;
         }
 
         public VideoOption build() {
@@ -132,7 +132,7 @@ public class VideoOption {
                     i2 = 1;
                     GDTLogger.e("setAutoPlayPolicy 设置失败，值只能为0到2之间的数值, 重置为 : 1");
                 }
-                this.f59003b = i2;
+                this.f59170b = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -142,7 +142,7 @@ public class VideoOption {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-                this.f59008g = z;
+                this.f59175g = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -152,7 +152,7 @@ public class VideoOption {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-                this.f59006e = z;
+                this.f59173e = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -162,7 +162,7 @@ public class VideoOption {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                this.f59007f = z;
+                this.f59174f = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -172,7 +172,7 @@ public class VideoOption {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-                this.f59005d = z;
+                this.f59172d = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -182,7 +182,7 @@ public class VideoOption {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-                this.f59004c = z;
+                this.f59171c = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -253,12 +253,12 @@ public class VideoOption {
             }
         }
         this.a = builder.a;
-        this.f58997b = builder.f59003b;
-        this.f58998c = builder.f59004c;
-        this.f58999d = builder.f59005d;
-        this.f59000e = builder.f59006e;
-        this.f59001f = builder.f59007f;
-        this.f59002g = builder.f59008g;
+        this.f59164b = builder.f59170b;
+        this.f59165c = builder.f59171c;
+        this.f59166d = builder.f59172d;
+        this.f59167e = builder.f59173e;
+        this.f59168f = builder.f59174f;
+        this.f59169g = builder.f59175g;
     }
 
     public /* synthetic */ VideoOption(Builder builder, AnonymousClass1 anonymousClass1) {
@@ -274,7 +274,7 @@ public class VideoOption {
     public int getAutoPlayPolicy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f58997b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f59164b : invokeV.intValue;
     }
 
     public JSONObject getOptions() {
@@ -284,8 +284,8 @@ public class VideoOption {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("autoPlayMuted", Boolean.valueOf(this.a));
-                jSONObject.putOpt("autoPlayPolicy", Integer.valueOf(this.f58997b));
-                jSONObject.putOpt("detailPageMuted", Boolean.valueOf(this.f59002g));
+                jSONObject.putOpt("autoPlayPolicy", Integer.valueOf(this.f59164b));
+                jSONObject.putOpt("detailPageMuted", Boolean.valueOf(this.f59169g));
             } catch (Exception e2) {
                 GDTLogger.d("Get video options error: " + e2.getMessage());
             }
@@ -297,30 +297,30 @@ public class VideoOption {
     public boolean isDetailPageMuted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59002g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59169g : invokeV.booleanValue;
     }
 
     public boolean isEnableDetailPage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f59000e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f59167e : invokeV.booleanValue;
     }
 
     public boolean isEnableUserControl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f59001f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f59168f : invokeV.booleanValue;
     }
 
     public boolean isNeedCoverImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f58999d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f59166d : invokeV.booleanValue;
     }
 
     public boolean isNeedProgressBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f58998c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f59165c : invokeV.booleanValue;
     }
 }

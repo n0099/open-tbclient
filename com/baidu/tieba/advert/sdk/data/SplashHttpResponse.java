@@ -2,8 +2,8 @@ package com.baidu.tieba.advert.sdk.data;
 
 import android.text.TextUtils;
 import c.a.d.f.p.l;
-import c.a.t0.y.a.d.b;
-import c.a.t0.y.a.i.a;
+import c.a.u0.y.a.d.b;
+import c.a.u0.y.a.i.a;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -50,13 +50,13 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
             b b2 = b.b(a.d());
             if (!this.adInfo.shouldDownloadVideo()) {
                 AdInfo adInfo = this.adInfo;
-                adInfo.videoLocalPath = b2.f25339d;
+                adInfo.videoLocalPath = b2.f25289d;
                 a.g(adInfo);
             } else if (l.z() && l.H()) {
-                c.a.t0.y.a.h.a searchTask = searchTask(this.adInfo.adVideoUrl);
+                c.a.u0.y.a.h.a searchTask = searchTask(this.adInfo.adVideoUrl);
                 if (searchTask == null || searchTask.getStatus() == BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
                     a.g(this.adInfo);
-                    c.a.t0.y.a.h.a aVar = new c.a.t0.y.a.h.a();
+                    c.a.u0.y.a.h.a aVar = new c.a.u0.y.a.h.a();
                     aVar.c(this.adInfo);
                     aVar.setKey(this.adInfo.adVideoUrl);
                     aVar.execute(new Void[0]);
@@ -67,22 +67,22 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
         }
     }
 
-    private c.a.t0.y.a.h.a searchTask(String str) {
+    private c.a.u0.y.a.h.a searchTask(String str) {
         InterceptResult invokeL;
         BdAsyncTask<?, ?, ?> searchTask;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (searchTask = BdAsyncTask.searchTask(str)) == null || !(searchTask instanceof c.a.t0.y.a.h.a)) {
+            if (TextUtils.isEmpty(str) || (searchTask = BdAsyncTask.searchTask(str)) == null || !(searchTask instanceof c.a.u0.y.a.h.a)) {
                 return null;
             }
             try {
-                return (c.a.t0.y.a.h.a) searchTask;
+                return (c.a.u0.y.a.h.a) searchTask;
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
                 return null;
             }
         }
-        return (c.a.t0.y.a.h.a) invokeL.objValue;
+        return (c.a.u0.y.a.h.a) invokeL.objValue;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage

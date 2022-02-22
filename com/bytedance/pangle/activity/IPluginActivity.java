@@ -5,7 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.Keep;
 import com.bytedance.pangle.plugin.Plugin;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IPluginActivity {
     void _requestPermissions(String[] strArr, int i2);
 

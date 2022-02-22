@@ -80,31 +80,31 @@ public class BdVideoAd implements Serializable {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f37148b;
+        public String f37378b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f37149c;
+        public String f37379c;
 
         /* renamed from: d  reason: collision with root package name */
-        public JSONObject f37150d;
+        public JSONObject f37380d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f37151e;
+        public String f37381e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f37152f;
+        public String f37382f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f37153g;
+        public String f37383g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f37154h;
+        public String f37384h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f37155i;
+        public String f37385i;
 
         /* renamed from: j  reason: collision with root package name */
-        public int f37156j;
+        public int f37386j;
         public Object k;
         public Object l;
 
@@ -122,22 +122,22 @@ public class BdVideoAd implements Serializable {
                 }
             }
             this.a = false;
-            this.f37148b = "";
-            this.f37149c = "";
-            this.f37150d = null;
-            this.f37151e = "";
-            this.f37152f = "";
-            this.f37153g = "";
-            this.f37154h = "";
-            this.f37155i = "detail";
-            this.f37156j = -1;
+            this.f37378b = "";
+            this.f37379c = "";
+            this.f37380d = null;
+            this.f37381e = "";
+            this.f37382f = "";
+            this.f37383g = "";
+            this.f37384h = "";
+            this.f37385i = "detail";
+            this.f37386j = -1;
             this.k = null;
         }
 
         public BdVideoAd a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new BdVideoAd(this.a, this.f37148b, this.f37149c, this.f37150d, this.f37151e, this.f37152f, this.f37153g, this.f37154h, this.f37155i, this.f37156j, this.k, this.l, null) : (BdVideoAd) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new BdVideoAd(this.a, this.f37378b, this.f37379c, this.f37380d, this.f37381e, this.f37382f, this.f37383g, this.f37384h, this.f37385i, this.f37386j, this.k, this.l, null) : (BdVideoAd) invokeV.objValue;
         }
 
         public b b(Object obj) {
@@ -176,15 +176,15 @@ public class BdVideoAd implements Serializable {
                 }
             }
             this.a = bdVideoAd.suffixAdEnable;
-            this.f37148b = bdVideoAd.tpl;
-            this.f37149c = bdVideoAd.pd;
-            this.f37150d = bdVideoAd.extRequest;
-            this.f37151e = bdVideoAd.page;
-            this.f37152f = bdVideoAd.type;
-            this.f37153g = bdVideoAd.channelId;
-            this.f37154h = bdVideoAd.channelTitle;
-            this.f37155i = bdVideoAd.source;
-            this.f37156j = bdVideoAd.pos;
+            this.f37378b = bdVideoAd.tpl;
+            this.f37379c = bdVideoAd.pd;
+            this.f37380d = bdVideoAd.extRequest;
+            this.f37381e = bdVideoAd.page;
+            this.f37382f = bdVideoAd.type;
+            this.f37383g = bdVideoAd.channelId;
+            this.f37384h = bdVideoAd.channelTitle;
+            this.f37385i = bdVideoAd.source;
+            this.f37386j = bdVideoAd.pos;
             this.k = bdVideoAd.mAdVideoTailFrameData;
             this.l = bdVideoAd.userInfoData;
         }

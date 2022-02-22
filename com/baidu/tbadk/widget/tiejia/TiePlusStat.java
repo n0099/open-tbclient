@@ -3,10 +3,10 @@ package com.baidu.tbadk.widget.tiejia;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.d.a;
-import c.a.s0.d1.e0;
-import c.a.s0.d1.g0;
-import c.a.s0.s.q.e2;
+import c.a.t0.d.a;
+import c.a.t0.d1.f0;
+import c.a.t0.d1.h0;
+import c.a.t0.s.r.e2;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -20,17 +20,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.blink.VideoFreeFlowConfigManager;
 import java.util.concurrent.TimeUnit;
 import tbclient.TiebaPlusInfo;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class TiePlusStat {
     public static /* synthetic */ Interceptable $ic;
-    public static final g0<Integer> a;
+    public static final h0<Integer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g0<Integer> f41576b;
+    public static final h0<Integer> f41805b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class CardBtnType {
         public static final /* synthetic */ CardBtnType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -119,7 +119,7 @@ public final class TiePlusStat {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class LandingType {
         public static final /* synthetic */ LandingType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -211,7 +211,7 @@ public final class TiePlusStat {
                         landingType = null;
                         break;
                 }
-                e0.b(landingType);
+                f0.b(landingType);
                 return landingType;
             }
             return (LandingType) invokeI.objValue;
@@ -231,7 +231,7 @@ public final class TiePlusStat {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class Locate {
         public static final /* synthetic */ Locate[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -305,10 +305,11 @@ public final class TiePlusStat {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class RichTextType {
         public static final /* synthetic */ RichTextType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
+        public static final RichTextType BIG_CARD;
         public static final RichTextType CARD;
         public static final RichTextType LINK;
         public static final RichTextType MESSAGE;
@@ -331,9 +332,10 @@ public final class TiePlusStat {
             }
             LINK = new RichTextType("LINK", 0, 1);
             CARD = new RichTextType("CARD", 1, 2);
-            RichTextType richTextType = new RichTextType("MESSAGE", 2, 3);
-            MESSAGE = richTextType;
-            $VALUES = new RichTextType[]{LINK, CARD, richTextType};
+            MESSAGE = new RichTextType("MESSAGE", 2, 3);
+            RichTextType richTextType = new RichTextType("BIG_CARD", 3, 4);
+            BIG_CARD = richTextType;
+            $VALUES = new RichTextType[]{LINK, CARD, MESSAGE, richTextType};
         }
 
         public RichTextType(String str, int i2, int i3) {
@@ -386,7 +388,7 @@ public final class TiePlusStat {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class StatType {
         public static final /* synthetic */ StatType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -414,8 +416,8 @@ public final class TiePlusStat {
                     return;
                 }
             }
-            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, a.f12428h);
-            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, a.f12429i);
+            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, a.f12683h);
+            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, a.f12684i);
             DIALOG_EXPOSE = new StatType("DIALOG_EXPOSE", 2, CommonStatisticKey.KEY_TIE_PLUS_DIALOG_EXPOSE, -1);
             DIALOG_CLICK = new StatType("DIALOG_CLICK", 3, CommonStatisticKey.kEY_TIE_PLUS_DIAGLO_CLICK, -1);
             DOWNLOAD_FINISHED = new StatType("DOWNLOAD_FINISHED", 4, CommonStatisticKey.KEY_TIE_PLUS_DOWNLOAD_FINISHED, -1);
@@ -461,7 +463,7 @@ public final class TiePlusStat {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class ThreadType {
         public static final /* synthetic */ ThreadType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -542,7 +544,7 @@ public final class TiePlusStat {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class WechatDialogType {
         public static final /* synthetic */ WechatDialogType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -618,8 +620,8 @@ public final class TiePlusStat {
                 return;
             }
         }
-        a = new g0<>(3000, TimeUnit.MILLISECONDS);
-        f41576b = new g0<>(3000, TimeUnit.MILLISECONDS);
+        a = new h0<>(3000, TimeUnit.MILLISECONDS);
+        f41805b = new h0<>(3000, TimeUnit.MILLISECONDS);
     }
 
     public static int a(@NonNull TiebaPlusInfo tiebaPlusInfo, @Nullable Object obj) {
@@ -665,7 +667,7 @@ public final class TiePlusStat {
     public static void c(int i2, @NonNull StatType statType, @NonNull Locate locate, @NonNull String str, @NonNull String str2, @NonNull String str3, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), statType, locate, str, str2, str3, Integer.valueOf(i3)}) == null) {
-            if (statType != StatType.EXPOSE || f41576b.a(Integer.valueOf(i2))) {
+            if (statType != StatType.EXPOSE || f41805b.a(Integer.valueOf(i2))) {
                 a.a(statType.billingTypeValue, locate.statValue, str, str2, str3, i3);
             }
         }

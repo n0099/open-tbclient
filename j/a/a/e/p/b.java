@@ -10,7 +10,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
 import tv.athena.revenue.RevenueManager;
 import tv.athena.revenue.api.MiddleRevenueConfig;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

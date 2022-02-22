@@ -25,12 +25,12 @@ public class h1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static h1 f55117c;
+    public static h1 f55284c;
     public transient /* synthetic */ FieldHolder $fh;
     public SSLContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SSLSocketFactory f55118b;
+    public SSLSocketFactory f55285b;
 
     /* loaded from: classes3.dex */
     public class a implements X509TrustManager {
@@ -39,7 +39,7 @@ public class h1 {
         public final /* synthetic */ X509TrustManager a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ h1 f55119b;
+        public final /* synthetic */ h1 f55286b;
 
         public a(h1 h1Var, X509TrustManager x509TrustManager) {
             Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public class h1 {
                     return;
                 }
             }
-            this.f55119b = h1Var;
+            this.f55286b = h1Var;
             this.a = x509TrustManager;
         }
 
@@ -175,10 +175,10 @@ public class h1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (h1.class) {
-                if (f55117c == null) {
-                    f55117c = new h1();
+                if (f55284c == null) {
+                    f55284c = new h1();
                 }
-                h1Var = f55117c;
+                h1Var = f55284c;
             }
             return h1Var;
         }
@@ -197,7 +197,7 @@ public class h1 {
         X509TrustManager x509TrustManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            SSLSocketFactory sSLSocketFactory = this.f55118b;
+            SSLSocketFactory sSLSocketFactory = this.f55285b;
             if (sSLSocketFactory == null) {
                 sSLSocketFactory = null;
                 try {
@@ -226,7 +226,7 @@ public class h1 {
                     if (x509TrustManager != null) {
                     }
                     SSLSocketFactory socketFactory = this.a.getSocketFactory();
-                    this.f55118b = socketFactory;
+                    this.f55285b = socketFactory;
                     return socketFactory;
                 }
                 if (keyStore != null) {
@@ -245,7 +245,7 @@ public class h1 {
                                 sSLContext2.init(null, new TrustManager[]{new b(this)}, new SecureRandom());
                             }
                             SSLSocketFactory socketFactory2 = this.a.getSocketFactory();
-                            this.f55118b = socketFactory2;
+                            this.f55285b = socketFactory2;
                             return socketFactory2;
                         }
                     } catch (Exception unused4) {
@@ -257,7 +257,7 @@ public class h1 {
                 if (x509TrustManager != null) {
                 }
                 SSLSocketFactory socketFactory22 = this.a.getSocketFactory();
-                this.f55118b = socketFactory22;
+                this.f55285b = socketFactory22;
                 return socketFactory22;
             }
             return sSLSocketFactory;

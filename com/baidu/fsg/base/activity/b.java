@@ -11,13 +11,13 @@ public class b implements Runnable {
     public final /* synthetic */ int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f33702b;
+    public final /* synthetic */ int f33908b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f33703c;
+    public final /* synthetic */ String f33909c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ BeanActivity f33704d;
+    public final /* synthetic */ BeanActivity f33910d;
 
     public b(BeanActivity beanActivity, int i2, int i3, String str) {
         Interceptable interceptable = $ic;
@@ -34,19 +34,19 @@ public class b implements Runnable {
                 return;
             }
         }
-        this.f33704d = beanActivity;
+        this.f33910d = beanActivity;
         this.a = i2;
-        this.f33702b = i3;
-        this.f33703c = str;
+        this.f33908b = i3;
+        this.f33909c = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            BeanActivity beanActivity = this.f33704d;
+            BeanActivity beanActivity = this.f33910d;
             if (beanActivity.mAct != null) {
-                beanActivity.handleFailure(this.a, this.f33702b, this.f33703c);
+                beanActivity.handleFailure(this.a, this.f33908b, this.f33909c);
             }
         }
     }

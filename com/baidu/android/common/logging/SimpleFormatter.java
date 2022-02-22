@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.logging.Formatter;
 import java.util.logging.LogRecord;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SimpleFormatter extends Formatter {
     public static /* synthetic */ Interceptable $ic = null;
     public static String format = "{0,date} {0,time}";

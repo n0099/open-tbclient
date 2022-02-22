@@ -88,22 +88,22 @@ public class k extends ReporterPidLoader<KsFeedAd> {
         public final KsFeedAd a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final View f28371b;
+        public final View f28577b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f28372c;
+        public final String f28578c;
 
         /* renamed from: d  reason: collision with root package name */
-        public FunAdInteractionListener f28373d;
+        public FunAdInteractionListener f28579d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f28374e;
+        public boolean f28580e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f28375f;
+        public boolean f28581f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ k f28376g;
+        public final /* synthetic */ k f28582g;
 
         public b(k kVar, KsFeedAd ksFeedAd, View view, String str) {
             Interceptable interceptable = $ic;
@@ -120,10 +120,10 @@ public class k extends ReporterPidLoader<KsFeedAd> {
                     return;
                 }
             }
-            this.f28376g = kVar;
+            this.f28582g = kVar;
             this.a = ksFeedAd;
-            this.f28371b = view;
-            this.f28372c = str;
+            this.f28577b = view;
+            this.f28578c = str;
         }
 
         @Override // com.kwad.sdk.api.KsFeedAd.AdInteractionListener
@@ -131,11 +131,11 @@ public class k extends ReporterPidLoader<KsFeedAd> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 LogPrinter.d();
-                this.f28376g.onAdClicked(this.f28375f);
-                this.f28375f = true;
-                FunAdInteractionListener funAdInteractionListener = this.f28373d;
+                this.f28582g.onAdClicked(this.f28581f);
+                this.f28581f = true;
+                FunAdInteractionListener funAdInteractionListener = this.f28579d;
                 if (funAdInteractionListener != null) {
-                    funAdInteractionListener.onAdClicked(this.f28372c, this.f28376g.mPid.ssp.type, this.f28376g.mPid.pid);
+                    funAdInteractionListener.onAdClicked(this.f28578c, this.f28582g.mPid.ssp.type, this.f28582g.mPid.pid);
                 }
             }
         }
@@ -145,11 +145,11 @@ public class k extends ReporterPidLoader<KsFeedAd> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 LogPrinter.d();
-                this.f28376g.onAdShow(this.a, this.f28374e);
-                this.f28374e = true;
-                FunAdInteractionListener funAdInteractionListener = this.f28373d;
+                this.f28582g.onAdShow(this.a, this.f28580e);
+                this.f28580e = true;
+                FunAdInteractionListener funAdInteractionListener = this.f28579d;
                 if (funAdInteractionListener != null) {
-                    funAdInteractionListener.onAdShow(this.f28372c, this.f28376g.mPid.ssp.type, this.f28376g.mPid.pid);
+                    funAdInteractionListener.onAdShow(this.f28578c, this.f28582g.mPid.ssp.type, this.f28582g.mPid.pid);
                 }
             }
         }
@@ -159,14 +159,14 @@ public class k extends ReporterPidLoader<KsFeedAd> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 LogPrinter.d();
-                View view = this.f28371b;
+                View view = this.f28577b;
                 if (view != null && view.getParent() != null) {
-                    ((ViewGroup) this.f28371b.getParent()).removeView(this.f28371b);
+                    ((ViewGroup) this.f28577b.getParent()).removeView(this.f28577b);
                 }
-                this.f28376g.onAdClose();
-                FunAdInteractionListener funAdInteractionListener = this.f28373d;
+                this.f28582g.onAdClose();
+                FunAdInteractionListener funAdInteractionListener = this.f28579d;
                 if (funAdInteractionListener != null) {
-                    funAdInteractionListener.onAdClose(this.f28372c);
+                    funAdInteractionListener.onAdClose(this.f28578c);
                 }
             }
         }

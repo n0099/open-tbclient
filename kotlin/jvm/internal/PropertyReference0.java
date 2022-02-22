@@ -3,7 +3,7 @@ package kotlin.jvm.internal;
 import kotlin.SinceKotlin;
 import kotlin.reflect.KCallable;
 import kotlin.reflect.KProperty0;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class PropertyReference0 extends PropertyReference implements KProperty0 {
     public PropertyReference0() {
     }

@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AsyncChatTask implements IUploadTransferListener, IGenBosObjectUrlListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FORMAT_AAC = 2;

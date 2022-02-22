@@ -23,36 +23,36 @@ import com.kwad.sdk.reward.widget.AppScoreView;
 import com.kwad.sdk.widget.KsLogoView;
 import com.kwad.sdk.widget.d;
 import com.kwad.sdk.widget.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ActionBarLandscapeVertical extends FrameLayout implements d {
     public ViewGroup a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f57687b;
+    public ViewGroup f57854b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f57688c;
+    public ImageView f57855c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AppScoreView f57689d;
+    public AppScoreView f57856d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f57690e;
+    public TextView f57857e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f57691f;
+    public View f57858f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f57692g;
+    public ViewGroup f57859g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f57693h;
+    public TextView f57860h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f57694i;
+    public TextView f57861i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f57695j;
+    public TextView f57862j;
     public TextProgressBar k;
     public View l;
     public KsLogoView m;
@@ -62,7 +62,7 @@ public class ActionBarLandscapeVertical extends FrameLayout implements d {
     public b q;
     public KsAppDownloadListener r;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(boolean z);
     }
@@ -85,15 +85,15 @@ public class ActionBarLandscapeVertical extends FrameLayout implements d {
     private void a(Context context) {
         FrameLayout.inflate(context, R.layout.ksad_video_actionbar_landscape_vertical, this);
         this.a = (ViewGroup) findViewById(R.id.ksad_top_container);
-        this.f57687b = (ViewGroup) findViewById(R.id.ksad_top_outer);
-        this.f57688c = (ImageView) findViewById(R.id.ksad_app_icon);
-        this.f57689d = (AppScoreView) findViewById(R.id.ksad_app_score);
-        this.f57690e = (TextView) findViewById(R.id.ksad_app_download_count);
-        this.f57691f = findViewById(R.id.ksad_video_place_holder);
-        this.f57692g = (ViewGroup) findViewById(R.id.ksad_bottom_container);
-        this.f57693h = (TextView) findViewById(R.id.ksad_app_name);
-        this.f57694i = (TextView) findViewById(R.id.ksad_product_name);
-        this.f57695j = (TextView) findViewById(R.id.ksad_app_desc);
+        this.f57854b = (ViewGroup) findViewById(R.id.ksad_top_outer);
+        this.f57855c = (ImageView) findViewById(R.id.ksad_app_icon);
+        this.f57856d = (AppScoreView) findViewById(R.id.ksad_app_score);
+        this.f57857e = (TextView) findViewById(R.id.ksad_app_download_count);
+        this.f57858f = findViewById(R.id.ksad_video_place_holder);
+        this.f57859g = (ViewGroup) findViewById(R.id.ksad_bottom_container);
+        this.f57860h = (TextView) findViewById(R.id.ksad_app_name);
+        this.f57861i = (TextView) findViewById(R.id.ksad_product_name);
+        this.f57862j = (TextView) findViewById(R.id.ksad_app_desc);
         TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.ksad_app_download_btn);
         this.k = textProgressBar;
         textProgressBar.setTextDimen(com.kwad.sdk.a.kwai.a.a(getContext(), 16.0f));
@@ -148,7 +148,7 @@ public class ActionBarLandscapeVertical extends FrameLayout implements d {
     }
 
     public void a(View view, final boolean z) {
-        com.kwad.sdk.core.download.a.a.a(new a.C2106a(view.getContext()).a(this.n).a(this.q).a(view == this.k).a(view == this.l ? 1 : 2).a(new a.b() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarLandscapeVertical.2
+        com.kwad.sdk.core.download.a.a.a(new a.C2116a(view.getContext()).a(this.n).a(this.q).a(view == this.k).a(view == this.l ? 1 : 2).a(new a.b() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarLandscapeVertical.2
             @Override // com.kwad.sdk.core.download.a.a.b
             public void a() {
                 if (ActionBarLandscapeVertical.this.p != null) {
@@ -165,47 +165,47 @@ public class ActionBarLandscapeVertical extends FrameLayout implements d {
         this.o = com.kwad.sdk.core.response.a.d.j(adTemplate);
         this.m.a(adTemplate);
         if (com.kwad.sdk.core.response.a.a.B(this.o)) {
-            this.f57694i.setVisibility(8);
+            this.f57861i.setVisibility(8);
             this.a.setVisibility(0);
             new f(this.a, this);
-            textView = this.f57693h;
+            textView = this.f57860h;
             str = com.kwad.sdk.core.response.a.a.t(this.o);
         } else {
-            this.f57694i.setVisibility(0);
+            this.f57861i.setVisibility(0);
             this.a.setVisibility(8);
-            new f(this.f57687b, this);
-            textView = this.f57694i;
+            new f(this.f57854b, this);
+            textView = this.f57861i;
             str = this.o.adBaseInfo.productName;
         }
         textView.setText(str);
         this.p = aVar;
         this.q = bVar;
-        KSImageLoader.loadAppIcon(this.f57688c, com.kwad.sdk.core.response.a.a.au(this.o), adTemplate, 16);
+        KSImageLoader.loadAppIcon(this.f57855c, com.kwad.sdk.core.response.a.a.au(this.o), adTemplate, 16);
         float x = com.kwad.sdk.core.response.a.a.x(this.o);
         if (x >= 3.0f) {
-            this.f57689d.setScore(x);
-            this.f57689d.setVisibility(0);
+            this.f57856d.setScore(x);
+            this.f57856d.setVisibility(0);
         } else {
-            this.f57689d.setVisibility(8);
+            this.f57856d.setVisibility(8);
         }
         String w = com.kwad.sdk.core.response.a.a.w(this.o);
         if (!TextUtils.isEmpty(w)) {
-            this.f57690e.setText(w);
-            this.f57690e.setVisibility(0);
+            this.f57857e.setText(w);
+            this.f57857e.setVisibility(0);
         } else {
-            this.f57690e.setVisibility(8);
+            this.f57857e.setVisibility(8);
         }
-        ViewGroup.LayoutParams layoutParams = this.f57691f.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.f57858f.getLayoutParams();
         layoutParams.width = i2;
-        this.f57691f.setLayoutParams(layoutParams);
-        this.f57695j.setText(com.kwad.sdk.core.response.a.a.s(this.o));
+        this.f57858f.setLayoutParams(layoutParams);
+        this.f57862j.setText(com.kwad.sdk.core.response.a.a.s(this.o));
         this.k.a(com.kwad.sdk.core.response.a.a.A(this.o), this.k.getMax());
         this.l.setVisibility(8);
         b bVar2 = this.q;
         if (bVar2 != null) {
             bVar2.a(getAppDownloadListener());
         }
-        new f(this.f57692g, this);
+        new f(this.f57859g, this);
     }
 
     @Override // com.kwad.sdk.widget.d

@@ -23,23 +23,23 @@ public class a<T> {
     public static final String a = "com.sdk.mobile.b.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Boolean f59317b;
+    public static Boolean f59484b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public CallBack<T> f59318c;
+    public CallBack<T> f59485c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f59319d;
+    public Context f59486d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f59320e;
+    public e f59487e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f59321f;
+    public f f59488f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f59322g;
+    public int f59489g;
 
     static {
         InterceptResult invokeClinit;
@@ -54,7 +54,7 @@ public class a<T> {
                 return;
             }
         }
-        f59317b = Boolean.valueOf(com.sdk.base.framework.c.f.f59281b);
+        f59484b = Boolean.valueOf(com.sdk.base.framework.c.f.f59448b);
     }
 
     public a(Context context, int i2, CallBack<T> callBack) {
@@ -72,12 +72,12 @@ public class a<T> {
                 return;
             }
         }
-        this.f59318c = callBack;
-        this.f59319d = context;
+        this.f59485c = callBack;
+        this.f59486d = context;
         i2 = i2 <= 0 ? 30 : i2;
-        this.f59322g = i2;
+        this.f59489g = i2;
         e eVar = new e(this, i2 * 1000);
-        this.f59320e = eVar;
+        this.f59487e = eVar;
         eVar.a();
         com.sdk.base.framework.f.f.a.a();
     }
@@ -90,16 +90,16 @@ public class a<T> {
             if (com.sdk.base.framework.a.a.c.a(a2).booleanValue()) {
                 a2 = com.sdk.base.framework.f.i.a.a(20);
             }
-            e eVar = this.f59320e;
+            e eVar = this.f59487e;
             if (eVar != null) {
                 eVar.b();
             }
-            CallBack<T> callBack = this.f59318c;
+            CallBack<T> callBack = this.f59485c;
             if (callBack != null) {
                 callBack.onFailed(i2, i3, str, a2);
-                this.f59318c = null;
+                this.f59485c = null;
             }
-            com.sdk.base.framework.f.k.a.a(this.f59319d, i3, str, a2, this.f59322g);
+            com.sdk.base.framework.f.k.a.a(this.f59486d, i3, str, a2, this.f59489g);
         }
     }
 
@@ -110,35 +110,35 @@ public class a<T> {
             if (com.sdk.base.framework.a.a.c.a(str2).booleanValue()) {
                 str2 = com.sdk.base.framework.f.i.a.a(20);
             }
-            e eVar = this.f59320e;
+            e eVar = this.f59487e;
             if (eVar != null) {
                 eVar.b();
             }
-            CallBack<T> callBack = this.f59318c;
+            CallBack<T> callBack = this.f59485c;
             if (callBack != null) {
                 callBack.onSuccess(i2, str, i3, t, str2);
-                this.f59318c = null;
+                this.f59485c = null;
             }
-            com.sdk.base.framework.f.k.a.a(this.f59319d, i3, str, str2, this.f59322g);
+            com.sdk.base.framework.f.k.a.a(this.f59486d, i3, str, str2, this.f59489g);
         }
     }
 
     public final void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            String a2 = com.sdk.base.framework.a.a.a.a(this.f59319d, i2, g.a.a());
+            String a2 = com.sdk.base.framework.a.a.a.a(this.f59486d, i2, g.a.a());
             if (com.sdk.base.framework.a.a.c.b(a2).booleanValue()) {
                 a(0, "成功", 100, com.sdk.base.framework.a.a.a.a(a2), com.sdk.base.framework.a.a.a.b(a2));
-            } else if (!com.sdk.base.framework.f.i.b.a(this.f59319d)) {
+            } else if (!com.sdk.base.framework.f.i.b.a(this.f59486d)) {
                 a(1, IMTrack.CrashBuilder.CRASH_TYPE_CATCH, "操作频繁请,稍后再试");
             } else {
                 new com.sdk.mobile.a.a();
-                com.sdk.mobile.c.a aVar = new com.sdk.mobile.c.a(this.f59319d, new b(this, i2));
+                com.sdk.mobile.c.a aVar = new com.sdk.mobile.c.a(this.f59486d, new b(this, i2));
                 DataInfo dataInfo = new DataInfo();
                 dataInfo.putData(LightInvokerImpl.LIVENESS_SERVIVETYPE, Integer.valueOf(i2));
                 dataInfo.putData("privateIp", com.sdk.base.framework.f.a.a.a());
                 dataInfo.putData("newVersion", "10");
-                this.f59321f = aVar.a(aVar.f59288b, "/dro/netm/v1.0/qc", dataInfo, aVar.a(), 0, j.f59248b);
+                this.f59488f = aVar.a(aVar.f59455b, "/dro/netm/v1.0/qc", dataInfo, aVar.a(), 0, j.f59415b);
             }
         }
     }
@@ -146,18 +146,18 @@ public class a<T> {
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            com.sdk.base.framework.a.a.a.a(this.f59319d);
+            com.sdk.base.framework.a.a.a.a(this.f59486d);
             new com.sdk.mobile.a.a();
-            this.f59321f = com.sdk.mobile.a.a.a(this.f59319d, str, null, new d(this));
+            this.f59488f = com.sdk.mobile.a.a.a(this.f59486d, str, null, new d(this));
         }
     }
 
     public final void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            com.sdk.base.framework.a.a.a.b(this.f59319d);
+            com.sdk.base.framework.a.a.a.b(this.f59486d);
             new com.sdk.mobile.a.a();
-            this.f59321f = com.sdk.mobile.a.a.a(this.f59319d, str, str2, new c(this));
+            this.f59488f = com.sdk.mobile.a.a.a(this.f59486d, str, str2, new c(this));
         }
     }
 }

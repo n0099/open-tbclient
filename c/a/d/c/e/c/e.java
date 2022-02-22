@@ -22,28 +22,28 @@ public class e extends c.a.d.f.r.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public CoderException f2688c;
+    public CoderException f1768c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SocketMessage f2689d;
+    public SocketMessage f1769d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile int f2690e;
+    public volatile int f1770e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Runnable f2691f;
+    public Runnable f1771f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f2692g;
+    public g f1772g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f2693h;
+    public boolean f1773h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f2694i;
+    public int f1774i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f2695j;
+    public int f1775j;
     public long k;
     public SocketMessageTask l;
     public long m;
@@ -55,7 +55,7 @@ public class e extends c.a.d.f.r.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f2696e;
+        public final /* synthetic */ e f1776e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -72,14 +72,14 @@ public class e extends c.a.d.f.r.c {
                     return;
                 }
             }
-            this.f2696e = eVar;
+            this.f1776e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f2696e.A();
+                this.f1776e.A();
             }
         }
     }
@@ -115,19 +115,19 @@ public class e extends c.a.d.f.r.c {
                 return;
             }
         }
-        this.f2689d = null;
-        this.f2690e = 0;
-        this.f2691f = null;
-        this.f2692g = null;
-        this.f2693h = true;
-        this.f2694i = 0;
-        this.f2695j = 0;
+        this.f1769d = null;
+        this.f1770e = 0;
+        this.f1771f = null;
+        this.f1772g = null;
+        this.f1773h = true;
+        this.f1774i = 0;
+        this.f1775j = 0;
         this.k = 0L;
         this.l = null;
         if (socketMessage != null && socketMessageTask != null) {
             this.l = socketMessageTask;
-            this.f2689d = socketMessage;
-            this.f2692g = gVar;
+            this.f1769d = socketMessage;
+            this.f1772g = gVar;
             return;
         }
         throw new InvalidParameterException("SenderData msg null");
@@ -136,7 +136,7 @@ public class e extends c.a.d.f.r.c {
     public final void A() {
         g gVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (gVar = this.f2692g) != null && this.f2693h) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (gVar = this.f1772g) != null && this.f1773h) {
             gVar.B(this);
         }
     }
@@ -157,10 +157,10 @@ public class e extends c.a.d.f.r.c {
             if (this.k == 0) {
                 this.k = System.currentTimeMillis();
             }
-            int cmd = this.f2689d.getCmd();
+            int cmd = this.f1769d.getCmd();
             int length = e() != null ? e().length : 0;
-            long clientLogID = this.f2689d.getClientLogID();
-            int i2 = this.f2690e;
+            long clientLogID = this.f1769d.getClientLogID();
+            int i2 = this.f1770e;
             i.b("SenderData", cmd, clientLogID, i2, "StartSend", 0, "SenderData: start send size = " + length);
             o.removeCallbacks(u());
             if (this.l.getTimeOut() != null) {
@@ -175,15 +175,15 @@ public class e extends c.a.d.f.r.c {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int cmd = this.f2689d.getCmd();
+            int cmd = this.f1769d.getCmd();
             if (e() != null) {
                 i2 = e().length;
-                this.f2689d.setEncodedBinarySize(i2);
+                this.f1769d.setEncodedBinarySize(i2);
             } else {
                 i2 = 0;
             }
-            long clientLogID = this.f2689d.getClientLogID();
-            int i3 = this.f2690e;
+            long clientLogID = this.f1769d.getClientLogID();
+            int i3 = this.f1770e;
             i.b("SenderData", cmd, clientLogID, i3, "FinishSend", 0, "SenderData: finish send  size = " + i2);
             if (!this.l.b()) {
                 o.removeCallbacks(u());
@@ -200,26 +200,26 @@ public class e extends c.a.d.f.r.c {
             if (this.k == 0) {
                 this.k = System.currentTimeMillis();
             }
-            this.f2688c = null;
+            this.f1768c = null;
             c.a.d.c.e.c.j.b f2 = c.a.d.c.e.c.j.b.f();
-            this.f2690e = f.a().b();
-            SocketMessage socketMessage = this.f2689d;
+            this.f1770e = f.a().b();
+            SocketMessage socketMessage = this.f1769d;
             if (socketMessage != null) {
-                socketMessage.setSquencedId(this.f2690e);
+                socketMessage.setSquencedId(this.f1770e);
                 BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
-                SocketMessage socketMessage2 = this.f2689d;
+                SocketMessage socketMessage2 = this.f1769d;
                 long clientLogID = socketMessage2 == null ? -1L : socketMessage2.getClientLogID();
-                String valueOf = String.valueOf(this.f2690e & 4294967295L);
+                String valueOf = String.valueOf(this.f1770e & 4294967295L);
                 Object[] objArr = new Object[2];
                 objArr[0] = "cmd";
-                SocketMessage socketMessage3 = this.f2689d;
+                SocketMessage socketMessage3 = this.f1769d;
                 objArr[1] = Integer.valueOf(socketMessage3 == null ? -1 : socketMessage3.getCmd());
                 bdStatisticsManager.newDebug("seqid", clientLogID, valueOf, objArr);
             }
             try {
-                return f2.e(this.f2689d, this.f2690e, this.l.c(), this.l.getNeedEncrypt());
+                return f2.e(this.f1769d, this.f1770e, this.l.c(), this.l.getNeedEncrypt());
             } catch (CoderException e2) {
-                this.f2688c = e2;
+                this.f1768c = e2;
                 return null;
             }
         }
@@ -230,8 +230,8 @@ public class e extends c.a.d.f.r.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i2 = this.f2695j + 1;
-            this.f2695j = i2;
+            int i2 = this.f1775j + 1;
+            this.f1775j = i2;
             return i2;
         }
         return invokeV.intValue;
@@ -241,8 +241,8 @@ public class e extends c.a.d.f.r.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int i2 = this.f2694i + 1;
-            this.f2694i = i2;
+            int i2 = this.f1774i + 1;
+            this.f1774i = i2;
             return i2;
         }
         return invokeV.intValue;
@@ -265,7 +265,7 @@ public class e extends c.a.d.f.r.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            SocketMessage socketMessage = this.f2689d;
+            SocketMessage socketMessage = this.f1769d;
             if (socketMessage != null) {
                 return socketMessage.getCmd();
             }
@@ -290,7 +290,7 @@ public class e extends c.a.d.f.r.c {
     public SocketMessage m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f2689d : (SocketMessage) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f1769d : (SocketMessage) invokeV.objValue;
     }
 
     public int n() {
@@ -302,25 +302,25 @@ public class e extends c.a.d.f.r.c {
     public int o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f2695j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f1775j : invokeV.intValue;
     }
 
     public int p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f2694i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f1774i : invokeV.intValue;
     }
 
     public int q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f2690e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f1770e : invokeV.intValue;
     }
 
     public CoderException r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f2688c : (CoderException) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f1768c : (CoderException) invokeV.objValue;
     }
 
     public long s() {
@@ -339,10 +339,10 @@ public class e extends c.a.d.f.r.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            if (this.f2691f == null) {
-                this.f2691f = new a(this);
+            if (this.f1771f == null) {
+                this.f1771f = new a(this);
             }
-            return this.f2691f;
+            return this.f1771f;
         }
         return (Runnable) invokeV.objValue;
     }
@@ -357,14 +357,14 @@ public class e extends c.a.d.f.r.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             j();
-            this.f2693h = false;
+            this.f1773h = false;
         }
     }
 
     public final void x(int i2) {
         g gVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048598, this, i2) == null) && (gVar = this.f2692g) != null && this.f2693h) {
+        if ((interceptable == null || interceptable.invokeI(1048598, this, i2) == null) && (gVar = this.f1772g) != null && this.f1773h) {
             gVar.y(i2, this);
         }
     }
@@ -372,7 +372,7 @@ public class e extends c.a.d.f.r.c {
     public final void y() {
         g gVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && (gVar = this.f2692g) != null && this.f2693h) {
+        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && (gVar = this.f1772g) != null && this.f1773h) {
             gVar.z(this);
         }
     }
@@ -380,7 +380,7 @@ public class e extends c.a.d.f.r.c {
     public final void z() {
         g gVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && (gVar = this.f2692g) != null && this.f2693h) {
+        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && (gVar = this.f1772g) != null && this.f1773h) {
             gVar.A(this);
         }
     }

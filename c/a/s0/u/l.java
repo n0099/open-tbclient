@@ -1,63 +1,57 @@
 package c.a.s0.u;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Context;
+import java.util.concurrent.ExecutorService;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class l {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+public interface l {
+    String a();
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f14287b;
+    String b();
 
-    public l() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    boolean c(String str);
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14287b : (String) invokeV.objValue;
-    }
+    ExecutorService d();
 
-    public TbPageContext b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (TbPageContext) invokeV.objValue;
-    }
+    void e(String str, int i2, JSONArray jSONArray);
 
-    public l(TbPageContext tbPageContext, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = tbPageContext;
-        this.f14287b = str;
-    }
+    void f(String str, int i2);
+
+    void g(String str, String str2, int i2, String str3, int i3);
+
+    String getAppId();
+
+    String getAppVersion();
+
+    String getDeviceId(Context context);
+
+    String h();
+
+    void i(String str, int i2, String str2);
+
+    boolean j();
+
+    String k();
+
+    int l();
+
+    m m();
+
+    String n();
+
+    void o(String str, String str2, int i2, String str3, long j2, int i3);
+
+    String p(Context context);
+
+    boolean q();
+
+    boolean r();
+
+    boolean s();
+
+    String t();
+
+    String u();
+
+    String v(Context context);
 }

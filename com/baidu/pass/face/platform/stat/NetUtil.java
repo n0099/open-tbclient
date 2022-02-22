@@ -27,14 +27,14 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 import org.json.JSONException;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class NetUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final HostnameVerifier DO_NOT_VERIFY;
     public static final String TAG = "NetUtil";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static abstract class RequestAdapter<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CONNECT_TIMEOUT = 5000;

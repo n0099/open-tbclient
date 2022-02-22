@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.nio.ByteBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface GifDecoder {
     public static final int STATUS_FORMAT_ERROR = 1;
     public static final int STATUS_OK = 0;
@@ -15,7 +15,7 @@ public interface GifDecoder {
     public static final int STATUS_PARTIAL_DECODE = 3;
     public static final int TOTAL_ITERATION_COUNT_FOREVER = 0;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface BitmapProvider {
         @NonNull
         Bitmap obtain(int i2, int i3, @NonNull Bitmap.Config config);
@@ -34,7 +34,7 @@ public interface GifDecoder {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public @interface GifDecodeStatus {
     }
 

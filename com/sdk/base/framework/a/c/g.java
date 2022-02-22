@@ -44,12 +44,12 @@ public final class g extends Handler {
                 if (i2 != 2) {
                     return;
                 }
-                fVar.a.a((Object[]) fVar.f59212b);
+                fVar.a.a((Object[]) fVar.f59379b);
                 return;
             }
             c cVar = fVar.a;
-            Object obj = fVar.f59212b[0];
-            cVar.f59208f.get();
+            Object obj = fVar.f59379b[0];
+            cVar.f59375f.get();
         }
     }
 }

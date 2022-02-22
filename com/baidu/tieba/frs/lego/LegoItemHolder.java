@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.lego;
 
 import android.view.View;
-import c.a.t0.y1.o.l.e;
+import c.a.u0.z1.o.l.e;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

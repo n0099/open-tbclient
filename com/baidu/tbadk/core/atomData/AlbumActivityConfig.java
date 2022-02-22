@@ -38,6 +38,7 @@ public class AlbumActivityConfig extends IntentConfig {
     public static final int FROM_TOPIC_DETAIL_REPLAY = 4;
     public static final int FROM_VOTE = 3;
     public static final String FROM_WEB_VIEW = "webview";
+    public static final int FROM_WEB_VIEW_ALBUM = 6;
     public static final int FROM_WEB_VIEW_HYBRID = 5;
     public static final String FROM_WRITE = "write";
     public static final int FROM_WRITE_ACTIVITY = 3;

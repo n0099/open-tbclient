@@ -13,7 +13,7 @@ public class bh extends ba {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static bh f36562b;
+    public static bh f36768b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,7 +29,7 @@ public class bh extends ba {
                 return;
             }
         }
-        f36562b = new bh();
+        f36768b = new bh();
     }
 
     public bh() {
@@ -49,7 +49,7 @@ public class bh extends ba {
     public static bh c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f36562b : (bh) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f36768b : (bh) invokeV.objValue;
     }
 
     @Override // com.baidu.mobstat.ba

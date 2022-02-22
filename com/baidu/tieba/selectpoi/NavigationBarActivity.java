@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
+import c.a.u0.a4.g;
+import c.a.u0.a4.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -14,13 +16,12 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,13 +31,13 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     public NoNetworkView noNetWorkView;
     public RelativeLayout rootView;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NavigationBarActivity f47779e;
+        public final /* synthetic */ NavigationBarActivity f47925e;
 
         public a(NavigationBarActivity navigationBarActivity) {
             Interceptable interceptable = $ic;
@@ -53,14 +54,14 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
                     return;
                 }
             }
-            this.f47779e = navigationBarActivity;
+            this.f47925e = navigationBarActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f47779e.finish();
+                this.f47925e.finish();
             }
         }
     }
@@ -133,12 +134,12 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            super.setContentView(R.layout.nevigationbar_layout);
-            this.navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
-            this.rootView = (RelativeLayout) findViewById(R.id.navigation_bar_root);
+            super.setContentView(h.nevigationbar_layout);
+            this.navigationBar = (NavigationBar) findViewById(g.navigation_bar);
+            this.rootView = (RelativeLayout) findViewById(g.navigation_bar_root);
             this.navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
             if (needNoNetWorkView()) {
-                this.noNetWorkView = (NoNetworkView) ((ViewStub) findViewById(R.id.no_network_viewstub)).inflate();
+                this.noNetWorkView = (NoNetworkView) ((ViewStub) findViewById(g.no_network_viewstub)).inflate();
             }
         }
     }
@@ -173,9 +174,9 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             if (needNoNetWorkView()) {
-                layoutParams.addRule(3, R.id.no_network_view);
+                layoutParams.addRule(3, g.no_network_view);
             } else {
-                layoutParams.addRule(3, R.id.no_network_viewstub);
+                layoutParams.addRule(3, g.no_network_viewstub);
             }
             RelativeLayout relativeLayout = new RelativeLayout(getPageContext().getContext());
             this.contentRootView = relativeLayout;

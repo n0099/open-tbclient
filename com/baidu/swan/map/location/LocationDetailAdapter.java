@@ -6,9 +6,9 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.r0.m.g;
-import c.a.r0.m.p.b;
-import c.a.r0.m.p.c;
+import c.a.s0.m.g;
+import c.a.s0.m.p.b;
+import c.a.s0.m.p.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,19 +23,19 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RecyclerView f39908b;
+    public RecyclerView f40136b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<c> f39909c;
+    public List<c> f40137c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f39910d;
+    public b f40138d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f39911e;
+    public boolean f40139e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f39912f;
+    public String f40140f;
 
     public LocationDetailAdapter(Context context, RecyclerView recyclerView, b bVar, boolean z) {
         Interceptable interceptable = $ic;
@@ -52,23 +52,23 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                 return;
             }
         }
-        this.f39908b = recyclerView;
+        this.f40136b = recyclerView;
         this.a = context;
-        this.f39910d = bVar;
-        this.f39911e = z;
+        this.f40138d = bVar;
+        this.f40139e = z;
     }
 
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.f39912f) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.f40140f) : invokeV.booleanValue;
     }
 
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            RecyclerView recyclerView = this.f39908b;
+            RecyclerView recyclerView = this.f40136b;
             return recyclerView != null && recyclerView.computeVerticalScrollOffset() > 0;
         }
         return invokeV.booleanValue;
@@ -79,11 +79,11 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<c> list = this.f39909c;
+            List<c> list = this.f40137c;
             if (list == null) {
                 return 0;
             }
-            return list.size() + (this.f39911e ? 1 : 0);
+            return list.size() + (this.f40139e ? 1 : 0);
         }
         return invokeV.intValue;
     }
@@ -92,7 +92,7 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     public int getItemViewType(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? (!this.f39911e || i2 < getItemCount() + (-1)) ? 100 : 101 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? (!this.f40139e || i2 < getItemCount() + (-1)) ? 100 : 101 : invokeI.intValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -100,7 +100,7 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, viewHolder, i2) == null) {
             if (viewHolder.getItemViewType() != 101) {
-                ((LocationDetailViewHolder) viewHolder).update(this.f39909c.get(i2), this.f39912f, b());
+                ((LocationDetailViewHolder) viewHolder).update(this.f40137c.get(i2), this.f40140f, b());
             } else {
                 ((LocationFooterViewHolder) viewHolder).setVisibility(c());
             }
@@ -113,7 +113,7 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i2)) == null) {
             if (i2 != 101) {
-                return new LocationDetailViewHolder(LayoutInflater.from(this.a).inflate(g.ai_apps_location_item, viewGroup, false), this, this.f39910d);
+                return new LocationDetailViewHolder(LayoutInflater.from(this.a).inflate(g.ai_apps_location_item, viewGroup, false), this, this.f40138d);
             }
             return new LocationFooterViewHolder(LayoutInflater.from(this.a).inflate(g.ai_apps_location_footer, viewGroup, false));
         }
@@ -123,8 +123,8 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     public void resetSelectStatus() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            for (c cVar : this.f39909c) {
-                cVar.f11533b = false;
+            for (c cVar : this.f40137c) {
+                cVar.f11633b = false;
             }
         }
     }
@@ -141,8 +141,8 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list, str) == null) || list == null) {
             return;
         }
-        this.f39909c = list;
-        this.f39912f = str;
+        this.f40137c = list;
+        this.f40140f = str;
         notifyDataSetChanged();
     }
 

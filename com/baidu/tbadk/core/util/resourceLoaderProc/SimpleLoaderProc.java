@@ -6,11 +6,11 @@ import c.a.d.f.a.d;
 import c.a.d.f.a.f.c;
 import c.a.d.f.l.b;
 import c.a.d.f.p.n;
+import c.a.u0.a4.e;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TbMd5;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -63,11 +63,11 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
             this.mSuggestWidth = min;
             this.mSuggestHeight = (int) (min * 1.6f);
         } else if (i2 == 15) {
-            int dimensionPixelSize = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(R.dimen.ds184);
+            int dimensionPixelSize = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(e.ds184);
             this.mSuggestHeight = dimensionPixelSize;
             this.mSuggestWidth = dimensionPixelSize;
         } else if (i2 == 16) {
-            int dimensionPixelSize2 = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(R.dimen.ds176);
+            int dimensionPixelSize2 = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(e.ds176);
             this.mSuggestHeight = dimensionPixelSize2;
             this.mSuggestWidth = dimensionPixelSize2;
         } else if (i2 == 21) {

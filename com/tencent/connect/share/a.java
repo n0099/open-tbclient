@@ -116,10 +116,10 @@ public class a {
                     public final /* synthetic */ String a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Handler f60499b;
+                    public final /* synthetic */ Handler f60666b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ Context f60500c;
+                    public final /* synthetic */ Context f60667c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -137,8 +137,8 @@ public class a {
                             }
                         }
                         this.a = str;
-                        this.f60499b = r7;
-                        this.f60500c = context;
+                        this.f60666b = r7;
+                        this.f60667c = context;
                     }
 
                     @Override // java.lang.Runnable
@@ -159,9 +159,9 @@ public class a {
                                         File d2 = f.d();
                                         if (d2 == null) {
                                             SLog.i("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage() getCacheDir = null,return error");
-                                            Message obtainMessage = this.f60499b.obtainMessage();
+                                            Message obtainMessage = this.f60666b.obtainMessage();
                                             obtainMessage.arg1 = 102;
-                                            this.f60499b.sendMessage(obtainMessage);
+                                            this.f60666b.sendMessage(obtainMessage);
                                             return;
                                         }
                                         String absolutePath = d2.getAbsolutePath();
@@ -188,7 +188,7 @@ public class a {
                                         str4 = str7;
                                     } else if (TextUtils.isEmpty(str2)) {
                                         String str8 = str3 + str6;
-                                        boolean a4 = l.a(this.f60500c, str7, str8);
+                                        boolean a4 = l.a(this.f60667c, str7, str8);
                                         SLog.i("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage() sd permission not denied. copy to app sepcific:" + str8 + ",isSuccess=" + a4);
                                         if (a4) {
                                             str4 = str8;
@@ -198,9 +198,9 @@ public class a {
                                     arrayList.add(str4);
                                     if (arrayList.size() >= 2 && (arrayList.get(0) != null || arrayList.get(1) != null)) {
                                         SLog.i("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage() return success ! destFilePath=[" + ((String) arrayList.get(0)) + "," + ((String) arrayList.get(1)) + PreferencesUtil.RIGHT_MOUNT);
-                                        Message obtainMessage2 = this.f60499b.obtainMessage(101);
+                                        Message obtainMessage2 = this.f60666b.obtainMessage(101);
                                         obtainMessage2.obj = arrayList;
-                                        this.f60499b.sendMessage(obtainMessage2);
+                                        this.f60666b.sendMessage(obtainMessage2);
                                         return;
                                     }
                                 }
@@ -208,9 +208,9 @@ public class a {
                                 SLog.e("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage runnable exception e:", e2);
                             }
                             SLog.d("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage() return failed!");
-                            Message obtainMessage3 = this.f60499b.obtainMessage(102);
+                            Message obtainMessage3 = this.f60666b.obtainMessage(102);
                             obtainMessage3.arg1 = 3;
-                            this.f60499b.sendMessage(obtainMessage3);
+                            this.f60666b.sendMessage(obtainMessage3);
                         }
                     }
                 }).start();

@@ -30,13 +30,13 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f44944b;
+        public int f45086b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f44945c;
+        public String f45087c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f44946d;
+        public int f45088d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -102,9 +102,9 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
                         Date date = new Date();
                         date.setTime(msgInfo.sendTime.longValue() * 1000);
                         aVar.a = m.getDateStringMouth(date);
-                        aVar.f44944b = msgInfo.type.intValue();
-                        aVar.f44945c = msgInfo.content;
-                        aVar.f44946d = msgInfo.id.intValue();
+                        aVar.f45086b = msgInfo.type.intValue();
+                        aVar.f45087c = msgInfo.content;
+                        aVar.f45088d = msgInfo.id.intValue();
                         this.msg.add(aVar);
                     }
                 }
@@ -112,8 +112,8 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
             if (this.msg.isEmpty()) {
                 return;
             }
-            c.a.s0.s.r.a.f();
-            l<byte[]> d2 = c.a.s0.s.r.a.d("tb.im_official_history");
+            c.a.t0.s.s.a.f();
+            l<byte[]> d2 = c.a.t0.s.s.a.d("tb.im_official_history");
             RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) getOrginalMessage();
             if (requestHistoryMessage == null || requestHistoryMessage.getRequestId() != 0) {
                 return;

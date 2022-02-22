@@ -15,13 +15,13 @@ public class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4601b;
+    public String f4592b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f4602c;
+    public String f4593c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f4603d;
+    public String f4594d;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class c {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4603d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4594d : (String) invokeV.objValue;
     }
 
     public final void b() {
@@ -56,20 +56,20 @@ public class c {
                 this.a = this.a.replace("_", "-");
             }
             String str2 = Build.MANUFACTURER;
-            this.f4601b = str2;
+            this.f4592b = str2;
             if (TextUtils.isEmpty(str2)) {
-                this.f4601b = "NUL";
+                this.f4592b = "NUL";
             } else {
-                this.f4601b = this.f4601b.replace("_", "-");
+                this.f4592b = this.f4592b.replace("_", "-");
             }
             String str3 = Build.VERSION.RELEASE;
-            this.f4602c = str3;
+            this.f4593c = str3;
             if (TextUtils.isEmpty(str3)) {
-                this.f4602c = "0.0";
+                this.f4593c = "0.0";
             } else {
-                this.f4602c = this.f4602c.replace("_", "-");
+                this.f4593c = this.f4593c.replace("_", "-");
             }
-            this.f4603d = c();
+            this.f4594d = c();
         }
     }
 
@@ -78,9 +78,9 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             String str = this.a;
-            String str2 = this.f4602c;
+            String str2 = this.f4593c;
             int i2 = Build.VERSION.SDK_INT;
-            String str3 = this.f4601b;
+            String str3 = this.f4592b;
             return str + "_" + str2 + "_" + i2 + "_" + str3;
         }
         return (String) invokeV.objValue;

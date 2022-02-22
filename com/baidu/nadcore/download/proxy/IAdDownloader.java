@@ -1,6 +1,6 @@
 package com.baidu.nadcore.download.proxy;
 
-import c.a.c0.j.g.c;
+import c.a.d0.j.g.c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

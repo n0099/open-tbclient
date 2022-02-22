@@ -2,8 +2,8 @@ package com.baidu.tieba.setting.more;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import c.a.t0.n3.d;
-import c.a.t0.n3.h;
+import c.a.u0.o3.d;
+import c.a.u0.o3.h;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public final class SettingTextVersionView extends TbSettingTextTipView {
     public static /* synthetic */ Interceptable $ic = null;
     public static String HAS_SHOWN_FUNCTION_INTRO = "has_shown_funtion_intro";

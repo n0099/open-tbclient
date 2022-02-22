@@ -8,18 +8,18 @@ public class c implements b {
     public final InputStream a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.ss.android.socialbase.downloader.f.a f60042b;
+    public final com.ss.android.socialbase.downloader.f.a f60209b;
 
     public c(InputStream inputStream, int i2) {
         this.a = inputStream;
-        this.f60042b = new com.ss.android.socialbase.downloader.f.a(i2);
+        this.f60209b = new com.ss.android.socialbase.downloader.f.a(i2);
     }
 
     @Override // com.ss.android.socialbase.downloader.e.b
     public com.ss.android.socialbase.downloader.f.a a() throws IOException {
-        com.ss.android.socialbase.downloader.f.a aVar = this.f60042b;
-        aVar.f60047c = this.a.read(aVar.a);
-        return this.f60042b;
+        com.ss.android.socialbase.downloader.f.a aVar = this.f60209b;
+        aVar.f60214c = this.a.read(aVar.a);
+        return this.f60209b;
     }
 
     @Override // com.ss.android.socialbase.downloader.e.b

@@ -54,7 +54,7 @@ public final class SClient$sendHandShake$ok$1$1 extends Lambda implements Functi
             Continuation<Boolean> continuation = this.$it;
             Boolean valueOf = Boolean.valueOf(z);
             Result.Companion companion = Result.Companion;
-            continuation.resumeWith(Result.m714constructorimpl(valueOf));
+            continuation.resumeWith(Result.m713constructorimpl(valueOf));
         }
     }
 }

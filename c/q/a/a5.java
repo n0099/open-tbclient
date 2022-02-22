@@ -24,31 +24,31 @@ public class a5 {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30298b;
+    public String f30504b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c4 f30299c;
+    public c4 f30505c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f30300d;
+    public boolean f30506d;
 
     /* renamed from: e  reason: collision with root package name */
-    public L f30301e;
+    public L f30507e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30302f;
+    public int f30508f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e5 f30303g;
+    public e5 f30509g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f30304h;
+    public boolean f30510h;
 
     /* renamed from: i  reason: collision with root package name */
-    public t5 f30305i;
+    public t5 f30511i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Handler f30306j;
+    public Handler f30512j;
 
     public a5(Context context, String str, L l) {
         Interceptable interceptable = $ic;
@@ -65,14 +65,14 @@ public class a5 {
                 return;
             }
         }
-        this.f30300d = false;
-        this.f30302f = 5;
-        this.f30306j = new g4(this, Looper.getMainLooper());
+        this.f30506d = false;
+        this.f30508f = 5;
+        this.f30512j = new g4(this, Looper.getMainLooper());
         this.a = context;
-        this.f30298b = str;
-        this.f30301e = l;
-        this.f30299c = new c4();
-        this.f30302f = m2.L(context);
+        this.f30504b = str;
+        this.f30507e = l;
+        this.f30505c = new c4();
+        this.f30508f = m2.L(context);
     }
 
     public static /* synthetic */ int h() {
@@ -89,17 +89,17 @@ public class a5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                if (this.f30305i != null) {
-                    this.f30305i.f30495d = null;
+                if (this.f30511i != null) {
+                    this.f30511i.f30701d = null;
                 }
-                if (this.f30306j != null) {
-                    this.f30306j.removeCallbacksAndMessages(null);
+                if (this.f30512j != null) {
+                    this.f30512j.removeCallbacksAndMessages(null);
                 }
-                if (this.f30299c != null) {
-                    this.f30299c.a();
+                if (this.f30505c != null) {
+                    this.f30505c.a();
                 }
-                if (this.f30303g != null) {
-                    this.f30303g = null;
+                if (this.f30509g != null) {
+                    this.f30509g = null;
                 }
             } catch (Exception unused) {
             }
@@ -116,26 +116,26 @@ public class a5 {
             if (list == null || list.size() <= 0) {
                 return;
             }
-            this.f30299c.b(j0Var.a);
+            this.f30505c.b(j0Var.a);
         } catch (Exception unused) {
         }
     }
 
     public final void d(PBError pBError) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, pBError) == null) || this.f30304h) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, pBError) == null) || this.f30510h) {
             return;
         }
-        this.f30304h = true;
+        this.f30510h = true;
         w2.a.post(new o4(this, pBError));
     }
 
     public final void e(Info info) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, info) == null) || this.f30304h) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, info) == null) || this.f30510h) {
             return;
         }
-        this.f30304h = true;
+        this.f30510h = true;
         w2.a.post(new s4(this, info));
     }
 
@@ -145,9 +145,9 @@ public class a5 {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             w2.a.post(new w4(this));
             boolean z = false;
-            this.f30304h = false;
+            this.f30510h = false;
             Context context = this.a;
-            String str = this.f30298b;
+            String str = this.f30504b;
             String F = m2.F(context);
             if (!TextUtils.isEmpty(F)) {
                 try {
@@ -171,10 +171,10 @@ public class a5 {
             }
             if (!z) {
                 y2 a = c3.a(this.a);
-                String str2 = this.f30298b;
+                String str2 = this.f30504b;
                 try {
                     object = new JSONStringer().object();
-                    a.f30557b = object;
+                    a.f30763b = object;
                     a.l("e", "Ld");
                     a.l("pid", str2);
                     a.l("timeis", c3.e());
@@ -184,34 +184,34 @@ public class a5 {
                 d(PBError.PID_INVALID);
                 return;
             }
-            Info c2 = this.f30299c.c();
+            Info c2 = this.f30505c.c();
             if (c2 == null) {
-                if (this.f30300d) {
+                if (this.f30506d) {
                     d(PBError.LOAD_TOO_FREQUENTLY);
                     return;
                 }
-                this.f30300d = true;
+                this.f30506d = true;
                 t5 t5Var = new t5(this.a);
-                t5Var.f30493b = this.f30298b;
+                t5Var.f30699b = this.f30504b;
                 t5Var.a(new k4(this));
-                this.f30305i = t5Var;
-                L l = this.f30301e;
+                this.f30511i = t5Var;
+                L l = this.f30507e;
                 if (l == L.a) {
                     t5Var.c();
                     return;
-                } else if (l == L.f60840b) {
+                } else if (l == L.f61007b) {
                     t5Var.e();
                     return;
-                } else if (l == L.f60841c) {
+                } else if (l == L.f61008c) {
                     t5Var.f();
                     return;
-                } else if (l == L.f60842d) {
+                } else if (l == L.f61009d) {
                     t5Var.h();
                     return;
-                } else if (l == L.f60843e) {
+                } else if (l == L.f61010e) {
                     t5Var.g();
                     return;
-                } else if (l == L.f60844f) {
+                } else if (l == L.f61011f) {
                     t5Var.d();
                     return;
                 } else {

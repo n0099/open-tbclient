@@ -16,7 +16,7 @@ public final class SubscriberCompletableObserver<T> implements CompletableObserv
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public Disposable f62162d;
+    public Disposable f62329d;
     public final Subscriber<? super T> subscriber;
 
     public SubscriberCompletableObserver(Subscriber<? super T> subscriber) {
@@ -41,7 +41,7 @@ public final class SubscriberCompletableObserver<T> implements CompletableObserv
     public void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f62162d.dispose();
+            this.f62329d.dispose();
         }
     }
 
@@ -64,8 +64,8 @@ public final class SubscriberCompletableObserver<T> implements CompletableObserv
     @Override // io.reactivex.CompletableObserver
     public void onSubscribe(Disposable disposable) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.f62162d, disposable)) {
-            this.f62162d = disposable;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.f62329d, disposable)) {
+            this.f62329d = disposable;
             this.subscriber.onSubscribe(this);
         }
     }

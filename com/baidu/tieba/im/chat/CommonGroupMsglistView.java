@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes12.dex */
 public class CommonGroupMsglistView extends AbsMsglistView {
     public static /* synthetic */ Interceptable $ic;
@@ -33,7 +34,7 @@ public class CommonGroupMsglistView extends AbsMsglistView {
     }
 
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
-    public boolean isPersonal() {
+    public boolean isFromReport() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -43,9 +44,29 @@ public class CommonGroupMsglistView extends AbsMsglistView {
     }
 
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
+    public boolean isPersonal() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.im.chat.AbsMsglistView
+    public Map<String, String> selectList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.im.chat.AbsMsglistView
     public void setNeedShowName() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.mNeedShowName = true;
         }
     }

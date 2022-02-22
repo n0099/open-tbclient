@@ -15,16 +15,16 @@ public class e {
     public static a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static e f31967b;
+    public static e f32173b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f31968c;
+    public static final int f32174c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f31969d;
+    public static final int f32175d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f31970e;
+    public static final int f32176e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,9 +41,9 @@ public class e {
             }
         }
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f31968c = availableProcessors;
-        f31969d = Math.max(2, Math.min(availableProcessors - 1, 4));
-        f31970e = f31968c << 3;
+        f32174c = availableProcessors;
+        f32175d = Math.max(2, Math.min(availableProcessors - 1, 4));
+        f32176e = f32174c << 3;
     }
 
     public e() {
@@ -90,7 +90,7 @@ public class e {
                 }
             }
         });
-        a aVar = new a(f31969d, f31970e, 2L, TimeUnit.MINUTES, new b());
+        a aVar = new a(f32175d, f32176e, 2L, TimeUnit.MINUTES, new b());
         a = aVar;
         aVar.allowCoreThreadTimeOut(true);
     }
@@ -100,10 +100,10 @@ public class e {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f31967b == null || (aVar = a) == null || aVar.isShutdown() || a.isTerminated()) {
-                f31967b = new e();
+            if (f32173b == null || (aVar = a) == null || aVar.isShutdown() || a.isTerminated()) {
+                f32173b = new e();
             }
-            return f31967b;
+            return f32173b;
         }
         return (e) invokeV.objValue;
     }
@@ -118,7 +118,7 @@ public class e {
             } catch (Exception unused) {
                 a aVar = a;
                 if (aVar == null || aVar.getCorePoolSize() == 0 || a.getPoolSize() == 0) {
-                    a = new a(f31969d, f31970e, 2L, TimeUnit.MINUTES, new b());
+                    a = new a(f32175d, f32176e, 2L, TimeUnit.MINUTES, new b());
                     return false;
                 }
                 return false;

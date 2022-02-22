@@ -3,14 +3,14 @@ package com.baidu.tbadk.core.data;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.k;
-import c.a.s0.s.q.e;
-import c.a.s0.s.q.e2;
-import c.a.s0.s.q.o0;
-import c.a.t0.k3.d0.c;
-import c.a.t0.k3.z;
-import c.a.t0.y1.o.b;
-import c.a.t0.y1.o.k.a;
+import c.a.t0.s.l;
+import c.a.t0.s.r.e;
+import c.a.t0.s.r.e2;
+import c.a.t0.s.r.o0;
+import c.a.u0.l3.d0.c;
+import c.a.u0.l3.z;
+import c.a.u0.z1.o.b;
+import c.a.u0.z1.o.k.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
@@ -77,7 +77,7 @@ public class AdvertAppInfo extends e2 implements o0, c {
 
         AdvertAppInfo getAdvertAppInfo();
 
-        c.a.s0.s.q.c getAppInfoModel();
+        c.a.t0.s.r.c getAppInfoModel();
 
         @NonNull
         String getDownloadId();
@@ -88,7 +88,7 @@ public class AdvertAppInfo extends e2 implements o0, c {
 
         int getGoodsStyle();
 
-        @Override // com.baidu.tieba.lego.card.model.ICardInfo, c.a.d.n.e.n
+        @Override // com.baidu.tieba.lego.card.model.ICardInfo, c.a.d.o.e.n
         /* synthetic */ BdUniqueId getType();
 
         boolean isNoPicAd();
@@ -269,8 +269,8 @@ public class AdvertAppInfo extends e2 implements o0, c {
                 if (TextUtils.isEmpty(this.g4) || TextUtils.isEmpty(this.g4.trim())) {
                     return 24;
                 }
-                if (this.o4.getAppInfoModel() == null || c.a.s0.s.q.c.c(this.o4.getAppInfoModel())) {
-                    if (k.c().g() || this.o4.isNoPicAd()) {
+                if (this.o4.getAppInfoModel() == null || c.a.t0.s.r.c.c(this.o4.getAppInfoModel())) {
+                    if (l.c().g() || this.o4.isNoPicAd()) {
                         int i4 = this.v4;
                         if (i4 == 3 || i4 == 1) {
                             if (this.v4 == 3) {
@@ -301,7 +301,7 @@ public class AdvertAppInfo extends e2 implements o0, c {
         return invokeV.intValue;
     }
 
-    @Override // c.a.t0.k3.d0.c
+    @Override // c.a.u0.l3.d0.c
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
@@ -344,14 +344,14 @@ public class AdvertAppInfo extends e2 implements o0, c {
         }
     }
 
-    @Override // c.a.s0.s.q.o0
+    @Override // c.a.t0.s.r.o0
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.k4 : invokeV.booleanValue;
     }
 
-    @Override // c.a.t0.k3.d0.c
+    @Override // c.a.u0.l3.d0.c
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -399,7 +399,7 @@ public class AdvertAppInfo extends e2 implements o0, c {
         return invokeL.booleanValue;
     }
 
-    @Override // c.a.s0.s.q.o0
+    @Override // c.a.t0.s.r.o0
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -413,7 +413,7 @@ public class AdvertAppInfo extends e2 implements o0, c {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? W4() ? this.o4.getDownloadId() : "" : (String) invokeV.objValue;
     }
 
-    @Override // c.a.s0.s.q.e2, com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
+    @Override // c.a.t0.s.r.e2, com.baidu.tieba.card.data.BaseCardInfo, c.a.d.o.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         ILegoAdvert iLegoAdvert;
@@ -421,7 +421,7 @@ public class AdvertAppInfo extends e2 implements o0, c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             int i2 = this.i4;
             if (i2 != 1001 && i2 != -1001) {
-                if (!k.c().g() && (iLegoAdvert = this.o4) != null && iLegoAdvert.isNoPicAd()) {
+                if (!l.c().g() && (iLegoAdvert = this.o4) != null && iLegoAdvert.isNoPicAd()) {
                     return B4;
                 }
                 ILegoAdvert iLegoAdvert2 = this.o4;
@@ -469,14 +469,14 @@ public class AdvertAppInfo extends e2 implements o0, c {
         return invokeV.intValue;
     }
 
-    @Override // c.a.s0.s.q.o0
+    @Override // c.a.t0.s.r.o0
     public AdvertAppInfo m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this : (AdvertAppInfo) invokeV.objValue;
     }
 
-    @Override // c.a.s0.s.q.o0
+    @Override // c.a.t0.s.r.o0
     public void setPosition(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {

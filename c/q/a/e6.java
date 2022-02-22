@@ -15,7 +15,7 @@ public class e6 implements p0 {
     public final /* synthetic */ View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ l f30343b;
+    public final /* synthetic */ l f30549b;
 
     public e6(l lVar, View view) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class e6 implements p0 {
                 return;
             }
         }
-        this.f30343b = lVar;
+        this.f30549b = lVar;
         this.a = view;
     }
 
@@ -42,7 +42,7 @@ public class e6 implements p0 {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
             return;
         }
-        new Handler(Looper.getMainLooper()).postDelayed(new a6(this), this.f30343b.f30388c.getSpet());
+        new Handler(Looper.getMainLooper()).postDelayed(new a6(this), this.f30549b.f30594c.getSpet());
     }
 
     @Override // c.q.a.p0

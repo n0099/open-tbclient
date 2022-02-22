@@ -19,10 +19,10 @@ public final class a {
     public static boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f59272b = "";
+    public static String f59439b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f59273c = "";
+    public static String f59440c = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -67,7 +67,7 @@ public final class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             SInfo sInfo = new SInfo();
             sInfo.setN(BaseConfig.n);
-            sInfo.setC(BaseConfig.f59316c);
+            sInfo.setC(BaseConfig.f59483c);
             sInfo.setV(BaseConfig.v);
             sInfo.setCm(BaseConfig.cm);
             return sInfo;

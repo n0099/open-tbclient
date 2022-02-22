@@ -11,7 +11,7 @@ import java.util.List;
 import tbclient.Profile.ForumGodDetailInfo;
 import tbclient.Profile.GodDetailInfo;
 import tbclient.Profile.UserGodInfo;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PersonUserGodInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int USER_GOD_TYPE_MULTI = 1;

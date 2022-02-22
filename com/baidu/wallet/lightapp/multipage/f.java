@@ -10,20 +10,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.lightapp.multipage.i;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class f implements i.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: com.baidu.wallet.lightapp.multipage.f$1  reason: invalid class name */
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static f a;
@@ -80,11 +80,11 @@ public class f implements i.b {
             if (this.a) {
                 return langbridgeSettings;
             }
-            LangbridgeSettings m104clone = langbridgeSettings.m104clone();
-            m104clone.MW_ON = false;
-            m104clone.MW_USE_OLD = true;
+            LangbridgeSettings m103clone = langbridgeSettings.m103clone();
+            m103clone.MW_ON = false;
+            m103clone.MW_USE_OLD = true;
             LogUtil.d("LangbridgeSettings", "");
-            return m104clone;
+            return m103clone;
         }
         return (LangbridgeSettings) invokeLL.objValue;
     }

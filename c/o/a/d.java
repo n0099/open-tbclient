@@ -19,7 +19,7 @@ public class d {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<Object> f30277b;
+    public final List<Object> f30483b;
 
     public d(String str, List<Object> list) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class d {
             }
         }
         this.a = str;
-        this.f30277b = list == null ? new ArrayList<>() : list;
+        this.f30483b = list == null ? new ArrayList<>() : list;
     }
 
     public static Map<String, Object> a(Map<Object, Object> map) {
@@ -89,7 +89,7 @@ public class d {
             if (obj == null) {
                 return null;
             }
-            if (c.o.a.e.a.f30279c) {
+            if (c.o.a.e.a.f30485c) {
                 String str = "arg " + obj.getClass().getCanonicalName() + " " + j(obj);
             }
             if (obj instanceof List) {
@@ -100,7 +100,7 @@ public class d {
                 }
                 obj = bArr;
             }
-            if (c.o.a.e.a.f30279c) {
+            if (c.o.a.e.a.f30485c) {
                 String str2 = "arg " + obj.getClass().getCanonicalName() + " " + j(obj);
             }
             return obj;
@@ -111,7 +111,7 @@ public class d {
     public String[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c(this.f30277b) : (String[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c(this.f30483b) : (String[]) invokeV.objValue;
     }
 
     public final String[] c(List<Object> list) {
@@ -123,7 +123,7 @@ public class d {
     public List<Object> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30277b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30483b : (List) invokeV.objValue;
     }
 
     public String e() {
@@ -146,15 +146,15 @@ public class d {
                 } else if (dVar.a != null) {
                     return false;
                 }
-                if (this.f30277b.size() != dVar.f30277b.size()) {
+                if (this.f30483b.size() != dVar.f30483b.size()) {
                     return false;
                 }
-                for (int i2 = 0; i2 < this.f30277b.size(); i2++) {
-                    if ((this.f30277b.get(i2) instanceof byte[]) && (dVar.f30277b.get(i2) instanceof byte[])) {
-                        if (!Arrays.equals((byte[]) this.f30277b.get(i2), (byte[]) dVar.f30277b.get(i2))) {
+                for (int i2 = 0; i2 < this.f30483b.size(); i2++) {
+                    if ((this.f30483b.get(i2) instanceof byte[]) && (dVar.f30483b.get(i2) instanceof byte[])) {
+                        if (!Arrays.equals((byte[]) this.f30483b.get(i2), (byte[]) dVar.f30483b.get(i2))) {
                             return false;
                         }
-                    } else if (!this.f30277b.get(i2).equals(dVar.f30277b.get(i2))) {
+                    } else if (!this.f30483b.get(i2).equals(dVar.f30483b.get(i2))) {
                         return false;
                     }
                 }
@@ -168,7 +168,7 @@ public class d {
     public Object[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? g(this.f30277b) : (Object[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? g(this.f30483b) : (Object[]) invokeV.objValue;
     }
 
     public final Object[] g(List<Object> list) {
@@ -218,7 +218,7 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.f30277b.size() == 0) {
+            if (this.f30483b.size() == 0) {
                 return this;
             }
             StringBuilder sb = new StringBuilder();
@@ -234,11 +234,11 @@ public class d {
                         return this;
                     }
                     i2++;
-                    if (i3 >= this.f30277b.size()) {
+                    if (i3 >= this.f30483b.size()) {
                         return this;
                     }
                     int i6 = i3 + 1;
-                    Object obj = this.f30277b.get(i3);
+                    Object obj = this.f30483b.get(i3);
                     if (!(obj instanceof Integer) && !(obj instanceof Long)) {
                         arrayList.add(obj);
                         i3 = i6;
@@ -249,7 +249,7 @@ public class d {
                 }
                 sb.append(charAt);
             }
-            return i2 != this.f30277b.size() ? this : new d(sb.toString(), arrayList);
+            return i2 != this.f30483b.size() ? this : new d(sb.toString(), arrayList);
         }
         return (d) invokeV.objValue;
     }
@@ -261,11 +261,11 @@ public class d {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(this.a);
-            List<Object> list = this.f30277b;
+            List<Object> list = this.f30483b;
             if (list == null || list.isEmpty()) {
                 str = "";
             } else {
-                str = " " + h(this.f30277b);
+                str = " " + h(this.f30483b);
             }
             sb.append(str);
             return sb.toString();

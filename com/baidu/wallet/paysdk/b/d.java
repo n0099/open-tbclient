@@ -11,7 +11,7 @@ import com.baidu.wallet.paysdk.datamodel.BindFastRequest;
 import com.baidu.wallet.paysdk.datamodel.GetCardInfoResponse;
 import com.baidu.wallet.paysdk.storage.PayDataCache;
 import com.dxmpay.wallet.base.datamodel.UserData;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class d extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,44 +73,44 @@ public class d extends b {
             String str = (userInfo == null || TextUtils.isEmpty(userInfo.mobile_number)) ? "" : userInfo.mobile_number;
             if (strArr.length >= 6) {
                 if (k()) {
-                    this.f51933e.setmCvv(strArr[0]);
+                    this.f52100e.setmCvv(strArr[0]);
                 }
                 if (l()) {
-                    this.f51933e.setmValidDate(strArr[1].replaceAll("/", ""));
+                    this.f52100e.setmValidDate(strArr[1].replaceAll("/", ""));
                 }
                 if (j()) {
-                    this.f51933e.setmName(strArr[2]);
-                } else if (this.f51933e.getmBankInfo() != null && this.f51933e.getmBankInfo().channel_info != null && this.f51933e.getmBankInfo().channel_info.card_item_required != null && "1".equals(this.f51933e.getmBankInfo().channel_info.card_item_required.true_name)) {
-                    this.f51933e.setmName(userName);
+                    this.f52100e.setmName(strArr[2]);
+                } else if (this.f52100e.getmBankInfo() != null && this.f52100e.getmBankInfo().channel_info != null && this.f52100e.getmBankInfo().channel_info.card_item_required != null && "1".equals(this.f52100e.getmBankInfo().channel_info.card_item_required.true_name)) {
+                    this.f52100e.setmName(userName);
                 } else {
-                    this.f51933e.setmName("");
+                    this.f52100e.setmName("");
                 }
                 if (m()) {
-                    this.f51933e.setmIdCard(strArr[3]);
-                } else if (this.f51933e.getmBankInfo() != null && this.f51933e.getmBankInfo().channel_info != null && this.f51933e.getmBankInfo().channel_info.card_item_required != null && "1".equals(this.f51933e.getmBankInfo().channel_info.card_item_required.certificate_code)) {
-                    this.f51933e.setmIdCard(userId);
+                    this.f52100e.setmIdCard(strArr[3]);
+                } else if (this.f52100e.getmBankInfo() != null && this.f52100e.getmBankInfo().channel_info != null && this.f52100e.getmBankInfo().channel_info.card_item_required != null && "1".equals(this.f52100e.getmBankInfo().channel_info.card_item_required.certificate_code)) {
+                    this.f52100e.setmIdCard(userId);
                 } else {
-                    this.f51933e.setmIdCard("");
+                    this.f52100e.setmIdCard("");
                 }
                 if (TextUtils.isEmpty(strArr[4])) {
-                    if (this.f51933e.getmBankInfo() != null && this.f51933e.getmBankInfo().channel_info != null && this.f51933e.getmBankInfo().channel_info.card_item_required != null && "1".equals(this.f51933e.getmBankInfo().channel_info.card_item_required.mobile)) {
-                        this.f51933e.setmPhone(str);
+                    if (this.f52100e.getmBankInfo() != null && this.f52100e.getmBankInfo().channel_info != null && this.f52100e.getmBankInfo().channel_info.card_item_required != null && "1".equals(this.f52100e.getmBankInfo().channel_info.card_item_required.mobile)) {
+                        this.f52100e.setmPhone(str);
                     } else {
-                        this.f51933e.setmPhone("");
+                        this.f52100e.setmPhone("");
                     }
                 } else {
-                    this.f51933e.setmPhone(strArr[4].replaceAll(" ", ""));
+                    this.f52100e.setmPhone(strArr[4].replaceAll(" ", ""));
                 }
                 if (m()) {
                     if (this.k) {
-                        this.f51933e.setCertificateType(strArr[5]);
+                        this.f52100e.setCertificateType(strArr[5]);
                     } else {
-                        this.f51933e.setCertificateType("");
+                        this.f52100e.setCertificateType("");
                     }
                 } else if (this.k) {
-                    this.f51933e.setCertificateType(certificateType);
+                    this.f52100e.setCertificateType(certificateType);
                 } else {
-                    this.f51933e.setCertificateType("");
+                    this.f52100e.setCertificateType("");
                 }
             }
             super.b(strArr);
@@ -139,38 +139,38 @@ public class d extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.a();
-            BindFastRequest bindFastRequest = this.f51933e;
+            BindFastRequest bindFastRequest = this.f52100e;
             if (bindFastRequest != null) {
-                if (bindFastRequest.getmBankInfo() != null && this.f51933e.getmBankInfo().channel_info != null && this.f51933e.getmBankInfo().channel_info.card_item_required != null) {
-                    this.f51934f = "1".equals(this.f51933e.getmBankInfo().channel_info.card_item_required.valid_code);
+                if (bindFastRequest.getmBankInfo() != null && this.f52100e.getmBankInfo().channel_info != null && this.f52100e.getmBankInfo().channel_info.card_item_required != null) {
+                    this.f52101f = "1".equals(this.f52100e.getmBankInfo().channel_info.card_item_required.valid_code);
                     boolean z = false;
-                    this.f51935g = "1".equals(this.f51933e.getmBankInfo().channel_info.card_item_required.true_name) && !g();
-                    this.f51936h = "1".equals(this.f51933e.getmBankInfo().channel_info.card_item_required.valid_date);
-                    this.f51937i = "1".equals(this.f51933e.getmBankInfo().channel_info.card_item_required.certificate_code);
-                    if ("1".equals(this.f51933e.getmBankInfo().channel_info.card_item_required.mobile) && (u() == null || !"1".equals(u().b()))) {
+                    this.f52102g = "1".equals(this.f52100e.getmBankInfo().channel_info.card_item_required.true_name) && !g();
+                    this.f52103h = "1".equals(this.f52100e.getmBankInfo().channel_info.card_item_required.valid_date);
+                    this.f52104i = "1".equals(this.f52100e.getmBankInfo().channel_info.card_item_required.certificate_code);
+                    if ("1".equals(this.f52100e.getmBankInfo().channel_info.card_item_required.mobile) && (u() == null || !"1".equals(u().b()))) {
                         z = true;
                     }
-                    this.f51938j = z;
-                    this.k = "1".equals(this.f51933e.getmBankInfo().channel_info.card_item_required.certificate_type);
+                    this.f52105j = z;
+                    this.k = "1".equals(this.f52100e.getmBankInfo().channel_info.card_item_required.certificate_type);
                 }
-                if (this.f51932d != null) {
-                    if (this.f51933e.getmBankInfo() != null) {
-                        this.f51932d.updateBankTitleInfo(this.f51933e.getmBankInfo().card_info, true);
+                if (this.f52099d != null) {
+                    if (this.f52100e.getmBankInfo() != null) {
+                        this.f52099d.updateBankTitleInfo(this.f52100e.getmBankInfo().card_info, true);
                     } else {
-                        this.f51932d.updateBankTitleInfo(null, true);
+                        this.f52099d.updateBankTitleInfo(null, true);
                     }
-                    BindFastRequest bindFastRequest2 = this.f51933e;
+                    BindFastRequest bindFastRequest2 = this.f52100e;
                     if (bindFastRequest2 != null && bindFastRequest2.getmBankInfo() != null) {
-                        if ("11".equals(this.f51933e.getCardRequestType())) {
-                            this.f51932d.updateBindCardProtocolFields(this.f51933e.getmBankInfo().protocol_platform_info);
+                        if ("11".equals(this.f52100e.getCardRequestType())) {
+                            this.f52099d.updateBindCardProtocolFields(this.f52100e.getmBankInfo().protocol_platform_info);
                         } else {
-                            this.f51932d.updateProtocolFields(this.f51933e.getmBankInfo().protocol_info);
+                            this.f52099d.updateProtocolFields(this.f52100e.getmBankInfo().protocol_info);
                         }
                     } else {
-                        this.f51932d.updateBindCardProtocolFields(null);
-                        this.f51932d.updateProtocolFields(null);
+                        this.f52099d.updateBindCardProtocolFields(null);
+                        this.f52099d.updateProtocolFields(null);
                     }
-                    this.f51932d.updateCardElement(this.f51934f, this.f51936h, this.f51935g, this.f51937i, this.f51938j);
+                    this.f52099d.updateCardElement(this.f52101f, this.f52103h, this.f52102g, this.f52104i, this.f52105j);
                 }
             }
         }

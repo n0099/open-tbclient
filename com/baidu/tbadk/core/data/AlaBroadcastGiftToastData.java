@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import c.a.s0.s.q.p;
+import c.a.t0.s.r.p;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -105,7 +105,7 @@ public class AlaBroadcastGiftToastData extends p implements Parcelable {
         return invokeV.intValue;
     }
 
-    @Override // c.a.s0.s.q.p
+    @Override // c.a.t0.s.r.p
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {

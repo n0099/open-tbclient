@@ -22,7 +22,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.kwad.sdk.api.loader.Wrapper;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResDialogFragment extends DelegateDialogFragment {
     public ResDialogFragment() {
         super(new KsDialogFragment(null));

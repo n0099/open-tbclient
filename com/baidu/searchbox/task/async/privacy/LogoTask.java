@@ -1,7 +1,7 @@
 package com.baidu.searchbox.task.async.privacy;
 
 import c.a.d.b.a.b;
-import c.a.s0.s0.l;
+import c.a.t0.s0.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -12,8 +12,6 @@ import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -55,7 +53,6 @@ public class LogoTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             TbadkCoreApplication.getInst().initTrackConfig();
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOST_START).param("obj_param1", 2).param(TiebaStatic.Params.OBJ_PARAM2, TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, TbadkCoreApplication.getInst().getCanShowSplash()));
             TbadkCoreApplication.getInst().onLowMemory();
             if (!TbadkCoreApplication.isLogin()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005015, null));
@@ -78,7 +75,7 @@ public class LogoTask extends LaunchTask {
             if (this.mIsFirstUse) {
                 TbadkSettings.getInst().saveBoolean("first_sync_image_quality", true);
                 TbadkCoreApplication.getInst().setIsAbstractOn(0);
-                c.a.s0.s.i0.b.k().u("frs_first_in", true);
+                c.a.t0.s.j0.b.k().u("frs_first_in", true);
             }
             NASLib.onAppStart(TbadkCoreApplication.getInst());
             l.b().A(this.mIsFirstUse);
@@ -90,5 +87,15 @@ public class LogoTask extends LaunchTask {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "LogoTask" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
+    public int getProcess() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
     }
 }

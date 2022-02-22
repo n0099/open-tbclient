@@ -1,35 +1,35 @@
 package com.kwad.sdk.utils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ay {
     public static volatile ay l;
     public volatile boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f57960b = false;
+    public volatile boolean f58127b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f57961c = false;
+    public volatile boolean f58128c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f57962d = false;
+    public volatile boolean f58129d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f57963e = false;
+    public volatile boolean f58130e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f57964f = false;
+    public volatile boolean f58131f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile long f57965g = 0;
+    public volatile long f58132g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile long f57966h = 0;
+    public volatile long f58133h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile long f57967i = 0;
+    public volatile long f58134i = 0;
 
     /* renamed from: j  reason: collision with root package name */
-    public volatile long f57968j = -1;
+    public volatile long f58135j = -1;
     public volatile boolean k = false;
 
     public static ay a() {
@@ -44,10 +44,10 @@ public class ay {
     }
 
     public void a(long j2) {
-        this.f57968j = j2;
+        this.f58135j = j2;
     }
 
     public boolean b() {
-        return this.f57964f;
+        return this.f58131f;
     }
 }

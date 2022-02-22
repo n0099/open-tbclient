@@ -34,7 +34,7 @@ public class j implements Runnable {
         SafeScrollView safeScrollView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (safeKeyBoardPopupWindow = this.a.a.mPopupWindow) != null && safeKeyBoardPopupWindow.isShowing()) {
-            safeScrollView = this.a.a.f33985e;
+            safeScrollView = this.a.a.f34191e;
             if (safeScrollView.hasWindowFocus()) {
                 this.a.a.b();
             }

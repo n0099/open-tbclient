@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import androidx.core.content.FileProvider;
 import com.bytedance.pangle.Zeus;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TTFileProvider extends FileProvider {
     @Override // androidx.core.content.FileProvider, android.content.ContentProvider
     public boolean onCreate() {

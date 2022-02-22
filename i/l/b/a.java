@@ -15,7 +15,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final AtomicReference<a> f61858b;
+    public static final AtomicReference<a> f62025b;
     public transient /* synthetic */ FieldHolder $fh;
     public final g a;
 
@@ -32,7 +32,7 @@ public final class a {
                 return;
             }
         }
-        f61858b = new AtomicReference<>();
+        f62025b = new AtomicReference<>();
     }
 
     public a() {
@@ -62,12 +62,12 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             do {
-                a aVar2 = f61858b.get();
+                a aVar2 = f62025b.get();
                 if (aVar2 != null) {
                     return aVar2;
                 }
                 aVar = new a();
-            } while (!f61858b.compareAndSet(null, aVar));
+            } while (!f62025b.compareAndSet(null, aVar));
             return aVar;
         }
         return (a) invokeV.objValue;

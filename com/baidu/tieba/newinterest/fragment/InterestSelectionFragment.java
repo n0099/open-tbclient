@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
-import c.a.t0.p2.a.a;
-import c.a.t0.p2.a.b;
+import c.a.u0.q2.a.a;
+import c.a.u0.q2.a.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
@@ -20,25 +20,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
-public class InterestSelectionFragment extends BaseInterestSelectionFragment implements a.InterfaceC1314a {
+/* loaded from: classes13.dex */
+public class InterestSelectionFragment extends BaseInterestSelectionFragment implements a.InterfaceC1312a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public FrameLayout f46314e;
+    public FrameLayout f46456e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f46315f;
+    public TextView f46457f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f46316g;
+    public TextView f46458g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.t0.p2.g.a f46317h;
+    public c.a.u0.q2.g.a f46459h;
 
     /* renamed from: i  reason: collision with root package name */
-    public NoScrollGridView f46318i;
+    public NoScrollGridView f46460i;
 
     public InterestSelectionFragment() {
         Interceptable interceptable = $ic;
@@ -70,20 +70,20 @@ public class InterestSelectionFragment extends BaseInterestSelectionFragment imp
     public final void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f46318i = (NoScrollGridView) this.mRootView.findViewById(R.id.interest_selection_grid_view);
+            this.f46460i = (NoScrollGridView) this.mRootView.findViewById(R.id.interest_selection_grid_view);
             this.mInterestSelectedButton = (TBSpecificationBtn) this.mRootView.findViewById(R.id.interest_selected_btn);
             TextView textView = (TextView) this.mRootView.findViewById(R.id.interest_selection_title);
-            this.f46315f = textView;
+            this.f46457f = textView;
             textView.setTypeface(Typeface.DEFAULT_BOLD);
-            this.f46316g = (TextView) this.mRootView.findViewById(R.id.interest_selection_desc);
-            this.f46314e = (FrameLayout) this.mRootView.findViewById(R.id.bottom_select_layout);
-            c.a.s0.s.k0.n.a aVar = new c.a.s0.s.k0.n.a();
+            this.f46458g = (TextView) this.mRootView.findViewById(R.id.interest_selection_desc);
+            this.f46456e = (FrameLayout) this.mRootView.findViewById(R.id.bottom_select_layout);
+            c.a.t0.s.l0.n.a aVar = new c.a.t0.s.l0.n.a();
             this.mInterestSelectedButton.setTextSize(R.dimen.tbds42);
             this.mInterestSelectedButton.setConfig(aVar);
             this.mInterestSelectedButton.setText(getResources().getString(R.string.select_interest_introduce));
             this.mInterestSelectedButton.setEnabled(false);
             this.mInterestSelectedButton.setOnClickListener(this);
-            this.f46318i.setAdapter((ListAdapter) this.mInterestSelectionAdapter);
+            this.f46460i.setAdapter((ListAdapter) this.mInterestSelectionAdapter);
         }
     }
 
@@ -93,9 +93,9 @@ public class InterestSelectionFragment extends BaseInterestSelectionFragment imp
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             super.onChangeSkinType(i2);
             SkinManager.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.f46315f, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f46316g, R.color.CAM_X0107);
-            SkinManager.setBackgroundColor(this.f46314e, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.f46457f, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f46458g, R.color.CAM_X0107);
+            SkinManager.setBackgroundColor(this.f46456e, R.color.CAM_X0201);
             this.mInterestSelectionAdapter.notifyDataSetChanged();
         }
     }
@@ -105,8 +105,8 @@ public class InterestSelectionFragment extends BaseInterestSelectionFragment imp
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f46317h = new c.a.t0.p2.g.a(getContext());
-            this.mInterestSelectionAdapter = new b(this.f46317h.c(), getContext());
+            this.f46459h = new c.a.u0.q2.g.a(getContext());
+            this.mInterestSelectionAdapter = new b(this.f46459h.c(), getContext());
         }
     }
 

@@ -2,7 +2,7 @@ package com.baidu.ugc.editvideo.record.renderer;
 
 import android.opengl.GLES20;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b0.b.a.e;
+import c.a.c0.b.a.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;

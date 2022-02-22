@@ -1,9 +1,10 @@
 package com.baidu.tieba.setting.usermutelist;
 
-import c.a.s0.d1.b0;
+import c.a.t0.d1.c0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.UserMuteQuery.DataReq;
 import tbclient.UserMuteQuery.UserMuteQueryReqIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class UserMuteQueryRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,8 +48,8 @@ public class UserMuteQueryRequestMessage extends NetMessage {
             builder.user_id = Long.valueOf(this.userId);
             builder.pn = Integer.valueOf(this.pn);
             builder.rn = Integer.valueOf(this.rn);
-            if (z) {
-                b0.a(builder, true);
+            if (z || SocketAddCommonParamSwitch.getIsOn()) {
+                c0.a(builder, true);
             }
             UserMuteQueryReqIdl.Builder builder2 = new UserMuteQueryReqIdl.Builder();
             builder2.data = builder.build(false);

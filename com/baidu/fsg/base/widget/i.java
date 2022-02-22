@@ -14,7 +14,7 @@ public class i implements Runnable {
     public final /* synthetic */ View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ SafeKeyBoardPopupWindow f34000b;
+    public final /* synthetic */ SafeKeyBoardPopupWindow f34206b;
 
     public i(SafeKeyBoardPopupWindow safeKeyBoardPopupWindow, View view) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class i implements Runnable {
                 return;
             }
         }
-        this.f34000b = safeKeyBoardPopupWindow;
+        this.f34206b = safeKeyBoardPopupWindow;
         this.a = view;
     }
 
@@ -44,9 +44,9 @@ public class i implements Runnable {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int selectionStart = this.f34000b.mySafeEditText.getSelectionStart();
-            int selectionEnd = this.f34000b.mySafeEditText.getSelectionEnd();
-            Editable text = this.f34000b.mySafeEditText.getText();
+            int selectionStart = this.f34206b.mySafeEditText.getSelectionStart();
+            int selectionEnd = this.f34206b.mySafeEditText.getSelectionEnd();
+            Editable text = this.f34206b.mySafeEditText.getText();
             if (selectionStart >= 0) {
                 if (selectionStart < selectionEnd) {
                     obj = this.a.getTag().toString();
@@ -57,9 +57,9 @@ public class i implements Runnable {
                     selectionStart = selectionEnd;
                 } else if (selectionStart != selectionEnd) {
                     text.replace(selectionEnd, selectionStart, this.a.getTag().toString(), 0, this.a.getTag().toString().length());
-                    int selectionEnd2 = this.f34000b.mySafeEditText.getSelectionEnd() + this.a.getTag().toString().length();
-                    if (selectionEnd2 >= 0 && selectionEnd2 <= this.f34000b.mySafeEditText.getText().toString().length()) {
-                        Selection.setSelection(this.f34000b.mySafeEditText.getEditableText(), selectionEnd2);
+                    int selectionEnd2 = this.f34206b.mySafeEditText.getSelectionEnd() + this.a.getTag().toString().length();
+                    if (selectionEnd2 >= 0 && selectionEnd2 <= this.f34206b.mySafeEditText.getText().toString().length()) {
+                        Selection.setSelection(this.f34206b.mySafeEditText.getEditableText(), selectionEnd2);
                     }
                     Selection.setSelection(text, text.length());
                 } else {

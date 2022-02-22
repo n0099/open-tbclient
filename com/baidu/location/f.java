@@ -32,10 +32,10 @@ public class f extends Service {
     public LLSInterface a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LLSInterface f35202b;
+    public LLSInterface f35408b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LLSInterface f35203c;
+    public LLSInterface f35409c;
 
     static {
         InterceptResult invokeClinit;
@@ -66,8 +66,8 @@ public class f extends Service {
             }
         }
         this.a = null;
-        this.f35202b = null;
-        this.f35203c = null;
+        this.f35408b = null;
+        this.f35409c = null;
     }
 
     private boolean a(File file) {
@@ -125,7 +125,7 @@ public class f extends Service {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            LLSInterface lLSInterface = this.f35203c;
+            LLSInterface lLSInterface = this.f35409c;
             if (lLSInterface != null) {
                 return lLSInterface.onBind(intent);
             }
@@ -145,7 +145,7 @@ public class f extends Service {
             }
             mC = getApplicationContext();
             System.currentTimeMillis();
-            this.f35202b = new com.baidu.location.d.a();
+            this.f35408b = new com.baidu.location.d.a();
             try {
                 File file = new File(k.j() + File.separator + replaceFileName);
                 File file2 = new File(k.j() + File.separator + "app.jar");
@@ -164,15 +164,15 @@ public class f extends Service {
                 this.a = null;
             }
             LLSInterface lLSInterface = this.a;
-            if (lLSInterface == null || lLSInterface.getVersion() < this.f35202b.getVersion()) {
-                this.f35203c = this.f35202b;
+            if (lLSInterface == null || lLSInterface.getVersion() < this.f35408b.getVersion()) {
+                this.f35409c = this.f35408b;
                 this.a = null;
             } else {
-                this.f35203c = this.a;
-                this.f35202b = null;
+                this.f35409c = this.a;
+                this.f35408b = null;
             }
             isServing = true;
-            this.f35203c.onCreate(this);
+            this.f35409c.onCreate(this);
         }
     }
 
@@ -181,7 +181,7 @@ public class f extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             isServing = false;
-            LLSInterface lLSInterface = this.f35203c;
+            LLSInterface lLSInterface = this.f35409c;
             if (lLSInterface != null) {
                 lLSInterface.onDestroy();
             }
@@ -210,7 +210,7 @@ public class f extends Service {
                     e2.printStackTrace();
                 }
             }
-            return this.f35203c.onStartCommand(intent, i2, i3);
+            return this.f35409c.onStartCommand(intent, i2, i3);
         }
         return invokeLII.intValue;
     }
@@ -219,7 +219,7 @@ public class f extends Service {
     public void onTaskRemoved(Intent intent) {
         LLSInterface lLSInterface;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, intent) == null) || (lLSInterface = this.f35203c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, intent) == null) || (lLSInterface = this.f35409c) == null) {
             return;
         }
         lLSInterface.onTaskRemoved(intent);

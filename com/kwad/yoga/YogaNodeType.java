@@ -1,6 +1,7 @@
 package com.kwad.yoga;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.proguard.annotations.DoNotStrip;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 @DoNotStrip
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class YogaNodeType {
     public static final /* synthetic */ YogaNodeType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -33,7 +34,7 @@ public final class YogaNodeType {
                 return;
             }
         }
-        DEFAULT = new YogaNodeType("DEFAULT", 0, 0);
+        DEFAULT = new YogaNodeType(EngineName.DEFAULT_ENGINE, 0, 0);
         YogaNodeType yogaNodeType = new YogaNodeType("TEXT", 1, 1);
         TEXT = yogaNodeType;
         $VALUES = new YogaNodeType[]{DEFAULT, yogaNodeType};

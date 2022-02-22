@@ -10,7 +10,7 @@ import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a1.t.c;
+import c.a.b1.t.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

@@ -53,10 +53,10 @@ public class ft extends XMPushService.i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Thread.yield();
-            if (!this.f418a.m391c() || this.f418a.a(this.a)) {
+            if (!this.f418a.m390c() || this.f418a.a(this.a)) {
                 return;
             }
-            this.f418a.f61135b.a(22, (Exception) null);
+            this.f418a.f61302b.a(22, (Exception) null);
         }
     }
 }

@@ -64,7 +64,7 @@ import org.webrtc.audio.AudioDeviceModule;
 import org.webrtc.audio.JavaAudioDeviceModule;
 import org.webrtc.voiceengine.WebRtcAudioManager;
 import org.webrtc.voiceengine.WebRtcAudioUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class PeerConnectionClient implements DataChannel.Observer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUDIO_AUTO_GAIN_CONTROL_CONSTRAINT = "googAutoGainControl";
@@ -140,7 +140,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
     public int videoWidth;
     public int videokbps;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class PCObserver implements PeerConnection.Observer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -469,7 +469,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface PeerConnectionEvents {
         void onIceCandidate(IceCandidate iceCandidate, BigInteger bigInteger);
 
@@ -502,7 +502,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         void onSEIRecv(ByteBuffer byteBuffer);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class PeerConnectionParameters {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -591,7 +591,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class SDPObserver implements SdpObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -754,7 +754,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class StatsEventsType {
         public static final /* synthetic */ StatsEventsType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -817,7 +817,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class VideoDecoderObserver implements MediaCodecVideoDecoder.MediaCodecVideoDecoderObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2311,7 +2311,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         if (!(interceptable == null || interceptable.invokeL(1048612, this, num) == null) || this.executor.isShutdown()) {
             return;
         }
-        this.executor.execute(new Runnable() { // from class: c.a.l0.a
+        this.executor.execute(new Runnable() { // from class: c.a.m0.a
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

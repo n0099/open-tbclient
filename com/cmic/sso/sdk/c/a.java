@@ -29,31 +29,31 @@ public class a extends g {
     public CopyOnWriteArrayList<Throwable> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f53485b;
+    public String f53652b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f53486c;
+    public String f53653c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f53487d;
+    public String f53654d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f53488e;
+    public String f53655e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f53489f;
+    public String f53656f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f53490g;
+    public String f53657g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f53491h;
+    public String f53658h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f53492i;
+    public String f53659i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f53493j;
+    public String f53660j;
     public String k;
     public String l;
     public String m;
@@ -84,15 +84,15 @@ public class a extends g {
                 return;
             }
         }
-        this.f53485b = null;
-        this.f53486c = null;
-        this.f53487d = null;
-        this.f53488e = null;
-        this.f53489f = null;
-        this.f53490g = null;
-        this.f53491h = null;
-        this.f53492i = null;
-        this.f53493j = null;
+        this.f53652b = null;
+        this.f53653c = null;
+        this.f53654d = null;
+        this.f53655e = null;
+        this.f53656f = null;
+        this.f53657g = null;
+        this.f53658h = null;
+        this.f53659i = null;
+        this.f53660j = null;
         this.k = "";
         this.l = null;
         this.m = null;
@@ -168,7 +168,7 @@ public class a extends g {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f53485b = str;
+            this.f53652b = str;
         }
     }
 
@@ -231,28 +231,28 @@ public class a extends g {
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.f53487d = str;
+            this.f53654d = str;
         }
     }
 
     public void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            this.f53488e = str;
+            this.f53655e = str;
         }
     }
 
     public void m(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.f53489f = str;
+            this.f53656f = str;
         }
     }
 
     public void n(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.f53492i = str;
+            this.f53659i = str;
         }
     }
 
@@ -294,14 +294,14 @@ public class a extends g {
     public void t(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
-            this.f53486c = str;
+            this.f53653c = str;
         }
     }
 
     public void u(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
-            this.f53490g = str;
+            this.f53657g = str;
         }
     }
 
@@ -315,14 +315,14 @@ public class a extends g {
     public void x(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-            this.f53491h = str;
+            this.f53658h = str;
         }
     }
 
     public void y(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
-            this.f53493j = str;
+            this.f53660j = str;
         }
     }
 
@@ -340,17 +340,17 @@ public class a extends g {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("appid", this.f53485b);
-                jSONObject.put("traceId", this.f53486c);
-                jSONObject.put("appName", this.f53487d);
-                jSONObject.put("appVersion", this.f53488e);
+                jSONObject.put("appid", this.f53652b);
+                jSONObject.put("traceId", this.f53653c);
+                jSONObject.put("appName", this.f53654d);
+                jSONObject.put("appVersion", this.f53655e);
                 jSONObject.put(CommandMessage.SDK_VERSION, AuthnHelper.SDK_VERSION);
                 jSONObject.put("clientType", "android");
-                jSONObject.put("timeOut", this.f53489f);
-                jSONObject.put("requestTime", this.f53490g);
-                jSONObject.put("responseTime", this.f53491h);
-                jSONObject.put("elapsedTime", this.f53492i);
-                jSONObject.put(AdExtParam.KEY_REQUEST_TYPE, this.f53493j);
+                jSONObject.put("timeOut", this.f53656f);
+                jSONObject.put("requestTime", this.f53657g);
+                jSONObject.put("responseTime", this.f53658h);
+                jSONObject.put("elapsedTime", this.f53659i);
+                jSONObject.put(AdExtParam.KEY_REQUEST_TYPE, this.f53660j);
                 jSONObject.put("interfaceType", this.k);
                 jSONObject.put("interfaceCode", this.l);
                 jSONObject.put("interfaceElasped", this.m);

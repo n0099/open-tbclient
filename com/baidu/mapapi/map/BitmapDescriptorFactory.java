@@ -25,7 +25,7 @@ public class BitmapDescriptorFactory {
     public static final /* synthetic */ boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f35259b;
+    public static final String f35465b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,7 +42,7 @@ public class BitmapDescriptorFactory {
             }
         }
         a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
-        f35259b = "BaiduMapSDK-" + BitmapDescriptorFactory.class.getSimpleName();
+        f35465b = "BaiduMapSDK-" + BitmapDescriptorFactory.class.getSimpleName();
     }
 
     public BitmapDescriptorFactory() {

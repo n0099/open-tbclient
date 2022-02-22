@@ -4,7 +4,7 @@ import android.os.Bundle;
 import com.bytedance.sdk.openadsdk.TTAdBridge;
 import com.bytedance.sdk.openadsdk.TTAdEvent;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class a implements TTAdBridge {
     @Override // com.bytedance.sdk.openadsdk.TTAdBridge
     public String call(int i2, Bundle bundle) {

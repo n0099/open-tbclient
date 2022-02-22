@@ -10,7 +10,7 @@ import com.kwad.sdk.api.KsNativeAd;
 import com.kwad.sdk.api.loader.Wrapper;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class AbstractKsNativeAd implements KsNativeAd {
     @KsAdSdkDynamicApi
     @Keep

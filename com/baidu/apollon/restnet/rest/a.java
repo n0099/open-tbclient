@@ -28,13 +28,13 @@ public final class a implements HostnameVerifier {
     public static final a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f32636b;
+    public static final Pattern f32842b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f32637c = 2;
+    public static final int f32843c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f32638d = 7;
+    public static final int f32844d = 7;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -51,7 +51,7 @@ public final class a implements HostnameVerifier {
             }
         }
         a = new a();
-        f32636b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+        f32842b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
     }
 
     public a() {
@@ -130,7 +130,7 @@ public final class a implements HostnameVerifier {
     public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f32636b.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f32842b.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static List<String> a(X509Certificate x509Certificate) {

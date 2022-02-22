@@ -3,15 +3,15 @@ package com.kwad.sdk.pngencrypt;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class n {
     public static Charset a = Charset.forName("ISO-8859-1");
 
     /* renamed from: b  reason: collision with root package name */
-    public static Charset f57186b = Charset.forName("UTF-8");
+    public static Charset f57353b = Charset.forName("UTF-8");
 
     /* renamed from: c  reason: collision with root package name */
-    public static ThreadLocal<Boolean> f57187c = new ThreadLocal<Boolean>() { // from class: com.kwad.sdk.pngencrypt.n.1
+    public static ThreadLocal<Boolean> f57354c = new ThreadLocal<Boolean>() { // from class: com.kwad.sdk.pngencrypt.n.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.ThreadLocal
         /* renamed from: a */

@@ -6,7 +6,7 @@ public class f {
     public int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int[] f59835b;
+    public int[] f60002b;
 
     public static f a(d dVar) throws IOException {
         b.a(dVar, 1835009);
@@ -23,7 +23,7 @@ public class f {
         }
         int i2 = (b6 == 0 ? b2 : b6) - b5;
         if (i2 % 4 == 0) {
-            fVar.f59835b = dVar.b(i2 / 4);
+            fVar.f60002b = dVar.b(i2 / 4);
             if (b6 != 0) {
                 int i3 = b2 - b6;
                 if (i3 % 4 == 0) {
@@ -43,11 +43,11 @@ public class f {
             return null;
         }
         int i3 = iArr[i2];
-        int a = a(this.f59835b, i3);
+        int a = a(this.f60002b, i3);
         StringBuilder sb = new StringBuilder(a);
         while (a != 0) {
             i3 += 2;
-            sb.append((char) a(this.f59835b, i3));
+            sb.append((char) a(this.f60002b, i3));
             a--;
         }
         return sb.toString();

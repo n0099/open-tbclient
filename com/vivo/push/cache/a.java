@@ -85,7 +85,7 @@ public final class a extends c<com.vivo.push.model.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             synchronized (c.a) {
-                for (T t : this.f60731b) {
+                for (T t : this.f60898b) {
                     if (!TextUtils.isEmpty(t.a()) && t.a().equals(str)) {
                         return t;
                     }

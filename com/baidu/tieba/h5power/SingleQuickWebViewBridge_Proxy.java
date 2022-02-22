@@ -1,17 +1,17 @@
 package com.baidu.tieba.h5power;
 
 import c.a.d.f.p.m;
-import c.a.t0.x3.n0.d.a;
-import c.a.t0.x3.n0.d.b;
-import c.a.t0.x3.n0.d.c;
-import c.a.t0.x3.n0.d.e;
+import c.a.u0.z3.o0.d.a;
+import c.a.u0.z3.o0.d.b;
+import c.a.u0.z3.o0.d.c;
+import c.a.u0.z3.o0.d.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.browser.SearchJsBridge;
+import com.baidu.tbadk.core.atomData.TbTitleActivityConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
 import com.baidu.tieba.quickWebView.SingleQuickWebViewBridge;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -54,6 +54,9 @@ public class SingleQuickWebViewBridge_Proxy extends a {
         this.mNotificationNameList = hashSet;
         hashSet.add("saveImageSuccess");
         this.mNotificationNameList.add("GetPhotoAlbum");
+        this.mNotificationNameList.add(CommonTbJsBridge.SELECT_PHOTO_ALBUM);
+        this.mNotificationNameList.add("goToSelectPrivateMsgPage");
+        this.mNotificationNameList.add("goToReportThreadPage");
         this.mNotificationNameList.add("getPageLeaveTime");
         this.mNotificationNameList.add(CommonTbJsBridge.CHANGE_SKIN_TYPE);
         this.mNotificationNameList.add(CommonTbJsBridge.SHARE_SUCCCESS_NOTIFICATION);
@@ -67,7 +70,7 @@ public class SingleQuickWebViewBridge_Proxy extends a {
         this.mNotificationNameList.add("RequestByNativeToH5");
     }
 
-    @Override // c.a.t0.x3.n0.d.a
+    @Override // c.a.u0.z3.o0.d.a
     public c dispatch(e eVar, c cVar) {
         InterceptResult invokeLL;
         int i2;
@@ -163,6 +166,60 @@ public class SingleQuickWebViewBridge_Proxy extends a {
                     if (!cVar2.h()) {
                         cVar2.n(false);
                         addObserver("GetPhotoAlbum", cVar2, false);
+                    }
+                }
+                cVar2.y(0);
+            } else if (b2.equals("system/selectPhotoAlbum")) {
+                cVar2.r(true);
+                int optInt = e2.optInt("maxPhotoNum");
+                ArrayList<JSONObject> arrayList = new ArrayList<>();
+                ListUtils.convertJSONArrayToList(arrayList, e2.optJSONArray("imageArray"));
+                c selectPhotoAlbum = this.mJsBridge.selectPhotoAlbum(optInt, arrayList);
+                this.mNotificationNameList.add(CommonTbJsBridge.SELECT_PHOTO_ALBUM);
+                if (selectPhotoAlbum != null) {
+                    cVar2.x(selectPhotoAlbum.f());
+                    cVar2.t(selectPhotoAlbum.b());
+                    cVar2.o(selectPhotoAlbum.a());
+                    cVar2.w(selectPhotoAlbum.e());
+                    if (!cVar2.h()) {
+                        cVar2.n(false);
+                        addObserver(CommonTbJsBridge.SELECT_PHOTO_ALBUM, cVar2, false);
+                    }
+                }
+                cVar2.y(0);
+            } else if (b2.equals("router/goToSelectPrivateMsgPage")) {
+                cVar2.r(true);
+                String optString = e2.optString("portrait");
+                ArrayList<JSONObject> arrayList2 = new ArrayList<>();
+                ListUtils.convertJSONArrayToList(arrayList2, e2.optJSONArray("msgArray"));
+                c selectPrivateMsg = this.mJsBridge.selectPrivateMsg(optString, arrayList2);
+                this.mNotificationNameList.add("goToSelectPrivateMsgPage");
+                if (selectPrivateMsg != null) {
+                    cVar2.x(selectPrivateMsg.f());
+                    cVar2.t(selectPrivateMsg.b());
+                    cVar2.o(selectPrivateMsg.a());
+                    cVar2.w(selectPrivateMsg.e());
+                    if (!cVar2.h()) {
+                        cVar2.n(false);
+                        addObserver("goToSelectPrivateMsgPage", cVar2, false);
+                    }
+                }
+                cVar2.y(0);
+            } else if (b2.equals("router/goToReportThreadPage")) {
+                cVar2.r(true);
+                String optString2 = e2.optString("portrait");
+                ArrayList<String> arrayList3 = new ArrayList<>();
+                ListUtils.convertJSONArrayToList(arrayList3, e2.optJSONArray("threadArray"));
+                c reportUserTheme = this.mJsBridge.reportUserTheme(optString2, arrayList3);
+                this.mNotificationNameList.add("goToReportThreadPage");
+                if (reportUserTheme != null) {
+                    cVar2.x(reportUserTheme.f());
+                    cVar2.t(reportUserTheme.b());
+                    cVar2.o(reportUserTheme.a());
+                    cVar2.w(reportUserTheme.e());
+                    if (!cVar2.h()) {
+                        cVar2.n(false);
+                        addObserver("goToReportThreadPage", cVar2, false);
                     }
                 }
                 cVar2.y(0);
@@ -508,9 +565,9 @@ public class SingleQuickWebViewBridge_Proxy extends a {
                 cVar2.y(0);
             } else if (b2.equals("hybridDebug/switchUrlHost")) {
                 cVar2.r(true);
-                ArrayList<JSONObject> arrayList = new ArrayList<>();
-                ListUtils.convertJSONArrayToList(arrayList, e2.optJSONArray("hostArr"));
-                c switchUrlHost = this.mJsBridge.switchUrlHost(arrayList);
+                ArrayList<JSONObject> arrayList4 = new ArrayList<>();
+                ListUtils.convertJSONArrayToList(arrayList4, e2.optJSONArray("hostArr"));
+                c switchUrlHost = this.mJsBridge.switchUrlHost(arrayList4);
                 if (switchUrlHost != null) {
                     cVar2.x(switchUrlHost.f());
                     cVar2.t(switchUrlHost.b());
@@ -542,7 +599,7 @@ public class SingleQuickWebViewBridge_Proxy extends a {
         return (c) invokeLL.objValue;
     }
 
-    @Override // c.a.t0.x3.n0.d.a
+    @Override // c.a.u0.z3.o0.d.a
     public List<c> processNotification(String str, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -556,6 +613,12 @@ public class SingleQuickWebViewBridge_Proxy extends a {
                 cVar = this.mJsBridge.saveImageSuccess(hashMap);
             } else if (str.equals("GetPhotoAlbum")) {
                 cVar = this.mJsBridge.getPhotoAlbumResult(hashMap);
+            } else if (str.equals(CommonTbJsBridge.SELECT_PHOTO_ALBUM)) {
+                cVar = this.mJsBridge.getSelectPhotoAlbumResult(hashMap);
+            } else if (str.equals("goToSelectPrivateMsgPage")) {
+                cVar = this.mJsBridge.getSelectPrivateImResult(hashMap);
+            } else if (str.equals("goToReportThreadPage")) {
+                cVar = this.mJsBridge.getToReportThemePage(hashMap);
             } else if (str.equals("getPageLeaveTime")) {
                 cVar = this.mJsBridge.springFestivalTimeToH5(hashMap);
             } else if (str.equals(CommonTbJsBridge.CHANGE_SKIN_TYPE)) {

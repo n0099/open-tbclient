@@ -6,7 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import c.a.l.a;
 import c.a.l.w0.a;
-import c.a.s0.s.q.e2;
+import c.a.t0.s.r.e2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.view.RichTextLayout;
 import com.baidu.tbadk.TbPageContext;
@@ -22,7 +22,7 @@ public class g0 extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RichTextLayout l;
-    public c.a.s0.s.q.a m;
+    public c.a.t0.s.r.a m;
     public int n;
     public String o;
 
@@ -32,7 +32,7 @@ public class g0 extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g0 f4306e;
+        public final /* synthetic */ g0 f4373e;
 
         public a(g0 g0Var) {
             Interceptable interceptable = $ic;
@@ -49,18 +49,18 @@ public class g0 extends h {
                     return;
                 }
             }
-            this.f4306e = g0Var;
+            this.f4373e = g0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             g0 g0Var;
-            a.InterfaceC0202a interfaceC0202a;
+            a.InterfaceC0208a interfaceC0208a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0202a = (g0Var = this.f4306e).f4289i) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0208a = (g0Var = this.f4373e).f4356i) == null) {
                 return;
             }
-            interfaceC0202a.a(g0Var.m);
+            interfaceC0208a.a(g0Var.m);
         }
     }
 
@@ -89,15 +89,15 @@ public class g0 extends h {
         }
 
         @Override // c.a.l.w0.a.b
-        public boolean a(a.C0204a c0204a) {
+        public boolean a(a.C0210a c0210a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0204a)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0210a)) == null) {
                 if (this.a.m != null && this.a.m.getThreadData() != null && !this.a.e().booleanValue()) {
                     e2 threadData = this.a.m.getThreadData();
-                    c.a.t0.g0.m.a(threadData.h0());
-                    c.a.t0.g0.m.l(this.a.l.mTitle, threadData.h0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    c.a.t0.g0.m.l(this.a.l.mAbstract, threadData.h0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    c.a.u0.g0.m.a(threadData.h0());
+                    c.a.u0.g0.m.l(this.a.l.mTitle, threadData.h0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    c.a.u0.g0.m.l(this.a.l.mAbstract, threadData.h0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -157,7 +157,7 @@ public class g0 extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: t */
-    public void onBindDataToView(c.a.s0.s.q.a aVar) {
+    public void onBindDataToView(c.a.t0.s.r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.m = aVar;
@@ -175,10 +175,10 @@ public class g0 extends h {
         }
     }
 
-    public void v(a.InterfaceC0202a interfaceC0202a) {
+    public void v(a.InterfaceC0208a interfaceC0208a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0202a) == null) {
-            this.f4289i = interfaceC0202a;
+        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0208a) == null) {
+            this.f4356i = interfaceC0208a;
         }
     }
 

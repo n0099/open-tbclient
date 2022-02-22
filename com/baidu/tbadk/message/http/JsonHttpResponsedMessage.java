@@ -1,13 +1,13 @@
 package com.baidu.tbadk.message.http;
 
 import android.text.TextUtils;
-import c.a.d.f.j.a.e;
+import c.a.d.f.j.b.f;
+import c.a.u0.a4.j;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,11 +46,11 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i2, e eVar) {
+    public void logStatInBackground(int i2, f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, eVar) == null) {
-            super.logStatInBackground(i2, eVar);
-            TiebaStatic.netJson(eVar, getError(), getErrorString());
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, fVar) == null) {
+            super.logStatInBackground(i2, fVar);
+            TiebaStatic.netJson(fVar, getError(), getErrorString());
         }
     }
 
@@ -72,7 +72,7 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
                     errorData.parserJson(str);
                     setError(errorData.getError_code());
                     if (getError() == -1) {
-                        setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.error_unkown_try_again));
+                        setErrorString(TbadkCoreApplication.getInst().getApp().getString(j.error_unkown_try_again));
                     } else {
                         setErrorString(errorData.getError_msg());
                     }
@@ -82,7 +82,7 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
                     jSONObject2 = jSONObject;
                     BdLog.e(e.getMessage());
                     setError(-1);
-                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.error_unkown_try_again));
+                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(j.error_unkown_try_again));
                     return jSONObject2;
                 }
             }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.danmu.layout.retainer;
 
-import c.a.t0.m0.h.i.a;
-import c.a.t0.m0.j.b;
+import c.a.u0.m0.h.i.a;
+import c.a.u0.m0.j.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.tieba.danmu.collection.OrderedRangeList;
@@ -24,10 +24,10 @@ public final class AkTopRetainer implements a {
     public final float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final float f42447b;
+    public final float f42680b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final OrderedRangeList<c.a.t0.m0.e.a> f42448c;
+    public final OrderedRangeList<c.a.u0.m0.e.a> f42681c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AkTopRetainer() {
@@ -64,12 +64,12 @@ public final class AkTopRetainer implements a {
             }
         }
         this.a = f2;
-        this.f42447b = f3;
-        this.f42448c = new OrderedRangeList<>(0, 0, 0, 4, null);
+        this.f42680b = f3;
+        this.f42681c = new OrderedRangeList<>(0, 0, 0, 4, null);
     }
 
-    @Override // c.a.t0.m0.h.i.a
-    public float a(c.a.t0.m0.e.a drawItem, long j2, b displayer, c.a.t0.m0.a config) {
+    @Override // c.a.u0.m0.h.i.a
+    public float a(c.a.u0.m0.e.a drawItem, long j2, b displayer, c.a.u0.m0.a config) {
         InterceptResult invokeCommon;
         boolean p;
         int h2;
@@ -80,20 +80,20 @@ public final class AkTopRetainer implements a {
             Intrinsics.checkNotNullParameter(config, "config");
             DrawState f2 = drawItem.f();
             long t = drawItem.e().j() == 1 ? config.t() : config.k();
-            if (c.a.t0.m0.g.b.d(drawItem, j2)) {
+            if (c.a.u0.m0.g.b.d(drawItem, j2)) {
                 b(drawItem);
                 return -1.0f;
             }
             boolean z = f2.e() != config.o();
-            boolean d2 = this.f42448c.d(drawItem);
+            boolean d2 = this.f42681c.d(drawItem);
             if (z && !d2) {
-                List<OrderedRangeList.a<c.a.t0.m0.e.a>> e2 = this.f42448c.e((int) f2.d(), new AkTopRetainer$layout$holder$1(drawItem, displayer, j2, t));
+                List<OrderedRangeList.a<c.a.u0.m0.e.a>> e2 = this.f42681c.e((int) f2.d(), new AkTopRetainer$layout$holder$1(drawItem, displayer, j2, t));
                 if (e2.isEmpty()) {
                     if (config.e()) {
-                        this.f42448c.c();
-                        e2 = this.f42448c.e((int) f2.d(), AkTopRetainer$layout$1.INSTANCE);
+                        this.f42681c.c();
+                        e2 = this.f42681c.e((int) f2.d(), AkTopRetainer$layout$1.INSTANCE);
                     } else if (drawItem.e().p()) {
-                        e2 = this.f42448c.h((int) f2.d(), new AkTopRetainer$layout$2(displayer));
+                        e2 = this.f42681c.h((int) f2.d(), new AkTopRetainer$layout$2(displayer));
                     }
                 }
                 if (e2.isEmpty()) {
@@ -101,7 +101,7 @@ public final class AkTopRetainer implements a {
                     p = false;
                 } else {
                     int d3 = ((OrderedRangeList.a) CollectionsKt___CollectionsKt.first((List<? extends Object>) e2)).d();
-                    p = this.f42448c.a(e2, d3, ((int) f2.d()) + d3, drawItem);
+                    p = this.f42681c.a(e2, d3, ((int) f2.d()) + d3, drawItem);
                     h2 = d3;
                 }
             } else {
@@ -120,28 +120,28 @@ public final class AkTopRetainer implements a {
         return invokeCommon.floatValue;
     }
 
-    @Override // c.a.t0.m0.h.i.a
-    public void b(c.a.t0.m0.e.a item) {
+    @Override // c.a.u0.m0.h.i.a
+    public void b(c.a.u0.m0.e.a item) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
-            this.f42448c.m(item);
+            this.f42681c.m(item);
         }
     }
 
-    @Override // c.a.t0.m0.h.i.a
+    @Override // c.a.u0.m0.h.i.a
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f42448c.c();
+            this.f42681c.c();
         }
     }
 
-    @Override // c.a.t0.m0.h.i.a
+    @Override // c.a.u0.m0.h.i.a
     public void update(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
-            this.f42448c.update((int) (i2 * this.a), (int) (i3 * this.f42447b));
+            this.f42681c.update((int) (i2 * this.a), (int) (i3 * this.f42680b));
         }
     }
 

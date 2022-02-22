@@ -15,7 +15,7 @@ public final class e {
     public final l a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28648b;
+    public int f28854b;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public final class e {
                 i2++;
                 i6 = (this.a.a[i2] & 255) + (i6 << 8);
             }
-            this.f28648b += i5 + 1;
+            this.f28854b += i5 + 1;
             return i6;
         }
         return invokeL.longValue;
@@ -78,10 +78,10 @@ public final class e {
         int i4 = (int) j2;
         fVar.c(this.a.a, 0, 4);
         long z = this.a.z();
-        this.f28648b = 4;
+        this.f28854b = 4;
         while (z != 440786851) {
-            int i5 = this.f28648b + 1;
-            this.f28648b = i5;
+            int i5 = this.f28854b + 1;
+            this.f28854b = i5;
             if (i5 == i4) {
                 return false;
             }
@@ -89,7 +89,7 @@ public final class e {
             z = ((z << 8) & (-256)) | (this.a.a[0] & 255);
         }
         long a2 = a(fVar);
-        long j3 = this.f28648b;
+        long j3 = this.f28854b;
         if (a2 == Long.MIN_VALUE) {
             return false;
         }
@@ -97,14 +97,14 @@ public final class e {
             return false;
         }
         while (true) {
-            int i6 = this.f28648b;
+            int i6 = this.f28854b;
             long j4 = j3 + a2;
             if (i6 >= j4) {
                 return ((long) i6) == j4;
             } else if (a(fVar) != Long.MIN_VALUE && (a(fVar)) >= 0 && a <= 2147483647L) {
                 if (i2 != 0) {
                     fVar.g((int) a);
-                    this.f28648b = (int) (this.f28648b + a);
+                    this.f28854b = (int) (this.f28854b + a);
                 }
             }
         }

@@ -71,7 +71,7 @@ public final class r<E> extends w<E> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e2)) == null) {
             if (e2 != null) {
-                E[] eArr = this.f62109f;
+                E[] eArr = this.f62276f;
                 long j2 = this.producerIndex;
                 long a = a(j2);
                 if (e(eArr, a) != null) {
@@ -100,7 +100,7 @@ public final class r<E> extends w<E> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             long j2 = this.consumerIndex;
             long a = a(j2);
-            E[] eArr = this.f62109f;
+            E[] eArr = this.f62276f;
             E e2 = e(eArr, a);
             if (e2 == null) {
                 return null;

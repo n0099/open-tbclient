@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.k0.b.a.a;
+import c.a.l0.b.a.a;
 import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.searchbox.aperf.bosuploader.ZipUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class FileUploadStrategy implements IUpload {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -36,7 +36,7 @@ public class FileUploadStrategy implements IUpload {
     public boolean mInvalidDirDeleted;
     public ThreadPoolExecutor mUploadExecutor;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class Constants {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MAX_COUNT_ATTACHMENT = 100;
@@ -59,7 +59,7 @@ public class FileUploadStrategy implements IUpload {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class FileEntity implements Comparable<FileEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +116,7 @@ public class FileUploadStrategy implements IUpload {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class FileName {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FILE_ID_SEPARATOR = "_";
@@ -232,7 +232,7 @@ public class FileUploadStrategy implements IUpload {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class StoreUtil {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String BASE_ATTACHMENT_UPLOAD_FILE_PATH = "attachment_upload";
@@ -295,7 +295,7 @@ public class FileUploadStrategy implements IUpload {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class TrimConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

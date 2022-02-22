@@ -2,7 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.kwad.sdk.reward.j;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class al implements com.kwad.sdk.core.d<j.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
@@ -11,21 +11,21 @@ public class al implements com.kwad.sdk.core.d<j.a> {
             return;
         }
         aVar.a = jSONObject.optInt("style");
-        aVar.f57340b = jSONObject.optString("title");
+        aVar.f57507b = jSONObject.optString("title");
         if (jSONObject.opt("title") == JSONObject.NULL) {
-            aVar.f57340b = "";
+            aVar.f57507b = "";
         }
-        aVar.f57341c = jSONObject.optString("closeBtnText");
+        aVar.f57508c = jSONObject.optString("closeBtnText");
         if (jSONObject.opt("closeBtnText") == JSONObject.NULL) {
-            aVar.f57341c = "";
+            aVar.f57508c = "";
         }
-        aVar.f57342d = jSONObject.optString("continueBtnText");
+        aVar.f57509d = jSONObject.optString("continueBtnText");
         if (jSONObject.opt("continueBtnText") == JSONObject.NULL) {
-            aVar.f57342d = "";
+            aVar.f57509d = "";
         }
-        aVar.f57345g = jSONObject.optString("iconUrl");
+        aVar.f57512g = jSONObject.optString("iconUrl");
         if (jSONObject.opt("iconUrl") == JSONObject.NULL) {
-            aVar.f57345g = "";
+            aVar.f57512g = "";
         }
     }
 
@@ -36,10 +36,10 @@ public class al implements com.kwad.sdk.core.d<j.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "style", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "title", aVar.f57340b);
-        com.kwad.sdk.utils.t.a(jSONObject, "closeBtnText", aVar.f57341c);
-        com.kwad.sdk.utils.t.a(jSONObject, "continueBtnText", aVar.f57342d);
-        com.kwad.sdk.utils.t.a(jSONObject, "iconUrl", aVar.f57345g);
+        com.kwad.sdk.utils.t.a(jSONObject, "title", aVar.f57507b);
+        com.kwad.sdk.utils.t.a(jSONObject, "closeBtnText", aVar.f57508c);
+        com.kwad.sdk.utils.t.a(jSONObject, "continueBtnText", aVar.f57509d);
+        com.kwad.sdk.utils.t.a(jSONObject, "iconUrl", aVar.f57512g);
         return jSONObject;
     }
 }

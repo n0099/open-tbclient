@@ -6,31 +6,31 @@ public interface a {
     public static final String a = "life_host";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f50978b = "xinyongka_host";
+    public static final String f51145b = "xinyongka_host";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f50979c = "nfc_host";
+    public static final String f51146c = "nfc_host";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f50980d = "app_host";
+    public static final String f51147d = "app_host";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f50981e = "dxm_host";
+    public static final String f51148e = "dxm_host";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f50982f = "zhifu_host";
+    public static final String f51149f = "zhifu_host";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f50983g = "comet_host";
+    public static final String f51150g = "comet_host";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f50984h = "my_host";
+    public static final String f51151h = "my_host";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f50985i = "init_host";
+    public static final String f51152i = "init_host";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f50986j = "sensors_host";
+    public static final String f51153j = "sensors_host";
     public static final String k = "hawking_host";
     public static final String l = "net_check_host";
 

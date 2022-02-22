@@ -1,7 +1,7 @@
 package com.baidu.tieba.consumptionRecords;
 
-import c.a.t0.j0.a;
-import c.a.t0.j0.b;
+import c.a.u0.j0.a;
+import c.a.u0.j0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

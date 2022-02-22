@@ -15,7 +15,7 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebView;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ZeusJsBridge {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JS_BRIDGE_NAME = "_flyflowNative";

@@ -16,7 +16,7 @@ import java.util.Set;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class DefaultExceptionContext implements ExceptionContext, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 20110706;

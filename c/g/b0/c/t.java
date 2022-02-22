@@ -21,10 +21,10 @@ public class t implements FunNativeAd2Bridger<d, View> {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public s.b f28338b;
+    public s.b f28544b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ s f28339c;
+    public final /* synthetic */ s f28545c;
 
     public t(s sVar, String str, d dVar) {
         Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public class t implements FunNativeAd2Bridger<d, View> {
                 return;
             }
         }
-        this.f28339c = sVar;
-        this.f28338b = new s.b(sVar, str, dVar);
+        this.f28545c = sVar;
+        this.f28544b = new s.b(sVar, str, dVar);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -66,8 +66,8 @@ public class t implements FunNativeAd2Bridger<d, View> {
     public void showExpress(Activity activity, ExpressInflater expressInflater, String str, d dVar, BaseNativeAd2<d, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, dVar, baseNativeAd2, funAdInteractionListener}) == null) {
-            this.f28339c.onShowStart(this.a);
-            s.b bVar = this.f28338b;
+            this.f28545c.onShowStart(this.a);
+            s.b bVar = this.f28544b;
             bVar.a = funAdInteractionListener;
             dVar.c(bVar);
             this.a = true;

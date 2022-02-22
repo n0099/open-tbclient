@@ -8,11 +8,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.t0.p4.d;
-import c.a.t0.p4.f;
-import c.a.t0.p4.g;
-import c.a.t0.p4.h;
-import c.a.t0.p4.j;
+import c.a.u0.s4.d;
+import c.a.u0.s4.f;
+import c.a.u0.s4.g;
+import c.a.u0.s4.h;
+import c.a.u0.s4.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LocalChannelTopicListActivityConfig;
@@ -31,19 +31,19 @@ public class LocalChannelTopicSelectView extends RelativeLayout implements View.
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49730e;
+    public int f49897e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f49731f;
+    public ImageView f49898f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f49732g;
+    public TextView f49899g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f49733h;
+    public ImageView f49900h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f49734i;
+    public View f49901i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public LocalChannelTopicSelectView(Context context) {
@@ -70,10 +70,10 @@ public class LocalChannelTopicSelectView extends RelativeLayout implements View.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(h.cell_local_channel_topic_layout, (ViewGroup) this, true);
-            this.f49731f = (ImageView) findViewById(g.cell_local_channel_topic_icon);
-            this.f49732g = (TextView) findViewById(g.cell_local_channel_topic_name);
-            this.f49733h = (ImageView) findViewById(g.cell_local_channel_topic_arrow);
-            this.f49734i = findViewById(g.cell_local_channel_topic_line);
+            this.f49898f = (ImageView) findViewById(g.cell_local_channel_topic_icon);
+            this.f49899g = (TextView) findViewById(g.cell_local_channel_topic_name);
+            this.f49900h = (ImageView) findViewById(g.cell_local_channel_topic_arrow);
+            this.f49901i = findViewById(g.cell_local_channel_topic_line);
             setOnClickListener(this);
             onChangeSkinType();
         }
@@ -89,15 +89,15 @@ public class LocalChannelTopicSelectView extends RelativeLayout implements View.
     public void onChangeSkinType() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f49730e) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f49897e) {
             return;
         }
-        this.f49730e = skinType;
+        this.f49897e = skinType;
         SkinManager.setBackgroundResource(this, f.forum_selected_view_bg);
-        this.f49731f.setImageDrawable(WebPManager.getPureDrawable(f.icon_pure_topic16, SkinManager.getColor(d.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
-        SkinManager.setViewTextColor(this.f49732g, d.CAM_X0105);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f49733h, f.icon_pure_list_arrow16_right_svg, d.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
-        SkinManager.setBackgroundColor(this.f49734i, d.CAM_X0210);
+        this.f49898f.setImageDrawable(WebPManager.getPureDrawable(f.icon_pure_topic16, SkinManager.getColor(d.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
+        SkinManager.setViewTextColor(this.f49899g, d.CAM_X0105);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f49900h, f.icon_pure_list_arrow16_right_svg, d.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+        SkinManager.setBackgroundColor(this.f49901i, d.CAM_X0210);
     }
 
     @Override // android.view.View.OnClickListener
@@ -112,7 +112,7 @@ public class LocalChannelTopicSelectView extends RelativeLayout implements View.
     public void setLocalChannelTopic(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f49732g.setText(getContext().getString(j.local_channel_topic_wrap, str));
+            this.f49899g.setText(getContext().getString(j.local_channel_topic_wrap, str));
         }
     }
 
@@ -156,7 +156,7 @@ public class LocalChannelTopicSelectView extends RelativeLayout implements View.
                 return;
             }
         }
-        this.f49730e = 3;
+        this.f49897e = 3;
         a();
     }
 }

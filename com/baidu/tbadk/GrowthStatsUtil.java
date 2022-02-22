@@ -3,7 +3,7 @@ package com.baidu.tbadk;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.b0.a;
+import c.a.t0.b0.a;
 import com.baidu.searchbox.datacollector.growth.GrowthCollectManager;
 import com.baidu.searchbox.datacollector.growth.model.ActiveData;
 import com.baidu.searchbox.datacollector.growth.model.ChannelData;

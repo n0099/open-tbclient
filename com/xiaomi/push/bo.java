@@ -35,12 +35,12 @@ public class bo extends ai.a {
     private boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? com.xiaomi.clientreport.manager.a.a(this.a).m139a().isPerfUploadSwitchOpen() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? com.xiaomi.clientreport.manager.a.a(this.a).m138a().isPerfUploadSwitchOpen() : invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo248a() {
+    public String mo247a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "100887" : (String) invokeV.objValue;

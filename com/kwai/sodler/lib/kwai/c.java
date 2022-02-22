@@ -2,7 +2,7 @@ package com.kwai.sodler.lib.kwai;
 
 import androidx.annotation.NonNull;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface c {
     void a();
 

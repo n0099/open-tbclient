@@ -10,8 +10,8 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.g;
-import c.a.t0.a4.a;
-import c.a.t0.a4.b;
+import c.a.u0.d4.a;
+import c.a.u0.d4.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tblauncherInterestGuide.data.InterestFrsData;
@@ -26,22 +26,22 @@ public class NewUserGuideImgShowBox extends Dialog implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f48345e;
+    public Context f48512e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f48346f;
+    public TextView f48513f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f48347g;
+    public TextView f48514g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f48348h;
+    public View f48515h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f48349i;
+    public View f48516i;
 
     /* renamed from: j  reason: collision with root package name */
-    public InterestFrsData.Tag f48350j;
+    public InterestFrsData.Tag f48517j;
     public b k;
     public GridView l;
     public LinearLayout m;
@@ -64,11 +64,11 @@ public class NewUserGuideImgShowBox extends Dialog implements a {
                 return;
             }
         }
-        this.f48345e = context;
+        this.f48512e = context;
         a();
     }
 
-    @Override // c.a.t0.a4.a
+    @Override // c.a.u0.d4.a
     public void ForumLike(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
@@ -76,7 +76,7 @@ public class NewUserGuideImgShowBox extends Dialog implements a {
         }
     }
 
-    @Override // c.a.t0.a4.a
+    @Override // c.a.u0.d4.a
     public void ForumUnLike(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
@@ -87,35 +87,35 @@ public class NewUserGuideImgShowBox extends Dialog implements a {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f48349i = View.inflate(this.f48345e, R.layout.new_user_img_box, null);
-            this.k = new b(this.f48345e);
+            this.f48516i = View.inflate(this.f48512e, R.layout.new_user_img_box, null);
+            this.k = new b(this.f48512e);
             setCanceledOnTouchOutside(true);
-            this.m = (LinearLayout) this.f48349i.findViewById(R.id.box_close_layout);
-            GridView gridView = (GridView) this.f48349i.findViewById(R.id.layout_content);
+            this.m = (LinearLayout) this.f48516i.findViewById(R.id.box_close_layout);
+            GridView gridView = (GridView) this.f48516i.findViewById(R.id.layout_content);
             this.l = gridView;
             gridView.setAdapter((ListAdapter) this.k);
             this.l.setSelector(R.color.common_color_10022);
-            setContentView(this.f48349i);
-            this.f48346f = (TextView) this.f48349i.findViewById(R.id.prompt_title);
-            this.f48347g = (TextView) this.f48349i.findViewById(R.id.prompt_sub_title);
-            View findViewById = this.f48349i.findViewById(R.id.view_layout);
-            this.f48348h = findViewById;
-            findViewById.setBackgroundDrawable(this.f48345e.getResources().getDrawable(R.drawable.bg_startpage2_card_orange_up));
+            setContentView(this.f48516i);
+            this.f48513f = (TextView) this.f48516i.findViewById(R.id.prompt_title);
+            this.f48514g = (TextView) this.f48516i.findViewById(R.id.prompt_sub_title);
+            View findViewById = this.f48516i.findViewById(R.id.view_layout);
+            this.f48515h = findViewById;
+            findViewById.setBackgroundDrawable(this.f48512e.getResources().getDrawable(R.drawable.bg_startpage2_card_orange_up));
         }
     }
 
-    @Override // c.a.t0.a4.a
+    @Override // c.a.u0.d4.a
     public View getRootView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f48349i : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f48516i : (View) invokeV.objValue;
     }
 
-    @Override // android.app.Dialog, c.a.t0.a4.a
+    @Override // android.app.Dialog, c.a.u0.d4.a
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            Context context = this.f48345e;
+            Context context = this.f48512e;
             if (context instanceof Activity) {
                 g.a(this, (Activity) context);
             } else {
@@ -124,20 +124,20 @@ public class NewUserGuideImgShowBox extends Dialog implements a {
         }
     }
 
-    @Override // c.a.t0.a4.a
+    @Override // c.a.u0.d4.a
     public void setData(InterestFrsData.Tag tag) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, tag) == null) {
-            this.f48350j = tag;
+            this.f48517j = tag;
             if (tag != null) {
-                this.f48346f.setText(tag.getBname());
-                this.f48347g.setText(tag.getBdesc());
+                this.f48513f.setText(tag.getBname());
+                this.f48514g.setText(tag.getBdesc());
                 this.k.a(tag.getCard_list());
             }
         }
     }
 
-    @Override // c.a.t0.a4.a
+    @Override // c.a.u0.d4.a
     public void setOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) {
@@ -149,14 +149,14 @@ public class NewUserGuideImgShowBox extends Dialog implements a {
     public void setSubTitle(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f48347g.setText(str);
+            this.f48514g.setText(str);
         }
     }
 
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f48346f.setText(str);
+            this.f48513f.setText(str);
         }
     }
 
@@ -179,7 +179,7 @@ public class NewUserGuideImgShowBox extends Dialog implements a {
                 return;
             }
         }
-        this.f48345e = context;
+        this.f48512e = context;
         a();
     }
 }

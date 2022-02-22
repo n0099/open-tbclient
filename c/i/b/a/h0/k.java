@@ -15,10 +15,10 @@ public final class k implements e.a {
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final p<? super e> f29689b;
+    public final p<? super e> f29895b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final e.a f29690c;
+    public final e.a f29896c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public k(Context context, String str) {
@@ -47,7 +47,7 @@ public final class k implements e.a {
     public j a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new j(this.a, this.f29689b, this.f29690c.a()) : (j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new j(this.a, this.f29895b, this.f29896c.a()) : (j) invokeV.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -87,7 +87,7 @@ public final class k implements e.a {
             }
         }
         this.a = context.getApplicationContext();
-        this.f29689b = pVar;
-        this.f29690c = aVar;
+        this.f29895b = pVar;
+        this.f29896c = aVar;
     }
 }

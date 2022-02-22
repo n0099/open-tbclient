@@ -80,7 +80,7 @@ public class PBMediaView extends FrameLayout {
             }
         }
         this.a = new j3(context);
-        addView(this.a.f30372c, new FrameLayout.LayoutParams(-1, -1));
+        addView(this.a.f30578c, new FrameLayout.LayoutParams(-1, -1));
         try {
             ImageView imageView = new ImageView(context);
             int b2 = r0.b(context, 15);

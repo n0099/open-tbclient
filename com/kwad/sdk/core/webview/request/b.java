@@ -8,11 +8,11 @@ import com.kwad.sdk.core.network.i;
 import com.kwad.sdk.core.network.j;
 import com.kwad.sdk.core.webview.jshandler.w;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static final Handler a = new Handler(Looper.getMainLooper());
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a();
 
@@ -42,7 +42,7 @@ public class b {
             /* renamed from: a */
             public com.kwad.sdk.core.webview.request.a b() {
                 w.a aVar3 = aVar;
-                return new com.kwad.sdk.core.webview.request.a(aVar3.a, aVar3.f56504b, aVar3.f56505c);
+                return new com.kwad.sdk.core.webview.request.a(aVar3.a, aVar3.f56671b, aVar3.f56672c);
             }
         }.a(new j<com.kwad.sdk.core.webview.request.a, WebCardGetDataResponse>() { // from class: com.kwad.sdk.core.webview.request.b.2
             /* JADX DEBUG: Method merged with bridge method */

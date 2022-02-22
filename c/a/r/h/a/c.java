@@ -13,10 +13,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f5071b = 5;
+    public static int f5141b = 5;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f5072c = 40;
+    public static int f5142c = 40;
     public transient /* synthetic */ FieldHolder $fh;
     public com.baidu.helios.common.cc.a a;
 
@@ -48,9 +48,9 @@ public class c {
                 return;
             }
         }
-        com.baidu.helios.common.cc.a aVar = new com.baidu.helios.common.cc.a(f5072c);
+        com.baidu.helios.common.cc.a aVar = new com.baidu.helios.common.cc.a(f5142c);
         this.a = aVar;
-        aVar.a(0, f5072c, true);
+        aVar.a(0, f5142c, true);
     }
 
     public void a(com.baidu.helios.common.cc.a aVar, int i2, int i3, int i4) {

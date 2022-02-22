@@ -6,12 +6,12 @@ import com.kwad.sdk.api.core.KsAdSdkApi;
 import com.kwad.sdk.api.model.AdExposureFailedReason;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface KsRewardVideoAd {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface RewardAdInteractionListener {
         @KsAdSdkApi
         @Keep

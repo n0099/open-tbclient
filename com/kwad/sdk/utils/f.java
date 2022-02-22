@@ -14,7 +14,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.internal.api.SceneImpl;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class f {
     public static final Map<String, String> a;
 
@@ -25,7 +25,7 @@ public class f {
         a.put("OPPO", "com.oppo.market");
         a.put(RomUtils.MANUFACTURER_VIVO, "com.bbk.appstore");
         a.put(RomUtils.MANUFACTURER_XIAOMI, "com.xiaomi.market");
-        a.put(com.kuaishou.weapon.un.g.f55106i, "com.oppo.market");
+        a.put(com.kuaishou.weapon.un.g.f55273i, "com.oppo.market");
         a.put("Meizu", "com.meizu.mstore");
         a.put(ManufacturerUtils.SAMSUNG, "com.sec.android.app.samsungapps");
         a.put("SMARTISAN", "com.smartisanos.appstore");

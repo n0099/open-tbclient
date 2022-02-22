@@ -10,7 +10,7 @@ import org.webrtc.AudioTrack;
 import org.webrtc.PeerConnection;
 import org.webrtc.SurfaceViewRenderer;
 import org.webrtc.VideoTrack;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class JanusConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

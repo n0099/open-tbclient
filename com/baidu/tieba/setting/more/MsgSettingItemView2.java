@@ -6,9 +6,9 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
-import c.a.t0.n3.b;
-import c.a.t0.n3.e;
-import c.a.t0.n3.f;
+import c.a.u0.o3.b;
+import c.a.u0.o3.e;
+import c.a.u0.o3.f;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -18,13 +18,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class MsgSettingItemView2 extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public CheckBox f47855e;
+    public CheckBox f48001e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgSettingItemView2(Context context) {
@@ -50,7 +50,7 @@ public class MsgSettingItemView2 extends LinearLayout {
     public CheckBox getSwitchView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f47855e : (CheckBox) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48001e : (CheckBox) invokeV.objValue;
     }
 
     public void init(Context context) {
@@ -58,7 +58,7 @@ public class MsgSettingItemView2 extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setOrientation(1);
             LayoutInflater.from(context).inflate(f.msg_setting_item_view2, (ViewGroup) this, true);
-            this.f47855e = (CheckBox) findViewById(e.setting_check_view);
+            this.f48001e = (CheckBox) findViewById(e.setting_check_view);
         }
     }
 
@@ -84,7 +84,7 @@ public class MsgSettingItemView2 extends LinearLayout {
             if (StringUtils.isNULL(str)) {
                 str = "";
             }
-            this.f47855e.setText(str);
+            this.f48001e.setText(str);
         }
     }
 
@@ -115,6 +115,6 @@ public class MsgSettingItemView2 extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || i2 == 0) {
             return;
         }
-        this.f47855e.setText(i2);
+        this.f48001e.setText(i2);
     }
 }

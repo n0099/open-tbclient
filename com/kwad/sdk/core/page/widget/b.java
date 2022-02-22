@@ -12,11 +12,11 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.R;
 import com.kwad.sdk.api.loader.Wrapper;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b extends Dialog {
     public a a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(DialogInterface dialogInterface);
 

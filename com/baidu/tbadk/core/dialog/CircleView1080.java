@@ -6,8 +6,9 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
+import c.a.u0.a4.d;
+import c.a.u0.a4.e;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,24 +21,24 @@ public class CircleView1080 extends View {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: j  reason: collision with root package name */
-    public static int f40201j = 360;
+    public static int f40430j = 360;
     public static int k = 100;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f40202e;
+    public int f40431e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f40203f;
+    public int f40432f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f40204g;
+    public Paint f40433g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RectF f40205h;
+    public RectF f40434h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f40206i;
+    public int f40435i;
 
     static {
         InterceptResult invokeClinit;
@@ -73,25 +74,25 @@ public class CircleView1080 extends View {
                 return;
             }
         }
-        this.f40206i = 0;
+        this.f40435i = 0;
         init();
     }
 
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f40202e = getResources().getDimensionPixelSize(R.dimen.tbds122);
-            this.f40203f = getResources().getDimensionPixelSize(R.dimen.tbds6);
+            this.f40431e = getResources().getDimensionPixelSize(e.tbds122);
+            this.f40432f = getResources().getDimensionPixelSize(e.tbds6);
             Paint paint = new Paint();
-            this.f40204g = paint;
-            paint.setStrokeWidth(this.f40203f);
-            this.f40204g.setColor(getResources().getColor(R.color.CAM_X0111));
-            this.f40204g.setStyle(Paint.Style.STROKE);
-            this.f40204g.setAntiAlias(true);
-            this.f40204g.setStrokeCap(Paint.Cap.ROUND);
-            int i2 = this.f40203f;
-            int i3 = this.f40202e;
-            this.f40205h = new RectF(i2 / 2, i2 / 2, (i2 / 2) + i3, i3 + (i2 / 2));
+            this.f40433g = paint;
+            paint.setStrokeWidth(this.f40432f);
+            this.f40433g.setColor(getResources().getColor(d.CAM_X0111));
+            this.f40433g.setStyle(Paint.Style.STROKE);
+            this.f40433g.setAntiAlias(true);
+            this.f40433g.setStrokeCap(Paint.Cap.ROUND);
+            int i2 = this.f40432f;
+            int i3 = this.f40431e;
+            this.f40434h = new RectF(i2 / 2, i2 / 2, (i2 / 2) + i3, i3 + (i2 / 2));
         }
     }
 
@@ -99,14 +100,14 @@ public class CircleView1080 extends View {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            canvas.drawArc(this.f40205h, 270.0f, (f40201j * this.f40206i) / k, false, this.f40204g);
+            canvas.drawArc(this.f40434h, 270.0f, (f40430j * this.f40435i) / k, false, this.f40433g);
         }
     }
 
     public void setProgress(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f40206i = i2;
+            this.f40435i = i2;
             invalidate();
         }
     }
@@ -130,7 +131,7 @@ public class CircleView1080 extends View {
                 return;
             }
         }
-        this.f40206i = 0;
+        this.f40435i = 0;
         init();
     }
 
@@ -152,7 +153,7 @@ public class CircleView1080 extends View {
                 return;
             }
         }
-        this.f40206i = 0;
+        this.f40435i = 0;
         init();
     }
 }

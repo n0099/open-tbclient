@@ -6,22 +6,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PluginInstallTask extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f31245e;
+    public String f31451e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f31246f;
+    public String f31452f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f31247g;
+    public boolean f31453g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f31248h;
+    public long f31454h;
 
     public PluginInstallTask() {
         Interceptable interceptable = $ic;
@@ -40,6 +40,6 @@ public class PluginInstallTask extends OrmObject {
     public long w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Math.max(Math.min(this.f31248h * 80, 240000L), 60000L) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Math.max(Math.min(this.f31454h * 80, 240000L), 60000L) : invokeV.longValue;
     }
 }

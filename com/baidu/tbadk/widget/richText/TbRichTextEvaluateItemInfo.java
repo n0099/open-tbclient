@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.List;
 import tbclient.Item;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class TbRichTextEvaluateItemInfo extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

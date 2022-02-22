@@ -2,7 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.kwad.sdk.core.config.item.h;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class bx implements com.kwad.sdk.core.d<h.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
@@ -14,9 +14,9 @@ public class bx implements com.kwad.sdk.core.d<h.a> {
         if (jSONObject.opt("imei") == JSONObject.NULL) {
             aVar.a = "";
         }
-        aVar.f55691b = jSONObject.optString("oaid");
+        aVar.f55858b = jSONObject.optString("oaid");
         if (jSONObject.opt("oaid") == JSONObject.NULL) {
-            aVar.f55691b = "";
+            aVar.f55858b = "";
         }
     }
 
@@ -27,7 +27,7 @@ public class bx implements com.kwad.sdk.core.d<h.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "imei", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "oaid", aVar.f55691b);
+        com.kwad.sdk.utils.t.a(jSONObject, "oaid", aVar.f55858b);
         return jSONObject;
     }
 }

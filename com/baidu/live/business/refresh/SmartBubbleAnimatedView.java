@@ -11,7 +11,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import c.a.x.g.g.g;
+import c.a.y.g.g.g;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,22 +26,22 @@ public class SmartBubbleAnimatedView extends View {
     public long delayDuring;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f34800e;
+    public float f35006e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ValueAnimator f34801f;
+    public ValueAnimator f35007f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ValueAnimator f34802g;
+    public ValueAnimator f35008g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f34803h;
+    public Paint f35009h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f34804i;
+    public Paint f35010i;
 
     /* renamed from: j  reason: collision with root package name */
-    public RectF f34805j;
+    public RectF f35011j;
     public Rect k;
     public e l;
     public int m;
@@ -54,7 +54,7 @@ public class SmartBubbleAnimatedView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SmartBubbleAnimatedView f34806e;
+        public final /* synthetic */ SmartBubbleAnimatedView f35012e;
 
         public a(SmartBubbleAnimatedView smartBubbleAnimatedView) {
             Interceptable interceptable = $ic;
@@ -71,18 +71,18 @@ public class SmartBubbleAnimatedView extends View {
                     return;
                 }
             }
-            this.f34806e = smartBubbleAnimatedView;
+            this.f35012e = smartBubbleAnimatedView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                ViewGroup.LayoutParams layoutParams = this.f34806e.getLayoutParams();
-                layoutParams.height = this.f34806e.getResources().getDimensionPixelSize(c.a.x.c.a.a.pull_refresh_1);
-                this.f34806e.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                this.f34806e.f34800e = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                if (this.f34806e.n && (layoutParams instanceof LinearLayout.LayoutParams)) {
+                ViewGroup.LayoutParams layoutParams = this.f35012e.getLayoutParams();
+                layoutParams.height = this.f35012e.getResources().getDimensionPixelSize(c.a.y.c.a.a.pull_refresh_1);
+                this.f35012e.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.f35012e.f35006e = ((Float) valueAnimator.getAnimatedValue()).floatValue();
+                if (this.f35012e.n && (layoutParams instanceof LinearLayout.LayoutParams)) {
                     LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) layoutParams;
                     int i2 = layoutParams2.topMargin;
                     if (i2 > 0) {
@@ -92,8 +92,8 @@ public class SmartBubbleAnimatedView extends View {
                         layoutParams2.topMargin = 0;
                     }
                 }
-                this.f34806e.setLayoutParams(layoutParams);
-                this.f34806e.requestLayout();
+                this.f35012e.setLayoutParams(layoutParams);
+                this.f35012e.requestLayout();
             }
         }
     }
@@ -104,7 +104,7 @@ public class SmartBubbleAnimatedView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SmartBubbleAnimatedView f34807e;
+        public final /* synthetic */ SmartBubbleAnimatedView f35013e;
 
         public b(SmartBubbleAnimatedView smartBubbleAnimatedView) {
             Interceptable interceptable = $ic;
@@ -121,14 +121,14 @@ public class SmartBubbleAnimatedView extends View {
                     return;
                 }
             }
-            this.f34807e = smartBubbleAnimatedView;
+            this.f35013e = smartBubbleAnimatedView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f34807e.playDismissAnimation();
+                this.f35013e.playDismissAnimation();
             }
         }
     }
@@ -139,7 +139,7 @@ public class SmartBubbleAnimatedView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SmartBubbleAnimatedView f34808e;
+        public final /* synthetic */ SmartBubbleAnimatedView f35014e;
 
         public c(SmartBubbleAnimatedView smartBubbleAnimatedView) {
             Interceptable interceptable = $ic;
@@ -156,18 +156,18 @@ public class SmartBubbleAnimatedView extends View {
                     return;
                 }
             }
-            this.f34808e = smartBubbleAnimatedView;
+            this.f35014e = smartBubbleAnimatedView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                ViewGroup.LayoutParams layoutParams = this.f34808e.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = this.f35014e.getLayoutParams();
                 layoutParams.height = (int) (layoutParams.height * ((Float) valueAnimator.getAnimatedValue()).floatValue());
-                this.f34808e.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                this.f34808e.setLayoutParams(layoutParams);
-                this.f34808e.requestLayout();
+                this.f35014e.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.f35014e.setLayoutParams(layoutParams);
+                this.f35014e.requestLayout();
             }
         }
     }
@@ -178,7 +178,7 @@ public class SmartBubbleAnimatedView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SmartBubbleAnimatedView f34809e;
+        public final /* synthetic */ SmartBubbleAnimatedView f35015e;
 
         public d(SmartBubbleAnimatedView smartBubbleAnimatedView) {
             Interceptable interceptable = $ic;
@@ -195,25 +195,25 @@ public class SmartBubbleAnimatedView extends View {
                     return;
                 }
             }
-            this.f34809e = smartBubbleAnimatedView;
+            this.f35015e = smartBubbleAnimatedView;
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, animator) == null) || this.f34809e.l == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, animator) == null) || this.f35015e.l == null) {
                 return;
             }
-            this.f34809e.l.a();
+            this.f35015e.l.a();
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) || this.f34809e.l == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) || this.f35015e.l == null) {
                 return;
             }
-            this.f34809e.l.a();
+            this.f35015e.l.a();
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -255,10 +255,10 @@ public class SmartBubbleAnimatedView extends View {
             }
         }
         this.delayDuring = PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL;
-        this.f34800e = 0.0f;
-        this.f34803h = new Paint();
-        this.f34804i = new Paint();
-        this.f34805j = new RectF();
+        this.f35006e = 0.0f;
+        this.f35009h = new Paint();
+        this.f35010i = new Paint();
+        this.f35011j = new RectF();
         this.k = new Rect();
         this.n = false;
         d(null, 0);
@@ -267,10 +267,10 @@ public class SmartBubbleAnimatedView extends View {
     public final void d(AttributeSet attributeSet, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, attributeSet, i2) == null) {
-            this.f34803h.setColor(-16711681);
-            this.f34804i.setColor(-7829368);
-            this.f34804i.setTextSize(getResources().getDimensionPixelSize(c.a.x.c.a.a.pull_refresh_2));
-            this.m = getResources().getDimensionPixelSize(c.a.x.c.a.a.pull_refresh_1);
+            this.f35009h.setColor(-16711681);
+            this.f35010i.setColor(-7829368);
+            this.f35010i.setTextSize(getResources().getDimensionPixelSize(c.a.y.c.a.a.pull_refresh_2));
+            this.m = getResources().getDimensionPixelSize(c.a.y.c.a.a.pull_refresh_1);
         }
     }
 
@@ -284,19 +284,19 @@ public class SmartBubbleAnimatedView extends View {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            float height = ((1.0f - this.f34800e) * getHeight()) / 2.0f;
-            float width = (getWidth() / 2) + ((this.f34800e * getWidth()) / 2.0f);
-            float height2 = (getHeight() / 2) + ((this.f34800e * getHeight()) / 2.0f);
-            this.f34805j.set(((1.0f - this.f34800e) * getWidth()) / 2.0f, height, width, height2);
+            float height = ((1.0f - this.f35006e) * getHeight()) / 2.0f;
+            float width = (getWidth() / 2) + ((this.f35006e * getWidth()) / 2.0f);
+            float height2 = (getHeight() / 2) + ((this.f35006e * getHeight()) / 2.0f);
+            this.f35011j.set(((1.0f - this.f35006e) * getWidth()) / 2.0f, height, width, height2);
             float f2 = (height2 - height) / 2.0f;
-            canvas.drawRoundRect(this.f34805j, f2, f2, this.f34803h);
-            Paint paint = this.f34804i;
+            canvas.drawRoundRect(this.f35011j, f2, f2, this.f35009h);
+            Paint paint = this.f35010i;
             String str = this.tipText;
             paint.getTextBounds(str, 0, str.length(), this.k);
             int width2 = this.k.width();
             int height3 = this.k.height();
             String str2 = this.tipText;
-            canvas.drawText(str2, 0, str2.length(), (getWidth() - width2) / 2, getHeight() - ((getHeight() - height3) / 2), this.f34804i);
+            canvas.drawText(str2, 0, str2.length(), (getWidth() - width2) / 2, getHeight() - ((getHeight() - height3) / 2), this.f35010i);
         }
     }
 
@@ -312,18 +312,18 @@ public class SmartBubbleAnimatedView extends View {
                 return;
             }
             ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.0f);
-            this.f34802g = ofFloat;
+            this.f35008g = ofFloat;
             ofFloat.addUpdateListener(new c(this));
-            this.f34802g.addListener(new d(this));
-            this.f34802g.setDuration(300L);
-            this.f34802g.start();
+            this.f35008g.addListener(new d(this));
+            this.f35008g.setDuration(300L);
+            this.f35008g.start();
         }
     }
 
     public void playExpansionAnimation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f34801f = ValueAnimator.ofFloat(0.0f, 1.1f);
+            this.f35007f = ValueAnimator.ofFloat(0.0f, 1.1f);
             if (this.n) {
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
                 if (layoutParams instanceof LinearLayout.LayoutParams) {
@@ -331,9 +331,9 @@ public class SmartBubbleAnimatedView extends View {
                     setLayoutParams(layoutParams);
                 }
             }
-            this.f34801f.addUpdateListener(new a(this));
-            this.f34801f.setDuration(400L);
-            this.f34801f.start();
+            this.f35007f.addUpdateListener(new a(this));
+            this.f35007f.setDuration(400L);
+            this.f35007f.start();
             g.a().postDelayed(new b(this), this.delayDuring);
         }
     }
@@ -372,10 +372,10 @@ public class SmartBubbleAnimatedView extends View {
             }
         }
         this.delayDuring = PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL;
-        this.f34800e = 0.0f;
-        this.f34803h = new Paint();
-        this.f34804i = new Paint();
-        this.f34805j = new RectF();
+        this.f35006e = 0.0f;
+        this.f35009h = new Paint();
+        this.f35010i = new Paint();
+        this.f35011j = new RectF();
         this.k = new Rect();
         this.n = false;
         d(attributeSet, 0);
@@ -401,10 +401,10 @@ public class SmartBubbleAnimatedView extends View {
             }
         }
         this.delayDuring = PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL;
-        this.f34800e = 0.0f;
-        this.f34803h = new Paint();
-        this.f34804i = new Paint();
-        this.f34805j = new RectF();
+        this.f35006e = 0.0f;
+        this.f35009h = new Paint();
+        this.f35010i = new Paint();
+        this.f35011j = new RectF();
         this.k = new Rect();
         this.n = false;
         d(attributeSet, i2);

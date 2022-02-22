@@ -17,7 +17,7 @@ public class MemoryItemRemoveMessage extends CustomResponsedMessage<a> {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f45088b;
+        public String f45230b;
 
         public a() {
             Interceptable interceptable = $ic;

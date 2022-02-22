@@ -23,10 +23,10 @@ public class QueryCouponListBean extends BaseBean<CouponListResponse> {
     public CouponStatus a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f52603b;
+    public String f52770b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f52604c;
+    public String f52771c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
@@ -118,8 +118,8 @@ public class QueryCouponListBean extends BaseBean<CouponListResponse> {
             }
         }
         this.a = CouponStatus.UNUSE;
-        this.f52603b = "0";
-        this.f52604c = "";
+        this.f52770b = "0";
+        this.f52771c = "";
     }
 
     public void a(CouponStatus couponStatus) {
@@ -132,7 +132,7 @@ public class QueryCouponListBean extends BaseBean<CouponListResponse> {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f52603b = str;
+            this.f52770b = str;
         }
     }
 
@@ -149,11 +149,11 @@ public class QueryCouponListBean extends BaseBean<CouponListResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.f52603b)) {
+            if (TextUtils.isEmpty(this.f52770b)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("page_index", this.f52603b));
+            arrayList.add(new RestNameValuePair("page_index", this.f52770b));
             arrayList.add(new RestNameValuePair("filter_status_new", this.a.getVal()));
             return arrayList;
         }

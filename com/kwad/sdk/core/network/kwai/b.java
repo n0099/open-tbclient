@@ -27,12 +27,12 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static String a = "UTF-8";
 
     /* renamed from: b  reason: collision with root package name */
-    public static OkHttpClient f55948b = new OkHttpClient.Builder().connectTimeout(3000, TimeUnit.MILLISECONDS).readTimeout(6000, TimeUnit.MILLISECONDS).connectionSpecs(Collections.singletonList(ConnectionSpec.MODERN_TLS)).build();
+    public static OkHttpClient f56115b = new OkHttpClient.Builder().connectTimeout(3000, TimeUnit.MILLISECONDS).readTimeout(6000, TimeUnit.MILLISECONDS).connectionSpecs(Collections.singletonList(ConnectionSpec.MODERN_TLS)).build();
 
     public static c a(String str, @Nullable Map<String, String> map) {
         return a(str, map, true);
@@ -49,7 +49,7 @@ public class b {
             b(url, map2);
             Response execute = a().newCall(url.build()).execute();
             cVar.a = execute.code();
-            cVar.f55936b = a(execute);
+            cVar.f56103b = a(execute);
         } catch (Exception e2) {
             a(cVar, e2);
         }
@@ -67,7 +67,7 @@ public class b {
             a(url, jSONObject);
             Response execute = a().newCall(url.build()).execute();
             cVar.a = execute.code();
-            cVar.f55936b = a(execute);
+            cVar.f56103b = a(execute);
         } catch (Exception e2) {
             a(cVar, e2);
         }
@@ -84,7 +84,7 @@ public class b {
             a(url, map);
             Response execute = a().newCall(url.build()).execute();
             cVar.a = execute.code();
-            cVar.f55936b = z ? a(execute) : "";
+            cVar.f56103b = z ? a(execute) : "";
         } catch (Exception e2) {
             a(cVar, e2);
         }
@@ -174,14 +174,14 @@ public class b {
     }
 
     public static OkHttpClient a() {
-        return f55948b;
+        return f56115b;
     }
 
     public static void a(@NonNull c cVar, Exception exc) {
-        f fVar = exc instanceof SocketTimeoutException ? f.a : f.f55937b;
+        f fVar = exc instanceof SocketTimeoutException ? f.a : f.f56104b;
         cVar.a = fVar.n;
-        cVar.f55936b = fVar.o;
-        if (com.kwad.sdk.b.f55485c.booleanValue()) {
+        cVar.f56103b = fVar.o;
+        if (com.kwad.sdk.b.f55652c.booleanValue()) {
             com.kwad.sdk.core.d.a.b(exc);
         }
     }

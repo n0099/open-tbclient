@@ -1,6 +1,6 @@
 package com.baidu.tbadk.coreExtra.message;
 
-import c.a.s0.t.c.p;
+import c.a.t0.t.c.p;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

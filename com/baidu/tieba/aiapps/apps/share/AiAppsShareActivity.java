@@ -105,7 +105,7 @@ public class AiAppsShareActivity extends Activity {
                 LogUtil.logActivity(this, "onCreate");
                 return;
             }
-            c.a.t0.z.b.k.a aVar = new c.a.t0.z.b.k.a();
+            c.a.u0.z.b.k.a aVar = new c.a.u0.z.b.k.a();
             try {
                 aVar.p(new JSONObject(stringExtra));
                 MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig(this, aVar, false)));

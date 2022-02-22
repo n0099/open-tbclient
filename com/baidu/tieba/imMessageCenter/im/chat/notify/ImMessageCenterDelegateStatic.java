@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import c.a.s0.i0.c;
-import c.a.s0.i0.d;
+import c.a.t0.i0.c;
+import c.a.t0.i0.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -28,13 +28,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.PushClientConstants;
 /* loaded from: classes12.dex */
-public class ImMessageCenterDelegateStatic extends c.a.s0.i0.b {
+public class ImMessageCenterDelegateStatic extends c.a.t0.i0.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MessageRedDotView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f45210b;
+    public CustomMessageListener f45352b;
 
     /* loaded from: classes12.dex */
     public static class a extends CustomMessageListener {
@@ -188,24 +188,24 @@ public class ImMessageCenterDelegateStatic extends c.a.s0.i0.b {
         }
     }
 
-    @Override // c.a.s0.i0.b
+    @Override // c.a.t0.i0.b
     public c createFragmentTabStructure() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             c cVar = new c();
             cVar.a = new MessageCenterFragment();
-            cVar.f12933e = 3;
-            cVar.f12930b = R.string.my_message;
-            cVar.f12934f = R.raw.lottie_tab_msg;
-            cVar.f12937i = c.l;
-            cVar.f12936h = c.a.s0.i0.e.c.d().c("message");
+            cVar.f13192e = 3;
+            cVar.f13189b = R.string.my_message;
+            cVar.f13193f = R.raw.lottie_tab_msg;
+            cVar.f13196i = c.l;
+            cVar.f13195h = c.a.t0.i0.e.c.d().c("message");
             return cVar;
         }
         return (c) invokeV.objValue;
     }
 
-    @Override // c.a.s0.i0.b
+    @Override // c.a.t0.i0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -214,9 +214,9 @@ public class ImMessageCenterDelegateStatic extends c.a.s0.i0.b {
             this.a = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
             TbFragmentTabIndicator tbFragmentTabIndicator = this.mIndicator;
-            aVar.f41072f = tbFragmentTabIndicator;
+            aVar.f41301f = tbFragmentTabIndicator;
             aVar.a = this.a;
-            aVar.f41068b = true;
+            aVar.f41297b = true;
             tbFragmentTabIndicator.addTipWrapContent("msg", aVar);
             this.a.setVisibility(4);
             if (!TbSingleton.getInstance().isShowVivoBadge()) {
@@ -227,28 +227,28 @@ public class ImMessageCenterDelegateStatic extends c.a.s0.i0.b {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // c.a.s0.i0.b
+    @Override // c.a.t0.i0.b
     public boolean isAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? MainTabActivityConfig.IMMESSAGE_CENTER_DELEGATE_AVAIBLE : invokeV.booleanValue;
     }
 
-    @Override // c.a.s0.i0.b
+    @Override // c.a.t0.i0.b
     public void onAdd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f45210b = new b(this, 2921002);
-            MessageManager.getInstance().registerListener(this.f45210b);
+            this.f45352b = new b(this, 2921002);
+            MessageManager.getInstance().registerListener(this.f45352b);
         }
     }
 
-    @Override // c.a.s0.i0.b
+    @Override // c.a.t0.i0.b
     public void onRemove() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onRemove();
-            MessageManager.getInstance().unRegisterListener(this.f45210b);
+            MessageManager.getInstance().unRegisterListener(this.f45352b);
         }
     }
 }

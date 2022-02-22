@@ -3,9 +3,9 @@ package com.baidu.tieba;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.f4.e;
-import c.a.t0.i2.k;
-import c.a.t0.i2.l;
+import c.a.u0.i4.e;
+import c.a.u0.j2.k;
+import c.a.u0.j2.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -67,7 +67,7 @@ public class VideoPlatformStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 e.h().o();
-                c.a.t0.f4.b.d().k();
+                c.a.u0.i4.b.d().k();
             }
         }
     }

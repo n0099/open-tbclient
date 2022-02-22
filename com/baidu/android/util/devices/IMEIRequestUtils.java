@@ -39,7 +39,7 @@ public class IMEIRequestUtils {
             if (AppRuntime.getAppContext() == null) {
                 return str;
             }
-            if (!DeviceUtil.OSInfo.hasMarshMallow() || AppRuntime.getAppContext().checkSelfPermission(s.f55287c) == 0) {
+            if (!DeviceUtil.OSInfo.hasMarshMallow() || AppRuntime.getAppContext().checkSelfPermission(s.f55454c) == 0) {
                 try {
                     TelephonyManager telephonyManager = (TelephonyManager) AppRuntime.getAppContext().getSystemService("phone");
                     String deviceId = telephonyManager != null ? telephonyManager.getDeviceId() : null;

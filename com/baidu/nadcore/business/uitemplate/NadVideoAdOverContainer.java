@@ -20,10 +20,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.a.c0.d.g;
-import c.a.c0.g0.f;
-import c.a.c0.g0.q;
-import c.a.c0.s.p;
+import c.a.d0.d.g;
+import c.a.d0.h0.f;
+import c.a.d0.s.t;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.business.uitemplate.PortraitVideoTailView;
 import com.baidu.nadcore.model.AdBaseModel;
@@ -46,27 +45,27 @@ public class NadVideoAdOverContainer extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f36975e;
+    public TextView f37187e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f36976f;
+    public LinearLayout f37188f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f36977g;
+    public TextView f37189g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PortraitVideoTailView f36978h;
+    public PortraitVideoTailView f37190h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f36979i;
+    public RelativeLayout f37191i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View.OnClickListener f36980j;
+    public View.OnClickListener f37192j;
     public View.OnClickListener k;
     public LinearLayout l;
-    public c.a.c0.k0.a0.b<View> m;
+    public c.a.d0.l0.a0.b<View> m;
     public FrameLayout n;
-    public c.a.c0.d.p.a o;
+    public c.a.d0.d.q.a o;
     public d p;
     public boolean q;
     public View r;
@@ -81,10 +80,10 @@ public class NadVideoAdOverContainer extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdBaseModel f36981e;
+        public final /* synthetic */ AdBaseModel f37193e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NadVideoAdOverContainer f36982f;
+        public final /* synthetic */ NadVideoAdOverContainer f37194f;
 
         public a(NadVideoAdOverContainer nadVideoAdOverContainer, AdBaseModel adBaseModel) {
             Interceptable interceptable = $ic;
@@ -101,20 +100,20 @@ public class NadVideoAdOverContainer extends RelativeLayout {
                     return;
                 }
             }
-            this.f36982f = nadVideoAdOverContainer;
-            this.f36981e = adBaseModel;
+            this.f37194f = nadVideoAdOverContainer;
+            this.f37193e = adBaseModel;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f36982f.isShowingTailFrame()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f37194f.isShowingTailFrame()) {
                 return;
             }
-            c.a.c0.f.d.c(this.f36981e.f37044d.a, this.f36982f.getContext());
-            this.f36982f.s(ClogBuilder.LogType.CLICK, ThreadAchievementShareDialogView.HOT_LIST_VIEW_TYPE, this.f36981e);
-            if (this.f36982f.f36980j != null) {
-                this.f36982f.f36980j.onClick(view);
+            c.a.d0.f.d.c(this.f37193e.f37258f.f3092c, this.f37194f.getContext());
+            this.f37194f.s(ClogBuilder.LogType.CLICK, ThreadAchievementShareDialogView.HOT_LIST_VIEW_TYPE, this.f37193e);
+            if (this.f37194f.f37192j != null) {
+                this.f37194f.f37192j.onClick(view);
             }
         }
     }
@@ -126,7 +125,7 @@ public class NadVideoAdOverContainer extends RelativeLayout {
         public final /* synthetic */ AdBaseModel a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NadVideoAdOverContainer f36983b;
+        public final /* synthetic */ NadVideoAdOverContainer f37195b;
 
         public b(NadVideoAdOverContainer nadVideoAdOverContainer, AdBaseModel adBaseModel) {
             Interceptable interceptable = $ic;
@@ -143,7 +142,7 @@ public class NadVideoAdOverContainer extends RelativeLayout {
                     return;
                 }
             }
-            this.f36983b = nadVideoAdOverContainer;
+            this.f37195b = nadVideoAdOverContainer;
             this.a = adBaseModel;
         }
 
@@ -151,7 +150,7 @@ public class NadVideoAdOverContainer extends RelativeLayout {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f36983b.s(ClogBuilder.LogType.FREE_CLICK, str, this.a);
+                this.f37195b.s(ClogBuilder.LogType.FREE_CLICK, str, this.a);
             }
         }
     }
@@ -162,13 +161,13 @@ public class NadVideoAdOverContainer extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdBaseModel f36984e;
+        public final /* synthetic */ AdBaseModel f37196e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f36985f;
+        public final /* synthetic */ String f37197f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ NadVideoAdOverContainer f36986g;
+        public final /* synthetic */ NadVideoAdOverContainer f37198g;
 
         public c(NadVideoAdOverContainer nadVideoAdOverContainer, AdBaseModel adBaseModel, String str) {
             Interceptable interceptable = $ic;
@@ -185,21 +184,21 @@ public class NadVideoAdOverContainer extends RelativeLayout {
                     return;
                 }
             }
-            this.f36986g = nadVideoAdOverContainer;
-            this.f36984e = adBaseModel;
-            this.f36985f = str;
+            this.f37198g = nadVideoAdOverContainer;
+            this.f37196e = adBaseModel;
+            this.f37197f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ((LinearLayout.LayoutParams) this.f36986g.f36977g.getLayoutParams()).rightMargin = (int) this.f36986g.getResources().getDimension(c.a.c0.d.c.nad_dimen_8dp);
-                this.f36986g.f36976f.setBackgroundResource(0);
-                this.f36986g.f36976f.setPadding(0, 0, 0, 0);
-                this.f36986g.f36977g.setText(this.f36986g.j(String.format("@%s", this.f36984e.f37044d.f2234c), this.f36986g.f36977g.getPaint()));
-                this.f36986g.f36976f.requestLayout();
-                this.f36986g.f36975e.setText(this.f36986g.i(this.f36985f));
+                ((LinearLayout.LayoutParams) this.f37198g.f37189g.getLayoutParams()).rightMargin = (int) this.f37198g.getResources().getDimension(c.a.d0.d.c.nad_dimen_8dp);
+                this.f37198g.f37188f.setBackgroundResource(0);
+                this.f37198g.f37188f.setPadding(0, 0, 0, 0);
+                this.f37198g.f37189g.setText(this.f37198g.j(String.format("@%s", this.f37196e.f37258f.f3094e), this.f37198g.f37189g.getPaint()));
+                this.f37198g.f37188f.requestLayout();
+                this.f37198g.f37187e.setText(this.f37198g.i(this.f37197f));
             }
         }
     }
@@ -217,7 +216,7 @@ public class NadVideoAdOverContainer extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f36987e;
+        public int f37199e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(Drawable drawable) {
@@ -270,7 +269,7 @@ public class NadVideoAdOverContainer extends RelativeLayout {
                     fontMetricsInt.descent = i7;
                 }
                 int i9 = bounds.right;
-                this.f36987e = i9;
+                this.f37199e = i9;
                 return i9;
             }
             return invokeCommon.intValue;
@@ -312,21 +311,21 @@ public class NadVideoAdOverContainer extends RelativeLayout {
                 return;
             }
         }
-        this.f36980j = null;
+        this.f37192j = null;
         this.q = true;
         k(context);
     }
 
-    public static boolean canShowAppInfoLayout(p pVar) {
+    public static boolean canShowAppInfoLayout(t tVar) {
         InterceptResult invokeL;
-        p.b bVar;
-        p.a aVar;
+        t.b bVar;
+        t.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, pVar)) == null) {
-            if (pVar == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, tVar)) == null) {
+            if (tVar == null) {
                 return false;
             }
-            return (TextUtils.isEmpty(pVar.f2270f) && TextUtils.isEmpty(pVar.f2268d) && ((bVar = pVar.f2271g) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = pVar.f2272h) == null || TextUtils.isEmpty(aVar.a))) ? false : true;
+            return (TextUtils.isEmpty(tVar.f3141f) && TextUtils.isEmpty(tVar.f3139d) && ((bVar = tVar.f3142g) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = tVar.f3143h) == null || TextUtils.isEmpty(aVar.a))) ? false : true;
         }
         return invokeL.booleanValue;
     }
@@ -337,7 +336,7 @@ public class NadVideoAdOverContainer extends RelativeLayout {
             if (getHandler() != null) {
                 getHandler().removeCallbacksAndMessages(null);
             }
-            c.a.c0.k0.a0.b<View> bVar = this.m;
+            c.a.d0.l0.a0.b<View> bVar = this.m;
             if (bVar != null) {
                 bVar.resetAnim();
             }
@@ -354,10 +353,10 @@ public class NadVideoAdOverContainer extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             this.q = z;
-            this.f36975e.setClickable(z);
-            this.f36977g.setClickable(z);
+            this.f37187e.setClickable(z);
+            this.f37189g.setClickable(z);
             this.t.setClickable(z);
-            c.a.c0.k0.a0.b<View> bVar = this.m;
+            c.a.d0.l0.a0.b<View> bVar = this.m;
             if (bVar == null || bVar.getRealView() == null) {
                 return;
             }
@@ -371,20 +370,20 @@ public class NadVideoAdOverContainer extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            Drawable drawable = ContextCompat.getDrawable(getContext(), c.a.c0.d.d.nad_tag_icon);
+            Drawable drawable = ContextCompat.getDrawable(getContext(), c.a.d0.d.d.nad_tag_icon);
             if (drawable == null) {
                 return spannableStringBuilder;
             }
-            if (this.f36975e.getMeasuredWidth() > 0) {
-                e2 = (this.f36975e.getMeasuredWidth() * 4) - drawable.getIntrinsicWidth();
+            if (this.f37187e.getMeasuredWidth() > 0) {
+                e2 = (this.f37187e.getMeasuredWidth() * 4) - drawable.getIntrinsicWidth();
             } else {
-                e2 = ((f.c.e(getContext()) - getResources().getDimension(c.a.c0.d.c.nad_dimen_100dp)) * 4.0f) - drawable.getIntrinsicWidth();
+                e2 = ((f.c.e(getContext()) - getResources().getDimension(c.a.d0.d.c.nad_dimen_100dp)) * 4.0f) - drawable.getIntrinsicWidth();
             }
-            float dimension = e2 - (getResources().getDimension(c.a.c0.d.c.nad_dimen_10dp) * 3.0f);
+            float dimension = e2 - (getResources().getDimension(c.a.d0.d.c.nad_dimen_10dp) * 3.0f);
             int length = str.length() + 1;
             spannableStringBuilder.append((CharSequence) " ").append((CharSequence) x);
-            if (dimension < this.f36975e.getPaint().measureText(spannableStringBuilder.toString())) {
-                String b2 = c.a.c0.d.q.a.b(spannableStringBuilder.toString(), x, dimension, this.f36975e.getPaint(), drawable.getIntrinsicWidth());
+            if (dimension < this.f37187e.getPaint().measureText(spannableStringBuilder.toString())) {
+                String b2 = c.a.d0.d.r.a.b(spannableStringBuilder.toString(), x, dimension, this.f37187e.getPaint(), drawable.getIntrinsicWidth());
                 SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(b2);
                 drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
                 spannableStringBuilder2.setSpan(new e(drawable), b2.length() - x.length(), b2.length(), 17);
@@ -399,38 +398,38 @@ public class NadVideoAdOverContainer extends RelativeLayout {
 
     public boolean isInteractionDataVaild(@NonNull AdBaseModel adBaseModel) {
         InterceptResult invokeL;
-        c.a.c0.s.e eVar;
+        c.a.d0.s.e eVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, adBaseModel)) == null) ? (adBaseModel == null || (eVar = adBaseModel.k) == null || eVar.a == null) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, adBaseModel)) == null) ? (adBaseModel == null || (eVar = adBaseModel.n) == null || eVar.a == null) ? false : true : invokeL.booleanValue;
     }
 
     public boolean isShowingTailFrame() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f36978h.getVisibility() == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f37190h.getVisibility() == 0 : invokeV.booleanValue;
     }
 
     public final String j(@Nullable String str, @Nullable TextPaint textPaint) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, textPaint)) == null) ? q.b(str, "", (int) (((int) (f.c.e(getContext()) - getResources().getDimension(c.a.c0.d.c.nad_dimen_15dp))) - getResources().getDimension(c.a.c0.d.c.nad_dimen_11dp)), textPaint) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, textPaint)) == null) ? c.a.d0.h0.t.b(str, "", (int) (((int) (f.c.e(getContext()) - getResources().getDimension(c.a.d0.d.c.nad_dimen_15dp))) - getResources().getDimension(c.a.d0.d.c.nad_dimen_11dp)), textPaint) : (String) invokeLL.objValue;
     }
 
     public final void k(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
             LayoutInflater.from(context).inflate(g.nad_mini_video_detail_ad_item_over_info, this);
-            this.f36975e = (TextView) findViewById(c.a.c0.d.e.nad_video_title);
-            this.f36976f = (LinearLayout) findViewById(c.a.c0.d.e.nad_author_container);
-            this.f36977g = (TextView) findViewById(c.a.c0.d.e.nad_mini_author_name);
-            this.f36978h = (PortraitVideoTailView) findViewById(c.a.c0.d.e.ad_mini_video_tail_frame_view_new);
-            this.f36979i = (RelativeLayout) findViewById(c.a.c0.d.e.ad_mini_video_info_view);
-            this.l = (LinearLayout) findViewById(c.a.c0.d.e.nad_right_vertical_container);
-            this.n = (FrameLayout) findViewById(c.a.c0.d.e.ad_transition_btn_view);
-            this.r = findViewById(c.a.c0.d.e.nad_bottom_line);
-            this.s = (LinearLayout) findViewById(c.a.c0.d.e.nad_mini_video_recommend_tag);
-            this.t = (SimpleAdInfoView) findViewById(c.a.c0.d.e.nad_app_info_container);
-            this.v = (TextView) findViewById(c.a.c0.d.e.nad_base_delete_id);
+            this.f37187e = (TextView) findViewById(c.a.d0.d.e.nad_video_title);
+            this.f37188f = (LinearLayout) findViewById(c.a.d0.d.e.nad_author_container);
+            this.f37189g = (TextView) findViewById(c.a.d0.d.e.nad_mini_author_name);
+            this.f37190h = (PortraitVideoTailView) findViewById(c.a.d0.d.e.ad_mini_video_tail_frame_view_new);
+            this.f37191i = (RelativeLayout) findViewById(c.a.d0.d.e.ad_mini_video_info_view);
+            this.l = (LinearLayout) findViewById(c.a.d0.d.e.nad_right_vertical_container);
+            this.n = (FrameLayout) findViewById(c.a.d0.d.e.ad_transition_btn_view);
+            this.r = findViewById(c.a.d0.d.e.nad_bottom_line);
+            this.s = (LinearLayout) findViewById(c.a.d0.d.e.nad_mini_video_recommend_tag);
+            this.t = (SimpleAdInfoView) findViewById(c.a.d0.d.e.nad_app_info_container);
+            this.v = (TextView) findViewById(c.a.d0.d.e.nad_base_delete_id);
         }
     }
 
@@ -439,25 +438,25 @@ public class NadVideoAdOverContainer extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, adBaseModel) == null) || adBaseModel == null) {
             return;
         }
-        p pVar = adBaseModel.f37047g;
-        if (!canShowAppInfoLayout(pVar)) {
+        t tVar = adBaseModel.f37261i;
+        if (!canShowAppInfoLayout(tVar)) {
             this.u = false;
             this.t.setVisibility(8);
-            this.f36978h.setAdInfo(null);
+            this.f37190h.setAdInfo(null);
             return;
         }
         this.u = true;
         this.t.setVisibility(0);
-        this.t.setAdInfo(pVar);
+        this.t.setAdInfo(tVar);
         this.t.setAfterListener(new b(this, adBaseModel));
-        this.f36978h.setAdInfo(pVar);
+        this.f37190h.setAdInfo(tVar);
     }
 
     public final void m(@NonNull AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, adBaseModel) == null) {
-            View findViewById = findViewById(c.a.c0.d.e.nad_video_btn_placeholder);
-            if (!adBaseModel.f37043c) {
+            View findViewById = findViewById(c.a.d0.d.e.nad_video_btn_placeholder);
+            if (!adBaseModel.f37256d) {
                 findViewById.setVisibility(8);
                 return;
             }
@@ -470,28 +469,28 @@ public class NadVideoAdOverContainer extends RelativeLayout {
     public final void n(@NonNull AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, adBaseModel) == null) {
-            c.a.c0.k0.a0.b<View> bVar = this.m;
+            c.a.d0.l0.a0.b<View> bVar = this.m;
             if (bVar != null) {
                 bVar.resetAnim();
                 this.n.setVisibility(8);
                 this.m = null;
             }
-            if (adBaseModel.f37050j == null) {
+            if (adBaseModel.m == null) {
                 return;
             }
-            View findViewById = findViewById(c.a.c0.d.e.nad_video_btn_placeholder);
+            View findViewById = findViewById(c.a.d0.d.e.nad_video_btn_placeholder);
             findViewById.setVisibility(0);
             this.n.setVisibility(0);
             if (this.n.getChildCount() > 0) {
                 this.n.removeAllViews();
             }
-            AdEnhanceButtonView adEnhanceButtonView = new AdEnhanceButtonView(c.a.c0.h.a.b(), this.n, findViewById);
+            AdEnhanceButtonView adEnhanceButtonView = new AdEnhanceButtonView(c.a.d0.h.a.b(), this.n, findViewById);
             this.m = adEnhanceButtonView;
-            c.a.c0.d.p.a aVar = new c.a.c0.d.p.a(adBaseModel, adEnhanceButtonView);
+            c.a.d0.d.q.a aVar = new c.a.d0.d.q.a(adBaseModel, adEnhanceButtonView);
             this.o = aVar;
-            aVar.h(this.f36980j);
+            aVar.h(this.f37192j);
             this.m.setEnhanceBtnListener(this.o);
-            this.m.setData(adBaseModel.f37050j);
+            this.m.setData(adBaseModel.m);
             this.m.setBtnIconNightModeEnable(false);
         }
     }
@@ -501,8 +500,8 @@ public class NadVideoAdOverContainer extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048587, this, adBaseModel) == null) {
             a aVar = new a(this, adBaseModel);
             this.k = aVar;
-            this.f36975e.setOnClickListener(aVar);
-            this.f36977g.setOnClickListener(this.k);
+            this.f37187e.setOnClickListener(aVar);
+            this.f37189g.setOnClickListener(this.k);
             this.t.setOnClickListener(this.k);
         }
     }
@@ -516,35 +515,35 @@ public class NadVideoAdOverContainer extends RelativeLayout {
     public final boolean q(AdBaseModel adBaseModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, adBaseModel)) == null) ? (adBaseModel == null || adBaseModel.f37044d == null) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, adBaseModel)) == null) ? (adBaseModel == null || adBaseModel.f37258f == null) ? false : true : invokeL.booleanValue;
     }
 
     public final void r(@NonNull AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, adBaseModel) == null) {
-            String str = adBaseModel.f37044d.f2236e;
+            String str = adBaseModel.f37258f.f3096g;
             if (str == null) {
                 str = "";
             }
-            this.f36975e.post(new c(this, adBaseModel, str));
+            this.f37187e.post(new c(this, adBaseModel, str));
         }
     }
 
     public final void s(ClogBuilder.LogType logType, String str, AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048591, this, logType, str, adBaseModel) == null) || adBaseModel == null || TextUtils.isEmpty(adBaseModel.f37044d.f2233b)) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048591, this, logType, str, adBaseModel) == null) || adBaseModel == null || TextUtils.isEmpty(adBaseModel.f37258f.f3093d)) {
             return;
         }
         ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.r(logType);
-        clogBuilder.g(str);
+        clogBuilder.s(logType);
+        clogBuilder.h(str);
         d dVar = this.p;
         if (dVar != null) {
-            clogBuilder.h(String.valueOf(dVar.getPosition()));
-            clogBuilder.i(String.valueOf(this.p.a()));
+            clogBuilder.i(String.valueOf(dVar.getPosition()));
+            clogBuilder.j(String.valueOf(this.p.a()));
         }
-        clogBuilder.m(adBaseModel.f37044d.f2233b);
-        c.a.c0.a0.a.b(clogBuilder);
+        clogBuilder.n(adBaseModel.f37258f.f3093d);
+        c.a.d0.a0.a.b(clogBuilder);
     }
 
     public void setAdInfoVisible(boolean z) {
@@ -555,8 +554,8 @@ public class NadVideoAdOverContainer extends RelativeLayout {
                 if (this.m != null) {
                     this.n.setVisibility(0);
                 }
-                this.f36975e.setVisibility(0);
-                this.f36976f.setVisibility(0);
+                this.f37187e.setVisibility(0);
+                this.f37188f.setVisibility(0);
                 this.s.setVisibility(0);
                 this.t.setVisibility(this.u ? 0 : 8);
                 return;
@@ -565,8 +564,8 @@ public class NadVideoAdOverContainer extends RelativeLayout {
             if (this.m != null) {
                 this.n.setVisibility(4);
             }
-            this.f36975e.setVisibility(4);
-            this.f36976f.setVisibility(4);
+            this.f37187e.setVisibility(4);
+            this.f37188f.setVisibility(4);
             this.s.setVisibility(4);
             this.t.setVisibility(this.u ? 4 : 8);
         }
@@ -576,9 +575,9 @@ public class NadVideoAdOverContainer extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
             if (z) {
-                this.f36979i.setVisibility(0);
+                this.f37191i.setVisibility(0);
             } else {
-                this.f36979i.setVisibility(4);
+                this.f37191i.setVisibility(4);
             }
         }
     }
@@ -610,26 +609,26 @@ public class NadVideoAdOverContainer extends RelativeLayout {
     public void setOnNewTailFrameReplayClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, onClickListener) == null) {
-            this.f36978h.setOnReplayClickListener(onClickListener);
+            this.f37190h.setOnReplayClickListener(onClickListener);
         }
     }
 
     public void setOnNewTailJumpHandler(PortraitVideoTailView.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, cVar) == null) {
-            this.f36978h.setOnTailJumpHandler(cVar);
+            this.f37190h.setOnTailJumpHandler(cVar);
         }
     }
 
     public void setOnUiClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, onClickListener) == null) {
-            this.f36980j = onClickListener;
-            PortraitVideoTailView portraitVideoTailView = this.f36978h;
+            this.f37192j = onClickListener;
+            PortraitVideoTailView portraitVideoTailView = this.f37190h;
             if (portraitVideoTailView != null) {
                 portraitVideoTailView.setOnAdClickListener(onClickListener);
             }
-            c.a.c0.d.p.a aVar = this.o;
+            c.a.d0.d.q.a aVar = this.o;
             if (aVar != null) {
                 aVar.h(onClickListener);
             }
@@ -655,15 +654,15 @@ public class NadVideoAdOverContainer extends RelativeLayout {
         if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
             Object tag = getTag();
             if (!(tag instanceof AdBaseModel)) {
-                this.f36978h.hideTailFrame();
+                this.f37190h.hideTailFrame();
                 setAdOverInfoVisiblity(true);
                 h(true);
             } else if (z) {
-                this.f36978h.showTailFrame((AdBaseModel) tag);
+                this.f37190h.showTailFrame((AdBaseModel) tag);
                 setAdOverInfoVisiblity(false);
                 h(false);
             } else {
-                this.f36978h.hideTailFrame();
+                this.f37190h.hideTailFrame();
                 setAdOverInfoVisiblity(true);
                 h(true);
             }
@@ -671,7 +670,7 @@ public class NadVideoAdOverContainer extends RelativeLayout {
     }
 
     public void updateEnhancementBtn() {
-        c.a.c0.k0.a0.b<View> bVar;
+        c.a.d0.l0.a0.b<View> bVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048602, this) == null) || (bVar = this.m) == null) {
             return;
@@ -680,7 +679,7 @@ public class NadVideoAdOverContainer extends RelativeLayout {
     }
 
     public void updateProgress(int i2, int i3, int i4) {
-        c.a.c0.k0.a0.b<View> bVar;
+        c.a.d0.l0.a0.b<View> bVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeIII(1048603, this, i2, i3, i4) == null) || (bVar = this.m) == null) {
             return;
@@ -707,7 +706,7 @@ public class NadVideoAdOverContainer extends RelativeLayout {
                 return;
             }
         }
-        this.f36980j = null;
+        this.f37192j = null;
         this.q = true;
         k(context);
     }
@@ -731,7 +730,7 @@ public class NadVideoAdOverContainer extends RelativeLayout {
                 return;
             }
         }
-        this.f36980j = null;
+        this.f37192j = null;
         this.q = true;
         k(context);
     }

@@ -2,8 +2,8 @@ package com.baidu.swan.game.guide;
 
 import android.graphics.Bitmap;
 import android.text.TextUtils;
-import c.a.r0.a.k;
-import c.a.r0.h.j.o.a;
+import c.a.s0.a.k;
+import c.a.s0.h.j.o.a;
 import com.airbnb.lottie.LottieComposition;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;

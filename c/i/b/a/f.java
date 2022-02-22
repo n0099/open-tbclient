@@ -20,13 +20,13 @@ public class f implements u {
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.i.b.a.z.a<c.i.b.a.z.c> f29585b;
+    public final c.i.b.a.z.a<c.i.b.a.z.c> f29791b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f29586c;
+    public final int f29792c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f29587d;
+    public final long f29793d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public f(Context context, @Nullable c.i.b.a.z.a<c.i.b.a.z.c> aVar) {
@@ -55,11 +55,11 @@ public class f implements u {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, handler, eVar, dVar, jVar, dVar2)) == null) {
             ArrayList<r> arrayList = new ArrayList<>();
-            g(this.a, this.f29585b, this.f29587d, handler, eVar, this.f29586c, arrayList);
-            c(this.a, this.f29585b, b(), handler, dVar, this.f29586c, arrayList);
-            f(this.a, jVar, handler.getLooper(), this.f29586c, arrayList);
-            d(this.a, dVar2, handler.getLooper(), this.f29586c, arrayList);
-            e(this.a, handler, this.f29586c, arrayList);
+            g(this.a, this.f29791b, this.f29793d, handler, eVar, this.f29792c, arrayList);
+            c(this.a, this.f29791b, b(), handler, dVar, this.f29792c, arrayList);
+            f(this.a, jVar, handler.getLooper(), this.f29792c, arrayList);
+            d(this.a, dVar2, handler.getLooper(), this.f29792c, arrayList);
+            e(this.a, handler, this.f29792c, arrayList);
             return (r[]) arrayList.toArray(new r[arrayList.size()]);
         }
         return (r[]) invokeLLLLL.objValue;
@@ -205,8 +205,8 @@ public class f implements u {
             }
         }
         this.a = context;
-        this.f29585b = aVar;
-        this.f29586c = i2;
-        this.f29587d = j2;
+        this.f29791b = aVar;
+        this.f29792c = i2;
+        this.f29793d = j2;
     }
 }

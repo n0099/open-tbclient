@@ -12,16 +12,16 @@ public class b {
     public final short[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.b.b.q.a<c> f27267b;
+    public final c.b.b.q.a<c> f27473b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.b.b.q.a<ModelMaterial> f27268c;
+    public final c.b.b.q.a<ModelMaterial> f27474c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.b.b.q.a<e> f27269d;
+    public final c.b.b.q.a<e> f27475d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.b.b.q.a<a> f27270e;
+    public final c.b.b.q.a<a> f27476e;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public class b {
             }
         }
         this.a = new short[2];
-        this.f27267b = new c.b.b.q.a<>();
-        this.f27268c = new c.b.b.q.a<>();
-        this.f27269d = new c.b.b.q.a<>();
-        this.f27270e = new c.b.b.q.a<>();
+        this.f27473b = new c.b.b.q.a<>();
+        this.f27474c = new c.b.b.q.a<>();
+        this.f27475d = new c.b.b.q.a<>();
+        this.f27476e = new c.b.b.q.a<>();
     }
 }

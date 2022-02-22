@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import c.a.l.w0.a;
-import c.a.s0.s.q.a;
+import c.a.t0.s.r.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.view.ThreadCardView;
 import com.baidu.tieba.R;
@@ -15,29 +15,29 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public abstract class a<T extends c.a.s0.s.q.a> implements q, p<T> {
+public abstract class a<T extends c.a.t0.s.r.a> implements q, p<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public l0 f4285e;
+    public l0 f4352e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f4286f;
+    public Context f4353f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Boolean f4287g;
+    public Boolean f4354g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.t0.g0.d0<T> f4288h;
+    public c.a.u0.g0.b0<T> f4355h;
 
     /* renamed from: i  reason: collision with root package name */
-    public InterfaceC0202a f4289i;
+    public InterfaceC0208a f4356i;
 
     /* renamed from: c.a.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0202a {
-        void a(c.a.s0.s.q.a aVar);
+    public interface InterfaceC0208a {
+        void a(c.a.t0.s.r.a aVar);
     }
 
     public a(Context context) {
@@ -55,8 +55,8 @@ public abstract class a<T extends c.a.s0.s.q.a> implements q, p<T> {
                 return;
             }
         }
-        this.f4287g = Boolean.FALSE;
-        this.f4286f = context;
+        this.f4354g = Boolean.FALSE;
+        this.f4353f = context;
     }
 
     public void a(int i2) {
@@ -71,10 +71,10 @@ public abstract class a<T extends c.a.s0.s.q.a> implements q, p<T> {
         }
     }
 
-    public c.a.t0.g0.d0<T> c() {
+    public c.a.u0.g0.b0<T> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4288h : (c.a.t0.g0.d0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4355h : (c.a.u0.g0.b0) invokeV.objValue;
     }
 
     public final ThreadCardView d(View view, int i2) {
@@ -95,7 +95,7 @@ public abstract class a<T extends c.a.s0.s.q.a> implements q, p<T> {
     public Boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f4287g : (Boolean) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f4354g : (Boolean) invokeV.objValue;
     }
 
     public abstract View f();
@@ -109,14 +109,14 @@ public abstract class a<T extends c.a.s0.s.q.a> implements q, p<T> {
     public void h(int i2, a.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048583, this, i2, bVar) == null) {
-            this.f4285e.m(i2, bVar);
+            this.f4352e.m(i2, bVar);
         }
     }
 
     public void i(l0 l0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, l0Var) == null) {
-            this.f4285e = l0Var;
+            this.f4352e = l0Var;
         }
     }
 
@@ -131,10 +131,10 @@ public abstract class a<T extends c.a.s0.s.q.a> implements q, p<T> {
         }
     }
 
-    public void k(c.a.t0.g0.d0<T> d0Var) {
+    public void k(c.a.u0.g0.b0<T> b0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, d0Var) == null) {
-            this.f4288h = d0Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, b0Var) == null) {
+            this.f4355h = b0Var;
         }
     }
 
@@ -144,7 +144,7 @@ public abstract class a<T extends c.a.s0.s.q.a> implements q, p<T> {
         if (!(interceptable == null || interceptable.invokeLI(1048587, this, view, i2) == null) || (d2 = d(view, i2)) == null) {
             return;
         }
-        c.a.s0.s.u.c d3 = c.a.s0.s.u.c.d(d2);
+        c.a.t0.s.v.c d3 = c.a.t0.s.v.c.d(d2);
         d3.n(R.string.J_X06);
         d3.f(R.color.CAM_X0205);
     }
@@ -152,7 +152,7 @@ public abstract class a<T extends c.a.s0.s.q.a> implements q, p<T> {
     public void m(Boolean bool) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bool) == null) {
-            this.f4287g = bool;
+            this.f4354g = bool;
         }
     }
 }

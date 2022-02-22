@@ -13,7 +13,7 @@ public final class d {
     public final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f30904b;
+    public final byte[] f31110b;
 
     public d(boolean z, byte[] bArr) {
         Interceptable interceptable = $ic;
@@ -31,13 +31,13 @@ public final class d {
             }
         }
         this.a = z;
-        this.f30904b = bArr;
+        this.f31110b = bArr;
     }
 
     public byte[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30904b : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31110b : (byte[]) invokeV.objValue;
     }
 
     public boolean b() {

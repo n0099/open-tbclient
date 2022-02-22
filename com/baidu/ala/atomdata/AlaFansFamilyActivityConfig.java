@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AlaFansFamilyActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTHOR_LIVE_USER_ID = "author_live_user_id";

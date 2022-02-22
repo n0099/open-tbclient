@@ -26,7 +26,7 @@ public final class ae extends ai.a {
     public final /* synthetic */ String f888a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f61459b;
+    public final /* synthetic */ String f61626b;
 
     public ae(int i2, String str, Context context, String str2, Notification notification) {
         Interceptable interceptable = $ic;
@@ -46,13 +46,13 @@ public final class ae extends ai.a {
         this.a = i2;
         this.f888a = str;
         this.f887a = context;
-        this.f61459b = str2;
+        this.f61626b = str2;
         this.f886a = notification;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo248a() {
+    public String mo247a() {
         InterceptResult invokeV;
         String b2;
         Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public final class ae extends ai.a {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ac.b(this.f887a, this.f61459b, this.a, this.f888a, this.f886a);
+            ac.b(this.f887a, this.f61626b, this.a, this.f888a, this.f886a);
         }
     }
 }

@@ -11,40 +11,46 @@ import android.view.MotionEvent;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
+import c.a.u0.a4.d;
+import c.a.u0.a4.e;
+import c.a.u0.a4.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
-import com.baidu.tieba.R$styleable;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ProgressButton extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FILL_COLOR = 1;
     public static final int STORKE_COLOR = 0;
+    public static final int u;
+    public static final int v;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f41207e;
+    public int f41436e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f41208f;
+    public int f41437f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f41209g;
+    public int f41438g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f41210h;
+    public float f41439h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f41211i;
+    public int f41440i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f41212j;
+    public int f41441j;
     public int k;
     public int l;
     public Paint m;
@@ -56,6 +62,23 @@ public class ProgressButton extends View {
     public boolean s;
     public boolean t;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1819398476, "Lcom/baidu/tbadk/widget/ProgressButton;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1819398476, "Lcom/baidu/tbadk/widget/ProgressButton;");
+                return;
+            }
+        }
+        u = UtilHelper.getDimenPixelSize(e.tbds177);
+        v = UtilHelper.getDimenPixelSize(e.M_W_X006);
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ProgressButton(Context context) {
         this(context, null);
@@ -64,14 +87,14 @@ public class ProgressButton extends View {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
@@ -80,8 +103,8 @@ public class ProgressButton extends View {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f41208f = SkinManager.getColor(this.f41209g);
-            this.f41211i = SkinManager.getColor(this.f41212j);
+            this.f41437f = SkinManager.getColor(this.f41438g);
+            this.f41440i = SkinManager.getColor(this.f41441j);
             this.k = SkinManager.getColor(this.l);
         }
     }
@@ -89,13 +112,13 @@ public class ProgressButton extends View {
     public final void b(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            this.m.setColor(this.f41208f);
+            this.m.setColor(this.f41437f);
             this.m.setAlpha((int) (this.s ? SkinManager.RESOURCE_ALPHA_PRESS * 255.0f : 255.0f));
-            this.m.setStyle(this.f41207e == 0 ? Paint.Style.STROKE : Paint.Style.FILL_AND_STROKE);
+            this.m.setStyle(this.f41436e == 0 ? Paint.Style.STROKE : Paint.Style.FILL_AND_STROKE);
             this.m.setStrokeWidth(this.r);
             float f2 = this.r;
             canvas.drawRoundRect(f2 / 2.0f, f2 / 2.0f, getWidth() - (this.r / 2.0f), getHeight() - (this.r / 2.0f), getHeight(), getHeight(), this.m);
-            this.n.setColor(this.f41211i);
+            this.n.setColor(this.f41440i);
             this.n.setAlpha(this.s ? (int) (SkinManager.RESOURCE_ALPHA_PRESS * 255.0f) : 255);
             this.n.setStyle(Paint.Style.FILL);
             this.n.setTextAlign(Paint.Align.CENTER);
@@ -114,11 +137,11 @@ public class ProgressButton extends View {
             int width = (int) (getWidth() * (this.q / 100.0f));
             canvas.save();
             canvas.clipRect(width, 0, getWidth(), getHeight());
-            this.m.setColor(this.f41208f);
-            this.m.setAlpha((int) (this.f41210h * (this.s ? SkinManager.RESOURCE_ALPHA_PRESS * 255.0f : 255.0f)));
+            this.m.setColor(this.f41437f);
+            this.m.setAlpha((int) (this.f41439h * (this.s ? SkinManager.RESOURCE_ALPHA_PRESS * 255.0f : 255.0f)));
             this.m.setStyle(Paint.Style.FILL_AND_STROKE);
             canvas.drawRoundRect(0.0f, 0.0f, getWidth(), getHeight(), getHeight(), getHeight(), this.m);
-            this.n.setColor(this.f41208f);
+            this.n.setColor(this.f41437f);
             this.n.setAlpha(this.s ? (int) (SkinManager.RESOURCE_ALPHA_PRESS * 255.0f) : 255);
             this.n.setStyle(Paint.Style.FILL);
             this.n.setTextAlign(Paint.Align.CENTER);
@@ -131,7 +154,7 @@ public class ProgressButton extends View {
             canvas.restore();
             canvas.save();
             canvas.clipRect(0, 0, width, getHeight());
-            this.m.setColor(this.f41208f);
+            this.m.setColor(this.f41437f);
             this.m.setAlpha((int) (this.s ? SkinManager.RESOURCE_ALPHA_PRESS * 255.0f : 255.0f));
             this.m.setStyle(Paint.Style.FILL_AND_STROKE);
             float f2 = this.r;
@@ -151,8 +174,8 @@ public class ProgressButton extends View {
     public void disableText() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f41209g = R.color.CAM_X0112;
-            this.f41212j = R.color.CAM_X0110;
+            this.f41438g = d.CAM_X0112;
+            this.f41441j = d.CAM_X0110;
             a();
         }
     }
@@ -160,47 +183,61 @@ public class ProgressButton extends View {
     public void enableText() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            int i2 = R.color.CAM_X0302;
-            this.f41209g = i2;
-            if (this.f41207e != 0) {
-                i2 = R.color.CAM_X0101;
+            int i2 = d.CAM_X0302;
+            this.f41438g = i2;
+            if (this.f41436e != 0) {
+                i2 = d.CAM_X0101;
             }
-            this.f41212j = i2;
+            this.f41441j = i2;
             a();
         }
+    }
+
+    public int getBtnWidthSize(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            this.n.setTextSize(this.o);
+            int measureText = ((int) this.n.measureText(str)) + (v * 2);
+            if (measureText > u) {
+                return measureText;
+            }
+            return 0;
+        }
+        return invokeL.intValue;
     }
 
     public int getColorStyle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f41207e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f41436e : invokeV.intValue;
     }
 
     @SuppressLint({"CustomViewStyleable"})
     public void initView(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.TBProgressButton);
-            this.o = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TBProgressButton_btnTextSize, R.dimen.T_X08);
-            this.p = obtainStyledAttributes.getString(R$styleable.TBProgressButton_btnText);
-            int i2 = obtainStyledAttributes.getInt(R$styleable.TBProgressButton_btnColorStyle, 0);
-            this.f41207e = i2;
-            this.f41209g = R.color.CAM_X0302;
-            int i3 = R.color.CAM_X0101;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, context, attributeSet) == null) {
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, l.TBProgressButton);
+            this.o = obtainStyledAttributes.getDimensionPixelSize(l.TBProgressButton_btnTextSize, e.T_X08);
+            this.p = obtainStyledAttributes.getString(l.TBProgressButton_btnText);
+            int i2 = obtainStyledAttributes.getInt(l.TBProgressButton_btnColorStyle, 0);
+            this.f41436e = i2;
+            this.f41438g = d.CAM_X0302;
+            int i3 = d.CAM_X0101;
             this.l = i3;
             if (i2 == 0) {
-                i3 = R.color.CAM_X0302;
+                i3 = d.CAM_X0302;
             }
-            this.f41212j = i3;
-            this.f41208f = obtainStyledAttributes.getColor(R$styleable.TBProgressButton_btnBackgroundColor, SkinManager.getColor(this.f41209g));
-            this.f41211i = obtainStyledAttributes.getColor(R$styleable.TBProgressButton_textColorInit, SkinManager.getColor(this.f41212j));
-            this.k = obtainStyledAttributes.getColor(R$styleable.TBProgressButton_textColorProgress, SkinManager.getColor(this.l));
-            this.f41210h = obtainStyledAttributes.getFloat(R$styleable.TBProgressButton_btnBackgroundAlpha, 0.2f);
+            this.f41441j = i3;
+            this.f41437f = obtainStyledAttributes.getColor(l.TBProgressButton_btnBackgroundColor, SkinManager.getColor(this.f41438g));
+            this.f41440i = obtainStyledAttributes.getColor(l.TBProgressButton_textColorInit, SkinManager.getColor(this.f41441j));
+            this.k = obtainStyledAttributes.getColor(l.TBProgressButton_textColorProgress, SkinManager.getColor(this.l));
+            this.f41439h = obtainStyledAttributes.getFloat(l.TBProgressButton_btnBackgroundAlpha, 0.2f);
             obtainStyledAttributes.recycle();
-            this.r = n.f(getContext(), R.dimen.L_X02);
+            this.r = n.f(getContext(), e.L_X02);
             Paint paint = new Paint(1);
             this.m = paint;
-            paint.setColor(this.f41208f);
+            paint.setColor(this.f41437f);
             this.m.setStrokeWidth(this.r);
             TextPaint textPaint = new TextPaint();
             this.n = textPaint;
@@ -212,13 +249,13 @@ public class ProgressButton extends View {
     public boolean isUseLongText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.t : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.t : invokeV.booleanValue;
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, canvas) == null) {
             if (this.q < 0) {
                 b(canvas);
             } else {
@@ -229,7 +266,7 @@ public class ProgressButton extends View {
 
     public void onSkinChanged() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             a();
             postInvalidate();
         }
@@ -239,7 +276,7 @@ public class ProgressButton extends View {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action == 0) {
                 this.s = true;
@@ -255,7 +292,7 @@ public class ProgressButton extends View {
 
     public void setCurProgress(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
             if (i2 < 0) {
                 this.q = -1;
             } else {
@@ -266,7 +303,7 @@ public class ProgressButton extends View {
 
     public void setText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             if (str == null) {
                 str = "";
             }
@@ -277,14 +314,14 @@ public class ProgressButton extends View {
 
     public void setUseLongText(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             this.t = z;
         }
     }
 
     public void updateProgress(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
             if (i2 < 0) {
                 this.q = -1;
             } else {
@@ -303,14 +340,14 @@ public class ProgressButton extends View {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
@@ -324,14 +361,14 @@ public class ProgressButton extends View {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65538, newInitContext);
+            interceptable.invokeUnInit(65539, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }

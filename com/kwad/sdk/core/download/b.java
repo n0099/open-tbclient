@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.download;
 
 import com.kwad.sdk.KsAdSDKImpl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static final boolean a = KsAdSDKImpl.get().isDebugLogEnable();
 

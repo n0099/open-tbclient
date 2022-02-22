@@ -69,7 +69,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class BaiduPay {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AMOUNT = "pay_amount";
@@ -89,38 +89,38 @@ public class BaiduPay {
     public PayCallBack a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IBindCardCallback f51900b;
+    public IBindCardCallback f52067b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RNAuthCallBack f51901c;
+    public RNAuthCallBack f52068c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f51902d;
+    public boolean f52069d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f51903e;
+    public a f52070e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ScanCodeCallBack f51904f;
+    public ScanCodeCallBack f52071f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f51905g;
+    public Context f52072g;
 
     /* renamed from: com.baidu.wallet.paysdk.api.BaiduPay$3  reason: invalid class name */
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public class AnonymousClass3 implements IBeanResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Handler a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f51909b;
+        public final /* synthetic */ Context f52076b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CheckCallBack f51910c;
+        public final /* synthetic */ CheckCallBack f52077c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ BaiduPay f51911d;
+        public final /* synthetic */ BaiduPay f52078d;
 
         public AnonymousClass3(BaiduPay baiduPay, Context context, CheckCallBack checkCallBack) {
             Interceptable interceptable = $ic;
@@ -137,10 +137,10 @@ public class BaiduPay {
                     return;
                 }
             }
-            this.f51911d = baiduPay;
-            this.f51909b = context;
-            this.f51910c = checkCallBack;
-            this.a = new Handler(this.f51909b.getMainLooper());
+            this.f52078d = baiduPay;
+            this.f52076b = context;
+            this.f52077c = checkCallBack;
+            this.a = new Handler(this.f52076b.getMainLooper());
         }
 
         @Override // com.dxmpay.apollon.beans.IBeanResponseCallback
@@ -154,7 +154,7 @@ public class BaiduPay {
                     public final /* synthetic */ String a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass3 f51913b;
+                    public final /* synthetic */ AnonymousClass3 f52080b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -171,7 +171,7 @@ public class BaiduPay {
                                 return;
                             }
                         }
-                        this.f51913b = this;
+                        this.f52080b = this;
                         this.a = str;
                     }
 
@@ -179,7 +179,7 @@ public class BaiduPay {
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f51913b.f51910c.onCheckResult(3, this.a);
+                            this.f52080b.f52077c.onCheckResult(3, this.a);
                         }
                     }
                 });
@@ -197,7 +197,7 @@ public class BaiduPay {
                     public final /* synthetic */ Object a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass3 f51912b;
+                    public final /* synthetic */ AnonymousClass3 f52079b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -214,7 +214,7 @@ public class BaiduPay {
                                 return;
                             }
                         }
-                        this.f51912b = this;
+                        this.f52079b = this;
                         this.a = obj;
                     }
 
@@ -225,7 +225,7 @@ public class BaiduPay {
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             UserInfoContentResponse userInfoContentResponse = (UserInfoContentResponse) this.a;
                             if (userInfoContentResponse != null && (userBean = userInfoContentResponse.user_info) != null && userBean.hasMobilePwd()) {
-                                PasswordController.getPassWordInstance().checkPwd(this.f51912b.f51909b, BeanConstants.FROM_COMMON_CHECK_PWD, new PasswordController.IPwdListener(this) { // from class: com.baidu.wallet.paysdk.api.BaiduPay.3.1.1
+                                PasswordController.getPassWordInstance().checkPwd(this.f52079b.f52076b, BeanConstants.FROM_COMMON_CHECK_PWD, new PasswordController.IPwdListener(this) { // from class: com.baidu.wallet.paysdk.api.BaiduPay.3.1.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
                                     public final /* synthetic */ AnonymousClass1 a;
@@ -253,7 +253,7 @@ public class BaiduPay {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeIL(1048576, this, i3, str2) == null) {
                                             PasswordController.getPassWordInstance().clearCheckPwdListener();
-                                            this.a.f51912b.f51910c.onCheckResult(2, QueryResponse.Options.CANCEL);
+                                            this.a.f52079b.f52077c.onCheckResult(2, QueryResponse.Options.CANCEL);
                                         }
                                     }
 
@@ -262,12 +262,12 @@ public class BaiduPay {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2) == null) {
                                             PasswordController.getPassWordInstance().clearCheckPwdListener();
-                                            this.a.f51912b.f51910c.onCheckResult(0, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_SUCCESS);
+                                            this.a.f52079b.f52077c.onCheckResult(0, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_SUCCESS);
                                         }
                                     }
                                 });
                             } else {
-                                this.f51912b.f51910c.onCheckResult(1, "当前未设置手机支付密码");
+                                this.f52079b.f52077c.onCheckResult(1, "当前未设置手机支付密码");
                             }
                         }
                     }
@@ -277,23 +277,23 @@ public class BaiduPay {
     }
 
     /* renamed from: com.baidu.wallet.paysdk.api.BaiduPay$4  reason: invalid class name */
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public class AnonymousClass4 implements IBeanResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Handler a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f51914b;
+        public final /* synthetic */ Context f52081b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f51915c;
+        public final /* synthetic */ String f52082c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ CheckCallBack f51916d;
+        public final /* synthetic */ CheckCallBack f52083d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BaiduPay f51917e;
+        public final /* synthetic */ BaiduPay f52084e;
 
         public AnonymousClass4(BaiduPay baiduPay, Context context, String str, CheckCallBack checkCallBack) {
             Interceptable interceptable = $ic;
@@ -310,11 +310,11 @@ public class BaiduPay {
                     return;
                 }
             }
-            this.f51917e = baiduPay;
-            this.f51914b = context;
-            this.f51915c = str;
-            this.f51916d = checkCallBack;
-            this.a = new Handler(this.f51914b.getMainLooper());
+            this.f52084e = baiduPay;
+            this.f52081b = context;
+            this.f52082c = str;
+            this.f52083d = checkCallBack;
+            this.a = new Handler(this.f52081b.getMainLooper());
         }
 
         @Override // com.dxmpay.apollon.beans.IBeanResponseCallback
@@ -328,7 +328,7 @@ public class BaiduPay {
                     public final /* synthetic */ String a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass4 f51919b;
+                    public final /* synthetic */ AnonymousClass4 f52086b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -345,7 +345,7 @@ public class BaiduPay {
                                 return;
                             }
                         }
-                        this.f51919b = this;
+                        this.f52086b = this;
                         this.a = str;
                     }
 
@@ -353,7 +353,7 @@ public class BaiduPay {
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f51919b.f51916d.onCheckResult(3, this.a);
+                            this.f52086b.f52083d.onCheckResult(3, this.a);
                         }
                     }
                 });
@@ -371,7 +371,7 @@ public class BaiduPay {
                     public final /* synthetic */ Object a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass4 f51918b;
+                    public final /* synthetic */ AnonymousClass4 f52085b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -388,7 +388,7 @@ public class BaiduPay {
                                 return;
                             }
                         }
-                        this.f51918b = this;
+                        this.f52085b = this;
                         this.a = obj;
                     }
 
@@ -399,8 +399,8 @@ public class BaiduPay {
                             VerifyPayPasswordResponse verifyPayPasswordResponse = (VerifyPayPasswordResponse) this.a;
                             if (verifyPayPasswordResponse != null && verifyPayPasswordResponse.has_pwd == 1) {
                                 PasswordController passWordInstance = PasswordController.getPassWordInstance();
-                                AnonymousClass4 anonymousClass4 = this.f51918b;
-                                passWordInstance.checkPwdFromH5(anonymousClass4.f51914b, anonymousClass4.f51915c, BeanConstants.FROM_COMMON_CHECK_PWD_FROM_H5, new PasswordController.IPwdListener(this) { // from class: com.baidu.wallet.paysdk.api.BaiduPay.4.1.1
+                                AnonymousClass4 anonymousClass4 = this.f52085b;
+                                passWordInstance.checkPwdFromH5(anonymousClass4.f52081b, anonymousClass4.f52082c, BeanConstants.FROM_COMMON_CHECK_PWD_FROM_H5, new PasswordController.IPwdListener(this) { // from class: com.baidu.wallet.paysdk.api.BaiduPay.4.1.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
                                     public final /* synthetic */ AnonymousClass1 a;
@@ -428,7 +428,7 @@ public class BaiduPay {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeIL(1048576, this, i3, str2) == null) {
                                             PasswordController.getPassWordInstance().clearCheckPwdListener();
-                                            this.a.f51918b.f51916d.onCheckResult(2, QueryResponse.Options.CANCEL);
+                                            this.a.f52085b.f52083d.onCheckResult(2, QueryResponse.Options.CANCEL);
                                         }
                                     }
 
@@ -437,13 +437,13 @@ public class BaiduPay {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2) == null) {
                                             PasswordController.getPassWordInstance().clearCheckPwdListener();
-                                            this.a.f51918b.f51916d.onCheckResult(0, str2);
+                                            this.a.f52085b.f52083d.onCheckResult(0, str2);
                                         }
                                     }
                                 });
                                 return;
                             }
-                            this.f51918b.f51916d.onCheckResult(1, "当前未设置手机支付密码");
+                            this.f52085b.f52083d.onCheckResult(1, "当前未设置手机支付密码");
                         }
                     }
                 });
@@ -451,21 +451,21 @@ public class BaiduPay {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public interface IBindCardCallback {
         void onChangeFailed(String str);
 
         void onChangeSucceed(String str);
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static class a implements BindBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final BindBack a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f51921b;
+        public boolean f52088b;
 
         @Override // com.baidu.android.pay.BindBack
         public boolean isHideLoadingDialog() {
@@ -485,7 +485,7 @@ public class BaiduPay {
                 if (bindBack != null) {
                     bindBack.onBindResult(i2, str);
                 }
-                this.f51921b = false;
+                this.f52088b = false;
             }
         }
 
@@ -504,12 +504,12 @@ public class BaiduPay {
                     return;
                 }
             }
-            this.f51921b = true;
+            this.f52088b = true;
             this.a = bindBack;
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static BaiduPay a;
@@ -681,14 +681,14 @@ public class BaiduPay {
     public void clearBindCallback() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f51900b = null;
+            this.f52067b = null;
         }
     }
 
     public void clearBindCallbackExt() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f51903e = null;
+            this.f52070e = null;
         }
     }
 
@@ -702,7 +702,7 @@ public class BaiduPay {
     public void clearRNAuthBack() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f51901c = null;
+            this.f52068c = null;
         }
     }
 
@@ -803,7 +803,7 @@ public class BaiduPay {
                     public final /* synthetic */ BindBack a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ BaiduPay f51908b;
+                    public final /* synthetic */ BaiduPay f52075b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -820,7 +820,7 @@ public class BaiduPay {
                                 return;
                             }
                         }
-                        this.f51908b = this;
+                        this.f52075b = this;
                         this.a = bindBack;
                     }
 
@@ -834,7 +834,7 @@ public class BaiduPay {
                                 StatHelper.clearSensor();
                                 return;
                             }
-                            this.f51908b.setBindCardbackExt(null);
+                            this.f52075b.setBindCardbackExt(null);
                         }
                     }
 
@@ -848,7 +848,7 @@ public class BaiduPay {
                                 StatHelper.clearSensor();
                                 return;
                             }
-                            this.f51908b.setBindCardbackExt(null);
+                            this.f52075b.setBindCardbackExt(null);
                         }
                     }
                 }, PayRequestCache.BindCategory.Initiative, 1, "", null, null, urlParam2JsonStr, true, BeanConstants.FROM_BIND);
@@ -867,7 +867,7 @@ public class BaiduPay {
                 public final /* synthetic */ CheckCallBack a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BaiduPay f51920b;
+                public final /* synthetic */ BaiduPay f52087b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -884,7 +884,7 @@ public class BaiduPay {
                             return;
                         }
                     }
-                    this.f51920b = this;
+                    this.f52087b = this;
                     this.a = checkCallBack;
                 }
 
@@ -930,19 +930,19 @@ public class BaiduPay {
         if (!(interceptable == null || interceptable.invokeLLL(1048590, this, context, str, rNAuthCallBack) == null) || !WalletLoginHelper.getInstance().isLogin() || context == null || TextUtils.isEmpty(str) || rNAuthCallBack == null) {
             return;
         }
-        this.f51905g = context;
-        this.f51901c = rNAuthCallBack;
-        this.f51902d = false;
+        this.f52072g = context;
+        this.f52068c = rNAuthCallBack;
+        this.f52069d = false;
         H5LifeCycleCallback h5LifeCycleCallback = new H5LifeCycleCallback(this, context, rNAuthCallBack) { // from class: com.baidu.wallet.paysdk.api.BaiduPay.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Context a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ RNAuthCallBack f51906b;
+            public final /* synthetic */ RNAuthCallBack f52073b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ BaiduPay f51907c;
+            public final /* synthetic */ BaiduPay f52074c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -959,9 +959,9 @@ public class BaiduPay {
                         return;
                     }
                 }
-                this.f51907c = this;
+                this.f52074c = this;
                 this.a = context;
-                this.f51906b = rNAuthCallBack;
+                this.f52073b = rNAuthCallBack;
             }
 
             @Override // com.baidu.wallet.paysdk.payresult.presenter.H5LifeCycleCallback, android.app.Application.ActivityLifecycleCallbacks
@@ -972,7 +972,7 @@ public class BaiduPay {
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, activity) == null) {
                     pop();
                     EventBus.getInstance().unregister(this.a, BeanConstants.EVENT_H5_RN_AUTH_RESULT);
-                    if (this.f51907c.f51902d) {
+                    if (this.f52074c.f52069d) {
                         str2 = "RnAuthSuccess";
                         i2 = 0;
                     } else {
@@ -981,7 +981,7 @@ public class BaiduPay {
                     }
                     String orderNo = StatHelper.getOrderNo();
                     StatisticManager.onEventWithValues(PayStatServiceEvent.PAY_RNAUTH_RESULT, StatHelper.collectData(orderNo, i2 + "", str2));
-                    this.f51906b.onRNAuthResult(i2, str2);
+                    this.f52073b.onRNAuthResult(i2, str2);
                 }
             }
         };
@@ -1007,7 +1007,7 @@ public class BaiduPay {
     public void doRNAuth(Context context, Map<String, String> map, RNAuthCallBack rNAuthCallBack) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048592, this, context, map, rNAuthCallBack) == null) && WalletLoginHelper.getInstance().isLogin() && map != null) {
-            this.f51901c = rNAuthCallBack;
+            this.f52068c = rNAuthCallBack;
             StringBuilder sb = new StringBuilder();
             if (!map.isEmpty()) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
@@ -1033,7 +1033,7 @@ public class BaiduPay {
     public void doRemotePay(Context context, String str, PayCallBack payCallBack, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048593, this, context, str, payCallBack, map) == null) {
-            this.f51905g = context;
+            this.f52072g = context;
             PayDataCache.getInstance().setIsRemotePay(true);
             PayDataCache.getInstance().resetFromPrecashier();
             a(context, str, payCallBack, map, null);
@@ -1050,13 +1050,13 @@ public class BaiduPay {
     public IBindCardCallback getBindCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f51900b : (IBindCardCallback) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f52067b : (IBindCardCallback) invokeV.objValue;
     }
 
     public BindBack getBindCallbackExt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f51903e : (BindBack) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f52070e : (BindBack) invokeV.objValue;
     }
 
     public PayCallBack getPayBack() {
@@ -1068,27 +1068,27 @@ public class BaiduPay {
     public RNAuthCallBack getRNAuthBack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f51901c : (RNAuthCallBack) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f52068c : (RNAuthCallBack) invokeV.objValue;
     }
 
     public Context getRemotePayContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f51905g : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f52072g : (Context) invokeV.objValue;
     }
 
     public ScanCodeCallBack getScanCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f51904f : (ScanCodeCallBack) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f52071f : (ScanCodeCallBack) invokeV.objValue;
     }
 
     public boolean isBindCardProcessing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            a aVar = this.f51903e;
-            return aVar != null && aVar.f51921b;
+            a aVar = this.f52070e;
+            return aVar != null && aVar.f52088b;
         }
         return invokeV.booleanValue;
     }
@@ -1116,7 +1116,7 @@ public class BaiduPay {
                 }
                 return;
             }
-            this.f51900b = iBindCardCallback;
+            this.f52067b = iBindCardCallback;
             Intent intent = new Intent(context, BindCardImplActivity.class);
             if (bundle != null) {
                 intent.putExtras(bundle);
@@ -1132,22 +1132,22 @@ public class BaiduPay {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, event) == null) {
             if (event == null) {
-                this.f51902d = false;
+                this.f52069d = false;
             } else if (BeanConstants.EVENT_H5_RN_AUTH_RESULT.equals(event.mEventKey)) {
                 if (event.mEventObj != null) {
                     try {
                         JSONObject jSONObject = new JSONObject((String) event.mEventObj);
                         if (jSONObject.has(BeanConstants.EVENT_AUTH_RESULT) && 1 == jSONObject.getInt(BeanConstants.EVENT_AUTH_RESULT)) {
-                            this.f51902d = true;
+                            this.f52069d = true;
                             return;
                         }
                         return;
                     } catch (Exception unused) {
-                        this.f51902d = false;
+                        this.f52069d = false;
                         return;
                     }
                 }
-                this.f51902d = false;
+                this.f52069d = false;
             }
         }
     }
@@ -1197,35 +1197,35 @@ public class BaiduPay {
     public void resetRemotePayContext() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
-            this.f51905g = null;
+            this.f52072g = null;
         }
     }
 
     public void setBindCallback(IBindCardCallback iBindCardCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, iBindCardCallback) == null) {
-            this.f51900b = iBindCardCallback;
+            this.f52067b = iBindCardCallback;
         }
     }
 
     public void setBindCardbackExt(BindBack bindBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, bindBack) == null) {
-            this.f51903e = bindBack != null ? new a(bindBack) : null;
+            this.f52070e = bindBack != null ? new a(bindBack) : null;
         }
     }
 
     public void setRemotePayContext(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048609, this, context) == null) {
-            this.f51905g = context;
+            this.f52072g = context;
         }
     }
 
     public void setScanCallback(ScanCodeCallBack scanCodeCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048610, this, scanCodeCallBack) == null) {
-            this.f51904f = scanCodeCallBack;
+            this.f52071f = scanCodeCallBack;
         }
     }
 
@@ -1242,7 +1242,7 @@ public class BaiduPay {
                 return;
             }
         }
-        this.f51902d = false;
+        this.f52069d = false;
     }
 
     private void a(Context context, String str, PayCallBack payCallBack, Map<String, String> map, PrecashierCreateOrderResponse precashierCreateOrderResponse) {

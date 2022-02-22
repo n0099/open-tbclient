@@ -23,7 +23,7 @@ public class g {
     public static ConnectivityManager a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static TelephonyManager f32288b;
+    public static TelephonyManager f32494b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -218,15 +218,15 @@ public class g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            if (context.checkCallingOrSelfPermission(s.f55287c) == 0) {
+            if (context.checkCallingOrSelfPermission(s.f55454c) == 0) {
                 if (context == null) {
-                    return f32288b;
+                    return f32494b;
                 }
-                if (f32288b == null) {
-                    f32288b = (TelephonyManager) context.getSystemService("phone");
+                if (f32494b == null) {
+                    f32494b = (TelephonyManager) context.getSystemService("phone");
                 }
             }
-            return f32288b;
+            return f32494b;
         }
         return (TelephonyManager) invokeL.objValue;
     }

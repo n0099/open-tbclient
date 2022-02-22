@@ -122,12 +122,12 @@ public final class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (Intrinsics.areEqual(c.a.j.h.b.b.f4037c.h().getAppVersion(), "")) {
+            if (Intrinsics.areEqual(c.a.j.h.b.b.f4057c.h().getAppVersion(), "")) {
                 String b2 = c.a.j.h.d.b.b();
                 Intrinsics.checkExpressionValueIsNotNull(b2, "AppUtils.getVersionName()");
                 return b2;
             }
-            return c.a.j.h.b.b.f4037c.h().getAppVersion();
+            return c.a.j.h.b.b.f4057c.h().getAppVersion();
         }
         return (String) invokeV.objValue;
     }

@@ -1,6 +1,7 @@
 package com.google.gson;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +31,7 @@ public abstract class LongSerializationPolicy {
                 return;
             }
         }
-        DEFAULT = new LongSerializationPolicy("DEFAULT", 0) { // from class: com.google.gson.LongSerializationPolicy.1
+        DEFAULT = new LongSerializationPolicy(EngineName.DEFAULT_ENGINE, 0) { // from class: com.google.gson.LongSerializationPolicy.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

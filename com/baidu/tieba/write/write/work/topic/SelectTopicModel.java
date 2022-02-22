@@ -1,7 +1,7 @@
 package com.baidu.tieba.write.write.work.topic;
 
 import androidx.annotation.NonNull;
-import c.a.t0.s1.f;
+import c.a.u0.s1.f;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,16 +24,16 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.a.d.c.g.a f50031e;
+    public final c.a.d.c.g.a f50198e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f50032f;
+    public b f50199f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f50033g;
+    public boolean f50200g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<f> f50034h;
+    public List<f> f50201h;
 
     /* loaded from: classes13.dex */
     public class a extends c.a.d.c.g.a {
@@ -67,9 +67,9 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.f50033g = false;
-                if (responsedMessage != null && (responsedMessage instanceof c.a.t0.p4.e0.p.a0.a.a)) {
-                    this.a.z(((c.a.t0.p4.e0.p.a0.a.a) responsedMessage).getTopicList());
+                this.a.f50200g = false;
+                if (responsedMessage != null && (responsedMessage instanceof c.a.u0.s4.e0.p.a0.a.a)) {
+                    this.a.z(((c.a.u0.s4.e0.p.a0.a.a) responsedMessage).getTopicList());
                 }
             }
         }
@@ -98,14 +98,14 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
                 return;
             }
         }
-        this.f50031e = new a(this, CmdConfigHttp.CMD_GET_RECOMMEND_TOPIC, 309719);
+        this.f50198e = new a(this, CmdConfigHttp.CMD_GET_RECOMMEND_TOPIC, 309719);
         initListener();
     }
 
     public void A(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f50032f = bVar;
+            this.f50199f = bVar;
         }
     }
 
@@ -122,7 +122,7 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
     public final void initListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            registerListener(this.f50031e);
+            registerListener(this.f50198e);
         }
     }
 
@@ -138,8 +138,8 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
 
     public void y() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !this.f50033g && ListUtils.isEmpty(this.f50034h)) {
-            this.f50033g = true;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !this.f50200g && ListUtils.isEmpty(this.f50201h)) {
+            this.f50200g = true;
             sendMessage(new GetRecommendTopicReqMessage());
         }
     }
@@ -149,13 +149,13 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f50034h = new ArrayList();
+        this.f50201h = new ArrayList();
         for (TopicList topicList : list) {
-            this.f50034h.add(new f(topicList));
+            this.f50201h.add(new f(topicList));
         }
-        b bVar = this.f50032f;
+        b bVar = this.f50199f;
         if (bVar != null) {
-            bVar.a(this.f50034h);
+            bVar.a(this.f50201h);
         }
     }
 }

@@ -29,7 +29,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Runnable f4162e;
+        public final /* synthetic */ Runnable f4182e;
 
         public a(Runnable runnable) {
             Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class c {
                     return;
                 }
             }
-            this.f4162e = runnable;
+            this.f4182e = runnable;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -56,7 +56,7 @@ public class c {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f4162e.run();
+                this.f4182e.run();
                 return Unit.INSTANCE;
             }
             return (Unit) invokeV.objValue;
@@ -69,7 +69,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Runnable f4163e;
+        public final /* synthetic */ Runnable f4183e;
 
         public b(Runnable runnable) {
             Interceptable interceptable = $ic;
@@ -86,7 +86,7 @@ public class c {
                     return;
                 }
             }
-            this.f4163e = runnable;
+            this.f4183e = runnable;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -96,7 +96,7 @@ public class c {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f4163e.run();
+                this.f4183e.run();
                 return Unit.INSTANCE;
             }
             return (Unit) invokeV.objValue;
@@ -105,14 +105,14 @@ public class c {
 
     /* renamed from: c.a.j.l.h.d.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class View$OnClickListenerC0194c implements View.OnClickListener {
+    public static class View$OnClickListenerC0196c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a f4164e;
+        public final /* synthetic */ b.a f4184e;
 
-        public View$OnClickListenerC0194c(b.a aVar) {
+        public View$OnClickListenerC0196c(b.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,14 +127,14 @@ public class c {
                     return;
                 }
             }
-            this.f4164e = aVar;
+            this.f4184e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f4164e.a();
+                this.f4184e.a();
             }
         }
     }
@@ -145,16 +145,16 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f4165e;
+        public final /* synthetic */ String f4185e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TextView f4166f;
+        public final /* synthetic */ TextView f4186f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f4167g;
+        public final /* synthetic */ e f4187g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ LinearLayout f4168h;
+        public final /* synthetic */ LinearLayout f4188h;
 
         /* loaded from: classes.dex */
         public class a implements Function0<Unit> {
@@ -162,18 +162,18 @@ public class c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f4169e;
+            public final /* synthetic */ d f4189e;
 
             /* renamed from: c.a.j.l.h.d.c$d$a$a  reason: collision with other inner class name */
             /* loaded from: classes.dex */
-            public class RunnableC0195a implements Runnable {
+            public class RunnableC0197a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ a f4170e;
+                public final /* synthetic */ a f4190e;
 
-                public RunnableC0195a(a aVar) {
+                public RunnableC0197a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -188,15 +188,15 @@ public class c {
                             return;
                         }
                     }
-                    this.f4170e = aVar;
+                    this.f4190e = aVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        d dVar = this.f4170e.f4169e;
-                        dVar.f4167g.a(dVar.f4168h);
+                        d dVar = this.f4190e.f4189e;
+                        dVar.f4187g.a(dVar.f4188h);
                     }
                 }
             }
@@ -216,7 +216,7 @@ public class c {
                         return;
                     }
                 }
-                this.f4169e = dVar;
+                this.f4189e = dVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -226,7 +226,7 @@ public class c {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    c.a.j.h.d.e.c(new RunnableC0195a(this));
+                    c.a.j.h.d.e.c(new RunnableC0197a(this));
                     return Unit.INSTANCE;
                 }
                 return (Unit) invokeV.objValue;
@@ -239,7 +239,7 @@ public class c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f4171e;
+            public final /* synthetic */ d f4191e;
 
             /* loaded from: classes.dex */
             public class a implements Runnable {
@@ -247,7 +247,7 @@ public class c {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ b f4172e;
+                public final /* synthetic */ b f4192e;
 
                 public a(b bVar) {
                     Interceptable interceptable = $ic;
@@ -264,15 +264,15 @@ public class c {
                             return;
                         }
                     }
-                    this.f4172e = bVar;
+                    this.f4192e = bVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        d dVar = this.f4172e.f4171e;
-                        dVar.f4167g.a(dVar.f4168h);
+                        d dVar = this.f4192e.f4191e;
+                        dVar.f4187g.a(dVar.f4188h);
                     }
                 }
             }
@@ -292,7 +292,7 @@ public class c {
                         return;
                     }
                 }
-                this.f4171e = dVar;
+                this.f4191e = dVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -324,20 +324,20 @@ public class c {
                     return;
                 }
             }
-            this.f4165e = str;
-            this.f4166f = textView;
-            this.f4167g = eVar;
-            this.f4168h = linearLayout;
+            this.f4185e = str;
+            this.f4186f = textView;
+            this.f4187g = eVar;
+            this.f4188h = linearLayout;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!TextUtils.isEmpty(this.f4165e)) {
-                    com.baidu.bdtask.ui.utils.d.a.b(this.f4165e, this.f4166f, new a(this), new b(this));
+                if (!TextUtils.isEmpty(this.f4185e)) {
+                    com.baidu.bdtask.ui.utils.d.a.b(this.f4185e, this.f4186f, new a(this), new b(this));
                 } else {
-                    this.f4167g.a(this.f4168h);
+                    this.f4187g.a(this.f4188h);
                 }
             }
         }
@@ -395,7 +395,7 @@ public class c {
                 textView2.setTextColor(c.a.j.l.i.b.a.a(str6, resources.getColor(c.a.j.l.b.task_sdk_text_color_default)));
                 textView2.setTextSize(1, i3);
             }
-            textView2.setOnClickListener(new View$OnClickListenerC0194c(aVar));
+            textView2.setOnClickListener(new View$OnClickListenerC0196c(aVar));
             c(str2, linearLayout, new d(str5, textView2, eVar, linearLayout));
         }
     }

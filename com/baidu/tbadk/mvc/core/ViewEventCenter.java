@@ -1,6 +1,6 @@
 package com.baidu.tbadk.mvc.core;
 
-import c.a.s0.l0.c.c.a;
+import c.a.t0.l0.c.c.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;

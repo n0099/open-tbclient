@@ -29,7 +29,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class VideoPasterRequestData extends HttpMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static String _ANDROID_ID = "";

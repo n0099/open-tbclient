@@ -72,7 +72,7 @@ public class LivenessManager {
                 public final /* synthetic */ IvoiceListener a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessManager f52781b;
+                public final /* synthetic */ LivenessManager f52948b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -89,7 +89,7 @@ public class LivenessManager {
                             return;
                         }
                     }
-                    this.f52781b = this;
+                    this.f52948b = this;
                     this.a = ivoiceListener;
                 }
 
@@ -101,7 +101,7 @@ public class LivenessManager {
                         if (i2 == 0) {
                             IvoiceListener ivoiceListener3 = this.a;
                             if (ivoiceListener3 != null) {
-                                ivoiceListener3.onResult(0, 0, NewBindCardEntry.BING_CARD_SUCCESS_MSG, this.f52781b.toJSONObject(map2));
+                                ivoiceListener3.onResult(0, 0, NewBindCardEntry.BING_CARD_SUCCESS_MSG, this.f52948b.toJSONObject(map2));
                             }
                         } else if (map2 == null || (ivoiceListener2 = this.a) == null) {
                         } else {
@@ -115,7 +115,7 @@ public class LivenessManager {
                 public final /* synthetic */ IvoiceListener a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessManager f52782b;
+                public final /* synthetic */ LivenessManager f52949b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -132,7 +132,7 @@ public class LivenessManager {
                             return;
                         }
                     }
-                    this.f52782b = this;
+                    this.f52949b = this;
                     this.a = ivoiceListener;
                 }
 

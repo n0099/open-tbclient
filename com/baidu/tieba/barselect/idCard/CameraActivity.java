@@ -16,7 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.s.a;
+import c.a.t0.s.t.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.tbadk.BaseActivity;
@@ -63,7 +63,7 @@ public class CameraActivity extends BaseActivity {
     public View.OnClickListener lightButtonOnClickListener;
     public File outputFile;
     public FrameOverlayView overlayView;
-    public c.a.t0.c0.c.e permissionCallback;
+    public c.a.u0.c0.c.e permissionCallback;
     public View.OnClickListener rotateButtonOnClickListener;
     public View.OnClickListener takeButtonOnClickListener;
     public ImageView takePhotoBtn;
@@ -76,7 +76,7 @@ public class CameraActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CameraActivity f42199e;
+        public final /* synthetic */ CameraActivity f42432e;
 
         public a(CameraActivity cameraActivity) {
             Interceptable interceptable = $ic;
@@ -93,14 +93,14 @@ public class CameraActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f42199e = cameraActivity;
+            this.f42432e = cameraActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f42199e.doConfirmResult();
+                this.f42432e.doConfirmResult();
             }
         }
     }
@@ -111,7 +111,7 @@ public class CameraActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CameraActivity f42200e;
+        public final /* synthetic */ CameraActivity f42433e;
 
         public b(CameraActivity cameraActivity) {
             Interceptable interceptable = $ic;
@@ -128,15 +128,15 @@ public class CameraActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f42200e = cameraActivity;
+            this.f42433e = cameraActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f42200e.displayImageView.setImageBitmap(null);
-                this.f42200e.showTakePicture();
+                this.f42433e.displayImageView.setImageBitmap(null);
+                this.f42433e.showTakePicture();
             }
         }
     }
@@ -147,7 +147,7 @@ public class CameraActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CameraActivity f42201e;
+        public final /* synthetic */ CameraActivity f42434e;
 
         public c(CameraActivity cameraActivity) {
             Interceptable interceptable = $ic;
@@ -164,14 +164,14 @@ public class CameraActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f42201e = cameraActivity;
+            this.f42434e = cameraActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f42201e.cropView.rotate(90);
+                this.f42434e.cropView.rotate(90);
             }
         }
     }
@@ -182,10 +182,10 @@ public class CameraActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f42202e;
+        public final /* synthetic */ Activity f42435e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CameraActivity f42203f;
+        public final /* synthetic */ CameraActivity f42436f;
 
         public d(CameraActivity cameraActivity, Activity activity) {
             Interceptable interceptable = $ic;
@@ -202,16 +202,16 @@ public class CameraActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f42203f = cameraActivity;
-            this.f42202e = activity;
+            this.f42436f = cameraActivity;
+            this.f42435e = activity;
         }
 
-        @Override // c.a.s0.s.s.a.e
-        public void onClick(c.a.s0.s.s.a aVar) {
+        @Override // c.a.t0.s.t.a.e
+        public void onClick(c.a.t0.s.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f42202e.finish();
+                this.f42435e.finish();
             }
         }
     }
@@ -222,10 +222,10 @@ public class CameraActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f42204e;
+        public final /* synthetic */ Activity f42437e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CameraActivity f42205f;
+        public final /* synthetic */ CameraActivity f42438f;
 
         public e(CameraActivity cameraActivity, Activity activity) {
             Interceptable interceptable = $ic;
@@ -242,27 +242,27 @@ public class CameraActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f42205f = cameraActivity;
-            this.f42204e = activity;
+            this.f42438f = cameraActivity;
+            this.f42437e = activity;
         }
 
-        @Override // c.a.s0.s.s.a.e
-        public void onClick(c.a.s0.s.s.a aVar) {
+        @Override // c.a.t0.s.t.a.e
+        public void onClick(c.a.t0.s.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
                 Intent intent = new Intent();
                 intent.addFlags(268435456);
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
-                intent.setData(Uri.fromParts("package", this.f42204e.getPackageName(), null));
-                this.f42204e.startActivity(intent);
-                this.f42204e.finish();
+                intent.setData(Uri.fromParts("package", this.f42437e.getPackageName(), null));
+                this.f42437e.startActivity(intent);
+                this.f42437e.finish();
             }
         }
     }
 
     /* loaded from: classes12.dex */
-    public class f implements c.a.t0.c0.c.e {
+    public class f implements c.a.u0.c0.c.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CameraActivity a;
@@ -285,7 +285,7 @@ public class CameraActivity extends BaseActivity {
             this.a = cameraActivity;
         }
 
-        @Override // c.a.t0.c0.c.e
+        @Override // c.a.u0.c0.c.e
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -303,7 +303,7 @@ public class CameraActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CameraActivity f42206e;
+        public final /* synthetic */ CameraActivity f42439e;
 
         public g(CameraActivity cameraActivity) {
             Interceptable interceptable = $ic;
@@ -320,20 +320,20 @@ public class CameraActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f42206e = cameraActivity;
+            this.f42439e = cameraActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (ContextCompat.checkSelfPermission(this.f42206e.getApplicationContext(), s.f55293i) != 0 && Build.VERSION.SDK_INT >= 16) {
-                    ActivityCompat.requestPermissions(this.f42206e, new String[]{s.f55293i}, 801);
+                if (ContextCompat.checkSelfPermission(this.f42439e.getApplicationContext(), s.f55460i) != 0 && Build.VERSION.SDK_INT >= 16) {
+                    ActivityCompat.requestPermissions(this.f42439e, new String[]{s.f55460i}, 801);
                     return;
                 }
                 Intent intent = new Intent("android.intent.action.PICK");
                 intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
-                this.f42206e.startActivityForResult(intent, 100);
+                this.f42439e.startActivityForResult(intent, 100);
             }
         }
     }
@@ -344,7 +344,7 @@ public class CameraActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CameraActivity f42207e;
+        public final /* synthetic */ CameraActivity f42440e;
 
         public h(CameraActivity cameraActivity) {
             Interceptable interceptable = $ic;
@@ -361,19 +361,19 @@ public class CameraActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f42207e = cameraActivity;
+            this.f42440e = cameraActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f42207e.cameraView.getCameraControl().d() == 0) {
-                    this.f42207e.cameraView.getCameraControl().h(1);
+                if (this.f42440e.cameraView.getCameraControl().d() == 0) {
+                    this.f42440e.cameraView.getCameraControl().h(1);
                 } else {
-                    this.f42207e.cameraView.getCameraControl().h(0);
+                    this.f42440e.cameraView.getCameraControl().h(0);
                 }
-                this.f42207e.updateFlashMode();
+                this.f42440e.updateFlashMode();
             }
         }
     }
@@ -384,7 +384,7 @@ public class CameraActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CameraActivity f42208e;
+        public final /* synthetic */ CameraActivity f42441e;
 
         public i(CameraActivity cameraActivity) {
             Interceptable interceptable = $ic;
@@ -401,14 +401,14 @@ public class CameraActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f42208e = cameraActivity;
+            this.f42441e = cameraActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f42208e.cameraView.takePicture(this.f42208e.outputFile, this.f42208e.takePictureCallback);
+                this.f42441e.cameraView.takePicture(this.f42441e.outputFile, this.f42441e.takePictureCallback);
             }
         }
     }
@@ -425,10 +425,10 @@ public class CameraActivity extends BaseActivity {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Bitmap f42209e;
+            public final /* synthetic */ Bitmap f42442e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ j f42210f;
+            public final /* synthetic */ j f42443f;
 
             public a(j jVar, Bitmap bitmap) {
                 Interceptable interceptable = $ic;
@@ -445,8 +445,8 @@ public class CameraActivity extends BaseActivity {
                         return;
                     }
                 }
-                this.f42210f = jVar;
-                this.f42209e = bitmap;
+                this.f42443f = jVar;
+                this.f42442e = bitmap;
             }
 
             @Override // java.lang.Runnable
@@ -454,17 +454,17 @@ public class CameraActivity extends BaseActivity {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     try {
-                        FileOutputStream fileOutputStream = new FileOutputStream(this.f42210f.a.outputFile);
-                        this.f42209e.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
-                        this.f42209e.recycle();
+                        FileOutputStream fileOutputStream = new FileOutputStream(this.f42443f.a.outputFile);
+                        this.f42442e.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
+                        this.f42442e.recycle();
                         fileOutputStream.close();
                     } catch (IOException e2) {
                         e2.printStackTrace();
                     }
                     Intent intent = new Intent();
-                    intent.putExtra("contentType", this.f42210f.a.contentType);
-                    this.f42210f.a.setResult(-1, intent);
-                    this.f42210f.a.finish();
+                    intent.putExtra("contentType", this.f42443f.a.contentType);
+                    this.f42443f.a.setResult(-1, intent);
+                    this.f42443f.a.finish();
                 }
             }
         }
@@ -491,7 +491,7 @@ public class CameraActivity extends BaseActivity {
         public void a(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) {
-                c.a.t0.c0.c.c.c(new a(this, bitmap));
+                c.a.u0.c0.c.c.c(new a(this, bitmap));
             }
         }
     }
@@ -508,10 +508,10 @@ public class CameraActivity extends BaseActivity {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Bitmap f42211e;
+            public final /* synthetic */ Bitmap f42444e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ k f42212f;
+            public final /* synthetic */ k f42445f;
 
             public a(k kVar, Bitmap bitmap) {
                 Interceptable interceptable = $ic;
@@ -528,22 +528,22 @@ public class CameraActivity extends BaseActivity {
                         return;
                     }
                 }
-                this.f42212f = kVar;
-                this.f42211e = bitmap;
+                this.f42445f = kVar;
+                this.f42444e = bitmap;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f42212f.a.takePictureContainer.setVisibility(4);
-                    if (this.f42212f.a.cropMaskView.getMaskType() == 0) {
-                        this.f42212f.a.cropView.setFilePath(this.f42212f.a.outputFile.getAbsolutePath());
-                        this.f42212f.a.showCrop();
+                    this.f42445f.a.takePictureContainer.setVisibility(4);
+                    if (this.f42445f.a.cropMaskView.getMaskType() == 0) {
+                        this.f42445f.a.cropView.setFilePath(this.f42445f.a.outputFile.getAbsolutePath());
+                        this.f42445f.a.showCrop();
                         return;
                     }
-                    this.f42212f.a.displayImageView.setImageBitmap(this.f42211e);
-                    this.f42212f.a.showResultConfirm();
+                    this.f42445f.a.displayImageView.setImageBitmap(this.f42444e);
+                    this.f42445f.a.showResultConfirm();
                 }
             }
         }
@@ -581,7 +581,7 @@ public class CameraActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CameraActivity f42213e;
+        public final /* synthetic */ CameraActivity f42446e;
 
         public l(CameraActivity cameraActivity) {
             Interceptable interceptable = $ic;
@@ -598,15 +598,15 @@ public class CameraActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f42213e = cameraActivity;
+            this.f42446e = cameraActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f42213e.cropView.setFilePath(null);
-                this.f42213e.showTakePicture();
+                this.f42446e.cropView.setFilePath(null);
+                this.f42446e.showTakePicture();
             }
         }
     }
@@ -617,7 +617,7 @@ public class CameraActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CameraActivity f42214e;
+        public final /* synthetic */ CameraActivity f42447e;
 
         public m(CameraActivity cameraActivity) {
             Interceptable interceptable = $ic;
@@ -634,16 +634,16 @@ public class CameraActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f42214e = cameraActivity;
+            this.f42447e = cameraActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                int maskType = this.f42214e.cropMaskView.getMaskType();
-                this.f42214e.displayImageView.setImageBitmap(this.f42214e.cropView.crop((maskType == 1 || maskType == 2) ? this.f42214e.cropMaskView.getFrameRect() : this.f42214e.overlayView.getFrameRect()));
-                this.f42214e.cropAndConfirm();
+                int maskType = this.f42447e.cropMaskView.getMaskType();
+                this.f42447e.displayImageView.setImageBitmap(this.f42447e.cropView.crop((maskType == 1 || maskType == 2) ? this.f42447e.cropMaskView.getFrameRect() : this.f42447e.overlayView.getFrameRect()));
+                this.f42447e.cropAndConfirm();
             }
         }
     }
@@ -654,7 +654,7 @@ public class CameraActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CameraActivity f42215e;
+        public final /* synthetic */ CameraActivity f42448e;
 
         public n(CameraActivity cameraActivity) {
             Interceptable interceptable = $ic;
@@ -671,7 +671,7 @@ public class CameraActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f42215e = cameraActivity;
+            this.f42448e = cameraActivity;
         }
 
         @Override // java.lang.Runnable
@@ -679,16 +679,16 @@ public class CameraActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    FileOutputStream fileOutputStream = new FileOutputStream(this.f42215e.outputFile);
-                    ((BitmapDrawable) this.f42215e.displayImageView.getDrawable()).getBitmap().compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
+                    FileOutputStream fileOutputStream = new FileOutputStream(this.f42448e.outputFile);
+                    ((BitmapDrawable) this.f42448e.displayImageView.getDrawable()).getBitmap().compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
                     fileOutputStream.close();
                 } catch (IOException e2) {
                     e2.printStackTrace();
                 }
                 Intent intent = new Intent();
-                intent.putExtra("contentType", this.f42215e.contentType);
-                this.f42215e.setResult(-1, intent);
-                this.f42215e.finish();
+                intent.putExtra("contentType", this.f42448e.contentType);
+                this.f42448e.setResult(-1, intent);
+                this.f42448e.finish();
             }
         }
     }
@@ -733,7 +733,7 @@ public class CameraActivity extends BaseActivity {
     private void doClear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, this) == null) {
-            c.a.t0.c0.c.c.a();
+            c.a.u0.c0.c.c.a();
         }
     }
 
@@ -741,7 +741,7 @@ public class CameraActivity extends BaseActivity {
     public void doConfirmResult() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65555, this) == null) {
-            c.a.t0.c0.c.c.c(new n(this));
+            c.a.u0.c0.c.c.c(new n(this));
         }
     }
 
@@ -1013,7 +1013,7 @@ public class CameraActivity extends BaseActivity {
     public void popPermissionDialog(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, activity) == null) {
-            c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(activity);
+            c.a.t0.s.t.a aVar = new c.a.t0.s.t.a(activity);
             aVar.setCanceledOnTouchOutside(false);
             aVar.setTitle(R.string.request_permission_default_title);
             aVar.setMessageId(R.string.request_permission_camera);

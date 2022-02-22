@@ -3,7 +3,7 @@ package com.baidu.tieba.newfaceshop.message;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.t;
-import c.a.s0.c0.d;
+import c.a.t0.c0.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
@@ -21,7 +21,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -104,7 +104,7 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
                     collectEmotionData.thumbnail = jSONObject.optString("thumbnail");
                     collectEmotionData.uid = TbadkCoreApplication.getCurrentAccount();
                     collectEmotionData.pkgId = jSONObject.optString("pck_id");
-                    StringBuilder sb = new StringBuilder(d.f12419f);
+                    StringBuilder sb = new StringBuilder(d.f12674f);
                     if (TextUtils.isEmpty(collectEmotionData.pkgId)) {
                         sb.append(collectEmotionData.pkgId);
                         sb.append(",");
@@ -134,11 +134,11 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
             return;
         }
         this.mCollectUpdateTime = jSONObject.optLong("pic_update_time");
-        if (c.a.t0.o2.d.k() < this.mCollectUpdateTime) {
+        if (c.a.u0.p2.d.k() < this.mCollectUpdateTime) {
             parseCollectData(jSONObject.optJSONArray("pic_ids"));
         }
         this.mFaceGroupUpdateTime = jSONObject.optLong("pkg_update_time");
-        if (c.a.t0.o2.d.l() < this.mFaceGroupUpdateTime) {
+        if (c.a.u0.p2.d.l() < this.mFaceGroupUpdateTime) {
             parseFaceGroupData(jSONObject.optString("package_ids"));
         }
     }

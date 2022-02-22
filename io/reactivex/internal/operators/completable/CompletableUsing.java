@@ -37,7 +37,7 @@ public final class CompletableUsing<R> extends Completable {
         public final CompletableObserver actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f62169d;
+        public Disposable f62336d;
         public final Consumer<? super R> disposer;
         public final boolean eager;
 
@@ -68,8 +68,8 @@ public final class CompletableUsing<R> extends Completable {
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f62169d.dispose();
-                this.f62169d = DisposableHelper.DISPOSED;
+                this.f62336d.dispose();
+                this.f62336d = DisposableHelper.DISPOSED;
                 disposeResourceAfter();
             }
         }
@@ -92,14 +92,14 @@ public final class CompletableUsing<R> extends Completable {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f62169d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f62336d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f62169d = DisposableHelper.DISPOSED;
+                this.f62336d = DisposableHelper.DISPOSED;
                 if (this.eager) {
                     Object andSet = getAndSet(this);
                     if (andSet == this) {
@@ -125,7 +125,7 @@ public final class CompletableUsing<R> extends Completable {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
-                this.f62169d = DisposableHelper.DISPOSED;
+                this.f62336d = DisposableHelper.DISPOSED;
                 if (this.eager) {
                     Object andSet = getAndSet(this);
                     if (andSet == this) {
@@ -149,8 +149,8 @@ public final class CompletableUsing<R> extends Completable {
         @Override // io.reactivex.CompletableObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.f62169d, disposable)) {
-                this.f62169d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.f62336d, disposable)) {
+                this.f62336d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

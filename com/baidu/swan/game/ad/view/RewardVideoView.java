@@ -12,7 +12,7 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.h.i.n.b.c;
+import c.a.s0.h.i.n.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,19 +26,19 @@ public class RewardVideoView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f39702e;
+    public c f39930e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f39703f;
+    public Context f39931f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f39704g;
+    public boolean f39932g;
 
     /* renamed from: h  reason: collision with root package name */
-    public VolumeBroadcastReceiver f39705h;
+    public VolumeBroadcastReceiver f39933h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f39706i;
+    public a f39934i;
 
     /* loaded from: classes11.dex */
     public class VolumeBroadcastReceiver extends BroadcastReceiver {
@@ -68,7 +68,7 @@ public class RewardVideoView extends RelativeLayout {
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && "android.media.VOLUME_CHANGED_ACTION".equals(intent.getAction()) && intent.getIntExtra("android.media.EXTRA_VOLUME_STREAM_TYPE", -1) == 3) {
-                this.this$0.f39706i.onVolumeChanged(((AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).getStreamVolume(3));
+                this.this$0.f39934i.onVolumeChanged(((AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).getStreamVolume(3));
             }
         }
     }
@@ -100,32 +100,32 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     @NonNull
-    public final c.a.r0.h.i.j.a b() {
+    public final c.a.s0.h.i.j.a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c.a.r0.h.i.j.a aVar = new c.a.r0.h.i.j.a();
-            aVar.f10591f = true;
-            aVar.f10587b = this.f39704g;
+            c.a.s0.h.i.j.a aVar = new c.a.s0.h.i.j.a();
+            aVar.f10691f = true;
+            aVar.f10687b = this.f39932g;
             aVar.o = false;
             aVar.z = false;
             aVar.v = false;
             return aVar;
         }
-        return (c.a.r0.h.i.j.a) invokeV.objValue;
+        return (c.a.s0.h.i.j.a) invokeV.objValue;
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c c2 = c.a.r0.h.i.n.a.c();
+            c c2 = c.a.s0.h.i.n.a.c();
             c2.e(getContext(), b());
-            this.f39702e = c2;
-            AudioManager audioManager = (AudioManager) this.f39703f.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
-            this.f39704g = audioManager.getStreamVolume(3) <= (Build.VERSION.SDK_INT >= 28 ? audioManager.getStreamMinVolume(3) : 0);
-            FrameLayout frameLayout = new FrameLayout(this.f39703f);
+            this.f39930e = c2;
+            AudioManager audioManager = (AudioManager) this.f39931f.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+            this.f39932g = audioManager.getStreamVolume(3) <= (Build.VERSION.SDK_INT >= 28 ? audioManager.getStreamMinVolume(3) : 0);
+            FrameLayout frameLayout = new FrameLayout(this.f39931f);
             addView(frameLayout, new RelativeLayout.LayoutParams(-1, -1));
-            c cVar = this.f39702e;
+            c cVar = this.f39930e;
             if (cVar != null) {
                 cVar.a(frameLayout);
             }
@@ -135,22 +135,22 @@ public class RewardVideoView extends RelativeLayout {
     public c getPlayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f39702e : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f39930e : (c) invokeV.objValue;
     }
 
     public boolean isMute() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f39704g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f39932g : invokeV.booleanValue;
     }
 
     public void mute(boolean z) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (cVar = this.f39702e) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (cVar = this.f39930e) == null) {
             return;
         }
-        this.f39704g = z;
+        this.f39932g = z;
         cVar.mute(z);
     }
 
@@ -160,8 +160,8 @@ public class RewardVideoView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDetachedFromWindow();
-            VolumeBroadcastReceiver volumeBroadcastReceiver = this.f39705h;
-            if (volumeBroadcastReceiver == null || (context = this.f39703f) == null) {
+            VolumeBroadcastReceiver volumeBroadcastReceiver = this.f39933h;
+            if (volumeBroadcastReceiver == null || (context = this.f39931f) == null) {
                 return;
             }
             context.unregisterReceiver(volumeBroadcastReceiver);
@@ -181,17 +181,17 @@ public class RewardVideoView extends RelativeLayout {
     public void setVolumeChangeListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.f39706i = aVar;
+            this.f39934i = aVar;
         }
     }
 
     public void start(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            c.a.r0.h.i.j.a b2 = b();
+            c.a.s0.h.i.j.a b2 = b();
             b2.p = str;
-            this.f39702e.h(b2);
-            this.f39702e.d(false);
+            this.f39930e.h(b2);
+            this.f39930e.d(false);
         }
     }
 
@@ -235,12 +235,12 @@ public class RewardVideoView extends RelativeLayout {
                 return;
             }
         }
-        this.f39703f = context;
+        this.f39931f = context;
         c();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.media.VOLUME_CHANGED_ACTION");
         VolumeBroadcastReceiver volumeBroadcastReceiver = new VolumeBroadcastReceiver(this);
-        this.f39705h = volumeBroadcastReceiver;
-        this.f39703f.registerReceiver(volumeBroadcastReceiver, intentFilter);
+        this.f39933h = volumeBroadcastReceiver;
+        this.f39931f.registerReceiver(volumeBroadcastReceiver, intentFilter);
     }
 }

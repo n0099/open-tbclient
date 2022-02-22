@@ -1,7 +1,7 @@
 package com.baidu.tieba.write.write.work.guide;
 
 import c.a.d.a.f;
-import c.a.t0.p4.e0.p.w.c;
+import c.a.u0.s4.e0.p.w.c;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -23,7 +23,7 @@ public class WorkVideoGuideModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f49986e;
+    public c f50153e;
 
     /* loaded from: classes13.dex */
     public class a extends HttpMessageListener {
@@ -57,7 +57,7 @@ public class WorkVideoGuideModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof ResponseHttpWorkVIdeoGuideMessage)) {
-                this.a.f49986e.netCallBack(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                this.a.f50153e.netCallBack(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
             }
         }
     }
@@ -80,7 +80,7 @@ public class WorkVideoGuideModel extends BdBaseModel {
                 return;
             }
         }
-        this.f49986e = cVar;
+        this.f50153e = cVar;
         x();
     }
 
@@ -108,7 +108,7 @@ public class WorkVideoGuideModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             registerListener(new a(this, CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE));
-            c.a.t0.x3.f0.a.e(CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE, TbConfig.URL_WORK_VIDEO_GUIDE, ResponseHttpWorkVIdeoGuideMessage.class, true, true, true, true);
+            c.a.u0.z3.g0.a.e(CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE, TbConfig.URL_WORK_VIDEO_GUIDE, ResponseHttpWorkVIdeoGuideMessage.class, true, true, true, true);
         }
     }
 

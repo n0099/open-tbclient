@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ConvertUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] CHUNK_SEPARATOR;

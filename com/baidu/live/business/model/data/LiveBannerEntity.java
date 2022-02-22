@@ -2,7 +2,7 @@ package com.baidu.live.business.model.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import c.a.x.g.g.j;
+import c.a.y.g.g.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;

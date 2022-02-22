@@ -22,22 +22,22 @@ public class au {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f36485b;
+    public HashMap<String, String> f36691b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<Character, Integer> f36486c;
+    public HashMap<Character, Integer> f36692c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, String> f36487d;
+    public HashMap<String, String> f36693d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<Character, Integer> f36488e;
+    public HashMap<Character, Integer> f36694e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap<String, String> f36489f;
+    public HashMap<String, String> f36695f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HashMap<Character, Integer> f36490g;
+    public HashMap<Character, Integer> f36696g;
 
     /* loaded from: classes10.dex */
     public static class a {
@@ -45,10 +45,10 @@ public class au {
         public static int a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f36491b = 1;
+        public static int f36697b = 1;
 
         /* renamed from: c  reason: collision with root package name */
-        public static int f36492c = 2;
+        public static int f36698c = 2;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -96,12 +96,12 @@ public class au {
                 return;
             }
         }
-        this.f36485b = new HashMap<>();
-        this.f36486c = new HashMap<>();
-        this.f36487d = new HashMap<>();
-        this.f36488e = new HashMap<>();
-        this.f36489f = new HashMap<>();
-        this.f36490g = new HashMap<>();
+        this.f36691b = new HashMap<>();
+        this.f36692c = new HashMap<>();
+        this.f36693d = new HashMap<>();
+        this.f36694e = new HashMap<>();
+        this.f36695f = new HashMap<>();
+        this.f36696g = new HashMap<>();
     }
 
     public static au a() {
@@ -114,14 +114,14 @@ public class au {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             if (i2 == a.a) {
-                this.f36486c.clear();
-                this.f36485b.clear();
-            } else if (i2 == a.f36492c) {
-                this.f36490g.clear();
-                this.f36489f.clear();
+                this.f36692c.clear();
+                this.f36691b.clear();
+            } else if (i2 == a.f36698c) {
+                this.f36696g.clear();
+                this.f36695f.clear();
             } else {
-                this.f36488e.clear();
-                this.f36487d.clear();
+                this.f36694e.clear();
+                this.f36693d.clear();
             }
         }
     }
@@ -134,24 +134,24 @@ public class au {
                 return null;
             }
             if (i2 == a.a) {
-                String str2 = this.f36485b.get(str);
+                String str2 = this.f36691b.get(str);
                 if (TextUtils.isEmpty(str2)) {
-                    a(str, this.f36486c, this.f36485b);
-                    return this.f36485b.get(str);
+                    a(str, this.f36692c, this.f36691b);
+                    return this.f36691b.get(str);
                 }
                 return str2;
-            } else if (i2 == a.f36492c) {
-                String str3 = this.f36489f.get(str);
+            } else if (i2 == a.f36698c) {
+                String str3 = this.f36695f.get(str);
                 if (TextUtils.isEmpty(str3)) {
-                    a(str, this.f36490g, this.f36489f);
-                    return this.f36489f.get(str);
+                    a(str, this.f36696g, this.f36695f);
+                    return this.f36695f.get(str);
                 }
                 return str3;
             } else {
-                String str4 = this.f36487d.get(str);
+                String str4 = this.f36693d.get(str);
                 if (TextUtils.isEmpty(str4)) {
-                    a(str, this.f36488e, this.f36487d);
-                    return this.f36487d.get(str);
+                    a(str, this.f36694e, this.f36693d);
+                    return this.f36693d.get(str);
                 }
                 return str4;
             }
@@ -163,8 +163,8 @@ public class au {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             b(a.a);
-            b(a.f36492c);
-            b(a.f36491b);
+            b(a.f36698c);
+            b(a.f36697b);
         }
     }
 
@@ -185,11 +185,11 @@ public class au {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
             if (i2 == a.a) {
-                hashMap = this.f36485b;
-            } else if (i2 == a.f36492c) {
-                hashMap = this.f36489f;
+                hashMap = this.f36691b;
+            } else if (i2 == a.f36698c) {
+                hashMap = this.f36695f;
             } else {
-                hashMap = this.f36487d;
+                hashMap = this.f36693d;
             }
             JSONObject jSONObject = new JSONObject();
             if (hashMap == null) {

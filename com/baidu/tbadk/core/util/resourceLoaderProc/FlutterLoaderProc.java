@@ -9,7 +9,8 @@ import c.a.d.f.a.f.c;
 import c.a.d.f.l.b;
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
-import c.a.d.n.d.a;
+import c.a.d.o.d.a;
+import c.a.u0.a4.f;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.util.BdLog;
@@ -22,7 +23,6 @@ import com.baidu.tbadk.core.util.ImageLogger;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tbadk.switchs.WebpSwitch;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -258,8 +258,8 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                         webClient3 = webClient;
                     }
                     try {
-                        InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.img_default_delete, new TypedValue());
-                        byte[] d2 = c.a.d.f.j.b.b.d(openRawResource);
+                        InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(f.img_default_delete, new TypedValue());
+                        byte[] d2 = c.a.d.f.j.c.b.d(openRawResource);
                         if (!webClient3.isGif && !n.A(d2)) {
                             z5 = false;
                             a aVar = new a((Bitmap) null, z5, str, d2);
@@ -308,7 +308,7 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                     c2 = 1;
                     ImageLogger.imagePerfNetLog(str, false, urlbyClientServerAddr, Boolean.valueOf(z), webClient2.mStat, "bytes<1", currentTimeMillis2, webClient2.isMobileProxy(), getProcType());
                 }
-                c.a.s0.c0.c.k().i(TbConfig.getPbImageSize() + bArr.length);
+                c.a.t0.c0.c.k().i(TbConfig.getPbImageSize() + bArr.length);
                 boolean z7 = webClient2.isGif || n.A(bArr);
                 a aVar3 = new a((Bitmap) null, z7, str, bArr);
                 boolean z8 = z3;

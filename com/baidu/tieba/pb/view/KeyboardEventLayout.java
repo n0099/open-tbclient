@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class KeyboardEventLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int KEYBOARD_STATE_HIDE = 1;
@@ -16,10 +16,10 @@ public class KeyboardEventLayout extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f46995e;
+    public a f47137e;
     public int maxHeight;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface a {
         void a(int i2);
     }
@@ -43,7 +43,7 @@ public class KeyboardEventLayout extends RelativeLayout {
             }
         }
         this.maxHeight = 0;
-        this.f46995e = null;
+        this.f47137e = null;
     }
 
     @Override // android.view.View
@@ -54,7 +54,7 @@ public class KeyboardEventLayout extends RelativeLayout {
             super.onSizeChanged(i2, i3, i4, i5);
             int max = Math.max(Math.max(i5, i3), this.maxHeight);
             this.maxHeight = max;
-            if (i5 == 0 || (aVar = this.f46995e) == null) {
+            if (i5 == 0 || (aVar = this.f47137e) == null) {
                 return;
             }
             if (i5 > i3) {
@@ -69,7 +69,7 @@ public class KeyboardEventLayout extends RelativeLayout {
     public void setOnKeyStateChangedListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f46995e = aVar;
+            this.f47137e = aVar;
         }
     }
 
@@ -92,7 +92,7 @@ public class KeyboardEventLayout extends RelativeLayout {
             }
         }
         this.maxHeight = 0;
-        this.f46995e = null;
+        this.f47137e = null;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -115,6 +115,6 @@ public class KeyboardEventLayout extends RelativeLayout {
             }
         }
         this.maxHeight = 0;
-        this.f46995e = null;
+        this.f47137e = null;
     }
 }

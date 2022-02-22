@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import c.a.t0.t2.r.t;
+import c.a.u0.u2.r.t;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.PbFloor.PbFloorResIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

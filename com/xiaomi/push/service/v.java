@@ -58,7 +58,7 @@ public final class v extends XMPushService.i {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 ib a = q.a((Context) this.f983a, this.a);
-                a.m514a().a("absent_target_package", this.f984a);
+                a.m513a().a("absent_target_package", this.f984a);
                 y.a(this.f983a, a);
             } catch (fw e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);

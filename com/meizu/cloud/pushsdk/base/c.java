@@ -13,19 +13,19 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static String a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f58691b = "";
+    public static String f58858b = "";
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f58691b)) {
-            f58691b = !a() ? c(context) : d(context);
-            return f58691b;
+        if (TextUtils.isEmpty(f58858b)) {
+            f58858b = !a() ? c(context) : d(context);
+            return f58858b;
         }
-        return f58691b;
+        return f58858b;
     }
 
     public static String a(String str) {
@@ -126,6 +126,6 @@ public class c {
 
     public static String d(Context context) {
         com.meizu.cloud.pushsdk.base.a.d a2 = com.meizu.cloud.pushsdk.base.a.a.a("android.telephony.MzTelephonyManager").a("getDeviceId", new Class[0]).a(new Object[0]);
-        return a2.a ? (String) a2.f58679b : ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+        return a2.a ? (String) a2.f58846b : ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
     }
 }

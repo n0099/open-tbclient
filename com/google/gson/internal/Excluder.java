@@ -231,9 +231,9 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Excluder m118clone = m118clone();
-            m118clone.serializeInnerClasses = false;
-            return m118clone;
+            Excluder m117clone = m117clone();
+            m117clone.serializeInnerClasses = false;
+            return m117clone;
         }
         return (Excluder) invokeV.objValue;
     }
@@ -280,9 +280,9 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            Excluder m118clone = m118clone();
-            m118clone.requireExpose = true;
-            return m118clone;
+            Excluder m117clone = m117clone();
+            m117clone.requireExpose = true;
+            return m117clone;
         }
         return (Excluder) invokeV.objValue;
     }
@@ -291,18 +291,18 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{exclusionStrategy, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            Excluder m118clone = m118clone();
+            Excluder m117clone = m117clone();
             if (z) {
                 ArrayList arrayList = new ArrayList(this.serializationStrategies);
-                m118clone.serializationStrategies = arrayList;
+                m117clone.serializationStrategies = arrayList;
                 arrayList.add(exclusionStrategy);
             }
             if (z2) {
                 ArrayList arrayList2 = new ArrayList(this.deserializationStrategies);
-                m118clone.deserializationStrategies = arrayList2;
+                m117clone.deserializationStrategies = arrayList2;
                 arrayList2.add(exclusionStrategy);
             }
-            return m118clone;
+            return m117clone;
         }
         return (Excluder) invokeCommon.objValue;
     }
@@ -311,12 +311,12 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iArr)) == null) {
-            Excluder m118clone = m118clone();
-            m118clone.modifiers = 0;
+            Excluder m117clone = m117clone();
+            m117clone.modifiers = 0;
             for (int i2 : iArr) {
-                m118clone.modifiers = i2 | m118clone.modifiers;
+                m117clone.modifiers = i2 | m117clone.modifiers;
             }
-            return m118clone;
+            return m117clone;
         }
         return (Excluder) invokeL.objValue;
     }
@@ -325,16 +325,16 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Double.valueOf(d2)})) == null) {
-            Excluder m118clone = m118clone();
-            m118clone.version = d2;
-            return m118clone;
+            Excluder m117clone = m117clone();
+            m117clone.version = d2;
+            return m117clone;
         }
         return (Excluder) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public Excluder m118clone() {
+    public Excluder m117clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

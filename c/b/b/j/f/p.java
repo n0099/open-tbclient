@@ -14,7 +14,7 @@ public class p extends c.b.b.j.f.b<Texture, b> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f27029b;
+    public a f27235b;
 
     /* loaded from: classes9.dex */
     public static class a {
@@ -23,10 +23,10 @@ public class p extends c.b.b.j.f.b<Texture, b> {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextureData f27030b;
+        public TextureData f27236b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Texture f27031c;
+        public Texture f27237c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -49,28 +49,28 @@ public class p extends c.b.b.j.f.b<Texture, b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public Pixmap.Format f27032b;
+        public Pixmap.Format f27238b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f27033c;
+        public boolean f27239c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Texture f27034d;
+        public Texture f27240d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextureData f27035e;
+        public TextureData f27241e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Texture.TextureFilter f27036f;
+        public Texture.TextureFilter f27242f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Texture.TextureFilter f27037g;
+        public Texture.TextureFilter f27243g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Texture.TextureWrap f27038h;
+        public Texture.TextureWrap f27244h;
 
         /* renamed from: i  reason: collision with root package name */
-        public Texture.TextureWrap f27039i;
+        public Texture.TextureWrap f27245i;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -85,16 +85,16 @@ public class p extends c.b.b.j.f.b<Texture, b> {
                     return;
                 }
             }
-            this.f27032b = null;
-            this.f27033c = false;
-            this.f27034d = null;
-            this.f27035e = null;
+            this.f27238b = null;
+            this.f27239c = false;
+            this.f27240d = null;
+            this.f27241e = null;
             Texture.TextureFilter textureFilter = Texture.TextureFilter.Nearest;
-            this.f27036f = textureFilter;
-            this.f27037g = textureFilter;
+            this.f27242f = textureFilter;
+            this.f27243g = textureFilter;
             Texture.TextureWrap textureWrap = Texture.TextureWrap.ClampToEdge;
-            this.f27038h = textureWrap;
-            this.f27039i = textureWrap;
+            this.f27244h = textureWrap;
+            this.f27245i = textureWrap;
         }
     }
 
@@ -116,7 +116,7 @@ public class p extends c.b.b.j.f.b<Texture, b> {
                 return;
             }
         }
-        this.f27029b = new a();
+        this.f27235b = new a();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -138,27 +138,27 @@ public class p extends c.b.b.j.f.b<Texture, b> {
         TextureData textureData;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, eVar, str, aVar, bVar) == null) {
-            a aVar2 = this.f27029b;
+            a aVar2 = this.f27235b;
             aVar2.a = str;
-            if (bVar != null && (textureData = bVar.f27035e) != null) {
-                aVar2.f27030b = textureData;
-                aVar2.f27031c = bVar.f27034d;
+            if (bVar != null && (textureData = bVar.f27241e) != null) {
+                aVar2.f27236b = textureData;
+                aVar2.f27237c = bVar.f27240d;
             } else {
                 boolean z = false;
-                a aVar3 = this.f27029b;
+                a aVar3 = this.f27235b;
                 Pixmap.Format format = null;
-                aVar3.f27031c = null;
+                aVar3.f27237c = null;
                 if (bVar != null) {
-                    format = bVar.f27032b;
-                    z = bVar.f27033c;
-                    aVar3.f27031c = bVar.f27034d;
+                    format = bVar.f27238b;
+                    z = bVar.f27239c;
+                    aVar3.f27237c = bVar.f27240d;
                 }
-                this.f27029b.f27030b = TextureData.a.a(aVar, format, z);
+                this.f27235b.f27236b = TextureData.a.a(aVar, format, z);
             }
-            if (this.f27029b.f27030b.a()) {
+            if (this.f27235b.f27236b.a()) {
                 return;
             }
-            this.f27029b.f27030b.prepare();
+            this.f27235b.f27236b.prepare();
         }
     }
 
@@ -169,19 +169,19 @@ public class p extends c.b.b.j.f.b<Texture, b> {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, eVar, str, aVar, bVar)) == null) {
-            a aVar2 = this.f27029b;
+            a aVar2 = this.f27235b;
             if (aVar2 == null) {
                 return null;
             }
-            Texture texture = aVar2.f27031c;
+            Texture texture = aVar2.f27237c;
             if (texture != null) {
-                texture.A(aVar2.f27030b);
+                texture.A(aVar2.f27236b);
             } else {
-                texture = new Texture(this.f27029b.f27030b);
+                texture = new Texture(this.f27235b.f27236b);
             }
             if (bVar != null) {
-                texture.l(bVar.f27036f, bVar.f27037g);
-                texture.m(bVar.f27038h, bVar.f27039i);
+                texture.l(bVar.f27242f, bVar.f27243g);
+                texture.m(bVar.f27244h, bVar.f27245i);
             }
             return texture;
         }

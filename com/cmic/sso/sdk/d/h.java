@@ -19,13 +19,13 @@ public class h {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f53495b;
+    public static String f53662b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f53496c;
+    public static String f53663c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f53497d;
+    public static long f53664d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,7 +42,7 @@ public class h {
             }
         }
         a = m.a();
-        f53497d = 0L;
+        f53664d = 0L;
     }
 
     public static void b(Context context, String str, long j2, String str2) {
@@ -64,11 +64,11 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            if (TextUtils.isEmpty(f53495b)) {
+            if (TextUtils.isEmpty(f53662b)) {
                 return !TextUtils.isEmpty(k.b("phonescripcache", "")) && a(k.a("phonescripstarttime", 0L));
             }
-            c.b("PhoneScripUtils", f53496c + " " + f53497d);
-            return a(f53497d);
+            c.b("PhoneScripUtils", f53663c + " " + f53664d);
+            return a(f53664d);
         }
         return invokeV.booleanValue;
     }
@@ -86,9 +86,9 @@ public class h {
                 a2.b();
             }
             if (z) {
-                f53495b = null;
-                f53496c = null;
-                f53497d = 0L;
+                f53662b = null;
+                f53663c = null;
+                f53664d = 0L;
             }
         }
     }
@@ -100,9 +100,9 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (!TextUtils.isEmpty(f53495b)) {
-                c.b("PhoneScripUtils", f53496c + " " + f53497d);
-                a2 = f53497d;
+            if (!TextUtils.isEmpty(f53662b)) {
+                c.b("PhoneScripUtils", f53663c + " " + f53664d);
+                a2 = f53664d;
             } else {
                 String b2 = k.b("phonescripcache", "");
                 a2 = k.a("phonescripstarttime", 0L);
@@ -129,11 +129,11 @@ public class h {
             return;
         }
         c.b("PhoneScripUtils", "save phone scrip simKey = " + str2);
-        f53495b = str;
+        f53662b = str;
         long j3 = j2 * 1000;
-        f53497d = System.currentTimeMillis() + j3;
-        c.b("sLifeTime", f53497d + "");
-        f53496c = str2;
+        f53664d = System.currentTimeMillis() + j3;
+        c.b("sLifeTime", f53664d + "");
+        f53663c = str2;
         if (!a && !"operator".equals(str3)) {
             o.a(new o.a(context, str, str2) { // from class: com.cmic.sso.sdk.d.h.1
                 public static /* synthetic */ Interceptable $ic;
@@ -141,10 +141,10 @@ public class h {
                 public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f53498b;
+                public final /* synthetic */ String f53665b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f53499c;
+                public final /* synthetic */ String f53666c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -162,8 +162,8 @@ public class h {
                         }
                     }
                     this.a = context;
-                    this.f53498b = str;
-                    this.f53499c = str2;
+                    this.f53665b = str;
+                    this.f53666c = str2;
                 }
 
                 @Override // com.cmic.sso.sdk.d.o.a
@@ -171,14 +171,14 @@ public class h {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         c.b("PhoneScripUtils", "start save scrip to sp in sub thread");
-                        h.b(this.a, this.f53498b, h.f53497d, this.f53499c);
+                        h.b(this.a, this.f53665b, h.f53664d, this.f53666c);
                     }
                 }
             });
         } else if (j3 > 3600000) {
-            f53497d = System.currentTimeMillis() + 3600000;
+            f53664d = System.currentTimeMillis() + 3600000;
         } else {
-            f53497d = System.currentTimeMillis() + j3;
+            f53664d = System.currentTimeMillis() + j3;
         }
     }
 
@@ -186,19 +186,19 @@ public class h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (TextUtils.isEmpty(f53495b)) {
+            if (TextUtils.isEmpty(f53662b)) {
                 String b2 = k.b("phonescripcache", "");
                 if (TextUtils.isEmpty(b2)) {
                     c.a("PhoneScripUtils", StringUtil.NULL_STRING);
                     return null;
                 }
-                f53497d = k.a("phonescripstarttime", 0L);
-                f53496c = k.b("pre_sim_key", "");
+                f53664d = k.a("phonescripstarttime", 0L);
+                f53663c = k.b("pre_sim_key", "");
                 String b3 = b.b(context, b2);
-                f53495b = b3;
+                f53662b = b3;
                 return b3;
             }
-            return f53495b;
+            return f53662b;
         }
         return (String) invokeL.objValue;
     }
@@ -220,11 +220,11 @@ public class h {
         String b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (!TextUtils.isEmpty(f53496c)) {
-                b2 = f53496c;
+            if (!TextUtils.isEmpty(f53663c)) {
+                b2 = f53663c;
             } else {
                 b2 = k.b("pre_sim_key", "");
-                f53496c = b2;
+                f53663c = b2;
             }
             if (TextUtils.isEmpty(b2)) {
                 return 0;

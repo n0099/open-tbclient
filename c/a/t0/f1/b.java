@@ -1,103 +1,110 @@
 package c.a.t0.f1;
 
-import com.baidu.adp.BdUniqueId;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
-public class b implements d {
+import java.lang.ref.WeakReference;
+/* loaded from: classes6.dex */
+public class b extends ImageSpan {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicReference<d> a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final d f17462b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(974489584, "Lc/a/t0/f1/b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(974489584, "Lc/a/t0/f1/b;");
-                return;
-            }
-        }
-        a = new AtomicReference<>(null);
-        f17462b = new b();
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public WeakReference<Drawable> f12882e;
 
-    public b() {
+    /* renamed from: f  reason: collision with root package name */
+    public int f12883f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f12884g;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b(Drawable drawable, int i2) {
+        super(drawable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {drawable, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super((Drawable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f12883f = 0;
+        this.f12884g = 1;
+        this.f12884g = i2;
     }
 
-    public static d e() {
+    public final Drawable a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            d dVar = a.get();
-            return dVar == null ? f17462b : dVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WeakReference<Drawable> weakReference = this.f12882e;
+            Drawable drawable = weakReference != null ? weakReference.get() : null;
+            if (drawable == null) {
+                Drawable drawable2 = getDrawable();
+                this.f12882e = new WeakReference<>(drawable2);
+                return drawable2;
+            }
+            return drawable;
         }
-        return (d) invokeV.objValue;
+        return (Drawable) invokeV.objValue;
     }
 
-    @Override // c.a.t0.f1.d
-    public c.a.d.n.e.a<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i2, int i3, float f2, int i4, int i5, int i6, Paint paint) {
+        Drawable a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, baseFragmentActivity, bdUniqueId)) == null) {
-            return null;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), paint}) == null) || (a = a()) == null) {
+            return;
         }
-        return (c.a.d.n.e.a) invokeLL.objValue;
+        int i7 = this.f12884g;
+        float f3 = i7 != 0 ? i7 != 1 ? i7 != 2 ? 0.0f : 0.2f : 0.15f : 0.1f;
+        float height = f3 != 0.0f ? ((i5 - i6) + (a.getBounds().height() * f3)) - this.f12883f : 0.0f;
+        canvas.save();
+        canvas.translate(a.getBounds().width() * 0.15f, height);
+        super.draw(canvas, charSequence, i2, i3, f2, i4, i5, i6, paint);
+        canvas.restore();
     }
 
-    @Override // c.a.t0.f1.d
-    public c.a.d.n.e.a<?, ?> b(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i2, int i3, Paint.FontMetricsInt fontMetricsInt) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseFragmentActivity, bdUniqueId)) == null) {
-            return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), fontMetricsInt})) == null) {
+            Drawable a = a();
+            if (a == null) {
+                return super.getSize(paint, charSequence, i2, i3, fontMetricsInt);
+            }
+            Rect bounds = a.getBounds();
+            if (fontMetricsInt != null) {
+                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
+                int i4 = fontMetricsInt2.bottom - fontMetricsInt2.top;
+                int i5 = (bounds.bottom - bounds.top) / 2;
+                int i6 = i4 / 4;
+                int i7 = i5 - i6;
+                int i8 = -(i5 + i6);
+                fontMetricsInt.ascent = i8;
+                fontMetricsInt.top = i8;
+                fontMetricsInt.bottom = i7;
+                fontMetricsInt.descent = i7;
+            }
+            return bounds.right;
         }
-        return (c.a.d.n.e.a) invokeLL.objValue;
-    }
-
-    @Override // c.a.t0.f1.d
-    public c.a.d.n.e.a<?, ?> c(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, baseFragmentActivity, bdUniqueId)) == null) {
-            return null;
-        }
-        return (c.a.d.n.e.a) invokeLL.objValue;
-    }
-
-    @Override // c.a.t0.f1.d
-    public c.a.d.n.e.a<?, ?> d(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, baseFragmentActivity, bdUniqueId)) == null) {
-            return null;
-        }
-        return (c.a.d.n.e.a) invokeLL.objValue;
+        return invokeCommon.intValue;
     }
 }

@@ -32,7 +32,7 @@ public class PreInitSwanDataTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                MessageManager.getInstance().runTask(2921666, (Class) null);
+                MessageManager.getInstance().runTask(2921669, (Class) null);
             } catch (Throwable th) {
                 String str = "preLoadClass exception " + th.toString();
                 th.printStackTrace();

@@ -8,12 +8,12 @@ import android.text.TextUtils;
 import android.util.Base64;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.a.b;
-import c.a.s0.a.d;
-import c.a.s0.a.g;
-import c.a.s0.a.w;
-import c.a.s0.d1.i;
-import c.a.t0.x3.j0.n;
+import c.a.t0.a.d;
+import c.a.t0.a.g;
+import c.a.t0.a.w;
+import c.a.t0.d1.i;
+import c.a.t0.s.a0.b;
+import c.a.u0.z3.k0.n;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -95,7 +95,7 @@ public class SchemaRouteActivity extends BaseActivity {
             this.a = schemaRouteActivity;
         }
 
-        @Override // c.a.s0.a.g.b
+        @Override // c.a.t0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(g.B) instanceof String)) {
@@ -136,7 +136,7 @@ public class SchemaRouteActivity extends BaseActivity {
         if (!(interceptable == null || interceptable.invokeL(65537, this, intent) == null) || intent == null) {
             return;
         }
-        c.a.s0.s.z.a.n(intent.getDataString(), false);
+        c.a.t0.s.a0.a.s(intent.getDataString(), false);
         clearClipBoardIfNeed(intent.getData());
         parserWiseSampleId(intent.getData());
         String dataString = intent.getDataString();
@@ -144,9 +144,12 @@ public class SchemaRouteActivity extends BaseActivity {
         w.e(intent.getData());
         w.c(intent.getData());
         GrowthStatsUtil.statisticChannel(GrowthStatsUtil.SPLASH_SOURCE.THIRD_PARTY, dataString);
+        if (!TextUtils.isEmpty(dataString) && b.a().d()) {
+            b.a().i(1);
+        }
         if (!TextUtils.isEmpty(dataString) && SchemeActionHelper.isTieBaAppSchemeHeader(dataString)) {
             d.y().N(true);
-            if (!b.f().h("MainTabActivity")) {
+            if (!c.a.d.a.b.f().h("MainTabActivity")) {
                 targetSchemeAction = dataString;
                 sendMessage(new CustomMessage(2002001, new LogoActivityConfig((Context) getActivity(), false)));
                 return;
@@ -159,7 +162,7 @@ public class SchemaRouteActivity extends BaseActivity {
             d.y().N(true);
         } else if (!TextUtils.isEmpty(dataString) && (dataString.contains("tbpb") || dataString.contains("unidispatch/pb"))) {
             if ("tbpb://tieba.baidu.com".equals(dataString)) {
-                if (b.f().h("MainTabActivity")) {
+                if (c.a.d.a.b.f().h("MainTabActivity")) {
                     return;
                 }
                 sendMessage(new CustomMessage(2002001, new LogoActivityConfig((Context) getActivity(), false)));
@@ -211,13 +214,13 @@ public class SchemaRouteActivity extends BaseActivity {
             sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
             d.y().N(true);
         } else if (!TextUtils.isEmpty(dataString) && (dataString.contains("unidispatch/openapp") || dataString.contains("donothing"))) {
-            if (!b.f().h("MainTabActivity")) {
+            if (!c.a.d.a.b.f().h("MainTabActivity")) {
                 sendMessage(new CustomMessage(2002001, new LogoActivityConfig((Context) getActivity(), false)));
             }
             d.y().N(true);
         } else {
             if (!TextUtils.isEmpty(dataString)) {
-                if (dataString.contains(g.f12262b + g.k)) {
+                if (dataString.contains(g.f12362b + g.k)) {
                     Uri parse = Uri.parse(dataString);
                     String queryParameter3 = parse.getQueryParameter(g.K);
                     String queryParameter4 = parse.getQueryParameter(g.L);
@@ -227,7 +230,7 @@ public class SchemaRouteActivity extends BaseActivity {
                 }
             }
             if (!TextUtils.isEmpty(dataString)) {
-                if (dataString.contains(g.f12262b + g.l)) {
+                if (dataString.contains(g.f12362b + g.l)) {
                     String queryParameter5 = Uri.parse(dataString).getQueryParameter(g.M);
                     if (queryParameter5 != null) {
                         UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{new String(Base64.decode(queryParameter5.getBytes(), 2))});
@@ -252,7 +255,7 @@ public class SchemaRouteActivity extends BaseActivity {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2015002, mainTabActivityConfig));
             } else {
                 if (!TextUtils.isEmpty(dataString)) {
-                    if (dataString.contains(g.f12262b + g.q)) {
+                    if (dataString.contains(g.f12362b + g.q)) {
                         Anniversary18thActivityConfig.open(this);
                         return;
                     }
@@ -436,7 +439,7 @@ public class SchemaRouteActivity extends BaseActivity {
                         }
                         Object obj2 = obj;
                         if (hashMap4.containsKey(obj2)) {
-                            ((c.a.s0.j0.c.a) ServiceManager.getService(c.a.s0.j0.c.a.a.a())).a(TbadkCoreApplication.getInst().getCurrentPageContext(this), c.a.d.f.m.b.g((String) hashMap4.get(obj2), 0L));
+                            ((c.a.t0.j0.c.a) ServiceManager.getService(c.a.t0.j0.c.a.a.a())).a(TbadkCoreApplication.getInst().getCurrentPageContext(this), c.a.d.f.m.b.g((String) hashMap4.get(obj2), 0L));
                         }
                     } catch (Exception unused) {
                         if (BdBaseApplication.getInst().isDebugMode()) {
@@ -492,7 +495,7 @@ public class SchemaRouteActivity extends BaseActivity {
 
     private void setDayOrDarkSkin() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || b.f().h("MainTabActivity")) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || c.a.d.a.b.f().h("MainTabActivity")) {
             return;
         }
         int loadInt = TbadkSettings.getInst().loadInt("skin_", 0);
@@ -516,7 +519,7 @@ public class SchemaRouteActivity extends BaseActivity {
         TbSingleton.getInstance().setFromWhichSearchSource(queryParameter);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.s0.q0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.t0.q0.a
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -528,7 +531,7 @@ public class SchemaRouteActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             if (TbadkCoreApplication.getInst().getStartType() == 2) {
-                c.a.s0.b0.a.a = true;
+                c.a.t0.b0.a.a = true;
             }
             super.onCreate(bundle);
             setDayOrDarkSkin();

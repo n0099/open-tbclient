@@ -15,19 +15,19 @@ public class d implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ShortBuffer f27338e;
+    public final ShortBuffer f27544e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final ByteBuffer f27339f;
+    public final ByteBuffer f27545f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f27340g;
+    public final boolean f27546g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f27341h;
+    public int f27547h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final boolean f27342i;
+    public final boolean f27548i;
 
     public d(boolean z, int i2) {
         Interceptable interceptable = $ic;
@@ -45,26 +45,26 @@ public class d implements e {
             }
         }
         boolean z2 = i2 == 0;
-        this.f27342i = z2;
+        this.f27548i = z2;
         ByteBuffer e2 = BufferUtils.e((z2 ? 1 : i2) * 2);
-        this.f27339f = e2;
+        this.f27545f = e2;
         ShortBuffer asShortBuffer = e2.asShortBuffer();
-        this.f27338e = asShortBuffer;
-        this.f27340g = true;
+        this.f27544e = asShortBuffer;
+        this.f27546g = true;
         asShortBuffer.flip();
-        this.f27339f.flip();
-        this.f27341h = c.b.b.f.f26968f.n();
+        this.f27545f.flip();
+        this.f27547h = c.b.b.f.f27174f.n();
     }
 
     @Override // c.b.b.n.m.e, c.b.b.q.h
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.b.b.f.f26968f.E(34963, 0);
-            c.b.b.f.f26968f.b(this.f27341h);
-            this.f27341h = 0;
-            if (this.f27340g) {
-                BufferUtils.b(this.f27339f);
+            c.b.b.f.f27174f.E(34963, 0);
+            c.b.b.f.f27174f.b(this.f27547h);
+            this.f27547h = 0;
+            if (this.f27546g) {
+                BufferUtils.b(this.f27545f);
             }
         }
     }
@@ -74,10 +74,10 @@ public class d implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f27342i) {
+            if (this.f27548i) {
                 return 0;
             }
-            return this.f27338e.limit();
+            return this.f27544e.limit();
         }
         return invokeV.intValue;
     }
@@ -86,14 +86,14 @@ public class d implements e {
     public ShortBuffer getBuffer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27338e : (ShortBuffer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27544e : (ShortBuffer) invokeV.objValue;
     }
 
     @Override // c.b.b.n.m.e
     public void invalidate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f27341h = c.b.b.f.f26968f.n();
+            this.f27547h = c.b.b.f.f27174f.n();
         }
     }
 }

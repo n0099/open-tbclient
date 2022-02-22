@@ -28,11 +28,11 @@ public class SafeWebView extends WebView {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f32812b = "SafeWebView";
+    public static final String f33018b = "SafeWebView";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile b f32813c;
+    public volatile b f33019c;
 
     /* loaded from: classes10.dex */
     public static class SafeChromeClient extends WebChromeClient implements NoProguard {
@@ -267,7 +267,7 @@ public class SafeWebView extends WebView {
                 return;
             }
         }
-        this.f32813c = null;
+        this.f33019c = null;
         a(context);
     }
 
@@ -327,14 +327,14 @@ public class SafeWebView extends WebView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f32813c == null) {
+            if (this.f33019c == null) {
                 synchronized (this) {
-                    if (this.f32813c == null) {
-                        this.f32813c = new b();
+                    if (this.f33019c == null) {
+                        this.f33019c = new b();
                     }
                 }
             }
-            return this.f32813c;
+            return this.f33019c;
         }
         return (b) invokeV.objValue;
     }
@@ -436,7 +436,7 @@ public class SafeWebView extends WebView {
                 return;
             }
         }
-        this.f32813c = null;
+        this.f33019c = null;
         a(context);
     }
 
@@ -459,7 +459,7 @@ public class SafeWebView extends WebView {
                 return;
             }
         }
-        this.f32813c = null;
+        this.f33019c = null;
         a(context);
     }
 
@@ -481,7 +481,7 @@ public class SafeWebView extends WebView {
                 return;
             }
         }
-        this.f32813c = null;
+        this.f33019c = null;
         a(context);
     }
 }

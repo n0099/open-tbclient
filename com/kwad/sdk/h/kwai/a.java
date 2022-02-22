@@ -2,7 +2,7 @@ package com.kwad.sdk.h.kwai;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     public final List<b> a = new ArrayList();
 

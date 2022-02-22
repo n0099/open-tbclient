@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.g;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface a {
     void a(double d2);
 }

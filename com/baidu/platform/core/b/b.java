@@ -19,16 +19,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f37752b = "b";
+    public static final String f37981b = "b";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f37753c;
+    public String f37982c;
 
     static {
         InterceptResult invokeClinit;
@@ -99,7 +99,7 @@ public class b extends com.baidu.platform.base.d {
                 return false;
             }
             geoCodeResult.setLocation(a(optJSONObject.optJSONObject("location")));
-            geoCodeResult.setAddress(this.f37753c);
+            geoCodeResult.setAddress(this.f37982c);
             geoCodeResult.setPrecise(optJSONObject.optInt("precise"));
             geoCodeResult.setConfidence(optJSONObject.optInt("confidence"));
             geoCodeResult.setLevel(optJSONObject.optString("level"));
@@ -173,7 +173,7 @@ public class b extends com.baidu.platform.base.d {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f37753c = str;
+            this.f37982c = str;
         }
     }
 }

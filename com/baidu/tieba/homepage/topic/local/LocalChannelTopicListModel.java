@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.topic.local;
 
 import c.a.d.a.f;
-import c.a.t0.p1.k.a.c.c;
+import c.a.u0.p1.l.a.c.c;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -20,10 +20,10 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f44518e;
+    public b f44776e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f44519f;
+    public final HttpMessageListener f44777f;
 
     /* loaded from: classes12.dex */
     public class a extends HttpMessageListener {
@@ -58,15 +58,15 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof LocalChannelTopicListResponseMessage)) {
                 if (httpResponsedMessage.getError() != 0) {
-                    if (this.a.f44518e != null) {
-                        this.a.f44518e.onFail(httpResponsedMessage.getErrorString());
+                    if (this.a.f44776e != null) {
+                        this.a.f44776e.onFail(httpResponsedMessage.getErrorString());
                         return;
                     }
                     return;
                 }
                 c cVar = ((LocalChannelTopicListResponseMessage) httpResponsedMessage).data;
-                if (this.a.f44518e != null) {
-                    this.a.f44518e.a(cVar);
+                if (this.a.f44776e != null) {
+                    this.a.f44776e.a(cVar);
                 }
             }
         }
@@ -98,7 +98,7 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_GET_LOCAL_CHANNEL_TOPIC_LIST);
-        this.f44519f = aVar;
+        this.f44777f = aVar;
         registerListener(aVar);
     }
 
@@ -126,7 +126,7 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
     public void x(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f44518e = bVar;
+            this.f44776e = bVar;
         }
     }
 }

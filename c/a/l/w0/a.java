@@ -18,7 +18,7 @@ public class a {
 
     /* loaded from: classes.dex */
     public interface b {
-        boolean a(C0204a c0204a);
+        boolean a(C0210a c0210a);
     }
 
     public a() {
@@ -52,16 +52,16 @@ public class a {
         }
     }
 
-    public boolean b(C0204a c0204a) {
+    public boolean b(C0210a c0210a) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0204a)) == null) {
-            List<b> list = this.a.get(c0204a.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0210a)) == null) {
+            List<b> list = this.a.get(c0210a.a);
             if (ListUtils.isEmpty(list)) {
                 return false;
             }
             for (b bVar : list) {
-                if (bVar != null && bVar.a(c0204a)) {
+                if (bVar != null && bVar.a(c0210a)) {
                     return true;
                 }
             }
@@ -72,15 +72,15 @@ public class a {
 
     /* renamed from: c.a.l.w0.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0204a {
+    public static class C0210a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Object f4370b;
+        public Object f4437b;
 
-        public C0204a(int i2, Object obj) {
+        public C0210a(int i2, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,7 +96,7 @@ public class a {
                 }
             }
             this.a = i2;
-            this.f4370b = obj;
+            this.f4437b = obj;
         }
 
         public int b() {
@@ -108,17 +108,17 @@ public class a {
         public Object c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4370b : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4437b : invokeV.objValue;
         }
 
         public void d(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                this.f4370b = obj;
+                this.f4437b = obj;
             }
         }
 
-        public C0204a(int i2) {
+        public C0210a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

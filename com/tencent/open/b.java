@@ -22,7 +22,7 @@ public abstract class b extends Dialog {
     @SuppressLint({"NewApi"})
 
     /* renamed from: b  reason: collision with root package name */
-    public final WebChromeClient f60569b;
+    public final WebChromeClient f60736b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context, int i2) {
@@ -43,7 +43,7 @@ public abstract class b extends Dialog {
                 return;
             }
         }
-        this.f60569b = new WebChromeClient(this) { // from class: com.tencent.open.b.1
+        this.f60736b = new WebChromeClient(this) { // from class: com.tencent.open.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;

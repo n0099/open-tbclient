@@ -35,14 +35,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PaInfoDBManager extends DBBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PaInfoDBManager";
     public static PaInfoDBManager mInstance;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class PaInfoListParse implements CursorParse {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +89,7 @@ public class PaInfoDBManager extends DBBase {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class PaInfoParse implements CursorParse {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -135,7 +135,7 @@ public class PaInfoDBManager extends DBBase {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class PaidParse implements CursorParse {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -512,17 +512,17 @@ public class PaInfoDBManager extends DBBase {
         return (List) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x00a6 */
-    /* JADX WARN: Code restructure failed: missing block: B:40:0x0145, code lost:
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x00a4 */
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x0143, code lost:
         if (r4 != null) goto L38;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x0147, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x0145, code lost:
         r4.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x0160, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x015e, code lost:
         if (r4 != null) goto L38;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x0164, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x0162, code lost:
         return;
      */
     /* JADX WARN: Multi-variable type inference failed */
@@ -622,16 +622,16 @@ public class PaInfoDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x00c5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x00c3, code lost:
         if (r11 != null) goto L30;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x00c7, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x00c5, code lost:
         r11.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x00d5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x00d3, code lost:
         if (r11 == null) goto L31;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x00d9, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x00d7, code lost:
         return r0;
      */
     /*

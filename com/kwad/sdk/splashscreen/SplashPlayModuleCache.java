@@ -2,11 +2,11 @@ package com.kwad.sdk.splashscreen;
 
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SplashPlayModuleCache {
     public HashMap<String, WeakReference<com.kwad.sdk.splashscreen.b.a>> a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum Holder {
         INSTANCE;
         

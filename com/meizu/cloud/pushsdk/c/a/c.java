@@ -3,21 +3,21 @@ package com.meizu.cloud.pushsdk.c.a;
 import com.meizu.cloud.pushsdk.c.f.e;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c implements a {
     public final String a = c.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, Object> f58710b = new HashMap<>();
+    public final HashMap<String, Object> f58877b = new HashMap<>();
 
     @Override // com.meizu.cloud.pushsdk.c.a.a
     public Map a() {
-        return this.f58710b;
+        return this.f58877b;
     }
 
     public void a(String str, Object obj) {
         if (obj != null) {
-            this.f58710b.put(str, obj);
+            this.f58877b.put(str, obj);
             return;
         }
         String str2 = this.a;
@@ -27,7 +27,7 @@ public class c implements a {
     @Override // com.meizu.cloud.pushsdk.c.a.a
     public void a(String str, String str2) {
         if (str2 != null && !str2.isEmpty()) {
-            this.f58710b.put(str, str2);
+            this.f58877b.put(str, str2);
             return;
         }
         String str3 = this.a;
@@ -38,7 +38,7 @@ public class c implements a {
         if (map == null) {
             com.meizu.cloud.pushsdk.c.f.c.c(this.a, "Map passed in is null, returning without adding map.", new Object[0]);
         } else {
-            this.f58710b.putAll(map);
+            this.f58877b.putAll(map);
         }
     }
 
@@ -49,6 +49,6 @@ public class c implements a {
 
     @Override // com.meizu.cloud.pushsdk.c.a.a
     public String toString() {
-        return e.a((Map) this.f58710b).toString();
+        return e.a((Map) this.f58877b).toString();
     }
 }

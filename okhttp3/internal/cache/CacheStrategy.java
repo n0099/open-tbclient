@@ -16,7 +16,7 @@ import okhttp3.Response;
 import okhttp3.internal.Internal;
 import okhttp3.internal.http.HttpDate;
 import okhttp3.internal.http.HttpHeaders;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class CacheStrategy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public final class CacheStrategy {
     @Nullable
     public final Request networkRequest;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

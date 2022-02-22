@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e0.a.f;
+import c.a.f0.a.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
@@ -25,7 +25,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class InvoiceBuildActivity extends SlideActiviy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_PARAMS_ISCHECK = "isCheck";

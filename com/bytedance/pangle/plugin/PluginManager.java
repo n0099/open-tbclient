@@ -29,7 +29,7 @@ import java.util.concurrent.ExecutorService;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PluginManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PluginManager";
@@ -210,7 +210,7 @@ public class PluginManager {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && com.bytedance.pangle.helper.c.b(Zeus.getAppApplication())) {
             if (this.mInstallThreadPool == null) {
-                this.mInstallThreadPool = e.a(g.a().f53126b.getInstallThreads());
+                this.mInstallThreadPool = e.a(g.a().f53293b.getInstallThreads());
             }
             e.a.execute(new d());
         }

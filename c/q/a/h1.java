@@ -41,12 +41,12 @@ public class h1 implements z {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a.o.removeMessages(11);
-            this.a.f30427g = true;
-            y2 a = c3.a(this.a.f30426f);
-            a.e(new g3(this.a.f30430j), 200, System.currentTimeMillis() - this.a.n);
+            this.a.f30633g = true;
+            y2 a = c3.a(this.a.f30632f);
+            a.e(new g3(this.a.f30636j), 200, System.currentTimeMillis() - this.a.n);
             a.m();
             o1 o1Var = this.a;
-            if (o1Var.f30429i) {
+            if (o1Var.f30635i) {
                 return;
             }
             o1Var.l.onLoaded();

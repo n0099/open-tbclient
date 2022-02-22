@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.c0.j0.h;
+import c.a.d0.k0.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,22 +23,22 @@ public class BrowserStateView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f37225e;
+    public View f37455e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f37226f;
+    public View f37456f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LayoutInflater f37227g;
+    public LayoutInflater f37457g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f37228h;
+    public int f37458h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f37229i;
+    public int f37459i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View.OnClickListener f37230j;
+    public View.OnClickListener f37460j;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes10.dex */
@@ -156,9 +156,9 @@ public class BrowserStateView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f37229i = h.nad_widget_errorview;
-            this.f37228h = h.nad_widget_loadingview;
-            this.f37227g = LayoutInflater.from(getContext());
+            this.f37459i = h.nad_widget_errorview;
+            this.f37458h = h.nad_widget_loadingview;
+            this.f37457g = LayoutInflater.from(getContext());
             c();
             b();
         }
@@ -167,20 +167,20 @@ public class BrowserStateView extends FrameLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = this.f37227g.inflate(this.f37229i, (ViewGroup) this, false);
-            this.f37225e = inflate;
+            View inflate = this.f37457g.inflate(this.f37459i, (ViewGroup) this, false);
+            this.f37455e = inflate;
             addView(inflate, inflate.getLayoutParams());
-            this.f37225e.setVisibility(8);
+            this.f37455e.setVisibility(8);
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = this.f37227g.inflate(this.f37228h, (ViewGroup) this, false);
-            this.f37226f = inflate;
+            View inflate = this.f37457g.inflate(this.f37458h, (ViewGroup) this, false);
+            this.f37456f = inflate;
             addView(inflate, inflate.getLayoutParams());
-            this.f37226f.setVisibility(8);
+            this.f37456f.setVisibility(8);
         }
     }
 
@@ -190,13 +190,13 @@ public class BrowserStateView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048579, this, viewState) == null) {
             int i2 = a.a[viewState.ordinal()];
             if (i2 != 1) {
-                if (i2 == 2 && (view = this.f37225e) != null) {
+                if (i2 == 2 && (view = this.f37455e) != null) {
                     view.setVisibility(8);
                     return;
                 }
                 return;
             }
-            View view2 = this.f37226f;
+            View view2 = this.f37456f;
             if (view2 != null) {
                 view2.setVisibility(8);
             }
@@ -206,8 +206,8 @@ public class BrowserStateView extends FrameLayout {
     public void setErrorViewClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.f37230j = onClickListener;
-            View view = this.f37225e;
+            this.f37460j = onClickListener;
+            View view = this.f37455e;
             if (view != null) {
                 view.setOnClickListener(onClickListener);
             }
@@ -217,10 +217,10 @@ public class BrowserStateView extends FrameLayout {
     public void setViewForState(int i2, ViewState viewState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048581, this, i2, viewState) == null) {
-            if (this.f37227g == null) {
-                this.f37227g = LayoutInflater.from(getContext());
+            if (this.f37457g == null) {
+                this.f37457g = LayoutInflater.from(getContext());
             }
-            setViewForState(this.f37227g.inflate(i2, (ViewGroup) this, false), viewState);
+            setViewForState(this.f37457g.inflate(i2, (ViewGroup) this, false), viewState);
         }
     }
 
@@ -230,13 +230,13 @@ public class BrowserStateView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048583, this, viewState) == null) {
             int i2 = a.a[viewState.ordinal()];
             if (i2 != 1) {
-                if (i2 == 2 && (view = this.f37225e) != null) {
+                if (i2 == 2 && (view = this.f37455e) != null) {
                     view.setVisibility(0);
                     return;
                 }
                 return;
             }
-            View view2 = this.f37226f;
+            View view2 = this.f37456f;
             if (view2 != null) {
                 view2.setVisibility(0);
             }
@@ -272,22 +272,22 @@ public class BrowserStateView extends FrameLayout {
         }
         int i2 = a.a[viewState.ordinal()];
         if (i2 == 1) {
-            View view2 = this.f37226f;
+            View view2 = this.f37456f;
             if (view2 != null) {
                 removeView(view2);
             }
-            this.f37226f = view;
+            this.f37456f = view;
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
             layoutParams.gravity = 17;
-            addView(this.f37226f, layoutParams);
+            addView(this.f37456f, layoutParams);
         } else if (i2 == 2) {
-            View view3 = this.f37225e;
+            View view3 = this.f37455e;
             if (view3 != null) {
                 removeView(view3);
             }
-            this.f37225e = view;
+            this.f37455e = view;
             addView(view);
-            this.f37225e.setOnClickListener(this.f37230j);
+            this.f37455e.setOnClickListener(this.f37460j);
         }
         view.setVisibility(8);
     }

@@ -4,11 +4,11 @@ import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
-import c.a.r0.a.d1.b.b;
-import c.a.r0.a.h0.f.a;
-import c.a.r0.a.k;
-import c.a.r0.a.o1.d;
-import c.a.r0.a.z2.j;
+import c.a.s0.a.d1.b.b;
+import c.a.s0.a.h0.f.a;
+import c.a.s0.a.k;
+import c.a.s0.a.o1.d;
+import c.a.s0.a.z2.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.swan.apps.core.container.NgWebView;
@@ -71,18 +71,18 @@ public class SwanAppNativeSwanJsBridge {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             if (DEBUG) {
-                return c.a.r0.a.x1.a.a.p() ? j.d(i2, getClassify()) : "";
+                return c.a.s0.a.x1.a.a.p() ? j.d(i2, getClassify()) : "";
             }
             String d2 = j.d(i2, getClassify());
             if (TextUtils.isEmpty(d2)) {
                 if (!DEBUG) {
-                    c.a.r0.a.z2.a.c(j.b(String.format("index: %d, desc: %s, isV8: %b", Integer.valueOf(i2), d2, Boolean.TRUE)));
+                    c.a.s0.a.z2.a.c(j.b(String.format("index: %d, desc: %s, isV8: %b", Integer.valueOf(i2), d2, Boolean.TRUE)));
                 } else {
                     j.i();
                     throw new RuntimeException(String.format("getAPIs cannot find index: %d, desc: %s", Integer.valueOf(i2), d2));
                 }
             } else {
-                c.a.r0.a.z2.a.d();
+                c.a.s0.a.z2.a.d();
             }
             return d2;
         }
@@ -108,7 +108,7 @@ public class SwanAppNativeSwanJsBridge {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             JSONObject b2 = d.b();
-            c.a.r0.a.e0.d.k(TAG, "getNACanIUseMap - " + b2.toString());
+            c.a.s0.a.e0.d.k(TAG, "getNACanIUseMap - " + b2.toString());
             return b2.toString();
         }
         return (String) invokeV.objValue;

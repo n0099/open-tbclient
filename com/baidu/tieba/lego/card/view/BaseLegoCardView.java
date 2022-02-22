@@ -12,13 +12,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.g0.m;
-import c.a.t0.g0.v;
-import c.a.t0.x3.w;
-import c.a.t0.y1.o.a;
-import c.a.t0.y1.o.c;
-import c.a.t0.y1.o.k.b;
-import c.a.t0.y1.o.l.e;
+import c.a.u0.a4.d;
+import c.a.u0.a4.f;
+import c.a.u0.g0.m;
+import c.a.u0.g0.u;
+import c.a.u0.z1.o.a;
+import c.a.u0.z1.o.c;
+import c.a.u0.z1.o.k.b;
+import c.a.u0.z1.o.l.e;
+import c.a.u0.z3.x;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -28,7 +30,6 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,7 +42,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends LinearLayout implements e<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +50,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public c downloadAppCallback;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f45561e;
+    public boolean f45703e;
     public int mBusinessType;
     public TbPageContext mContext;
     public String mFrom;
@@ -81,7 +82,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
             }
         }
         this.mSkinType = 3;
-        this.f45561e = true;
+        this.f45703e = true;
         this.mContext = tbPageContext;
         setOrientation(1);
     }
@@ -89,8 +90,8 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setBackgroundColor(this.vLine, R.color.CAM_X0201);
-            SkinManager.setImageResource(this.vLine, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.vLine, d.CAM_X0201);
+            SkinManager.setImageResource(this.vLine, d.CAM_X0204);
             int i2 = this.mBusinessType;
             if (i2 == 1) {
                 this.vSpaceUp.setBackgroundColor(getResources().getColor(17170445));
@@ -99,8 +100,8 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
                 this.vSpaceUp.setBackgroundColor(getResources().getColor(17170445));
                 this.vSpaceDown.setBackgroundColor(getResources().getColor(17170445));
             } else {
-                SkinManager.setBackgroundColor(this.vSpaceUp, R.color.CAM_X0204);
-                SkinManager.setBackgroundColor(this.vSpaceDown, R.color.CAM_X0204);
+                SkinManager.setBackgroundColor(this.vSpaceUp, d.CAM_X0204);
+                SkinManager.setBackgroundColor(this.vSpaceDown, d.CAM_X0204);
             }
         }
     }
@@ -133,7 +134,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             initCardView();
             postInit();
-            this.f45561e = false;
+            this.f45703e = false;
         }
     }
 
@@ -213,7 +214,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public final void handleClickEvent(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) {
-            v.b().d(true);
+            u.b().d(true);
             openCardScheme(t);
         }
     }
@@ -232,39 +233,39 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
             if (this.mBusinessType == 4) {
                 layoutParams.setMargins(0, 0, 0, 0);
             } else {
-                layoutParams.setMargins(0, getResources().getDimensionPixelSize(R.dimen.M_H_X003), 0, 0);
+                layoutParams.setMargins(0, getResources().getDimensionPixelSize(c.a.u0.a4.e.M_H_X003), 0, 0);
             }
             View initLayout = initLayout();
             this.vCard = initLayout;
             frameLayout.addView(initLayout, initCardLayoutParams());
             View view = new View(getContext());
             this.vCover = view;
-            SkinManager.setBackgroundColor(view, R.color.common_color_10205);
+            SkinManager.setBackgroundColor(view, d.common_color_10205);
             frameLayout.addView(this.vCover, new ViewGroup.LayoutParams(-1, -1));
             this.vLine = new ImageView(getContext());
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.ds1));
-            SkinManager.setBackgroundColor(this.vLine, R.color.CAM_X0201);
-            SkinManager.setImageResource(this.vLine, R.color.CAM_X0204);
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, getResources().getDimensionPixelSize(c.a.u0.a4.e.ds1));
+            SkinManager.setBackgroundColor(this.vLine, d.CAM_X0201);
+            SkinManager.setImageResource(this.vLine, d.CAM_X0204);
             this.vSpaceUp = new View(getContext());
             this.vSpaceDown = new View(getContext());
-            LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.ds16));
+            LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-1, getResources().getDimensionPixelSize(c.a.u0.a4.e.ds16));
             int i2 = this.mBusinessType;
             if (i2 != 1) {
                 if (i2 == 2) {
-                    SkinManager.setBackgroundColor(this.vSpaceUp, R.color.CAM_X0204);
+                    SkinManager.setBackgroundColor(this.vSpaceUp, d.CAM_X0204);
                     addView(this.vSpaceUp, layoutParams3);
                     addView(this.vLine, layoutParams2);
                     addView(frameLayout, layoutParams);
-                    SkinManager.setBackgroundColor(this.vSpaceDown, R.color.CAM_X0204);
+                    SkinManager.setBackgroundColor(this.vSpaceDown, d.CAM_X0204);
                     addView(this.vSpaceDown, layoutParams3);
                     return;
                 } else if (i2 == 3) {
-                    SkinManager.setBackgroundColor(this.vSpaceUp, R.color.CAM_X0204);
+                    SkinManager.setBackgroundColor(this.vSpaceUp, d.CAM_X0204);
                     addView(this.vSpaceUp, layoutParams3);
                     addView(frameLayout, layoutParams);
-                    layoutParams2.bottomMargin = getResources().getDimensionPixelSize(R.dimen.ds1);
+                    layoutParams2.bottomMargin = getResources().getDimensionPixelSize(c.a.u0.a4.e.ds1);
                     addView(this.vLine, layoutParams2);
-                    SkinManager.setBackgroundColor(this.vSpaceDown, R.color.CAM_X0204);
+                    SkinManager.setBackgroundColor(this.vSpaceDown, d.CAM_X0204);
                     addView(this.vSpaceDown, layoutParams3);
                     return;
                 } else if (i2 != 4) {
@@ -331,12 +332,12 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         }
         statisticItem.param("obj_locate", getStatPosition());
         statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, m.e());
-        v.b().a(statisticItem);
+        u.b().a(statisticItem);
     }
 
     public abstract void onChangeSkinType(T t, int i2);
 
-    @Override // c.a.t0.y1.o.l.e
+    @Override // c.a.u0.z1.o.l.e
     public void onScrollIdle() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
@@ -351,14 +352,14 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         onUpdateCardView((BaseLegoCardView<T>) ((BaseLegoCardInfo) iCardInfo));
     }
 
-    @Override // c.a.t0.y1.o.l.e
+    @Override // c.a.u0.z1.o.l.e
     public void onViewBackground() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
         }
     }
 
-    @Override // c.a.t0.y1.o.l.e
+    @Override // c.a.u0.z1.o.l.e
     public void onViewForeground() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
@@ -368,7 +369,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public void openCardScheme(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, t) == null) {
-            int c2 = w.c(this.mContext, t.getScheme());
+            int c2 = x.c(this.mContext, t.getScheme());
             a aVar = this.afterClickSchemeListener;
             if (aVar != null) {
                 aVar.a(c2, null);
@@ -382,14 +383,14 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         }
     }
 
-    @Override // c.a.t0.y1.o.l.e
+    @Override // c.a.u0.z1.o.l.e
     public void registerListener(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, bdUniqueId) == null) {
         }
     }
 
-    @Override // c.a.t0.y1.o.l.e
+    @Override // c.a.u0.z1.o.l.e
     public final void setAfterClickSchemeListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, aVar) == null) {
@@ -411,7 +412,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         }
     }
 
-    @Override // c.a.t0.y1.o.l.e
+    @Override // c.a.u0.z1.o.l.e
     public final void setBusinessType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
@@ -433,7 +434,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         }
     }
 
-    @Override // c.a.t0.y1.o.l.e
+    @Override // c.a.u0.z1.o.l.e
     public void setDownloadAppCallback(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, cVar) == null) {
@@ -441,7 +442,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         }
     }
 
-    @Override // c.a.t0.y1.o.l.e
+    @Override // c.a.u0.z1.o.l.e
     public final void setFromCDN(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048606, this, z) == null) {
@@ -449,7 +450,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         }
     }
 
-    @Override // c.a.t0.y1.o.l.e
+    @Override // c.a.u0.z1.o.l.e
     public final void setPosition(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
@@ -483,19 +484,19 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{textView, Boolean.valueOf(z), str, str2}) == null) {
             if (z) {
                 textView.setEnabled(false);
-                SkinManager.setViewTextColor(textView, R.color.CAM_X0109, 1);
+                SkinManager.setViewTextColor(textView, d.CAM_X0109, 1);
                 textView.setText(str2);
                 textView.setBackgroundDrawable(null);
                 textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
                 textView.setPadding(0, 0, 0, 0);
                 return;
             }
-            SkinManager.setViewTextColor(textView, R.color.btn_forum_focus_color, 1);
+            SkinManager.setViewTextColor(textView, d.btn_forum_focus_color, 1);
             textView.setText(str);
-            SkinManager.setBackgroundResource(textView, R.drawable.btn_focus_border_bg);
-            textView.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
+            SkinManager.setBackgroundResource(textView, f.btn_focus_border_bg);
+            textView.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(f.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
             textView.setEnabled(true);
-            textView.setPadding(getResources().getDimensionPixelSize(R.dimen.ds18), 0, getResources().getDimensionPixelSize(R.dimen.ds10), 0);
+            textView.setPadding(getResources().getDimensionPixelSize(c.a.u0.a4.e.ds18), 0, getResources().getDimensionPixelSize(c.a.u0.a4.e.ds10), 0);
         }
     }
 
@@ -508,12 +509,12 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
                 this.vLine.setPadding(0, 0, 0, 0);
                 this.vLine.setVisibility(0);
             } else if (i2 == 2) {
-                this.vLine.setPadding(getResources().getDimensionPixelSize(R.dimen.ds24), 0, 0, 0);
+                this.vLine.setPadding(getResources().getDimensionPixelSize(c.a.u0.a4.e.ds24), 0, 0, 0);
                 this.vLine.setVisibility(0);
             } else if (i2 != 3) {
                 this.vLine.setVisibility(8);
             } else {
-                this.vLine.setPadding(getResources().getDimensionPixelSize(R.dimen.ds24), 0, getResources().getDimensionPixelSize(R.dimen.ds24), 0);
+                this.vLine.setPadding(getResources().getDimensionPixelSize(c.a.u0.a4.e.ds24), 0, getResources().getDimensionPixelSize(c.a.u0.a4.e.ds24), 0);
                 this.vLine.setVisibility(0);
             }
         }
@@ -521,7 +522,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
 
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.baidu.tieba.lego.card.view.BaseLegoCardView<T extends com.baidu.tieba.lego.card.model.BaseLegoCardInfo> */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // c.a.t0.y1.o.l.e
+    @Override // c.a.u0.z1.o.l.e
     public final void update(Object obj) {
         ICardInfo iCardInfo;
         ICardInfo updateCard;
@@ -531,7 +532,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         }
         BaseLegoCardInfo baseLegoCardInfo = (BaseLegoCardInfo) updateCard;
         logShowStatistics(baseLegoCardInfo);
-        if (this.f45561e) {
+        if (this.f45703e) {
             b();
         }
         if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
@@ -544,7 +545,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         adjustBackground(baseLegoCardInfo);
     }
 
-    @Override // c.a.t0.y1.o.l.e
+    @Override // c.a.u0.z1.o.l.e
     public void updateFontSize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048613, this) == null) {

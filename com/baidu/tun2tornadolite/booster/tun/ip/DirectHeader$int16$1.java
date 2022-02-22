@@ -48,6 +48,6 @@ public final class DirectHeader$int16$1 extends Lambda implements Function1<Inte
     public final Integer invoke(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? Integer.valueOf(UShort.m992constructorimpl((short) ((UByte.m732constructorimpl(this.this$0.getBuffer()[i2 + 1]) & 255 & 255) | (((UByte.m732constructorimpl(this.this$0.getBuffer()[i2]) & 255) & 255) << 8))) & UShort.MAX_VALUE) : (Integer) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? Integer.valueOf(UShort.m991constructorimpl((short) ((UByte.m731constructorimpl(this.this$0.getBuffer()[i2 + 1]) & 255 & 255) | (((UByte.m731constructorimpl(this.this$0.getBuffer()[i2]) & 255) & 255) << 8))) & UShort.MAX_VALUE) : (Integer) invokeI.objValue;
     }
 }

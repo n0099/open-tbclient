@@ -36,7 +36,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class DownloadCall extends NamedRunnable implements Comparable<DownloadCall> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ExecutorService EXECUTOR;
@@ -200,7 +200,7 @@ public class DownloadCall extends NamedRunnable implements Comparable<DownloadCa
         return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, downloadTask)) == null) ? this.task.equals(downloadTask) : invokeL.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:77:0x015f A[EDGE_INSN: B:77:0x015f->B:47:0x015f ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x0160 A[EDGE_INSN: B:77:0x0160->B:47:0x0160 ?: BREAK  , SYNTHETIC] */
     @Override // com.baidu.searchbox.bddownload.core.NamedRunnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.

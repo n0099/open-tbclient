@@ -1,0 +1,257 @@
+package c.a.s0.g.s;
+
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import c.a.s0.a.d0.c;
+import c.a.s0.a.k;
+import c.a.s0.a.o2.g.h;
+import c.a.s0.a.y2.a;
+import c.a.s0.a.z2.o0;
+import c.a.s0.w.f;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidubce.Protocol;
+import com.baidubce.auth.DefaultBceSessionCredentials;
+import com.baidubce.services.bos.BosClient;
+import com.baidubce.services.bos.BosClientConfiguration;
+import com.baidubce.services.bos.model.PutObjectRequest;
+import com.baidubce.services.bos.model.PutObjectResponse;
+import java.io.File;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import okhttp3.internal.http.HttpDate;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+@Singleton
+@Service
+/* loaded from: classes6.dex */
+public class a implements c.a.s0.a.y2.a {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: c.a.s0.g.s.a$a  reason: collision with other inner class name */
+    /* loaded from: classes6.dex */
+    public class C0711a extends ResponseCallback<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a.InterfaceC0659a a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ String f10635b;
+
+        public C0711a(a aVar, a.InterfaceC0659a interfaceC0659a, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, interfaceC0659a, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = interfaceC0659a;
+            this.f10635b = str;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            a.InterfaceC0659a interfaceC0659a;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, exc) == null) || (interfaceC0659a = this.a) == null) {
+                return;
+            }
+            interfaceC0659a.c(null, null);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(JSONObject jSONObject, int i2) {
+            a.InterfaceC0659a interfaceC0659a;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i2) == null) || (interfaceC0659a = this.a) == null) {
+                return;
+            }
+            interfaceC0659a.c(jSONObject, this.f10635b);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public JSONObject parseResponse(Response response, int i2) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i2)) == null) {
+                if (response == null || response.body() == null) {
+                    return null;
+                }
+                String string = response.body().string();
+                a.f(response, System.currentTimeMillis());
+                return new JSONObject(string);
+            }
+            return (JSONObject) invokeLI.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1980620618, "Lc/a/s0/g/s/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1980620618, "Lc/a/s0/g/s/a;");
+                return;
+            }
+        }
+        a = k.a;
+    }
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static String c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            return f.d((str + System.currentTimeMillis() + str2).getBytes(), false);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            return context.getExternalCacheDir() + File.separator + "favor_screenshot" + File.separator;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static RequestBody e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            jSONArray.put(str);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("oname_list", jSONArray);
+                return RequestBody.create(c.a.s0.a.p1.f.a, jSONObject.toString());
+            } catch (JSONException e2) {
+                if (a) {
+                    e2.printStackTrace();
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (RequestBody) invokeL.objValue;
+    }
+
+    public static void f(Response response, long j2) {
+        Date parse;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65541, null, response, j2) == null) {
+            String header = response.header("Date");
+            if (TextUtils.isEmpty(header) || (parse = HttpDate.parse(header)) == null) {
+                return;
+            }
+            long time = parse.getTime();
+            if (time >= 1) {
+                long j3 = j2 - time;
+                h.a().putLong("server_time_delta", j3);
+                if (a) {
+                    String str = "deltaTime sDate:" + parse + "  sTime:" + time + "   diff:" + j3;
+                }
+            }
+        }
+    }
+
+    @Override // c.a.s0.a.y2.a
+    public boolean a(String str, c.a.s0.a.k1.e.a aVar) {
+        InterceptResult invokeLL;
+        PutObjectResponse putObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, aVar)) == null) {
+            if (!TextUtils.isEmpty(str) && aVar != null && !TextUtils.isEmpty(aVar.a) && !TextUtils.isEmpty(aVar.f7821b) && !TextUtils.isEmpty(aVar.f7822c) && !TextUtils.isEmpty(aVar.f7825f)) {
+                try {
+                    BosClientConfiguration bosClientConfiguration = new BosClientConfiguration();
+                    bosClientConfiguration.setCredentials(new DefaultBceSessionCredentials(aVar.a, aVar.f7821b, aVar.f7822c));
+                    bosClientConfiguration.setEndpoint("bj.bcebos.com");
+                    bosClientConfiguration.setProtocol(Protocol.HTTPS);
+                    BosClient bosClient = new BosClient(bosClientConfiguration);
+                    File file = new File(str);
+                    if (file.exists() && (putObject = bosClient.putObject(new PutObjectRequest(aVar.f7823d, aVar.f7825f, file))) != null) {
+                        if (!TextUtils.isEmpty(putObject.getETag())) {
+                            return true;
+                        }
+                    }
+                } catch (Exception e2) {
+                    if (a) {
+                        e2.printStackTrace();
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // c.a.s0.a.y2.a
+    public void b(Context context, String str, a.InterfaceC0659a interfaceC0659a) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, interfaceC0659a) == null) || context == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        String v = c.v(c.a.s0.a.c1.a.o().e());
+        HashMap hashMap = new HashMap();
+        hashMap.put("Content-Type", "application/json");
+        for (Map.Entry<String, String> entry : c.a.s0.a.d0.b.b().f5754d.entrySet()) {
+            v = o0.a(v, entry.getKey(), entry.getValue());
+        }
+        String c2 = c(d(context), str.substring(str.lastIndexOf(".")));
+        RequestBody e2 = e(c2);
+        if (e2 == null) {
+            return;
+        }
+        c.a.s0.p.d.a aVar = new c.a.s0.p.d.a(v, e2, new C0711a(this, interfaceC0659a, c2));
+        if (c.a.s0.p.e.a.g().c()) {
+            aVar.f11695f = true;
+        }
+        aVar.f11696g = false;
+        aVar.f11692c = hashMap;
+        c.a.s0.p.e.a.g().e(aVar);
+    }
+}

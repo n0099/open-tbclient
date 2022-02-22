@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.component.button.StyleHelper;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class Touchable {
     public static final /* synthetic */ Touchable[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

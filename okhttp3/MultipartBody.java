@@ -21,7 +21,7 @@ import okhttp3.internal.Util;
 import okio.Buffer;
 import okio.BufferedSink;
 import okio.ByteString;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class MultipartBody extends RequestBody {
     public static /* synthetic */ Interceptable $ic;
     public static final MediaType ALTERNATIVE;
@@ -39,7 +39,7 @@ public final class MultipartBody extends RequestBody {
     public final MediaType originalType;
     public final List<Part> parts;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -151,7 +151,7 @@ public final class MultipartBody extends RequestBody {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class Part {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

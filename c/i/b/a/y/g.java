@@ -17,31 +17,31 @@ public abstract class g<I extends e, O extends f, E extends Exception> implement
     public final Thread a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f29989b;
+    public final Object f30195b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final LinkedList<I> f29990c;
+    public final LinkedList<I> f30196c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final LinkedList<O> f29991d;
+    public final LinkedList<O> f30197d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final I[] f29992e;
+    public final I[] f30198e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final O[] f29993f;
+    public final O[] f30199f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f29994g;
+    public int f30200g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f29995h;
+    public int f30201h;
 
     /* renamed from: i  reason: collision with root package name */
-    public I f29996i;
+    public I f30202i;
 
     /* renamed from: j  reason: collision with root package name */
-    public E f29997j;
+    public E f30203j;
     public boolean k;
     public boolean l;
     public int m;
@@ -52,7 +52,7 @@ public abstract class g<I extends e, O extends f, E extends Exception> implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f29998e;
+        public final /* synthetic */ g f30204e;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -69,14 +69,14 @@ public abstract class g<I extends e, O extends f, E extends Exception> implement
                     return;
                 }
             }
-            this.f29998e = gVar;
+            this.f30204e = gVar;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f29998e.s();
+                this.f30204e.s();
             }
         }
     }
@@ -96,18 +96,18 @@ public abstract class g<I extends e, O extends f, E extends Exception> implement
                 return;
             }
         }
-        this.f29989b = new Object();
-        this.f29990c = new LinkedList<>();
-        this.f29991d = new LinkedList<>();
-        this.f29992e = iArr;
-        this.f29994g = iArr.length;
-        for (int i4 = 0; i4 < this.f29994g; i4++) {
-            this.f29992e[i4] = g();
+        this.f30195b = new Object();
+        this.f30196c = new LinkedList<>();
+        this.f30197d = new LinkedList<>();
+        this.f30198e = iArr;
+        this.f30200g = iArr.length;
+        for (int i4 = 0; i4 < this.f30200g; i4++) {
+            this.f30198e[i4] = g();
         }
-        this.f29993f = oArr;
-        this.f29995h = oArr.length;
-        for (int i5 = 0; i5 < this.f29995h; i5++) {
-            this.f29993f[i5] = h();
+        this.f30199f = oArr;
+        this.f30201h = oArr.length;
+        for (int i5 = 0; i5 < this.f30201h; i5++) {
+            this.f30199f[i5] = h();
         }
         a aVar = new a(this);
         this.a = aVar;
@@ -117,25 +117,25 @@ public abstract class g<I extends e, O extends f, E extends Exception> implement
     public final boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? !this.f29990c.isEmpty() && this.f29995h > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? !this.f30196c.isEmpty() && this.f30201h > 0 : invokeV.booleanValue;
     }
 
     @Override // c.i.b.a.y.c
     public final void flush() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this.f29989b) {
+            synchronized (this.f30195b) {
                 this.k = true;
                 this.m = 0;
-                if (this.f29996i != null) {
-                    p(this.f29996i);
-                    this.f29996i = null;
+                if (this.f30202i != null) {
+                    p(this.f30202i);
+                    this.f30202i = null;
                 }
-                while (!this.f29990c.isEmpty()) {
-                    p(this.f29990c.removeFirst());
+                while (!this.f30196c.isEmpty()) {
+                    p(this.f30196c.removeFirst());
                 }
-                while (!this.f29991d.isEmpty()) {
-                    r(this.f29991d.removeFirst());
+                while (!this.f30197d.isEmpty()) {
+                    r(this.f30197d.removeFirst());
                 }
             }
         }
@@ -151,17 +151,17 @@ public abstract class g<I extends e, O extends f, E extends Exception> implement
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            synchronized (this.f29989b) {
+            synchronized (this.f30195b) {
                 while (!this.l && !f()) {
-                    this.f29989b.wait();
+                    this.f30195b.wait();
                 }
                 if (this.l) {
                     return false;
                 }
-                I removeFirst = this.f29990c.removeFirst();
-                O[] oArr = this.f29993f;
-                int i2 = this.f29995h - 1;
-                this.f29995h = i2;
+                I removeFirst = this.f30196c.removeFirst();
+                O[] oArr = this.f30199f;
+                int i2 = this.f30201h - 1;
+                this.f30201h = i2;
                 O o = oArr[i2];
                 boolean z = this.k;
                 this.k = false;
@@ -172,23 +172,23 @@ public abstract class g<I extends e, O extends f, E extends Exception> implement
                         o.e(Integer.MIN_VALUE);
                     }
                     E i3 = i(removeFirst, o, z);
-                    this.f29997j = i3;
+                    this.f30203j = i3;
                     if (i3 != null) {
-                        synchronized (this.f29989b) {
+                        synchronized (this.f30195b) {
                         }
                         return false;
                     }
                 }
-                synchronized (this.f29989b) {
+                synchronized (this.f30195b) {
                     if (this.k) {
                         r(o);
                     } else if (o.i()) {
                         this.m++;
                         r(o);
                     } else {
-                        o.f29988g = this.m;
+                        o.f30194g = this.m;
                         this.m = 0;
-                        this.f29991d.addLast(o);
+                        this.f30197d.addLast(o);
                     }
                     p(removeFirst);
                 }
@@ -206,18 +206,18 @@ public abstract class g<I extends e, O extends f, E extends Exception> implement
         I i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            synchronized (this.f29989b) {
+            synchronized (this.f30195b) {
                 n();
-                c.i.b.a.i0.a.f(this.f29996i == null);
-                if (this.f29994g == 0) {
+                c.i.b.a.i0.a.f(this.f30202i == null);
+                if (this.f30200g == 0) {
                     i2 = null;
                 } else {
-                    I[] iArr = this.f29992e;
-                    int i3 = this.f29994g - 1;
-                    this.f29994g = i3;
+                    I[] iArr = this.f30198e;
+                    int i3 = this.f30200g - 1;
+                    this.f30200g = i3;
                     i2 = iArr[i3];
                 }
-                this.f29996i = i2;
+                this.f30202i = i2;
             }
             return i2;
         }
@@ -231,12 +231,12 @@ public abstract class g<I extends e, O extends f, E extends Exception> implement
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            synchronized (this.f29989b) {
+            synchronized (this.f30195b) {
                 n();
-                if (this.f29991d.isEmpty()) {
+                if (this.f30197d.isEmpty()) {
                     return null;
                 }
-                return this.f29991d.removeFirst();
+                return this.f30197d.removeFirst();
             }
         }
         return (O) invokeV.objValue;
@@ -245,14 +245,14 @@ public abstract class g<I extends e, O extends f, E extends Exception> implement
     public final void m() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && f()) {
-            this.f29989b.notify();
+            this.f30195b.notify();
         }
     }
 
     public final void n() throws Exception {
         E e2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (e2 = this.f29997j) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (e2 = this.f30203j) != null) {
             throw e2;
         }
     }
@@ -263,12 +263,12 @@ public abstract class g<I extends e, O extends f, E extends Exception> implement
     public final void d(I i2) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, i2) == null) {
-            synchronized (this.f29989b) {
+            synchronized (this.f30195b) {
                 n();
-                c.i.b.a.i0.a.a(i2 == this.f29996i);
-                this.f29990c.addLast(i2);
+                c.i.b.a.i0.a.a(i2 == this.f30202i);
+                this.f30196c.addLast(i2);
                 m();
-                this.f29996i = null;
+                this.f30202i = null;
             }
         }
     }
@@ -277,9 +277,9 @@ public abstract class g<I extends e, O extends f, E extends Exception> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, i2) == null) {
             i2.f();
-            I[] iArr = this.f29992e;
-            int i3 = this.f29994g;
-            this.f29994g = i3 + 1;
+            I[] iArr = this.f30198e;
+            int i3 = this.f30200g;
+            this.f30200g = i3 + 1;
             iArr[i3] = i2;
         }
     }
@@ -287,7 +287,7 @@ public abstract class g<I extends e, O extends f, E extends Exception> implement
     public void q(O o) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, o) == null) {
-            synchronized (this.f29989b) {
+            synchronized (this.f30195b) {
                 r(o);
                 m();
             }
@@ -298,9 +298,9 @@ public abstract class g<I extends e, O extends f, E extends Exception> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, o) == null) {
             o.f();
-            O[] oArr = this.f29993f;
-            int i2 = this.f29995h;
-            this.f29995h = i2 + 1;
+            O[] oArr = this.f30199f;
+            int i2 = this.f30201h;
+            this.f30201h = i2 + 1;
             oArr[i2] = o;
         }
     }
@@ -309,9 +309,9 @@ public abstract class g<I extends e, O extends f, E extends Exception> implement
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            synchronized (this.f29989b) {
+            synchronized (this.f30195b) {
                 this.l = true;
-                this.f29989b.notify();
+                this.f30195b.notify();
             }
             try {
                 this.a.join();
@@ -336,8 +336,8 @@ public abstract class g<I extends e, O extends f, E extends Exception> implement
     public final void t(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            c.i.b.a.i0.a.f(this.f29994g == this.f29992e.length);
-            for (I i3 : this.f29992e) {
+            c.i.b.a.i0.a.f(this.f30200g == this.f30198e.length);
+            for (I i3 : this.f30198e) {
                 i3.n(i2);
             }
         }

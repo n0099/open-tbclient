@@ -15,7 +15,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ax;
 import com.kwad.sdk.utils.x;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d {
     public static boolean a;
 

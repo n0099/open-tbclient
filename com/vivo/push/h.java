@@ -11,10 +11,10 @@ public final class h implements Runnable {
     public final /* synthetic */ com.vivo.push.b.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f60751b;
+    public final /* synthetic */ String f60918b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ e f60752c;
+    public final /* synthetic */ e f60919c;
 
     public h(e eVar, com.vivo.push.b.b bVar, String str) {
         Interceptable interceptable = $ic;
@@ -31,17 +31,17 @@ public final class h implements Runnable {
                 return;
             }
         }
-        this.f60752c = eVar;
+        this.f60919c = eVar;
         this.a = bVar;
-        this.f60751b = str;
+        this.f60918b = str;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f60752c.a(this.a);
-            this.f60752c.e(this.f60751b);
+            this.f60919c.a(this.a);
+            this.f60919c.e(this.f60918b);
         }
     }
 }

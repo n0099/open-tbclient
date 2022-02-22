@@ -14,22 +14,22 @@ public final class e {
     public final byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38331b;
+    public int f38559b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f38332c;
+    public int f38560c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f38333d;
+    public boolean f38561d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f38334e;
+    public boolean f38562e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f38335f;
+    public e f38563f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e f38336g;
+    public e f38564g;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -45,16 +45,16 @@ public final class e {
             }
         }
         this.a = new byte[8192];
-        this.f38334e = true;
-        this.f38333d = false;
+        this.f38562e = true;
+        this.f38561d = false;
     }
 
     public e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.f38333d = true;
-            return new e(this.a, this.f38331b, this.f38332c, true, false);
+            this.f38561d = true;
+            return new e(this.a, this.f38559b, this.f38560c, true, false);
         }
         return (e) invokeV.objValue;
     }
@@ -64,15 +64,15 @@ public final class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            e eVar = this.f38335f;
+            e eVar = this.f38563f;
             if (eVar == this) {
                 eVar = null;
             }
-            e eVar2 = this.f38336g;
-            eVar2.f38335f = this.f38335f;
-            this.f38335f.f38336g = eVar2;
-            this.f38335f = null;
-            this.f38336g = null;
+            e eVar2 = this.f38564g;
+            eVar2.f38563f = this.f38563f;
+            this.f38563f.f38564g = eVar2;
+            this.f38563f = null;
+            this.f38564g = null;
             return eVar;
         }
         return (e) invokeV.objValue;
@@ -82,10 +82,10 @@ public final class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar)) == null) {
-            eVar.f38336g = this;
-            eVar.f38335f = this.f38335f;
-            this.f38335f.f38336g = eVar;
-            this.f38335f = eVar;
+            eVar.f38564g = this;
+            eVar.f38563f = this.f38563f;
+            this.f38563f.f38564g = eVar;
+            this.f38563f = eVar;
             return eVar;
         }
         return (e) invokeL.objValue;
@@ -107,9 +107,9 @@ public final class e {
             }
         }
         this.a = bArr;
-        this.f38331b = i2;
-        this.f38332c = i3;
-        this.f38333d = z;
-        this.f38334e = z2;
+        this.f38559b = i2;
+        this.f38560c = i3;
+        this.f38561d = z;
+        this.f38562e = z2;
     }
 }

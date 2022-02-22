@@ -24,40 +24,40 @@ import androidx.core.view.animation.PathInterpolatorCompat;
 import com.kwad.sdk.R;
 import com.kwad.sdk.a.kwai.a;
 import com.tachikoma.core.component.anim.AnimationProperty;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class KsShakeView extends FrameLayout {
     public ImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f56537b;
+    public int f56704b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f56538c;
+    public Paint f56705c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f56539d;
+    public float f56706d;
     @ColorInt
 
     /* renamed from: e  reason: collision with root package name */
-    public int f56540e;
+    public int f56707e;
     @ColorInt
 
     /* renamed from: f  reason: collision with root package name */
-    public int f56541f;
+    public int f56708f;
     @ColorInt
 
     /* renamed from: g  reason: collision with root package name */
-    public int f56542g;
+    public int f56709g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f56543h;
+    public float f56710h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f56544i;
+    public float f56711i;
     @DrawableRes
 
     /* renamed from: j  reason: collision with root package name */
-    public int f56545j;
+    public int f56712j;
     public Animator k;
     public boolean l;
 
@@ -71,7 +71,7 @@ public class KsShakeView extends FrameLayout {
 
     public KsShakeView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f56538c = new Paint();
+        this.f56705c = new Paint();
         this.l = false;
         a(context, attributeSet, i2);
     }
@@ -83,7 +83,7 @@ public class KsShakeView extends FrameLayout {
             return null;
         }
         AnimatorSet animatorSet = new AnimatorSet();
-        if (this.f56537b == 1) {
+        if (this.f56704b == 1) {
             create = PathInterpolatorCompat.create(0.22f, 0.59f, 0.36f, 1.0f);
             view.setPivotX(view.getWidth());
             height = view.getHeight();
@@ -110,14 +110,14 @@ public class KsShakeView extends FrameLayout {
     @SuppressLint({"CustomViewStyleable"})
     private void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_KsShakeView, i2, 0);
-        this.f56539d = obtainStyledAttributes.getDimension(R.styleable.ksad_KsShakeView_ksad_outerStrokeWidth, 1.0f);
-        this.f56540e = obtainStyledAttributes.getColor(R.styleable.ksad_KsShakeView_ksad_outerStrokeColor, Color.parseColor("#4DFFFFFF"));
-        this.f56541f = obtainStyledAttributes.getColor(R.styleable.ksad_KsShakeView_ksad_solidColor, Color.parseColor("#66000000"));
-        this.f56537b = obtainStyledAttributes.getInteger(R.styleable.ksad_KsShakeView_ksad_shakeViewStyle, 1);
-        this.f56542g = obtainStyledAttributes.getColor(R.styleable.ksad_KsShakeView_ksad_innerCircleStrokeColor, Color.parseColor("#B3FFFFFF"));
-        this.f56543h = obtainStyledAttributes.getDimension(R.styleable.ksad_KsShakeView_ksad_innerCircleStrokeWidth, 1.0f);
-        this.f56545j = obtainStyledAttributes.getResourceId(R.styleable.ksad_KsShakeView_ksad_shakeIcon, R.drawable.ksad_ic_shake_hand);
-        this.f56544i = obtainStyledAttributes.getDimension(R.styleable.ksad_KsShakeView_ksad_innerCirclePadding, a.a(context, 10.0f));
+        this.f56706d = obtainStyledAttributes.getDimension(R.styleable.ksad_KsShakeView_ksad_outerStrokeWidth, 1.0f);
+        this.f56707e = obtainStyledAttributes.getColor(R.styleable.ksad_KsShakeView_ksad_outerStrokeColor, Color.parseColor("#4DFFFFFF"));
+        this.f56708f = obtainStyledAttributes.getColor(R.styleable.ksad_KsShakeView_ksad_solidColor, Color.parseColor("#66000000"));
+        this.f56704b = obtainStyledAttributes.getInteger(R.styleable.ksad_KsShakeView_ksad_shakeViewStyle, 1);
+        this.f56709g = obtainStyledAttributes.getColor(R.styleable.ksad_KsShakeView_ksad_innerCircleStrokeColor, Color.parseColor("#B3FFFFFF"));
+        this.f56710h = obtainStyledAttributes.getDimension(R.styleable.ksad_KsShakeView_ksad_innerCircleStrokeWidth, 1.0f);
+        this.f56712j = obtainStyledAttributes.getResourceId(R.styleable.ksad_KsShakeView_ksad_shakeIcon, R.drawable.ksad_ic_shake_hand);
+        this.f56711i = obtainStyledAttributes.getDimension(R.styleable.ksad_KsShakeView_ksad_innerCirclePadding, a.a(context, 10.0f));
         obtainStyledAttributes.recycle();
         this.a = new ImageView(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
@@ -147,29 +147,29 @@ public class KsShakeView extends FrameLayout {
     }
 
     private void b() {
-        this.a.setImageResource(this.f56545j);
+        this.a.setImageResource(this.f56712j);
     }
 
     private void setBgCirclePaint(Paint paint) {
         paint.reset();
         paint.setStyle(Paint.Style.FILL);
-        paint.setColor(this.f56541f);
+        paint.setColor(this.f56708f);
         paint.setAntiAlias(true);
     }
 
     private void setInnerCirclePaint(Paint paint) {
         paint.reset();
         paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(this.f56543h);
-        paint.setColor(this.f56542g);
+        paint.setStrokeWidth(this.f56710h);
+        paint.setColor(this.f56709g);
         paint.setAntiAlias(true);
     }
 
     private void setOuterCirclePaint(Paint paint) {
         paint.reset();
         paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(this.f56539d);
-        paint.setColor(this.f56540e);
+        paint.setStrokeWidth(this.f56706d);
+        paint.setColor(this.f56707e);
         paint.setAntiAlias(true);
     }
 
@@ -204,7 +204,7 @@ public class KsShakeView extends FrameLayout {
     }
 
     public void a(int i2) {
-        this.f56537b = i2;
+        this.f56704b = i2;
         setIconDrawableRes(i2 != 2 ? R.drawable.ksad_ic_shake_hand : R.drawable.ksad_ic_shake_phone);
     }
 
@@ -225,13 +225,13 @@ public class KsShakeView extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         float min = Math.min(getWidth(), getHeight()) / 2.0f;
-        setBgCirclePaint(this.f56538c);
-        canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, min, this.f56538c);
-        setOuterCirclePaint(this.f56538c);
-        canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, min, this.f56538c);
-        if (this.f56537b == 2) {
-            setInnerCirclePaint(this.f56538c);
-            canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, min - this.f56544i, this.f56538c);
+        setBgCirclePaint(this.f56705c);
+        canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, min, this.f56705c);
+        setOuterCirclePaint(this.f56705c);
+        canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, min, this.f56705c);
+        if (this.f56704b == 2) {
+            setInnerCirclePaint(this.f56705c);
+            canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, min - this.f56711i, this.f56705c);
         }
         super.dispatchDraw(canvas);
     }

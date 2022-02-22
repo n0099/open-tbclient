@@ -2,12 +2,13 @@ package com.baidu.tieba.ala.alasquare.live.message;
 
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
-import c.a.s0.d1.b0;
+import c.a.t0.d1.c0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaCmdConfigSocket;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,8 +58,8 @@ public class AlaSquareLiveRequestMessage extends NetMessage {
                 builder.q_type = 0;
                 builder.scr_dip = Integer.valueOf((int) n.h(TbadkCoreApplication.getInst()));
                 builder.network_type = String.valueOf(l.K());
-                if (z) {
-                    b0.a(builder, true);
+                if (z || SocketAddCommonParamSwitch.getIsOn()) {
+                    c0.a(builder, true);
                 }
                 LiveSquareReqIdl.Builder builder2 = new LiveSquareReqIdl.Builder();
                 builder2.data = builder.build(false);

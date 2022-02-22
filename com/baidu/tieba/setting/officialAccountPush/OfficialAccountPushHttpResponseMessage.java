@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.GetOfficialSwitch.DataRes;
 import tbclient.GetOfficialSwitch.GetOfficialSwitchResIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class OfficialAccountPushHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

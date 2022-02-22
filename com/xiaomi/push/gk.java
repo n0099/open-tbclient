@@ -45,11 +45,11 @@ public class gk {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, xmlPullParser)) == null) {
-            Object m414a = gj.a().m414a("all", "xm:chat");
-            if (m414a == null || !(m414a instanceof com.xiaomi.push.service.f)) {
+            Object m413a = gj.a().m413a("all", "xm:chat");
+            if (m413a == null || !(m413a instanceof com.xiaomi.push.service.f)) {
                 return null;
             }
-            return ((com.xiaomi.push.service.f) m414a).b(xmlPullParser);
+            return ((com.xiaomi.push.service.f) m413a).b(xmlPullParser);
         }
         return (fz) invokeLLL.objValue;
     }
@@ -77,7 +77,7 @@ public class gk {
                     String name = xmlPullParser.getName();
                     String namespace = xmlPullParser.getNamespace();
                     if (name.equals("error")) {
-                        ggVar = m418a(xmlPullParser);
+                        ggVar = m417a(xmlPullParser);
                     } else {
                         gaVar = new ga();
                         gaVar.a(a(name, namespace, xmlPullParser));
@@ -87,14 +87,14 @@ public class gk {
                 }
             }
             if (gaVar == null) {
-                if (ga.a.a == a2 || ga.a.f61146b == a2) {
+                if (ga.a.a == a2 || ga.a.f61313b == a2) {
                     gl glVar = new gl();
                     glVar.k(attributeValue);
                     glVar.m(attributeValue3);
                     glVar.n(attributeValue2);
-                    glVar.a(ga.a.f61148d);
+                    glVar.a(ga.a.f61315d);
                     glVar.l(attributeValue4);
-                    glVar.a(new gg(gg.a.f61185e));
+                    glVar.a(new gg(gg.a.f61352e));
                     flVar.a(glVar);
                     com.xiaomi.channel.commonutils.logger.b.d("iq usage error. send packet in packet parser.");
                     return null;
@@ -151,11 +151,11 @@ public class gk {
                                 gbVar.k(attributeValue2);
                                 gbVar.f(attributeValue5);
                                 fz fzVar = new fz("s", null, null, null);
-                                fzVar.m399a(text);
+                                fzVar.m398a(text);
                                 gbVar.a(fzVar);
                                 return gbVar;
                             }
-                            a(com.xiaomi.push.service.be.a(com.xiaomi.push.service.be.a(a2.f61469h, attributeValue2), text));
+                            a(com.xiaomi.push.service.be.a(com.xiaomi.push.service.be.a(a2.f61636h, attributeValue2), text));
                             a.next();
                             gcVar = a(a);
                         } else if (next == 3 && xmlPullParser.getName().equals("message")) {
@@ -230,21 +230,21 @@ public class gk {
                     }
                     if (name.equals("subject")) {
                         b(xmlPullParser);
-                        gbVar2.g(m419a(xmlPullParser));
+                        gbVar2.g(m418a(xmlPullParser));
                     } else if (name.equals("body")) {
                         String attributeValue11 = xmlPullParser.getAttributeValue("", "encode");
-                        String m419a = m419a(xmlPullParser);
+                        String m418a = m418a(xmlPullParser);
                         if (TextUtils.isEmpty(attributeValue11)) {
-                            gbVar2.h(m419a);
+                            gbVar2.h(m418a);
                         } else {
-                            gbVar2.a(m419a, attributeValue11);
+                            gbVar2.a(m418a, attributeValue11);
                         }
                     } else if (name.equals("thread")) {
                         if (str2 == null) {
                             str2 = xmlPullParser.nextText();
                         }
                     } else if (name.equals("error")) {
-                        gbVar2.a(m418a(xmlPullParser));
+                        gbVar2.a(m417a(xmlPullParser));
                     } else {
                         gbVar2.a(a(name, namespace, xmlPullParser));
                     }
@@ -259,7 +259,7 @@ public class gk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static ge m416a(XmlPullParser xmlPullParser) {
+    public static ge m415a(XmlPullParser xmlPullParser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, xmlPullParser)) == null) {
@@ -306,7 +306,7 @@ public class gk {
                             printStream2.println("Found invalid presence mode " + nextText);
                         }
                     } else if (name.equals("error")) {
-                        geVar.a(m418a(xmlPullParser));
+                        geVar.a(m417a(xmlPullParser));
                     } else {
                         geVar.a(a(name, namespace, xmlPullParser));
                     }
@@ -320,7 +320,7 @@ public class gk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gf m417a(XmlPullParser xmlPullParser) {
+    public static gf m416a(XmlPullParser xmlPullParser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, xmlPullParser)) == null) {
@@ -340,7 +340,7 @@ public class gk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gg m418a(XmlPullParser xmlPullParser) {
+    public static gg m417a(XmlPullParser xmlPullParser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, xmlPullParser)) == null) {
@@ -390,7 +390,7 @@ public class gk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m419a(XmlPullParser xmlPullParser) {
+    public static String m418a(XmlPullParser xmlPullParser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65543, null, xmlPullParser)) != null) {

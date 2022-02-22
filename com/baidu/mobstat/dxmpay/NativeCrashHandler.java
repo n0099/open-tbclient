@@ -15,7 +15,7 @@ public final class NativeCrashHandler {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f36834b;
+    public static Context f37040b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -67,7 +67,7 @@ public final class NativeCrashHandler {
         if (!(interceptable == null || interceptable.invokeL(65539, null, context) == null) || context == null) {
             return;
         }
-        f36834b = context;
+        f37040b = context;
         if (a) {
             File cacheDir = context.getCacheDir();
             if (cacheDir.exists() && cacheDir.isDirectory()) {
@@ -90,7 +90,7 @@ public final class NativeCrashHandler {
     public static void onCrashCallbackFromNative(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            ExceptionAnalysis.getInstance().saveCrashInfo(f36834b, System.currentTimeMillis(), str, "NativeException", 1, 0);
+            ExceptionAnalysis.getInstance().saveCrashInfo(f37040b, System.currentTimeMillis(), str, "NativeException", 1, 0);
         }
     }
 

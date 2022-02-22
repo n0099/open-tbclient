@@ -1,5 +1,6 @@
 package com.baidu.pyramid.runtime.multiprocess;
 
+import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class AppProcessPolicy$ProcessType {
     public static final /* synthetic */ AppProcessPolicy$ProcessType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -32,7 +33,7 @@ public final class AppProcessPolicy$ProcessType {
             }
         }
         ALL = new AppProcessPolicy$ProcessType("ALL", 0);
-        DEFAULT = new AppProcessPolicy$ProcessType("DEFAULT", 1);
+        DEFAULT = new AppProcessPolicy$ProcessType(EngineName.DEFAULT_ENGINE, 1);
         SERVER = new AppProcessPolicy$ProcessType("SERVER", 2);
         AppProcessPolicy$ProcessType appProcessPolicy$ProcessType = new AppProcessPolicy$ProcessType("OTHER", 3);
         OTHER = appProcessPolicy$ProcessType;

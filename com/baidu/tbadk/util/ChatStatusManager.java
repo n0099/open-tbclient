@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ChatStatusManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int GROUP_CHAT = 2;
@@ -21,14 +21,14 @@ public class ChatStatusManager {
     public transient /* synthetic */ FieldHolder $fh;
     public SparseArray<a> mStatus;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f41139b;
+        public String f41368b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -82,7 +82,7 @@ public class ChatStatusManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             a aVar = this.mStatus.get(i2);
-            return aVar != null ? aVar.f41139b : "";
+            return aVar != null ? aVar.f41368b : "";
         }
         return (String) invokeI.objValue;
     }
@@ -112,11 +112,11 @@ public class ChatStatusManager {
         if (interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) {
             a aVar = this.mStatus.get(i2);
             if (aVar != null) {
-                aVar.f41139b = str;
+                aVar.f41368b = str;
                 return;
             }
             a aVar2 = new a();
-            aVar2.f41139b = str;
+            aVar2.f41368b = str;
             this.mStatus.put(i2, aVar2);
         }
     }

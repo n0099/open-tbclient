@@ -26,10 +26,10 @@ public final class a {
     public static b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f4144b;
+    public static boolean f4164b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final a f4145c;
+    public static final a f4165c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,7 +45,7 @@ public final class a {
                 return;
             }
         }
-        f4145c = new a();
+        f4165c = new a();
     }
 
     public a() {
@@ -96,14 +96,14 @@ public final class a {
             b bVar = new b(taskInfo.getSingleKey(), c.a.j.j.i.b.a.d(taskStatus));
             if (!Intrinsics.areEqual(bVar, a)) {
                 a = bVar;
-                if (Intrinsics.areEqual(bVar.a(), "y_task_local_done") && !f4144b && (v = BDPTask.m.v()) != null && (f3 = v.f()) != null) {
+                if (Intrinsics.areEqual(bVar.a(), "y_task_local_done") && !f4164b && (v = BDPTask.m.v()) != null && (f3 = v.f()) != null) {
                     f3.a("y_task_start", "c_pv", c.a.j.j.i.b.b(c.a.j.j.i.b.a, taskInfo.getId(), taskInfo.getActTaskId(), null, 4, null));
                 }
                 if (Intrinsics.areEqual(bVar.a(), "y_task_start") || Intrinsics.areEqual(bVar.a(), "y_task_local_done")) {
-                    f4144b = true;
+                    f4164b = true;
                 }
                 if (Intrinsics.areEqual(bVar.a(), "y_task_active") || Intrinsics.areEqual(bVar.a(), "y_task_done")) {
-                    f4144b = false;
+                    f4164b = false;
                 }
                 c.a.j.j.d.a v2 = BDPTask.m.v();
                 if (v2 == null || (f2 = v2.f()) == null) {

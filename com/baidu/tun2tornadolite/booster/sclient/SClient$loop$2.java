@@ -105,16 +105,16 @@ public final class SClient$loop$2 extends SuspendLambda implements Function2<Cor
                             createPacketByHeader.encodeHeader2Buffer(byteBuffer);
                             byteBuffer2 = SClient.bodyBuffer;
                             byteBuffer2.clear();
-                            int m92getBodyLengthpVg5ArA = createPacketByHeader.m92getBodyLengthpVg5ArA();
+                            int m91getBodyLengthpVg5ArA = createPacketByHeader.m91getBodyLengthpVg5ArA();
                             int i2 = 0;
                             int i3 = 0;
                             int i4 = 0;
                             while (true) {
-                                if (i2 >= createPacketByHeader.m92getBodyLengthpVg5ArA()) {
+                                if (i2 >= createPacketByHeader.m91getBodyLengthpVg5ArA()) {
                                     break;
                                 }
                                 byteBuffer4 = SClient.bodyBuffer;
-                                int read = dataInputStream.read(byteBuffer4.array(), i3, m92getBodyLengthpVg5ArA);
+                                int read = dataInputStream.read(byteBuffer4.array(), i3, m91getBodyLengthpVg5ArA);
                                 if (read < 0) {
                                     SClient sClient = SClient.INSTANCE;
                                     SClient.looping = false;
@@ -122,7 +122,7 @@ public final class SClient$loop$2 extends SuspendLambda implements Function2<Cor
                                 }
                                 i2 += read;
                                 i3 += read;
-                                m92getBodyLengthpVg5ArA -= read;
+                                m91getBodyLengthpVg5ArA -= read;
                                 LogTo logTo = LogTo.INSTANCE;
                                 StringBuilder sb = new StringBuilder();
                                 sb.append("[Socket ");
@@ -134,14 +134,14 @@ public final class SClient$loop$2 extends SuspendLambda implements Function2<Cor
                                 sb.append(" offset:");
                                 sb.append(i3);
                                 sb.append(" left:");
-                                sb.append(m92getBodyLengthpVg5ArA);
+                                sb.append(m91getBodyLengthpVg5ArA);
                                 sb.append(" all:");
-                                sb.append(createPacketByHeader.m92getBodyLengthpVg5ArA());
+                                sb.append(createPacketByHeader.m91getBodyLengthpVg5ArA());
                                 sb.append(" from:");
                                 str = SClient.address;
                                 sb.append((Object) str);
                                 logTo.d("*****", sb.toString());
-                                if (m92getBodyLengthpVg5ArA == 0) {
+                                if (m91getBodyLengthpVg5ArA == 0) {
                                     break;
                                 }
                                 i4++;

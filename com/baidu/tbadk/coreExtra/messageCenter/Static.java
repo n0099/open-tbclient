@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra.messageCenter;
 
 import c.a.d.f.p.n;
-import c.a.s0.t.d.b;
+import c.a.t0.t.d.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -27,11 +27,11 @@ public class Static {
 
         /* renamed from: com.baidu.tbadk.coreExtra.messageCenter.Static$a$a  reason: collision with other inner class name */
         /* loaded from: classes11.dex */
-        public class RunnableC1901a implements Runnable {
+        public class RunnableC1911a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC1901a(a aVar) {
+            public RunnableC1911a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,7 +79,7 @@ public class Static {
                     b.g0().h();
                     return null;
                 } else if (TbadkCoreApplication.getInst() != null) {
-                    TbadkCoreApplication.getInst().handler.post(new RunnableC1901a(this));
+                    TbadkCoreApplication.getInst().handler.post(new RunnableC1911a(this));
                     return null;
                 } else {
                     return null;

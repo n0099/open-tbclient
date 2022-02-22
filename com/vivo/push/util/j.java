@@ -18,31 +18,31 @@ public final class j {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f60800b;
+    public static final String f60967b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f60801c;
+    public static final boolean f60968c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f60802d;
+    public static final boolean f60969d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f60803e;
+    public static final boolean f60970e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f60804f;
+    public static final boolean f60971f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f60805g;
+    public static final boolean f60972g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f60806h;
+    public static final boolean f60973h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static Method f60807i;
+    public static Method f60974i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f60808j;
+    public static String f60975j;
     public static String k;
     public static String l;
     public static String m;
@@ -68,14 +68,14 @@ public final class j {
         } else {
             b2 = aa.b("ro.product.customize.bbk", "N");
         }
-        f60800b = b2;
-        f60801c = "RU".equals(b2);
-        f60802d = "IN".equals(f60800b);
-        f60803e = b("rom_1.0");
-        f60804f = b("rom_2.0");
-        f60805g = b("rom_2.5");
-        f60806h = b("rom_3.0");
-        f60808j = null;
+        f60967b = b2;
+        f60968c = "RU".equals(b2);
+        f60969d = "IN".equals(f60967b);
+        f60970e = b("rom_1.0");
+        f60971f = b("rom_2.0");
+        f60972g = b("rom_2.5");
+        f60973h = b("rom_3.0");
+        f60975j = null;
         k = null;
         l = "";
         m = "";
@@ -117,19 +117,19 @@ public final class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (j.class) {
-                if (f60808j == null && k == null) {
+                if (f60975j == null && k == null) {
                     try {
                         Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class, String.class);
-                        f60807i = declaredMethod;
+                        f60974i = declaredMethod;
                         declaredMethod.setAccessible(true);
-                        f60808j = (String) f60807i.invoke(null, "ro.vivo.rom", "@><@");
-                        k = (String) f60807i.invoke(null, "ro.vivo.rom.version", "@><@");
+                        f60975j = (String) f60974i.invoke(null, "ro.vivo.rom", "@><@");
+                        k = (String) f60974i.invoke(null, "ro.vivo.rom.version", "@><@");
                     } catch (Exception unused) {
                         p.b("Device", "getRomCode error");
                     }
                 }
-                p.d("Device", "sRomProperty1 : " + f60808j + " ; sRomProperty2 : " + k);
-                String a2 = a(f60808j);
+                p.d("Device", "sRomProperty1 : " + f60975j + " ; sRomProperty2 : " + k);
+                String a2 = a(f60975j);
                 if (TextUtils.isEmpty(a2)) {
                     String a3 = a(k);
                     if (TextUtils.isEmpty(a3)) {

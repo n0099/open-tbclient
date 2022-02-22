@@ -8,11 +8,11 @@ import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.h;
 import c.a.d.f.p.f;
-import c.a.d.h.c;
-import c.a.k0.b.a.e;
-import c.a.s0.d1.z;
-import c.a.s0.s.i0.b;
-import c.a.s0.s0.l;
+import c.a.d.i.c;
+import c.a.l0.b.a.e;
+import c.a.t0.d1.z;
+import c.a.t0.s.j0.b;
+import c.a.t0.s0.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -187,7 +187,7 @@ public class TiebaBaseApplication extends TbadkApplication {
             AppRuntimeInit.onApplicationattachBaseContext(this);
             e.b(this);
             if (isMainProcess(false, context)) {
-                c.a.s0.s.z.a.b(context);
+                c.a.t0.s.a0.a.b(context);
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(1004);
             NPSHookManager.init(this);
@@ -196,7 +196,7 @@ public class TiebaBaseApplication extends TbadkApplication {
             TitanIniter.init(this);
             LoaderManager.getInstance().load();
             SpeedStatsManager.getInstance().addStatsTimeStamp(1012);
-            c.a.c0.h.b.b(this);
+            c.a.d0.h.b.b(this);
             SpeedStatsManager.getInstance().addStatsTimeStamp(1010);
         }
     }
@@ -210,7 +210,7 @@ public class TiebaBaseApplication extends TbadkApplication {
             SpeedStatsManager.getInstance().addStatsTimeStamp(2000);
             TbadkApplication.sApp = this;
             if (isMainProcess(false)) {
-                c.a.s0.s.z.a.a();
+                c.a.t0.s.a0.a.a();
             }
             this.mAppInitHandler = new a(this, Looper.getMainLooper());
             h.a().c(super.getResources());
@@ -227,7 +227,7 @@ public class TiebaBaseApplication extends TbadkApplication {
             }
             l.b().G(System.currentTimeMillis());
             if (isMainProcess(false)) {
-                c.a.s0.s.z.a.h();
+                c.a.t0.s.a0.a.h();
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(2004);
             SpeedStats.getInstance().onAppCreateEnd();

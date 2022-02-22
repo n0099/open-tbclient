@@ -40,16 +40,16 @@ public class h extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
         g.b bVar3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            bVar = this.a.f36061j;
+            bVar = this.a.f36267j;
             Message obtainMessage = bVar.obtainMessage();
             obtainMessage.what = CustomerServiceMenu.TRANSFER_RECORD;
             obtainMessage.obj = aVar;
-            bVar2 = this.a.f36061j;
+            bVar2 = this.a.f36267j;
             if (bVar2 != null) {
-                bVar3 = this.a.f36061j;
+                bVar3 = this.a.f36267j;
                 bVar3.sendMessage(obtainMessage);
             }
-            if (c.a.f36009e == aVar || c.a.f36006b == aVar || c.a.f36007c == aVar) {
+            if (c.a.f36215e == aVar || c.a.f36212b == aVar || c.a.f36213c == aVar) {
                 g.b(this.a);
             }
         }
@@ -62,13 +62,13 @@ public class h extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
         g.b bVar3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            bVar = this.a.f36061j;
+            bVar = this.a.f36267j;
             Message obtainMessage = bVar.obtainMessage();
             obtainMessage.what = 100000;
             obtainMessage.obj = str;
-            bVar2 = this.a.f36061j;
+            bVar2 = this.a.f36267j;
             if (bVar2 != null) {
-                bVar3 = this.a.f36061j;
+                bVar3 = this.a.f36267j;
                 bVar3.sendMessage(obtainMessage);
             }
             this.a.k = 0;

@@ -5,9 +5,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
+import c.a.u0.a4.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,19 +19,19 @@ public class FiltersView extends HorizontalScrollView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f40827e;
+    public int f41056e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Runnable f40828f;
+    public Runnable f41057f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f40829g;
+    public Context f41058g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f40830h;
+    public View f41059h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f40831i;
+    public View f41060i;
 
     /* loaded from: classes11.dex */
     public class a implements Runnable {
@@ -39,7 +39,7 @@ public class FiltersView extends HorizontalScrollView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FiltersView f40832e;
+        public final /* synthetic */ FiltersView f41061e;
 
         public a(FiltersView filtersView) {
             Interceptable interceptable = $ic;
@@ -56,34 +56,34 @@ public class FiltersView extends HorizontalScrollView {
                     return;
                 }
             }
-            this.f40832e = filtersView;
+            this.f41061e = filtersView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             int i2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f40832e.f40830h == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f41061e.f41059h == null) {
                 return;
             }
-            int childCount = ((LinearLayout) this.f40832e.getChildAt(0)).getChildCount();
+            int childCount = ((LinearLayout) this.f41061e.getChildAt(0)).getChildCount();
             int i3 = 0;
             while (true) {
                 if (i3 >= childCount) {
                     i2 = 0;
                     break;
                 }
-                View childAt = ((LinearLayout) this.f40832e.getChildAt(0)).getChildAt(i3);
-                if (childAt == this.f40832e.f40830h) {
+                View childAt = ((LinearLayout) this.f41061e.getChildAt(0)).getChildAt(i3);
+                if (childAt == this.f41061e.f41059h) {
                     i2 = childAt.getRight();
                     break;
                 }
                 i3++;
             }
-            this.f40832e.f40830h = null;
-            int width = i2 - this.f40832e.getWidth();
+            this.f41061e.f41059h = null;
+            int width = i2 - this.f41061e.getWidth();
             if (width > 0) {
-                this.f40832e.scrollBy(width, 0);
+                this.f41061e.scrollBy(width, 0);
             }
         }
     }
@@ -106,25 +106,25 @@ public class FiltersView extends HorizontalScrollView {
                 return;
             }
         }
-        this.f40827e = 0;
-        this.f40828f = new a(this);
-        this.f40829g = null;
-        this.f40830h = null;
-        this.f40831i = null;
-        this.f40829g = tbPageContextSupport.getPageContext().getContext();
+        this.f41056e = 0;
+        this.f41057f = new a(this);
+        this.f41058g = null;
+        this.f41059h = null;
+        this.f41060i = null;
+        this.f41058g = tbPageContextSupport.getPageContext().getContext();
         c();
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f40829g.getResources().getDimension(R.dimen.ds4);
-            this.f40827e = (int) this.f40829g.getResources().getDimension(R.dimen.ds30);
-            LinearLayout linearLayout = new LinearLayout(this.f40829g);
+            this.f41058g.getResources().getDimension(e.ds4);
+            this.f41056e = (int) this.f41058g.getResources().getDimension(e.ds30);
+            LinearLayout linearLayout = new LinearLayout(this.f41058g);
             linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
             linearLayout.setGravity(16);
             linearLayout.setOrientation(0);
-            linearLayout.setPadding(this.f40827e, linearLayout.getPaddingTop(), linearLayout.getPaddingRight(), linearLayout.getPaddingBottom());
+            linearLayout.setPadding(this.f41056e, linearLayout.getPaddingTop(), linearLayout.getPaddingRight(), linearLayout.getPaddingBottom());
             setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
             addView(linearLayout);
         }
@@ -134,7 +134,7 @@ public class FiltersView extends HorizontalScrollView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view = this.f40831i;
+            View view = this.f41060i;
             return view != null ? (String) ((View) view.getTag()).getTag() : "normal";
         }
         return (String) invokeV.objValue;
@@ -145,8 +145,8 @@ public class FiltersView extends HorizontalScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            if (this.f40830h != null) {
-                post(this.f40828f);
+            if (this.f41059h != null) {
+                post(this.f41057f);
             }
         }
     }
@@ -170,10 +170,10 @@ public class FiltersView extends HorizontalScrollView {
                 return;
             }
         }
-        this.f40827e = 0;
-        this.f40828f = new a(this);
-        this.f40829g = null;
-        this.f40830h = null;
-        this.f40831i = null;
+        this.f41056e = 0;
+        this.f41057f = new a(this);
+        this.f41058g = null;
+        this.f41059h = null;
+        this.f41060i = null;
     }
 }

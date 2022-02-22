@@ -1,7 +1,7 @@
 package com.baidu.sapi2.touchid;
 
 import android.view.View;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface FingerprintDialogInterface {
     FingerprintDialogInterface setBtnCount(int i2);
 

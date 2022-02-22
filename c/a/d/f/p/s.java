@@ -49,8 +49,8 @@ public class s {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bVar, bVar2)) == null) {
-                long j2 = bVar.f2831c;
-                long j3 = bVar2.f2831c;
+                long j2 = bVar.f1911c;
+                long j3 = bVar2.f1911c;
                 if (j2 == j3) {
                     return 0;
                 }
@@ -64,7 +64,7 @@ public class s {
         }
     }
 
-    /* JADX WARN: Type inference failed for: r3v11, types: [T, byte[]] */
+    /* JADX WARN: Type inference failed for: r3v11, types: [byte[], T] */
     public static List<l.b<byte[]>> a(c.a.d.f.d.l<byte[]> lVar) {
         InterceptResult invokeL;
         Cursor cursor;
@@ -84,9 +84,9 @@ public class s {
                 try {
                     l.b bVar = new l.b();
                     bVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
-                    bVar.f2831c = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                    bVar.f1911c = cursor.getLong(cursor.getColumnIndex("saveTime"));
                     cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    bVar.f2830b = cursor.getBlob(cursor.getColumnIndex("m_value"));
+                    bVar.f1910b = cursor.getBlob(cursor.getColumnIndex("m_value"));
                     linkedList.add(bVar);
                 } catch (Throwable th2) {
                     th = th2;
@@ -127,9 +127,9 @@ public class s {
                 try {
                     l.b bVar = new l.b();
                     bVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
-                    bVar.f2831c = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                    bVar.f1911c = cursor.getLong(cursor.getColumnIndex("saveTime"));
                     cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    bVar.f2830b = cursor.getString(cursor.getColumnIndex("m_value"));
+                    bVar.f1910b = cursor.getString(cursor.getColumnIndex("m_value"));
                     linkedList.add(bVar);
                 } catch (Throwable th2) {
                     th = th2;

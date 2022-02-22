@@ -30,7 +30,7 @@ public final class t {
     public static Boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f60817b;
+    public static String f60984b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -132,8 +132,8 @@ public final class t {
         if (interceptable != null && (invokeL = interceptable.invokeL(65542, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (!TextUtils.isEmpty(f60817b)) {
-            return f60817b;
+        if (!TextUtils.isEmpty(f60984b)) {
+            return f60984b;
         }
         Cursor cursor = null;
         try {
@@ -177,7 +177,7 @@ public final class t {
                             e = e6;
                         }
                     }
-                    f60817b = str;
+                    f60984b = str;
                     if (TextUtils.isEmpty(str)) {
                         if (query != null) {
                             try {

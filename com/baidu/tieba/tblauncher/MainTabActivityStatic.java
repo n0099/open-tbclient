@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.net.Uri;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.p4.s;
-import c.a.t0.z3.q;
+import c.a.u0.c4.q;
+import c.a.u0.s4.s;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -48,7 +48,7 @@ public class MainTabActivityStatic {
     public static int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f48330b;
+    public static boolean f48497b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes13.dex */
@@ -120,7 +120,7 @@ public class MainTabActivityStatic {
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof Activity) {
-                    c.a.s0.s.e0.b.d((Activity) data);
+                    c.a.t0.s.f0.b.d((Activity) data);
                 }
             }
         }
@@ -159,10 +159,10 @@ public class MainTabActivityStatic {
                     String str = strArr[0];
                     if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE)) {
                         if (str.contains(UrlSchemaHelper.GOTO_ENTERFORUM_TAB)) {
-                            c.a.s0.s.e0.b.f(tbPageContext.getPageActivity(), 1, true);
+                            c.a.t0.s.f0.b.f(tbPageContext.getPageActivity(), 1, true);
                             return 1;
                         } else if (str.contains(UrlSchemaHelper.GOTO_RECOMMNEDS_FRS_TAB)) {
-                            c.a.s0.s.e0.b.f(tbPageContext.getPageActivity(), 2, true);
+                            c.a.t0.s.f0.b.f(tbPageContext.getPageActivity(), 2, true);
                             return 1;
                         }
                     }
@@ -189,7 +189,7 @@ public class MainTabActivityStatic {
                             i2 = -1;
                         }
                         if (i2 != -1) {
-                            c.a.s0.s.e0.b.f(tbPageContext.getPageActivity(), i2, true);
+                            c.a.t0.s.f0.b.f(tbPageContext.getPageActivity(), i2, true);
                             return 1;
                         }
                     }
@@ -267,11 +267,11 @@ public class MainTabActivityStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof KeyBoardSwitchMessage) && (data = ((KeyBoardSwitchMessage) customResponsedMessage).getData()) != null) {
                 if (!data.booleanValue()) {
-                    c.a.s0.j0.g.c.b().m(c.a.s0.j0.g.c.b().j());
-                    c.a.s0.j0.g.c.b().c();
-                } else if (c.a.s0.j0.g.c.b().i() || !c.a.s0.j0.g.c.b().k()) {
+                    c.a.t0.j0.g.c.b().m(c.a.t0.j0.g.c.b().j());
+                    c.a.t0.j0.g.c.b().c();
+                } else if (c.a.t0.j0.g.c.b().i() || !c.a.t0.j0.g.c.b().k()) {
                 } else {
-                    c.a.s0.j0.g.c.b().o();
+                    c.a.t0.j0.g.c.b().o();
                 }
             }
         }
@@ -309,11 +309,11 @@ public class MainTabActivityStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof WindowSwitchMessage) && (data = ((WindowSwitchMessage) customResponsedMessage).getData()) != null) {
                 if (data.booleanValue()) {
-                    c.a.s0.j0.g.c.b().m(c.a.s0.j0.g.c.b().j());
-                    c.a.s0.j0.g.c.b().c();
-                } else if (c.a.s0.j0.g.c.b().i() || !c.a.s0.j0.g.c.b().k()) {
+                    c.a.t0.j0.g.c.b().m(c.a.t0.j0.g.c.b().j());
+                    c.a.t0.j0.g.c.b().c();
+                } else if (c.a.t0.j0.g.c.b().i() || !c.a.t0.j0.g.c.b().k()) {
                 } else {
-                    c.a.s0.j0.g.c.b().o();
+                    c.a.t0.j0.g.c.b().o();
                 }
             }
         }
@@ -562,11 +562,11 @@ public class MainTabActivityStatic {
         }
         int b2 = b(newsRemindMessage);
         boolean c2 = c(newsRemindMessage);
-        if (b2 == a && c2 == f48330b) {
+        if (b2 == a && c2 == f48497b) {
             return;
         }
         a = b2;
-        f48330b = c2;
+        f48497b = c2;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921002, new Pair(Integer.valueOf(b2), Boolean.valueOf(c2))));
     }
 

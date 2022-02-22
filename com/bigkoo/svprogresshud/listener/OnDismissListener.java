@@ -1,7 +1,7 @@
 package com.bigkoo.svprogresshud.listener;
 
 import com.bigkoo.svprogresshud.SVProgressHUD;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface OnDismissListener {
     void onDismiss(SVProgressHUD sVProgressHUD);
 }

@@ -5,9 +5,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.s0.e.c;
-import c.a.s0.e.d;
-import c.a.s0.e.e;
+import c.a.t0.e.c;
+import c.a.t0.e.d;
+import c.a.t0.e.e;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MyForbiddenFansActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
@@ -21,12 +21,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PersonListActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class a implements e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class PersonListActivityStatic {
             }
         }
 
-        @Override // c.a.s0.e.e
+        @Override // c.a.t0.e.e
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;

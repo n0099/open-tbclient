@@ -10,14 +10,14 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.reward.g;
 import com.kwad.sdk.reward.kwai.b;
 import com.kwad.sdk.utils.bb;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c extends g implements b.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f57364b;
+    public AdTemplate f57531b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f57365c = false;
+    public boolean f57532c = false;
 
     public static boolean a(AdInfo adInfo) {
         AdProductInfo aK = com.kwad.sdk.core.response.a.a.aK(adInfo);
@@ -27,7 +27,7 @@ public class c extends g implements b.a {
     @Override // com.kwad.sdk.reward.g, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f57364b = ((g) this).a.f57252g;
+        this.f57531b = ((g) this).a.f57419g;
     }
 
     @Override // com.kwad.sdk.reward.kwai.b.a
@@ -36,12 +36,12 @@ public class c extends g implements b.a {
     }
 
     public void e() {
-        com.kwad.sdk.core.d.a.a("RewardCouponDialogPresenter", "onBind hasShown : " + this.f57365c);
-        if (this.f57365c) {
+        com.kwad.sdk.core.d.a.a("RewardCouponDialogPresenter", "onBind hasShown : " + this.f57532c);
+        if (this.f57532c) {
             return;
         }
-        AdInfo j2 = d.j(this.f57364b);
-        ViewGroup viewGroup = (ViewGroup) ((g) this).a.f57255j.findViewById(R.id.ksad_reward_order_coupon_list);
+        AdInfo j2 = d.j(this.f57531b);
+        ViewGroup viewGroup = (ViewGroup) ((g) this).a.f57422j.findViewById(R.id.ksad_reward_order_coupon_list);
         if (viewGroup == null) {
             return;
         }
@@ -58,8 +58,8 @@ public class c extends g implements b.a {
             @Override // java.lang.Runnable
             public void run() {
                 com.kwad.sdk.core.d.a.a("RewardCouponDialogPresenter", "targetView x: " + c2[0] + ", y: " + c2[1]);
-                b.a(c.this.o(), c.this.f57364b, c.this, c2);
-                c.this.f57365c = true;
+                b.a(c.this.o(), c.this.f57531b, c.this, c2);
+                c.this.f57532c = true;
             }
         });
     }

@@ -1,42 +1,11 @@
 package c.a.t0.l0.c;
 
-import com.baidu.tbadk.data.QmFilterItem;
-import com.baidu.tieba.external.sticker.data.QmStickerItem;
-/* loaded from: classes7.dex */
+import com.baidu.adp.BdUniqueId;
+/* loaded from: classes6.dex */
 public interface a {
+    BdUniqueId getUniqueId();
 
-    /* renamed from: c.a.t0.l0.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC1197a {
-        void b(long j2);
-    }
+    boolean isEventMustSelf();
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        boolean a(String str);
-
-        boolean b();
-    }
-
-    boolean a(QmFilterItem qmFilterItem);
-
-    boolean b(QmStickerItem qmStickerItem);
-
-    boolean c();
-
-    boolean d();
-
-    c.a.t0.e0.c.a e();
-
-    c.a.t0.e0.b.a f();
-
-    boolean onDestroy();
-
-    boolean onPause();
-
-    boolean onResume();
-
-    boolean startRecord();
-
-    boolean stopRecord();
+    boolean onEventDispatch(b bVar);
 }

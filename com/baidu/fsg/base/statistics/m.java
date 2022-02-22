@@ -14,10 +14,10 @@ public class m implements r.a {
     public final /* synthetic */ String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ h[] f33846b;
+    public final /* synthetic */ h[] f34052b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ n f33847c;
+    public final /* synthetic */ n f34053c;
 
     public m(n nVar, String str, h[] hVarArr) {
         Interceptable interceptable = $ic;
@@ -34,9 +34,9 @@ public class m implements r.a {
                 return;
             }
         }
-        this.f33847c = nVar;
+        this.f34053c = nVar;
         this.a = str;
-        this.f33846b = hVarArr;
+        this.f34052b = hVarArr;
     }
 
     @Override // com.baidu.fsg.base.statistics.r.a
@@ -55,7 +55,7 @@ public class m implements r.a {
             if (b.o.equals(this.a)) {
                 g.b().a(this.a);
             } else {
-                i.a(RimStatisticsUtil.getAppContext()).a(this.f33846b);
+                i.a(RimStatisticsUtil.getAppContext()).a(this.f34052b);
             }
         }
     }

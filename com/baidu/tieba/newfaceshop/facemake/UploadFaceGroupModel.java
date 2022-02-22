@@ -1,7 +1,7 @@
 package com.baidu.tieba.newfaceshop.facemake;
 
 import android.text.TextUtils;
-import c.a.t0.o2.g.e;
+import c.a.u0.p2.g.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -26,15 +26,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class UploadFaceGroupModel extends FaceBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f46229e;
+    public final HttpMessageListener f46371e;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,12 +136,12 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                 return;
             }
         }
-        this.f46229e = new a(this, CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
+        this.f46371e = new a(this, CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f46229e.setTag(getUniqueId());
-        this.f46229e.setSelfListener(true);
-        registerListener(this.f46229e);
+        this.f46371e.setTag(getUniqueId());
+        this.f46371e.setSelfListener(true);
+        registerListener(this.f46371e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -149,7 +149,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f46229e);
+            MessageManager.getInstance().unRegisterListener(this.f46371e);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
             return true;
         }

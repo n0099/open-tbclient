@@ -2,8 +2,8 @@ package com.baidu.tieba.tbadkCore;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
-import c.a.t0.x3.e;
-import c.a.t0.x3.m;
+import c.a.u0.z3.e;
+import c.a.u0.z3.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.Message;
@@ -19,13 +19,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Error;
 import tbclient.FrsPage.FrsPageResIdl;
 /* loaded from: classes13.dex */
-public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<m, FrsPageResIdl> {
+public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<n, FrsPageResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mCategoryId;
     public int mIsGood;
     public boolean needCache;
-    public m responseData;
+    public n responseData;
     public int updateType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -54,10 +54,10 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<m, 
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? FrsPageResIdl.class : (Class) invokeV.objValue;
     }
 
-    public m getResponseData() {
+    public n getResponseData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.responseData : (m) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.responseData : (n) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -89,10 +89,10 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<m, 
         }
     }
 
-    public void setResponseData(m mVar) {
+    public void setResponseData(n nVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, mVar) == null) {
-            this.responseData = mVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, nVar) == null) {
+            this.responseData = nVar;
         }
     }
 
@@ -106,9 +106,9 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<m, 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i2, byte[] bArr) {
-        m mVar;
+        n nVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) || hasError() || (mVar = this.responseData) == null || !this.needCache || mVar.getForum() == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) || hasError() || (nVar = this.responseData) == null || !this.needCache || nVar.getForum() == null) {
             return;
         }
         int sortType = this.responseData.getSortType();
@@ -142,9 +142,9 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<m, 
         Error error;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048581, this, i2, bArr) == null) {
-            m mVar = new m();
-            this.responseData = mVar;
-            FrsPageResIdl parserProtobuf = mVar.parserProtobuf(bArr, true);
+            n nVar = new n();
+            this.responseData = nVar;
+            FrsPageResIdl parserProtobuf = nVar.parserProtobuf(bArr, true);
             if (parserProtobuf != null && (error = parserProtobuf.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {

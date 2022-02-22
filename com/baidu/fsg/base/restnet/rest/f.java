@@ -16,10 +16,10 @@ public class f<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Class<T> f33778b;
+    public final Class<T> f33984b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.baidu.fsg.base.restnet.a.a<?> f33779c;
+    public final com.baidu.fsg.base.restnet.a.a<?> f33985c;
 
     static {
         InterceptResult invokeClinit;
@@ -57,8 +57,8 @@ public class f<T> {
         if (aVar == null) {
             throw new IllegalArgumentException("'messageConverters' must not be empty");
         }
-        this.f33778b = cls;
-        this.f33779c = aVar;
+        this.f33984b = cls;
+        this.f33985c = aVar;
     }
 
     private boolean b(e eVar) throws Exception {
@@ -79,7 +79,7 @@ public class f<T> {
                 if (eVar.a().j() == null) {
                     Log.isLoggable(a, 3);
                 }
-                return (T) this.f33779c.a(this.f33778b, eVar);
+                return (T) this.f33985c.a(this.f33984b, eVar);
             }
             return null;
         }

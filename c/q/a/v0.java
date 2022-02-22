@@ -39,11 +39,11 @@ public class v0 extends Handler {
     public void handleMessage(Message message) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 11) {
-            this.a.f30429i = true;
+            this.a.f30635i = true;
             this.a.o.removeMessages(11);
-            int wt = this.a.e() ? this.a.f30430j.getWt() : 0;
-            y2 a = c3.a(this.a.f30426f);
-            a.e(new g3(this.a.f30430j), 2002, wt * 1000);
+            int wt = this.a.e() ? this.a.f30636j.getWt() : 0;
+            y2 a = c3.a(this.a.f30632f);
+            a.e(new g3(this.a.f30636j), 2002, wt * 1000);
             a.m();
             this.a.l.onFail(PBError.TIMEOUT);
         }

@@ -11,10 +11,10 @@ public final class s {
     public static final int a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f30039b = 2;
+    public static final int f30245b = 2;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f30040c = 3;
+    public static final int f30246c = 3;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

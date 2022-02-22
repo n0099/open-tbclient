@@ -11,16 +11,16 @@ public final class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30731b;
+    public String f30937b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30732c;
+    public String f30938c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30733d;
+    public String f30939d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30734e;
+    public String f30940e;
 
     public c(String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
@@ -38,14 +38,14 @@ public final class c {
             }
         }
         this.a = "";
-        this.f30731b = "";
-        this.f30732c = "";
-        this.f30733d = "";
-        this.f30734e = "";
+        this.f30937b = "";
+        this.f30938c = "";
+        this.f30939d = "";
+        this.f30940e = "";
         this.a = str;
-        this.f30731b = str2;
-        this.f30732c = str3;
-        this.f30733d = str4;
-        this.f30734e = str5;
+        this.f30937b = str2;
+        this.f30938c = str3;
+        this.f30939d = str4;
+        this.f30940e = str5;
     }
 }

@@ -3,9 +3,9 @@ package com.baidu.sapi2.activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import c.a.e0.a.c;
-import c.a.e0.a.e;
-import c.a.e0.a.f;
+import c.a.f0.a.c;
+import c.a.f0.a.e;
+import c.a.f0.a.f;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.views.RoundWebview;
 import com.baidu.sapi2.views.swipeback.SwipeBackLayout;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class YouthStyleLoginActivity extends LoginActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

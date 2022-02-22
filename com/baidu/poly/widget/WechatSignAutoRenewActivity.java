@@ -9,11 +9,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.h0.f;
-import c.a.h0.g;
-import c.a.h0.h;
-import c.a.h0.n.c;
-import c.a.h0.t.e.b;
+import c.a.i0.f;
+import c.a.i0.g;
+import c.a.i0.h;
+import c.a.i0.n.c;
+import c.a.i0.t.e.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class WechatSignAutoRenewActivity extends Activity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_WECHAT_RECEIVER_CODE = "code";
@@ -39,28 +39,28 @@ public class WechatSignAutoRenewActivity extends Activity implements View.OnClic
     public TextView tvSignRenewStatus;
     public TextView tvSignRenewSuccess;
 
-    /* loaded from: classes10.dex */
-    public class a implements c.a.h0.s.g.a {
+    /* loaded from: classes11.dex */
+    public class a implements c.a.i0.s.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ WechatSignAutoRenewActivity f37862b;
+        public final /* synthetic */ WechatSignAutoRenewActivity f38091b;
 
         /* renamed from: com.baidu.poly.widget.WechatSignAutoRenewActivity$a$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
-        public class RunnableC1842a implements Runnable {
+        /* loaded from: classes11.dex */
+        public class RunnableC1852a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f37863e;
+            public final /* synthetic */ int f38092e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f37864f;
+            public final /* synthetic */ a f38093f;
 
-            public RunnableC1842a(a aVar, int i2) {
+            public RunnableC1852a(a aVar, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,15 +75,15 @@ public class WechatSignAutoRenewActivity extends Activity implements View.OnClic
                         return;
                     }
                 }
-                this.f37864f = aVar;
-                this.f37863e = i2;
+                this.f38093f = aVar;
+                this.f38092e = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f37864f.f37862b.processCheckOrderStatus(this.f37863e);
+                    this.f38093f.f38091b.processCheckOrderStatus(this.f38092e);
                 }
             }
         }
@@ -103,25 +103,25 @@ public class WechatSignAutoRenewActivity extends Activity implements View.OnClic
                     return;
                 }
             }
-            this.f37862b = wechatSignAutoRenewActivity;
+            this.f38091b = wechatSignAutoRenewActivity;
             this.a = z;
         }
 
-        @Override // c.a.h0.s.g.a
+        @Override // c.a.i0.s.g.a
         public void onResult(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
                 if (this.a) {
                     long currentTimeMillis = System.currentTimeMillis() - WechatSignAutoRenewActivity.startTimeMillis;
                     if (currentTimeMillis >= 2000) {
-                        this.f37862b.processCheckOrderStatus(i2);
+                        this.f38091b.processCheckOrderStatus(i2);
                         return;
                     } else {
-                        new Handler(Looper.getMainLooper()).postDelayed(new RunnableC1842a(this, i2), 2000 - currentTimeMillis);
+                        new Handler(Looper.getMainLooper()).postDelayed(new RunnableC1852a(this, i2), 2000 - currentTimeMillis);
                         return;
                     }
                 }
-                this.f37862b.processCheckOrderStatus(i2);
+                this.f38091b.processCheckOrderStatus(i2);
             }
         }
     }
@@ -154,7 +154,7 @@ public class WechatSignAutoRenewActivity extends Activity implements View.OnClic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             try {
-                ((ActivityManager) getSystemService("activity")).moveTaskToFront(c.a.h0.n.a.a().b(), 1);
+                ((ActivityManager) getSystemService("activity")).moveTaskToFront(c.a.i0.n.a.a().b(), 1);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

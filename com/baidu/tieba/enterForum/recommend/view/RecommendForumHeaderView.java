@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.k0.g;
-import c.a.t0.v0.k.c.f;
+import c.a.u0.k0.g;
+import c.a.u0.v0.k.c.f;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -31,22 +31,22 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42671e;
+    public int f42904e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f42672f;
+    public TbPageContext<?> f42905f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ForumTestView f42673g;
+    public ForumTestView f42906g;
 
     /* renamed from: h  reason: collision with root package name */
-    public g f42674h;
+    public g f42907h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f42675i;
+    public boolean f42908i;
 
     /* renamed from: j  reason: collision with root package name */
-    public CustomMessageListener f42676j;
+    public CustomMessageListener f42909j;
     public CustomMessageListener k;
 
     /* loaded from: classes12.dex */
@@ -118,8 +118,8 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921385) {
-                if (this.a.f42673g == null || this.a.f42673g.getVisibility() == 8) {
-                    this.a.f42675i = false;
+                if (this.a.f42906g == null || this.a.f42906g.getVisibility() == 8) {
+                    this.a.f42908i = false;
                 } else {
                     this.a.e();
                 }
@@ -145,11 +145,11 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
                 return;
             }
         }
-        this.f42671e = 3;
-        this.f42675i = true;
-        this.f42676j = new a(this, 2921386);
+        this.f42904e = 3;
+        this.f42908i = true;
+        this.f42909j = new a(this, 2921386);
         this.k = new b(this, 2921385);
-        this.f42672f = tbPageContext;
+        this.f42905f = tbPageContext;
         d();
     }
 
@@ -159,7 +159,7 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
             setOrientation(1);
             LayoutInflater.from(getContext()).inflate(R.layout.recom_forum_header_layout, (ViewGroup) this, true);
             ForumTestView forumTestView = (ForumTestView) findViewById(R.id.recommend_forum_header_test_view);
-            this.f42673g = forumTestView;
+            this.f42906g = forumTestView;
             forumTestView.setOnClickListener(this);
             onChangeSkinType();
         }
@@ -168,7 +168,7 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
     public void destoryForumTip() {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (gVar = this.f42674h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (gVar = this.f42907h) == null) {
             return;
         }
         gVar.I();
@@ -183,27 +183,27 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
 
     public final void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f42674h == null) {
-            g gVar = new g(this.f42672f, this.f42673g);
-            this.f42674h = gVar;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f42907h == null) {
+            g gVar = new g(this.f42905f, this.f42906g);
+            this.f42907h = gVar;
             gVar.g0(R.drawable.bg_tip_blue_up);
-            this.f42674h.O(32);
-            this.f42674h.h0(true);
-            this.f42674h.N(3000);
-            this.f42674h.k0(0);
-            this.f42674h.M(this);
-            this.f42674h.m0(getContext().getString(R.string.recommend_tab_click_to_test), "key_recommend_tab_click_to_test_tip");
+            this.f42907h.O(32);
+            this.f42907h.h0(true);
+            this.f42907h.N(3000);
+            this.f42907h.k0(0);
+            this.f42907h.M(this);
+            this.f42907h.m0(getContext().getString(R.string.recommend_tab_click_to_test), "key_recommend_tab_click_to_test_tip");
         }
     }
 
     public void onChangeSkinType() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f42671e) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f42904e) {
             return;
         }
-        this.f42671e = skinType;
-        ForumTestView forumTestView = this.f42673g;
+        this.f42904e = skinType;
+        ForumTestView forumTestView = this.f42906g;
         if (forumTestView != null) {
             forumTestView.onChangeSkinType();
         }
@@ -212,7 +212,7 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, view) == null) || view == this.f42673g || this.f42674h == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, view) == null) || view == this.f42906g || this.f42907h == null) {
             return;
         }
         destoryForumTip();
@@ -231,23 +231,23 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             if (ListUtils.isEmpty(list)) {
-                this.f42673g.setVisibility(8);
+                this.f42906g.setVisibility(8);
                 return;
             }
-            this.f42673g.setVisibility(0);
-            this.f42673g.setData(list);
-            if (this.f42675i) {
+            this.f42906g.setVisibility(0);
+            this.f42906g.setData(list);
+            if (this.f42908i) {
                 return;
             }
             e();
-            this.f42675i = true;
+            this.f42908i = true;
         }
     }
 
     public void setOnSecectedListener(ForumTestView.c cVar) {
         ForumTestView forumTestView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) || (forumTestView = this.f42673g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) || (forumTestView = this.f42906g) == null) {
             return;
         }
         forumTestView.setOnSecectedListener(cVar);
@@ -256,21 +256,21 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
     public void setPageId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) {
-            ForumTestView forumTestView = this.f42673g;
+            ForumTestView forumTestView = this.f42906g;
             if (forumTestView != null) {
                 forumTestView.setPageId(bdUniqueId);
             }
             this.k.setTag(bdUniqueId);
             MessageManager.getInstance().registerListener(this.k);
-            this.f42676j.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.f42676j);
+            this.f42909j.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.f42909j);
         }
     }
 
     public void unregisterDisappearTipListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f42676j);
+            MessageManager.getInstance().unRegisterListener(this.f42909j);
         }
     }
 }

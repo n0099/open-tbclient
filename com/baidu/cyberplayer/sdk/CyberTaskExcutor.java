@@ -19,19 +19,19 @@ public final class CyberTaskExcutor {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f33426b;
+    public final int f33632b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f33427c;
+    public final int f33633c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f33428d;
+    public final int f33634d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ExecutorService f33429e;
+    public ExecutorService f33635e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ExecutorService f33430f;
+    public ExecutorService f33636f;
 
     /* loaded from: classes10.dex */
     public static class a implements ThreadFactory {
@@ -40,10 +40,10 @@ public final class CyberTaskExcutor {
         public final AtomicInteger a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f33431b;
+        public final String f33637b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f33432c;
+        public int f33638c;
 
         public a(String str, int i2) {
             Interceptable interceptable = $ic;
@@ -61,9 +61,9 @@ public final class CyberTaskExcutor {
                 }
             }
             this.a = new AtomicInteger(1);
-            this.f33432c = 5;
-            this.f33431b = str + "-";
-            this.f33432c = i2;
+            this.f33638c = 5;
+            this.f33637b = str + "-";
+            this.f33638c = i2;
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -71,11 +71,11 @@ public final class CyberTaskExcutor {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                Thread thread = new Thread(runnable, this.f33431b + this.a.getAndIncrement());
+                Thread thread = new Thread(runnable, this.f33637b + this.a.getAndIncrement());
                 if (thread.isDaemon()) {
                     thread.setDaemon(true);
                 }
-                thread.setPriority(this.f33432c);
+                thread.setPriority(this.f33638c);
                 return thread;
             }
             return (Thread) invokeL.objValue;
@@ -95,12 +95,12 @@ public final class CyberTaskExcutor {
                 return;
             }
         }
-        this.f33426b = 2;
-        this.f33427c = 7;
-        this.f33428d = 120;
-        this.f33429e = new ThreadPoolExecutor(2, 7, 120L, TimeUnit.SECONDS, new LinkedBlockingQueue(20), new a("cyber-thread", 5));
-        this.f33430f = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread-Single", 5));
-        ExecutorService executorService = this.f33429e;
+        this.f33632b = 2;
+        this.f33633c = 7;
+        this.f33634d = 120;
+        this.f33635e = new ThreadPoolExecutor(2, 7, 120L, TimeUnit.SECONDS, new LinkedBlockingQueue(20), new a("cyber-thread", 5));
+        this.f33636f = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread-Single", 5));
+        ExecutorService executorService = this.f33635e;
         if (executorService == null || !(executorService instanceof ThreadPoolExecutor)) {
             return;
         }
@@ -128,7 +128,7 @@ public final class CyberTaskExcutor {
     public void execute(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            this.f33429e.execute(runnable);
+            this.f33635e.execute(runnable);
         }
     }
 
@@ -136,7 +136,7 @@ public final class CyberTaskExcutor {
     public void executeSingleThread(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
-            this.f33430f.execute(runnable);
+            this.f33636f.execute(runnable);
         }
     }
 }

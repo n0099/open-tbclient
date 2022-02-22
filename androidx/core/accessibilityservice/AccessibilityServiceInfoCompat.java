@@ -9,6 +9,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -105,7 +106,7 @@ public final class AccessibilityServiceInfoCompat {
                 }
                 return "FLAG_INCLUDE_NOT_IMPORTANT_VIEWS";
             }
-            return "DEFAULT";
+            return EngineName.DEFAULT_ENGINE;
         }
         return (String) invokeI.objValue;
     }

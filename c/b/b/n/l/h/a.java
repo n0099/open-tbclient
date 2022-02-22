@@ -17,16 +17,16 @@ public class a implements o.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.b.b.n.l.h.g.a f27289e;
+    public c.b.b.n.l.h.g.a f27495e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.b.b.q.a<c.b.b.n.l.h.h.a> f27290f;
+    public c.b.b.q.a<c.b.b.n.l.h.h.a> f27496f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.b.b.n.l.h.i.b<?, ?> f27291g;
+    public c.b.b.n.l.h.i.b<?, ?> f27497g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f27292h;
+    public float f27498h;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class a implements o.c {
         }
         new Matrix4();
         new Vector3(1.0f, 1.0f, 1.0f);
-        this.f27290f = new c.b.b.q.a<>(true, 3, c.b.b.n.l.h.h.a.class);
+        this.f27496f = new c.b.b.q.a<>(true, 3, c.b.b.n.l.h.h.a.class);
         d(0.016666668f);
     }
 
@@ -52,17 +52,17 @@ public class a implements o.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, oVar, jsonValue) == null) {
             String str = (String) oVar.l("name", String.class, jsonValue);
-            this.f27289e = (c.b.b.n.l.h.g.a) oVar.l("emitter", c.b.b.n.l.h.g.a.class, jsonValue);
-            this.f27290f.b((c.b.b.q.a) oVar.m("influencers", c.b.b.q.a.class, c.b.b.n.l.h.h.a.class, jsonValue));
-            this.f27291g = (c.b.b.n.l.h.i.b) oVar.l("renderer", c.b.b.n.l.h.i.b.class, jsonValue);
+            this.f27495e = (c.b.b.n.l.h.g.a) oVar.l("emitter", c.b.b.n.l.h.g.a.class, jsonValue);
+            this.f27496f.b((c.b.b.q.a) oVar.m("influencers", c.b.b.q.a.class, c.b.b.n.l.h.h.a.class, jsonValue));
+            this.f27497g = (c.b.b.n.l.h.i.b) oVar.l("renderer", c.b.b.n.l.h.i.b.class, jsonValue);
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f27289e.dispose();
-            a.b<c.b.b.n.l.h.h.a> it = this.f27290f.iterator();
+            this.f27495e.dispose();
+            a.b<c.b.b.n.l.h.h.a> it = this.f27496f.iterator();
             while (it.hasNext()) {
                 it.next().dispose();
             }
@@ -72,26 +72,26 @@ public class a implements o.c {
     public void c(c.b.b.j.e eVar, e eVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, eVar, eVar2) == null) {
-            this.f27289e.f(eVar, eVar2);
-            a.b<c.b.b.n.l.h.h.a> it = this.f27290f.iterator();
+            this.f27495e.f(eVar, eVar2);
+            a.b<c.b.b.n.l.h.h.a> it = this.f27496f.iterator();
             while (it.hasNext()) {
                 it.next().f(eVar, eVar2);
             }
-            this.f27291g.f(eVar, eVar2);
+            this.f27497g.f(eVar, eVar2);
         }
     }
 
     public final void d(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048579, this, f2) == null) {
-            this.f27292h = f2;
+            this.f27498h = f2;
         }
     }
 
     public void update() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            update(f.f26964b.e());
+            update(f.f27170b.e());
         }
     }
 
@@ -99,8 +99,8 @@ public class a implements o.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
             d(f2);
-            this.f27289e.update();
-            a.b<c.b.b.n.l.h.h.a> it = this.f27290f.iterator();
+            this.f27495e.update();
+            a.b<c.b.b.n.l.h.h.a> it = this.f27496f.iterator();
             while (it.hasNext()) {
                 it.next().update();
             }

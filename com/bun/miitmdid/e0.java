@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e0 {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f52931b;
+    public static boolean f53098b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f52932c;
+    public static boolean f53099c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f52933d;
+    public static boolean f53100d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,7 +54,7 @@ public class e0 {
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && f52932c) {
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && f53099c) {
             String.format("[%s] %s", str, str2);
         }
     }
@@ -63,9 +63,9 @@ public class e0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
             synchronized (e0.class) {
-                f52933d = z;
-                f52932c = z;
-                f52931b = z;
+                f53100d = z;
+                f53099c = z;
+                f53098b = z;
                 a = z;
             }
         }
@@ -73,7 +73,7 @@ public class e0 {
 
     public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && f52933d) {
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && f53100d) {
             String.format("[%s] %s", str, str2);
         }
     }
@@ -87,7 +87,7 @@ public class e0 {
 
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && f52931b) {
+        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && f53098b) {
             String.format("[%s] %s", str, str2);
         }
     }

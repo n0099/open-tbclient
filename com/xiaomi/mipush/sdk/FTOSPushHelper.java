@@ -53,10 +53,10 @@ public class FTOSPushHelper {
     public static void a(Context context) {
         AbstractPushManager a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, context) == null) || (a2 = f.a(context).a(e.f60945d)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65538, null, context) == null) || (a2 = f.a(context).a(e.f61112d)) == null) {
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m134a("ASSEMBLE_PUSH :  register fun touch os when network change!");
+        com.xiaomi.channel.commonutils.logger.b.m133a("ASSEMBLE_PUSH :  register fun touch os when network change!");
         a2.register();
     }
 
@@ -83,7 +83,7 @@ public class FTOSPushHelper {
     public static boolean hasNetwork(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? i.m196a(context) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? i.m195a(context) : invokeL.booleanValue;
     }
 
     public static void notifyFTOSNotificationClicked(Context context, Map<String, String> map) {
@@ -112,7 +112,7 @@ public class FTOSPushHelper {
     public static void uploadToken(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, context, str) == null) {
-            i.a(context, e.f60945d, str);
+            i.a(context, e.f61112d, str);
         }
     }
 }

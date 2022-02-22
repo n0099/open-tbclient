@@ -14,19 +14,19 @@ public abstract class b implements Input {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean[] f26959e;
+    public final boolean[] f27165e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean[] f26960f;
+    public final boolean[] f27166f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final n f26961g;
+    public final n f27167g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f26962h;
+    public int f27168h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f26963i;
+    public boolean f27169i;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -41,24 +41,24 @@ public abstract class b implements Input {
                 return;
             }
         }
-        this.f26961g = new n();
-        this.f26959e = new boolean[256];
-        this.f26960f = new boolean[256];
+        this.f27167g = new n();
+        this.f27165e = new boolean[256];
+        this.f27166f = new boolean[256];
     }
 
     public boolean a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f26961g.c(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f27167g.c(i2) : invokeI.booleanValue;
     }
 
     public void b(int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             if (!z) {
-                this.f26961g.f(i2);
+                this.f27167g.f(i2);
             } else {
-                this.f26961g.a(i2);
+                this.f27167g.a(i2);
             }
         }
     }

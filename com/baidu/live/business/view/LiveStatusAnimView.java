@@ -12,11 +12,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.x.b.f.a;
-import c.a.x.c.a.b;
-import c.a.x.c.a.c;
-import c.a.x.c.a.d;
-import c.a.x.k.f;
+import c.a.y.b.f.a;
+import c.a.y.c.a.b;
+import c.a.y.c.a.c;
+import c.a.y.c.a.d;
+import c.a.y.k.f;
 import com.airbnb.lottie.LottieAnimationView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
@@ -32,22 +32,22 @@ public class LiveStatusAnimView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f34810e;
+    public Context f35016e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f34811f;
+    public ImageView f35017f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LottieAnimationView f34812g;
+    public LottieAnimationView f35018g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f34813h;
+    public TextView f35019h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f34814i;
+    public boolean f35020i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f34815j;
+    public boolean f35021j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public LiveStatusAnimView(@NonNull Context context) {
@@ -73,19 +73,19 @@ public class LiveStatusAnimView extends FrameLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f34810e = context;
+            this.f35016e = context;
             LayoutInflater.from(context).inflate(d.live_feed_page_status_anim_layout, this);
-            this.f34811f = (ImageView) findViewById(c.live_feed_page_tip_iv);
-            this.f34812g = (LottieAnimationView) findViewById(c.live_feed_page_tip_lottie);
-            this.f34813h = (TextView) findViewById(c.live_feed_page_tip_text);
-            this.f34812g.loop(true);
+            this.f35017f = (ImageView) findViewById(c.live_feed_page_tip_iv);
+            this.f35018g = (LottieAnimationView) findViewById(c.live_feed_page_tip_lottie);
+            this.f35019h = (TextView) findViewById(c.live_feed_page_tip_text);
+            this.f35018g.loop(true);
         }
     }
 
     public boolean isHasAnim() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34814i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35020i : invokeV.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -93,11 +93,11 @@ public class LiveStatusAnimView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDetachedFromWindow();
-            LottieAnimationView lottieAnimationView = this.f34812g;
+            LottieAnimationView lottieAnimationView = this.f35018g;
             if (lottieAnimationView == null || !lottieAnimationView.isAnimating()) {
                 return;
             }
-            this.f34812g.cancelAnimation();
+            this.f35018g.cancelAnimation();
         }
     }
 
@@ -107,11 +107,11 @@ public class LiveStatusAnimView extends FrameLayout {
         if (interceptable == null || interceptable.invokeLI(1048579, this, view, i2) == null) {
             super.onVisibilityChanged(view, i2);
             if (i2 != 0) {
-                LottieAnimationView lottieAnimationView = this.f34812g;
+                LottieAnimationView lottieAnimationView = this.f35018g;
                 if (lottieAnimationView == null || !lottieAnimationView.isAnimating()) {
                     return;
                 }
-                this.f34812g.cancelAnimation();
+                this.f35018g.cancelAnimation();
                 return;
             }
             startAnim();
@@ -122,18 +122,18 @@ public class LiveStatusAnimView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), str, str2, str3}) == null) {
             stopAnim();
-            this.f34812g.setVisibility(8);
-            if (this.f34815j) {
-                this.f34812g.setAnimation("live_feed_page_tag_live_ani.json");
+            this.f35018g.setVisibility(8);
+            if (this.f35021j) {
+                this.f35018g.setAnimation("live_feed_page_tag_live_ani.json");
             } else if (!SkinManager.SKIN_TYPE_STR_NIGHT.equals(f.e().o()) && !SkinManager.SKIN_TYPE_STR_DARK.equals(f.e().o())) {
-                this.f34812g.setAnimation("live_feed_page_tag_live_ani.json");
+                this.f35018g.setAnimation("live_feed_page_tag_live_ani.json");
             } else {
-                this.f34812g.setAnimation("live_feed_page_tag_live_night.json");
+                this.f35018g.setAnimation("live_feed_page_tag_live_night.json");
             }
             boolean z = (str2 == null || str2.equals(str3)) ? false : true;
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(a.a(this.f34810e, 9.0f));
+            gradientDrawable.setCornerRadius(a.a(this.f35016e, 9.0f));
             gradientDrawable.setGradientType(0);
             gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
             try {
@@ -142,84 +142,84 @@ public class LiveStatusAnimView extends FrameLayout {
                 gradientDrawable.setColors(new int[]{Color.parseColor("#FE33BA"), Color.parseColor("#FE3355")});
                 e2.printStackTrace();
             }
-            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(f.e().o()) && !this.f34815j) {
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(f.e().o()) && !this.f35021j) {
                 gradientDrawable.setColorFilter(Color.parseColor("#80000000"), PorterDuff.Mode.SRC_ATOP);
             } else {
                 gradientDrawable.setColorFilter(null);
             }
             setBackground(gradientDrawable);
             if (z) {
-                this.f34813h.setPadding(0, 0, 0, 0);
+                this.f35019h.setPadding(0, 0, 0, 0);
             } else {
-                this.f34813h.setPadding(a.a(this.f34810e, 3.0f), 0, 0, 0);
+                this.f35019h.setPadding(a.a(this.f35016e, 3.0f), 0, 0, 0);
             }
             GradientDrawable gradientDrawable2 = new GradientDrawable();
             gradientDrawable2.setShape(0);
-            gradientDrawable2.setCornerRadius(a.a(this.f34810e, 9.0f));
+            gradientDrawable2.setCornerRadius(a.a(this.f35016e, 9.0f));
             if (i2 == 3) {
-                this.f34814i = false;
-                gradientDrawable2.setColors(new int[]{f.e().a(this.f34810e, this.f34815j, "color_768CAE"), f.e().a(this.f34810e, this.f34815j, "color_768CAE")});
-                if (!"day".equals(f.e().o()) && !this.f34815j) {
+                this.f35020i = false;
+                gradientDrawable2.setColors(new int[]{f.e().a(this.f35016e, this.f35021j, "color_768CAE"), f.e().a(this.f35016e, this.f35021j, "color_768CAE")});
+                if (!"day".equals(f.e().o()) && !this.f35021j) {
                     if ("tieba".equals(LiveFeedPageSdk.f().e())) {
-                        this.f34811f.setImageResource(b.live_feed_page_tag_back);
+                        this.f35017f.setImageResource(b.live_feed_page_tag_back);
                     } else {
-                        this.f34811f.setImageResource(b.live_feed_page_tag_back_night);
+                        this.f35017f.setImageResource(b.live_feed_page_tag_back_night);
                     }
                 } else {
-                    this.f34811f.setImageResource(b.live_feed_page_tag_back);
+                    this.f35017f.setImageResource(b.live_feed_page_tag_back);
                 }
-                this.f34811f.setBackgroundDrawable(gradientDrawable2);
-                this.f34811f.setVisibility(0);
+                this.f35017f.setBackgroundDrawable(gradientDrawable2);
+                this.f35017f.setVisibility(0);
             } else if (i2 == 0) {
-                this.f34814i = false;
-                gradientDrawable2.setColors(new int[]{f.e().a(this.f34810e, this.f34815j, "color_4E6EF2"), f.e().a(this.f34810e, this.f34815j, "color_4E6EF2")});
-                if (!"day".equals(f.e().o()) && !this.f34815j) {
+                this.f35020i = false;
+                gradientDrawable2.setColors(new int[]{f.e().a(this.f35016e, this.f35021j, "color_4E6EF2"), f.e().a(this.f35016e, this.f35021j, "color_4E6EF2")});
+                if (!"day".equals(f.e().o()) && !this.f35021j) {
                     if ("tieba".equals(LiveFeedPageSdk.f().e())) {
-                        this.f34811f.setImageResource(b.live_feed_page_tag_preview);
+                        this.f35017f.setImageResource(b.live_feed_page_tag_preview);
                     } else {
-                        this.f34811f.setImageResource(b.live_feed_page_tag_preview_night);
+                        this.f35017f.setImageResource(b.live_feed_page_tag_preview_night);
                     }
                 } else {
-                    this.f34811f.setImageResource(b.live_feed_page_tag_preview);
+                    this.f35017f.setImageResource(b.live_feed_page_tag_preview);
                 }
-                this.f34811f.setBackgroundDrawable(gradientDrawable2);
-                this.f34811f.setVisibility(0);
+                this.f35017f.setBackgroundDrawable(gradientDrawable2);
+                this.f35017f.setVisibility(0);
             } else {
-                this.f34814i = true;
+                this.f35020i = true;
                 if (z) {
-                    this.f34811f.setVisibility(4);
+                    this.f35017f.setVisibility(4);
                 } else {
-                    gradientDrawable2.setColors(new int[]{f.e().a(this.f34810e, this.f34815j, "color_FF3333"), f.e().a(this.f34810e, this.f34815j, "color_FF3333")});
-                    this.f34811f.setImageResource(b.live_feed_page_transparent);
-                    this.f34811f.setBackgroundDrawable(gradientDrawable2);
-                    this.f34811f.setVisibility(0);
+                    gradientDrawable2.setColors(new int[]{f.e().a(this.f35016e, this.f35021j, "color_FF3333"), f.e().a(this.f35016e, this.f35021j, "color_FF3333")});
+                    this.f35017f.setImageResource(b.live_feed_page_transparent);
+                    this.f35017f.setBackgroundDrawable(gradientDrawable2);
+                    this.f35017f.setVisibility(0);
                 }
             }
-            this.f34813h.setTextColor(f.e().a(this.f34810e, this.f34815j, "color_white3"));
-            this.f34813h.setText(str);
+            this.f35019h.setTextColor(f.e().a(this.f35016e, this.f35021j, "color_white3"));
+            this.f35019h.setText(str);
         }
     }
 
     public void setIsImmersion(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f34815j = z;
+            this.f35021j = z;
         }
     }
 
     public void startAnim() {
         LottieAnimationView lottieAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (lottieAnimationView = this.f34812g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (lottieAnimationView = this.f35018g) == null) {
             return;
         }
-        if (this.f34814i) {
+        if (this.f35020i) {
             lottieAnimationView.setVisibility(0);
-            this.f34812g.setProgress(0.0f);
-            if (this.f34812g.isAnimating()) {
+            this.f35018g.setProgress(0.0f);
+            if (this.f35018g.isAnimating()) {
                 return;
             }
-            this.f34812g.playAnimation();
+            this.f35018g.playAnimation();
             return;
         }
         stopAnim();
@@ -228,8 +228,8 @@ public class LiveStatusAnimView extends FrameLayout {
     public void stopAnim() {
         LottieAnimationView lottieAnimationView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (lottieAnimationView = this.f34812g) != null && lottieAnimationView.isAnimating()) {
-            this.f34812g.cancelAnimation();
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (lottieAnimationView = this.f35018g) != null && lottieAnimationView.isAnimating()) {
+            this.f35018g.cancelAnimation();
         }
     }
 
@@ -273,8 +273,8 @@ public class LiveStatusAnimView extends FrameLayout {
                 return;
             }
         }
-        this.f34814i = false;
-        this.f34815j = false;
+        this.f35020i = false;
+        this.f35021j = false;
         a(context);
     }
 }

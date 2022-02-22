@@ -1,6 +1,6 @@
 package com.baidu.searchbox.task.async.appcreate;
 
-import c.a.s0.s.h;
+import c.a.t0.s.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +31,7 @@ public class InitImgLoaderProcTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            h.a();
+            i.a();
         }
     }
 

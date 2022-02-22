@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.b.e;
 
 import com.meizu.cloud.pushsdk.b.a.e;
 import com.meizu.cloud.pushsdk.b.c.k;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class c {
     public static <T> com.meizu.cloud.pushsdk.b.a.c<T> a(com.meizu.cloud.pushsdk.b.a.b bVar) {
         int g2 = bVar.g();

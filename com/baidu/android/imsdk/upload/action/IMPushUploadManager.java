@@ -33,7 +33,7 @@ import okio.BufferedSink;
 import okio.GzipSink;
 import okio.Okio;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class IMPushUploadManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long PING_INTERVAL_MS = 1000;
@@ -43,7 +43,7 @@ public class IMPushUploadManager {
     public Context mContext;
     public OkHttpClient mOkHttpClient;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class GzipRequestInterceptor implements Interceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

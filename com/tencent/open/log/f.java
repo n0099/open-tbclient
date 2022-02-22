@@ -18,7 +18,7 @@ public class f implements Iterable<String> {
     public ConcurrentLinkedQueue<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicInteger f60621b;
+    public AtomicInteger f60788b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -34,9 +34,9 @@ public class f implements Iterable<String> {
             }
         }
         this.a = null;
-        this.f60621b = null;
+        this.f60788b = null;
         this.a = new ConcurrentLinkedQueue<>();
-        this.f60621b = new AtomicInteger(0);
+        this.f60788b = new AtomicInteger(0);
     }
 
     public int a(String str) {
@@ -45,7 +45,7 @@ public class f implements Iterable<String> {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             int length = str.length();
             this.a.add(str);
-            return this.f60621b.addAndGet(length);
+            return this.f60788b.addAndGet(length);
         }
         return invokeL.intValue;
     }
@@ -54,7 +54,7 @@ public class f implements Iterable<String> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.a.clear();
-            this.f60621b.set(0);
+            this.f60788b.set(0);
         }
     }
 
@@ -139,6 +139,6 @@ public class f implements Iterable<String> {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60621b.get() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60788b.get() : invokeV.intValue;
     }
 }

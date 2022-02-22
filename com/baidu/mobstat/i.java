@@ -13,10 +13,10 @@ public class i {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36919b;
+    public String f37125b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f36920c;
+    public String f37126c;
 
     public i(long j2, String str, String str2) {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class i {
         this.a = -1L;
         str2 = str2 == null ? "" : str2;
         this.a = j2;
-        this.f36919b = str;
-        this.f36920c = str2;
+        this.f37125b = str;
+        this.f37126c = str2;
     }
 
     public long a() {
@@ -49,6 +49,6 @@ public class i {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36920c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37126c : (String) invokeV.objValue;
     }
 }

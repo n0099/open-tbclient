@@ -5,7 +5,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
-import c.a.s0.x.x.c.c;
+import c.a.t0.x.x.c.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +17,7 @@ public class KPSwitchRootRelativeLayout extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f40990e;
+    public c f41219e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KPSwitchRootRelativeLayout(Context context) {
@@ -43,7 +43,7 @@ public class KPSwitchRootRelativeLayout extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f40990e = new c(this);
+            this.f41219e = new c(this);
         }
     }
 
@@ -51,7 +51,7 @@ public class KPSwitchRootRelativeLayout extends RelativeLayout {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            this.f40990e.b(View.MeasureSpec.getSize(i2), View.MeasureSpec.getSize(i3));
+            this.f41219e.b(View.MeasureSpec.getSize(i2), View.MeasureSpec.getSize(i3));
             super.onMeasure(i2, i3);
         }
     }

@@ -183,13 +183,13 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final K f54641e;
+        public final K f54808e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f54642f;
+        public int f54809f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ HashBiMap f54643g;
+        public final /* synthetic */ HashBiMap f54810g;
 
         public a(HashBiMap hashBiMap, int i2) {
             Interceptable interceptable = $ic;
@@ -206,22 +206,22 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
                     return;
                 }
             }
-            this.f54643g = hashBiMap;
-            this.f54641e = hashBiMap.keys[i2];
-            this.f54642f = i2;
+            this.f54810g = hashBiMap;
+            this.f54808e = hashBiMap.keys[i2];
+            this.f54809f = i2;
         }
 
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i2 = this.f54642f;
+                int i2 = this.f54809f;
                 if (i2 != -1) {
-                    HashBiMap hashBiMap = this.f54643g;
-                    if (i2 <= hashBiMap.size && c.i.d.a.k.a(hashBiMap.keys[i2], this.f54641e)) {
+                    HashBiMap hashBiMap = this.f54810g;
+                    if (i2 <= hashBiMap.size && c.i.d.a.k.a(hashBiMap.keys[i2], this.f54808e)) {
                         return;
                     }
                 }
-                this.f54642f = this.f54643g.findEntryByKey(this.f54641e);
+                this.f54809f = this.f54810g.findEntryByKey(this.f54808e);
             }
         }
 
@@ -229,7 +229,7 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
         public K getKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54641e : (K) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54808e : (K) invokeV.objValue;
         }
 
         @Override // c.i.d.c.b, java.util.Map.Entry
@@ -238,11 +238,11 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 a();
-                int i2 = this.f54642f;
+                int i2 = this.f54809f;
                 if (i2 == -1) {
                     return null;
                 }
-                return this.f54643g.values[i2];
+                return this.f54810g.values[i2];
             }
             return (V) invokeV.objValue;
         }
@@ -253,15 +253,15 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, v)) == null) {
                 a();
-                int i2 = this.f54642f;
+                int i2 = this.f54809f;
                 if (i2 == -1) {
-                    return (V) this.f54643g.put(this.f54641e, v);
+                    return (V) this.f54810g.put(this.f54808e, v);
                 }
-                V v2 = this.f54643g.values[i2];
+                V v2 = this.f54810g.values[i2];
                 if (c.i.d.a.k.a(v2, v)) {
                     return v;
                 }
-                this.f54643g.replaceValueInEntry(this.f54642f, v, false);
+                this.f54810g.replaceValueInEntry(this.f54809f, v, false);
                 return v2;
             }
             return (V) invokeL.objValue;
@@ -274,13 +274,13 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final HashBiMap<K, V> f54644e;
+        public final HashBiMap<K, V> f54811e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final V f54645f;
+        public final V f54812f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f54646g;
+        public int f54813g;
 
         public b(HashBiMap<K, V> hashBiMap, int i2) {
             Interceptable interceptable = $ic;
@@ -297,22 +297,22 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
                     return;
                 }
             }
-            this.f54644e = hashBiMap;
-            this.f54645f = hashBiMap.values[i2];
-            this.f54646g = i2;
+            this.f54811e = hashBiMap;
+            this.f54812f = hashBiMap.values[i2];
+            this.f54813g = i2;
         }
 
         public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i2 = this.f54646g;
+                int i2 = this.f54813g;
                 if (i2 != -1) {
-                    HashBiMap<K, V> hashBiMap = this.f54644e;
-                    if (i2 <= hashBiMap.size && c.i.d.a.k.a(this.f54645f, hashBiMap.values[i2])) {
+                    HashBiMap<K, V> hashBiMap = this.f54811e;
+                    if (i2 <= hashBiMap.size && c.i.d.a.k.a(this.f54812f, hashBiMap.values[i2])) {
                         return;
                     }
                 }
-                this.f54646g = this.f54644e.findEntryByValue(this.f54645f);
+                this.f54813g = this.f54811e.findEntryByValue(this.f54812f);
             }
         }
 
@@ -320,7 +320,7 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
         public V getKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54645f : (V) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54812f : (V) invokeV.objValue;
         }
 
         @Override // c.i.d.c.b, java.util.Map.Entry
@@ -329,11 +329,11 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 a();
-                int i2 = this.f54646g;
+                int i2 = this.f54813g;
                 if (i2 == -1) {
                     return null;
                 }
-                return this.f54644e.keys[i2];
+                return this.f54811e.keys[i2];
             }
             return (K) invokeV.objValue;
         }
@@ -344,15 +344,15 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, k)) == null) {
                 a();
-                int i2 = this.f54646g;
+                int i2 = this.f54813g;
                 if (i2 == -1) {
-                    return this.f54644e.putInverse(this.f54645f, k, false);
+                    return this.f54811e.putInverse(this.f54812f, k, false);
                 }
-                K k2 = this.f54644e.keys[i2];
+                K k2 = this.f54811e.keys[i2];
                 if (c.i.d.a.k.a(k2, k)) {
                     return k;
                 }
-                this.f54644e.replaceKeyInEntry(this.f54646g, k, false);
+                this.f54811e.replaceKeyInEntry(this.f54813g, k, false);
                 return k2;
             }
             return (K) invokeL.objValue;
@@ -365,7 +365,7 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ HashBiMap f54647f;
+        public final /* synthetic */ HashBiMap f54814f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(HashBiMap hashBiMap) {
@@ -385,7 +385,7 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
                     return;
                 }
             }
-            this.f54647f = hashBiMap;
+            this.f54814f = hashBiMap;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -394,7 +394,7 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
         public Map.Entry<K, V> a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new a(this.f54647f, i2) : (Map.Entry) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new a(this.f54814f, i2) : (Map.Entry) invokeI.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -406,8 +406,8 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
                     Map.Entry entry = (Map.Entry) obj;
                     Object key = entry.getKey();
                     Object value = entry.getValue();
-                    int findEntryByKey = this.f54647f.findEntryByKey(key);
-                    return findEntryByKey != -1 && c.i.d.a.k.a(value, this.f54647f.values[findEntryByKey]);
+                    int findEntryByKey = this.f54814f.findEntryByKey(key);
+                    return findEntryByKey != -1 && c.i.d.a.k.a(value, this.f54814f.values[findEntryByKey]);
                 }
                 return false;
             }
@@ -424,11 +424,11 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
                     Object key = entry.getKey();
                     Object value = entry.getValue();
                     int d2 = n0.d(key);
-                    int findEntryByKey = this.f54647f.findEntryByKey(key, d2);
-                    if (findEntryByKey == -1 || !c.i.d.a.k.a(value, this.f54647f.values[findEntryByKey])) {
+                    int findEntryByKey = this.f54814f.findEntryByKey(key, d2);
+                    if (findEntryByKey == -1 || !c.i.d.a.k.a(value, this.f54814f.values[findEntryByKey])) {
                         return false;
                     }
-                    this.f54647f.removeEntryKeyHashKnown(findEntryByKey, d2);
+                    this.f54814f.removeEntryKeyHashKnown(findEntryByKey, d2);
                     return true;
                 }
                 return false;
@@ -468,7 +468,7 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
         public Map.Entry<V, K> a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new b(this.f54650e, i2) : (Map.Entry) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new b(this.f54817e, i2) : (Map.Entry) invokeI.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -480,8 +480,8 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
                     Map.Entry entry = (Map.Entry) obj;
                     Object key = entry.getKey();
                     Object value = entry.getValue();
-                    int findEntryByValue = this.f54650e.findEntryByValue(key);
-                    return findEntryByValue != -1 && c.i.d.a.k.a(this.f54650e.keys[findEntryByValue], value);
+                    int findEntryByValue = this.f54817e.findEntryByValue(key);
+                    return findEntryByValue != -1 && c.i.d.a.k.a(this.f54817e.keys[findEntryByValue], value);
                 }
                 return false;
             }
@@ -498,11 +498,11 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
                     Object key = entry.getKey();
                     Object value = entry.getValue();
                     int d2 = n0.d(key);
-                    int findEntryByValue = this.f54650e.findEntryByValue(key, d2);
-                    if (findEntryByValue == -1 || !c.i.d.a.k.a(this.f54650e.keys[findEntryByValue], value)) {
+                    int findEntryByValue = this.f54817e.findEntryByValue(key, d2);
+                    if (findEntryByValue == -1 || !c.i.d.a.k.a(this.f54817e.keys[findEntryByValue], value)) {
                         return false;
                     }
-                    this.f54650e.removeEntryValueHashKnown(findEntryByValue, d2);
+                    this.f54817e.removeEntryValueHashKnown(findEntryByValue, d2);
                     return true;
                 }
                 return false;
@@ -517,7 +517,7 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ HashBiMap f54648f;
+        public final /* synthetic */ HashBiMap f54815f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(HashBiMap hashBiMap) {
@@ -537,21 +537,21 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
                     return;
                 }
             }
-            this.f54648f = hashBiMap;
+            this.f54815f = hashBiMap;
         }
 
         @Override // com.google.common.collect.HashBiMap.g
         public K a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f54648f.keys[i2] : (K) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f54815f.keys[i2] : (K) invokeI.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean contains(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f54648f.containsKey(obj) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f54815f.containsKey(obj) : invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -560,9 +560,9 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
                 int d2 = n0.d(obj);
-                int findEntryByKey = this.f54648f.findEntryByKey(obj, d2);
+                int findEntryByKey = this.f54815f.findEntryByKey(obj, d2);
                 if (findEntryByKey != -1) {
-                    this.f54648f.removeEntryKeyHashKnown(findEntryByKey, d2);
+                    this.f54815f.removeEntryKeyHashKnown(findEntryByKey, d2);
                     return true;
                 }
                 return false;
@@ -577,7 +577,7 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ HashBiMap f54649f;
+        public final /* synthetic */ HashBiMap f54816f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(HashBiMap hashBiMap) {
@@ -597,21 +597,21 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
                     return;
                 }
             }
-            this.f54649f = hashBiMap;
+            this.f54816f = hashBiMap;
         }
 
         @Override // com.google.common.collect.HashBiMap.g
         public V a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f54649f.values[i2] : (V) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f54816f.values[i2] : (V) invokeI.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean contains(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f54649f.containsValue(obj) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f54816f.containsValue(obj) : invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -620,9 +620,9 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
                 int d2 = n0.d(obj);
-                int findEntryByValue = this.f54649f.findEntryByValue(obj, d2);
+                int findEntryByValue = this.f54816f.findEntryByValue(obj, d2);
                 if (findEntryByValue != -1) {
-                    this.f54649f.removeEntryValueHashKnown(findEntryByValue, d2);
+                    this.f54816f.removeEntryValueHashKnown(findEntryByValue, d2);
                     return true;
                 }
                 return false;
@@ -637,7 +637,7 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final HashBiMap<K, V> f54650e;
+        public final HashBiMap<K, V> f54817e;
 
         /* loaded from: classes3.dex */
         public class a implements Iterator<T> {
@@ -645,19 +645,19 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public int f54651e;
+            public int f54818e;
 
             /* renamed from: f  reason: collision with root package name */
-            public int f54652f;
+            public int f54819f;
 
             /* renamed from: g  reason: collision with root package name */
-            public int f54653g;
+            public int f54820g;
 
             /* renamed from: h  reason: collision with root package name */
-            public int f54654h;
+            public int f54821h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ g f54655i;
+            public final /* synthetic */ g f54822i;
 
             public a(g gVar) {
                 Interceptable interceptable = $ic;
@@ -674,17 +674,17 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
                         return;
                     }
                 }
-                this.f54655i = gVar;
-                this.f54651e = this.f54655i.f54650e.firstInInsertionOrder;
-                this.f54652f = -1;
-                HashBiMap<K, V> hashBiMap = this.f54655i.f54650e;
-                this.f54653g = hashBiMap.modCount;
-                this.f54654h = hashBiMap.size;
+                this.f54822i = gVar;
+                this.f54818e = this.f54822i.f54817e.firstInInsertionOrder;
+                this.f54819f = -1;
+                HashBiMap<K, V> hashBiMap = this.f54822i.f54817e;
+                this.f54820g = hashBiMap.modCount;
+                this.f54821h = hashBiMap.size;
             }
 
             public final void a() {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f54655i.f54650e.modCount != this.f54653g) {
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f54822i.f54817e.modCount != this.f54820g) {
                     throw new ConcurrentModificationException();
                 }
             }
@@ -695,7 +695,7 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                     a();
-                    return this.f54651e != -2 && this.f54654h > 0;
+                    return this.f54818e != -2 && this.f54821h > 0;
                 }
                 return invokeV.booleanValue;
             }
@@ -706,10 +706,10 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     if (hasNext()) {
-                        T t = (T) this.f54655i.a(this.f54651e);
-                        this.f54652f = this.f54651e;
-                        this.f54651e = this.f54655i.f54650e.nextInInsertionOrder[this.f54651e];
-                        this.f54654h--;
+                        T t = (T) this.f54822i.a(this.f54818e);
+                        this.f54819f = this.f54818e;
+                        this.f54818e = this.f54822i.f54817e.nextInInsertionOrder[this.f54818e];
+                        this.f54821h--;
                         return t;
                     }
                     throw new NoSuchElementException();
@@ -722,13 +722,13 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                     a();
-                    m.e(this.f54652f != -1);
-                    this.f54655i.f54650e.removeEntry(this.f54652f);
-                    if (this.f54651e == this.f54655i.f54650e.size) {
-                        this.f54651e = this.f54652f;
+                    m.e(this.f54819f != -1);
+                    this.f54822i.f54817e.removeEntry(this.f54819f);
+                    if (this.f54818e == this.f54822i.f54817e.size) {
+                        this.f54818e = this.f54819f;
                     }
-                    this.f54652f = -1;
-                    this.f54653g = this.f54655i.f54650e.modCount;
+                    this.f54819f = -1;
+                    this.f54820g = this.f54822i.f54817e.modCount;
                 }
             }
         }
@@ -748,7 +748,7 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
                     return;
                 }
             }
-            this.f54650e = hashBiMap;
+            this.f54817e = hashBiMap;
         }
 
         public abstract T a(int i2);
@@ -757,7 +757,7 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f54650e.clear();
+                this.f54817e.clear();
             }
         }
 
@@ -772,7 +772,7 @@ public final class HashBiMap<K, V> extends AbstractMap<K, V> implements k<K, V>,
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f54650e.size : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f54817e.size : invokeV.intValue;
         }
     }
 

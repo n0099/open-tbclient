@@ -13,20 +13,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class LoadingDialogForLightApp extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ProgressBar f51777b;
+    public ProgressBar f51944b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f51778c;
+    public String f51945c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f51779d;
+    public Context f51946d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingDialogForLightApp(Context context) {
@@ -47,8 +47,8 @@ public class LoadingDialogForLightApp extends Dialog {
                 return;
             }
         }
-        this.f51779d = null;
-        this.f51779d = context;
+        this.f51946d = null;
+        this.f51946d = context;
     }
 
     @Override // android.app.Dialog
@@ -57,11 +57,11 @@ public class LoadingDialogForLightApp extends Dialog {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             requestWindowFeature(1);
-            setContentView(ResUtils.layout(this.f51779d, "wallet_base_loading_dialog_for_light_app"));
-            this.a = (TextView) findViewById(ResUtils.id(this.f51779d, "dialog_msg"));
-            this.f51777b = (ProgressBar) findViewById(ResUtils.id(this.f51779d, "progress_bar"));
-            if (!TextUtils.isEmpty(this.f51778c)) {
-                this.a.setText(this.f51778c);
+            setContentView(ResUtils.layout(this.f51946d, "wallet_base_loading_dialog_for_light_app"));
+            this.a = (TextView) findViewById(ResUtils.id(this.f51946d, "dialog_msg"));
+            this.f51944b = (ProgressBar) findViewById(ResUtils.id(this.f51946d, "progress_bar"));
+            if (!TextUtils.isEmpty(this.f51945c)) {
+                this.a.setText(this.f51945c);
             }
             if (!TextUtils.isEmpty(GlobalUtils.showStr)) {
                 this.a.setText(GlobalUtils.showStr);
@@ -108,9 +108,9 @@ public class LoadingDialogForLightApp extends Dialog {
                 return;
             }
         }
-        this.f51779d = null;
-        this.f51778c = str;
-        this.f51779d = context;
+        this.f51946d = null;
+        this.f51945c = str;
+        this.f51946d = context;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -132,6 +132,6 @@ public class LoadingDialogForLightApp extends Dialog {
                 return;
             }
         }
-        this.f51779d = null;
+        this.f51946d = null;
     }
 }

@@ -35,7 +35,7 @@ public interface b {
 
     /* renamed from: com.baidu.wallet.paysdk.payresult.presenter.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC2020b {
+    public interface InterfaceC2030b {
         void finishPage();
 
         void initActionBar(String str);

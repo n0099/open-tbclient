@@ -16,7 +16,7 @@ public final class NotificationLite {
     public static final Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f62506b;
+    public static final Object f62673b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
@@ -26,7 +26,7 @@ public final class NotificationLite {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Throwable f62507e;
+        public final Throwable f62674e;
 
         public OnErrorSentinel(Throwable th) {
             Interceptable interceptable = $ic;
@@ -43,14 +43,14 @@ public final class NotificationLite {
                     return;
                 }
             }
-            this.f62507e = th;
+            this.f62674e = th;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "Notification=>Error:" + this.f62507e;
+                return "Notification=>Error:" + this.f62674e;
             }
             return (String) invokeV.objValue;
         }
@@ -94,7 +94,7 @@ public final class NotificationLite {
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "Notification=>Completed" : (String) invokeV.objValue;
             }
         };
-        f62506b = new Serializable() { // from class: rx.internal.operators.NotificationLite.2
+        f62673b = new Serializable() { // from class: rx.internal.operators.NotificationLite.2
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 2;
             public transient /* synthetic */ FieldHolder $fh;
@@ -128,12 +128,12 @@ public final class NotificationLite {
             if (obj == a) {
                 eVar.onCompleted();
                 return true;
-            } else if (obj == f62506b) {
+            } else if (obj == f62673b) {
                 eVar.onNext(null);
                 return false;
             } else if (obj != null) {
                 if (obj.getClass() == OnErrorSentinel.class) {
-                    eVar.onError(((OnErrorSentinel) obj).f62507e);
+                    eVar.onError(((OnErrorSentinel) obj).f62674e);
                     return true;
                 }
                 eVar.onNext(obj);
@@ -160,7 +160,7 @@ public final class NotificationLite {
     public static Throwable d(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) ? ((OnErrorSentinel) obj).f62507e : (Throwable) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) ? ((OnErrorSentinel) obj).f62674e : (Throwable) invokeL.objValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: java.lang.Object */
@@ -169,7 +169,7 @@ public final class NotificationLite {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) {
-            if (obj == f62506b) {
+            if (obj == f62673b) {
                 return null;
             }
             return obj;
@@ -192,6 +192,6 @@ public final class NotificationLite {
     public static <T> Object h(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, t)) == null) ? t == null ? f62506b : t : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, t)) == null) ? t == null ? f62673b : t : invokeL.objValue;
     }
 }

@@ -4,11 +4,11 @@ import android.os.Build;
 import android.os.Process;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.loader.Reflect;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class AbiUtil {
     public static Abi a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum Abi {
         UNKNOWN,
         ARMEABI_V7A,

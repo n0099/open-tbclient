@@ -1,12 +1,13 @@
 package com.baidu.tieba.personPolymeric.mode;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.f;
-import c.a.d.n.e.n;
-import c.a.t0.y2.e.i;
-import c.a.t0.y2.e.j;
+import c.a.d.o.e.n;
+import c.a.u0.z2.e.i;
+import c.a.u0.z2.e.j;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -53,7 +54,7 @@ import tbclient.User;
 import tbclient.UserPost.DataRes;
 import tbclient.UserPost.UserPostResIdl;
 import tbclient.Voice;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static int FROM_PERSON_POLYMERIC = 1;
@@ -80,7 +81,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public final ArrayList<n> threadList;
     public int view_card_num;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class Abs extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -123,7 +124,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class AnchorInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -190,7 +191,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class LabelInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -227,7 +228,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class LbsInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -264,7 +265,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class Media extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -304,7 +305,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class PostInfoContent extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -355,7 +356,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class PostInfoList extends OrmObject implements Serializable, PreLoadImageProvider, n {
         public static /* synthetic */ Interceptable $ic;
         public static final BdUniqueId POST_INFO;
@@ -464,7 +465,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             return (ArrayList) invokeV.objValue;
         }
 
-        @Override // c.a.d.n.e.n
+        @Override // c.a.d.o.e.n
         public BdUniqueId getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -546,7 +547,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class Quote extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -589,7 +590,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class UserInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -626,7 +627,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class Zan extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -657,7 +658,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class ZhiBoInfoTW extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -746,7 +747,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a extends c.a.d.c.g.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -795,7 +796,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -844,12 +845,12 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface c {
         void onResult(PersonPostModel personPostModel, boolean z);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface d {
         void on(PersonPostModel personPostModel, boolean z);
     }
@@ -1044,14 +1045,14 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
 
     public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, c cVar, boolean z, String str, boolean z2, boolean z3, boolean z4, User user) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{tbPageContext, cVar, Boolean.valueOf(z), str, Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), user}) == null) {
-            fetchPost(tbPageContext, cVar, z, str, z2, 0, z3, z4, user, null, null, null, null, null);
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{tbPageContext, cVar, Boolean.valueOf(z), str, Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), user}) == null) {
+            fetchPost(tbPageContext, cVar, z, str, z2, 0, z3, z4, user, null, null, null, null, null, null);
         }
     }
 
     public void fetchPostByBeginThreadId(@NonNull String str, @NonNull c cVar, @Nullable MetaData metaData, @NonNull Integer num, @NonNull Integer num2, @NonNull Integer num3, @NonNull Integer num4, @NonNull Long l, @NonNull Integer num5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, cVar, metaData, num, num2, num3, num4, l, num5}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, cVar, metaData, num, num2, num3, num4, l, num5}) == null) {
             UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
             userPostPageRequestMessage.set_sub_type(num2.intValue());
             userPostPageRequestMessage.setUid(str);
@@ -1085,20 +1086,20 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public Map<String, Object> getDataResMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.dataResMap : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.dataResMap : (Map) invokeV.objValue;
     }
 
     public ResponsedMessage<?> getResponsedMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mResponsedMessage : (ResponsedMessage) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mResponsedMessage : (ResponsedMessage) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -1107,7 +1108,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public UserPostResIdl parseProtobuf(byte[] bArr, int i2, User user, @Nullable MetaData metaData) {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i2, user, metaData)) == null) {
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048585, this, bArr, i2, user, metaData)) == null) {
             if (bArr == null) {
                 return null;
             }
@@ -1125,21 +1126,21 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
 
     public void resetThreadPn() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             mRecommentPn = 1;
         }
     }
 
     public void setOnResult(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, dVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, dVar) == null) {
             this.mOnResult = dVar;
         }
     }
 
     public void setResponsedMessage(ResponsedMessage<?> responsedMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, responsedMessage) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, responsedMessage) == null) {
             this.mResponsedMessage = responsedMessage;
         }
     }
@@ -1147,7 +1148,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     @Override // com.baidu.adp.base.BdBaseModel
     public void setUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, bdUniqueId) == null) {
             this.unique_id = bdUniqueId;
             registerListener(this.pageSocketListener);
             registerListener(this.pageHttpListener);
@@ -1159,13 +1160,20 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, c cVar, boolean z, String str, boolean z2, int i2, boolean z3, boolean z4, User user) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{tbPageContext, cVar, Boolean.valueOf(z), str, Boolean.valueOf(z2), Integer.valueOf(i2), Boolean.valueOf(z3), Boolean.valueOf(z4), user}) == null) {
-            fetchPost(tbPageContext, cVar, z, str, z2, i2, z3, z4, user, null, null, null, null, null);
+            fetchPost(tbPageContext, cVar, z, str, z2, i2, z3, z4, user, null, null, null, null, null, null);
         }
     }
 
-    public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, c cVar, boolean z, String str, boolean z2, int i2, boolean z3, boolean z4, @Nullable User user, @Nullable MetaData metaData, @Nullable Integer num, @Nullable Integer num2, @Nullable Integer num3, @Nullable Long l) {
+    public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, c cVar, boolean z, String str, boolean z2, int i2, boolean z3, boolean z4, User user, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, cVar, Boolean.valueOf(z), str, Boolean.valueOf(z2), Integer.valueOf(i2), Boolean.valueOf(z3), Boolean.valueOf(z4), user, metaData, num, num2, num3, l}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{tbPageContext, cVar, Boolean.valueOf(z), str, Boolean.valueOf(z2), Integer.valueOf(i2), Boolean.valueOf(z3), Boolean.valueOf(z4), user, str2}) == null) {
+            fetchPost(tbPageContext, cVar, z, str, z2, i2, z3, z4, user, null, null, null, null, null, str2);
+        }
+    }
+
+    public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, c cVar, boolean z, String str, boolean z2, int i2, boolean z3, boolean z4, @Nullable User user, @Nullable MetaData metaData, @Nullable Integer num, @Nullable Integer num2, @Nullable Integer num3, @Nullable Long l, @Nullable String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, cVar, Boolean.valueOf(z), str, Boolean.valueOf(z2), Integer.valueOf(i2), Boolean.valueOf(z3), Boolean.valueOf(z4), user, metaData, num, num2, num3, l, str2}) == null) {
             this.mIsReset = z;
             if (z3) {
                 if (!z && str.equals(mLastThreadUid)) {
@@ -1175,7 +1183,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                     mLastThreadUid = str;
                 }
             } else {
-                if (z || !str.equals(mLastThreadUid)) {
+                if (z || (!TextUtils.isEmpty(str) && !str.equals(mLastThreadUid))) {
                     if (this.mFrom == FROM_PERSON_POLYMERIC) {
                         mRecommentPn = 1;
                     } else {
@@ -1187,12 +1195,15 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             }
             UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
             userPostPageRequestMessage.set_sub_type(i2);
-            userPostPageRequestMessage.setUid(mLastThreadUid);
+            if (!TextUtils.isEmpty(str)) {
+                userPostPageRequestMessage.setUid(mLastThreadUid);
+            }
             if (z3) {
                 userPostPageRequestMessage.setPn(mThreadPn);
             } else {
                 userPostPageRequestMessage.setPn(mRecommentPn);
             }
+            userPostPageRequestMessage.setPortrait(str2);
             userPostPageRequestMessage.setRn(20);
             userPostPageRequestMessage.setThread(!z3);
             userPostPageRequestMessage.setHost(this.mIsHost);

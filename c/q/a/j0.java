@@ -13,10 +13,10 @@ public class j0 {
     public List a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30369b;
+    public String f30575b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30370c;
+    public String f30576c;
 
     public j0() {
         Interceptable interceptable = $ic;
@@ -35,6 +35,6 @@ public class j0 {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30369b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30575b : (String) invokeV.objValue;
     }
 }

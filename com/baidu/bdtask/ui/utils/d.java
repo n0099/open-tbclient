@@ -34,24 +34,24 @@ public final class d {
         public final /* synthetic */ Function0 a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f33040b;
+        public final /* synthetic */ View f33246b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Function0 f33041c;
+        public final /* synthetic */ Function0 f33247c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c.a.j.j.d.a f33042d;
+        public final /* synthetic */ c.a.j.j.d.a f33248d;
 
         /* renamed from: com.baidu.bdtask.ui.utils.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public static final class RunnableC1793a implements Runnable {
+        public static final class RunnableC1803a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f33043e;
+            public final /* synthetic */ a f33249e;
 
-            public RunnableC1793a(a aVar) {
+            public RunnableC1803a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,14 +66,14 @@ public final class d {
                         return;
                     }
                 }
-                this.f33043e = aVar;
+                this.f33249e = aVar;
             }
 
             @Override // java.lang.Runnable
             public final void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f33043e.a.invoke();
+                    this.f33249e.a.invoke();
                 }
             }
         }
@@ -84,10 +84,10 @@ public final class d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f33044e;
+            public final /* synthetic */ a f33250e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Bitmap f33045f;
+            public final /* synthetic */ Bitmap f33251f;
 
             public b(a aVar, Bitmap bitmap) {
                 Interceptable interceptable = $ic;
@@ -104,26 +104,26 @@ public final class d {
                         return;
                     }
                 }
-                this.f33044e = aVar;
-                this.f33045f = bitmap;
+                this.f33250e = aVar;
+                this.f33251f = bitmap;
             }
 
             @Override // java.lang.Runnable
             public final void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.f33045f.isRecycled()) {
-                        this.f33044e.a.invoke();
+                    if (this.f33251f.isRecycled()) {
+                        this.f33250e.a.invoke();
                         return;
                     }
-                    View view = this.f33044e.f33040b;
+                    View view = this.f33250e.f33246b;
                     if (Intrinsics.areEqual(view, (ImageView) (!(view instanceof ImageView) ? null : view))) {
-                        ((ImageView) this.f33044e.f33040b).setImageBitmap(this.f33045f);
-                        this.f33044e.f33041c.invoke();
+                        ((ImageView) this.f33250e.f33246b).setImageBitmap(this.f33251f);
+                        this.f33250e.f33247c.invoke();
                         return;
                     }
-                    this.f33044e.f33040b.setBackground(new BitmapDrawable(this.f33044e.f33042d.h().getAppContext().getResources(), this.f33045f));
-                    this.f33044e.f33041c.invoke();
+                    this.f33250e.f33246b.setBackground(new BitmapDrawable(this.f33250e.f33248d.h().getAppContext().getResources(), this.f33251f));
+                    this.f33250e.f33247c.invoke();
                 }
             }
         }
@@ -144,9 +144,9 @@ public final class d {
                 }
             }
             this.a = function0;
-            this.f33040b = view;
-            this.f33041c = function02;
-            this.f33042d = aVar;
+            this.f33246b = view;
+            this.f33247c = function02;
+            this.f33248d = aVar;
         }
 
         @Override // c.a.j.h.b.f.a
@@ -161,7 +161,7 @@ public final class d {
         public void onError() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                e.c(new RunnableC1793a(this));
+                e.c(new RunnableC1803a(this));
             }
         }
     }

@@ -26,32 +26,32 @@ public class k {
     public static final String a = "k";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f33836b = "cu";
+    public static final String f34042b = "cu";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f33837c = "cu2";
+    public static final String f34043c = "cu2";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f33838d = "ua";
+    public static final String f34044d = "ua";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f33839e = "op";
+    public static final String f34045e = "op";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f33840f = "bs";
+    public static final String f34046f = "bs";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f33841g = "bk";
+    public static final String f34047g = "bk";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f33842h = "lc";
+    public static final String f34048h = "lc";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f33843i = "sd";
+    public static final String f34049i = "sd";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public Pattern f33844j;
+    public Pattern f34050j;
 
     /* loaded from: classes10.dex */
     public static class a {
@@ -118,7 +118,7 @@ public class k {
                 return;
             }
         }
-        this.f33844j = Pattern.compile("\\s*|\t|\r|\n");
+        this.f34050j = Pattern.compile("\\s*|\t|\r|\n");
     }
 
     public /* synthetic */ k(j jVar) {
@@ -153,7 +153,7 @@ public class k {
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, context)) == null) {
             try {
                 try {
-                    return this.f33844j.matcher(PhoneUtils.getCUID(context)).replaceAll("");
+                    return this.f34050j.matcher(PhoneUtils.getCUID(context)).replaceAll("");
                 } catch (Exception unused) {
                     return str;
                 }
@@ -171,7 +171,7 @@ public class k {
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, context)) == null) {
             try {
                 try {
-                    return this.f33844j.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
+                    return this.f34050j.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
                 } catch (Exception unused) {
                     return str;
                 }
@@ -215,13 +215,13 @@ public class k {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("ua", h(RimStatisticsUtil.getAppContext()));
-                jSONObject.putOpt(f33836b, e(RimStatisticsUtil.getAppContext()));
-                jSONObject.put(f33837c, f(RimStatisticsUtil.getAppContext()));
+                jSONObject.putOpt(f34042b, e(RimStatisticsUtil.getAppContext()));
+                jSONObject.put(f34043c, f(RimStatisticsUtil.getAppContext()));
                 jSONObject.putOpt("op", g(RimStatisticsUtil.getAppContext()));
                 jSONObject.putOpt("bs", c(RimStatisticsUtil.getAppContext()));
-                jSONObject.putOpt(f33841g, d(RimStatisticsUtil.getAppContext()));
+                jSONObject.putOpt(f34047g, d(RimStatisticsUtil.getAppContext()));
                 jSONObject.putOpt("sd", b(RimStatisticsUtil.getAppContext()));
-                jSONObject.putOpt(f33842h, a(RimStatisticsUtil.getAppContext()));
+                jSONObject.putOpt(f34048h, a(RimStatisticsUtil.getAppContext()));
             } catch (JSONException unused) {
             }
             return jSONObject.toString();

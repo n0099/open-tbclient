@@ -308,7 +308,7 @@ public class Config {
         public static final EventViewType EDIT;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ EventViewType[] f36776b;
+        public static final /* synthetic */ EventViewType[] f36982b;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
@@ -328,7 +328,7 @@ public class Config {
             EDIT = new EventViewType("EDIT", 0, 0);
             EventViewType eventViewType = new EventViewType("BUTTON", 1, 1);
             BUTTON = eventViewType;
-            f36776b = new EventViewType[]{EDIT, eventViewType};
+            f36982b = new EventViewType[]{EDIT, eventViewType};
         }
 
         public EventViewType(String str, int i2, int i3) {
@@ -361,7 +361,7 @@ public class Config {
         public static EventViewType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EventViewType[]) f36776b.clone() : (EventViewType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EventViewType[]) f36982b.clone() : (EventViewType[]) invokeV.objValue;
         }
 
         public int getValue() {

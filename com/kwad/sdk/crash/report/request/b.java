@@ -6,7 +6,7 @@ import com.kwad.sdk.core.network.j;
 import com.kwad.sdk.crash.report.ReportEvent;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
     public void a(final List<ReportEvent> list) {
         if (list == null || list.size() <= 0) {

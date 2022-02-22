@@ -14,16 +14,16 @@ public class ForumCreateInfoData extends OrmObject {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42554e;
+    public int f42787e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42555f;
+    public int f42788f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f42556g;
+    public int f42789g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f42557h;
+    public String f42790h;
 
     public ForumCreateInfoData() {
         Interceptable interceptable = $ic;
@@ -38,10 +38,10 @@ public class ForumCreateInfoData extends OrmObject {
                 return;
             }
         }
-        this.f42554e = 0;
-        this.f42555f = 0;
-        this.f42556g = 0;
-        this.f42557h = null;
+        this.f42787e = 0;
+        this.f42788f = 0;
+        this.f42789g = 0;
+        this.f42790h = null;
     }
 
     public void A(ForumCreateInfo forumCreateInfo) {
@@ -49,33 +49,33 @@ public class ForumCreateInfoData extends OrmObject {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, forumCreateInfo) == null) || forumCreateInfo == null) {
             return;
         }
-        this.f42554e = forumCreateInfo.is_show_create.intValue();
-        this.f42555f = forumCreateInfo.is_can_create.intValue();
-        this.f42556g = forumCreateInfo.can_create_errno.intValue();
-        this.f42557h = forumCreateInfo.can_create_errdata;
+        this.f42787e = forumCreateInfo.is_show_create.intValue();
+        this.f42788f = forumCreateInfo.is_can_create.intValue();
+        this.f42789g = forumCreateInfo.can_create_errno.intValue();
+        this.f42790h = forumCreateInfo.can_create_errdata;
     }
 
     public String w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42557h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42790h : (String) invokeV.objValue;
     }
 
     public int x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42556g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42789g : invokeV.intValue;
     }
 
     public boolean y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42555f != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42788f != 0 : invokeV.booleanValue;
     }
 
     public boolean z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42554e != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42787e != 0 : invokeV.booleanValue;
     }
 }

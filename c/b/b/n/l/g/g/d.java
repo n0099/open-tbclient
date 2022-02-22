@@ -11,10 +11,10 @@ public class d {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public short[] f27273b;
+    public short[] f27479b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27274c;
+    public int f27480c;
 
     public d() {
         Interceptable interceptable = $ic;

@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class BdHttpCancelException extends IOException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 6712119810502114101L;

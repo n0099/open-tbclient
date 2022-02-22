@@ -6,10 +6,10 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import c.a.d.a.h;
 import c.a.d.f.p.n;
-import c.a.s0.i0.a;
-import c.a.s0.i0.b;
-import c.a.s0.i0.c;
-import c.a.s0.i0.d;
+import c.a.t0.i0.a;
+import c.a.t0.i0.b;
+import c.a.t0.i0.c;
+import c.a.t0.i0.d;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -155,7 +155,7 @@ public class FlutterDelegateStatic extends b {
         }
     }
 
-    @Override // c.a.s0.i0.b
+    @Override // c.a.t0.i0.b
     public c createFragmentTabStructure() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -163,18 +163,18 @@ public class FlutterDelegateStatic extends b {
             c cVar = new c();
             cVar.a = new FlutterBaseFragment.NewEngineFragmentBuilder(TbFlutterFragment.class).url(OpenFlutter.FRAGMENT_MYTAB).isTabHost(true).build();
             isInited = false;
-            cVar.f12933e = 8;
+            cVar.f13192e = 8;
             Resources resources = h.a().getResources();
-            cVar.f12930b = resources.getIdentifier("mine", "string", BdBaseApplication.getInst().getPackageName());
-            cVar.f12934f = resources.getIdentifier("lottie_tab_my", "raw", BdBaseApplication.getInst().getPackageName());
-            cVar.f12937i = c.m;
-            cVar.f12936h = c.a.s0.i0.e.c.d().c("person");
+            cVar.f13189b = resources.getIdentifier("mine", "string", BdBaseApplication.getInst().getPackageName());
+            cVar.f13193f = resources.getIdentifier("lottie_tab_my", "raw", BdBaseApplication.getInst().getPackageName());
+            cVar.f13196i = c.m;
+            cVar.f13195h = c.a.t0.i0.e.c.d().c("person");
             return cVar;
         }
         return (c) invokeV.objValue;
     }
 
-    @Override // c.a.s0.i0.b
+    @Override // c.a.t0.i0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -182,11 +182,11 @@ public class FlutterDelegateStatic extends b {
             this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(h.a().getResources().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
             this.tipView = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-            aVar.f41072f = this.mIndicator;
-            aVar.f41069c = n.d(context, 10.0f);
+            aVar.f41301f = this.mIndicator;
+            aVar.f41298c = n.d(context, 10.0f);
             aVar.a = this.tipView;
             this.mIndicator.addTipWrapContent(FileHelper.FILE_CACHE_EMOTION_PACKAGE, aVar);
-            boolean h2 = c.a.s0.s.i0.b.k().h("key_feedback_tip_tab_show", false);
+            boolean h2 = c.a.t0.s.j0.b.k().h("key_feedback_tip_tab_show", false);
             if (!this.isNew.booleanValue() && !h2) {
                 this.tipView.setVisibility(8);
             } else {
@@ -198,14 +198,14 @@ public class FlutterDelegateStatic extends b {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // c.a.s0.i0.b
+    @Override // c.a.t0.i0.b
     public boolean isAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? MainTabActivityConfig.PERSON_TAB_AVAIBLE : invokeV.booleanValue;
     }
 
-    @Override // c.a.s0.i0.b
+    @Override // c.a.t0.i0.b
     public void onAdd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -256,7 +256,7 @@ public class FlutterDelegateStatic extends b {
         }
     }
 
-    @Override // c.a.s0.i0.b
+    @Override // c.a.t0.i0.b
     public void onRemove() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {

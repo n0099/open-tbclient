@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.INoProGuard;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Log implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static String LOG_TAG = "ZeusLog";

@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import c.a.d.f.p.n;
-import c.a.t0.o2.g.e;
+import c.a.u0.p2.g.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -21,18 +21,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class CreateNewEmotionFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.t0.o2.h.f.a f46230e;
+    public c.a.u0.p2.h.f.a f46372e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f46231f;
+    public CustomMessageListener f46373f;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,35 +65,35 @@ public class CreateNewEmotionFragment extends BaseFragment {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof HashMap)) {
                 HashMap hashMap = (HashMap) customResponsedMessage.getData();
-                if (this.a.f46230e == null) {
+                if (this.a.f46372e == null) {
                     return;
                 }
                 if (hashMap == null || hashMap.isEmpty()) {
-                    if (this.a.f46230e != null) {
-                        this.a.f46230e.i();
+                    if (this.a.f46372e != null) {
+                        this.a.f46372e.i();
                     }
                 } else if (!hashMap.containsKey("upload_result")) {
-                    if (this.a.f46230e != null) {
-                        this.a.f46230e.i();
+                    if (this.a.f46372e != null) {
+                        this.a.f46372e.i();
                     }
                 } else if (hashMap.get("upload_result") == null || !(hashMap.get("upload_result") instanceof Boolean)) {
-                    if (this.a.f46230e != null) {
-                        this.a.f46230e.i();
+                    if (this.a.f46372e != null) {
+                        this.a.f46372e.i();
                     }
                 } else if (!((Boolean) hashMap.get("upload_result")).booleanValue()) {
-                    if (this.a.f46230e != null) {
+                    if (this.a.f46372e != null) {
                         String str = (String) hashMap.get("upload_msg");
                         if (!TextUtils.isEmpty(str)) {
                             n.K(this.a.getActivity(), str);
                         } else {
                             n.K(this.a.getActivity(), this.a.getString(R.string.emotion_error_default_net_tip));
                         }
-                        this.a.f46230e.l();
+                        this.a.f46372e.l();
                     }
                 } else {
                     BdToast.c(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getText(R.string.face_group_upload_success)).q();
-                    if (this.a.f46230e != null) {
-                        this.a.f46230e.i();
+                    if (this.a.f46372e != null) {
+                        this.a.f46372e.i();
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921054));
                 }
@@ -114,20 +114,20 @@ public class CreateNewEmotionFragment extends BaseFragment {
                 return;
             }
         }
-        this.f46231f = new a(this, 2921040);
+        this.f46373f = new a(this, 2921040);
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f46230e == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f46372e == null) {
             return;
         }
         if (e.l().r()) {
-            this.f46230e.j();
+            this.f46372e.j();
         } else if (e.l().k() == null) {
-            this.f46230e.i();
+            this.f46372e.i();
         } else {
-            this.f46230e.m(getString(R.string.emotion_draft_tip));
+            this.f46372e.m(getString(R.string.emotion_draft_tip));
         }
     }
 
@@ -149,7 +149,7 @@ public class CreateNewEmotionFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             super.onChangeSkinType(i2);
-            c.a.t0.o2.h.f.a aVar = this.f46230e;
+            c.a.u0.p2.h.f.a aVar = this.f46372e;
             if (aVar != null) {
                 aVar.g(i2);
             }
@@ -161,9 +161,9 @@ public class CreateNewEmotionFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
-            registerListener(this.f46231f);
-            c.a.t0.o2.h.f.a aVar = new c.a.t0.o2.h.f.a(getPageContext(), j());
-            this.f46230e = aVar;
+            registerListener(this.f46373f);
+            c.a.u0.p2.h.f.a aVar = new c.a.u0.p2.h.f.a(getPageContext(), j());
+            this.f46372e = aVar;
             return aVar.f();
         }
         return (View) invokeLLL.objValue;
@@ -174,7 +174,7 @@ public class CreateNewEmotionFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            c.a.t0.o2.h.f.a aVar = this.f46230e;
+            c.a.u0.p2.h.f.a aVar = this.f46372e;
             if (aVar != null) {
                 aVar.h();
             }

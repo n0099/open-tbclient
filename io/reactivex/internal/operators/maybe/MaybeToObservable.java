@@ -28,7 +28,7 @@ public final class MaybeToObservable<T> extends Observable<T> implements HasUpst
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f62197d;
+        public Disposable f62364d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public MaybeToObservableObserver(Observer<? super T> observer) {
@@ -55,7 +55,7 @@ public final class MaybeToObservable<T> extends Observable<T> implements HasUpst
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.dispose();
-                this.f62197d.dispose();
+                this.f62364d.dispose();
             }
         }
 
@@ -78,8 +78,8 @@ public final class MaybeToObservable<T> extends Observable<T> implements HasUpst
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.f62197d, disposable)) {
-                this.f62197d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.f62364d, disposable)) {
+                this.f62364d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

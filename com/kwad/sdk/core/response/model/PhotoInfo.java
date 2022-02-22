@@ -5,7 +5,7 @@ import com.kwad.sdk.live.mode.LiveInfo;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static final long serialVersionUID = -4483350806354759008L;
     public BaseInfo baseInfo = new BaseInfo();
@@ -18,7 +18,7 @@ public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Seri
     public WallpaperInfo wallpaperInfo = new WallpaperInfo();
     public ProductInfo productInfo = new ProductInfo();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class AuthorInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = 3647144332352243129L;
         public String authorEid;
@@ -33,7 +33,7 @@ public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Seri
         public String rawAuthorName;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class BaseInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = 2257669583403371065L;
         public long commentCount;
@@ -52,7 +52,7 @@ public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Seri
         public int waterMarkPosition;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class CoverInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = 9136122984250063738L;
         public String blurBackgroundUrl;
@@ -63,7 +63,7 @@ public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Seri
         public int width;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ProductInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = -6976688557388750318L;
         public ProductDetail productDetail = new ProductDetail();
@@ -71,7 +71,7 @@ public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Seri
         public long productId;
         public String shennongjiaLog;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static class ProductDetail extends com.kwad.sdk.core.response.kwai.a implements Serializable {
             public static final long serialVersionUID = -3610510819973783411L;
             public String linkCode;
@@ -111,7 +111,7 @@ public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Seri
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class TubeEpisode extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = -2087412525733788061L;
         public String episodeName;
@@ -129,7 +129,7 @@ public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Seri
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class VideoInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = 1395696168725754442L;
         public long duration;
@@ -145,7 +145,7 @@ public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Seri
         public double widthRatio;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class WallpaperInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = -8572865298854850054L;
         public boolean isWallpaperPhoto = false;

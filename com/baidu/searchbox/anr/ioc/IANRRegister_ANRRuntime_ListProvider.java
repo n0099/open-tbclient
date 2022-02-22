@@ -1,6 +1,6 @@
 package com.baidu.searchbox.anr.ioc;
 
-import c.a.k0.a.a;
+import c.a.l0.a.a;
 import com.baidu.searchbox.anr.ubc.UbcANRRegister;
 import com.baidu.searchbox.anr.upload.ANRBOSRegister;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class IANRRegister_ANRRuntime_ListProvider implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class IANRRegister_ANRRuntime_ListProvider implements a {
         }
     }
 
-    @Override // c.a.k0.a.a
+    @Override // c.a.l0.a.a
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

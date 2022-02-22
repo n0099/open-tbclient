@@ -36,7 +36,7 @@ public class CashierDeskPayResult extends H5PayResultProcess implements NoProgua
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public H5LifeCycleCallback f52095b;
+    public H5LifeCycleCallback f52262b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
@@ -113,7 +113,7 @@ public class CashierDeskPayResult extends H5PayResultProcess implements NoProgua
                 return;
             }
         }
-        this.f52095b = null;
+        this.f52262b = null;
         this.mContext = context;
         this.mH5 = h5ResultParams;
     }
@@ -219,7 +219,7 @@ public class CashierDeskPayResult extends H5PayResultProcess implements NoProgua
                 afterShow();
                 return;
             }
-            if (this.f52095b == null) {
+            if (this.f52262b == null) {
                 H5LifeCycleCallback h5LifeCycleCallback = new H5LifeCycleCallback(this) { // from class: com.baidu.wallet.paysdk.payresult.presenter.CashierDeskPayResult.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -252,14 +252,14 @@ public class CashierDeskPayResult extends H5PayResultProcess implements NoProgua
                         }
                     }
                 };
-                this.f52095b = h5LifeCycleCallback;
+                this.f52262b = h5LifeCycleCallback;
                 h5LifeCycleCallback.push();
             }
             Bundle bundle = new Bundle();
             bundle.putBoolean("with_anim", false);
             bundle.putBoolean("show_share", false);
             bundle.putString("url", this.a);
-            bundle.putParcelable("lifecycleLsnr", this.f52095b);
+            bundle.putParcelable("lifecycleLsnr", this.f52262b);
             BaiduWalletDelegate.getInstance().openH5Module(this.mContext, bundle);
             PayBaseBeanActivity.exitEbpay();
         }

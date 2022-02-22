@@ -1,8 +1,8 @@
 package com.baidu.tieba.ala.livecard.models;
 
-import c.a.d.n.e.n;
-import c.a.s0.s.q.e2;
-import c.a.t0.e1.m1;
+import c.a.d.o.e.n;
+import c.a.t0.s.r.e2;
+import c.a.u0.e1.m1;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,12 +58,12 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
             JSONObject optJSONObject = jSONObject.optJSONObject("page");
             m1 m1Var = new m1();
             this.pageInfo = m1Var;
-            m1Var.f16585g = optJSONObject.optInt("has_more") == 1;
-            this.pageInfo.f17231c = optJSONObject.optInt("pn");
+            m1Var.f16769g = optJSONObject.optInt("has_more") == 1;
+            this.pageInfo.f17359c = optJSONObject.optInt("pn");
             if (getOrginalMessage() instanceof FrsPageAlaTabRequestMessage) {
                 FrsPageAlaTabRequestMessage frsPageAlaTabRequestMessage = (FrsPageAlaTabRequestMessage) getOrginalMessage();
                 this.pageInfo.a = frsPageAlaTabRequestMessage.getForumName();
-                this.pageInfo.f17230b = frsPageAlaTabRequestMessage.getForumId();
+                this.pageInfo.f17358b = frsPageAlaTabRequestMessage.getForumId();
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
             if (optJSONArray.length() > 0) {

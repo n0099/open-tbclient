@@ -4,10 +4,10 @@ import android.app.Application;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import c.a.r0.a.c;
-import c.a.r0.a.h;
-import c.a.r0.a.k;
-import c.a.r0.a.z1.b;
+import c.a.s0.a.c;
+import c.a.s0.a.h;
+import c.a.s0.a.k;
+import c.a.s0.a.z1.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -150,7 +150,7 @@ public class ReplyEditorParams implements Parcelable {
                 }
                 i2 = -1;
             }
-            Application c3 = c.a.r0.a.c1.a.c();
+            Application c3 = c.a.s0.a.c1.a.c();
             String c4 = b.c(jSONObject, "sendBackgroundColor", "#3388FF");
             int color = c3.getResources().getColor(c.swanapp_publish_btn_enable_color);
             try {

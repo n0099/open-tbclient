@@ -13,11 +13,11 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a1.t.c;
-import c.a.a1.t.h;
-import c.a.a1.t.m;
-import c.a.a1.t.u;
-import c.a.b0.b.a.g;
+import c.a.b1.t.c;
+import c.a.b1.t.h;
+import c.a.b1.t.m;
+import c.a.b1.t.u;
+import c.a.c0.b.a.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
@@ -597,7 +597,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                 }
                 mediaSegment.effectStart = subTitle.startTime;
                 mediaSegment.effectEnd = subTitle.endTime;
-                mediaSegment.mediaAEffect = c.a.b0.b.a.k.c.i(MultiDataSourceUtil.getSubtitleAndStickerTrack(this.mediaTracks), this.mEditTrackConfig, mediaSegment.type, this.mSubTitleUnits.indexOf(subTitle), this.mSubTitleUnits.size(), subTitle.endTime - subTitle.startTime);
+                mediaSegment.mediaAEffect = c.a.c0.b.a.k.c.i(MultiDataSourceUtil.getSubtitleAndStickerTrack(this.mediaTracks), this.mEditTrackConfig, mediaSegment.type, this.mSubTitleUnits.indexOf(subTitle), this.mSubTitleUnits.size(), subTitle.endTime - subTitle.startTime);
                 multiMediaData.width = 0;
                 multiMediaData.height = 0;
                 multiMediaData.textureId = MultiDataSourceUtil.initImageByBitmap(multiMediaData, subTitle.textBitmap.copy(Bitmap.Config.ARGB_8888, false));
@@ -691,7 +691,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
     private void log() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            c.a.b0.b.a.k.c.l();
+            c.a.c0.b.a.k.c.l();
         }
     }
 

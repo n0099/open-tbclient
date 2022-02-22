@@ -1,7 +1,7 @@
 package com.baidu.adp.newwidget.ImageView;
 
 import android.graphics.Matrix;
-import c.a.d.g.a.b;
+import c.a.d.h.a.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,38 +9,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DrawerArgs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f31229b;
+    public boolean f31435b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f31230c;
+    public boolean f31436c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f31231d;
+    public int f31437d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f31232e;
+    public int f31438e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SkinType f31233f;
+    public SkinType f31439f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f31234g;
+    public boolean f31440g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f31235h;
+    public boolean f31441h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f31236i;
+    public boolean f31442i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f31237j;
+    public int f31443j;
     public float k;
     public Matrix l;
     public int m;
@@ -48,7 +48,7 @@ public class DrawerArgs {
     public boolean o;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class SkinType {
         public static final /* synthetic */ SkinType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -123,10 +123,10 @@ public class DrawerArgs {
             }
         }
         this.a = new float[8];
-        this.f31233f = SkinType.DAY;
-        this.f31235h = false;
-        this.f31236i = true;
-        this.f31237j = b.a;
+        this.f31439f = SkinType.DAY;
+        this.f31441h = false;
+        this.f31442i = true;
+        this.f31443j = b.a;
         this.k = 1.0f;
         this.o = false;
     }

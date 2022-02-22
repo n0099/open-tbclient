@@ -1,7 +1,7 @@
 package com.kwad.sdk.utils;
 
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class m {
     public static long a = -1;
 

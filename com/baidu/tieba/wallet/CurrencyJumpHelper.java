@@ -3,8 +3,8 @@ package com.baidu.tieba.wallet;
 import android.content.Context;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.r0.c;
-import c.a.s0.r0.g;
+import c.a.t0.r0.c;
+import c.a.t0.r0.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -137,8 +137,8 @@ public class CurrencyJumpHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, cVar, str, l, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
             g gVar = new g(context, 0, str, l, cVar);
-            gVar.f13121g = z;
-            gVar.f13120f = i2;
+            gVar.f13388g = z;
+            gVar.f13387f = i2;
             MessageManager.getInstance().runTask(2921546, String.class, gVar);
         }
     }

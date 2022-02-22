@@ -228,16 +228,16 @@ public class PublicMsg implements Parcelable {
                 public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f32307b;
+                public final /* synthetic */ String f32513b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f32308c;
+                public final /* synthetic */ String f32514c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f32309d;
+                public final /* synthetic */ String f32515d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ PublicMsg f32310e;
+                public final /* synthetic */ PublicMsg f32516e;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -258,11 +258,11 @@ public class PublicMsg implements Parcelable {
                             return;
                         }
                     }
-                    this.f32310e = this;
+                    this.f32516e = this;
                     this.a = context;
-                    this.f32307b = b2;
-                    this.f32308c = r13;
-                    this.f32309d = a;
+                    this.f32513b = b2;
+                    this.f32514c = r13;
+                    this.f32515d = a;
                 }
 
                 @Override // com.baidu.android.pushservice.g.c
@@ -273,9 +273,9 @@ public class PublicMsg implements Parcelable {
                             HashMap hashMap = new HashMap();
                             com.baidu.android.pushservice.httpapi.b.a(this.a, hashMap);
                             hashMap.put("method", "linkhit");
-                            hashMap.put("channel_token", this.f32307b);
-                            hashMap.put("data", this.f32308c);
-                            if (com.baidu.android.pushservice.d.c.a(this.a, com.baidu.android.pushservice.g.e() + this.f32309d, "POST", hashMap).b() == 200) {
+                            hashMap.put("channel_token", this.f32513b);
+                            hashMap.put("data", this.f32514c);
+                            if (com.baidu.android.pushservice.d.c.a(this.a, com.baidu.android.pushservice.g.e() + this.f32515d, "POST", hashMap).b() == 200) {
                                 com.baidu.android.pushservice.f.a.c(PublicMsg.TAG, "<<< public msg send result return OK!", this.a.getApplicationContext());
                             }
                         } catch (Exception e3) {
@@ -337,7 +337,7 @@ public class PublicMsg implements Parcelable {
         return (String) invokeLL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:27:0x00cf  */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x00ce  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

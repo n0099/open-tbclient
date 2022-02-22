@@ -36,7 +36,7 @@ import com.bumptech.glide.util.pool.StateVerifier;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Runnable, Comparable<DecodeJob<?>>, FactoryPools.Poolable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DecodeJob";
@@ -74,7 +74,7 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
     public int width;
 
     /* renamed from: com.bumptech.glide.load.engine.DecodeJob$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$bumptech$glide$load$EncodeStrategy;
         public static final /* synthetic */ int[] $SwitchMap$com$bumptech$glide$load$engine$DecodeJob$RunReason;
@@ -144,7 +144,7 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface Callback<R> {
         void onLoadFailed(GlideException glideException);
 
@@ -153,7 +153,7 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         void reschedule(DecodeJob<?> decodeJob);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class DecodeCallback<Z> implements DecodePath.DecodeCallback<Z> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -188,7 +188,7 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class DeferredEncodeManager<Z> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -251,12 +251,12 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface DiskCacheProvider {
         DiskCache getDiskCache();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ReleaseManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -339,7 +339,7 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class RunReason {
         public static final /* synthetic */ RunReason[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -401,7 +401,7 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Stage {
         public static final /* synthetic */ Stage[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

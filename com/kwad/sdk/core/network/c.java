@@ -1,8 +1,8 @@
 package com.kwad.sdk.core.network;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f55936b;
+    public String f56103b;
 }

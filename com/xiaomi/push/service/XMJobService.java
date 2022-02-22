@@ -41,13 +41,13 @@ public class XMJobService extends Service {
 
         /* renamed from: com.xiaomi.push.service.XMJobService$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class HandlerC2266a extends Handler {
+        public static class HandlerC2276a extends Handler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public JobService a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public HandlerC2266a(JobService jobService) {
+            public HandlerC2276a(JobService jobService) {
                 super(jobService.getMainLooper());
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -72,7 +72,7 @@ public class XMJobService extends Service {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
                     JobParameters jobParameters = (JobParameters) message.obj;
-                    com.xiaomi.channel.commonutils.logger.b.m134a("Job finished " + jobParameters.getJobId());
+                    com.xiaomi.channel.commonutils.logger.b.m133a("Job finished " + jobParameters.getJobId());
                     this.a.jobFinished(jobParameters, false);
                     if (jobParameters.getJobId() == 1) {
                         er.a(false);
@@ -106,13 +106,13 @@ public class XMJobService extends Service {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jobParameters)) == null) {
-                com.xiaomi.channel.commonutils.logger.b.m134a("Job started " + jobParameters.getJobId());
+                com.xiaomi.channel.commonutils.logger.b.m133a("Job started " + jobParameters.getJobId());
                 Intent intent = new Intent(this, XMPushService.class);
                 intent.setAction("com.xiaomi.push.timer");
                 intent.setPackage(getPackageName());
                 startService(intent);
                 if (this.f843a == null) {
-                    this.f843a = new HandlerC2266a(this);
+                    this.f843a = new HandlerC2276a(this);
                 }
                 Handler handler = this.f843a;
                 handler.sendMessage(Message.obtain(handler, 1, jobParameters));
@@ -126,7 +126,7 @@ public class XMJobService extends Service {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jobParameters)) == null) {
-                com.xiaomi.channel.commonutils.logger.b.m134a("Job stop " + jobParameters.getJobId());
+                com.xiaomi.channel.commonutils.logger.b.m133a("Job stop " + jobParameters.getJobId());
                 return false;
             }
             return invokeL.booleanValue;

@@ -41,7 +41,7 @@ import java.io.InputStream;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AdWebViewLandPageActivityProxy extends com.kwad.sdk.core.e.a<com.kwad.sdk.reward.a> {
     public static final String KEY_NEED_CLOSE_REWARD = "key_close_reward";
     public static final String KEY_TEMPLATE = "key_template_json";
@@ -328,10 +328,10 @@ public class AdWebViewLandPageActivityProxy extends com.kwad.sdk.core.e.a<com.kw
     @Override // com.kwad.sdk.core.e.a
     public com.kwad.sdk.reward.a onCreateCallerContext() {
         com.kwad.sdk.reward.a aVar = new com.kwad.sdk.reward.a();
-        aVar.f57253h = getActivity();
-        aVar.f57254i = this.mContext;
+        aVar.f57420h = getActivity();
+        aVar.f57421i = this.mContext;
         AdTemplate adTemplate = this.mAdTemplate;
-        aVar.f57252g = adTemplate;
+        aVar.f57419g = adTemplate;
         aVar.r = false;
         if (com.kwad.sdk.core.response.a.a.P(com.kwad.sdk.core.response.a.d.j(adTemplate))) {
             com.kwad.sdk.utils.b.a(this.mContext).a(true);

@@ -17,7 +17,7 @@ import okio.Buffer;
 import okio.ByteString;
 import okio.Source;
 import okio.Timeout;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Relay {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long FILE_HEADER_SIZE = 32;
@@ -37,7 +37,7 @@ public final class Relay {
     public long upstreamPos;
     public Thread upstreamReader;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class RelaySource implements Source {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

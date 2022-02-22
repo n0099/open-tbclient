@@ -4,7 +4,7 @@ import android.database.Cursor;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.k.b;
 import c.a.d.f.m.a;
-import c.a.s0.t.c.r;
+import c.a.t0.t.c.r;
 import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;

@@ -49,7 +49,7 @@ public class a2 {
             } else if (b(context, Uri.parse(str), info)) {
             } else {
                 if (info.getOpent() == 1) {
-                    if (u0.f30505d.f30507c) {
+                    if (u0.f30711d.f30713c) {
                         Toast.makeText(context, context.getString(m1.win_wdownload_loading), 1).show();
                         y2 a = c3.a(context);
                         a.q(new g3(info), 5);
@@ -64,29 +64,29 @@ public class a2 {
                     g3 g3Var = new g3(info);
                     String open = info.getOpen();
                     try {
-                        a2.f30557b = c3.d("wdtr", g3Var);
+                        a2.f30763b = c3.d("wdtr", g3Var);
                         a2.l("msg", c3.b(open));
                     } catch (JSONException unused2) {
                     }
                     a2.m();
                     if (h4Var != null) {
-                        h4Var.f30364c = info;
-                        WebView webView2 = h4Var.f30363b;
+                        h4Var.f30570c = info;
+                        WebView webView2 = h4Var.f30569b;
                         if (webView2 == null) {
                             return;
                         }
                         webView2.loadUrl(info.getOpen());
-                        webView = h4Var.f30363b;
+                        webView = h4Var.f30569b;
                         d4Var = new d4(h4Var);
                     } else {
                         h4 h4Var2 = new h4(context);
-                        h4Var2.f30364c = info;
-                        WebView webView3 = h4Var2.f30363b;
+                        h4Var2.f30570c = info;
+                        WebView webView3 = h4Var2.f30569b;
                         if (webView3 == null) {
                             return;
                         }
                         webView3.loadUrl(info.getOpen());
-                        webView = h4Var2.f30363b;
+                        webView = h4Var2.f30569b;
                         d4Var = new d4(h4Var2);
                     }
                     webView.setDownloadListener(d4Var);

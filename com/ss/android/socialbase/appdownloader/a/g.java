@@ -10,8 +10,8 @@ public class g extends a {
 
     @Override // com.ss.android.socialbase.appdownloader.a.e
     public Intent b() {
-        Intent intent = new Intent(com.ss.android.socialbase.downloader.constants.e.f59949c + ".filemanager.intent.action.BROWSER_FILE");
-        intent.putExtra("CurrentDir", this.f59750c);
+        Intent intent = new Intent(com.ss.android.socialbase.downloader.constants.e.f60116c + ".filemanager.intent.action.BROWSER_FILE");
+        intent.putExtra("CurrentDir", this.f59917c);
         intent.putExtra("CurrentMode", 1);
         intent.addFlags(268435456);
         intent.addFlags(32768);

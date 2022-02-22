@@ -27,22 +27,22 @@ public class a extends c.a.r.j.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public a.C0259a f5124d;
+    public a.C0264a f5194d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f5125e;
+    public b f5195e;
 
     /* renamed from: c.a.r.j.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0261a {
+    public static class C0266a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public HashSet<String> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HashSet<String> f5126b;
+        public HashSet<String> f5196b;
 
-        public C0261a() {
+        public C0266a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,10 +56,10 @@ public class a extends c.a.r.j.a {
                 }
             }
             this.a = new HashSet<>();
-            this.f5126b = new HashSet<>();
+            this.f5196b = new HashSet<>();
         }
 
-        public static C0261a a(TrustSubject trustSubject) {
+        public static C0266a a(TrustSubject trustSubject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, trustSubject)) == null) {
@@ -69,23 +69,23 @@ public class a extends c.a.r.j.a {
                         return null;
                     }
                     try {
-                        C0261a c0261a = new C0261a();
+                        C0266a c0266a = new C0266a();
                         JSONObject jSONObject = new JSONObject(m);
                         JSONArray optJSONArray = jSONObject.optJSONArray("blist");
                         if (optJSONArray != null) {
                             int length = optJSONArray.length();
                             for (int i2 = 0; i2 < length; i2++) {
-                                c0261a.a.add(optJSONArray.getString(i2));
+                                c0266a.a.add(optJSONArray.getString(i2));
                             }
                         }
                         JSONArray optJSONArray2 = jSONObject.optJSONArray("reset_blist");
                         if (optJSONArray2 != null) {
                             int length2 = optJSONArray2.length();
                             for (int i3 = 0; i3 < length2; i3++) {
-                                c0261a.f5126b.add(optJSONArray2.getString(i3));
+                                c0266a.f5196b.add(optJSONArray2.getString(i3));
                             }
                         }
-                        return c0261a;
+                        return c0266a;
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         return null;
@@ -95,7 +95,7 @@ public class a extends c.a.r.j.a {
                     return null;
                 }
             }
-            return (C0261a) invokeL.objValue;
+            return (C0266a) invokeL.objValue;
         }
 
         public boolean b(String str) {
@@ -107,7 +107,7 @@ public class a extends c.a.r.j.a {
         public boolean c(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f5126b.contains(str) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f5196b.contains(str) : invokeL.booleanValue;
         }
     }
 
@@ -118,28 +118,28 @@ public class a extends c.a.r.j.a {
         public byte[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f5127b;
+        public String f5197b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f5128c;
+        public String f5198c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f5129d;
+        public long f5199d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f5130e;
+        public boolean f5200e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f5131f;
+        public String f5201f;
 
         /* renamed from: g  reason: collision with root package name */
-        public e f5132g;
+        public e f5202g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f5133h;
+        public long f5203h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ a f5134i;
+        public final /* synthetic */ a f5204i;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -156,39 +156,39 @@ public class a extends c.a.r.j.a {
                     return;
                 }
             }
-            this.f5134i = aVar;
-            this.f5130e = true;
-            this.f5132g = new e();
+            this.f5204i = aVar;
+            this.f5200e = true;
+            this.f5202g = new e();
         }
 
         public long a(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? this.f5132g.a(j2) : invokeJ.longValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? this.f5202g.a(j2) : invokeJ.longValue;
         }
 
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f5127b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f5197b : (String) invokeV.objValue;
         }
 
         public void c(long j2, long j3) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) && this.f5132g.c(j2, j3)) {
-                this.f5130e = true;
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) && this.f5202g.c(j2, j3)) {
+                this.f5200e = true;
             }
         }
 
         public void d(String str) {
             String str2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || str == (str2 = this.f5127b)) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || str == (str2 = this.f5197b)) {
                 return;
             }
             if (str == null || !str.equals(str2)) {
-                this.f5127b = str;
-                this.f5130e = true;
+                this.f5197b = str;
+                this.f5200e = true;
             }
         }
 
@@ -198,60 +198,60 @@ public class a extends c.a.r.j.a {
                 return;
             }
             this.a = bArr;
-            this.f5130e = true;
+            this.f5200e = true;
         }
 
         public String f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f5128c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f5198c : (String) invokeV.objValue;
         }
 
         public void g(long j2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) || j2 == this.f5129d) {
+            if (!(interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) || j2 == this.f5199d) {
                 return;
             }
-            this.f5129d = j2;
-            this.f5130e = true;
+            this.f5199d = j2;
+            this.f5200e = true;
         }
 
         public void h(String str) {
             String str2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || (str2 = this.f5128c) == str) {
+            if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || (str2 = this.f5198c) == str) {
                 return;
             }
             if (str == null || !str.equals(str2)) {
-                this.f5128c = str;
-                this.f5130e = true;
+                this.f5198c = str;
+                this.f5200e = true;
             }
         }
 
         public long i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f5133h : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f5203h : invokeV.longValue;
         }
 
         public void j(long j2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) || this.f5133h == j2) {
+            if (!(interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) || this.f5203h == j2) {
                 return;
             }
-            this.f5133h = j2;
-            this.f5130e = true;
+            this.f5203h = j2;
+            this.f5200e = true;
         }
 
         public void k(String str) {
             String str2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || str == (str2 = this.f5131f)) {
+            if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || str == (str2 = this.f5201f)) {
                 return;
             }
             if (str == null || !str.equals(str2)) {
-                this.f5131f = str;
-                this.f5130e = true;
+                this.f5201f = str;
+                this.f5200e = true;
             }
         }
 
@@ -265,23 +265,23 @@ public class a extends c.a.r.j.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-                if (this.f5130e) {
+                if (this.f5200e) {
                     try {
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("and_id", this.f5127b);
-                        jSONObject.put("form_id", this.f5128c);
-                        jSONObject.put("gen_ts", this.f5129d);
-                        jSONObject.put("flags", this.f5132g.d());
+                        jSONObject.put("and_id", this.f5197b);
+                        jSONObject.put("form_id", this.f5198c);
+                        jSONObject.put("gen_ts", this.f5199d);
+                        jSONObject.put("flags", this.f5202g.d());
                         jSONObject.put("c_form_ver", 1);
-                        if (!TextUtils.isEmpty(this.f5131f)) {
-                            jSONObject.put("ran_id", this.f5131f);
+                        if (!TextUtils.isEmpty(this.f5201f)) {
+                            jSONObject.put("ran_id", this.f5201f);
                         }
                         if (this.a != null) {
                             jSONObject.put("raw_id", Base64.encodeToString(this.a, 2));
                         }
-                        jSONObject.put("lst_conf_ver", this.f5133h);
-                        this.f5134i.f5124d.i("aid.dat", jSONObject.toString(), true);
-                        this.f5130e = false;
+                        jSONObject.put("lst_conf_ver", this.f5203h);
+                        this.f5204i.f5194d.i("aid.dat", jSONObject.toString(), true);
+                        this.f5200e = false;
                         return true;
                     } catch (Exception unused) {
                     }
@@ -295,19 +295,19 @@ public class a extends c.a.r.j.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-                String g2 = this.f5134i.f5124d.g("aid.dat", true);
+                String g2 = this.f5204i.f5194d.g("aid.dat", true);
                 if (!TextUtils.isEmpty(g2)) {
                     try {
                         JSONObject jSONObject = new JSONObject(g2);
                         this.a = Base64.decode(jSONObject.getString("raw_id"), 2);
-                        this.f5129d = jSONObject.getLong("gen_ts");
-                        this.f5128c = jSONObject.getString("form_id");
-                        this.f5127b = jSONObject.getString("and_id");
-                        this.f5131f = jSONObject.optString("ran_id", null);
-                        this.f5132g.b(jSONObject.getLong("flags"));
-                        this.f5133h = jSONObject.getLong("lst_conf_ver");
+                        this.f5199d = jSONObject.getLong("gen_ts");
+                        this.f5198c = jSONObject.getString("form_id");
+                        this.f5197b = jSONObject.getString("and_id");
+                        this.f5201f = jSONObject.optString("ran_id", null);
+                        this.f5202g.b(jSONObject.getLong("flags"));
+                        this.f5203h = jSONObject.getLong("lst_conf_ver");
                         jSONObject.getInt("c_form_ver");
-                        this.f5130e = false;
+                        this.f5200e = false;
                         return true;
                     } catch (Exception unused) {
                     }
@@ -334,7 +334,7 @@ public class a extends c.a.r.j.a {
                 return;
             }
         }
-        this.f5125e = new b(this);
+        this.f5195e = new b(this);
     }
 
     public static String i(byte[] bArr) {
@@ -347,14 +347,14 @@ public class a extends c.a.r.j.a {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5125e.f() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5195e.f() : (String) invokeV.objValue;
     }
 
     @Override // c.a.r.j.a
     public byte[] d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f5125e.l() : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f5195e.l() : (byte[]) invokeV.objValue;
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(19:3|(2:5|(4:7|8|(1:51)(1:14)|(12:19|(1:21)(1:50)|22|23|24|25|(1:27)|28|(2:(2:41|42)|33)(2:(2:44|(1:46))|42)|(3:35|(1:37)|38)|39|40)(1:17)))(1:53)|52|8|(1:10)|51|(0)|19|(0)(0)|22|23|24|25|(0)|28|(0)(0)|(0)|39|40) */
@@ -378,26 +378,26 @@ public class a extends c.a.r.j.a {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f5124d = this.a.f("aid");
-            this.f5125e.n();
-            TrustSubject trustSubject = this.f5116b.f5119c.f34616b;
+            this.f5194d = this.a.f("aid");
+            this.f5195e.n();
+            TrustSubject trustSubject = this.f5186b.f5189c.f34822b;
             boolean z3 = false;
             boolean z4 = true;
             if (trustSubject != null) {
                 j2 = trustSubject.n();
-                if (j2 != this.f5125e.i()) {
+                if (j2 != this.f5195e.i()) {
                     z = true;
-                    z2 = !TextUtils.isEmpty(this.f5125e.f()) || this.f5125e.l() == null || TextUtils.isEmpty(this.f5125e.b());
+                    z2 = !TextUtils.isEmpty(this.f5195e.f()) || this.f5195e.l() == null || TextUtils.isEmpty(this.f5195e.b());
                     if (!z2 || z) {
                         str = null;
-                        C0261a a = trustSubject == null ? C0261a.a(trustSubject) : null;
-                        str = Settings.Secure.getString(this.f5116b.a.getContentResolver(), HttpRequest.ANDROID_ID);
+                        C0266a a = trustSubject == null ? C0266a.a(trustSubject) : null;
+                        str = Settings.Secure.getString(this.f5186b.a.getContentResolver(), HttpRequest.ANDROID_ID);
                         if (TextUtils.isEmpty(str)) {
                             str = "000000000";
                         }
                         if (z2) {
                             if (a != null) {
-                                if (this.f5125e.a(1L) == 0) {
+                                if (this.f5195e.a(1L) == 0) {
                                 }
                             }
                             z4 = false;
@@ -412,19 +412,19 @@ public class a extends c.a.r.j.a {
                             String str2 = "com.helios" + str;
                             if (z4) {
                                 String uuid = UUID.randomUUID().toString();
-                                this.f5125e.k(uuid);
+                                this.f5195e.k(uuid);
                                 str2 = str2 + uuid;
-                                this.f5125e.c(1L, 1L);
+                                this.f5195e.c(1L, 1L);
                             }
                             byte[] a2 = f.a(str2, "utf-8");
                             String i2 = i(a2);
-                            this.f5125e.e(a2);
-                            this.f5125e.g(System.currentTimeMillis());
-                            this.f5125e.d(str);
-                            this.f5125e.h(i2);
+                            this.f5195e.e(a2);
+                            this.f5195e.g(System.currentTimeMillis());
+                            this.f5195e.d(str);
+                            this.f5195e.h(i2);
                         }
-                        this.f5125e.j(j2);
-                        this.f5125e.m();
+                        this.f5195e.j(j2);
+                        this.f5195e.m();
                     }
                     return;
                 }
@@ -432,22 +432,22 @@ public class a extends c.a.r.j.a {
                 j2 = 0;
             }
             z = false;
-            if (TextUtils.isEmpty(this.f5125e.f())) {
+            if (TextUtils.isEmpty(this.f5195e.f())) {
             }
             if (z2) {
             }
             str = null;
             if (trustSubject == null) {
             }
-            str = Settings.Secure.getString(this.f5116b.a.getContentResolver(), HttpRequest.ANDROID_ID);
+            str = Settings.Secure.getString(this.f5186b.a.getContentResolver(), HttpRequest.ANDROID_ID);
             if (TextUtils.isEmpty(str)) {
             }
             if (z2) {
             }
             if (z3) {
             }
-            this.f5125e.j(j2);
-            this.f5125e.m();
+            this.f5195e.j(j2);
+            this.f5195e.m();
         }
     }
 }

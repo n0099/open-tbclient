@@ -5,14 +5,14 @@ import android.content.res.Configuration;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
-import c.a.t0.s3.a;
+import c.a.u0.t3.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class SplashAdView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AT_ACTIVITY_FLAG = "AT_ACTIVITY_FLAG";
@@ -20,16 +20,16 @@ public class SplashAdView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f47967e;
+    public a f48113e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BaseFragmentActivity f47968f;
+    public BaseFragmentActivity f48114f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f47969g;
+    public long f48115g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f47970h;
+    public int f48116h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SplashAdView(BaseFragmentActivity baseFragmentActivity, int i2, long j2) {
@@ -49,10 +49,10 @@ public class SplashAdView extends FrameLayout {
                 return;
             }
         }
-        this.f47970h = 0;
-        this.f47970h = i2;
-        this.f47969g = j2;
-        this.f47968f = baseFragmentActivity;
+        this.f48116h = 0;
+        this.f48116h = i2;
+        this.f48115g = j2;
+        this.f48114f = baseFragmentActivity;
         setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
     }
 
@@ -62,8 +62,8 @@ public class SplashAdView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.onAttachedToWindow();
             a aVar = new a();
-            this.f47967e = aVar;
-            aVar.a(this.f47968f, this, this.f47970h, this.f47969g);
+            this.f48113e = aVar;
+            aVar.a(this.f48114f, this, this.f48116h, this.f48115g);
         }
     }
 
@@ -71,7 +71,7 @@ public class SplashAdView extends FrameLayout {
     public void onConfigurationChanged(@NonNull Configuration configuration) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, configuration) == null) || (aVar = this.f47967e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, configuration) == null) || (aVar = this.f48113e) == null) {
             return;
         }
         aVar.d(configuration);
@@ -82,18 +82,18 @@ public class SplashAdView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDetachedFromWindow();
-            a aVar = this.f47967e;
+            a aVar = this.f48113e;
             if (aVar != null) {
                 aVar.g();
             }
-            this.f47967e = null;
+            this.f48113e = null;
         }
     }
 
     public void onPause() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (aVar = this.f47967e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (aVar = this.f48113e) == null) {
             return;
         }
         aVar.e();
@@ -102,7 +102,7 @@ public class SplashAdView extends FrameLayout {
     public void onResume() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.f47967e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.f48113e) == null) {
             return;
         }
         aVar.f();

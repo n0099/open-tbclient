@@ -1,10 +1,11 @@
 package com.baidu.tieba.godMultiAttention;
 
-import c.a.s0.d1.b0;
+import c.a.t0.d1.c0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,8 +49,8 @@ public class MultiAttentionRequestMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             builder.portrait = this.portraitList;
-            if (z) {
-                b0.b(builder, true, true);
+            if (z || SocketAddCommonParamSwitch.getIsOn()) {
+                c0.b(builder, true, true);
             }
             MFollowReqIdl.Builder builder2 = new MFollowReqIdl.Builder();
             builder2.data = builder.build(false);

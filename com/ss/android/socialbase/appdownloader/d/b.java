@@ -19,7 +19,7 @@ public class b implements l {
     public List<Integer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BroadcastReceiver f59790b;
+    public BroadcastReceiver f59957b;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(List<DownloadInfo> list, int i2) {
@@ -39,10 +39,10 @@ public class b implements l {
             a(N, downloadInfo, b2, i2);
         }
         List<Integer> list2 = this.a;
-        if (list2 == null || list2.isEmpty() || this.f59790b != null) {
+        if (list2 == null || list2.isEmpty() || this.f59957b != null) {
             return;
         }
-        this.f59790b = new BroadcastReceiver() { // from class: com.ss.android.socialbase.appdownloader.d.b.2
+        this.f59957b = new BroadcastReceiver() { // from class: com.ss.android.socialbase.appdownloader.d.b.2
             @Override // android.content.BroadcastReceiver
             public void onReceive(Context context, Intent intent) {
                 final Context applicationContext = context.getApplicationContext();
@@ -70,21 +70,21 @@ public class b implements l {
                         }
                     });
                     try {
-                        applicationContext.unregisterReceiver(b.this.f59790b);
+                        applicationContext.unregisterReceiver(b.this.f59957b);
                     } catch (Throwable th) {
                         th.printStackTrace();
                     }
-                    b.this.f59790b = null;
+                    b.this.f59957b = null;
                 }
             }
         };
         try {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            N.registerReceiver(this.f59790b, intentFilter);
+            N.registerReceiver(this.f59957b, intentFilter);
         } catch (Throwable th) {
             th.printStackTrace();
-            this.f59790b = null;
+            this.f59957b = null;
         }
     }
 

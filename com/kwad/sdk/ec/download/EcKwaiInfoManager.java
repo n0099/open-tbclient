@@ -28,7 +28,7 @@ import com.kwad.sdk.utils.u;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public enum EcKwaiInfoManager {
     INSTAANCE;
     
@@ -50,7 +50,7 @@ public enum EcKwaiInfoManager {
     public int mDownloadSource = 0;
 
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends Handler {
         public a() {
             super(Looper.getMainLooper());

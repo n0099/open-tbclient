@@ -40,7 +40,7 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdImageViewTouch f39605e;
+        public final /* synthetic */ BdImageViewTouch f39833e;
 
         public a(BdImageViewTouch bdImageViewTouch) {
             Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
                     return;
                 }
             }
-            this.f39605e = bdImageViewTouch;
+            this.f39833e = bdImageViewTouch;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
@@ -65,16 +65,16 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-                BdImageViewTouch bdImageViewTouch = this.f39605e;
+                BdImageViewTouch bdImageViewTouch = this.f39833e;
                 if (bdImageViewTouch.mDoubleTapEnabled) {
                     bdImageViewTouch.mUserScaled = true;
                     float scale = bdImageViewTouch.getScale();
-                    BdImageViewTouch bdImageViewTouch2 = this.f39605e;
-                    this.f39605e.zoomTo(Math.min(this.f39605e.getMaxScale(), Math.max(bdImageViewTouch2.onDoubleTapPost(scale, bdImageViewTouch2.getMaxScale()), this.f39605e.getMinScale())), motionEvent.getX(), motionEvent.getY(), 200.0f);
-                    this.f39605e.invalidate();
+                    BdImageViewTouch bdImageViewTouch2 = this.f39833e;
+                    this.f39833e.zoomTo(Math.min(this.f39833e.getMaxScale(), Math.max(bdImageViewTouch2.onDoubleTapPost(scale, bdImageViewTouch2.getMaxScale()), this.f39833e.getMinScale())), motionEvent.getX(), motionEvent.getY(), 200.0f);
+                    this.f39833e.invalidate();
                 }
-                if (this.f39605e.q != null) {
-                    this.f39605e.q.a();
+                if (this.f39833e.q != null) {
+                    this.f39833e.q.a();
                 }
                 return super.onDoubleTap(motionEvent);
             }
@@ -85,7 +85,7 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
         public boolean onDown(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) ? this.f39605e.onDown(motionEvent) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) ? this.f39833e.onDown(motionEvent) : invokeL.booleanValue;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -93,10 +93,10 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                if (this.f39605e.mScrollEnabled && motionEvent.getPointerCount() <= 1 && motionEvent2.getPointerCount() <= 1) {
-                    ScaleGestureDetector scaleGestureDetector = this.f39605e.mScaleDetector;
-                    if ((scaleGestureDetector == null || !scaleGestureDetector.isInProgress()) && this.f39605e.getScale() != 1.0f) {
-                        return this.f39605e.onFling(motionEvent, motionEvent2, f2, f3);
+                if (this.f39833e.mScrollEnabled && motionEvent.getPointerCount() <= 1 && motionEvent2.getPointerCount() <= 1) {
+                    ScaleGestureDetector scaleGestureDetector = this.f39833e.mScaleDetector;
+                    if ((scaleGestureDetector == null || !scaleGestureDetector.isInProgress()) && this.f39833e.getScale() != 1.0f) {
+                        return this.f39833e.onFling(motionEvent, motionEvent2, f2, f3);
                     }
                     return false;
                 }
@@ -109,11 +109,11 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
         public void onLongPress(MotionEvent motionEvent) {
             ScaleGestureDetector scaleGestureDetector;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, motionEvent) == null) || !this.f39605e.isLongClickable() || (scaleGestureDetector = this.f39605e.mScaleDetector) == null || scaleGestureDetector.isInProgress()) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, motionEvent) == null) || !this.f39833e.isLongClickable() || (scaleGestureDetector = this.f39833e.mScaleDetector) == null || scaleGestureDetector.isInProgress()) {
                 return;
             }
-            this.f39605e.setPressed(true);
-            this.f39605e.performLongClick();
+            this.f39833e.setPressed(true);
+            this.f39833e.performLongClick();
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -121,10 +121,10 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                if (this.f39605e.mScrollEnabled && motionEvent != null && motionEvent2 != null && motionEvent.getPointerCount() <= 1 && motionEvent2.getPointerCount() <= 1) {
-                    ScaleGestureDetector scaleGestureDetector = this.f39605e.mScaleDetector;
+                if (this.f39833e.mScrollEnabled && motionEvent != null && motionEvent2 != null && motionEvent.getPointerCount() <= 1 && motionEvent2.getPointerCount() <= 1) {
+                    ScaleGestureDetector scaleGestureDetector = this.f39833e.mScaleDetector;
                     if (scaleGestureDetector == null || !scaleGestureDetector.isInProgress()) {
-                        return this.f39605e.onScroll(motionEvent, motionEvent2, f2, f3);
+                        return this.f39833e.onScroll(motionEvent, motionEvent2, f2, f3);
                     }
                     return false;
                 }
@@ -138,10 +138,10 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
-                if (this.f39605e.r != null) {
-                    this.f39605e.r.a();
+                if (this.f39833e.r != null) {
+                    this.f39833e.r.a();
                 }
-                return this.f39605e.onSingleTapConfirmed(motionEvent);
+                return this.f39833e.onSingleTapConfirmed(motionEvent);
             }
             return invokeL.booleanValue;
         }
@@ -150,7 +150,7 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
         public boolean onSingleTapUp(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) ? this.f39605e.onSingleTapUp(motionEvent) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) ? this.f39833e.onSingleTapUp(motionEvent) : invokeL.booleanValue;
         }
     }
 
@@ -170,10 +170,10 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f39606e;
+        public boolean f39834e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BdImageViewTouch f39607f;
+        public final /* synthetic */ BdImageViewTouch f39835f;
 
         public d(BdImageViewTouch bdImageViewTouch) {
             Interceptable interceptable = $ic;
@@ -190,8 +190,8 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
                     return;
                 }
             }
-            this.f39607f = bdImageViewTouch;
-            this.f39606e = false;
+            this.f39835f = bdImageViewTouch;
+            this.f39834e = false;
         }
 
         @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
@@ -200,16 +200,16 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, scaleGestureDetector)) == null) {
                 float currentSpan = scaleGestureDetector.getCurrentSpan() - scaleGestureDetector.getPreviousSpan();
-                float scale = this.f39607f.getScale() * scaleGestureDetector.getScaleFactor();
-                BdImageViewTouch bdImageViewTouch = this.f39607f;
+                float scale = this.f39835f.getScale() * scaleGestureDetector.getScaleFactor();
+                BdImageViewTouch bdImageViewTouch = this.f39835f;
                 if (bdImageViewTouch.mScaleEnabled) {
-                    if (this.f39606e && currentSpan != 0.0f) {
+                    if (this.f39834e && currentSpan != 0.0f) {
                         bdImageViewTouch.mUserScaled = true;
-                        this.f39607f.zoomTo(Math.min(bdImageViewTouch.getMaxScale(), Math.max(scale, this.f39607f.getMinScale() - 0.0f)), scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
-                        this.f39607f.invalidate();
+                        this.f39835f.zoomTo(Math.min(bdImageViewTouch.getMaxScale(), Math.max(scale, this.f39835f.getMinScale() - 0.0f)), scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
+                        this.f39835f.invalidate();
                         return true;
-                    } else if (!this.f39606e) {
-                        this.f39606e = true;
+                    } else if (!this.f39834e) {
+                        this.f39834e = true;
                     }
                 }
                 return true;

@@ -12,11 +12,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.x.c.a.b;
-import c.a.x.c.a.c;
-import c.a.x.c.a.d;
-import c.a.x.c.a.e;
-import c.a.x.k.f;
+import c.a.y.c.a.b;
+import c.a.y.c.a.c;
+import c.a.y.c.a.d;
+import c.a.y.c.a.e;
+import c.a.y.k.f;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.LottieDrawable;
 import com.airbnb.lottie.OnCompositionLoadedListener;
@@ -35,22 +35,22 @@ public class LiveBannerStatusAnimView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f34835e;
+    public Context f35041e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f34836f;
+    public ImageView f35042f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f34837g;
+    public ImageView f35043g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f34838h;
+    public TextView f35044h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f34839i;
+    public TextView f35045i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f34840j;
+    public View f35046j;
     public boolean k;
     public boolean l;
     public int m;
@@ -89,8 +89,8 @@ public class LiveBannerStatusAnimView extends FrameLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) {
                 this.a.p.setComposition(lottieComposition);
                 this.a.p.playAnimation();
-                this.a.f34837g.setImageDrawable(this.a.p);
-                this.a.f34837g.setVisibility(0);
+                this.a.f35043g.setImageDrawable(this.a.p);
+                this.a.f35043g.setVisibility(0);
             }
         }
     }
@@ -132,13 +132,13 @@ public class LiveBannerStatusAnimView extends FrameLayout {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f34835e = context;
+            this.f35041e = context;
             LayoutInflater.from(context).inflate(d.live_feed_page_banner_status_anim_layout, this);
-            this.f34836f = (ImageView) findViewById(c.live_feed_page_tip_iv);
-            this.f34837g = (ImageView) findViewById(c.live_feed_page_tip_lottie);
-            this.f34838h = (TextView) findViewById(c.live_feed_page_tip_text);
-            this.f34839i = (TextView) findViewById(c.live_feed_page_tip_aud_text);
-            this.f34840j = findViewById(c.live_feed_page_banner_left_layout);
+            this.f35042f = (ImageView) findViewById(c.live_feed_page_tip_iv);
+            this.f35043g = (ImageView) findViewById(c.live_feed_page_tip_lottie);
+            this.f35044h = (TextView) findViewById(c.live_feed_page_tip_text);
+            this.f35045i = (TextView) findViewById(c.live_feed_page_tip_aud_text);
+            this.f35046j = findViewById(c.live_feed_page_banner_left_layout);
             this.p = new LottieDrawable();
             c();
             this.p.loop(true);
@@ -154,57 +154,57 @@ public class LiveBannerStatusAnimView extends FrameLayout {
     public void onDarkModeChange(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            TextView textView = this.f34838h;
+            TextView textView = this.f35044h;
             if (textView != null) {
-                textView.setTextColor(f.e().a(this.f34835e, this.l, "color_white3"));
+                textView.setTextColor(f.e().a(this.f35041e, this.l, "color_white3"));
             }
-            TextView textView2 = this.f34839i;
+            TextView textView2 = this.f35045i;
             if (textView2 != null) {
-                textView2.setTextColor(f.e().a(this.f34835e, this.l, "color_white3"));
+                textView2.setTextColor(f.e().a(this.f35041e, this.l, "color_white3"));
             }
-            if (this.f34836f == null || this.f34840j == null || this.f34839i == null) {
+            if (this.f35042f == null || this.f35046j == null || this.f35045i == null) {
                 return;
             }
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(c.a.x.b.f.a.a(this.f34835e, 9.0f));
+            gradientDrawable.setCornerRadius(c.a.y.b.f.a.a(this.f35041e, 9.0f));
             gradientDrawable.setGradientType(0);
             gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
             gradientDrawable.setColors(new int[]{Color.parseColor("#4D000000"), Color.parseColor("#4D000000")});
             setBackground(gradientDrawable);
             GradientDrawable gradientDrawable2 = new GradientDrawable();
             gradientDrawable2.setShape(0);
-            gradientDrawable2.setCornerRadius(c.a.x.b.f.a.a(this.f34835e, 9.0f));
+            gradientDrawable2.setCornerRadius(c.a.y.b.f.a.a(this.f35041e, 9.0f));
             if (this.m == 1) {
                 int i2 = this.n;
                 if (i2 == 3) {
-                    gradientDrawable2.setColors(new int[]{f.e().a(this.f34835e, this.l, "color_768CAE"), f.e().a(this.f34835e, this.l, "color_768CAE")});
-                    this.f34836f.setBackgroundDrawable(gradientDrawable2);
+                    gradientDrawable2.setColors(new int[]{f.e().a(this.f35041e, this.l, "color_768CAE"), f.e().a(this.f35041e, this.l, "color_768CAE")});
+                    this.f35042f.setBackgroundDrawable(gradientDrawable2);
                     if (!"day".equals(f.e().o()) && !this.l) {
                         if ("tieba".equals(LiveFeedPageSdk.f().e())) {
-                            this.f34836f.setImageResource(b.live_feed_page_tag_back);
+                            this.f35042f.setImageResource(b.live_feed_page_tag_back);
                         } else {
-                            this.f34836f.setImageResource(b.live_feed_page_tag_back_night);
+                            this.f35042f.setImageResource(b.live_feed_page_tag_back_night);
                         }
                     } else {
-                        this.f34836f.setImageResource(b.live_feed_page_tag_back);
+                        this.f35042f.setImageResource(b.live_feed_page_tag_back);
                     }
                 } else if (i2 == 0) {
-                    gradientDrawable2.setColors(new int[]{f.e().a(this.f34835e, this.l, "color_4E6EF2"), f.e().a(this.f34835e, this.l, "color_4E6EF2")});
-                    this.f34836f.setBackgroundDrawable(gradientDrawable2);
+                    gradientDrawable2.setColors(new int[]{f.e().a(this.f35041e, this.l, "color_4E6EF2"), f.e().a(this.f35041e, this.l, "color_4E6EF2")});
+                    this.f35042f.setBackgroundDrawable(gradientDrawable2);
                     if (!"day".equals(f.e().o()) && !this.l) {
                         if ("tieba".equals(LiveFeedPageSdk.f().e())) {
-                            this.f34836f.setImageResource(b.live_feed_page_tag_preview);
+                            this.f35042f.setImageResource(b.live_feed_page_tag_preview);
                         } else {
-                            this.f34836f.setImageResource(b.live_feed_page_tag_preview_night);
+                            this.f35042f.setImageResource(b.live_feed_page_tag_preview_night);
                         }
                     } else {
-                        this.f34836f.setImageResource(b.live_feed_page_tag_preview);
+                        this.f35042f.setImageResource(b.live_feed_page_tag_preview);
                     }
                 } else {
-                    gradientDrawable2.setColors(new int[]{f.e().a(this.f34835e, this.l, "color_FF3333"), f.e().a(this.f34835e, this.l, "color_FF3333")});
-                    this.f34840j.setBackgroundDrawable(gradientDrawable2);
-                    this.f34839i.setVisibility(0);
+                    gradientDrawable2.setColors(new int[]{f.e().a(this.f35041e, this.l, "color_FF3333"), f.e().a(this.f35041e, this.l, "color_FF3333")});
+                    this.f35046j.setBackgroundDrawable(gradientDrawable2);
+                    this.f35045i.setVisibility(0);
                 }
             }
             c();
@@ -247,25 +247,25 @@ public class LiveBannerStatusAnimView extends FrameLayout {
                 if (i2 == 1) {
                     if (i3 == 3) {
                         this.k = false;
-                        this.f34836f.setVisibility(0);
-                        this.f34840j.setBackgroundResource(b.live_feed_page_transparent);
-                        this.f34838h.setText(this.f34835e.getResources().getString(e.live_feed_page_banner_status_back_txt));
-                        this.f34838h.setPadding(c.a.x.b.f.a.a(this.f34835e, 2.0f), 0, c.a.x.b.f.a.a(this.f34835e, 4.0f), 0);
-                        this.f34839i.setVisibility(8);
+                        this.f35042f.setVisibility(0);
+                        this.f35046j.setBackgroundResource(b.live_feed_page_transparent);
+                        this.f35044h.setText(this.f35041e.getResources().getString(e.live_feed_page_banner_status_back_txt));
+                        this.f35044h.setPadding(c.a.y.b.f.a.a(this.f35041e, 2.0f), 0, c.a.y.b.f.a.a(this.f35041e, 4.0f), 0);
+                        this.f35045i.setVisibility(8);
                     } else if (i3 == 0) {
                         this.k = false;
-                        this.f34836f.setVisibility(0);
-                        this.f34840j.setBackgroundResource(b.live_feed_page_transparent);
-                        this.f34838h.setText(this.f34835e.getResources().getString(e.live_feed_page_banner_status_preview_txt));
-                        this.f34838h.setPadding(c.a.x.b.f.a.a(this.f34835e, 2.0f), 0, c.a.x.b.f.a.a(this.f34835e, 4.0f), 0);
-                        this.f34839i.setVisibility(8);
+                        this.f35042f.setVisibility(0);
+                        this.f35046j.setBackgroundResource(b.live_feed_page_transparent);
+                        this.f35044h.setText(this.f35041e.getResources().getString(e.live_feed_page_banner_status_preview_txt));
+                        this.f35044h.setPadding(c.a.y.b.f.a.a(this.f35041e, 2.0f), 0, c.a.y.b.f.a.a(this.f35041e, 4.0f), 0);
+                        this.f35045i.setVisibility(8);
                     } else {
                         this.k = true;
-                        this.f34836f.setVisibility(8);
-                        this.f34838h.setText(this.f34835e.getResources().getString(e.live_feed_page_banner_status_living_txt));
-                        this.f34838h.setPadding(0, 0, c.a.x.b.f.a.a(this.f34835e, 4.0f), 0);
-                        this.f34839i.setVisibility(0);
-                        this.f34839i.setText(String.format(this.f34835e.getResources().getString(e.live_feed_page_banner_status_aud_count_txt), c.a.x.b.f.e.a(this.f34835e, liveBannerEntity.audienceCount)));
+                        this.f35042f.setVisibility(8);
+                        this.f35044h.setText(this.f35041e.getResources().getString(e.live_feed_page_banner_status_living_txt));
+                        this.f35044h.setPadding(0, 0, c.a.y.b.f.a.a(this.f35041e, 4.0f), 0);
+                        this.f35045i.setVisibility(0);
+                        this.f35045i.setText(String.format(this.f35041e.getResources().getString(e.live_feed_page_banner_status_aud_count_txt), c.a.y.b.f.e.a(this.f35041e, liveBannerEntity.audienceCount)));
                     }
                     onDarkModeChange("day");
                     setVisibility(0);
@@ -290,12 +290,12 @@ public class LiveBannerStatusAnimView extends FrameLayout {
     public void startAnim() {
         LottieDrawable lottieDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f34837g == null || (lottieDrawable = this.p) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f35043g == null || (lottieDrawable = this.p) == null) {
             return;
         }
         if (this.k) {
             try {
-                if (lottieDrawable.isAnimating() && this.f34837g.getVisibility() == 0) {
+                if (lottieDrawable.isAnimating() && this.f35043g.getVisibility() == 0) {
                     return;
                 }
                 if (this.o != null && !this.o.equals(f.e().o())) {
@@ -303,12 +303,12 @@ public class LiveBannerStatusAnimView extends FrameLayout {
                     if (this.p.isAnimating()) {
                         this.p.cancelAnimation();
                     }
-                    this.f34837g.setImageDrawable(null);
+                    this.f35043g.setImageDrawable(null);
                     this.p.clearComposition();
-                    LottieComposition.Factory.fromAssetFileName(this.f34835e, this.q, new a(this));
+                    LottieComposition.Factory.fromAssetFileName(this.f35041e, this.q, new a(this));
                     return;
                 }
-                this.f34837g.setVisibility(0);
+                this.f35043g.setVisibility(0);
                 if (this.p.isAnimating()) {
                     return;
                 }
@@ -325,13 +325,13 @@ public class LiveBannerStatusAnimView extends FrameLayout {
     public void stopAnim() {
         LottieDrawable lottieDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.f34837g == null || (lottieDrawable = this.p) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.f35043g == null || (lottieDrawable = this.p) == null) {
             return;
         }
         if (lottieDrawable.isAnimating()) {
             this.p.cancelAnimation();
         }
-        this.f34837g.setVisibility(8);
+        this.f35043g.setVisibility(8);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

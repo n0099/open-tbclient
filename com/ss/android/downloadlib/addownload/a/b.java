@@ -46,7 +46,7 @@ public class b {
             while (it.hasNext()) {
                 com.ss.android.downloadlib.addownload.b.a next = it.next();
                 if (next != null) {
-                    jSONObject.put(String.valueOf(next.f59479b), next.a());
+                    jSONObject.put(String.valueOf(next.f59646b), next.a());
                 }
             }
         } catch (Exception e2) {

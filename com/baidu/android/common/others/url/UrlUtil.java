@@ -30,7 +30,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class UrlUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;

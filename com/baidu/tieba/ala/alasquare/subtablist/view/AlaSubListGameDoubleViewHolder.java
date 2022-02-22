@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.alasquare.subtablist.view;
 
 import android.view.View;
-import c.a.t0.a0.f.h.d.a;
+import c.a.u0.a0.f.h.d.a;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

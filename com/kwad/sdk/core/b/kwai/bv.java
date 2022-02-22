@@ -3,7 +3,7 @@ package com.kwad.sdk.core.b.kwai;
 import com.kwad.sdk.core.response.model.HotspotInfo;
 import com.kwad.sdk.core.scene.URLPackage;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class bv implements com.kwad.sdk.core.d<HotspotInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d

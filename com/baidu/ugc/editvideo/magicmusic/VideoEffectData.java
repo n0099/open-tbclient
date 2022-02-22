@@ -2,9 +2,9 @@ package com.baidu.ugc.editvideo.magicmusic;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a1.j.b;
-import c.a.a1.t.c;
-import c.a.a1.t.h;
+import c.a.b1.j.b;
+import c.a.b1.t.c;
+import c.a.b1.t.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

@@ -8,7 +8,7 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.u.a;
+import c.a.t0.s.v.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
@@ -29,22 +29,22 @@ public class MaxureLayerView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49274e;
+    public int f49441e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f49275f;
+    public Paint f49442f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f49276g;
+    public Paint f49443g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f49277h;
+    public Paint f49444h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f49278i;
+    public Paint f49445i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f49279j;
+    public int f49446j;
     public int k;
     public float l;
     public boolean m;
@@ -98,22 +98,22 @@ public class MaxureLayerView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
             Paint paint = new Paint();
-            this.f49275f = paint;
+            this.f49442f = paint;
             paint.setStrokeWidth(0.0f);
-            this.f49275f.setAntiAlias(true);
+            this.f49442f.setAntiAlias(true);
             Paint paint2 = new Paint();
-            this.f49276g = paint2;
+            this.f49443g = paint2;
             paint2.setAntiAlias(true);
-            this.f49276g.setStyle(Paint.Style.FILL);
+            this.f49443g.setStyle(Paint.Style.FILL);
             Paint paint3 = new Paint();
-            this.f49277h = paint3;
+            this.f49444h = paint3;
             paint3.setStyle(Paint.Style.FILL);
             Paint paint4 = new Paint();
-            this.f49278i = paint4;
+            this.f49445i = paint4;
             paint4.setStyle(Paint.Style.FILL);
             setTextColor(this.k);
             setTextSize(this.l);
-            setLayerColor(this.f49274e);
+            setLayerColor(this.f49441e);
         }
     }
 
@@ -131,20 +131,20 @@ public class MaxureLayerView extends View {
     public int getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f49279j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f49446j : invokeV.intValue;
     }
 
     public boolean isError() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f49279j < 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f49446j < 0 : invokeV.booleanValue;
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) || (i2 = this.f49279j) > 100 || i2 < 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) || (i2 = this.f49446j) > 100 || i2 < 0) {
             return;
         }
         this.p.reset();
@@ -153,26 +153,26 @@ public class MaxureLayerView extends View {
         this.p.addRoundRect(this.q, a.y(this.n), Path.Direction.CW);
         canvas.clipPath(this.p);
         float f2 = 1.0f - ((100 - i2) / 100.0f);
-        canvas.drawRect(0.0f, f2 * getHeight(), getWidth(), (getHeight() * f2) + v, this.f49278i);
-        canvas.drawRect(0.0f, (f2 * getHeight()) + v, getWidth(), getHeight(), this.f49277h);
+        canvas.drawRect(0.0f, f2 * getHeight(), getWidth(), (getHeight() * f2) + v, this.f49445i);
+        canvas.drawRect(0.0f, (f2 * getHeight()) + v, getWidth(), getHeight(), this.f49444h);
         if (this.m) {
             this.r.reset();
-            this.s.left = ((getWidth() - this.f49275f.measureText(this.f49279j + "%")) / 2.0f) - u;
-            this.s.right = ((getWidth() + this.f49275f.measureText(this.f49279j + "%")) / 2.0f) + u;
-            this.s.top = ((getHeight() - (this.f49275f.descent() + this.f49275f.ascent())) / 2.0f) + t;
-            this.s.bottom = ((getHeight() + (this.f49275f.descent() + this.f49275f.ascent())) / 2.0f) - t;
+            this.s.left = ((getWidth() - this.f49442f.measureText(this.f49446j + "%")) / 2.0f) - u;
+            this.s.right = ((getWidth() + this.f49442f.measureText(this.f49446j + "%")) / 2.0f) + u;
+            this.s.top = ((getHeight() - (this.f49442f.descent() + this.f49442f.ascent())) / 2.0f) + t;
+            this.s.bottom = ((getHeight() + (this.f49442f.descent() + this.f49442f.ascent())) / 2.0f) - t;
             this.r.addRoundRect(this.s, b(this.o), Path.Direction.CW);
             canvas.clipPath(this.r);
-            canvas.drawRect(((getWidth() - this.f49275f.measureText(this.f49279j + "%")) / 2.0f) - u, ((getHeight() - (this.f49275f.descent() + this.f49275f.ascent())) / 2.0f) + t, ((getWidth() + this.f49275f.measureText(this.f49279j + "%")) / 2.0f) + u, ((getHeight() + (this.f49275f.descent() + this.f49275f.ascent())) / 2.0f) - t, this.f49277h);
-            canvas.drawText(this.f49279j + "%", (getWidth() - this.f49275f.measureText(this.f49279j + "%")) / 2.0f, (getHeight() - (this.f49275f.descent() + this.f49275f.ascent())) / 2.0f, this.f49275f);
+            canvas.drawRect(((getWidth() - this.f49442f.measureText(this.f49446j + "%")) / 2.0f) - u, ((getHeight() - (this.f49442f.descent() + this.f49442f.ascent())) / 2.0f) + t, ((getWidth() + this.f49442f.measureText(this.f49446j + "%")) / 2.0f) + u, ((getHeight() + (this.f49442f.descent() + this.f49442f.ascent())) / 2.0f) - t, this.f49444h);
+            canvas.drawText(this.f49446j + "%", (getWidth() - this.f49442f.measureText(this.f49446j + "%")) / 2.0f, (getHeight() - (this.f49442f.descent() + this.f49442f.ascent())) / 2.0f, this.f49442f);
         }
     }
 
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f49279j = 0;
-            this.f49277h.setColor(this.f49274e);
+            this.f49446j = 0;
+            this.f49444h.setColor(this.f49441e);
             postInvalidate();
         }
     }
@@ -192,8 +192,8 @@ public class MaxureLayerView extends View {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            this.f49274e = i2;
-            this.f49277h.setColor(i2);
+            this.f49441e = i2;
+            this.f49444h.setColor(i2);
             postInvalidate();
             return this;
         }
@@ -204,7 +204,7 @@ public class MaxureLayerView extends View {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-            this.f49278i.setColor(i2);
+            this.f49445i.setColor(i2);
             postInvalidate();
             return this;
         }
@@ -218,8 +218,8 @@ public class MaxureLayerView extends View {
                 if (i2 >= 100) {
                     i2 = 100;
                 }
-                this.f49279j = i2;
-                setLayerColor(this.f49274e);
+                this.f49446j = i2;
+                setLayerColor(this.f49441e);
                 postInvalidate();
                 return;
             }
@@ -231,7 +231,7 @@ public class MaxureLayerView extends View {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            this.f49276g.setColor(i2);
+            this.f49443g.setColor(i2);
             postInvalidate();
             return this;
         }
@@ -243,7 +243,7 @@ public class MaxureLayerView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
             this.k = i2;
-            this.f49275f.setColor(i2);
+            this.f49442f.setColor(i2);
             postInvalidate();
             return this;
         }
@@ -254,7 +254,7 @@ public class MaxureLayerView extends View {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048588, this, f2)) == null) {
-            this.f49275f.setTextSize(f2);
+            this.f49442f.setTextSize(f2);
             postInvalidate();
             return this;
         }

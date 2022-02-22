@@ -20,14 +20,14 @@ public class a {
     public static final String a = "com.sdk.base.framework.a.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Boolean f59187b;
+    public static Boolean f59354b;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ConnectivityManager.NetworkCallback f59188d;
+    public static ConnectivityManager.NetworkCallback f59355d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public HttpURLConnection f59189c;
+    public HttpURLConnection f59356c;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +42,7 @@ public class a {
                 return;
             }
         }
-        f59187b = Boolean.valueOf(com.sdk.base.framework.c.f.f59281b);
+        f59354b = Boolean.valueOf(com.sdk.base.framework.c.f.f59448b);
     }
 
     public a(Context context, URL url) {
@@ -66,10 +66,10 @@ public class a {
             builder.addTransportType(0);
             NetworkRequest build = builder.build();
             b bVar = new b(this, url);
-            f59188d = bVar;
+            f59355d = bVar;
             ((ConnectivityManager) context.getSystemService("connectivity")).requestNetwork(build, bVar);
         } catch (Exception e2) {
-            com.sdk.base.framework.a.a.c.b(a, e2.toString(), f59187b);
+            com.sdk.base.framework.a.a.c.b(a, e2.toString(), f59354b);
         }
     }
 
@@ -79,7 +79,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c(this, 2000L);
             while (!cVar.a()) {
-                HttpURLConnection httpURLConnection = this.f59189c;
+                HttpURLConnection httpURLConnection = this.f59356c;
                 if (httpURLConnection != null) {
                     return httpURLConnection;
                 }

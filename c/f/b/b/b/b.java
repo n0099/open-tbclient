@@ -19,15 +19,15 @@ public class b implements a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f28174d;
+    public static final Pattern f28380d;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28175b;
+    public String f28381b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f28176c;
+    public Context f28382c;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +42,7 @@ public class b implements a {
                 return;
             }
         }
-        f28174d = Pattern.compile("^https://.*\\.com");
+        f28380d = Pattern.compile("^https://.*\\.com");
     }
 
     public b() {
@@ -71,10 +71,10 @@ public class b implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f28176c == null) {
+            if (this.f28382c == null) {
                 return "https://www.dxmpay.com";
             }
-            String appPayHost = SdkInitResponse.getInstance().getAppPayHost(this.f28176c);
+            String appPayHost = SdkInitResponse.getInstance().getAppPayHost(this.f28382c);
             return TextUtils.isEmpty(appPayHost) ? "https://www.dxmpay.com" : appPayHost;
         }
         return (String) invokeV.objValue;
@@ -97,7 +97,7 @@ public class b implements a {
             }
             StringBuilder sb = new StringBuilder(str);
             sb.append("://");
-            sb.append(TextUtils.isEmpty(this.f28175b) ? "ai.dxmpay.com" : this.f28175b);
+            sb.append(TextUtils.isEmpty(this.f28381b) ? "ai.dxmpay.com" : this.f28381b);
             return sb.toString();
         }
         return (String) invokeL.objValue;
@@ -115,10 +115,10 @@ public class b implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f28176c == null) {
+            if (this.f28382c == null) {
                 return com.baidu.wallet.core.domain.b.p;
             }
-            String polymerHost = SdkInitResponse.getInstance().getPolymerHost(this.f28176c);
+            String polymerHost = SdkInitResponse.getInstance().getPolymerHost(this.f28382c);
             return TextUtils.isEmpty(polymerHost) ? com.baidu.wallet.core.domain.b.p : polymerHost;
         }
         return (String) invokeV.objValue;
@@ -133,7 +133,7 @@ public class b implements a {
         try {
             JSONObject jSONObject = new JSONObject(str);
             String optString = jSONObject.optString("app_host");
-            if (!TextUtils.isEmpty(optString) && f28174d.matcher(optString).matches()) {
+            if (!TextUtils.isEmpty(optString) && f28380d.matcher(optString).matches()) {
                 this.a = optString;
                 c.f.a.d.a.i().g(this.a);
             } else {
@@ -142,9 +142,9 @@ public class b implements a {
             }
             String optString2 = jSONObject.optString("rtc_host");
             if (!TextUtils.isEmpty(optString2)) {
-                this.f28175b = optString2;
+                this.f28381b = optString2;
             } else {
-                this.f28175b = "";
+                this.f28381b = "";
             }
         } catch (JSONException e2) {
             e2.printStackTrace();
@@ -155,7 +155,7 @@ public class b implements a {
     public void setDxmPayContext(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
-            this.f28176c = context;
+            this.f28382c = context;
         }
     }
 }

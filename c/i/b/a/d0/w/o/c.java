@@ -13,7 +13,7 @@ public abstract class c {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<String> f29367b;
+    public final List<String> f29573b;
 
     public c(String str, List<String> list) {
         Interceptable interceptable = $ic;
@@ -31,6 +31,6 @@ public abstract class c {
             }
         }
         this.a = str;
-        this.f29367b = Collections.unmodifiableList(list);
+        this.f29573b = Collections.unmodifiableList(list);
     }
 }

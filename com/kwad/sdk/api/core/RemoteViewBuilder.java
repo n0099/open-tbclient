@@ -12,10 +12,10 @@ import android.widget.RemoteViews;
 import androidx.annotation.Keep;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RemoteViewBuilder {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class CompletedRemoteViewImpl implements ICompletedRemoteView {
         public final Context mContext;
         public final Context mOriginContext;
@@ -63,7 +63,7 @@ public class RemoteViewBuilder {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ProgressRemoteViewImpl implements IProgressRemoteView {
         public static final String ACTION_CLICK_CONTROL_BTN = "com.ksad.action.ACTION_NOTIFICATION_CLICK_CONTROL_BTN";
         public static final String KEY_TASKID = "taskId";

@@ -15,14 +15,14 @@ import com.bumptech.glide.util.pool.FactoryPools;
 import com.bumptech.glide.util.pool.StateVerifier;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SafeKeyGenerator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Pools.Pool<PoolableDigestContainer> digestPool;
     public final LruCache<Key, String> loadIdToSafeHash;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class PoolableDigestContainer implements FactoryPools.Poolable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

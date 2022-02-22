@@ -33,7 +33,7 @@ public class k extends q<TTNativeAd> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final FunNativeAdListenerHelper<TTNativeAd, TTNativeAd.AdInteractionListener> f28220i;
+    public final FunNativeAdListenerHelper<TTNativeAd, TTNativeAd.AdInteractionListener> f28426i;
 
     /* loaded from: classes9.dex */
     public class a implements TTAdNative.NativeAdListener {
@@ -90,7 +90,7 @@ public class k extends q<TTNativeAd> {
         public final TTNativeAd a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ k f28221b;
+        public final /* synthetic */ k f28427b;
 
         public b(k kVar, TTNativeAd tTNativeAd) {
             Interceptable interceptable = $ic;
@@ -107,7 +107,7 @@ public class k extends q<TTNativeAd> {
                     return;
                 }
             }
-            this.f28221b = kVar;
+            this.f28427b = kVar;
             this.a = tTNativeAd;
         }
 
@@ -116,7 +116,7 @@ public class k extends q<TTNativeAd> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, view, tTNativeAd) == null) {
                 LogPrinter.d();
-                this.f28221b.f28220i.onAdClick(this.a);
+                this.f28427b.f28426i.onAdClick(this.a);
             }
         }
 
@@ -125,7 +125,7 @@ public class k extends q<TTNativeAd> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, tTNativeAd) == null) {
                 LogPrinter.d();
-                this.f28221b.f28220i.onAdClick(this.a);
+                this.f28427b.f28426i.onAdClick(this.a);
             }
         }
 
@@ -134,7 +134,7 @@ public class k extends q<TTNativeAd> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tTNativeAd) == null) {
                 LogPrinter.d();
-                this.f28221b.f28220i.onAdShow(this.a);
+                this.f28427b.f28426i.onAdShow(this.a);
             }
         }
     }
@@ -158,7 +158,7 @@ public class k extends q<TTNativeAd> {
                 return;
             }
         }
-        this.f28220i = new FunNativeAdListenerHelper<>(this);
+        this.f28426i = new FunNativeAdListenerHelper<>(this);
     }
 
     public void b(Activity activity, TTNativeAd tTNativeAd, ViewGroup viewGroup, com.fun.module.csj.e0 e0Var, TTNativeAd.AdInteractionListener adInteractionListener) {
@@ -176,7 +176,7 @@ public class k extends q<TTNativeAd> {
             if (viewGroup instanceof FunNativeView) {
                 viewGroup = ((FunNativeView) viewGroup).getRoot();
             }
-            this.f28220i.startShow(tTNativeAd, str, this.mPid, adInteractionListener, funAdInteractionListener);
+            this.f28426i.startShow(tTNativeAd, str, this.mPid, adInteractionListener, funAdInteractionListener);
             if (context instanceof Activity) {
                 tTNativeAd.setActivityForDownloadApp((Activity) context);
             }
@@ -195,7 +195,7 @@ public class k extends q<TTNativeAd> {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, funAdSlot) == null) {
             AdSlot.Builder downloadType = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setDownloadType(FunAdSdk.getFunAdConfig().downLoadType);
             Ssp.Pid pid = this.mPid;
-            this.f28245h.loadNativeAd(downloadType.setImageAcceptedSize(pid.width, pid.height).setNativeAdType(1).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3)).build(), new a(this));
+            this.f28451h.loadNativeAd(downloadType.setImageAcceptedSize(pid.width, pid.height).setNativeAdType(1).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3)).build(), new a(this));
         }
     }
 
@@ -203,7 +203,7 @@ public class k extends q<TTNativeAd> {
     public void destroyInternal(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-            this.f28220i.destroy((TTNativeAd) obj);
+            this.f28426i.destroy((TTNativeAd) obj);
         }
     }
 

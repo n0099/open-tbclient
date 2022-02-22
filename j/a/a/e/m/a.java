@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payservice.IH5PayActivityVisit;
 import tv.athena.revenue.payui.model.PayFlowType;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a implements IH5PayActivityVisit {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

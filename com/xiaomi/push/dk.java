@@ -11,7 +11,7 @@ public class dk {
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, context) == null) {
-            dn.a(context).m311a();
+            dn.a(context).m310a();
         }
     }
 }

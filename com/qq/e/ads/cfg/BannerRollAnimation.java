@@ -15,7 +15,7 @@ public final class BannerRollAnimation {
     public static final BannerRollAnimation NoAnimation;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ BannerRollAnimation[] f58991b;
+    public static final /* synthetic */ BannerRollAnimation[] f59158b;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
@@ -35,7 +35,7 @@ public final class BannerRollAnimation {
         Default = new BannerRollAnimation("Default", 0, 0);
         BannerRollAnimation bannerRollAnimation = new BannerRollAnimation("NoAnimation", 1, -1);
         NoAnimation = bannerRollAnimation;
-        f58991b = new BannerRollAnimation[]{Default, bannerRollAnimation};
+        f59158b = new BannerRollAnimation[]{Default, bannerRollAnimation};
     }
 
     public BannerRollAnimation(String str, int i2, int i3) {
@@ -68,7 +68,7 @@ public final class BannerRollAnimation {
     public static BannerRollAnimation[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BannerRollAnimation[]) f58991b.clone() : (BannerRollAnimation[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BannerRollAnimation[]) f59158b.clone() : (BannerRollAnimation[]) invokeV.objValue;
     }
 
     public int value() {

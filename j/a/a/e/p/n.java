@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import java.text.DecimalFormat;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

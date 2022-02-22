@@ -10,25 +10,25 @@ public class c {
     public static String a = "c";
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f59520b;
+    public static volatile c f59687b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ConcurrentHashMap<Long, Runnable> f59521c;
+    public ConcurrentHashMap<Long, Runnable> f59688c;
 
     public c() {
-        this.f59521c = null;
-        this.f59521c = new ConcurrentHashMap<>();
+        this.f59688c = null;
+        this.f59688c = new ConcurrentHashMap<>();
     }
 
     public static c a() {
-        if (f59520b == null) {
+        if (f59687b == null) {
             synchronized (c.class) {
-                if (f59520b == null) {
-                    f59520b = new c();
+                if (f59687b == null) {
+                    f59687b = new c();
                 }
             }
         }
-        return f59520b;
+        return f59687b;
     }
 
     public long b() {
@@ -56,7 +56,7 @@ public class c {
             a(id, true, 1);
         } else if (i2 != 7) {
         } else {
-            Runnable remove = this.f59521c.remove(Long.valueOf(id));
+            Runnable remove = this.f59688c.remove(Long.valueOf(id));
             if (z) {
                 com.ss.android.downloadlib.d.a.a().a(id, 1);
                 a(id, true, 1);

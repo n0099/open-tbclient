@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.alasquare.subtablist.mvc;
 
 import android.content.Intent;
 import android.os.Bundle;
-import c.a.t0.a0.f.h.c.a;
+import c.a.u0.a0.f.h.c.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.atomdata.AlaNewSquareSubListActivityConfig;
 import com.baidu.ala.data.AlaSquareTabInfo;

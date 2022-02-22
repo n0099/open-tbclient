@@ -26,10 +26,10 @@ public class h {
     public static String a = "baidu";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final File f3091b;
+    public static final File f2177b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final char f3092c;
+    public static final char f2178c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,8 +45,8 @@ public class h {
                 return;
             }
         }
-        f3091b = Environment.getExternalStorageDirectory();
-        f3092c = File.separatorChar;
+        f2177b = Environment.getExternalStorageDirectory();
+        f2178c = File.separatorChar;
     }
 
     public static int A(String str) {
@@ -82,7 +82,7 @@ public class h {
     public static boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f3092c == '\\' : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f2178c == '\\' : invokeV.booleanValue;
     }
 
     public static void D(OutputStream outputStream) throws IOException {
@@ -135,7 +135,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             try {
-                StatFs statFs = new StatFs(f3091b.getPath());
+                StatFs statFs = new StatFs(f2177b.getPath());
                 return ((((long) statFs.getAvailableBlocks()) * ((long) statFs.getBlockSize())) / 1024) / 1024 > 2;
             } catch (Exception unused) {
                 return false;
@@ -518,9 +518,9 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65561, null, str, str2)) == null) {
             if (str != null) {
-                return f3091b + "/" + a + "/" + str + "/" + str2;
+                return f2177b + "/" + a + "/" + str + "/" + str2;
             }
-            return f3091b + "/" + a + "/" + str2;
+            return f2177b + "/" + a + "/" + str2;
         }
         return (String) invokeLL.objValue;
     }
@@ -576,9 +576,9 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, str)) == null) {
             if (str != null) {
-                return f3091b + "/" + a + "/" + str + "/";
+                return f2177b + "/" + a + "/" + str + "/";
             }
-            return f3091b + "/" + a + "/";
+            return f2177b + "/" + a + "/";
         }
         return (String) invokeL.objValue;
     }

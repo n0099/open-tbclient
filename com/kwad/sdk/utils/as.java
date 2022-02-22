@@ -3,7 +3,7 @@ package com.kwad.sdk.utils;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class as {
     public static String a = "";
 

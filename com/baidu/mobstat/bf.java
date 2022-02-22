@@ -30,31 +30,31 @@ public class bf {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<Activity> f36537b;
+    public WeakReference<Activity> f36743b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f36538c;
+    public int f36744c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f36539d;
+    public boolean f36745d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f36540e;
+    public JSONObject f36746e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f36541f;
+    public boolean f36747f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Handler f36542g;
+    public final Handler f36748g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Handler f36543h;
+    public final Handler f36749h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f36544i;
+    public a f36750i;
 
     /* renamed from: j  reason: collision with root package name */
-    public be f36545j;
+    public be f36751j;
 
     /* loaded from: classes10.dex */
     public static class a implements ViewTreeObserver.OnGlobalLayoutListener, Runnable {
@@ -63,31 +63,31 @@ public class bf {
         public volatile boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f36546b;
+        public boolean f36752b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final WeakReference<View> f36547c;
+        public final WeakReference<View> f36753c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final bk f36548d;
+        public final bk f36754d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Handler f36549e;
+        public final Handler f36755e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Handler f36550f;
+        public final Handler f36756f;
 
         /* renamed from: g  reason: collision with root package name */
-        public JSONObject f36551g;
+        public JSONObject f36757g;
 
         /* renamed from: h  reason: collision with root package name */
-        public WeakReference<Activity> f36552h;
+        public WeakReference<Activity> f36758h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f36553i;
+        public boolean f36759i;
 
         /* renamed from: j  reason: collision with root package name */
-        public boolean f36554j;
+        public boolean f36760j;
         public boolean k;
         public Runnable l;
 
@@ -107,16 +107,16 @@ public class bf {
                 }
             }
             this.l = null;
-            this.f36552h = new WeakReference<>(activity);
-            this.f36551g = jSONObject;
-            this.f36548d = bkVar;
-            this.f36547c = new WeakReference<>(view);
-            this.f36549e = handler;
-            this.f36550f = handler2;
-            this.f36546b = true;
+            this.f36758h = new WeakReference<>(activity);
+            this.f36757g = jSONObject;
+            this.f36754d = bkVar;
+            this.f36753c = new WeakReference<>(view);
+            this.f36755e = handler;
+            this.f36756f = handler2;
+            this.f36752b = true;
             this.a = false;
-            this.f36553i = z;
-            this.f36554j = z2;
+            this.f36759i = z;
+            this.f36760j = z2;
             this.k = z3;
             ViewTreeObserver viewTreeObserver = view.getViewTreeObserver();
             if (viewTreeObserver.isAlive()) {
@@ -129,8 +129,8 @@ public class bf {
         private void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-                if (this.f36546b) {
-                    View view = this.f36547c.get();
+                if (this.f36752b) {
+                    View view = this.f36753c.get();
                     if (view != null) {
                         ViewTreeObserver viewTreeObserver = view.getViewTreeObserver();
                         if (viewTreeObserver.isAlive()) {
@@ -141,9 +141,9 @@ public class bf {
                             }
                         }
                     }
-                    a(this.f36548d, this.f36550f);
+                    a(this.f36754d, this.f36756f);
                 }
-                this.f36546b = false;
+                this.f36752b = false;
             }
         }
 
@@ -158,8 +158,8 @@ public class bf {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f36546b) {
-                if (this.f36547c.get() != null && !this.a) {
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f36752b) {
+                if (this.f36753c.get() != null && !this.a) {
                     if (bd.c().b() && this.k) {
                         bd.c().a("onGlobalLayout");
                     }
@@ -168,10 +168,10 @@ public class bf {
                     }
                     if (af.b()) {
                         if (az.c()) {
-                            Activity activity = this.f36552h.get();
+                            Activity activity = this.f36758h.get();
                             if (activity != null) {
-                                bf.b(activity, this.f36553i, this.k);
-                                a(this.f36552h, this.f36551g, this.f36548d, this.f36550f, this.f36554j);
+                                bf.b(activity, this.f36759i, this.k);
+                                a(this.f36758h, this.f36757g, this.f36754d, this.f36756f, this.f36760j);
                             }
                         } else {
                             if (bd.c().b() && this.k) {
@@ -182,7 +182,7 @@ public class bf {
                             }
                         }
                     }
-                    this.f36549e.removeCallbacks(this);
+                    this.f36755e.removeCallbacks(this);
                     return;
                 }
                 b();
@@ -195,7 +195,7 @@ public class bf {
                 return;
             }
             this.a = true;
-            this.f36549e.post(this);
+            this.f36755e.post(this);
         }
 
         private void a(WeakReference<Activity> weakReference, JSONObject jSONObject, bk bkVar, Handler handler, boolean z) {
@@ -209,16 +209,16 @@ public class bf {
                 public final /* synthetic */ WeakReference a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f36555b;
+                public final /* synthetic */ boolean f36761b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ bk f36556c;
+                public final /* synthetic */ bk f36762c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ JSONObject f36557d;
+                public final /* synthetic */ JSONObject f36763d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ a f36558e;
+                public final /* synthetic */ a f36764e;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -235,11 +235,11 @@ public class bf {
                             return;
                         }
                     }
-                    this.f36558e = this;
+                    this.f36764e = this;
                     this.a = weakReference;
-                    this.f36555b = z;
-                    this.f36556c = bkVar;
-                    this.f36557d = jSONObject;
+                    this.f36761b = z;
+                    this.f36762c = bkVar;
+                    this.f36763d = jSONObject;
                 }
 
                 @Override // java.lang.Runnable
@@ -247,7 +247,7 @@ public class bf {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         if (!az.c()) {
-                            if (bd.c().b() && this.f36558e.k) {
+                            if (bd.c().b() && this.f36764e.k) {
                                 bd.c().a("no touch, skip doViewVisit");
                             }
                             if (bh.c().b()) {
@@ -261,8 +261,8 @@ public class bf {
                         }
                         Activity activity = (Activity) this.a.get();
                         if (activity != null) {
-                            ar.c(activity, this.f36555b);
-                            this.f36556c.a(activity, this.f36557d, this.f36555b);
+                            ar.c(activity, this.f36761b);
+                            this.f36762c.a(activity, this.f36763d, this.f36761b);
                         }
                     }
                 }
@@ -286,7 +286,7 @@ public class bf {
                 public final /* synthetic */ bk a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f36559b;
+                public final /* synthetic */ a f36765b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -303,7 +303,7 @@ public class bf {
                             return;
                         }
                     }
-                    this.f36559b = this;
+                    this.f36765b = this;
                     this.a = bkVar;
                 }
 
@@ -347,11 +347,11 @@ public class bf {
                 return;
             }
         }
-        this.f36542g = new Handler(Looper.getMainLooper());
-        this.f36545j = new be();
+        this.f36748g = new Handler(Looper.getMainLooper());
+        this.f36751j = new be();
         HandlerThread handlerThread = new HandlerThread("visitorThread");
         handlerThread.start();
-        this.f36543h = new Handler(handlerThread.getLooper());
+        this.f36749h = new Handler(handlerThread.getLooper());
     }
 
     public static void b() {
@@ -392,23 +392,23 @@ public class bf {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, Boolean.valueOf(z), jSONObject, Boolean.valueOf(z2)}) == null) {
             ar.a(activity, !z);
-            if (!this.f36539d) {
-                this.f36539d = z2;
+            if (!this.f36745d) {
+                this.f36745d = z2;
             }
             if (z) {
-                this.f36541f = z;
-                this.f36540e = jSONObject;
+                this.f36747f = z;
+                this.f36746e = jSONObject;
             }
             if (a(activity, 1)) {
                 return;
             }
-            if (this.f36537b != null && (aVar = this.f36544i) != null) {
+            if (this.f36743b != null && (aVar = this.f36750i) != null) {
                 aVar.a();
             }
             WeakReference<Activity> weakReference = new WeakReference<>(activity);
-            this.f36537b = weakReference;
-            this.f36538c = 1;
-            this.f36544i = new a(activity, bj.a(activity), new bk.a(1, weakReference, this.f36545j), this.f36542g, this.f36543h, this.f36540e, this.f36539d, true, this.f36541f);
+            this.f36743b = weakReference;
+            this.f36744c = 1;
+            this.f36750i = new a(activity, bj.a(activity), new bk.a(1, weakReference, this.f36751j), this.f36748g, this.f36749h, this.f36746e, this.f36745d, true, this.f36747f);
         }
     }
 
@@ -419,9 +419,9 @@ public class bf {
             if (a(activity, 2)) {
                 return;
             }
-            this.f36537b = new WeakReference<>(activity);
-            this.f36538c = 2;
-            a aVar = this.f36544i;
+            this.f36743b = new WeakReference<>(activity);
+            this.f36744c = 2;
+            a aVar = this.f36750i;
             if (aVar != null) {
                 aVar.a();
             }
@@ -432,8 +432,8 @@ public class bf {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, this, activity, i2)) == null) {
-            WeakReference<Activity> weakReference = this.f36537b;
-            return weakReference != null && weakReference.get() == activity && this.f36538c == i2;
+            WeakReference<Activity> weakReference = this.f36743b;
+            return weakReference != null && weakReference.get() == activity && this.f36744c == i2;
         }
         return invokeLI.booleanValue;
     }

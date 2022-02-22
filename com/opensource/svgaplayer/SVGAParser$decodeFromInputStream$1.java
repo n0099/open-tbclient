@@ -20,19 +20,19 @@ public final class SVGAParser$decodeFromInputStream$1 implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ SVGAParser f58935e;
+    public final /* synthetic */ SVGAParser f59102e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ InputStream f58936f;
+    public final /* synthetic */ InputStream f59103f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ String f58937g;
+    public final /* synthetic */ String f59104g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final /* synthetic */ SVGAParser.b f58938h;
+    public final /* synthetic */ SVGAParser.b f59105h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final /* synthetic */ boolean f58939i;
+    public final /* synthetic */ boolean f59106i;
 
     public SVGAParser$decodeFromInputStream$1(SVGAParser sVGAParser, InputStream inputStream, String str, SVGAParser.b bVar, boolean z) {
         Interceptable interceptable = $ic;
@@ -49,11 +49,11 @@ public final class SVGAParser$decodeFromInputStream$1 implements Runnable {
                 return;
             }
         }
-        this.f58935e = sVGAParser;
-        this.f58936f = inputStream;
-        this.f58937g = str;
-        this.f58938h = bVar;
-        this.f58939i = z;
+        this.f59102e = sVGAParser;
+        this.f59103f = inputStream;
+        this.f59104g = str;
+        this.f59105h = bVar;
+        this.f59106i = z;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, IGET, INVOKE, IF] complete} */
@@ -67,22 +67,22 @@ public final class SVGAParser$decodeFromInputStream$1 implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
                 try {
-                    x = this.f58935e.x(this.f58936f);
+                    x = this.f59102e.x(this.f59103f);
                     if (x != null) {
                         if (x.length <= 4 || x[0] != 80 || x[1] != 75 || x[2] != 3 || x[3] != 4) {
-                            r = this.f58935e.r(x);
+                            r = this.f59102e.r(x);
                             if (r != null) {
                                 MovieEntity decode = MovieEntity.ADAPTER.decode(r);
                                 Intrinsics.checkExpressionValueIsNotNull(decode, "MovieEntity.ADAPTER.decode(it)");
-                                SVGAVideoEntity sVGAVideoEntity = new SVGAVideoEntity(decode, new File(this.f58937g));
+                                SVGAVideoEntity sVGAVideoEntity = new SVGAVideoEntity(decode, new File(this.f59104g));
                                 sVGAVideoEntity.i(new SVGAParser$decodeFromInputStream$1$$special$$inlined$let$lambda$2(sVGAVideoEntity, this));
                             }
                         } else {
-                            j2 = this.f58935e.j(this.f58937g);
+                            j2 = this.f59102e.j(this.f59104g);
                             if (!j2.exists()) {
                                 ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(x);
                                 try {
-                                    this.f58935e.y(byteArrayInputStream, this.f58937g);
+                                    this.f59102e.y(byteArrayInputStream, this.f59104g);
                                     Unit unit = Unit.INSTANCE;
                                     CloseableKt.closeFinally(byteArrayInputStream, null);
                                 } catch (Throwable th) {
@@ -94,22 +94,22 @@ public final class SVGAParser$decodeFromInputStream$1 implements Runnable {
                                     }
                                 }
                             }
-                            this.f58935e.n(this.f58937g, this.f58938h);
+                            this.f59102e.n(this.f59104g, this.f59105h);
                         }
                     }
-                    if (!this.f58939i) {
+                    if (!this.f59106i) {
                         return;
                     }
                 } catch (Exception e2) {
-                    this.f58935e.t(e2, this.f58938h);
-                    if (!this.f58939i) {
+                    this.f59102e.t(e2, this.f59105h);
+                    if (!this.f59106i) {
                         return;
                     }
                 }
-                this.f58936f.close();
+                this.f59103f.close();
             } catch (Throwable th3) {
-                if (this.f58939i) {
-                    this.f58936f.close();
+                if (this.f59106i) {
+                    this.f59103f.close();
                 }
                 throw th3;
             }

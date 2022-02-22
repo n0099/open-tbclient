@@ -1,7 +1,7 @@
 package c.a.s0.n;
-/* loaded from: classes6.dex */
-public interface a<T> {
-    void onError(int i2, String str);
 
-    void onSuccess(T t);
+import com.baidu.swan.menu.BaseMenuView;
+/* loaded from: classes6.dex */
+public interface a {
+    void a(BaseMenuView baseMenuView);
 }

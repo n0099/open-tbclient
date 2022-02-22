@@ -11,7 +11,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.security.cert.Certificate;
 @RequiresApi(api = 21)
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,16 +55,16 @@ public final class d {
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
             try {
                 try {
-                    c.C2047c a = c.a(str);
+                    c.C2057c a = c.a(str);
                     Signature[] a2 = a(new Certificate[][]{a.a});
                     Signature[] signatureArr = null;
-                    if (a.f53105b != null) {
-                        int size = a.f53105b.a.size();
+                    if (a.f53272b != null) {
+                        int size = a.f53272b.a.size();
                         signatureArr = new Signature[size];
-                        iArr = new int[a.f53105b.f53104b.size()];
+                        iArr = new int[a.f53272b.f53271b.size()];
                         for (int i2 = 0; i2 < size; i2++) {
-                            signatureArr[i2] = new Signature(a.f53105b.a.get(i2).getEncoded());
-                            iArr[i2] = a.f53105b.f53104b.get(i2).intValue();
+                            signatureArr[i2] = new Signature(a.f53272b.a.get(i2).getEncoded());
+                            iArr[i2] = a.f53272b.f53271b.get(i2).intValue();
                         }
                     } else {
                         iArr = null;

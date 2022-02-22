@@ -29,13 +29,13 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
     public List<GiftBagItemInfo> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PayUIKitConfig f63049b;
+    public PayUIKitConfig f63216b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f63050c;
+    public Context f63217c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f63051d;
+    public b f63218d;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -43,10 +43,10 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f63052e;
+        public final /* synthetic */ c f63219e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PayAmountCampaignListAdapter f63053f;
+        public final /* synthetic */ PayAmountCampaignListAdapter f63220f;
 
         public a(PayAmountCampaignListAdapter payAmountCampaignListAdapter, c cVar) {
             Interceptable interceptable = $ic;
@@ -63,17 +63,17 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
                     return;
                 }
             }
-            this.f63053f = payAmountCampaignListAdapter;
-            this.f63052e = cVar;
+            this.f63220f = payAmountCampaignListAdapter;
+            this.f63219e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f63053f.f63051d == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f63220f.f63218d == null) {
                 return;
             }
-            this.f63053f.f63051d.onClick(this.f63052e.getAdapterPosition());
+            this.f63220f.f63218d.onClick(this.f63219e.getAdapterPosition());
         }
     }
 
@@ -89,13 +89,13 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
         public TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f63054b;
+        public TextView f63221b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f63055c;
+        public ImageView f63222c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f63056d;
+        public TextView f63223d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(PayAmountCampaignListAdapter payAmountCampaignListAdapter, View view) {
@@ -116,9 +116,9 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
                 }
             }
             this.a = (TextView) view.findViewById(f.tv_name);
-            this.f63054b = (TextView) view.findViewById(f.tv_num);
-            this.f63055c = (ImageView) view.findViewById(f.img);
-            this.f63056d = (TextView) view.findViewById(f.tv_type);
+            this.f63221b = (TextView) view.findViewById(f.tv_num);
+            this.f63222c = (ImageView) view.findViewById(f.img);
+            this.f63223d = (TextView) view.findViewById(f.tv_type);
         }
     }
 
@@ -138,8 +138,8 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
             }
         }
         this.a = list;
-        this.f63050c = context;
-        this.f63049b = payUIKitConfig;
+        this.f63217c = context;
+        this.f63216b = payUIKitConfig;
     }
 
     public GiftBagItemInfo getItem(int i2) {
@@ -165,7 +165,7 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
     public void setOnItemClickListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.f63051d = bVar;
+            this.f63218d = bVar;
         }
     }
 
@@ -183,20 +183,20 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
                 cVar.a.setText(item.name);
             }
             if (!TextUtils.isEmpty(item.countDisplay) && !StringUtil.NULL_STRING.equals(item.countDisplay)) {
-                cVar.f63054b.setVisibility(0);
-                cVar.f63054b.setText(item.countDisplay);
+                cVar.f63221b.setVisibility(0);
+                cVar.f63221b.setText(item.countDisplay);
             } else {
-                cVar.f63054b.setVisibility(4);
+                cVar.f63221b.setVisibility(4);
             }
             if (!TextUtils.isEmpty(item.typeName) && !StringUtil.NULL_STRING.equals(item.typeName)) {
-                cVar.f63056d.setVisibility(0);
-                cVar.f63056d.setText(item.typeName);
+                cVar.f63223d.setVisibility(0);
+                cVar.f63223d.setText(item.typeName);
             } else {
-                cVar.f63056d.setVisibility(4);
+                cVar.f63223d.setVisibility(4);
             }
-            PayUIKitConfig payUIKitConfig = this.f63049b;
+            PayUIKitConfig payUIKitConfig = this.f63216b;
             if (payUIKitConfig != null && payUIKitConfig.imageLoaderSupplier != null) {
-                this.f63049b.imageLoaderSupplier.onLoad(this.f63050c, cVar.f63055c, new ImageLoaderSupplier.ImageParam(item.imgUrl, -1, -1));
+                this.f63216b.imageLoaderSupplier.onLoad(this.f63217c, cVar.f63222c, new ImageLoaderSupplier.ImageParam(item.imgUrl, -1, -1));
                 return;
             }
             RLog.error("PayAmountCampaignListAdapter", "onBindViewHolder error mPayUIKitConfig null", new Object[0]);

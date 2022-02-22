@@ -26,26 +26,26 @@ public class RotateLoadingLayout extends LoadingLayout {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f50927c = 1200;
+    public static final int f51094c = 1200;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Animation f50928d;
+    public final Animation f51095d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ObjectAnimator f50929e;
+    public final ObjectAnimator f51096e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Matrix f50930f;
+    public final Matrix f51097f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f50931g;
+    public float f51098g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f50932h;
+    public float f51099h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final boolean f50933i;
+    public final boolean f51100i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RotateLoadingLayout(Context context, LoadingLayout.Mode mode, LoadingLayout.Orientation orientation, TypedArray typedArray) {
@@ -66,28 +66,28 @@ public class RotateLoadingLayout extends LoadingLayout {
                 return;
             }
         }
-        this.f50933i = true;
+        this.f51100i = true;
         this.mHeaderImage.setScaleType(ImageView.ScaleType.MATRIX);
         Matrix matrix = new Matrix();
-        this.f50930f = matrix;
+        this.f51097f = matrix;
         this.mHeaderImage.setImageMatrix(matrix);
         RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);
-        this.f50928d = rotateAnimation;
-        rotateAnimation.setInterpolator(LoadingLayout.f50908b);
-        this.f50928d.setDuration(IMLikeRequest.TIME_INTERVAL);
-        this.f50928d.setRepeatCount(-1);
-        this.f50928d.setRepeatMode(1);
-        this.f50929e = getRotateYAnim(this.mHeaderImage);
+        this.f51095d = rotateAnimation;
+        rotateAnimation.setInterpolator(LoadingLayout.f51075b);
+        this.f51095d.setDuration(IMLikeRequest.TIME_INTERVAL);
+        this.f51095d.setRepeatCount(-1);
+        this.f51095d.setRepeatMode(1);
+        this.f51096e = getRotateYAnim(this.mHeaderImage);
     }
 
     private void a() {
         Matrix matrix;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (matrix = this.f50930f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (matrix = this.f51097f) == null) {
             return;
         }
         matrix.reset();
-        this.mHeaderImage.setImageMatrix(this.f50930f);
+        this.mHeaderImage.setImageMatrix(this.f51097f);
     }
 
     public static int getProgress(float f2) {
@@ -142,8 +142,8 @@ public class RotateLoadingLayout extends LoadingLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drawable) == null) || drawable == null) {
             return;
         }
-        this.f50931g = Math.round(drawable.getIntrinsicWidth() / 2.0f);
-        this.f50932h = Math.round(drawable.getIntrinsicHeight() / 2.0f);
+        this.f51098g = Math.round(drawable.getIntrinsicWidth() / 2.0f);
+        this.f51099h = Math.round(drawable.getIntrinsicHeight() / 2.0f);
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.ui.LoadingLayout
@@ -156,8 +156,8 @@ public class RotateLoadingLayout extends LoadingLayout {
                 this.mHeaderImage.invalidate();
                 return;
             }
-            this.f50930f.setRotate(f2 * 90.0f, this.f50931g, this.f50932h);
-            this.mHeaderImage.setImageMatrix(this.f50930f);
+            this.f51097f.setRotate(f2 * 90.0f, this.f51098g, this.f51099h);
+            this.mHeaderImage.setImageMatrix(this.f51097f);
         }
     }
 
@@ -173,9 +173,9 @@ public class RotateLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (this.mHeaderImage.getDrawable() instanceof RefreshLoadingDrawable) {
-                this.f50929e.start();
+                this.f51096e.start();
             } else {
-                this.mHeaderImage.startAnimation(this.f50928d);
+                this.mHeaderImage.startAnimation(this.f51095d);
             }
         }
     }
@@ -192,7 +192,7 @@ public class RotateLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (this.mHeaderImage.getDrawable() instanceof RefreshLoadingDrawable) {
-                this.f50929e.cancel();
+                this.f51096e.cancel();
                 this.mHeaderImage.setRotationY(0.0f);
             } else {
                 this.mHeaderImage.clearAnimation();

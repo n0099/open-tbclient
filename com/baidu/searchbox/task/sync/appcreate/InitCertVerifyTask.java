@@ -1,8 +1,8 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
-import c.a.s0.d1.k0;
-import c.a.s0.d1.n0;
-import c.a.s0.d1.s;
+import c.a.t0.d1.l0;
+import c.a.t0.d1.o0;
+import c.a.t0.d1.s;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbConfig;
@@ -36,7 +36,7 @@ public class InitCertVerifyTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !TbadkCoreApplication.getInst().isDebugMode() && TbConfig.IS_CHECK_OFFICAL_APPLICATION) {
-            n0.b(new k0<Boolean>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitCertVerifyTask.1
+            o0.b(new l0<Boolean>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitCertVerifyTask.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitCertVerifyTask this$0;
@@ -61,7 +61,7 @@ public class InitCertVerifyTask extends LaunchTask {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // c.a.s0.d1.k0
+                @Override // c.a.t0.d1.l0
                 public Boolean doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -91,7 +91,7 @@ public class InitCertVerifyTask extends LaunchTask {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // c.a.s0.d1.s
+                @Override // c.a.t0.d1.s
                 public void onReturnDataInUI(Boolean bool) {
                     Interceptable interceptable2 = $ic;
                     if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) || bool == null) {

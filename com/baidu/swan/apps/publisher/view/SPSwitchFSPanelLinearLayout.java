@@ -4,9 +4,9 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
-import c.a.r0.a.z1.i.a;
-import c.a.r0.a.z1.j.g;
-import c.a.r0.a.z1.k.b;
+import c.a.s0.a.z1.i.a;
+import c.a.s0.a.z1.j.g;
+import c.a.s0.a.z1.k.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +18,7 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f39065e;
+    public a f39293e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SPSwitchFSPanelLinearLayout(Context context) {
@@ -44,19 +44,19 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout implements b {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f39065e = new a(this);
+            this.f39293e = new a(this);
         }
     }
 
-    @Override // c.a.r0.a.z1.k.b
+    @Override // c.a.s0.a.z1.k.b
     public void onSoftInputShowing(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f39065e.a(z);
+            this.f39293e.a(z);
         }
     }
 
-    @Override // c.a.r0.a.z1.k.b
+    @Override // c.a.s0.a.z1.k.b
     public void refreshHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {

@@ -18,31 +18,31 @@ public class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f27254b;
+    public boolean f27460b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f27255c;
+    public boolean f27461c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Vector3 f27256d;
+    public final Vector3 f27462d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Quaternion f27257e;
+    public final Quaternion f27463e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Vector3 f27258f;
+    public final Vector3 f27464f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Matrix4 f27259g;
+    public final Matrix4 f27465g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Matrix4 f27260h;
+    public final Matrix4 f27466h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.b.b.q.a<f> f27261i;
+    public c.b.b.q.a<f> f27467i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c f27262j;
+    public c f27468j;
     public final c.b.b.q.a<c> k;
 
     public c() {
@@ -58,13 +58,13 @@ public class c {
                 return;
             }
         }
-        this.f27254b = true;
-        this.f27256d = new Vector3();
-        this.f27257e = new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
-        this.f27258f = new Vector3(1.0f, 1.0f, 1.0f);
-        this.f27259g = new Matrix4();
-        this.f27260h = new Matrix4();
-        this.f27261i = new c.b.b.q.a<>(2);
+        this.f27460b = true;
+        this.f27462d = new Vector3();
+        this.f27463e = new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
+        this.f27464f = new Vector3(1.0f, 1.0f, 1.0f);
+        this.f27465g = new Matrix4();
+        this.f27466h = new Matrix4();
+        this.f27467i = new c.b.b.q.a<>(2);
         this.k = new c.b.b.q.a<>(2);
     }
 
@@ -72,7 +72,7 @@ public class c {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{aVar, str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            int i2 = aVar.f27389f;
+            int i2 = aVar.f27595f;
             if (z2) {
                 for (int i3 = 0; i3 < i2; i3++) {
                     c cVar = aVar.get(i3);
@@ -113,13 +113,13 @@ public class c {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            a.b<f> it = this.f27261i.iterator();
+            a.b<f> it = this.f27467i.iterator();
             while (it.hasNext()) {
                 f next = it.next();
                 c.b.b.q.b<c, Matrix4> bVar = next.a;
-                if (bVar != null && (matrix4Arr = next.f27265b) != null && (i2 = bVar.f27402g) == matrix4Arr.length) {
+                if (bVar != null && (matrix4Arr = next.f27471b) != null && (i2 = bVar.f27608g) == matrix4Arr.length) {
                     for (int i3 = 0; i3 < i2; i3++) {
-                        next.f27265b[i3].set(next.a.f27400e[i3].f27260h).mul(next.a.f27401f[i3]);
+                        next.f27471b[i3].set(next.a.f27606e[i3].f27466h).mul(next.a.f27607f[i3]);
                     }
                 }
             }
@@ -136,10 +136,10 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!this.f27255c) {
-                this.f27259g.set(this.f27256d, this.f27257e, this.f27258f);
+            if (!this.f27461c) {
+                this.f27465g.set(this.f27462d, this.f27463e, this.f27464f);
             }
-            return this.f27259g;
+            return this.f27465g;
         }
         return (Matrix4) invokeV.objValue;
     }
@@ -163,12 +163,12 @@ public class c {
         c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f27254b && (cVar = this.f27262j) != null) {
-                this.f27260h.set(cVar.f27260h).mul(this.f27259g);
+            if (this.f27460b && (cVar = this.f27468j) != null) {
+                this.f27466h.set(cVar.f27466h).mul(this.f27465g);
             } else {
-                this.f27260h.set(this.f27259g);
+                this.f27466h.set(this.f27465g);
             }
-            return this.f27260h;
+            return this.f27466h;
         }
         return (Matrix4) invokeV.objValue;
     }
@@ -176,7 +176,7 @@ public class c {
     public c g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27262j : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27468j : (c) invokeV.objValue;
     }
 
     public <T extends c> int h(int i2, T t) {
@@ -192,17 +192,17 @@ public class c {
             if (g2 == null || g2.i(t)) {
                 if (i2 >= 0) {
                     c.b.b.q.a<c> aVar = this.k;
-                    if (i2 < aVar.f27389f) {
+                    if (i2 < aVar.f27595f) {
                         aVar.insert(i2, t);
-                        t.f27262j = this;
+                        t.f27468j = this;
                         return i2;
                     }
                 }
                 c.b.b.q.a<c> aVar2 = this.k;
-                int i3 = aVar2.f27389f;
+                int i3 = aVar2.f27595f;
                 aVar2.a(t);
                 i2 = i3;
-                t.f27262j = this;
+                t.f27468j = this;
                 return i2;
             }
             throw new GdxRuntimeException("Could not remove child from its current parent");
@@ -215,7 +215,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, t)) == null) {
             if (this.k.i(t, true)) {
-                t.f27262j = null;
+                t.f27468j = null;
                 return true;
             }
             return false;

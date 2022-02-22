@@ -31,32 +31,32 @@ public class PayLoadingImageViewNew extends View {
     public PathMeasure a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f52487b;
+    public Paint f52654b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f52488c;
+    public Paint f52655c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Path f52489d;
+    public Path f52656d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f52490e;
+    public int f52657e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f52491f;
+    public int f52658f;
     public int flag;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f52492g;
+    public int f52659g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final RectF f52493h;
+    public final RectF f52660h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Path f52494i;
+    public Path f52661i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Animation f52495j;
+    public Animation f52662j;
     public Handler k;
     public int strokeWidth;
 
@@ -95,8 +95,8 @@ public class PayLoadingImageViewNew extends View {
         }
         this.flag = 0;
         this.strokeWidth = 4;
-        this.f52493h = new RectF();
-        this.f52494i = new Path();
+        this.f52660h = new RectF();
+        this.f52661i = new Path();
         a();
     }
 
@@ -129,26 +129,26 @@ public class PayLoadingImageViewNew extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             super.onDraw(canvas);
-            int i2 = this.f52492g;
+            int i2 = this.f52659g;
             if (i2 == 0) {
                 return;
             }
-            if (this.f52489d == null) {
+            if (this.f52656d == null) {
                 float dip2px = (i2 - dip2px(this.strokeWidth)) / 2.0f;
-                RectF rectF = this.f52493h;
-                int i3 = this.f52490e;
+                RectF rectF = this.f52660h;
+                int i3 = this.f52657e;
                 rectF.left = i3 - dip2px;
-                int i4 = this.f52491f;
+                int i4 = this.f52658f;
                 rectF.top = i4 - dip2px;
                 rectF.right = i3 + dip2px;
                 rectF.bottom = i4 + dip2px;
                 Path path = new Path();
-                this.f52489d = path;
-                path.addArc(this.f52493h, 225.0f, 359.9f);
-                this.f52489d.rLineTo(0.0f, 0.0f);
-                this.a = new PathMeasure(this.f52489d, false);
+                this.f52656d = path;
+                path.addArc(this.f52660h, 225.0f, 359.9f);
+                this.f52656d.rLineTo(0.0f, 0.0f);
+                this.a = new PathMeasure(this.f52656d, false);
             }
-            canvas.drawPath(this.f52494i, this.f52487b);
+            canvas.drawPath(this.f52661i, this.f52654b);
             canvas.save();
         }
     }
@@ -159,13 +159,13 @@ public class PayLoadingImageViewNew extends View {
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
             if (getMeasuredWidth() > getHeight()) {
-                this.f52492g = getMeasuredHeight();
+                this.f52659g = getMeasuredHeight();
             } else {
-                this.f52492g = getMeasuredWidth();
+                this.f52659g = getMeasuredWidth();
             }
-            int i4 = this.f52492g;
-            this.f52490e = i4 / 2;
-            this.f52491f = i4 / 2;
+            int i4 = this.f52659g;
+            this.f52657e = i4 / 2;
+            this.f52658f = i4 / 2;
         }
     }
 
@@ -189,21 +189,21 @@ public class PayLoadingImageViewNew extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             Paint paint = new Paint();
-            this.f52487b = paint;
+            this.f52654b = paint;
             paint.setAntiAlias(true);
-            this.f52487b.setColor(ResUtils.getColor(getContext(), "wallet_fp_main_327de7"));
-            this.f52487b.setStrokeWidth(dip2px(this.strokeWidth));
-            this.f52487b.setStyle(Paint.Style.STROKE);
-            this.f52487b.setStrokeJoin(Paint.Join.ROUND);
-            this.f52487b.setStrokeCap(Paint.Cap.ROUND);
+            this.f52654b.setColor(ResUtils.getColor(getContext(), "wallet_fp_main_327de7"));
+            this.f52654b.setStrokeWidth(dip2px(this.strokeWidth));
+            this.f52654b.setStyle(Paint.Style.STROKE);
+            this.f52654b.setStrokeJoin(Paint.Join.ROUND);
+            this.f52654b.setStrokeCap(Paint.Cap.ROUND);
             Paint paint2 = new Paint();
-            this.f52488c = paint2;
+            this.f52655c = paint2;
             paint2.setAntiAlias(true);
-            this.f52488c.setColor(-16777216);
-            this.f52488c.setStrokeWidth(dip2px(this.strokeWidth));
-            this.f52488c.setStyle(Paint.Style.STROKE);
-            this.f52488c.setStrokeJoin(Paint.Join.ROUND);
-            this.f52488c.setStrokeCap(Paint.Cap.ROUND);
+            this.f52655c.setColor(-16777216);
+            this.f52655c.setStrokeWidth(dip2px(this.strokeWidth));
+            this.f52655c.setStyle(Paint.Style.STROKE);
+            this.f52655c.setStrokeJoin(Paint.Join.ROUND);
+            this.f52655c.setStrokeCap(Paint.Cap.ROUND);
             this.k = new Handler(this) { // from class: com.baidu.wallet.paysdk.ui.widget.PayLoadingImageViewNew.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -232,7 +232,7 @@ public class PayLoadingImageViewNew extends View {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
                         super.handleMessage(message);
-                        this.a.f52495j.start();
+                        this.a.f52662j.start();
                         String str = PayLoadingImageViewNew.TAG;
                     }
                 }
@@ -261,8 +261,8 @@ public class PayLoadingImageViewNew extends View {
         }
         this.flag = 0;
         this.strokeWidth = 4;
-        this.f52493h = new RectF();
-        this.f52494i = new Path();
+        this.f52660h = new RectF();
+        this.f52661i = new Path();
         a();
     }
 
@@ -287,8 +287,8 @@ public class PayLoadingImageViewNew extends View {
         }
         this.flag = 0;
         this.strokeWidth = 4;
-        this.f52493h = new RectF();
-        this.f52494i = new Path();
+        this.f52660h = new RectF();
+        this.f52661i = new Path();
         a();
     }
 
@@ -325,24 +325,24 @@ public class PayLoadingImageViewNew extends View {
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f4), transformation}) == null) {
                         PayLoadingImageViewNew payLoadingImageViewNew = this.a;
                         if (payLoadingImageViewNew.a != null) {
-                            payLoadingImageViewNew.f52494i.reset();
+                            payLoadingImageViewNew.f52661i.reset();
                             float length = this.a.a.getLength() * f4;
                             PayLoadingImageViewNew payLoadingImageViewNew2 = this.a;
                             if (payLoadingImageViewNew2.flag % 2 != 0) {
-                                payLoadingImageViewNew2.a.getSegment(0.0f, length, payLoadingImageViewNew2.f52494i, true);
+                                payLoadingImageViewNew2.a.getSegment(0.0f, length, payLoadingImageViewNew2.f52661i, true);
                             } else {
                                 PathMeasure pathMeasure = payLoadingImageViewNew2.a;
-                                pathMeasure.getSegment(pathMeasure.getLength() - length, this.a.a.getLength(), this.a.f52494i, true);
+                                pathMeasure.getSegment(pathMeasure.getLength() - length, this.a.a.getLength(), this.a.f52661i, true);
                             }
                             String str = PayLoadingImageViewNew.TAG;
                             String str2 = "currentLength " + length;
-                            this.a.f52494i.rLineTo(0.0f, 0.0f);
+                            this.a.f52661i.rLineTo(0.0f, 0.0f);
                         }
                         this.a.invalidate();
                     }
                 }
             };
-            this.f52495j = animation;
+            this.f52662j = animation;
             animation.setAnimationListener(new Animation.AnimationListener(this) { // from class: com.baidu.wallet.paysdk.ui.widget.PayLoadingImageViewNew.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -388,12 +388,12 @@ public class PayLoadingImageViewNew extends View {
                     }
                 }
             });
-            this.f52495j.setInterpolator(new LinearInterpolator());
-            this.f52495j.setDuration(j2);
-            this.f52495j.setRepeatMode(2);
-            this.f52495j.setRepeatCount(-1);
-            startAnimation(this.f52495j);
-            return this.f52495j;
+            this.f52662j.setInterpolator(new LinearInterpolator());
+            this.f52662j.setDuration(j2);
+            this.f52662j.setRepeatMode(2);
+            this.f52662j.setRepeatCount(-1);
+            startAnimation(this.f52662j);
+            return this.f52662j;
         }
         return (Animation) invokeCommon.objValue;
     }

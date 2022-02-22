@@ -9,7 +9,7 @@ import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WebKitVersionBlink implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "WebKitBlinkVer";

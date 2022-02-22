@@ -14,14 +14,14 @@ public interface aj extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.aj$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class C2209a implements aj {
+        public static class C2219a implements aj {
             public static aj a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f59974b;
+            public IBinder f60141b;
 
-            public C2209a(IBinder iBinder) {
-                this.f59974b = iBinder;
+            public C2219a(IBinder iBinder) {
+                this.f60141b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.aj
@@ -32,7 +32,7 @@ public interface aj extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.ProcessAidlCallback");
                     obtain.writeInt(i2);
                     obtain.writeInt(i3);
-                    if (!this.f59974b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f60141b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         a.a().a(i2, i3);
                     } else {
                         obtain2.readException();
@@ -45,7 +45,7 @@ public interface aj extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f59974b;
+                return this.f60141b;
             }
         }
 
@@ -61,7 +61,7 @@ public interface aj extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof aj)) {
                 return (aj) queryLocalInterface;
             }
-            return new C2209a(iBinder);
+            return new C2219a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -85,7 +85,7 @@ public interface aj extends IInterface {
         }
 
         public static aj a() {
-            return C2209a.a;
+            return C2219a.a;
         }
     }
 }

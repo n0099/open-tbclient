@@ -15,10 +15,10 @@ public class d {
     public static ExecutorService a = new ThreadPoolExecutor(2, 2, 60, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("Download_OP_Thread"));
 
     /* renamed from: c  reason: collision with root package name */
-    public int f60137c = 0;
+    public int f60304c = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile SparseArray<c> f60136b = new SparseArray<>();
+    public volatile SparseArray<c> f60303b = new SparseArray<>();
 
     public static void a(Runnable runnable) {
         a.execute(runnable);
@@ -27,16 +27,16 @@ public class d {
     private void b() {
         try {
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < this.f60136b.size(); i2++) {
-                int keyAt = this.f60136b.keyAt(i2);
-                if (!this.f60136b.get(keyAt).d()) {
+            for (int i2 = 0; i2 < this.f60303b.size(); i2++) {
+                int keyAt = this.f60303b.keyAt(i2);
+                if (!this.f60303b.get(keyAt).d()) {
                     arrayList.add(Integer.valueOf(keyAt));
                 }
             }
             for (int i3 = 0; i3 < arrayList.size(); i3++) {
                 Integer num = (Integer) arrayList.get(i3);
                 if (num != null) {
-                    this.f60136b.remove(num.intValue());
+                    this.f60303b.remove(num.intValue());
                 }
             }
         } catch (Throwable th) {
@@ -47,11 +47,11 @@ public class d {
     public void c(int i2) {
         synchronized (d.class) {
             b();
-            c cVar = this.f60136b.get(i2);
+            c cVar = this.f60303b.get(i2);
             if (cVar != null) {
                 cVar.a();
                 c(cVar);
-                this.f60136b.remove(i2);
+                this.f60303b.remove(i2);
             }
         }
     }
@@ -59,13 +59,13 @@ public class d {
     public void a(c cVar) {
         cVar.f();
         synchronized (d.class) {
-            if (this.f60137c >= 500) {
+            if (this.f60304c >= 500) {
                 b();
-                this.f60137c = 0;
+                this.f60304c = 0;
             } else {
-                this.f60137c++;
+                this.f60304c++;
             }
-            this.f60136b.put(cVar.e(), cVar);
+            this.f60303b.put(cVar.e(), cVar);
         }
         DownloadTask c2 = cVar.c();
         try {
@@ -140,12 +140,12 @@ public class d {
         synchronized (d.class) {
             try {
                 if (com.ss.android.socialbase.downloader.i.a.a(524288)) {
-                    int indexOfValue = this.f60136b.indexOfValue(cVar);
+                    int indexOfValue = this.f60303b.indexOfValue(cVar);
                     if (indexOfValue >= 0) {
-                        this.f60136b.removeAt(indexOfValue);
+                        this.f60303b.removeAt(indexOfValue);
                     }
                 } else {
-                    this.f60136b.remove(cVar.e());
+                    this.f60303b.remove(cVar.e());
                 }
             }
         }
@@ -154,11 +154,11 @@ public class d {
     public c b(int i2) {
         synchronized (d.class) {
             b();
-            c cVar = this.f60136b.get(i2);
+            c cVar = this.f60303b.get(i2);
             if (cVar != null) {
                 cVar.b();
                 c(cVar);
-                this.f60136b.remove(i2);
+                this.f60303b.remove(i2);
                 return cVar;
             }
             return null;
@@ -168,8 +168,8 @@ public class d {
     public boolean a(int i2) {
         synchronized (d.class) {
             boolean z = false;
-            if (this.f60136b != null && this.f60136b.size() > 0) {
-                c cVar = this.f60136b.get(i2);
+            if (this.f60303b != null && this.f60303b.size() > 0) {
+                c cVar = this.f60303b.get(i2);
                 if (cVar != null && cVar.d()) {
                     z = true;
                 }
@@ -184,8 +184,8 @@ public class d {
         synchronized (d.class) {
             b();
             arrayList = new ArrayList();
-            for (int i2 = 0; i2 < this.f60136b.size(); i2++) {
-                c cVar = this.f60136b.get(this.f60136b.keyAt(i2));
+            for (int i2 = 0; i2 < this.f60303b.size(); i2++) {
+                c cVar = this.f60303b.get(this.f60303b.keyAt(i2));
                 if (cVar != null) {
                     arrayList.add(Integer.valueOf(cVar.e()));
                 }
@@ -195,7 +195,7 @@ public class d {
     }
 
     public void a(int i2, long j2) {
-        c cVar = this.f60136b.get(i2);
+        c cVar = this.f60303b.get(i2);
         if (cVar != null) {
             cVar.c(j2);
         }

@@ -4,10 +4,12 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import c.a.d.f.p.n;
+import c.a.u0.a4.d;
+import c.a.u0.a4.e;
+import c.a.u0.a4.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -42,8 +44,8 @@ public class EntelechyUserLikeButton extends CommonUserLikeButton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.init();
-            setTextSize(0, n.f(getContext(), R.dimen.ds26));
-            setCompoundDrawablePadding(n.f(getContext(), R.dimen.ds6));
+            setTextSize(0, n.f(getContext(), e.ds26));
+            setCompoundDrawablePadding(n.f(getContext(), e.ds6));
             setGravity(5);
             setGravity(16);
         }
@@ -55,16 +57,16 @@ public class EntelechyUserLikeButton extends CommonUserLikeButton {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             if (this.mCurrentIsLike) {
                 setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-                SkinManager.setViewTextColor(this, R.color.CAM_X0109);
+                SkinManager.setViewTextColor(this, d.CAM_X0109);
                 setBackgroundDrawable(null);
                 return;
             }
-            setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
-            SkinManager.setViewTextColor(this, R.color.btn_forum_focus_color);
+            setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(f.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
+            SkinManager.setViewTextColor(this, d.btn_forum_focus_color);
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, c.a.s0.s.k0.t.b
+    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, c.a.t0.s.l0.t.b
     public void updateLikeStatus(boolean z, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {

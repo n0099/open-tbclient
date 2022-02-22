@@ -5,10 +5,10 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 import c.a.d.f.p.l;
-import c.a.s0.m.a;
-import c.a.t0.k4.h;
-import c.a.t0.t2.i;
-import c.a.t0.t2.j;
+import c.a.t0.m.a;
+import c.a.u0.n4.h;
+import c.a.u0.u2.i;
+import c.a.u0.u2.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -20,13 +20,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f46946h;
+    public TextView f47088h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbVideoNetworkStateTipView(Context context) {
@@ -52,7 +52,7 @@ public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f46946h = (TextView) findViewById(i.video_net_tip_duration);
+            this.f47088h = (TextView) findViewById(i.video_net_tip_duration);
         }
     }
 
@@ -84,7 +84,7 @@ public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView
             return;
         }
         if (view.getId() == i.free_flow) {
-            a.x(true, getContext(), getResources().getString(c.a.t0.t2.l.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
+            a.x(true, getContext(), getResources().getString(c.a.u0.u2.l.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
         } else if (view.getId() == i.play) {
             View.OnClickListener onClickListener = this.mOutClickListener;
             if (onClickListener != null) {
@@ -100,7 +100,7 @@ public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView
         if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || i2 <= 0) {
             return;
         }
-        this.f46946h.setText(String.format(getResources().getString(c.a.t0.t2.l.pb_video_duration), StringHelper.stringForVideoTime(i2 * 1000)));
+        this.f47088h.setText(String.format(getResources().getString(c.a.u0.u2.l.pb_video_duration), StringHelper.stringForVideoTime(i2 * 1000)));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

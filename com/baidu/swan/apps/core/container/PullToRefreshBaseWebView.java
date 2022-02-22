@@ -7,8 +7,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.a.k;
-import c.a.r0.r.a.d.f;
+import c.a.s0.a.k;
+import c.a.s0.r.a.d.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -48,7 +48,7 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PullToRefreshBaseWebView(Context context, @NonNull c.a.r0.a.c2.a.d.a<T> aVar) {
+    public PullToRefreshBaseWebView(Context context, @NonNull c.a.s0.a.c2.a.d.a<T> aVar) {
         super(context, aVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -60,7 +60,7 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (c.a.r0.a.c2.a.d.a) objArr2[1]);
+                super((Context) objArr2[0], (c.a.s0.a.c2.a.d.a) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -154,7 +154,7 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PullToRefreshBaseWebView(Context context, c.a.r0.a.c2.a.d.a<T> aVar, PullToRefreshBase.HEADERTYPE headertype) {
+    public PullToRefreshBaseWebView(Context context, c.a.s0.a.c2.a.d.a<T> aVar, PullToRefreshBase.HEADERTYPE headertype) {
         super(context, aVar, headertype);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -166,7 +166,7 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (c.a.r0.a.c2.a.d.a) objArr2[1], (PullToRefreshBase.HEADERTYPE) objArr2[2]);
+                super((Context) objArr2[0], (c.a.s0.a.c2.a.d.a) objArr2[1], (PullToRefreshBase.HEADERTYPE) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;

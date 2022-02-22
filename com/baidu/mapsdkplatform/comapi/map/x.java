@@ -22,9 +22,9 @@ public class x extends ag {
                 return;
             }
         }
-        this.f35884c = 0;
-        this.f35883b = "location";
-        this.f35885d = 1000;
-        this.f35873g = 7;
+        this.f36090c = 0;
+        this.f36089b = "location";
+        this.f36091d = 1000;
+        this.f36079g = 7;
     }
 }

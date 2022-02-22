@@ -23,7 +23,7 @@ public class ConcernVideoImageView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f44173e;
+    public TbImageView f44429e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernVideoImageView(Context context) {
@@ -51,10 +51,10 @@ public class ConcernVideoImageView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.concern_video_img_layout, (ViewGroup) this, true);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.concern_video_img);
-            this.f44173e = tbImageView;
+            this.f44429e = tbImageView;
             tbImageView.setDefaultBgResource(R.color.CAM_X0205);
             int k = n.k(getContext()) - n.f(getContext(), R.dimen.ds68);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f44173e.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f44429e.getLayoutParams();
             layoutParams.height = (k * 9) / 16;
             layoutParams.width = k;
         }
@@ -65,7 +65,7 @@ public class ConcernVideoImageView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || ListUtils.isEmpty(list) || StringUtils.isNull(list.get(0).getPicUrl())) {
             return;
         }
-        this.f44173e.startLoad(list.get(0).getPicUrl(), 10, false);
+        this.f44429e.startLoad(list.get(0).getPicUrl(), 10, false);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

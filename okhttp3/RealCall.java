@@ -3,7 +3,6 @@ package okhttp3;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.response.ResponseException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +19,7 @@ import okhttp3.internal.http.CallServerInterceptor;
 import okhttp3.internal.http.RealInterceptorChain;
 import okhttp3.internal.http.RetryAndFollowUpInterceptor;
 import okhttp3.internal.platform.Platform;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class RealCall implements Call {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +30,7 @@ public final class RealCall implements Call {
     public final Request originalRequest;
     public final RetryAndFollowUpInterceptor retryAndFollowUpInterceptor;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public final class AsyncCall extends NamedRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,7 +71,7 @@ public final class RealCall implements Call {
                         Response responseWithInterceptorChain = this.this$0.getResponseWithInterceptorChain();
                         try {
                             if (this.this$0.retryAndFollowUpInterceptor.isCanceled()) {
-                                this.responseCallback.onFailure(this.this$0, new IOException(ResponseException.CANCELED));
+                                this.responseCallback.onFailure(this.this$0, new IOException("Canceled"));
                             } else {
                                 this.responseCallback.onResponse(this.this$0, responseWithInterceptorChain);
                             }
@@ -200,7 +199,7 @@ public final class RealCall implements Call {
                     if (responseWithInterceptorChain != null) {
                         return responseWithInterceptorChain;
                     }
-                    throw new IOException(ResponseException.CANCELED);
+                    throw new IOException("Canceled");
                 } catch (IOException e2) {
                     this.eventListener.callFailed(this, e2);
                     throw e2;

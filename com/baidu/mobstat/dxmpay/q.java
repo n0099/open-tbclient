@@ -18,7 +18,7 @@ public class q extends n {
     public static final String a = "__Baidu_Stat_SDK_SendRem";
 
     /* renamed from: b  reason: collision with root package name */
-    public static q f36897b;
+    public static q f37103b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class q extends n {
                 return;
             }
         }
-        f36897b = new q();
+        f37103b = new q();
     }
 
     public q() {
@@ -54,7 +54,7 @@ public class q extends n {
     public static q a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f36897b : (q) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f37103b : (q) invokeV.objValue;
     }
 
     public int b(Context context) {

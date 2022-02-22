@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class EditView extends FormItemBaseView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_EDIT_MULTI_LINE_INFO = 4;
@@ -30,24 +30,24 @@ public class EditView extends FormItemBaseView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public EditText f47622e;
+    public EditText f47768e;
 
     /* renamed from: f  reason: collision with root package name */
-    public VerificationCodeView f47623f;
+    public VerificationCodeView f47769f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f47624g;
+    public String f47770g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f47625h;
+    public String f47771h;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a implements View.OnFocusChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditView f47626e;
+        public final /* synthetic */ EditView f47772e;
 
         public a(EditView editView) {
             Interceptable interceptable = $ic;
@@ -64,25 +64,25 @@ public class EditView extends FormItemBaseView {
                     return;
                 }
             }
-            this.f47626e = editView;
+            this.f47772e = editView;
         }
 
         @Override // android.view.View.OnFocusChangeListener
         public void onFocusChange(View view, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
-                if (!z && !this.f47626e.isPrepareToCommit()) {
-                    EditView editView = this.f47626e;
-                    editView.drawBackgroundFrame(editView.f47622e, FormItemBaseView.DrawableType.ERROR_FRAME);
+                if (!z && !this.f47772e.isPrepareToCommit()) {
+                    EditView editView = this.f47772e;
+                    editView.drawBackgroundFrame(editView.f47768e, FormItemBaseView.DrawableType.ERROR_FRAME);
                     return;
                 }
-                EditView editView2 = this.f47626e;
-                editView2.drawBackgroundFrame(editView2.f47622e, FormItemBaseView.DrawableType.ORDINARY_FRAME);
+                EditView editView2 = this.f47772e;
+                editView2.drawBackgroundFrame(editView2.f47768e, FormItemBaseView.DrawableType.ORDINARY_FRAME);
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class b implements VerificationCodeView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -110,24 +110,24 @@ public class EditView extends FormItemBaseView {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.f47623f.setVerificationInfo(((Object) this.a.f47622e.getText()) + "");
+                this.a.f47769f.setVerificationInfo(((Object) this.a.f47768e.getText()) + "");
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class c implements InputFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f47627e;
+        public int f47773e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f47628f;
+        public String f47774f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ EditView f47629g;
+        public final /* synthetic */ EditView f47775g;
 
         public c(EditView editView, int i2) {
             Interceptable interceptable = $ic;
@@ -144,16 +144,16 @@ public class EditView extends FormItemBaseView {
                     return;
                 }
             }
-            this.f47629g = editView;
-            this.f47628f = "[\\u4e00-\\u9fa5]";
-            this.f47627e = i2;
+            this.f47775g = editView;
+            this.f47774f = "[\\u4e00-\\u9fa5]";
+            this.f47773e = i2;
         }
 
         public final int a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                Matcher matcher = Pattern.compile(this.f47628f).matcher(str);
+                Matcher matcher = Pattern.compile(this.f47774f).matcher(str);
                 int i2 = 0;
                 while (matcher.find()) {
                     for (int i3 = 0; i3 <= matcher.groupCount(); i3++) {
@@ -168,7 +168,7 @@ public class EditView extends FormItemBaseView {
         public final boolean b(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? Pattern.matches(this.f47628f, str) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? Pattern.matches(this.f47774f, str) : invokeL.booleanValue;
         }
 
         @Override // android.text.InputFilter
@@ -179,7 +179,7 @@ public class EditView extends FormItemBaseView {
                 int length = spanned.toString().length() + a(spanned.toString());
                 int length2 = charSequence.toString().length() + a(charSequence.toString());
                 int i6 = length + length2;
-                int i7 = this.f47627e;
+                int i7 = this.f47773e;
                 if (i6 > i7) {
                     int i8 = i7 - length;
                     int i9 = 0;
@@ -223,10 +223,10 @@ public class EditView extends FormItemBaseView {
                 return;
             }
         }
-        this.f47622e = null;
-        this.f47623f = null;
-        this.f47624g = "";
-        this.f47625h = "";
+        this.f47768e = null;
+        this.f47769f = null;
+        this.f47770g = "";
+        this.f47771h = "";
         d();
     }
 
@@ -242,26 +242,26 @@ public class EditView extends FormItemBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             EditText editText = new EditText(this.mContext);
-            this.f47622e = editText;
+            this.f47768e = editText;
             editText.setId(1);
-            this.f47622e.setTextSize(0, this.mFontSize);
-            this.f47622e.setTextColor(this.mFontColor);
-            this.f47622e.setHintTextColor(this.mHintFontColor);
-            this.f47622e.setEllipsize(TextUtils.TruncateAt.valueOf("END"));
-            this.f47622e.setOnFocusChangeListener(new a(this));
-            drawBackgroundFrame(this.f47622e, FormItemBaseView.DrawableType.ORDINARY_FRAME);
-            addView(this.f47622e, new RelativeLayout.LayoutParams(-1, -2));
+            this.f47768e.setTextSize(0, this.mFontSize);
+            this.f47768e.setTextColor(this.mFontColor);
+            this.f47768e.setHintTextColor(this.mHintFontColor);
+            this.f47768e.setEllipsize(TextUtils.TruncateAt.valueOf("END"));
+            this.f47768e.setOnFocusChangeListener(new a(this));
+            drawBackgroundFrame(this.f47768e, FormItemBaseView.DrawableType.ORDINARY_FRAME);
+            addView(this.f47768e, new RelativeLayout.LayoutParams(-1, -2));
         }
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f47623f = new VerificationCodeView(this.mContext);
+            this.f47769f = new VerificationCodeView(this.mContext);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.mSize80);
             layoutParams.topMargin = this.mSize40;
-            layoutParams.addRule(3, this.f47622e.getId());
-            addView(this.f47623f, layoutParams);
+            layoutParams.addRule(3, this.f47768e.getId());
+            addView(this.f47769f, layoutParams);
         }
     }
 
@@ -269,7 +269,7 @@ public class EditView extends FormItemBaseView {
     public String getResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f47625h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f47771h : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView, com.baidu.tieba.recapp.lego.view.form.FormCardView.d
@@ -277,14 +277,14 @@ public class EditView extends FormItemBaseView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (TextUtils.isEmpty(this.f47624g)) {
+            if (TextUtils.isEmpty(this.f47770g)) {
                 return true;
             }
-            Editable text = this.f47622e.getText();
+            Editable text = this.f47768e.getText();
             if (text != null) {
-                this.f47625h = text.toString().trim();
+                this.f47771h = text.toString().trim();
             }
-            return Pattern.matches(this.f47624g, this.f47625h);
+            return Pattern.matches(this.f47770g, this.f47771h);
         }
         return invokeV.booleanValue;
     }
@@ -293,13 +293,13 @@ public class EditView extends FormItemBaseView {
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f47622e.setPadding(this.mSize20, 0, 0, 0);
-            this.f47622e.setText("");
-            this.f47622e.setGravity(19);
-            this.f47622e.setSingleLine(true);
-            this.f47622e.setHorizontallyScrolling(true);
-            this.f47622e.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
-            this.f47623f.setVisibility(8);
+            this.f47768e.setPadding(this.mSize20, 0, 0, 0);
+            this.f47768e.setText("");
+            this.f47768e.setGravity(19);
+            this.f47768e.setSingleLine(true);
+            this.f47768e.setHorizontallyScrolling(true);
+            this.f47768e.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
+            this.f47769f.setVisibility(8);
         }
     }
 
@@ -311,48 +311,48 @@ public class EditView extends FormItemBaseView {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bVar)) == null) {
             if (super.updateView(bVar)) {
                 FormCard.d dVar = (FormCard.d) bVar;
-                this.f47622e.setTextSize(0, this.mFontSize);
+                this.f47768e.setTextSize(0, this.mFontSize);
                 int i3 = dVar.a;
                 if (i3 == 3) {
                     i2 = this.mSize80;
-                    this.f47622e.setInputType(1);
-                    this.f47622e.setFilters(new InputFilter[]{new c(this, 20)});
+                    this.f47768e.setInputType(1);
+                    this.f47768e.setFilters(new InputFilter[]{new c(this, 20)});
                 } else if (i3 == 4) {
                     i2 = this.mSize240;
-                    this.f47622e.setInputType(131072);
-                    this.f47622e.setFilters(new InputFilter[]{new c(this, 100)});
-                    this.f47622e.setSingleLine(false);
-                    this.f47622e.setHorizontallyScrolling(false);
-                    this.f47622e.setGravity(51);
-                    EditText editText = this.f47622e;
+                    this.f47768e.setInputType(131072);
+                    this.f47768e.setFilters(new InputFilter[]{new c(this, 100)});
+                    this.f47768e.setSingleLine(false);
+                    this.f47768e.setHorizontallyScrolling(false);
+                    this.f47768e.setGravity(51);
+                    EditText editText = this.f47768e;
                     int i4 = this.mSize20;
                     editText.setPadding(i4, i4, i4, i4);
                 } else if (i3 != 5) {
                     return false;
                 } else {
                     i2 = this.mSize80;
-                    this.f47622e.setInputType(2);
-                    this.f47622e.setFilters(new InputFilter[]{new InputFilter.LengthFilter(50)});
-                    if (dVar.f47550e != null) {
-                        this.f47623f.setVisibility(0);
-                        this.f47623f.scaleMargin(this.mScaleRatio);
-                        this.f47623f.updateView(dVar.f47550e);
-                        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f47623f.getLayoutParams();
+                    this.f47768e.setInputType(2);
+                    this.f47768e.setFilters(new InputFilter[]{new InputFilter.LengthFilter(50)});
+                    if (dVar.f47696e != null) {
+                        this.f47769f.setVisibility(0);
+                        this.f47769f.scaleMargin(this.mScaleRatio);
+                        this.f47769f.updateView(dVar.f47696e);
+                        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f47769f.getLayoutParams();
                         marginLayoutParams.topMargin = this.mSize40;
                         marginLayoutParams.height = this.mSize80;
-                        this.f47623f.setListener(new b(this));
+                        this.f47769f.setListener(new b(this));
                     }
                 }
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f47622e.getLayoutParams();
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f47768e.getLayoutParams();
                 if (layoutParams != null) {
                     layoutParams.height = i2;
                 } else {
                     RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -2);
                     layoutParams2.height = i2;
-                    this.f47622e.setLayoutParams(layoutParams2);
+                    this.f47768e.setLayoutParams(layoutParams2);
                 }
-                this.f47622e.setHint(dVar.f47545b);
-                this.f47624g = dVar.f47549d;
+                this.f47768e.setHint(dVar.f47691b);
+                this.f47770g = dVar.f47695d;
                 return true;
             }
             return false;
@@ -379,10 +379,10 @@ public class EditView extends FormItemBaseView {
                 return;
             }
         }
-        this.f47622e = null;
-        this.f47623f = null;
-        this.f47624g = "";
-        this.f47625h = "";
+        this.f47768e = null;
+        this.f47769f = null;
+        this.f47770g = "";
+        this.f47771h = "";
         d();
     }
 
@@ -405,10 +405,10 @@ public class EditView extends FormItemBaseView {
                 return;
             }
         }
-        this.f47622e = null;
-        this.f47623f = null;
-        this.f47624g = "";
-        this.f47625h = "";
+        this.f47768e = null;
+        this.f47769f = null;
+        this.f47770g = "";
+        this.f47771h = "";
         d();
     }
 }

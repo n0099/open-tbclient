@@ -232,7 +232,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setAppContext  reason: collision with other method in class */
-        public final void m2137setAppContext(Context context) {
+        public final void m2136setAppContext(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048599, this, context) == null) {
                 this.appContext = context;
@@ -240,7 +240,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setAppId  reason: collision with other method in class */
-        public final void m2138setAppId(int i2) {
+        public final void m2137setAppId(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
                 this.appId = i2;
@@ -248,7 +248,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setAuthType  reason: collision with other method in class */
-        public final void m2139setAuthType(int i2) {
+        public final void m2138setAuthType(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
                 this.authType = i2;
@@ -256,7 +256,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setCountry  reason: collision with other method in class */
-        public final void m2140setCountry(String str) {
+        public final void m2139setCountry(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
                 this.country = str;
@@ -264,7 +264,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setCurrencyType  reason: collision with other method in class */
-        public final void m2141setCurrencyType(int i2) {
+        public final void m2140setCurrencyType(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
                 this.currencyType = i2;
@@ -279,7 +279,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setDeviceId  reason: collision with other method in class */
-        public final void m2142setDeviceId(String str) {
+        public final void m2141setDeviceId(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048610, this, str) == null) {
                 this.deviceId = str;
@@ -287,7 +287,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setGslbAppId  reason: collision with other method in class */
-        public final void m2143setGslbAppId(String str) {
+        public final void m2142setGslbAppId(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
                 this.gslbAppId = str;
@@ -295,7 +295,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setHostId  reason: collision with other method in class */
-        public final void m2144setHostId(String str) {
+        public final void m2143setHostId(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048614, this, str) == null) {
                 this.hostId = str;
@@ -313,7 +313,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setHttpUrl  reason: collision with other method in class */
-        public final void m2145setHttpUrl(String str) {
+        public final void m2144setHttpUrl(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048617, this, str) == null) {
                 this.httpUrl = str;
@@ -331,7 +331,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setLanguage  reason: collision with other method in class */
-        public final void m2146setLanguage(String str) {
+        public final void m2145setLanguage(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048620, this, str) == null) {
                 this.language = str;
@@ -346,7 +346,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setPackageName  reason: collision with other method in class */
-        public final void m2147setPackageName(String str) {
+        public final void m2146setPackageName(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048623, this, str) == null) {
                 this.packageName = str;
@@ -354,7 +354,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setProtoType  reason: collision with other method in class */
-        public final void m2148setProtoType(ProtocolType protocolType) {
+        public final void m2147setProtoType(ProtocolType protocolType) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048625, this, protocolType) == null) {
                 this.protoType = protocolType;
@@ -362,7 +362,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setReportConfig  reason: collision with other method in class */
-        public final void m2149setReportConfig(MiddleReportConfig middleReportConfig) {
+        public final void m2148setReportConfig(MiddleReportConfig middleReportConfig) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048627, this, middleReportConfig) == null) {
                 this.reportConfig = middleReportConfig;
@@ -370,7 +370,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setTestEnv  reason: collision with other method in class */
-        public final void m2150setTestEnv(boolean z) {
+        public final void m2149setTestEnv(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048629, this, z) == null) {
                 this.isTestEnv = z;
@@ -378,7 +378,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setToken  reason: collision with other method in class */
-        public final void m2151setToken(String str) {
+        public final void m2150setToken(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048631, this, str) == null) {
                 this.token = str;
@@ -386,7 +386,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setTokenCallback  reason: collision with other method in class */
-        public final void m2152setTokenCallback(IToken iToken) {
+        public final void m2151setTokenCallback(IToken iToken) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048633, this, iToken) == null) {
                 this.tokenCallback = iToken;
@@ -394,7 +394,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setUid  reason: collision with other method in class */
-        public final void m2153setUid(long j2) {
+        public final void m2152setUid(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048635, this, j2) == null) {
                 this.uid = j2;
@@ -402,7 +402,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setUseChannel  reason: collision with other method in class */
-        public final void m2154setUseChannel(int i2) {
+        public final void m2153setUseChannel(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048637, this, i2) == null) {
                 this.useChannel = i2;
@@ -410,7 +410,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setVersion  reason: collision with other method in class */
-        public final void m2155setVersion(String str) {
+        public final void m2154setVersion(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048639, this, str) == null) {
                 this.version = str;

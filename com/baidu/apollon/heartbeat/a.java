@@ -33,32 +33,32 @@ public final class a {
     public static final String a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f32478b = "heartbeatcfg.cfg";
+    public static final String f32684b = "heartbeatcfg.cfg";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f32479c = "stastics bean http request";
+    public static final String f32685c = "stastics bean http request";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f32480d = "publish_data";
+    public static final String f32686d = "publish_data";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f32481e = "sign";
+    public static final String f32687e = "sign";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f32482f = "/odp/wireless/sdk/heartbeat";
+    public static final String f32688f = "/odp/wireless/sdk/heartbeat";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f32483h = "utf-8";
+    public static final String f32689h = "utf-8";
 
     /* renamed from: i  reason: collision with root package name */
-    public static a f32484i;
+    public static a f32690i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f32485g;
+    public String f32691g;
 
     /* renamed from: j  reason: collision with root package name */
-    public HeartBeatCfgEntity f32486j;
+    public HeartBeatCfgEntity f32692j;
     public Context k;
     public String l;
     public String m;
@@ -91,8 +91,8 @@ public final class a {
                 return;
             }
         }
-        this.f32485g = "https://www.baifubao.com";
-        this.f32486j = null;
+        this.f32691g = "https://www.baifubao.com";
+        this.f32692j = null;
         this.k = null;
     }
 
@@ -102,10 +102,10 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             synchronized (a.class) {
-                if (f32484i == null) {
-                    f32484i = new a();
+                if (f32690i == null) {
+                    f32690i = new a();
                 }
-                aVar = f32484i;
+                aVar = f32690i;
             }
             return aVar;
         }
@@ -189,7 +189,7 @@ public final class a {
             });
             restTemplate.setMessageConverter(new com.baidu.apollon.restnet.converter.b());
             restTemplate.setRequestInterceptor(arrayList2);
-            return (String) restTemplate.a(this.f32485g + f32482f, arrayList, "utf-8", String.class);
+            return (String) restTemplate.a(this.f32691g + f32688f, arrayList, "utf-8", String.class);
         }
         return (String) invokeV.objValue;
     }
@@ -199,7 +199,7 @@ public final class a {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f32485g = str;
+        this.f32691g = str;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x00bd */
@@ -219,7 +219,7 @@ public final class a {
         ?? sb = new StringBuilder();
         sb.append(context.getCacheDir());
         sb.append(File.separator);
-        sb.append(f32478b);
+        sb.append(f32684b);
         File file = new File(sb.toString());
         FileReader fileReader2 = null;
         HeartBeatCfgEntity heartBeatCfgEntity2 = null;
@@ -309,7 +309,7 @@ public final class a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32485g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32691g : (String) invokeV.objValue;
     }
 
     public void b(Context context) {
@@ -348,7 +348,7 @@ public final class a {
                     a aVar = this.a;
                     HeartBeatCfgEntity c2 = aVar.c(aVar.k);
                     if (c2 != null) {
-                        long b2 = c.b(this.a.k, c.f32495b, 300L);
+                        long b2 = c.b(this.a.k, c.f32701b, 300L);
                         if (!c2.isValidRequestTime(b2)) {
                             this.a.a(c2);
                             return;
@@ -371,10 +371,10 @@ public final class a {
             if (context == null) {
                 return null;
             }
-            if (this.f32486j == null) {
-                this.f32486j = c(context);
+            if (this.f32692j == null) {
+                this.f32692j = c(context);
             }
-            return this.f32486j;
+            return this.f32692j;
         }
         return (HeartBeatCfgEntity) invokeL.objValue;
     }
@@ -401,9 +401,9 @@ public final class a {
             return;
         }
         if (heartBeatCfgEntity != null) {
-            HeartBeatCfgEntity heartBeatCfgEntity2 = this.f32486j;
+            HeartBeatCfgEntity heartBeatCfgEntity2 = this.f32692j;
             if ((heartBeatCfgEntity2 == null || (heartBeatCfgEntity2 != null && !TextUtils.equals(heartBeatCfgEntity2.toString(), heartBeatCfgEntity.toString()))) && heartBeatCfgEntity.checkResponseValidity()) {
-                this.f32486j = heartBeatCfgEntity;
+                this.f32692j = heartBeatCfgEntity;
                 heartBeatCfgEntity.storeResponse(this.k);
                 z = true;
                 String str = a;

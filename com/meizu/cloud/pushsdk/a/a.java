@@ -4,7 +4,7 @@ import android.content.Context;
 import com.meizu.cloud.pushsdk.a.c;
 import com.meizu.cloud.pushsdk.base.f;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static final String a = "a";
 
@@ -19,7 +19,7 @@ public class a {
             cVar.a(b.a, a2);
         }
         if (b2.size() > 0) {
-            cVar.a(b.f58497f, b2);
+            cVar.a(b.f58664f, b2);
         }
         if (c3.size() > 0) {
             cVar.a(b.o, c3);

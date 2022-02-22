@@ -3,7 +3,7 @@ package com.kwai.filedownloader.kwai;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface b {
     InputStream a();
 

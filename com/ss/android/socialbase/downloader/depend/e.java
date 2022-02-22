@@ -14,14 +14,14 @@ public interface e extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class C2210a implements e {
+        public static class C2220a implements e {
             public static e a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f59975b;
+            public IBinder f60142b;
 
-            public C2210a(IBinder iBinder) {
-                this.f59975b = iBinder;
+            public C2220a(IBinder iBinder) {
+                this.f60142b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.e
@@ -31,7 +31,7 @@ public interface e extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IChunkCntAidlCalculator");
                     obtain.writeLong(j2);
-                    if (!this.f59975b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f60142b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().a(j2);
                     }
                     obtain2.readException();
@@ -44,7 +44,7 @@ public interface e extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f59975b;
+                return this.f60142b;
             }
         }
 
@@ -60,7 +60,7 @@ public interface e extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof e)) {
                 return (e) queryLocalInterface;
             }
-            return new C2210a(iBinder);
+            return new C2220a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -85,7 +85,7 @@ public interface e extends IInterface {
         }
 
         public static e a() {
-            return C2210a.a;
+            return C2220a.a;
         }
     }
 }

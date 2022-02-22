@@ -15,7 +15,7 @@ import tbclient.Error;
 import tbclient.GetPostList.DataRes;
 import tbclient.GetPostList.GetPostListResIdl;
 import tbclient.Post;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class LookMoreSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

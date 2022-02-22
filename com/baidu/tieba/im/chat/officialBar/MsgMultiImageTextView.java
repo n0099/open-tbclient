@@ -2,8 +2,8 @@ package com.baidu.tieba.im.chat.officialBar;
 
 import android.view.View;
 import android.widget.TextView;
-import c.a.t0.t1.f.e;
-import c.a.t0.t1.l.c.a;
+import c.a.u0.t1.f.e;
+import c.a.u0.t1.l.c.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
@@ -18,7 +18,7 @@ import java.util.List;
 public class MsgMultiImageTextView extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MultiContentView t;
+    public MultiContentView y;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgMultiImageTextView(TbPageContext<MsglistActivity<?>> tbPageContext) {
@@ -39,28 +39,28 @@ public class MsgMultiImageTextView extends e {
                 return;
             }
         }
-        z();
+        H();
     }
 
-    public void A(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view) {
+    public final void H() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, tbPageContext, chatMessage, view) == null) || chatMessage == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f22424h = (TextView) c(R.id.tex_msgitem_time);
+            this.y = (MultiContentView) c(R.id.msg_content);
+        }
+    }
+
+    public void I(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, chatMessage, view) == null) || chatMessage == null) {
             return;
         }
-        u(chatMessage);
-        List<a.C1381a> b2 = a.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
-        this.t.setPosition(this.f22212f);
-        this.t.setOnItemViewLongClickListener(this.f22209c);
-        this.t.setNeedNightMode(true);
-        this.t.setType(1);
-        this.t.setData(tbPageContext, b2, view);
-    }
-
-    public final void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f22214h = (TextView) c(R.id.tex_msgitem_time);
-            this.t = (MultiContentView) c(R.id.msg_content);
-        }
+        B(chatMessage);
+        List<a.C1387a> b2 = a.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+        this.y.setPosition(this.f22422f);
+        this.y.setOnItemViewLongClickListener(this.f22419c);
+        this.y.setNeedNightMode(true);
+        this.y.setType(1);
+        this.y.setData(tbPageContext, b2, view);
     }
 }

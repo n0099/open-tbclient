@@ -15,11 +15,11 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentTransaction;
 import c.a.d.f.p.m;
 import c.a.d.f.p.n;
-import c.a.s0.b.d;
-import c.a.t0.m4.e;
-import c.a.t0.m4.f;
-import c.a.t0.m4.g;
-import c.a.t0.m4.i;
+import c.a.t0.b.d;
+import c.a.u0.p4.e;
+import c.a.u0.p4.f;
+import c.a.u0.p4.g;
+import c.a.u0.p4.i;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -64,7 +64,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
     public String mFrom;
     public String mFromPage;
     public boolean mIsFromSchema;
-    public c.a.t0.k.a mNEGFeedBackManager;
+    public c.a.u0.k.a mNEGFeedBackManager;
     public NavigationBar mNavigationBar;
     public String mNid;
     public Rect mRect;
@@ -74,6 +74,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
     public String mTid;
     public TextView mTitleView;
     public List<VideoItemData> mVideoDataList;
+    public int mVideoIndex;
     public CustomMessageListener mVideoVerticalPageBackGroundListener;
 
     /* loaded from: classes13.dex */
@@ -155,7 +156,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
                     return;
                 }
                 if (customResponsedMessage.getData() instanceof Boolean ? ((Boolean) customResponsedMessage.getData()).booleanValue() : true) {
-                    this.a.getActivity().getWindow().setBackgroundDrawable(new ColorDrawable(this.a.getResources().getColor(c.a.t0.m4.c.CAM_X0611)));
+                    this.a.getActivity().getWindow().setBackgroundDrawable(new ColorDrawable(this.a.getResources().getColor(c.a.u0.p4.c.CAM_X0611)));
                     if (this.a.mTitleView != null) {
                         this.a.mTitleView.setVisibility(0);
                     }
@@ -182,7 +183,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsVideoTabPlayActivity f48746e;
+        public final /* synthetic */ FrsVideoTabPlayActivity f48913e;
 
         public c(FrsVideoTabPlayActivity frsVideoTabPlayActivity) {
             Interceptable interceptable = $ic;
@@ -199,7 +200,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f48746e = frsVideoTabPlayActivity;
+            this.f48913e = frsVideoTabPlayActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -209,7 +210,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
                 if (d.m()) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921612));
                 } else {
-                    this.f48746e.finish();
+                    this.f48913e.finish();
                 }
             }
         }
@@ -278,10 +279,16 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
                 finish();
                 return;
             }
-            int i2 = (getIntent() == null || getIntent().getExtras() == null || m.isEmpty("video_index")) ? 0 : getIntent().getExtras().getInt("video_index");
+            if (getIntent() != null && getIntent().getExtras() != null && !m.isEmpty("video_index")) {
+                this.mVideoIndex = getIntent().getExtras().getInt("video_index");
+            }
             List<VideoItemData> list = this.mVideoDataList;
-            if (list != null && list.size() > i2 && this.mVideoDataList.get(i2) != null) {
-                this.mTid = this.mVideoDataList.get(i2).thread_id;
+            if (list != null) {
+                int size = list.size();
+                int i2 = this.mVideoIndex;
+                if (size > i2 && this.mVideoDataList.get(i2) != null) {
+                    this.mTid = this.mVideoDataList.get(this.mVideoIndex).thread_id;
+                }
             }
             if (getIntent() != null && !m.isEmpty("video_cover_rect")) {
                 this.mRect = (Rect) getIntent().getParcelableExtra("video_cover_rect");
@@ -295,20 +302,22 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
             this.mNavigationBar = new NavigationBar(this);
-            int k = (int) ((n.k(this) - (((UtilHelper.getDimenPixelSize(c.a.t0.m4.d.M_W_X004) + UtilHelper.getDimenPixelSize(c.a.t0.m4.d.tbds104)) + UtilHelper.getDimenPixelSize(c.a.t0.m4.d.M_W_X013)) * 2)) / (UtilHelper.getDimenPixelSize(c.a.t0.m4.d.T_X05) * 0.5f));
+            int k = n.k(this);
+            int dimenPixelSize = UtilHelper.getDimenPixelSize(c.a.u0.p4.d.M_W_X004);
+            int dimenPixelSize2 = (int) ((k - (((dimenPixelSize + UtilHelper.getDimenPixelSize(c.a.u0.p4.d.tbds104)) + UtilHelper.getDimenPixelSize(c.a.u0.p4.d.M_W_X013)) * 2)) / (UtilHelper.getDimenPixelSize(c.a.u0.p4.d.T_X05) * 0.5f));
             TextView textView = new TextView(this);
             this.mTitleView = textView;
             textView.setGravity(17);
             TextView textView2 = this.mTitleView;
-            textView2.setText(StringHelper.cutChineseAndEnglishWithEmoji(this.mFname, k, "...") + TbadkCoreApplication.getInst().getString(i.bar_default_name));
+            textView2.setText(StringHelper.cutChineseAndEnglishWithEmoji(this.mFname, dimenPixelSize2, "...") + TbadkCoreApplication.getInst().getString(i.bar_default_name));
             this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_ABSOLUTE_CENTER, this.mTitleView, (View.OnClickListener) null);
             View addSystemImageButton = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mBackView = addSystemImageButton;
             addSystemImageButton.setOnClickListener(new c(this));
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(c.a.t0.m4.d.tbds104));
-            layoutParams.topMargin = UtilHelper.getDimenPixelSize(c.a.t0.m4.d.tbds26);
-            layoutParams.leftMargin = UtilHelper.getDimenPixelSize(c.a.t0.m4.d.M_W_X002);
-            layoutParams.rightMargin = UtilHelper.getDimenPixelSize(c.a.t0.m4.d.M_W_X002);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(c.a.u0.p4.d.tbds104));
+            layoutParams.topMargin = UtilHelper.getDimenPixelSize(c.a.u0.p4.d.tbds26);
+            layoutParams.leftMargin = UtilHelper.getDimenPixelSize(c.a.u0.p4.d.M_W_X002);
+            layoutParams.rightMargin = UtilHelper.getDimenPixelSize(c.a.u0.p4.d.M_W_X002);
             addContentView(this.mNavigationBar, layoutParams);
         }
     }
@@ -344,7 +353,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.s0.q0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.t0.q0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -363,10 +372,16 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mTid : (String) invokeV.objValue;
     }
 
+    public int getVideoIndex() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mVideoIndex : invokeV.intValue;
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i2, int i3, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048582, this, i2, i3, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048583, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
             VideoVerticalPageFragment videoVerticalPageFragment = this.mFragment;
             if (videoVerticalPageFragment != null) {
@@ -378,16 +393,16 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
             NavigationBar navigationBar = this.mNavigationBar;
             if (navigationBar != null && this.mTitleView != null) {
                 navigationBar.setBackgroundResource(e.transparent_bg);
-                c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.mTitleView);
+                c.a.t0.s.v.c d2 = c.a.t0.s.v.c.d(this.mTitleView);
                 d2.A(i.F_X01);
-                d2.v(c.a.t0.m4.c.CAM_X0101);
-                d2.z(c.a.t0.m4.d.T_X05);
+                d2.v(c.a.u0.p4.c.CAM_X0101);
+                d2.z(c.a.u0.p4.d.T_X05);
                 if (this.mNavigationBar.getBackImageView() != null) {
-                    WebPManager.setPureDrawable(this.mNavigationBar.getBackImageView(), e.icon_pure_topbar_return40, c.a.t0.m4.c.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+                    WebPManager.setPureDrawable(this.mNavigationBar.getBackImageView(), e.icon_pure_topbar_return40, c.a.u0.p4.c.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
                 }
             }
             if (!UtilHelper.isFlyMeOs()) {
@@ -403,7 +418,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, configuration) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
             if (configuration.orientation == 2) {
                 this.mNavigationBar.setVisibility(8);
@@ -416,7 +431,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.d.a.b.f().h("MainTabActivity")) {
                 this.mIsFromSchema = true;
             }
@@ -427,7 +442,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
             BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO);
             this.mStartTime = System.currentTimeMillis();
             setContentView(g.video_play_activity);
-            this.mNEGFeedBackManager = new c.a.t0.k.a(getPageContext(), "client_videomiddle");
+            this.mNEGFeedBackManager = new c.a.u0.k.a(getPageContext(), "client_videomiddle");
             initData();
             initFragment();
             addNoAdjustSoftInputHeightListener();
@@ -451,10 +466,10 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDestroy();
-            DanmuProgressManager.f48867b.a().b();
-            c.a.t0.k.a aVar = this.mNEGFeedBackManager;
+            DanmuProgressManager.f49034b.a().b();
+            c.a.u0.k.a aVar = this.mNEGFeedBackManager;
             if (aVar != null) {
                 aVar.h();
             }
@@ -487,7 +502,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048587, this, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048588, this, i2, keyEvent)) == null) {
             if (i2 == 4) {
                 VideoVerticalPageFragment videoVerticalPageFragment = this.mFragment;
                 if (videoVerticalPageFragment != null) {
@@ -507,7 +522,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onKeyboardVisibilityChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             super.onKeyboardVisibilityChanged(z);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921645, Boolean.valueOf(z)));
             if (Build.VERSION.SDK_INT < 16 || z || getActivity() == null || getActivity().getWindow() == null || getActivity().getWindow().getDecorView() == null || TbSingleton.getInstance().isNotchScreen(this) || TbSingleton.getInstance().isCutoutScreen(this)) {
@@ -520,27 +535,27 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onPause();
             VideoVerticalPageFragment videoVerticalPageFragment = this.mFragment;
             if (videoVerticalPageFragment != null) {
                 videoVerticalPageFragment.setPrimary(false);
                 this.mFragment.setUserVisibleHint(false);
             }
-            c.a.s0.a.d.y().G();
+            c.a.t0.a.d.y().G();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onResume();
             VideoVerticalPageFragment videoVerticalPageFragment = this.mFragment;
             if (videoVerticalPageFragment != null) {
                 videoVerticalPageFragment.setPrimary(true);
                 this.mFragment.setUserVisibleHint(true);
-                c.a.s0.a.d.y().R(c.a.s0.a.c.a0, this.mFragment.getMissionTid());
+                c.a.t0.a.d.y().R(c.a.t0.a.c.a0, this.mFragment.getMissionTid());
             }
         }
     }
@@ -549,6 +564,6 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
     public String taskActionId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? "712" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? "712" : (String) invokeV.objValue;
     }
 }

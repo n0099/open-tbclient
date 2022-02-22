@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Constants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BUSSINESS_EXPIRED = "1";
@@ -29,7 +29,7 @@ public class Constants {
     public static final String VALUE_SERVER_PARAMES_ERROR = "-1";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public final class MetaError {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String ERROR_COPY = "2";

@@ -14,12 +14,12 @@ import sdk.meizu.auth.MzAuthenticator;
 import sdk.meizu.auth.OAuthError;
 import sdk.meizu.auth.OAuthToken;
 import sdk.meizu.auth.callback.ImplictCallback;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a extends ImplictCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, oAuthError) == null) {
                 MeizuSSOLoginActivity meizuSSOLoginActivity = this.a;
-                meizuSSOLoginActivity.a(((BaseSSOLoginActivity) meizuSSOLoginActivity).f38077g);
+                meizuSSOLoginActivity.a(((BaseSSOLoginActivity) meizuSSOLoginActivity).f38306g);
             }
         }
 
@@ -61,7 +61,7 @@ public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
                     return;
                 }
                 MeizuSSOLoginActivity meizuSSOLoginActivity = this.a;
-                meizuSSOLoginActivity.a(((BaseSSOLoginActivity) meizuSSOLoginActivity).f38077g);
+                meizuSSOLoginActivity.a(((BaseSSOLoginActivity) meizuSSOLoginActivity).f38306g);
             }
         }
     }
@@ -94,7 +94,7 @@ public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.setupViews();
-            setTitleText(c.a.e0.a.j.a.sapi_sdk_title_login_mz);
+            setTitleText(c.a.f0.a.j.a.sapi_sdk_title_login_mz);
             RelativeLayout relativeLayout = this.rootView;
             if (relativeLayout != null) {
                 relativeLayout.setVisibility(4);

@@ -2,7 +2,7 @@ package com.baidu.tieba.imMessageCenter.mention.officialNotification;
 
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.t0.u1.b.q.a;
+import c.a.u0.u1.b.q.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,8 +18,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class OfficialNotificationTextItemAdapter extends MsgCommonItemAdapter<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext t;
-    public View.OnClickListener u;
+    public TbPageContext w;
+    public View.OnClickListener x;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public OfficialNotificationTextItemAdapter(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -40,11 +40,11 @@ public class OfficialNotificationTextItemAdapter extends MsgCommonItemAdapter<a>
                 return;
             }
         }
-        this.t = tbPageContext;
+        this.w = tbPageContext;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, c.a.d.n.e.a
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, c.a.d.o.e.a
     public /* bridge */ /* synthetic */ View S(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
         c0(i2, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view;
@@ -67,22 +67,22 @@ public class OfficialNotificationTextItemAdapter extends MsgCommonItemAdapter<a>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.n.e.a
-    /* renamed from: i0 */
+    @Override // c.a.d.o.e.a
+    /* renamed from: l0 */
     public MsgCommonItemAdapter.MsgViewHolder<a> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            a aVar = new a(this.t, viewGroup, this.u);
+            a aVar = new a(this.w, viewGroup, this.x);
             return new MsgCommonItemAdapter.MsgViewHolder<>(aVar.a(), aVar);
         }
         return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;
     }
 
-    public void j0(View.OnClickListener onClickListener) {
+    public void m0(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.u = onClickListener;
+            this.x = onClickListener;
         }
     }
 }

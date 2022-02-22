@@ -1,7 +1,7 @@
 package com.baidu.tieba.memberCenter.memberpay;
 
 import android.os.Bundle;
-import c.a.t0.g2.f.g;
+import c.a.u0.h2.f.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.MemberPayResultActivityConfig;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class MemberPayResultActivity extends BaseActivity<MemberPayResultActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

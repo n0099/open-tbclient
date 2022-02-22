@@ -14,10 +14,10 @@ public final class e implements Runnable {
     public final /* synthetic */ String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ com.vivo.push.b.i f60710b;
+    public final /* synthetic */ com.vivo.push.b.i f60877b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ d f60711c;
+    public final /* synthetic */ d f60878c;
 
     public e(d dVar, String str, com.vivo.push.b.i iVar) {
         Interceptable interceptable = $ic;
@@ -34,9 +34,9 @@ public final class e implements Runnable {
                 return;
             }
         }
-        this.f60711c = dVar;
+        this.f60878c = dVar;
         this.a = str;
-        this.f60710b = iVar;
+        this.f60877b = iVar;
     }
 
     @Override // java.lang.Runnable
@@ -46,15 +46,15 @@ public final class e implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!TextUtils.isEmpty(this.a)) {
-                d dVar = this.f60711c;
-                PushMessageCallback pushMessageCallback = ((z) dVar).f60729b;
+                d dVar = this.f60878c;
+                PushMessageCallback pushMessageCallback = ((z) dVar).f60896b;
                 context2 = dVar.a;
                 pushMessageCallback.onReceiveRegId(context2, this.a);
             }
-            d dVar2 = this.f60711c;
-            PushMessageCallback pushMessageCallback2 = ((z) dVar2).f60729b;
+            d dVar2 = this.f60878c;
+            PushMessageCallback pushMessageCallback2 = ((z) dVar2).f60896b;
             context = dVar2.a;
-            pushMessageCallback2.onBind(context, this.f60710b.h(), this.f60710b.d());
+            pushMessageCallback2.onBind(context, this.f60877b.h(), this.f60877b.d());
         }
     }
 }

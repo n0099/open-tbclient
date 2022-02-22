@@ -20,26 +20,26 @@ import com.kwai.filedownloader.u;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class a<CALLBACK extends Binder, INTERFACE extends IInterface> implements ServiceConnection, u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CALLBACK a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile INTERFACE f58384b;
+    public volatile INTERFACE f58551b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Class<?> f58385c;
+    public final Class<?> f58552c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final HashMap<String, Object> f58386d;
+    public final HashMap<String, Object> f58553d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<Context> f58387e;
+    public final List<Context> f58554e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final ArrayList<Runnable> f58388f;
+    public final ArrayList<Runnable> f58555f;
 
     public a(Class<?> cls) {
         Interceptable interceptable = $ic;
@@ -56,28 +56,28 @@ public abstract class a<CALLBACK extends Binder, INTERFACE extends IInterface> i
                 return;
             }
         }
-        this.f58386d = new HashMap<>();
-        this.f58387e = new ArrayList();
-        this.f58388f = new ArrayList<>();
-        this.f58385c = cls;
+        this.f58553d = new HashMap<>();
+        this.f58554e = new ArrayList();
+        this.f58555f = new ArrayList<>();
+        this.f58552c = cls;
         this.a = b();
     }
 
     private void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65537, this, z) == null) {
-            if (!z && this.f58384b != null) {
+            if (!z && this.f58551b != null) {
                 try {
-                    a((a<CALLBACK, INTERFACE>) this.f58384b, (INTERFACE) this.a);
+                    a((a<CALLBACK, INTERFACE>) this.f58551b, (INTERFACE) this.a);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
             }
             if (com.kwai.filedownloader.e.d.a) {
-                com.kwai.filedownloader.e.d.c(this, "release connect resources %s", this.f58384b);
+                com.kwai.filedownloader.e.d.c(this, "release connect resources %s", this.f58551b);
             }
-            this.f58384b = null;
-            com.kwai.filedownloader.f.a().b(new DownloadServiceConnectChangedEvent(z ? DownloadServiceConnectChangedEvent.ConnectStatus.lost : DownloadServiceConnectChangedEvent.ConnectStatus.disconnected, this.f58385c));
+            this.f58551b = null;
+            com.kwai.filedownloader.f.a().b(new DownloadServiceConnectChangedEvent(z ? DownloadServiceConnectChangedEvent.ConnectStatus.lost : DownloadServiceConnectChangedEvent.ConnectStatus.disconnected, this.f58552c));
         }
     }
 
@@ -98,12 +98,12 @@ public abstract class a<CALLBACK extends Binder, INTERFACE extends IInterface> i
             if (com.kwai.filedownloader.e.d.a) {
                 com.kwai.filedownloader.e.d.c(this, "bindStartByContext %s", context.getClass().getSimpleName());
             }
-            Intent intent = new Intent(context, this.f58385c);
-            if (runnable != null && !this.f58388f.contains(runnable)) {
-                this.f58388f.add(runnable);
+            Intent intent = new Intent(context, this.f58552c);
+            if (runnable != null && !this.f58555f.contains(runnable)) {
+                this.f58555f.add(runnable);
             }
-            if (!this.f58387e.contains(context)) {
-                this.f58387e.add(context);
+            if (!this.f58554e.contains(context)) {
+                this.f58554e.add(context);
             }
             context.bindService(intent, this, 1);
             context.startService(intent);
@@ -128,27 +128,27 @@ public abstract class a<CALLBACK extends Binder, INTERFACE extends IInterface> i
     public INTERFACE d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f58384b : (INTERFACE) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f58551b : (INTERFACE) invokeV.objValue;
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, componentName, iBinder) == null) {
-            this.f58384b = b(iBinder);
+            this.f58551b = b(iBinder);
             if (com.kwai.filedownloader.e.d.a) {
-                com.kwai.filedownloader.e.d.c(this, "onServiceConnected %s %s", componentName, this.f58384b);
+                com.kwai.filedownloader.e.d.c(this, "onServiceConnected %s %s", componentName, this.f58551b);
             }
             try {
-                b(this.f58384b, this.a);
+                b(this.f58551b, this.a);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
-            this.f58388f.clear();
-            for (Runnable runnable : (List) this.f58388f.clone()) {
+            this.f58555f.clear();
+            for (Runnable runnable : (List) this.f58555f.clone()) {
                 runnable.run();
             }
-            com.kwai.filedownloader.f.a().b(new DownloadServiceConnectChangedEvent(DownloadServiceConnectChangedEvent.ConnectStatus.connected, this.f58385c));
+            com.kwai.filedownloader.f.a().b(new DownloadServiceConnectChangedEvent(DownloadServiceConnectChangedEvent.ConnectStatus.connected, this.f58552c));
         }
     }
 
@@ -157,7 +157,7 @@ public abstract class a<CALLBACK extends Binder, INTERFACE extends IInterface> i
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, componentName) == null) {
             if (com.kwai.filedownloader.e.d.a) {
-                com.kwai.filedownloader.e.d.c(this, "onServiceDisconnected %s %s", componentName, this.f58384b);
+                com.kwai.filedownloader.e.d.c(this, "onServiceDisconnected %s %s", componentName, this.f58551b);
             }
             a(true);
         }

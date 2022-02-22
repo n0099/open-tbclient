@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.services.vod.VodClient;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class MediaStoreUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MINI_THUMB_HEIGHT = 384;

@@ -19,7 +19,7 @@ public class a {
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C1830a {
+    public static class C1840a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -93,7 +93,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, x509Certificate)) == null) {
             try {
-                return C1830a.a(a(x509Certificate.getEncoded()));
+                return C1840a.a(a(x509Certificate.getEncoded()));
             } catch (CertificateEncodingException unused) {
                 return null;
             }

@@ -25,7 +25,7 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f48516e;
+    public HttpMessageListener f48683e;
 
     /* loaded from: classes13.dex */
     public static class SendVideoSuccessShareOriginalThreadInfoResponse extends JsonHttpResponsedMessage {
@@ -68,9 +68,9 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
                 String optString2 = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
                 String optString3 = jSONObject.optString("video_id");
                 OriginalThreadInfo originalThreadInfo = this.threadInfo;
-                originalThreadInfo.f40157c = optString2;
+                originalThreadInfo.f40386c = optString2;
                 originalThreadInfo.a = 3;
-                originalThreadInfo.f40156b = optString;
+                originalThreadInfo.f40385b = optString;
                 originalThreadInfo.l = optString3;
             }
         }
@@ -136,12 +136,12 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
                 return;
             }
         }
-        this.f48516e = new a(this, CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID);
+        this.f48683e = new a(this, CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f48516e.setTag(getUniqueId());
-        this.f48516e.setSelfListener(true);
-        registerListener(this.f48516e);
+        this.f48683e.setTag(getUniqueId());
+        this.f48683e.setSelfListener(true);
+        registerListener(this.f48683e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -149,7 +149,7 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f48516e);
+            MessageManager.getInstance().unRegisterListener(this.f48683e);
             return false;
         }
         return invokeV.booleanValue;

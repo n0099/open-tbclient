@@ -28,10 +28,10 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final q0<K, V> f30099e;
+    public final q0<K, V> f30305e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.i.d.a.o<? super Map.Entry<K, V>> f30100f;
+    public final c.i.d.a.o<? super Map.Entry<K, V>> f30306f;
 
     /* loaded from: classes9.dex */
     public class a extends Maps.y<K, Collection<V>> {
@@ -39,35 +39,35 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ q f30101h;
+        public final /* synthetic */ q f30307h;
 
         /* renamed from: c.i.d.c.q$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C1680a extends Maps.k<K, Collection<V>> {
+        public class C1690a extends Maps.k<K, Collection<V>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f30102e;
+            public final /* synthetic */ a f30308e;
 
             /* renamed from: c.i.d.c.q$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes9.dex */
-            public class C1681a extends AbstractIterator<Map.Entry<K, Collection<V>>> {
+            public class C1691a extends AbstractIterator<Map.Entry<K, Collection<V>>> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final Iterator<Map.Entry<K, Collection<V>>> f30103g;
+                public final Iterator<Map.Entry<K, Collection<V>>> f30309g;
 
                 /* renamed from: h  reason: collision with root package name */
-                public final /* synthetic */ C1680a f30104h;
+                public final /* synthetic */ C1690a f30310h;
 
-                public C1681a(C1680a c1680a) {
+                public C1691a(C1690a c1690a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c1680a};
+                        Object[] objArr = {c1690a};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -77,8 +77,8 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
                             return;
                         }
                     }
-                    this.f30104h = c1680a;
-                    this.f30103g = this.f30104h.f30102e.f30101h.f30099e.asMap().entrySet().iterator();
+                    this.f30310h = c1690a;
+                    this.f30309g = this.f30310h.f30308e.f30307h.f30305e.asMap().entrySet().iterator();
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -88,10 +88,10 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
                     if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                        while (this.f30103g.hasNext()) {
-                            Map.Entry<K, Collection<V>> next = this.f30103g.next();
+                        while (this.f30309g.hasNext()) {
+                            Map.Entry<K, Collection<V>> next = this.f30309g.next();
                             K key = next.getKey();
-                            Collection d2 = q.d(next.getValue(), new c(this.f30104h.f30102e.f30101h, key));
+                            Collection d2 = q.d(next.getValue(), new c(this.f30310h.f30308e.f30307h, key));
                             if (!d2.isEmpty()) {
                                 return Maps.l(key, d2);
                             }
@@ -102,7 +102,7 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
                 }
             }
 
-            public C1680a(a aVar) {
+            public C1690a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,35 +117,35 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
                         return;
                     }
                 }
-                this.f30102e = aVar;
+                this.f30308e = aVar;
             }
 
             @Override // com.google.common.collect.Maps.k
             public Map<K, Collection<V>> b() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30102e : (Map) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30308e : (Map) invokeV.objValue;
             }
 
             @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
             public Iterator<Map.Entry<K, Collection<V>>> iterator() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new C1681a(this) : (Iterator) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new C1691a(this) : (Iterator) invokeV.objValue;
             }
 
             @Override // com.google.common.collect.Maps.k, com.google.common.collect.Sets.c, java.util.AbstractSet, java.util.AbstractCollection, java.util.Collection, java.util.Set
             public boolean removeAll(Collection<?> collection) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection)) == null) ? this.f30102e.f30101h.e(Predicates.g(collection)) : invokeL.booleanValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection)) == null) ? this.f30308e.f30307h.e(Predicates.g(collection)) : invokeL.booleanValue;
             }
 
             @Override // com.google.common.collect.Maps.k, com.google.common.collect.Sets.c, java.util.AbstractCollection, java.util.Collection, java.util.Set
             public boolean retainAll(Collection<?> collection) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, collection)) == null) ? this.f30102e.f30101h.e(Predicates.j(Predicates.g(collection))) : invokeL.booleanValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, collection)) == null) ? this.f30308e.f30307h.e(Predicates.j(Predicates.g(collection))) : invokeL.booleanValue;
             }
 
             @Override // com.google.common.collect.Maps.k, java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -162,7 +162,7 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f30105f;
+            public final /* synthetic */ a f30311f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public b(a aVar) {
@@ -182,28 +182,28 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
                         return;
                     }
                 }
-                this.f30105f = aVar;
+                this.f30311f = aVar;
             }
 
             @Override // com.google.common.collect.Maps.q, java.util.AbstractCollection, java.util.Collection, java.util.Set
             public boolean remove(Object obj) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? this.f30105f.remove(obj) != null : invokeL.booleanValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? this.f30311f.remove(obj) != null : invokeL.booleanValue;
             }
 
             @Override // com.google.common.collect.Sets.c, java.util.AbstractSet, java.util.AbstractCollection, java.util.Collection, java.util.Set
             public boolean removeAll(Collection<?> collection) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection)) == null) ? this.f30105f.f30101h.e(Maps.q(Predicates.g(collection))) : invokeL.booleanValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection)) == null) ? this.f30311f.f30307h.e(Maps.q(Predicates.g(collection))) : invokeL.booleanValue;
             }
 
             @Override // com.google.common.collect.Sets.c, java.util.AbstractCollection, java.util.Collection, java.util.Set
             public boolean retainAll(Collection<?> collection) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection)) == null) ? this.f30105f.f30101h.e(Maps.q(Predicates.j(Predicates.g(collection)))) : invokeL.booleanValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection)) == null) ? this.f30311f.f30307h.e(Maps.q(Predicates.j(Predicates.g(collection)))) : invokeL.booleanValue;
             }
         }
 
@@ -213,7 +213,7 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f30106f;
+            public final /* synthetic */ a f30312f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public c(a aVar) {
@@ -233,7 +233,7 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
                         return;
                     }
                 }
-                this.f30106f = aVar;
+                this.f30312f = aVar;
             }
 
             @Override // com.google.common.collect.Maps.x, java.util.AbstractCollection, java.util.Collection
@@ -243,10 +243,10 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
                     if (obj instanceof Collection) {
                         Collection collection = (Collection) obj;
-                        Iterator<Map.Entry<K, Collection<V>>> it = this.f30106f.f30101h.f30099e.asMap().entrySet().iterator();
+                        Iterator<Map.Entry<K, Collection<V>>> it = this.f30312f.f30307h.f30305e.asMap().entrySet().iterator();
                         while (it.hasNext()) {
                             Map.Entry<K, Collection<V>> next = it.next();
-                            Collection d2 = q.d(next.getValue(), new c(this.f30106f.f30101h, next.getKey()));
+                            Collection d2 = q.d(next.getValue(), new c(this.f30312f.f30307h, next.getKey()));
                             if (!d2.isEmpty() && collection.equals(d2)) {
                                 if (d2.size() == next.getValue().size()) {
                                     it.remove();
@@ -267,14 +267,14 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
             public boolean removeAll(Collection<?> collection) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection)) == null) ? this.f30106f.f30101h.e(Maps.Q(Predicates.g(collection))) : invokeL.booleanValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection)) == null) ? this.f30312f.f30307h.e(Maps.Q(Predicates.g(collection))) : invokeL.booleanValue;
             }
 
             @Override // com.google.common.collect.Maps.x, java.util.AbstractCollection, java.util.Collection
             public boolean retainAll(Collection<?> collection) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection)) == null) ? this.f30106f.f30101h.e(Maps.Q(Predicates.j(Predicates.g(collection)))) : invokeL.booleanValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection)) == null) ? this.f30312f.f30307h.e(Maps.Q(Predicates.j(Predicates.g(collection)))) : invokeL.booleanValue;
             }
         }
 
@@ -293,14 +293,14 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
                     return;
                 }
             }
-            this.f30101h = qVar;
+            this.f30307h = qVar;
         }
 
         @Override // com.google.common.collect.Maps.y
         public Set<Map.Entry<K, Collection<V>>> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C1680a(this) : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C1690a(this) : (Set) invokeV.objValue;
         }
 
         @Override // com.google.common.collect.Maps.y
@@ -321,7 +321,7 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f30101h.clear();
+                this.f30307h.clear();
             }
         }
 
@@ -339,11 +339,11 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-                Collection<V> collection = this.f30101h.f30099e.asMap().get(obj);
+                Collection<V> collection = this.f30307h.f30305e.asMap().get(obj);
                 if (collection == null) {
                     return null;
                 }
-                Collection<V> d2 = q.d(collection, new c(this.f30101h, obj));
+                Collection<V> d2 = q.d(collection, new c(this.f30307h, obj));
                 if (d2.isEmpty()) {
                     return null;
                 }
@@ -359,7 +359,7 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
-                Collection<V> collection = this.f30101h.f30099e.asMap().get(obj);
+                Collection<V> collection = this.f30307h.f30305e.asMap().get(obj);
                 if (collection == null) {
                     return null;
                 }
@@ -367,7 +367,7 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
                 Iterator<V> it = collection.iterator();
                 while (it.hasNext()) {
                     V next = it.next();
-                    if (this.f30101h.f(obj, next)) {
+                    if (this.f30307h.f(obj, next)) {
                         it.remove();
                         i2.add(next);
                     }
@@ -375,7 +375,7 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
                 if (i2.isEmpty()) {
                     return null;
                 }
-                if (this.f30101h.f30099e instanceof e1) {
+                if (this.f30307h.f30305e instanceof e1) {
                     return Collections.unmodifiableSet(Sets.j(i2));
                 }
                 return Collections.unmodifiableList(i2);
@@ -390,7 +390,7 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ q f30107f;
+        public final /* synthetic */ q f30313f;
 
         /* loaded from: classes9.dex */
         public class a extends Multisets.d<K> {
@@ -398,18 +398,18 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f30108e;
+            public final /* synthetic */ b f30314e;
 
             /* renamed from: c.i.d.c.q$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes9.dex */
-            public class C1682a implements c.i.d.a.o<Map.Entry<K, Collection<V>>> {
+            public class C1692a implements c.i.d.a.o<Map.Entry<K, Collection<V>>> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ c.i.d.a.o f30109e;
+                public final /* synthetic */ c.i.d.a.o f30315e;
 
-                public C1682a(a aVar, c.i.d.a.o oVar) {
+                public C1692a(a aVar, c.i.d.a.o oVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -424,7 +424,7 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
                             return;
                         }
                     }
-                    this.f30109e = oVar;
+                    this.f30315e = oVar;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -433,7 +433,7 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
                 public boolean apply(Map.Entry<K, Collection<V>> entry) {
                     InterceptResult invokeL;
                     Interceptable interceptable = $ic;
-                    return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, entry)) == null) ? this.f30109e.apply(Multisets.h(entry.getKey(), entry.getValue().size())) : invokeL.booleanValue;
+                    return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, entry)) == null) ? this.f30315e.apply(Multisets.h(entry.getKey(), entry.getValue().size())) : invokeL.booleanValue;
                 }
             }
 
@@ -452,27 +452,27 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
                         return;
                     }
                 }
-                this.f30108e = bVar;
+                this.f30314e = bVar;
             }
 
             @Override // com.google.common.collect.Multisets.d
             public s0<K> b() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30108e : (s0) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30314e : (s0) invokeV.objValue;
             }
 
             public final boolean c(c.i.d.a.o<? super s0.a<K>> oVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oVar)) == null) ? this.f30108e.f30107f.e(new C1682a(this, oVar)) : invokeL.booleanValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oVar)) == null) ? this.f30314e.f30313f.e(new C1692a(this, oVar)) : invokeL.booleanValue;
             }
 
             @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
             public Iterator<s0.a<K>> iterator() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30108e.entryIterator() : (Iterator) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30314e.entryIterator() : (Iterator) invokeV.objValue;
             }
 
             @Override // com.google.common.collect.Sets.c, java.util.AbstractSet, java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -493,7 +493,7 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
             public int size() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f30108e.f30107f.keySet().size() : invokeV.intValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f30314e.f30313f.keySet().size() : invokeV.intValue;
             }
         }
 
@@ -515,7 +515,7 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
                     return;
                 }
             }
-            this.f30107f = qVar;
+            this.f30313f = qVar;
         }
 
         @Override // c.i.d.c.d, c.i.d.c.s0
@@ -534,14 +534,14 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
                 if (i2 == 0) {
                     return count(obj);
                 }
-                Collection<V> collection = this.f30107f.f30099e.asMap().get(obj);
+                Collection<V> collection = this.f30313f.f30305e.asMap().get(obj);
                 int i3 = 0;
                 if (collection == null) {
                     return 0;
                 }
                 Iterator<V> it = collection.iterator();
                 while (it.hasNext()) {
-                    if (this.f30107f.f(obj, it.next()) && (i3 = i3 + 1) <= i2) {
+                    if (this.f30313f.f(obj, it.next()) && (i3 = i3 + 1) <= i2) {
                         it.remove();
                     }
                 }
@@ -557,10 +557,10 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final K f30110e;
+        public final K f30316e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ q f30111f;
+        public final /* synthetic */ q f30317f;
 
         public c(q qVar, K k) {
             Interceptable interceptable = $ic;
@@ -577,15 +577,15 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
                     return;
                 }
             }
-            this.f30111f = qVar;
-            this.f30110e = k;
+            this.f30317f = qVar;
+            this.f30316e = k;
         }
 
         @Override // c.i.d.a.o
         public boolean apply(V v) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v)) == null) ? this.f30111f.f(this.f30110e, v) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v)) == null) ? this.f30317f.f(this.f30316e, v) : invokeL.booleanValue;
         }
     }
 
@@ -605,9 +605,9 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
             }
         }
         c.i.d.a.n.p(q0Var);
-        this.f30099e = q0Var;
+        this.f30305e = q0Var;
         c.i.d.a.n.p(oVar);
-        this.f30100f = oVar;
+        this.f30306f = oVar;
     }
 
     public static <E> Collection<E> d(Collection<E> collection, c.i.d.a.o<? super E> oVar) {
@@ -626,7 +626,7 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
     public c.i.d.a.o<? super Map.Entry<K, V>> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30100f : (c.i.d.a.o) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30306f : (c.i.d.a.o) invokeV.objValue;
     }
 
     @Override // c.i.d.c.q0
@@ -676,7 +676,7 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, oVar)) == null) {
-            Iterator<Map.Entry<K, Collection<V>>> it = this.f30099e.asMap().entrySet().iterator();
+            Iterator<Map.Entry<K, Collection<V>>> it = this.f30305e.asMap().entrySet().iterator();
             boolean z = false;
             while (it.hasNext()) {
                 Map.Entry<K, Collection<V>> next = it.next();
@@ -709,14 +709,14 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
     public final boolean f(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, k, v)) == null) ? this.f30100f.apply(Maps.l(k, v)) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, k, v)) == null) ? this.f30306f.apply(Maps.l(k, v)) : invokeLL.booleanValue;
     }
 
     public Collection<V> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.f30099e instanceof e1) {
+            if (this.f30305e instanceof e1) {
                 return Collections.emptySet();
             }
             return Collections.emptyList();
@@ -728,7 +728,7 @@ public class q<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
     public Collection<V> get(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, k)) == null) ? d(this.f30099e.get(k), new c(this, k)) : (Collection) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, k)) == null) ? d(this.f30305e.get(k), new c(this, k)) : (Collection) invokeL.objValue;
     }
 
     @Override // c.i.d.c.q0

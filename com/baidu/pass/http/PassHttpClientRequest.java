@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Comparable<PassHttpClientRequest> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "PassHttpClientRequest";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f37681b;
+    public int f37910b;
     public volatile boolean cancelRequest;
     public Context context;
     public Method method;
@@ -38,7 +38,7 @@ public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Compar
             }
         }
         this.cancelRequest = false;
-        this.f37681b = i2;
+        this.f37910b = i2;
         this.method = method;
         this.context = context;
         this.paramDTO = passHttpParamDTO;
@@ -85,7 +85,7 @@ public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Compar
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, passHttpClientRequest)) == null) {
             ReqPriority reqPriority = this.paramDTO.priority;
             ReqPriority reqPriority2 = passHttpClientRequest.paramDTO.priority;
-            return reqPriority == reqPriority2 ? this.f37681b - passHttpClientRequest.f37681b : reqPriority2.ordinal() - reqPriority.ordinal();
+            return reqPriority == reqPriority2 ? this.f37910b - passHttpClientRequest.f37910b : reqPriority2.ordinal() - reqPriority.ordinal();
         }
         return invokeL.intValue;
     }

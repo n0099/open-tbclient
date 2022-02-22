@@ -1,6 +1,6 @@
 package com.baidu.swan.apps.alliance.login;
 
-import c.a.r0.a.m.c;
+import c.a.s0.a.m.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;

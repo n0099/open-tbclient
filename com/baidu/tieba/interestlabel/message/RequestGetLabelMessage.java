@@ -1,10 +1,11 @@
 package com.baidu.tieba.interestlabel.message;
 
-import c.a.s0.d1.b0;
-import c.a.t0.w1.b.b;
+import c.a.t0.d1.c0;
+import c.a.u0.x1.b.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +20,7 @@ public class RequestGetLabelMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f45438common;
+    public CommonReq f45580common;
     public int from;
     public b mLabelDataSet;
 
@@ -48,10 +49,10 @@ public class RequestGetLabelMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f62806common = this.f45438common;
+            builder.f62973common = this.f45580common;
             builder.from = Integer.valueOf(this.from);
-            if (z) {
-                b0.a(builder, true);
+            if (z || SocketAddCommonParamSwitch.getIsOn()) {
+                c0.a(builder, true);
             }
             GetTagListReqIdl.Builder builder2 = new GetTagListReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -69,7 +70,7 @@ public class RequestGetLabelMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, commonReq) == null) {
-            this.f45438common = commonReq;
+            this.f45580common = commonReq;
         }
     }
 

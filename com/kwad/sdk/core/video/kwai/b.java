@@ -17,26 +17,26 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b extends com.kwad.sdk.core.video.kwai.a {
     public final MediaPlayer a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f56264b;
+    public final a f56431b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f56265c;
+    public String f56432c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MediaDataSource f56266d;
+    public MediaDataSource f56433d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f56267e;
+    public final Object f56434e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f56268f;
+    public boolean f56435f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener, MediaPlayer.OnInfoListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnTimedTextListener, MediaPlayer.OnVideoSizeChangedListener {
         public final WeakReference<b> a;
 
@@ -108,38 +108,38 @@ public class b extends com.kwad.sdk.core.video.kwai.a {
     public b() {
         MediaPlayer mediaPlayer;
         Object obj = new Object();
-        this.f56267e = obj;
+        this.f56434e = obj;
         synchronized (obj) {
             mediaPlayer = new MediaPlayer();
             this.a = mediaPlayer;
         }
         mediaPlayer.setAudioStreamType(3);
-        this.f56264b = new a(this);
+        this.f56431b = new a(this);
         q();
         a(false);
     }
 
     private void p() {
-        MediaDataSource mediaDataSource = this.f56266d;
+        MediaDataSource mediaDataSource = this.f56433d;
         if (mediaDataSource != null) {
             try {
                 mediaDataSource.close();
             } catch (IOException e2) {
                 e2.printStackTrace();
             }
-            this.f56266d = null;
+            this.f56433d = null;
         }
     }
 
     private void q() {
-        this.a.setOnPreparedListener(this.f56264b);
-        this.a.setOnBufferingUpdateListener(this.f56264b);
-        this.a.setOnCompletionListener(this.f56264b);
-        this.a.setOnSeekCompleteListener(this.f56264b);
-        this.a.setOnVideoSizeChangedListener(this.f56264b);
-        this.a.setOnErrorListener(this.f56264b);
-        this.a.setOnInfoListener(this.f56264b);
-        this.a.setOnTimedTextListener(this.f56264b);
+        this.a.setOnPreparedListener(this.f56431b);
+        this.a.setOnBufferingUpdateListener(this.f56431b);
+        this.a.setOnCompletionListener(this.f56431b);
+        this.a.setOnSeekCompleteListener(this.f56431b);
+        this.a.setOnVideoSizeChangedListener(this.f56431b);
+        this.a.setOnErrorListener(this.f56431b);
+        this.a.setOnInfoListener(this.f56431b);
+        this.a.setOnTimedTextListener(this.f56431b);
     }
 
     private void r() {
@@ -180,8 +180,8 @@ public class b extends com.kwad.sdk.core.video.kwai.a {
 
     @Override // com.kwad.sdk.core.video.kwai.c
     public void a(@NonNull com.kwad.sdk.contentalliance.detail.video.c cVar) {
-        if (!cVar.f55629f) {
-            a(cVar.f55625b);
+        if (!cVar.f55796f) {
+            a(cVar.f55792b);
             return;
         }
         HashMap hashMap = new HashMap();
@@ -189,11 +189,11 @@ public class b extends com.kwad.sdk.core.video.kwai.a {
         hashMap.put(Util.ACCEPT_RANGES, "bytes");
         hashMap.put("Status", HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE206);
         hashMap.put("Cache-control", "no-cache");
-        a(KsAdSDKImpl.get().getContext(), Uri.parse(cVar.f55625b), hashMap);
+        a(KsAdSDKImpl.get().getContext(), Uri.parse(cVar.f55792b), hashMap);
     }
 
     public void a(String str) {
-        this.f56265c = str;
+        this.f56432c = str;
         Uri parse = Uri.parse(str);
         String scheme = parse.getScheme();
         if (TextUtils.isEmpty(scheme) || !scheme.equalsIgnoreCase("file")) {
@@ -260,7 +260,7 @@ public class b extends com.kwad.sdk.core.video.kwai.a {
     @Override // com.kwad.sdk.core.video.kwai.c
     public void l() {
         try {
-            this.f56268f = true;
+            this.f56435f = true;
             this.a.release();
             p();
             a();

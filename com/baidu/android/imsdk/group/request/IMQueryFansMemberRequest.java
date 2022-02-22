@@ -26,7 +26,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class IMQueryFansMemberRequest extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryFansMemberRequest";
@@ -35,7 +35,7 @@ public class IMQueryFansMemberRequest extends FansGroupBaseHttpRequest {
     public String mGroupId;
     public String mKey;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Mytask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -17,7 +17,7 @@ import com.bytedance.pangle.plugin.PluginProvider;
 import com.bytedance.pangle.util.Lazy;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ZeusParam {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,14 +44,14 @@ public class ZeusParam {
     public ApkVerifier mVerifier;
 
     /* renamed from: com.bytedance.pangle.ZeusParam$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

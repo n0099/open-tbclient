@@ -1,27 +1,38 @@
 package c.a.t0.o0;
 
+import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public BaseFragment a;
 
-    public static synchronized a a() {
-        InterceptResult invokeV;
-        a aVar;
+    public b(BaseFragment baseFragment) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (b.class) {
-                if (a == null) {
-                    a = new a();
-                }
-                aVar = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragment};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return aVar;
         }
-        return (a) invokeV.objValue;
+        this.a = baseFragment;
+    }
+
+    public BaseFragment a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (BaseFragment) invokeV.objValue;
     }
 }

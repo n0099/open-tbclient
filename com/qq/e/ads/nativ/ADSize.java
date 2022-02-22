@@ -15,7 +15,7 @@ public class ADSize {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f59037b;
+    public int f59204b;
 
     public ADSize(int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -32,14 +32,14 @@ public class ADSize {
                 return;
             }
         }
-        this.f59037b = i3;
+        this.f59204b = i3;
         this.a = i2;
     }
 
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59037b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59204b : invokeV.intValue;
     }
 
     public int getWidth() {

@@ -26,7 +26,7 @@ import java.nio.file.Path;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Okio {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger logger;

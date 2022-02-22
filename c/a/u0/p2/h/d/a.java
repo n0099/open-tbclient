@@ -1,0 +1,175 @@
+package c.a.u0.p2.h.d;
+
+import android.util.Pair;
+import android.widget.ListAdapter;
+import c.a.u0.p2.h.f.c;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.faceshop.EmotionPackageData;
+import com.baidu.tieba.newfaceshop.nativemotionmanager.managers.MyEmotionHorizontalAdater;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+/* loaded from: classes8.dex */
+public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public BdListView a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public MyEmotionHorizontalAdater f21114b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public List<EmotionPackageData> f21115c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final List<C1299a> f21116d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public c f21117e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public c.a.u0.p2.h.b.a f21118f;
+
+    /* renamed from: c.a.u0.p2.h.d.a$a  reason: collision with other inner class name */
+    /* loaded from: classes8.dex */
+    public static class C1299a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f21119b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public int f21120c;
+
+        public C1299a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "id: " + this.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + "firstVisibleItem: " + this.f21119b + StringUtil.ARRAY_ELEMENT_SEPARATOR + "padX: " + this.f21120c;
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    public a(TbPageContext<?> tbPageContext, BdListView bdListView, c.a.u0.p2.h.b.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdListView, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = bdListView;
+        c cVar = new c(tbPageContext);
+        this.f21117e = cVar;
+        cVar.b(TbadkCoreApplication.getInst().getSkinType());
+        this.a.addHeaderView(this.f21117e.a());
+        this.f21115c = new ArrayList();
+        this.f21116d = new ArrayList();
+        MyEmotionHorizontalAdater myEmotionHorizontalAdater = new MyEmotionHorizontalAdater(this.f21115c, this.f21116d, tbPageContext);
+        this.f21114b = myEmotionHorizontalAdater;
+        this.f21118f = aVar;
+        this.a.setAdapter((ListAdapter) myEmotionHorizontalAdater);
+    }
+
+    public void a(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) || i2 < 0 || i2 >= this.f21115c.size() || i3 < 0 || i3 >= this.f21115c.size()) {
+            return;
+        }
+        List<EmotionPackageData> list = this.f21115c;
+        list.add(i3, list.remove(i2));
+        List<C1299a> list2 = this.f21116d;
+        list2.add(i3, list2.remove(i2));
+        this.f21114b.notifyDataSetChanged();
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921312, new Pair(Integer.valueOf(i2), Integer.valueOf(i3))));
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ArrayList arrayList = new ArrayList(this.f21116d);
+            this.f21116d.clear();
+            for (EmotionPackageData emotionPackageData : this.f21115c) {
+                C1299a c1299a = null;
+                Iterator it = arrayList.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    C1299a c1299a2 = (C1299a) it.next();
+                    if (c1299a2 != null && c1299a2.a == emotionPackageData.id) {
+                        c1299a = c1299a2;
+                        break;
+                    }
+                }
+                if (c1299a == null) {
+                    c1299a = new C1299a();
+                    c1299a.a = emotionPackageData.id;
+                }
+                this.f21116d.add(c1299a);
+            }
+        }
+    }
+
+    public void update(List<EmotionPackageData> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || this.a == null || this.f21114b == null) {
+            return;
+        }
+        this.f21115c.clear();
+        this.f21115c.addAll(list);
+        b();
+        this.f21114b.d();
+        this.f21117e.update(Integer.valueOf(this.f21114b.b()));
+        this.f21118f.b(0, this.f21114b.b());
+        this.f21118f.a(c.a.u0.p2.h.a.b().a());
+        this.f21114b.notifyDataSetChanged();
+    }
+
+    public void update() {
+        c cVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f21114b == null || this.a == null || this.f21115c == null || (cVar = this.f21117e) == null || this.f21118f == null) {
+            return;
+        }
+        cVar.c();
+        this.f21118f.b(0, this.f21114b.b());
+        this.f21118f.a(c.a.u0.p2.h.a.b().a());
+        this.f21114b.notifyDataSetChanged();
+    }
+}

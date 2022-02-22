@@ -23,7 +23,7 @@ public final class FlowableFromObservable<T> extends Flowable<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f62170d;
+        public Disposable f62337d;
         public final Subscriber<? super T> s;
 
         public SubscriberObserver(Subscriber<? super T> subscriber) {
@@ -48,7 +48,7 @@ public final class FlowableFromObservable<T> extends Flowable<T> {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f62170d.dispose();
+                this.f62337d.dispose();
             }
         }
 
@@ -80,7 +80,7 @@ public final class FlowableFromObservable<T> extends Flowable<T> {
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) {
-                this.f62170d = disposable;
+                this.f62337d = disposable;
                 this.s.onSubscribe(this);
             }
         }

@@ -3,7 +3,7 @@ package com.baidu.tieba.barselect;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.t0.c0.b.a;
+import c.a.u0.c0.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;

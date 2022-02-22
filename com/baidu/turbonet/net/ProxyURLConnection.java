@@ -2,9 +2,9 @@ package com.baidu.turbonet.net;
 
 import android.annotation.TargetApi;
 import androidx.core.view.InputDeviceCompat;
-import c.a.u0.b.a;
-import c.a.u0.b.d.b;
-import c.a.u0.b.e.d;
+import c.a.v0.b.a;
+import c.a.v0.b.d.b;
+import c.a.v0.b.e.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,27 +32,27 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HttpURLConnection f50262b;
+    public HttpURLConnection f50429b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f50263c;
+    public d f50430c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TurbonetEngine f50264d;
+    public TurbonetEngine f50431d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ProxyConfig f50265e;
+    public ProxyConfig f50432e;
 
-    @Override // c.a.u0.b.d.b
+    @Override // c.a.v0.b.d.b
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
             a aVar = this.a;
-            aVar.f26325e = j2;
+            aVar.f26558e = j2;
             aVar.c();
             a aVar2 = this.a;
-            aVar2.f26323c = -12;
-            aVar2.d(this.f50264d);
+            aVar2.f26556c = -12;
+            aVar2.d(this.f50431d);
         }
     }
 
@@ -60,23 +60,23 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
     public final void addRequestProperty(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            if (!this.f50265e.a()) {
-                this.f50263c.addRequestProperty(str, str2);
+            if (!this.f50432e.a()) {
+                this.f50430c.addRequestProperty(str, str2);
             } else {
-                this.f50262b.addRequestProperty(str, str2);
+                this.f50429b.addRequestProperty(str, str2);
             }
         }
     }
 
-    @Override // c.a.u0.b.d.b
+    @Override // c.a.v0.b.d.b
     public void b(Exception exc, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, exc, j2) == null) {
             a aVar = this.a;
-            aVar.f26325e = j2;
+            aVar.f26558e = j2;
             aVar.c();
             this.a.a(exc);
-            this.a.d(this.f50264d);
+            this.a.d(this.f50431d);
         }
     }
 
@@ -84,13 +84,13 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
     public void connect() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c.a.u0.a.a.a("ProxyURLConn", "connect by libtype: " + this.f50265e.toString());
-            if (!this.f50265e.a()) {
-                this.f50263c.connect();
+            c.a.v0.a.a.a("ProxyURLConn", "connect by libtype: " + this.f50432e.toString());
+            if (!this.f50432e.a()) {
+                this.f50430c.connect();
                 return;
             }
             try {
-                this.f50262b.connect();
+                this.f50429b.connect();
             } catch (IOException e2) {
                 b(e2, 0L);
                 throw e2;
@@ -102,11 +102,11 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
     public void disconnect() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c.a.u0.a.a.a("ProxyURLConn", "disconnect by libtype: " + this.f50265e.toString());
-            if (!this.f50265e.a()) {
-                this.f50263c.disconnect();
+            c.a.v0.a.a.a("ProxyURLConn", "disconnect by libtype: " + this.f50432e.toString());
+            if (!this.f50432e.a()) {
+                this.f50430c.disconnect();
             } else {
-                this.f50262b.disconnect();
+                this.f50429b.disconnect();
             }
         }
     }
@@ -116,7 +116,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            HttpURLConnection httpURLConnection = this.f50262b;
+            HttpURLConnection httpURLConnection = this.f50429b;
             if (httpURLConnection instanceof HttpsURLConnection) {
                 return ((HttpsURLConnection) httpURLConnection).getCipherSuite();
             }
@@ -130,10 +130,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getConnectTimeout();
+            if (!this.f50432e.a()) {
+                return this.f50430c.getConnectTimeout();
             }
-            return this.f50262b.getConnectTimeout();
+            return this.f50429b.getConnectTimeout();
         }
         return invokeV.intValue;
     }
@@ -143,14 +143,14 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getContent();
+            if (!this.f50432e.a()) {
+                return this.f50430c.getContent();
             }
             try {
-                long contentLength = this.f50262b.getContentLength();
-                this.a.f26325e = contentLength;
+                long contentLength = this.f50429b.getContentLength();
+                this.a.f26558e = contentLength;
                 onComplete(contentLength);
-                return this.f50262b.getContent();
+                return this.f50429b.getContent();
             } catch (IOException e2) {
                 b(e2, 0L);
                 throw e2;
@@ -164,10 +164,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getContentEncoding();
+            if (!this.f50432e.a()) {
+                return this.f50430c.getContentEncoding();
             }
-            return this.f50262b.getContentEncoding();
+            return this.f50429b.getContentEncoding();
         }
         return (String) invokeV.objValue;
     }
@@ -177,10 +177,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getContentLength();
+            if (!this.f50432e.a()) {
+                return this.f50430c.getContentLength();
             }
-            return this.f50262b.getContentLength();
+            return this.f50429b.getContentLength();
         }
         return invokeV.intValue;
     }
@@ -190,10 +190,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getContentType();
+            if (!this.f50432e.a()) {
+                return this.f50430c.getContentType();
             }
-            return this.f50262b.getContentType();
+            return this.f50429b.getContentType();
         }
         return (String) invokeV.objValue;
     }
@@ -203,10 +203,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getDate();
+            if (!this.f50432e.a()) {
+                return this.f50430c.getDate();
             }
-            return this.f50262b.getDate();
+            return this.f50429b.getDate();
         }
         return invokeV.longValue;
     }
@@ -216,10 +216,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getDefaultUseCaches();
+            if (!this.f50432e.a()) {
+                return this.f50430c.getDefaultUseCaches();
             }
-            return this.f50262b.getDefaultUseCaches();
+            return this.f50429b.getDefaultUseCaches();
         }
         return invokeV.booleanValue;
     }
@@ -229,10 +229,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getDoInput();
+            if (!this.f50432e.a()) {
+                return this.f50430c.getDoInput();
             }
-            return this.f50262b.getDoInput();
+            return this.f50429b.getDoInput();
         }
         return invokeV.booleanValue;
     }
@@ -242,10 +242,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getDoOutput();
+            if (!this.f50432e.a()) {
+                return this.f50430c.getDoOutput();
             }
-            return this.f50262b.getDoOutput();
+            return this.f50429b.getDoOutput();
         }
         return invokeV.booleanValue;
     }
@@ -255,10 +255,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getErrorStream();
+            if (!this.f50432e.a()) {
+                return this.f50430c.getErrorStream();
             }
-            return this.f50262b.getErrorStream();
+            return this.f50429b.getErrorStream();
         }
         return (InputStream) invokeV.objValue;
     }
@@ -268,10 +268,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getExpiration();
+            if (!this.f50432e.a()) {
+                return this.f50430c.getExpiration();
             }
-            return this.f50262b.getExpiration();
+            return this.f50429b.getExpiration();
         }
         return invokeV.longValue;
     }
@@ -281,10 +281,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getHeaderField(str);
+            if (!this.f50432e.a()) {
+                return this.f50430c.getHeaderField(str);
             }
-            String headerField = this.f50262b.getHeaderField(str);
+            String headerField = this.f50429b.getHeaderField(str);
             this.a.b();
             return headerField;
         }
@@ -296,10 +296,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048596, this, str, j2)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getHeaderFieldDate(str, j2);
+            if (!this.f50432e.a()) {
+                return this.f50430c.getHeaderFieldDate(str, j2);
             }
-            return this.f50262b.getHeaderFieldDate(str, j2);
+            return this.f50429b.getHeaderFieldDate(str, j2);
         }
         return invokeLJ.longValue;
     }
@@ -309,10 +309,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048597, this, str, i2)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getHeaderFieldInt(str, i2);
+            if (!this.f50432e.a()) {
+                return this.f50430c.getHeaderFieldInt(str, i2);
             }
-            return this.f50262b.getHeaderFieldInt(str, i2);
+            return this.f50429b.getHeaderFieldInt(str, i2);
         }
         return invokeLI.intValue;
     }
@@ -322,10 +322,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getHeaderFieldKey(i2);
+            if (!this.f50432e.a()) {
+                return this.f50430c.getHeaderFieldKey(i2);
             }
-            return this.f50262b.getHeaderFieldKey(i2);
+            return this.f50429b.getHeaderFieldKey(i2);
         }
         return (String) invokeI.objValue;
     }
@@ -335,10 +335,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getHeaderFields();
+            if (!this.f50432e.a()) {
+                return this.f50430c.getHeaderFields();
             }
-            return this.f50262b.getHeaderFields();
+            return this.f50429b.getHeaderFields();
         }
         return (Map) invokeV.objValue;
     }
@@ -348,7 +348,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            HttpURLConnection httpURLConnection = this.f50262b;
+            HttpURLConnection httpURLConnection = this.f50429b;
             if (httpURLConnection instanceof HttpsURLConnection) {
                 return ((HttpsURLConnection) httpURLConnection).getHostnameVerifier();
             }
@@ -362,10 +362,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getIfModifiedSince();
+            if (!this.f50432e.a()) {
+                return this.f50430c.getIfModifiedSince();
             }
-            return this.f50262b.getIfModifiedSince();
+            return this.f50429b.getIfModifiedSince();
         }
         return invokeV.longValue;
     }
@@ -375,12 +375,12 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            c.a.u0.a.a.a("ProxyURLConn", "getInputStream by libtype: " + this.f50265e.toString());
-            if (!this.f50265e.a()) {
-                return this.f50263c.getInputStream();
+            c.a.v0.a.a.a("ProxyURLConn", "getInputStream by libtype: " + this.f50432e.toString());
+            if (!this.f50432e.a()) {
+                return this.f50430c.getInputStream();
             }
             try {
-                return new c.a.u0.b.d.a(this.f50262b.getInputStream(), this);
+                return new c.a.v0.b.d.a(this.f50429b.getInputStream(), this);
             } catch (IOException e2) {
                 b(e2, 0L);
                 throw e2;
@@ -394,10 +394,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getInstanceFollowRedirects();
+            if (!this.f50432e.a()) {
+                return this.f50430c.getInstanceFollowRedirects();
             }
-            return this.f50262b.getInstanceFollowRedirects();
+            return this.f50429b.getInstanceFollowRedirects();
         }
         return invokeV.booleanValue;
     }
@@ -407,10 +407,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getLastModified();
+            if (!this.f50432e.a()) {
+                return this.f50430c.getLastModified();
             }
-            return this.f50262b.getLastModified();
+            return this.f50429b.getLastModified();
         }
         return invokeV.longValue;
     }
@@ -420,7 +420,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            HttpURLConnection httpURLConnection = this.f50262b;
+            HttpURLConnection httpURLConnection = this.f50429b;
             if (httpURLConnection instanceof HttpsURLConnection) {
                 return ((HttpsURLConnection) httpURLConnection).getLocalCertificates();
             }
@@ -434,7 +434,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            HttpURLConnection httpURLConnection = this.f50262b;
+            HttpURLConnection httpURLConnection = this.f50429b;
             if (httpURLConnection instanceof HttpsURLConnection) {
                 return ((HttpsURLConnection) httpURLConnection).getLocalPrincipal();
             }
@@ -448,10 +448,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getOutputStream();
+            if (!this.f50432e.a()) {
+                return this.f50430c.getOutputStream();
             }
-            return this.f50262b.getOutputStream();
+            return this.f50429b.getOutputStream();
         }
         return (OutputStream) invokeV.objValue;
     }
@@ -461,7 +461,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
-            HttpURLConnection httpURLConnection = this.f50262b;
+            HttpURLConnection httpURLConnection = this.f50429b;
             if (httpURLConnection instanceof HttpsURLConnection) {
                 return ((HttpsURLConnection) httpURLConnection).getPeerPrincipal();
             }
@@ -475,10 +475,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getPermission();
+            if (!this.f50432e.a()) {
+                return this.f50430c.getPermission();
             }
-            return this.f50262b.getPermission();
+            return this.f50429b.getPermission();
         }
         return (Permission) invokeV.objValue;
     }
@@ -488,10 +488,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getReadTimeout();
+            if (!this.f50432e.a()) {
+                return this.f50430c.getReadTimeout();
             }
-            return this.f50262b.getReadTimeout();
+            return this.f50429b.getReadTimeout();
         }
         return invokeV.intValue;
     }
@@ -501,10 +501,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getRequestMethod();
+            if (!this.f50432e.a()) {
+                return this.f50430c.getRequestMethod();
             }
-            return this.f50262b.getRequestMethod();
+            return this.f50429b.getRequestMethod();
         }
         return (String) invokeV.objValue;
     }
@@ -514,10 +514,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getRequestProperties();
+            if (!this.f50432e.a()) {
+                return this.f50430c.getRequestProperties();
             }
-            return this.f50262b.getRequestProperties();
+            return this.f50429b.getRequestProperties();
         }
         return (Map) invokeV.objValue;
     }
@@ -527,10 +527,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, str)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getRequestProperty(str);
+            if (!this.f50432e.a()) {
+                return this.f50430c.getRequestProperty(str);
             }
-            return this.f50262b.getRequestProperty(str);
+            return this.f50429b.getRequestProperty(str);
         }
         return (String) invokeL.objValue;
     }
@@ -541,12 +541,12 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
-            if (!this.f50265e.a()) {
-                i2 = this.f50263c.getResponseCode();
+            if (!this.f50432e.a()) {
+                i2 = this.f50430c.getResponseCode();
             } else {
                 try {
-                    int responseCode = this.f50262b.getResponseCode();
-                    this.a.f26324d = responseCode;
+                    int responseCode = this.f50429b.getResponseCode();
+                    this.a.f26557d = responseCode;
                     this.a.b();
                     if (responseCode != 200) {
                         onComplete(0L);
@@ -557,7 +557,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
                     throw e2;
                 }
             }
-            c.a.u0.a.a.a("ProxyURLConn", "getResponseCode: " + i2 + " by libtype: " + this.f50265e.toString());
+            c.a.v0.a.a.a("ProxyURLConn", "getResponseCode: " + i2 + " by libtype: " + this.f50432e.toString());
             return i2;
         }
         return invokeV.intValue;
@@ -569,12 +569,12 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         String responseMessage;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
-            if (!this.f50265e.a()) {
-                responseMessage = this.f50263c.getResponseMessage();
+            if (!this.f50432e.a()) {
+                responseMessage = this.f50430c.getResponseMessage();
             } else {
-                responseMessage = this.f50262b.getResponseMessage();
+                responseMessage = this.f50429b.getResponseMessage();
             }
-            c.a.u0.a.a.a("ProxyURLConn", "getResponseMessage by libtype: " + this.f50265e.toString() + " Message: " + responseMessage);
+            c.a.v0.a.a.a("ProxyURLConn", "getResponseMessage by libtype: " + this.f50432e.toString() + " Message: " + responseMessage);
             return responseMessage;
         }
         return (String) invokeV.objValue;
@@ -585,7 +585,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
-            HttpURLConnection httpURLConnection = this.f50262b;
+            HttpURLConnection httpURLConnection = this.f50429b;
             if (httpURLConnection instanceof HttpsURLConnection) {
                 return ((HttpsURLConnection) httpURLConnection).getSSLSocketFactory();
             }
@@ -599,7 +599,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
-            HttpURLConnection httpURLConnection = this.f50262b;
+            HttpURLConnection httpURLConnection = this.f50429b;
             if (httpURLConnection instanceof HttpsURLConnection) {
                 return ((HttpsURLConnection) httpURLConnection).getServerCertificates();
             }
@@ -613,10 +613,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getURL();
+            if (!this.f50432e.a()) {
+                return this.f50430c.getURL();
             }
-            return this.f50262b.getURL();
+            return this.f50429b.getURL();
         }
         return (URL) invokeV.objValue;
     }
@@ -626,24 +626,24 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getUseCaches();
+            if (!this.f50432e.a()) {
+                return this.f50430c.getUseCaches();
             }
-            return this.f50262b.getUseCaches();
+            return this.f50429b.getUseCaches();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.u0.b.d.b
+    @Override // c.a.v0.b.d.b
     public void onComplete(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048620, this, j2) == null) {
             a aVar = this.a;
-            aVar.f26325e = j2;
+            aVar.f26558e = j2;
             aVar.c();
             a aVar2 = this.a;
-            aVar2.f26323c = 0;
-            aVar2.d(this.f50264d);
+            aVar2.f26556c = 0;
+            aVar2.d(this.f50431d);
         }
     }
 
@@ -651,10 +651,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
     public void setChunkedStreamingMode(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
-            if (!this.f50265e.a()) {
-                this.f50263c.setChunkedStreamingMode(i2);
+            if (!this.f50432e.a()) {
+                this.f50430c.setChunkedStreamingMode(i2);
             } else {
-                this.f50262b.setChunkedStreamingMode(i2);
+                this.f50429b.setChunkedStreamingMode(i2);
             }
         }
     }
@@ -663,10 +663,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
     public void setConnectTimeout(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048622, this, i2) == null) {
-            if (!this.f50265e.a()) {
-                this.f50263c.setConnectTimeout(i2);
+            if (!this.f50432e.a()) {
+                this.f50430c.setConnectTimeout(i2);
             } else {
-                this.f50262b.setConnectTimeout(i2);
+                this.f50429b.setConnectTimeout(i2);
             }
         }
     }
@@ -675,10 +675,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
     public void setDefaultUseCaches(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048623, this, z) == null) {
-            if (!this.f50265e.a()) {
-                this.f50263c.setDefaultUseCaches(z);
+            if (!this.f50432e.a()) {
+                this.f50430c.setDefaultUseCaches(z);
             } else {
-                this.f50262b.setDefaultUseCaches(z);
+                this.f50429b.setDefaultUseCaches(z);
             }
         }
     }
@@ -687,10 +687,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
     public void setDoInput(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048624, this, z) == null) {
-            if (!this.f50265e.a()) {
-                this.f50263c.setDoInput(z);
+            if (!this.f50432e.a()) {
+                this.f50430c.setDoInput(z);
             } else {
-                this.f50262b.setDoInput(z);
+                this.f50429b.setDoInput(z);
             }
         }
     }
@@ -699,10 +699,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
     public void setDoOutput(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048625, this, z) == null) {
-            if (!this.f50265e.a()) {
-                this.f50263c.setDoOutput(z);
+            if (!this.f50432e.a()) {
+                this.f50430c.setDoOutput(z);
             } else {
-                this.f50262b.setDoOutput(z);
+                this.f50429b.setDoOutput(z);
             }
         }
     }
@@ -711,10 +711,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
     public void setFixedLengthStreamingMode(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048626, this, i2) == null) {
-            if (!this.f50265e.a()) {
-                this.f50263c.setFixedLengthStreamingMode(i2);
+            if (!this.f50432e.a()) {
+                this.f50430c.setFixedLengthStreamingMode(i2);
             } else {
-                this.f50262b.setFixedLengthStreamingMode(i2);
+                this.f50429b.setFixedLengthStreamingMode(i2);
             }
         }
     }
@@ -723,7 +723,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
     public void setHostnameVerifier(HostnameVerifier hostnameVerifier) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048628, this, hostnameVerifier) == null) {
-            HttpURLConnection httpURLConnection = this.f50262b;
+            HttpURLConnection httpURLConnection = this.f50429b;
             if (httpURLConnection instanceof HttpsURLConnection) {
                 ((HttpsURLConnection) httpURLConnection).setHostnameVerifier(hostnameVerifier);
             }
@@ -734,10 +734,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
     public void setIfModifiedSince(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048629, this, j2) == null) {
-            if (!this.f50265e.a()) {
-                this.f50263c.setIfModifiedSince(j2);
+            if (!this.f50432e.a()) {
+                this.f50430c.setIfModifiedSince(j2);
             } else {
-                this.f50262b.setIfModifiedSince(j2);
+                this.f50429b.setIfModifiedSince(j2);
             }
         }
     }
@@ -746,10 +746,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
     public void setInstanceFollowRedirects(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048630, this, z) == null) {
-            if (!this.f50265e.a()) {
-                this.f50263c.setInstanceFollowRedirects(z);
+            if (!this.f50432e.a()) {
+                this.f50430c.setInstanceFollowRedirects(z);
             } else {
-                this.f50262b.setInstanceFollowRedirects(z);
+                this.f50429b.setInstanceFollowRedirects(z);
             }
         }
     }
@@ -758,10 +758,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
     public void setReadTimeout(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048631, this, i2) == null) {
-            if (!this.f50265e.a()) {
-                this.f50263c.setReadTimeout(i2);
+            if (!this.f50432e.a()) {
+                this.f50430c.setReadTimeout(i2);
             } else {
-                this.f50262b.setReadTimeout(i2);
+                this.f50429b.setReadTimeout(i2);
             }
         }
     }
@@ -770,12 +770,12 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
     public void setRequestMethod(String str) throws ProtocolException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048632, this, str) == null) {
-            if (!this.f50265e.a()) {
-                this.f50263c.setRequestMethod(str);
+            if (!this.f50432e.a()) {
+                this.f50430c.setRequestMethod(str);
                 return;
             }
-            this.f50262b.setRequestMethod(str);
-            this.a.f26322b = str;
+            this.f50429b.setRequestMethod(str);
+            this.a.f26555b = str;
         }
     }
 
@@ -783,10 +783,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
     public final void setRequestProperty(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048633, this, str, str2) == null) {
-            if (!this.f50265e.a()) {
-                this.f50263c.setRequestProperty(str, str2);
+            if (!this.f50432e.a()) {
+                this.f50430c.setRequestProperty(str, str2);
             } else {
-                this.f50262b.setRequestProperty(str, str2);
+                this.f50429b.setRequestProperty(str, str2);
             }
         }
     }
@@ -795,7 +795,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
     public void setSSLSocketFactory(SSLSocketFactory sSLSocketFactory) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048634, this, sSLSocketFactory) == null) {
-            HttpURLConnection httpURLConnection = this.f50262b;
+            HttpURLConnection httpURLConnection = this.f50429b;
             if (httpURLConnection instanceof HttpsURLConnection) {
                 ((HttpsURLConnection) httpURLConnection).setSSLSocketFactory(sSLSocketFactory);
             }
@@ -806,10 +806,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
     public void setUseCaches(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048635, this, z) == null) {
-            if (!this.f50265e.a()) {
-                this.f50263c.setUseCaches(z);
+            if (!this.f50432e.a()) {
+                this.f50430c.setUseCaches(z);
             } else {
-                this.f50262b.setUseCaches(z);
+                this.f50429b.setUseCaches(z);
             }
         }
     }
@@ -819,10 +819,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.usingProxy();
+            if (!this.f50432e.a()) {
+                return this.f50430c.usingProxy();
             }
-            return this.f50262b.usingProxy();
+            return this.f50429b.usingProxy();
         }
         return invokeV.booleanValue;
     }
@@ -832,10 +832,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
     public void setFixedLengthStreamingMode(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048627, this, j2) == null) {
-            if (!this.f50265e.a()) {
-                this.f50263c.setFixedLengthStreamingMode(j2);
+            if (!this.f50432e.a()) {
+                this.f50430c.setFixedLengthStreamingMode(j2);
             } else {
-                this.f50262b.setFixedLengthStreamingMode(j2);
+                this.f50429b.setFixedLengthStreamingMode(j2);
             }
         }
     }
@@ -845,10 +845,10 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i2)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getHeaderField(i2);
+            if (!this.f50432e.a()) {
+                return this.f50430c.getHeaderField(i2);
             }
-            return this.f50262b.getHeaderField(i2);
+            return this.f50429b.getHeaderField(i2);
         }
         return (String) invokeI.objValue;
     }
@@ -858,14 +858,14 @@ public class ProxyURLConnection extends HttpsURLConnection implements b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, clsArr)) == null) {
-            if (!this.f50265e.a()) {
-                return this.f50263c.getContent(clsArr);
+            if (!this.f50432e.a()) {
+                return this.f50430c.getContent(clsArr);
             }
             try {
-                long contentLength = this.f50262b.getContentLength();
-                this.a.f26325e = contentLength;
+                long contentLength = this.f50429b.getContentLength();
+                this.a.f26558e = contentLength;
                 onComplete(contentLength);
-                return this.f50262b.getContent(clsArr);
+                return this.f50429b.getContent(clsArr);
             } catch (IOException e2) {
                 b(e2, 0L);
                 throw e2;

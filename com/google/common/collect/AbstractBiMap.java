@@ -112,13 +112,13 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Map.Entry<K, V> f54543e;
+        public Map.Entry<K, V> f54710e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Iterator f54544f;
+        public final /* synthetic */ Iterator f54711f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ AbstractBiMap f54545g;
+        public final /* synthetic */ AbstractBiMap f54712g;
 
         public a(AbstractBiMap abstractBiMap, Iterator it) {
             Interceptable interceptable = $ic;
@@ -135,8 +135,8 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
                     return;
                 }
             }
-            this.f54545g = abstractBiMap;
-            this.f54544f = it;
+            this.f54712g = abstractBiMap;
+            this.f54711f = it;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -146,9 +146,9 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Map.Entry<K, V> entry = (Map.Entry) this.f54544f.next();
-                this.f54543e = entry;
-                return new b(this.f54545g, entry);
+                Map.Entry<K, V> entry = (Map.Entry) this.f54711f.next();
+                this.f54710e = entry;
+                return new b(this.f54712g, entry);
             }
             return (Map.Entry) invokeV.objValue;
         }
@@ -157,18 +157,18 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54544f.hasNext() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54711f.hasNext() : invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
         public void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                m.e(this.f54543e != null);
-                V value = this.f54543e.getValue();
-                this.f54544f.remove();
-                this.f54545g.removeFromInverseMap(value);
-                this.f54543e = null;
+                m.e(this.f54710e != null);
+                V value = this.f54710e.getValue();
+                this.f54711f.remove();
+                this.f54712g.removeFromInverseMap(value);
+                this.f54710e = null;
             }
         }
     }
@@ -179,10 +179,10 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Map.Entry<K, V> f54546e;
+        public final Map.Entry<K, V> f54713e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AbstractBiMap f54547f;
+        public final /* synthetic */ AbstractBiMap f54714f;
 
         public b(AbstractBiMap abstractBiMap, Map.Entry<K, V> entry) {
             Interceptable interceptable = $ic;
@@ -199,8 +199,8 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
                     return;
                 }
             }
-            this.f54547f = abstractBiMap;
-            this.f54546e = entry;
+            this.f54714f = abstractBiMap;
+            this.f54713e = entry;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -209,7 +209,7 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
         public Map.Entry<K, V> delegate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54546e : (Map.Entry) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54713e : (Map.Entry) invokeV.objValue;
         }
 
         @Override // c.i.d.c.e0, java.util.Map.Entry
@@ -217,15 +217,15 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, v)) == null) {
-                this.f54547f.checkValue(v);
-                n.x(this.f54547f.entrySet().contains(this), "entry no longer in map");
+                this.f54714f.checkValue(v);
+                n.x(this.f54714f.entrySet().contains(this), "entry no longer in map");
                 if (c.i.d.a.k.a(v, getValue())) {
                     return v;
                 }
-                n.k(!this.f54547f.containsValue(v), "value already present: %s", v);
-                V value = this.f54546e.setValue(v);
-                n.x(c.i.d.a.k.a(v, this.f54547f.get(getKey())), "entry no longer in map");
-                this.f54547f.updateInverseMap(getKey(), true, value, v);
+                n.k(!this.f54714f.containsValue(v), "value already present: %s", v);
+                V value = this.f54713e.setValue(v);
+                n.x(c.i.d.a.k.a(v, this.f54714f.get(getKey())), "entry no longer in map");
+                this.f54714f.updateInverseMap(getKey(), true, value, v);
                 return value;
             }
             return (V) invokeL.objValue;
@@ -238,10 +238,10 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Set<Map.Entry<K, V>> f54548e;
+        public final Set<Map.Entry<K, V>> f54715e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AbstractBiMap f54549f;
+        public final /* synthetic */ AbstractBiMap f54716f;
 
         public c(AbstractBiMap abstractBiMap) {
             Interceptable interceptable = $ic;
@@ -258,15 +258,15 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
                     return;
                 }
             }
-            this.f54549f = abstractBiMap;
-            this.f54548e = this.f54549f.delegate.entrySet();
+            this.f54716f = abstractBiMap;
+            this.f54715e = this.f54716f.delegate.entrySet();
         }
 
         @Override // c.i.d.c.y, java.util.Collection
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f54549f.clear();
+                this.f54716f.clear();
             }
         }
 
@@ -288,7 +288,7 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
         public Iterator<Map.Entry<K, V>> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f54549f.entrySetIterator() : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f54716f.entrySetIterator() : (Iterator) invokeV.objValue;
         }
 
         @Override // c.i.d.c.y, java.util.Collection
@@ -296,10 +296,10 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
-                if (this.f54548e.contains(obj)) {
+                if (this.f54715e.contains(obj)) {
                     Map.Entry entry = (Map.Entry) obj;
-                    this.f54549f.inverse.delegate.remove(entry.getValue());
-                    this.f54548e.remove(entry);
+                    this.f54716f.inverse.delegate.remove(entry.getValue());
+                    this.f54715e.remove(entry);
                     return true;
                 }
                 return false;
@@ -344,7 +344,7 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
         public Set<Map.Entry<K, V>> delegate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f54548e : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f54715e : (Set) invokeV.objValue;
         }
     }
 
@@ -354,7 +354,7 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AbstractBiMap f54550e;
+        public final /* synthetic */ AbstractBiMap f54717e;
 
         public d(AbstractBiMap abstractBiMap) {
             Interceptable interceptable = $ic;
@@ -371,14 +371,14 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
                     return;
                 }
             }
-            this.f54550e = abstractBiMap;
+            this.f54717e = abstractBiMap;
         }
 
         @Override // c.i.d.c.y, java.util.Collection
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f54550e.clear();
+                this.f54717e.clear();
             }
         }
 
@@ -386,7 +386,7 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
         public Iterator<K> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Maps.o(this.f54550e.entrySet().iterator()) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Maps.o(this.f54717e.entrySet().iterator()) : (Iterator) invokeV.objValue;
         }
 
         @Override // c.i.d.c.y, java.util.Collection
@@ -395,7 +395,7 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
                 if (contains(obj)) {
-                    this.f54550e.removeFromBothMaps(obj);
+                    this.f54717e.removeFromBothMaps(obj);
                     return true;
                 }
                 return false;
@@ -426,7 +426,7 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
         public Set<K> delegate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f54550e.delegate.keySet() : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f54717e.delegate.keySet() : (Set) invokeV.objValue;
         }
     }
 
@@ -436,10 +436,10 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Set<V> f54551e;
+        public final Set<V> f54718e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AbstractBiMap f54552f;
+        public final /* synthetic */ AbstractBiMap f54719f;
 
         public e(AbstractBiMap abstractBiMap) {
             Interceptable interceptable = $ic;
@@ -456,15 +456,15 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
                     return;
                 }
             }
-            this.f54552f = abstractBiMap;
-            this.f54551e = this.f54552f.inverse.keySet();
+            this.f54719f = abstractBiMap;
+            this.f54718e = this.f54719f.inverse.keySet();
         }
 
         @Override // c.i.d.c.y, java.util.Collection, java.lang.Iterable, c.i.d.c.s0
         public Iterator<V> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Maps.O(this.f54552f.entrySet().iterator()) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Maps.O(this.f54719f.entrySet().iterator()) : (Iterator) invokeV.objValue;
         }
 
         @Override // c.i.d.c.y, java.util.Collection
@@ -497,7 +497,7 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
         public Set<V> delegate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54551e : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54718e : (Set) invokeV.objValue;
         }
     }
 

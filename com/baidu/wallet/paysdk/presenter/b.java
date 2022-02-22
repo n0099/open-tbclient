@@ -48,9 +48,9 @@ public class b extends a {
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             super.a(z);
             if (z) {
-                this.f52140b = 1;
+                this.f52307b = 1;
             } else {
-                this.f52140b = 2;
+                this.f52307b = 2;
             }
         }
     }

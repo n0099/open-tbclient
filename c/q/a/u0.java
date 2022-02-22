@@ -14,15 +14,15 @@ public class u0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static u0 f30505d;
+    public static u0 f30711d;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadPoolExecutor a;
 
     /* renamed from: b  reason: collision with root package name */
-    public s1 f30506b;
+    public s1 f30712b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f30507c;
+    public boolean f30713c;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public class u0 {
                 return;
             }
         }
-        f30505d = new u0();
+        f30711d = new u0();
     }
 
     public u0() {
@@ -53,7 +53,7 @@ public class u0 {
                 return;
             }
         }
-        this.f30507c = false;
+        this.f30713c = false;
         this.a = (ThreadPoolExecutor) Executors.newCachedThreadPool();
     }
 }

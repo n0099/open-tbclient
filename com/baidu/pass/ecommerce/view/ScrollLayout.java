@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ScrollLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DRAG_SPEED_MULTIPLIER = 1.2f;
@@ -55,7 +55,7 @@ public class ScrollLayout extends FrameLayout {
     public Scroller scroller;
 
     /* renamed from: com.baidu.pass.ecommerce.view.ScrollLayout$3  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$pass$ecommerce$view$ScrollLayout$InnerStatus;
         public static /* synthetic */ Interceptable $ic;
@@ -88,7 +88,7 @@ public class ScrollLayout extends FrameLayout {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class InnerStatus {
         public static final /* synthetic */ InnerStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -153,7 +153,7 @@ public class ScrollLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface OnScrollChangedListener {
         void onChildScroll(int i2);
 
@@ -163,7 +163,7 @@ public class ScrollLayout extends FrameLayout {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class Status {
         public static final /* synthetic */ Status[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

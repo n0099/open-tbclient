@@ -25,7 +25,7 @@ public class b {
     public static HashMap<String, NinePatchDrawable> a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f52602b = "b";
+    public static final String f52769b = "b";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -105,7 +105,7 @@ public class b {
             try {
                 return Color.parseColor(str);
             } catch (Exception e2) {
-                LogUtil.d(f52602b, e2.getMessage());
+                LogUtil.d(f52769b, e2.getMessage());
                 return color;
             }
         }

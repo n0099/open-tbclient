@@ -13,12 +13,12 @@ public final class y {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static y f38577c;
+    public static y f38805c;
     public transient /* synthetic */ FieldHolder $fh;
     public SharedPreferences a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences.Editor f38578b;
+    public SharedPreferences.Editor f38806b;
 
     public y(Context context) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public final class y {
         }
         SharedPreferences sharedPreferences = com.baidu.sofire.h.a.a(context).a;
         this.a = sharedPreferences;
-        this.f38578b = sharedPreferences.edit();
+        this.f38806b = sharedPreferences.edit();
     }
 
     public static synchronized y a(Context context) {
@@ -46,12 +46,12 @@ public final class y {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             synchronized (y.class) {
                 if (context == null) {
-                    return f38577c;
+                    return f38805c;
                 }
-                if (f38577c == null) {
-                    f38577c = new y(context);
+                if (f38805c == null) {
+                    f38805c = new y(context);
                 }
-                return f38577c;
+                return f38805c;
             }
         }
         return (y) invokeL.objValue;
@@ -84,8 +84,8 @@ public final class y {
     public final void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f38578b.putBoolean("lt_sssf", z);
-            this.f38578b.commit();
+            this.f38806b.putBoolean("lt_sssf", z);
+            this.f38806b.commit();
         }
     }
 }

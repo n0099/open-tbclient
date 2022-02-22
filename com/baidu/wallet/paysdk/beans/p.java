@@ -58,7 +58,7 @@ public class p extends BaseBean<Object> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.a.a)));
-            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.a.f52014b)));
+            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.a.f52181b)));
             arrayList.add(new RestNameValuePair("request_type", "1"));
             arrayList.add(new RestNameValuePair("token", AccountManager.getInstance(this.mContext).getBfbToken()));
             return arrayList;

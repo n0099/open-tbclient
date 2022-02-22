@@ -73,7 +73,7 @@ public class CarUUID {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            if (c(context, com.kuaishou.weapon.un.s.f55293i)) {
+            if (c(context, com.kuaishou.weapon.un.s.f55460i)) {
                 return a(new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".dueros_uuid"));
             }
             return null;
@@ -89,7 +89,7 @@ public class CarUUID {
             List<ApplicationInfo> installedApplications = context.getPackageManager().getInstalledApplications(0);
             ApplicationInfo applicationInfo = context.getApplicationInfo();
             for (ApplicationInfo applicationInfo2 : installedApplications) {
-                if (!applicationInfo.packageName.equals(applicationInfo2.packageName) && (a2 = a(new File(new File(applicationInfo2.dataDir, com.baidu.fsg.face.base.b.c.f34029g), "libdueros_uuid.so"))) != null) {
+                if (!applicationInfo.packageName.equals(applicationInfo2.packageName) && (a2 = a(new File(new File(applicationInfo2.dataDir, com.baidu.fsg.face.base.b.c.f34235g), "libdueros_uuid.so"))) != null) {
                     return a2;
                 }
             }

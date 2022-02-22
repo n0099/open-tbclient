@@ -1,7 +1,7 @@
 package c.a.e;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.y1.o.h.b;
+import c.a.u0.z1.o.h.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.afd.ParseError;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,27 +15,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class d extends BaseCardInfo implements c.a.t0.y1.o.l.i, c.a.t0.y1.o.h.b {
+public class d extends BaseCardInfo implements c.a.u0.z1.o.l.i, c.a.u0.z1.o.h.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f3569e;
+    public e f3565e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ICardInfo f3570f;
+    public ICardInfo f3566f;
 
     /* renamed from: g  reason: collision with root package name */
-    public h f3571g;
+    public h f3567g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdUniqueId f3572h;
+    public BdUniqueId f3568h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f3573i;
+    public boolean f3569i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f3574j;
+    public boolean f3570j;
     public AdvertAppInfo k;
 
     public d() {
@@ -51,8 +51,8 @@ public class d extends BaseCardInfo implements c.a.t0.y1.o.l.i, c.a.t0.y1.o.h.b 
                 return;
             }
         }
-        this.f3574j = false;
-        this.f3572h = BdUniqueId.gen();
+        this.f3570j = false;
+        this.f3568h = BdUniqueId.gen();
     }
 
     public static d g(h hVar) {
@@ -60,33 +60,33 @@ public class d extends BaseCardInfo implements c.a.t0.y1.o.l.i, c.a.t0.y1.o.h.b 
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hVar)) == null) {
             d dVar = new d();
-            dVar.f3571g = hVar;
+            dVar.f3567g = hVar;
             return dVar;
         }
         return (d) invokeL.objValue;
     }
 
-    @Override // c.a.t0.y1.o.h.b
+    @Override // c.a.u0.z1.o.h.b
     public b.a getParallelCharge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ICardInfo iCardInfo = this.f3570f;
-            if (iCardInfo == null || !(iCardInfo instanceof c.a.t0.y1.o.h.b)) {
+            ICardInfo iCardInfo = this.f3566f;
+            if (iCardInfo == null || !(iCardInfo instanceof c.a.u0.z1.o.h.b)) {
                 return null;
             }
-            return ((c.a.t0.y1.o.h.b) iCardInfo).getParallelCharge();
+            return ((c.a.u0.z1.o.h.b) iCardInfo).getParallelCharge();
         }
         return (b.a) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.o.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (o() != null) {
-                return b.f3565b;
+                return b.f3561b;
             }
             return b.a;
         }
@@ -96,14 +96,14 @@ public class d extends BaseCardInfo implements c.a.t0.y1.o.l.i, c.a.t0.y1.o.h.b 
     public e i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3569e : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3565e : (e) invokeV.objValue;
     }
 
     public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            h hVar = this.f3571g;
+            h hVar = this.f3567g;
             if (hVar != null) {
                 return hVar.e();
             }
@@ -115,52 +115,52 @@ public class d extends BaseCardInfo implements c.a.t0.y1.o.l.i, c.a.t0.y1.o.h.b 
     public ICardInfo o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3570f : (ICardInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3566f : (ICardInfo) invokeV.objValue;
     }
 
     public BdUniqueId p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f3572h : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f3568h : (BdUniqueId) invokeV.objValue;
     }
 
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (!this.f3574j) {
-                c.a.t0.k3.l0.e.b().d(c.a.t0.k3.l0.g.o(this, ParseError.ERROR_SMOOTH_SCROLL));
+            if (!this.f3570j) {
+                c.a.u0.l3.l0.e.b().d(c.a.u0.l3.l0.g.o(this, ParseError.ERROR_SMOOTH_SCROLL));
                 return;
             }
-            c.a.s0.s.q.e.h(this);
+            c.a.t0.s.r.e.h(this);
         }
     }
 
-    @Override // c.a.t0.y1.o.l.i
+    @Override // c.a.u0.z1.o.l.i
     public void setAutoPlay(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (o() instanceof c.a.t0.y1.o.l.i)) {
-            ((c.a.t0.y1.o.l.i) o()).setAutoPlay(z);
+        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (o() instanceof c.a.u0.z1.o.l.i)) {
+            ((c.a.u0.z1.o.l.i) o()).setAutoPlay(z);
         }
     }
 
-    @Override // c.a.t0.y1.o.l.i
+    @Override // c.a.u0.z1.o.l.i
     public void setWaitConfirm(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (o() instanceof c.a.t0.y1.o.l.i)) {
-            ((c.a.t0.y1.o.l.i) o()).setWaitConfirm(z);
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (o() instanceof c.a.u0.z1.o.l.i)) {
+            ((c.a.u0.z1.o.l.i) o()).setWaitConfirm(z);
         }
     }
 
     public void t(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, eVar) == null) {
-            this.f3569e = eVar;
-            ICardInfo iCardInfo = eVar != null ? eVar.f3576c : null;
-            this.f3570f = iCardInfo;
+            this.f3565e = eVar;
+            ICardInfo iCardInfo = eVar != null ? eVar.f3572c : null;
+            this.f3566f = iCardInfo;
             if (iCardInfo instanceof i) {
                 ((i) iCardInfo).setAdFacadeData(this);
             }
-            this.f3574j = true;
+            this.f3570j = true;
         }
     }
 
@@ -170,16 +170,16 @@ public class d extends BaseCardInfo implements c.a.t0.y1.o.l.i, c.a.t0.y1.o.h.b 
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             if (this.k == null) {
                 this.k = new AdvertAppInfo();
-                h hVar = this.f3571g;
+                h hVar = this.f3567g;
                 if (hVar != null) {
                     Map<String, String> d2 = hVar.d();
-                    this.k.m4 = String.valueOf(this.f3571g.b());
+                    this.k.m4 = String.valueOf(this.f3567g.b());
                     this.k.E = d2 != null ? d2.get("thread_id") : "";
                     this.k.J3(d2 != null ? Long.valueOf(d2.get("forum_id")).longValue() : 0L);
                 }
                 AdvertAppInfo advertAppInfo = this.k;
-                e eVar = this.f3569e;
-                advertAppInfo.n4 = eVar != null ? eVar.f3575b : "";
+                e eVar = this.f3565e;
+                advertAppInfo.n4 = eVar != null ? eVar.f3571b : "";
                 this.k.q4 = "VIDEO_LIST";
             }
             return this.k;

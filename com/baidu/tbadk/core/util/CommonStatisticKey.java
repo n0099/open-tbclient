@@ -148,6 +148,7 @@ public class CommonStatisticKey {
     public static final String KEY_RECOMMEND_GAMECENTER = "c14119";
     public static final String KEY_RECOMMEND_TIP_ITEM_CLICK = "c12049";
     public static final String KEY_RED_PACKET_POP_WINDOW_SHOW = "c13083";
+    public static final String KEY_REPORT_PRIVATE_MSG_CHANGE = "c14577";
     public static final String KEY_SCORE_POST_ENTRY_CLICK = "c13722";
     public static final String KEY_SCREEN_SHOT = "c13848";
     public static final String KEY_SHOW_BIGDAY_AT_WRITE = "c13113";
@@ -160,6 +161,8 @@ public class CommonStatisticKey {
     public static final String KEY_STATISTICS_MOBADS_CLICK = "c13043";
     public static final String KEY_STATISTICS_MOBADS_SHOW = "c13042";
     public static final String KEY_SYSTEM_SERVICE = "c14052";
+    public static final String KEY_TIE_PLUS_CPC_REQUEST_COST_URL = "c14567";
+    public static final String KEY_TIE_PLUS_CPC_REQUEST_SHOW_URL = "c14568";
     public static final String KEY_TIE_PLUS_DIALOG_EXPOSE = "c14298";
     public static final String KEY_TIE_PLUS_DOWNLOAD_FINISHED = "c14395";
     public static final String KEY_TIE_PLUS_RICH_TEXT_CLICK = "c14297";

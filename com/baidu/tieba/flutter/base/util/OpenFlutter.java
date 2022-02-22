@@ -8,7 +8,8 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.e;
-import c.a.s0.a.g;
+import c.a.t0.a.g;
+import c.a.t0.b.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -50,6 +51,7 @@ public class OpenFlutter {
     public static final String ACTIVITY_CONCERN_FORUM = "ConcernForumPage";
     public static final String ACTIVITY_FANS = "AttentionPage";
     public static final String ACTIVITY_FORUM_DETAIL = "ForumDetailPage";
+    public static final String ACTIVITY_FORUM_DETAIL_NEW = "NewForumDetailPage";
     public static final String ACTIVITY_FORUM_SQUARE_PAGE = "BarSquarePage";
     public static final String ACTIVITY_PERSON_CENTER = "PersonalCenterPage";
     public static final String ACTIVITY_SIGN_TOGETHER = "SignTogetherPage";
@@ -131,7 +133,7 @@ public class OpenFlutter {
                 }
                 str = ACTIVITY_FANS;
             } else if (intentConfig instanceof ForumDetailActivityConfig) {
-                str = ACTIVITY_FORUM_DETAIL;
+                str = d.u() ? ACTIVITY_FORUM_DETAIL_NEW : ACTIVITY_FORUM_DETAIL;
             } else if (intentConfig instanceof PersonBarActivityConfig) {
                 str = ACTIVITY_CONCERN_FORUM;
             } else if (!(intentConfig instanceof PersonPolymericActivityConfig) && !(intentConfig instanceof PersonInfoActivityConfig)) {
@@ -261,6 +263,13 @@ public class OpenFlutter {
                 if (intentConfig instanceof ForumDetailActivityConfig) {
                     hashMap.put("forum_tabs", ((ForumDetailActivityConfig) intentConfig).tabs);
                 }
+            } else if (ACTIVITY_FORUM_DETAIL_NEW.equals(str)) {
+                hashMap.put("_forumId", intentConfig.getIntent().getStringExtra("forum_id"));
+                if (intentConfig instanceof ForumDetailActivityConfig) {
+                    ForumDetailActivityConfig forumDetailActivityConfig = (ForumDetailActivityConfig) intentConfig;
+                    hashMap.put("forum_tabs", forumDetailActivityConfig.tabs);
+                    hashMap.put("_serviceAreaList", forumDetailActivityConfig.getServiceAreaListData());
+                }
             } else if (ACTIVITY_CONCERN_FORUM.equals(str)) {
                 hashMap.put("userId", intentConfig.getIntent().getStringExtra("key_uid"));
                 hashMap.put("userSex", String.valueOf(intentConfig.getIntent().getIntExtra("key_sex", 0)));
@@ -335,7 +344,7 @@ public class OpenFlutter {
                             this.val$params = hashMap;
                         }
 
-                        @Override // c.a.s0.a.g.b
+                        @Override // c.a.t0.a.g.b
                         public void onCallBack(HashMap<String, Object> hashMap2) {
                             Interceptable interceptable2 = $ic;
                             if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, hashMap2) == null) || hashMap2 == null) {
@@ -415,7 +424,7 @@ public class OpenFlutter {
                         this.val$params = hashMap;
                     }
 
-                    @Override // c.a.s0.a.g.b
+                    @Override // c.a.t0.a.g.b
                     public void onCallBack(HashMap<String, Object> hashMap2) {
                         Interceptable interceptable2 = $ic;
                         if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, hashMap2) == null) || hashMap2 == null) {

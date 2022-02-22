@@ -21,10 +21,10 @@ public class bg {
     public static volatile boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f36560b;
+    public static volatile boolean f36766b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f36561c;
+    public static volatile boolean f36767c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
@@ -42,9 +42,9 @@ public class bg {
                     if (i2 != 2) {
                         return false;
                     }
-                    return f36561c;
+                    return f36767c;
                 }
-                return f36560b;
+                return f36766b;
             }
             return a;
         }
@@ -63,10 +63,10 @@ public class bg {
             if (i2 == 0) {
                 a = z;
             } else if (i2 == 1) {
-                f36560b = z;
+                f36766b = z;
             } else if (i2 != 2) {
             } else {
-                f36561c = z;
+                f36767c = z;
             }
         }
     }

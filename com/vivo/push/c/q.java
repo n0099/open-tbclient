@@ -14,7 +14,7 @@ public final class q implements Runnable {
     public final /* synthetic */ UnvarnishedMessage a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ p f60722b;
+    public final /* synthetic */ p f60889b;
 
     public q(p pVar, UnvarnishedMessage unvarnishedMessage) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class q implements Runnable {
                 return;
             }
         }
-        this.f60722b = pVar;
+        this.f60889b = pVar;
         this.a = unvarnishedMessage;
     }
 
@@ -40,8 +40,8 @@ public final class q implements Runnable {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            p pVar = this.f60722b;
-            PushMessageCallback pushMessageCallback = ((z) pVar).f60729b;
+            p pVar = this.f60889b;
+            PushMessageCallback pushMessageCallback = ((z) pVar).f60896b;
             context = pVar.a;
             pushMessageCallback.onTransmissionMessage(context, this.a);
         }

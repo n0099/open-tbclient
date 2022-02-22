@@ -1,6 +1,6 @@
 package com.baidu.tbadk.template.message;
 
-import c.a.s0.b1.c.b;
+import c.a.t0.b1.e.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,11 +8,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class TemplateHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b mIResp;
+    public d mIResp;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TemplateHttpResponseMessage(int i2) {
@@ -46,10 +46,10 @@ public class TemplateHttpResponseMessage extends TbHttpResponsedMessage {
         return (TemplateNetMessage) invokeV.objValue;
     }
 
-    public b getIResp() {
+    public d getIResp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mIResp : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mIResp : (d) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -78,7 +78,7 @@ public class TemplateHttpResponseMessage extends TbHttpResponsedMessage {
         if (!(interceptable == null || interceptable.invokeIL(1048581, this, i2, bArr) == null) || (templateNetMessage = getTemplateNetMessage()) == null || templateNetMessage.getIResp() == null) {
             return;
         }
-        b iResp = templateNetMessage.getIResp();
+        d iResp = templateNetMessage.getIResp();
         this.mIResp = iResp;
         iResp.a(i2, bArr);
         setError(this.mIResp.getErrorCode());

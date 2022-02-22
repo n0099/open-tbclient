@@ -20,7 +20,7 @@ public class GestureInterceptTouchFrameLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public GestureDetectorCompat f49000e;
+    public GestureDetectorCompat f49167e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GestureInterceptTouchFrameLayout(@NonNull Context context) {
@@ -47,7 +47,7 @@ public class GestureInterceptTouchFrameLayout extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            GestureDetectorCompat gestureDetectorCompat = this.f49000e;
+            GestureDetectorCompat gestureDetectorCompat = this.f49167e;
             if (gestureDetectorCompat != null) {
                 return gestureDetectorCompat.onTouchEvent(motionEvent);
             }
@@ -59,7 +59,7 @@ public class GestureInterceptTouchFrameLayout extends FrameLayout {
     public void setSimpleOnGestureListener(GestureDetector.SimpleOnGestureListener simpleOnGestureListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, simpleOnGestureListener) == null) {
-            this.f49000e = new GestureDetectorCompat(getContext(), simpleOnGestureListener);
+            this.f49167e = new GestureDetectorCompat(getContext(), simpleOnGestureListener);
         }
     }
 

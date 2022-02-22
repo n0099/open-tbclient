@@ -24,7 +24,7 @@ public class gj {
     public Map<String, Object> f443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, Object> f61191b;
+    public Map<String, Object> f61358b;
 
     public gj() {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class gj {
             }
         }
         this.f443a = new ConcurrentHashMap();
-        this.f61191b = new ConcurrentHashMap();
-        m415a();
+        this.f61358b = new ConcurrentHashMap();
+        m414a();
     }
 
     public static synchronized gj a() {
@@ -79,7 +79,7 @@ public class gj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private ClassLoader[] m413a() {
+    private ClassLoader[] m412a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
@@ -97,7 +97,7 @@ public class gj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Object m414a(String str, String str2) {
+    public Object m413a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? this.f443a.get(a(str, str2)) : invokeLL.objValue;
@@ -109,7 +109,7 @@ public class gj {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void m415a() {
+    public void m414a() {
         Map<String, Object> map;
         Object obj;
         Map<String, Object> map2;
@@ -117,7 +117,7 @@ public class gj {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                for (ClassLoader classLoader : m413a()) {
+                for (ClassLoader classLoader : m412a()) {
                     Enumeration<URL> resources = classLoader.getResources("META-INF/smack.providers");
                     while (resources.hasMoreElements()) {
                         InputStream openStream = resources.nextElement().openStream();
@@ -138,14 +138,14 @@ public class gj {
                                     newPullParser.next();
                                     String nextText3 = newPullParser.nextText();
                                     String a2 = a(nextText, nextText2);
-                                    if (!this.f61191b.containsKey(a2)) {
+                                    if (!this.f61358b.containsKey(a2)) {
                                         try {
                                             Class<?> cls = Class.forName(nextText3);
                                             if (gh.class.isAssignableFrom(cls)) {
-                                                map2 = this.f61191b;
+                                                map2 = this.f61358b;
                                                 obj2 = cls.newInstance();
                                             } else if (ga.class.isAssignableFrom(cls)) {
-                                                map2 = this.f61191b;
+                                                map2 = this.f61358b;
                                                 obj2 = cls;
                                             }
                                             map2.put(a2, obj2);

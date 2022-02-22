@@ -12,7 +12,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class DnsParseResult {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NETWORK_STACK_TYPE_BOTH = 3;

@@ -1,0 +1,180 @@
+package c.a.b1.i.f;
+
+import android.media.AudioTrack;
+import androidx.core.view.InputDeviceCompat;
+import c.a.b1.i.c;
+import c.a.b1.i.e;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+/* loaded from: classes.dex */
+public class b extends c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public a F;
+    public Thread G;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b(String str, int[] iArr) throws Exception {
+        super(0, str, iArr);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, iArr};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (int[]) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // c.a.b1.i.c
+    public void B(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+            M(j2 * 1000, true);
+        }
+    }
+
+    @Override // c.a.b1.i.c
+    public void I() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Thread thread = this.G;
+            if (thread == null || !thread.isAlive()) {
+                Thread thread2 = new Thread(this);
+                this.G = thread2;
+                thread2.start();
+            }
+            super.I();
+        }
+    }
+
+    public final void K() {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (i() == 1) {
+                i2 = 4;
+            } else {
+                i();
+                i2 = 12;
+            }
+            int i3 = this.u;
+            if (i3 != 1 && i3 != 2) {
+                this.u = 2;
+            }
+            this.F = new a(3, m(), i2, h() == 2 ? 2 : 3, AudioTrack.getMinBufferSize(m(), i2, h() == 2 ? 2 : 3), 1);
+        }
+    }
+
+    public boolean L() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            a aVar = this.F;
+            return aVar != null && aVar.getState() == 1;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void M(long j2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+            if (j2 < 0) {
+                j2 = 0;
+            }
+            if (this.f1217i != null && j2 > this.f1217i.getDuration()) {
+                j2 = this.f1217i.getDuration();
+            }
+            if (z) {
+                int playState = L() ? this.F.getPlayState() : 2;
+                if (playState == 2) {
+                    pause();
+                }
+                synchronized (this.f1214f) {
+                    if (L()) {
+                        this.F.flush();
+                    }
+                    this.f1216h = 0L;
+                }
+                e();
+                c();
+                if (playState == 3) {
+                    I();
+                }
+            }
+            synchronized (this.f1215g) {
+                if (this.f1217i != null) {
+                    this.f1217i.seek(j2);
+                }
+            }
+        }
+    }
+
+    public void N(float f2, float f3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            synchronized (this.f1214f) {
+                if (L()) {
+                    this.F.setStereoVolume(f2, f3);
+                }
+            }
+        }
+    }
+
+    @Override // c.a.b1.i.c
+    public e p() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            K();
+            return this.F;
+        }
+        return (e) invokeV.objValue;
+    }
+
+    @Override // c.a.b1.i.c
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            synchronized (this.f1214f) {
+                if (L() && this.F.getPlayState() != 2) {
+                    this.F.pause();
+                }
+            }
+        }
+    }
+
+    @Override // c.a.b1.i.c
+    public void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            synchronized (this.f1214f) {
+                if (L() && this.F.getPlayState() != 3) {
+                    this.F.play();
+                }
+            }
+        }
+    }
+
+    @Override // c.a.b1.i.c
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.G == null) {
+            return;
+        }
+        this.G = null;
+    }
+}

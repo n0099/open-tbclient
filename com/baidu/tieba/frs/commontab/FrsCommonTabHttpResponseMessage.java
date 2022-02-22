@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.commontab;
 
-import c.a.t0.e1.x1.d;
+import c.a.u0.e1.x1.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;

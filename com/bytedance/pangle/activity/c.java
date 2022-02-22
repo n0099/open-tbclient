@@ -17,7 +17,7 @@ import com.bytedance.pangle.plugin.Plugin;
 import com.bytedance.pangle.plugin.PluginManager;
 import com.bytedance.pangle.transform.ZeusTransformUtils;
 import com.bytedance.pangle.util.FieldUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

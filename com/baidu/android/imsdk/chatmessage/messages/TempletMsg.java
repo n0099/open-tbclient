@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TempletMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<TempletMsg> CREATOR;
@@ -42,7 +42,7 @@ public class TempletMsg extends NormalMsg {
     public String mTitle;
     public Video mVideo;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Commodity implements Parcelable, NoProGuard {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<Commodity> CREATOR;
@@ -196,7 +196,7 @@ public class TempletMsg extends NormalMsg {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Image implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<Image> CREATOR;
@@ -338,7 +338,7 @@ public class TempletMsg extends NormalMsg {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Link implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<Link> CREATOR;
@@ -471,7 +471,7 @@ public class TempletMsg extends NormalMsg {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Video implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<Video> CREATOR;

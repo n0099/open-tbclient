@@ -8,10 +8,10 @@ import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.media.MediaMetadataRetriever;
 import android.view.Surface;
-import c.a.a1.t.g;
-import c.a.a1.t.m;
-import c.a.a1.t.t;
-import c.a.a1.t.w;
+import c.a.b1.t.g;
+import c.a.b1.t.m;
+import c.a.b1.t.t;
+import c.a.b1.t.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -390,7 +390,7 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
                             mediaMetadataRetriever.setDataSource(this.mSourcePath);
                             int c2 = ((int) (g.c(mediaMetadataRetriever.extractMetadata(24), 0) + this.mRotation)) % 360;
-                            if (t.f1479b) {
+                            if (t.f1513b) {
                                 trackFormat.setInteger("rotation-degrees", c2);
                             } else {
                                 trackFormat.setInteger("rotation-degrees", c2);

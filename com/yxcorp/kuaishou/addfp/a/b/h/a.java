@@ -18,12 +18,12 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f61571c;
+    public static volatile a f61738c;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f61572b;
+    public boolean f61739b;
 
     static {
         InterceptResult invokeClinit;
@@ -55,23 +55,23 @@ public class a {
                 return;
             }
         }
-        this.f61572b = false;
+        this.f61739b = false;
         this.a = context;
-        this.f61572b = "1".equals(a(IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED, "0"));
+        this.f61739b = "1".equals(a(IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED, "0"));
     }
 
     public static a a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f61571c == null) {
+            if (f61738c == null) {
                 synchronized (a.class) {
-                    if (f61571c == null) {
-                        f61571c = new a(context);
+                    if (f61738c == null) {
+                        f61738c = new a(context);
                     }
                 }
             }
-            return f61571c;
+            return f61738c;
         }
         return (a) invokeL.objValue;
     }
@@ -169,14 +169,14 @@ public class a {
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61572b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61739b : invokeV.booleanValue;
     }
 
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f61572b) {
+            if (this.f61739b) {
                 return a(0, (String) null);
             }
             return null;

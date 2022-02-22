@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.crash.d;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static boolean a(@NonNull Throwable th) {
         ArrayList arrayList = new ArrayList(5);

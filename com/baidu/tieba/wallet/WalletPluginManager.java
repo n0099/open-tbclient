@@ -3,12 +3,14 @@ package com.baidu.tieba.wallet;
 import android.app.Activity;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.r0.g;
+import c.a.t0.r0.g;
+import c.a.t0.s.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.install.IInstallCallback;
 import com.baidu.nps.main.invoke.IInvokeCallback;
 import com.baidu.nps.main.manager.NPSManager;
+import com.baidu.nps.pm.manager.NPSPackageManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,49 +27,6 @@ public class WalletPluginManager {
     public static final String PLUGIN_PKG_NAME = "com.baidu.tieba.plugin.wallet";
     public transient /* synthetic */ FieldHolder $fh;
     public IWalletPlugin mIWalletPlugin;
-
-    /* renamed from: com.baidu.tieba.wallet.WalletPluginManager$14  reason: invalid class name */
-    /* loaded from: classes13.dex */
-    public class AnonymousClass14 implements IInstallCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ WalletPluginManager this$0;
-        public final /* synthetic */ IInvokeCallback val$invokeCallback;
-
-        public AnonymousClass14(WalletPluginManager walletPluginManager, IInvokeCallback iInvokeCallback) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {walletPluginManager, iInvokeCallback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = walletPluginManager;
-            this.val$invokeCallback = iInvokeCallback;
-        }
-
-        @Override // com.baidu.nps.main.install.IInstallCallback
-        public void onProgress(long j2, long j3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            }
-        }
-
-        @Override // com.baidu.nps.main.install.IInstallCallback
-        public void onResult(int i2, String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) && i2 == 13) {
-                NPSManager.getInstance().loadClazz(WalletPluginManager.PLUGIN_PKG_NAME, WalletPluginManager.PLUGIN_IMPL_CLASS, IWalletPlugin.class, this.val$invokeCallback);
-            }
-        }
-    }
 
     /* loaded from: classes13.dex */
     public static class SingletonHolder {
@@ -617,6 +576,54 @@ public class WalletPluginManager {
     public void invokePlugin(IInvokeCallback iInvokeCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, iInvokeCallback) == null) {
+            if ("Wallet".equals(e.c())) {
+                if (NPSPackageManager.getInstance().getBundleStatus(PLUGIN_PKG_NAME) == 43) {
+                    NPSManager.getInstance().loadClazz(PLUGIN_PKG_NAME, PLUGIN_IMPL_CLASS, IWalletPlugin.class, iInvokeCallback);
+                    return;
+                } else {
+                    NPSPackageManager.getInstance().installBundle(PLUGIN_PKG_NAME, new IInstallCallback(this, iInvokeCallback) { // from class: com.baidu.tieba.wallet.WalletPluginManager.14
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ WalletPluginManager this$0;
+                        public final /* synthetic */ IInvokeCallback val$invokeCallback;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, iInvokeCallback};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                            this.val$invokeCallback = iInvokeCallback;
+                        }
+
+                        @Override // com.baidu.nps.main.install.IInstallCallback
+                        public void onProgress(long j2, long j3) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+                            }
+                        }
+
+                        @Override // com.baidu.nps.main.install.IInstallCallback
+                        public void onResult(int i2, String str) {
+                            Interceptable interceptable2 = $ic;
+                            if ((interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) && i2 == 13) {
+                                NPSManager.getInstance().loadClazz(WalletPluginManager.PLUGIN_PKG_NAME, WalletPluginManager.PLUGIN_IMPL_CLASS, IWalletPlugin.class, this.val$invokeCallback);
+                            }
+                        }
+                    });
+                    return;
+                }
+            }
             try {
                 IWalletPlugin iWalletPlugin = (IWalletPlugin) Class.forName(PLUGIN_IMPL_CLASS).newInstance();
                 this.mIWalletPlugin = iWalletPlugin;

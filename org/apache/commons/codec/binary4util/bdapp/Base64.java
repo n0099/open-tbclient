@@ -15,7 +15,7 @@ import com.baidu.webkit.internal.utils.UtilsBlink;
 import java.io.UnsupportedEncodingException;
 @SuppressLint({"BDThrowableCheck"})
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class Base64 {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -27,7 +27,7 @@ public class Base64 {
     public static final int URL_SAFE = 8;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static abstract class Coder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class Base64 {
         public abstract boolean process(byte[] bArr, int i2, int i3, boolean z);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class Decoder extends Coder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int[] DECODE;
@@ -240,7 +240,7 @@ public class Base64 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class Encoder extends Coder {
         public static final /* synthetic */ boolean $assertionsDisabled = false;
         public static /* synthetic */ Interceptable $ic = null;

@@ -4,21 +4,21 @@ public class g {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f59516b;
+    public int f59683b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f59517c;
+    public String f59684c;
 
     public g(int i2) {
         this(i2, 0, null);
     }
 
     public int a() {
-        return this.f59516b;
+        return this.f59683b;
     }
 
     public String b() {
-        return this.f59517c;
+        return this.f59684c;
     }
 
     public int getType() {
@@ -35,7 +35,7 @@ public class g {
 
     public g(int i2, int i3, String str) {
         this.a = i2;
-        this.f59516b = i3;
-        this.f59517c = str;
+        this.f59683b = i3;
+        this.f59684c = str;
     }
 }

@@ -21,13 +21,13 @@ public class RimLivenessBaseDialog extends Dialog {
     public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f34496b;
+    public LinearLayout f34702b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Button f34497c;
+    public Button f34703c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Button f34498d;
+    public Button f34704d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RimLivenessBaseDialog(Context context) {
@@ -56,9 +56,9 @@ public class RimLivenessBaseDialog extends Dialog {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             setContentView(R.layout.rim_liveness_alert_dialog_base);
             this.a = (TextView) findViewById(R.id.dialog_title);
-            this.f34496b = (LinearLayout) findViewById(R.id.dialog_content);
-            this.f34497c = (Button) findViewById(R.id.positive_btn);
-            this.f34498d = (Button) findViewById(R.id.negative_btn);
+            this.f34702b = (LinearLayout) findViewById(R.id.dialog_content);
+            this.f34703c = (Button) findViewById(R.id.positive_btn);
+            this.f34704d = (Button) findViewById(R.id.negative_btn);
             setCancelable(false);
         }
     }
@@ -66,7 +66,7 @@ public class RimLivenessBaseDialog extends Dialog {
     public void addContentView(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            LayoutInflater.from(getContext()).inflate(i2, (ViewGroup) this.f34496b, true);
+            LayoutInflater.from(getContext()).inflate(i2, (ViewGroup) this.f34702b, true);
         }
     }
 
@@ -74,17 +74,17 @@ public class RimLivenessBaseDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, onClickListener) == null) {
             findViewById(R.id.btn_line).setVisibility(0);
-            this.f34498d.setVisibility(0);
-            this.f34498d.setText(charSequence);
-            this.f34498d.setOnClickListener(onClickListener);
+            this.f34704d.setVisibility(0);
+            this.f34704d.setText(charSequence);
+            this.f34704d.setOnClickListener(onClickListener);
         }
     }
 
     public void setPositiveBtnClickListener(CharSequence charSequence, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, charSequence, onClickListener) == null) {
-            this.f34497c.setText(charSequence);
-            this.f34497c.setOnClickListener(onClickListener);
+            this.f34703c.setText(charSequence);
+            this.f34703c.setOnClickListener(onClickListener);
         }
     }
 
@@ -100,7 +100,7 @@ public class RimLivenessBaseDialog extends Dialog {
             int dimension = (int) getContext().getResources().getDimension(R.dimen.rim_dimen_20dp);
             textView.setPadding(dimension, dimension, dimension, dimension);
             textView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            this.f34496b.addView(textView);
+            this.f34702b.addView(textView);
         }
     }
 

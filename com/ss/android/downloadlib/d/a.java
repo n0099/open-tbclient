@@ -22,12 +22,12 @@ public class a {
 
     /* renamed from: com.ss.android.downloadlib.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C2194a {
+    public static class C2204a {
         public static a a = new a();
     }
 
     public static a a() {
-        return C2194a.a;
+        return C2204a.a;
     }
 
     public void b(long j2, int i2) {
@@ -41,11 +41,11 @@ public class a {
         e e2 = f.a().e(j2);
         if (e2.x()) {
             com.ss.android.downloadlib.e.c.a().a("sendClickEvent ModelBox notValid");
-        } else if (e2.f59510c.isEnableClickEvent()) {
+        } else if (e2.f59677c.isEnableClickEvent()) {
             int i3 = 1;
-            DownloadEventConfig downloadEventConfig = e2.f59510c;
+            DownloadEventConfig downloadEventConfig = e2.f59677c;
             String clickItemTag = i2 == 1 ? downloadEventConfig.getClickItemTag() : downloadEventConfig.getClickButtonTag();
-            String a = l.a(e2.f59510c.getClickLabel(), "click");
+            String a = l.a(e2.f59677c.getClickLabel(), "click");
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("download_click_type", Integer.valueOf(i2));
@@ -58,10 +58,10 @@ public class a {
                 e3.printStackTrace();
             }
             a(clickItemTag, a, jSONObject, e2);
-            if (!"click".equals(a) || e2.f59509b == null) {
+            if (!"click".equals(a) || e2.f59676b == null) {
                 return;
             }
-            c.a().a(j2, e2.f59509b.getLogExtra());
+            c.a().a(j2, e2.f59676b.getLogExtra());
         }
     }
 
@@ -72,7 +72,7 @@ public class a {
         com.ss.android.downloadad.api.a.b a = f.a().a(downloadInfo);
         if (a == null) {
             com.ss.android.downloadlib.e.c.a().a("sendDownloadFailedEvent nativeModel null");
-        } else if (a.f59408c.get()) {
+        } else if (a.f59575c.get()) {
         } else {
             JSONObject jSONObject = new JSONObject();
             try {
@@ -90,7 +90,7 @@ public class a {
                     jSONObject.put("download_percent", downloadInfo.getCurBytes() / downloadInfo.getTotalBytes());
                 }
                 int i2 = 1;
-                jSONObject.put("has_send_download_failed_finally", a.f59409d.get() ? 1 : 2);
+                jSONObject.put("has_send_download_failed_finally", a.f59576d.get() ? 1 : 2);
                 com.ss.android.downloadlib.g.f.a(a, jSONObject);
                 if (!a.V()) {
                     i2 = 2;
@@ -114,15 +114,15 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         l.a(jSONObject, "download_scene", Integer.valueOf(e2.t()));
         if (i2 == 1) {
-            str = l.a(e2.f59510c.getStorageDenyLabel(), "storage_deny");
+            str = l.a(e2.f59677c.getStorageDenyLabel(), "storage_deny");
         } else if (i2 == 2) {
-            str = l.a(e2.f59510c.getClickStartLabel(), "click_start");
+            str = l.a(e2.f59677c.getClickStartLabel(), "click_start");
             com.ss.android.downloadlib.g.f.a(downloadInfo, jSONObject);
         } else if (i2 == 3) {
-            str = l.a(e2.f59510c.getClickPauseLabel(), "click_pause");
+            str = l.a(e2.f59677c.getClickPauseLabel(), "click_pause");
             com.ss.android.downloadlib.g.f.b(downloadInfo, jSONObject);
         } else if (i2 == 4) {
-            str = l.a(e2.f59510c.getClickContinueLabel(), "click_continue");
+            str = l.a(e2.f59677c.getClickContinueLabel(), "click_continue");
             com.ss.android.downloadlib.g.f.c(downloadInfo, jSONObject);
         } else if (i2 == 5) {
             if (downloadInfo != null) {
@@ -132,7 +132,7 @@ public class a {
                 } catch (Throwable unused) {
                 }
             }
-            str = l.a(e2.f59510c.getClickInstallLabel(), "click_install");
+            str = l.a(e2.f59677c.getClickInstallLabel(), "click_install");
         }
         a(null, str, jSONObject, 0L, 1, e2);
     }
@@ -153,9 +153,9 @@ public class a {
         e e2 = f.a().e(j2);
         if (e2.x()) {
             com.ss.android.downloadlib.e.c.a().a("sendQuickAppEvent ModelBox notValid");
-        } else if (e2.f59509b.getQuickAppModel() == null) {
+        } else if (e2.f59676b.getQuickAppModel() == null) {
         } else {
-            DownloadModel downloadModel = e2.f59509b;
+            DownloadModel downloadModel = e2.f59676b;
             if (downloadModel instanceof AdDownloadModel) {
                 ((AdDownloadModel) downloadModel).setFunnelType(3);
             }
@@ -206,7 +206,7 @@ public class a {
 
     public void a(DownloadInfo downloadInfo, BaseException baseException) {
         com.ss.android.downloadad.api.a.b a;
-        if (downloadInfo == null || (a = f.a().a(downloadInfo)) == null || a.f59408c.get()) {
+        if (downloadInfo == null || (a = f.a().a(downloadInfo)) == null || a.f59575c.get()) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -229,7 +229,7 @@ public class a {
             int i2 = 1;
             jSONObject.put("is_update_download", a.V() ? 1 : 2);
             jSONObject.put("can_show_notification", d.a() ? 1 : 2);
-            if (!a.f59409d.get()) {
+            if (!a.f59576d.get()) {
                 i2 = 2;
             }
             jSONObject.put("has_send_download_failed_finally", i2);

@@ -31,32 +31,32 @@ public class b {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f32823b = "JsJavaBridge";
+    public static final String f33029b = "JsJavaBridge";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f32824c = "BdWallet:";
+    public static final String f33030c = "BdWallet:";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f32825d;
+    public static final String f33031d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f32826e = 0;
+    public static final int f33032e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f32827f = 101;
+    public static final int f33033f = 101;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f32828g = 102;
+    public static final int f33034g = 102;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f32829h = 100;
+    public static final int f33035h = 100;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f32830i = "Local";
+    public static final String f33036i = "Local";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public final HashMap<String, Object> f32831j;
+    public final HashMap<String, Object> f33037j;
     public final HashMap<String, Set<String>> k;
     public boolean l;
     public String m;
@@ -76,7 +76,7 @@ public class b {
             }
         }
         a = ApollonConstants.DEBUG & false;
-        f32825d = f32824c.toLowerCase();
+        f33031d = f33030c.toLowerCase();
     }
 
     public b() {
@@ -92,7 +92,7 @@ public class b {
                 return;
             }
         }
-        this.f32831j = new HashMap<>();
+        this.f33037j = new HashMap<>();
         this.k = new HashMap<>();
         this.l = false;
         this.n = new HashMap();
@@ -107,7 +107,7 @@ public class b {
             if (obj == null || TextUtils.isEmpty(str)) {
                 return;
             }
-            this.f32831j.put(str, obj);
+            this.f33037j.put(str, obj);
             this.m = null;
         }
     }
@@ -123,7 +123,7 @@ public class b {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f32831j.clear();
+            this.f33037j.clear();
             this.m = null;
         }
     }
@@ -155,9 +155,9 @@ public class b {
             StringBuilder sb = new StringBuilder();
             sb.append("javascript:");
             sb.append("(function JsAddJavascriptInterface_(){");
-            for (String str : this.f32831j.keySet()) {
+            for (String str : this.f33037j.keySet()) {
                 try {
-                    a(sb, this.f32831j.get(str), str);
+                    a(sb, this.f33037j.get(str), str);
                 } catch (JSONException unused) {
                     boolean z = a;
                 }
@@ -185,7 +185,7 @@ public class b {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f32831j.remove(str);
+            this.f33037j.remove(str);
             this.m = null;
             if (a) {
                 String str2 = "removeJavascriptInterface from map: " + str;
@@ -222,10 +222,10 @@ public class b {
             if (TextUtils.isEmpty(str2)) {
                 return false;
             }
-            if (str2.startsWith(f32824c)) {
+            if (str2.startsWith(f33030c)) {
                 substring = str2.substring(9);
                 z = true;
-            } else if (!str2.startsWith(f32824c.toLowerCase())) {
+            } else if (!str2.startsWith(f33030c.toLowerCase())) {
                 return false;
             } else {
                 substring = str2.substring(9);
@@ -250,7 +250,7 @@ public class b {
                         }
                     }
                     sb.append(SmallTailInfo.EMOTION_SUFFIX);
-                    LogUtil.i(f32823b, "call: " + sb.toString());
+                    LogUtil.i(f33029b, "call: " + sb.toString());
                 }
                 if (javaBridgeObject != null) {
                     return a(jsPromptResult, z, javaBridgeObject);
@@ -300,7 +300,7 @@ public class b {
                 HashSet hashSet = new HashSet();
                 for (Method method : methods) {
                     String name = method.getName();
-                    if (!name.endsWith(f32830i) && !c(name) && !hashSet.contains(name)) {
+                    if (!name.endsWith(f33036i) && !c(name) && !hashSet.contains(name)) {
                         hashSet.add(name);
                         sb.append(name);
                         sb.append(":function(){");
@@ -308,7 +308,7 @@ public class b {
                             sb.append("return ");
                         }
                         sb.append("prompt('");
-                        sb.append(f32825d);
+                        sb.append(f33031d);
                         sb.append("'+");
                         sb.append("JSON.stringify({");
                         sb.append("obj");
@@ -340,13 +340,13 @@ public class b {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:47:0x00f6  */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00f9 A[Catch: InvocationTargetException -> 0x011f, IllegalAccessException -> 0x0128, IllegalArgumentException -> 0x0131, NoSuchMethodException -> 0x015d, TryCatch #2 {IllegalAccessException -> 0x0128, IllegalArgumentException -> 0x0131, NoSuchMethodException -> 0x015d, InvocationTargetException -> 0x011f, blocks: (B:36:0x00ca, B:38:0x00d4, B:41:0x00e8, B:49:0x00fd, B:51:0x0101, B:53:0x0113, B:54:0x011b, B:48:0x00f9), top: B:91:0x00ca }] */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x0101 A[Catch: InvocationTargetException -> 0x011f, IllegalAccessException -> 0x0128, IllegalArgumentException -> 0x0131, NoSuchMethodException -> 0x015d, TryCatch #2 {IllegalAccessException -> 0x0128, IllegalArgumentException -> 0x0131, NoSuchMethodException -> 0x015d, InvocationTargetException -> 0x011f, blocks: (B:36:0x00ca, B:38:0x00d4, B:41:0x00e8, B:49:0x00fd, B:51:0x0101, B:53:0x0113, B:54:0x011b, B:48:0x00f9), top: B:91:0x00ca }] */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x0113 A[Catch: InvocationTargetException -> 0x011f, IllegalAccessException -> 0x0128, IllegalArgumentException -> 0x0131, NoSuchMethodException -> 0x015d, TryCatch #2 {IllegalAccessException -> 0x0128, IllegalArgumentException -> 0x0131, NoSuchMethodException -> 0x015d, InvocationTargetException -> 0x011f, blocks: (B:36:0x00ca, B:38:0x00d4, B:41:0x00e8, B:49:0x00fd, B:51:0x0101, B:53:0x0113, B:54:0x011b, B:48:0x00f9), top: B:91:0x00ca }] */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x011b A[Catch: InvocationTargetException -> 0x011f, IllegalAccessException -> 0x0128, IllegalArgumentException -> 0x0131, NoSuchMethodException -> 0x015d, TRY_LEAVE, TryCatch #2 {IllegalAccessException -> 0x0128, IllegalArgumentException -> 0x0131, NoSuchMethodException -> 0x015d, InvocationTargetException -> 0x011f, blocks: (B:36:0x00ca, B:38:0x00d4, B:41:0x00e8, B:49:0x00fd, B:51:0x0101, B:53:0x0113, B:54:0x011b, B:48:0x00f9), top: B:91:0x00ca }] */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x013c  */
-    /* JADX WARN: Removed duplicated region for block: B:73:0x0159  */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x00f5  */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x00f8 A[Catch: InvocationTargetException -> 0x011e, IllegalAccessException -> 0x0127, IllegalArgumentException -> 0x0130, NoSuchMethodException -> 0x015c, TryCatch #2 {IllegalAccessException -> 0x0127, IllegalArgumentException -> 0x0130, NoSuchMethodException -> 0x015c, InvocationTargetException -> 0x011e, blocks: (B:36:0x00c9, B:38:0x00d3, B:41:0x00e7, B:49:0x00fc, B:51:0x0100, B:53:0x0112, B:54:0x011a, B:48:0x00f8), top: B:91:0x00c9 }] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x0100 A[Catch: InvocationTargetException -> 0x011e, IllegalAccessException -> 0x0127, IllegalArgumentException -> 0x0130, NoSuchMethodException -> 0x015c, TryCatch #2 {IllegalAccessException -> 0x0127, IllegalArgumentException -> 0x0130, NoSuchMethodException -> 0x015c, InvocationTargetException -> 0x011e, blocks: (B:36:0x00c9, B:38:0x00d3, B:41:0x00e7, B:49:0x00fc, B:51:0x0100, B:53:0x0112, B:54:0x011a, B:48:0x00f8), top: B:91:0x00c9 }] */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x0112 A[Catch: InvocationTargetException -> 0x011e, IllegalAccessException -> 0x0127, IllegalArgumentException -> 0x0130, NoSuchMethodException -> 0x015c, TryCatch #2 {IllegalAccessException -> 0x0127, IllegalArgumentException -> 0x0130, NoSuchMethodException -> 0x015c, InvocationTargetException -> 0x011e, blocks: (B:36:0x00c9, B:38:0x00d3, B:41:0x00e7, B:49:0x00fc, B:51:0x0100, B:53:0x0112, B:54:0x011a, B:48:0x00f8), top: B:91:0x00c9 }] */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x011a A[Catch: InvocationTargetException -> 0x011e, IllegalAccessException -> 0x0127, IllegalArgumentException -> 0x0130, NoSuchMethodException -> 0x015c, TRY_LEAVE, TryCatch #2 {IllegalAccessException -> 0x0127, IllegalArgumentException -> 0x0130, NoSuchMethodException -> 0x015c, InvocationTargetException -> 0x011e, blocks: (B:36:0x00c9, B:38:0x00d3, B:41:0x00e7, B:49:0x00fc, B:51:0x0100, B:53:0x0112, B:54:0x011a, B:48:0x00f8), top: B:91:0x00c9 }] */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x013b  */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x0158  */
     @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -357,7 +357,7 @@ public class b {
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{jsPromptResult, Boolean.valueOf(z), javaBridgeObject})) == null) {
-            Object obj = this.f32831j.get(javaBridgeObject.obj);
+            Object obj = this.f33037j.get(javaBridgeObject.obj);
             if (obj == null) {
                 if (a) {
                     String str = "not exist js interface:" + javaBridgeObject.obj;

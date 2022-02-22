@@ -20,17 +20,17 @@ public final class a extends TagPayloadReader {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int[] f28604e;
+    public static final int[] f28810e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f28605b;
+    public boolean f28811b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f28606c;
+    public boolean f28812c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f28607d;
+    public int f28813d;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +45,7 @@ public final class a extends TagPayloadReader {
                 return;
             }
         }
-        f28604e = new int[]{5512, 11025, 22050, 44100};
+        f28810e = new int[]{5512, 11025, 22050, 44100};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -73,20 +73,20 @@ public final class a extends TagPayloadReader {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lVar)) == null) {
-            if (!this.f28605b) {
+            if (!this.f28811b) {
                 int x = lVar.x();
                 int i2 = (x >> 4) & 15;
-                this.f28607d = i2;
+                this.f28813d = i2;
                 if (i2 == 2) {
-                    this.a.b(Format.createAudioSampleFormat(null, "audio/mpeg", null, -1, -1, 1, f28604e[(x >> 2) & 3], null, null, 0, null));
-                    this.f28606c = true;
+                    this.a.b(Format.createAudioSampleFormat(null, "audio/mpeg", null, -1, -1, 1, f28810e[(x >> 2) & 3], null, null, 0, null));
+                    this.f28812c = true;
                 } else if (i2 == 7 || i2 == 8) {
-                    this.a.b(Format.createAudioSampleFormat(null, this.f28607d == 7 ? "audio/g711-alaw" : "audio/g711-mlaw", null, -1, -1, 1, 8000, (x & 1) == 1 ? 2 : 3, null, null, 0, null));
-                    this.f28606c = true;
+                    this.a.b(Format.createAudioSampleFormat(null, this.f28813d == 7 ? "audio/g711-alaw" : "audio/g711-mlaw", null, -1, -1, 1, 8000, (x & 1) == 1 ? 2 : 3, null, null, 0, null));
+                    this.f28812c = true;
                 } else if (i2 != 10) {
-                    throw new TagPayloadReader.UnsupportedFormatException("Audio format not supported: " + this.f28607d);
+                    throw new TagPayloadReader.UnsupportedFormatException("Audio format not supported: " + this.f28813d);
                 }
-                this.f28605b = true;
+                this.f28811b = true;
             } else {
                 lVar.K(1);
             }
@@ -99,21 +99,21 @@ public final class a extends TagPayloadReader {
     public void c(l lVar, long j2) throws ParserException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar, j2) == null) {
-            if (this.f28607d == 2) {
+            if (this.f28813d == 2) {
                 int a = lVar.a();
                 this.a.a(lVar, a);
                 this.a.c(j2, 1, a, 0, null);
                 return;
             }
             int x = lVar.x();
-            if (x == 0 && !this.f28606c) {
+            if (x == 0 && !this.f28812c) {
                 int a2 = lVar.a();
                 byte[] bArr = new byte[a2];
                 lVar.g(bArr, 0, a2);
                 Pair<Integer, Integer> i2 = c.i.b.a.i0.c.i(bArr);
                 this.a.b(Format.createAudioSampleFormat(null, "audio/mp4a-latm", null, -1, -1, ((Integer) i2.second).intValue(), ((Integer) i2.first).intValue(), Collections.singletonList(bArr), null, 0, null));
-                this.f28606c = true;
-            } else if (this.f28607d != 10 || x == 1) {
+                this.f28812c = true;
+            } else if (this.f28813d != 10 || x == 1) {
                 int a3 = lVar.a();
                 this.a.a(lVar, a3);
                 this.a.c(j2, 1, a3, 0, null);

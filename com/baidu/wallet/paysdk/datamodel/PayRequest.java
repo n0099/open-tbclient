@@ -289,7 +289,7 @@ public class PayRequest extends BeanRequestBase implements Serializable {
             PayDataCache.b<Boolean, String> canUseCredit = PayDataCache.getInstance().canUseCredit();
             this.mPayPrice.creditIsEnable = canUseCredit.a.booleanValue();
             PayPrice payPrice4 = this.mPayPrice;
-            payPrice4.creditTip = canUseCredit.f52199b;
+            payPrice4.creditTip = canUseCredit.f52366b;
             payPrice4.creditPayAmount = "0";
             payPrice4.availableCredit = PayDataCache.getInstance().getAvailableCreditAmount();
         }
@@ -307,7 +307,7 @@ public class PayRequest extends BeanRequestBase implements Serializable {
             PayDataCache.b<Boolean, String> canUseBalance = PayDataCache.getInstance().canUseBalance();
             this.mPayPrice.balanceIsEnable = canUseBalance.a.booleanValue();
             PayPrice payPrice2 = this.mPayPrice;
-            payPrice2.balanceTip = canUseBalance.f52199b;
+            payPrice2.balanceTip = canUseBalance.f52366b;
             payPrice2.balanceJumpUrl = PayDataCache.getInstance().getBalanceJumpUrl();
             PayPrice payPrice3 = this.mPayPrice;
             payPrice3.balancePayAmount = "0";
@@ -334,7 +334,7 @@ public class PayRequest extends BeanRequestBase implements Serializable {
             PayDataCache.b<Boolean, String> canUseBalance = PayDataCache.getInstance().canUseBalance();
             this.mPayPrice.balanceIsEnable = canUseBalance.a.booleanValue();
             PayPrice payPrice2 = this.mPayPrice;
-            payPrice2.balanceTip = canUseBalance.f52199b;
+            payPrice2.balanceTip = canUseBalance.f52366b;
             payPrice2.balanceJumpUrl = PayDataCache.getInstance().getBalanceJumpUrl();
             PayPrice payPrice3 = this.mPayPrice;
             payPrice3.balancePayAmount = "0";
@@ -342,7 +342,7 @@ public class PayRequest extends BeanRequestBase implements Serializable {
             PayDataCache.b<Boolean, String> canUseCredit = PayDataCache.getInstance().canUseCredit();
             this.mPayPrice.creditIsEnable = canUseCredit.a.booleanValue();
             PayPrice payPrice4 = this.mPayPrice;
-            payPrice4.creditTip = canUseCredit.f52199b;
+            payPrice4.creditTip = canUseCredit.f52366b;
             payPrice4.creditPayAmount = "0";
             payPrice4.availableCredit = PayDataCache.getInstance().getAvailableCreditAmount();
         }
@@ -953,7 +953,7 @@ public class PayRequest extends BeanRequestBase implements Serializable {
                     PayDataCache.b<Boolean, String> canUseBalance = PayDataCache.getInstance().canUseBalance();
                     this.mPayPrice.balanceIsEnable = canUseBalance.a.booleanValue();
                     PayPrice payPrice4 = this.mPayPrice;
-                    payPrice4.balanceTip = canUseBalance.f52199b;
+                    payPrice4.balanceTip = canUseBalance.f52366b;
                     payPrice4.balanceJumpUrl = PayDataCache.getInstance().getBalanceJumpUrl();
                     PayPrice payPrice5 = this.mPayPrice;
                     payPrice5.balancePayAmount = "0";
@@ -961,7 +961,7 @@ public class PayRequest extends BeanRequestBase implements Serializable {
                     PayDataCache.b<Boolean, String> canUseCredit = PayDataCache.getInstance().canUseCredit();
                     this.mPayPrice.creditIsEnable = canUseCredit.a.booleanValue();
                     PayPrice payPrice6 = this.mPayPrice;
-                    payPrice6.creditTip = canUseCredit.f52199b;
+                    payPrice6.creditTip = canUseCredit.f52366b;
                     payPrice6.creditPayAmount = "0";
                     payPrice6.availableCredit = PayDataCache.getInstance().getAvailableCreditAmount();
                     return;

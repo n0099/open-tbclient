@@ -23,10 +23,10 @@ public final class DanmuPostDraftManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f48865b;
+    public static final a f49032b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Lazy<DanmuPostDraftManager> f48866c;
+    public static final Lazy<DanmuPostDraftManager> f49033c;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, String> a;
 
@@ -56,7 +56,7 @@ public final class DanmuPostDraftManager {
         public final DanmuPostDraftManager a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (DanmuPostDraftManager) DanmuPostDraftManager.f48866c.getValue() : (DanmuPostDraftManager) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (DanmuPostDraftManager) DanmuPostDraftManager.f49033c.getValue() : (DanmuPostDraftManager) invokeV.objValue;
         }
     }
 
@@ -73,8 +73,8 @@ public final class DanmuPostDraftManager {
                 return;
             }
         }
-        f48865b = new a(null);
-        f48866c = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) DanmuPostDraftManager$Companion$instance$2.INSTANCE);
+        f49032b = new a(null);
+        f49033c = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) DanmuPostDraftManager$Companion$instance$2.INSTANCE);
     }
 
     public DanmuPostDraftManager() {

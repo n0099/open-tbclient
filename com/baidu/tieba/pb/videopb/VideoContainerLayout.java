@@ -12,22 +12,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class VideoContainerLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f46904e;
+    public int f47046e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f46905f;
+    public int f47047f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f46906g;
+    public int f47048g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f46907h;
+    public int f47049h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoContainerLayout(Context context) {
@@ -47,25 +47,25 @@ public class VideoContainerLayout extends FrameLayout {
                 return;
             }
         }
-        this.f46907h = n.k(context) / 10;
+        this.f47049h = n.k(context) / 10;
     }
 
     public int getMaxHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f46905f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f47047f : invokeV.intValue;
     }
 
     public int getMinHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46904e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f47046e : invokeV.intValue;
     }
 
     public int getOriginHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f46906g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f47048g : invokeV.intValue;
     }
 
     @Override // android.view.ViewGroup
@@ -73,7 +73,7 @@ public class VideoContainerLayout extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            if (motionEvent != null && motionEvent.getAction() == 0 && motionEvent.getX() > this.f46907h && (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
+            if (motionEvent != null && motionEvent.getAction() == 0 && motionEvent.getX() > this.f47049h && (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
                 ((BaseFragmentActivity) getContext()).disableSwipeJustOnce();
             }
             return super.onInterceptTouchEvent(motionEvent);
@@ -84,21 +84,21 @@ public class VideoContainerLayout extends FrameLayout {
     public void setMaxHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f46905f = i2;
+            this.f47047f = i2;
         }
     }
 
     public void setMinHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f46904e = i2;
+            this.f47046e = i2;
         }
     }
 
     public void setOriginHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f46906g = i2;
+            this.f47048g = i2;
         }
     }
 
@@ -121,7 +121,7 @@ public class VideoContainerLayout extends FrameLayout {
                 return;
             }
         }
-        this.f46907h = n.k(context) / 10;
+        this.f47049h = n.k(context) / 10;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -143,6 +143,6 @@ public class VideoContainerLayout extends FrameLayout {
                 return;
             }
         }
-        this.f46907h = n.k(context) / 10;
+        this.f47049h = n.k(context) / 10;
     }
 }

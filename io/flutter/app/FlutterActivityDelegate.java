@@ -19,6 +19,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.advert.sdk.stretagy.SplashNativePolicy;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -305,7 +306,7 @@ public final class FlutterActivityDelegate implements FlutterActivityEvents, Flu
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
             try {
-                Bundle bundle = this.activity.getPackageManager().getActivityInfo(this.activity.getComponentName(), 129).metaData;
+                Bundle bundle = this.activity.getPackageManager().getActivityInfo(this.activity.getComponentName(), SplashNativePolicy.SPLASH_CMD_SHOW_PLG).metaData;
                 return Boolean.valueOf(bundle != null && bundle.getBoolean(SPLASH_SCREEN_META_DATA_KEY));
             } catch (PackageManager.NameNotFoundException unused) {
                 return Boolean.FALSE;

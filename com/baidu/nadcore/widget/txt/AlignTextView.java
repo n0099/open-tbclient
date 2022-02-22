@@ -8,7 +8,7 @@ import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
-import c.a.c0.x.a;
+import c.a.d0.x.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -35,22 +35,22 @@ public class AlignTextView extends TextView {
     public float H;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f37347e;
+    public float f37579e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f37348f;
+    public float f37580f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f37349g;
+    public int f37581g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<String> f37350h;
+    public List<String> f37582h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<Integer> f37351i;
+    public List<Integer> f37583i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Align f37352j;
+    public Align f37584j;
     public boolean k;
     public float l;
     public float m;
@@ -148,10 +148,10 @@ public class AlignTextView extends TextView {
                 return;
             }
         }
-        this.f37348f = 0.0f;
-        this.f37350h = new ArrayList();
-        this.f37351i = new ArrayList();
-        this.f37352j = Align.ALIGN_LEFT;
+        this.f37580f = 0.0f;
+        this.f37582h = new ArrayList();
+        this.f37583i = new ArrayList();
+        this.f37584j = Align.ALIGN_LEFT;
         this.k = true;
         this.l = 1.0f;
         this.m = 0.0f;
@@ -166,13 +166,13 @@ public class AlignTextView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, paint, str) == null) {
             if (str.length() == 0) {
-                a.b(this.f37350h, StringUtils.LF);
+                a.b(this.f37582h, StringUtils.LF);
                 return;
             }
             this.w = 0;
             float measureText = paint.measureText("中");
             this.x = measureText;
-            int i2 = (int) (this.f37349g / measureText);
+            int i2 = (int) (this.f37581g / measureText);
             this.y = i2;
             this.v = new StringBuilder(str.substring(0, Math.min(i2 + 1, str.length())));
             int i3 = this.y;
@@ -180,9 +180,9 @@ public class AlignTextView extends TextView {
                 i3++;
                 if (i3 >= str.length()) {
                     break;
-                } else if (paint.measureText(str.substring(this.w, i3 + 1)) > this.f37349g) {
+                } else if (paint.measureText(str.substring(this.w, i3 + 1)) > this.f37581g) {
                     this.w = i3;
-                    a.b(this.f37350h, this.v.toString());
+                    a.b(this.f37582h, this.v.toString());
                     this.v = new StringBuilder();
                     int length = str.length();
                     int i4 = this.w;
@@ -192,7 +192,7 @@ public class AlignTextView extends TextView {
                         this.v.append(str.substring(i4, i6 + i4));
                         i3 = (i3 + this.y) - 1;
                     } else {
-                        a.b(this.f37350h, str.substring(i4));
+                        a.b(this.f37582h, str.substring(i4));
                         break;
                     }
                 } else {
@@ -200,9 +200,9 @@ public class AlignTextView extends TextView {
                 }
             }
             if (this.v.length() > 0) {
-                a.b(this.f37350h, this.v.toString());
+                a.b(this.f37582h, this.v.toString());
             }
-            a.b(this.f37351i, Integer.valueOf(this.f37350h.size() - 1));
+            a.b(this.f37583i, Integer.valueOf(this.f37582h.size() - 1));
         }
     }
 
@@ -227,27 +227,27 @@ public class AlignTextView extends TextView {
             this.r = paint;
             paint.setColor(getCurrentTextColor());
             this.r.drawableState = getDrawableState();
-            this.f37349g = getMeasuredWidth();
+            this.f37581g = getMeasuredWidth();
             this.A = this.r.getFontMetrics();
             float textSize = getTextSize();
             Paint.FontMetrics fontMetrics = this.A;
             this.B = textSize - (((fontMetrics.bottom - fontMetrics.descent) + fontMetrics.ascent) - fontMetrics.top);
             if ((getGravity() & 16) == 16) {
                 float f2 = this.B;
-                this.B = f2 + ((this.f37347e - f2) / 2.0f);
+                this.B = f2 + ((this.f37579e - f2) / 2.0f);
             }
-            this.f37349g = (this.f37349g - getPaddingLeft()) - getPaddingRight();
-            for (int i2 = 0; i2 < this.f37350h.size(); i2++) {
+            this.f37581g = (this.f37581g - getPaddingLeft()) - getPaddingRight();
+            for (int i2 = 0; i2 < this.f37582h.size(); i2++) {
                 float f3 = i2;
-                this.C = (this.f37347e * f3) + this.B;
-                this.D = (String) a.d(this.f37350h, i2);
+                this.C = (this.f37579e * f3) + this.B;
+                this.D = (String) a.d(this.f37582h, i2);
                 this.E = getPaddingLeft();
-                float measureText = this.f37349g - this.r.measureText(this.D);
+                float measureText = this.f37581g - this.r.measureText(this.D);
                 this.F = measureText;
                 this.G = measureText / (this.D.length() - 1);
-                if (this.f37351i.contains(Integer.valueOf(i2))) {
+                if (this.f37583i.contains(Integer.valueOf(i2))) {
                     this.G = 0.0f;
-                    Align align = this.f37352j;
+                    Align align = this.f37584j;
                     if (align == Align.ALIGN_CENTER) {
                         this.E += this.F / 2.0f;
                     } else if (align == Align.ALIGN_RIGHT) {
@@ -258,7 +258,7 @@ public class AlignTextView extends TextView {
                 while (i3 < this.D.length()) {
                     this.H = this.r.measureText(this.D.substring(0, i3)) + (this.G * i3);
                     int i4 = i3 + 1;
-                    canvas.drawText(this.D.substring(i3, i4), this.H + this.E, this.C + getPaddingTop() + (this.f37348f * f3), this.r);
+                    canvas.drawText(this.D.substring(i3, i4), this.H + this.E, this.C + getPaddingTop() + (this.f37580f * f3), this.r);
                     i3 = i4;
                 }
             }
@@ -271,11 +271,11 @@ public class AlignTextView extends TextView {
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
             if (this.k) {
-                this.f37349g = getMeasuredWidth();
+                this.f37581g = getMeasuredWidth();
                 this.s = getText().toString();
                 this.r = getPaint();
-                this.f37350h.clear();
-                this.f37351i.clear();
+                this.f37582h.clear();
+                this.f37583i.clear();
                 String[] split = this.s.split("\\n");
                 this.t = split;
                 for (String str : split) {
@@ -283,10 +283,10 @@ public class AlignTextView extends TextView {
                 }
                 b(this.s, this.r.getTextSize(), (getMeasuredWidth() - getPaddingLeft()) - getPaddingRight());
                 float f2 = (this.n * 1.0f) / this.o;
-                this.f37347e = f2;
+                this.f37579e = f2;
                 float f3 = ((this.l - 1.0f) * f2) + this.m;
-                this.f37348f = f3;
-                this.u = (int) ((f3 + f2) * (this.f37350h.size() - this.o));
+                this.f37580f = f3;
+                this.u = (int) ((f3 + f2) * (this.f37582h.size() - this.o));
                 this.q = true;
                 setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), this.p + this.u);
                 this.k = false;
@@ -297,7 +297,7 @@ public class AlignTextView extends TextView {
     public void setAlign(Align align) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, align) == null) {
-            this.f37352j = align;
+            this.f37584j = align;
             invalidate();
         }
     }
@@ -342,10 +342,10 @@ public class AlignTextView extends TextView {
                 return;
             }
         }
-        this.f37348f = 0.0f;
-        this.f37350h = new ArrayList();
-        this.f37351i = new ArrayList();
-        this.f37352j = Align.ALIGN_LEFT;
+        this.f37580f = 0.0f;
+        this.f37582h = new ArrayList();
+        this.f37583i = new ArrayList();
+        this.f37584j = Align.ALIGN_LEFT;
         this.k = true;
         this.l = 1.0f;
         this.m = 0.0f;

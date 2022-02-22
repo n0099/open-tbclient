@@ -40,10 +40,10 @@ public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f29572b;
+    public static final Pattern f29778b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f29573c;
+    public static final Pattern f29779c;
     public transient /* synthetic */ FieldHolder $fh;
     public final StringBuilder a;
 
@@ -52,18 +52,18 @@ public final class f {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final String[] f29574e;
+        public static final String[] f29780e;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f29575b;
+        public final int f29781b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f29576c;
+        public final String f29782c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String[] f29577d;
+        public final String[] f29783d;
 
         static {
             InterceptResult invokeClinit;
@@ -78,7 +78,7 @@ public final class f {
                     return;
                 }
             }
-            f29574e = new String[0];
+            f29780e = new String[0];
         }
 
         public a(String str, int i2, String str2, String[] strArr) {
@@ -96,10 +96,10 @@ public final class f {
                     return;
                 }
             }
-            this.f29575b = i2;
+            this.f29781b = i2;
             this.a = str;
-            this.f29576c = str2;
-            this.f29577d = strArr;
+            this.f29782c = str2;
+            this.f29783d = strArr;
         }
 
         public static a a(String str, int i2) {
@@ -125,7 +125,7 @@ public final class f {
                 if (split.length > 1) {
                     strArr = (String[]) Arrays.copyOfRange(split, 1, split.length);
                 } else {
-                    strArr = f29574e;
+                    strArr = f29780e;
                 }
                 return new a(str3, i2, str2, strArr);
             }
@@ -145,10 +145,10 @@ public final class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f29578e;
+        public final int f29784e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final d f29579f;
+        public final d f29785f;
 
         public b(int i2, d dVar) {
             Interceptable interceptable = $ic;
@@ -165,8 +165,8 @@ public final class f {
                     return;
                 }
             }
-            this.f29578e = i2;
-            this.f29579f = dVar;
+            this.f29784e = i2;
+            this.f29785f = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -175,7 +175,7 @@ public final class f {
         public int compareTo(@NonNull b bVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) ? this.f29578e - bVar.f29578e : invokeL.intValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) ? this.f29784e - bVar.f29784e : invokeL.intValue;
         }
     }
 
@@ -192,8 +192,8 @@ public final class f {
                 return;
             }
         }
-        f29572b = Pattern.compile("^(\\S+)\\s+-->\\s+(\\S+)(.*)?$");
-        f29573c = Pattern.compile("(\\S+?):(\\S+)");
+        f29778b = Pattern.compile("^(\\S+)\\s+-->\\s+(\\S+)(.*)?$");
+        f29779c = Pattern.compile("(\\S+?):(\\S+)");
     }
 
     public f() {
@@ -256,7 +256,7 @@ public final class f {
         char c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65539, null, str, aVar, spannableStringBuilder, list, list2) == null) {
-            int i2 = aVar.f29575b;
+            int i2 = aVar.f29781b;
             int length = spannableStringBuilder.length();
             String str2 = aVar.a;
             int hashCode = str2.hashCode();
@@ -318,7 +318,7 @@ public final class f {
             e(list, str, aVar, list2);
             int size = list2.size();
             for (int i3 = 0; i3 < size; i3++) {
-                c(spannableStringBuilder, list2.get(i3).f29579f, i2, length);
+                c(spannableStringBuilder, list2.get(i3).f29785f, i2, length);
             }
         }
     }
@@ -376,7 +376,7 @@ public final class f {
             int size = list.size();
             for (int i2 = 0; i2 < size; i2++) {
                 d dVar = list.get(i2);
-                int f2 = dVar.f(str, aVar.a, aVar.f29577d, aVar.f29576c);
+                int f2 = dVar.f(str, aVar.a, aVar.f29783d, aVar.f29782c);
                 if (f2 > 0) {
                     list2.add(new b(f2, dVar));
                 }
@@ -472,7 +472,7 @@ public final class f {
     public static void j(String str, e.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, str, bVar) == null) {
-            Matcher matcher = f29573c.matcher(str);
+            Matcher matcher = f29779c.matcher(str);
             while (matcher.find()) {
                 String group = matcher.group(1);
                 String group2 = matcher.group(2);
@@ -731,7 +731,7 @@ public final class f {
             if (k == null) {
                 return false;
             }
-            Matcher matcher = f29572b.matcher(k);
+            Matcher matcher = f29778b.matcher(k);
             if (matcher.matches()) {
                 return i(null, matcher, lVar, bVar, this.a, list);
             }
@@ -739,7 +739,7 @@ public final class f {
             if (k2 == null) {
                 return false;
             }
-            Matcher matcher2 = f29572b.matcher(k2);
+            Matcher matcher2 = f29778b.matcher(k2);
             if (matcher2.matches()) {
                 return i(k.trim(), matcher2, lVar, bVar, this.a, list);
             }

@@ -34,7 +34,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CommonUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FALSE = "0";
@@ -58,7 +58,7 @@ public class CommonUtils {
     public static final ConcurrentHashMap<String, String> sSDKVersionMap;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class VSSConstants {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String VMHWM = "VmHWM";

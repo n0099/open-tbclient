@@ -17,7 +17,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SyncGroupMessageService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_MAP_SIZE = 1;

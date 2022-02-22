@@ -1,7 +1,7 @@
 package com.baidu.swan.webcompat.impl;
 
 import android.net.Uri;
-import c.a.r0.a.e0.d;
+import c.a.s0.a.e0.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

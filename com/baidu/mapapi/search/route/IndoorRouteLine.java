@@ -31,25 +31,25 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public RouteNode f35625d;
+        public RouteNode f35831d;
 
         /* renamed from: e  reason: collision with root package name */
-        public RouteNode f35626e;
+        public RouteNode f35832e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f35627f;
+        public String f35833f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f35628g;
+        public String f35834g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f35629h;
+        public String f35835h;
 
         /* renamed from: i  reason: collision with root package name */
-        public List<IndoorStepNode> f35630i;
+        public List<IndoorStepNode> f35836i;
 
         /* renamed from: j  reason: collision with root package name */
-        public List<Double> f35631j;
+        public List<Double> f35837j;
 
         /* loaded from: classes10.dex */
         public static class IndoorStepNode {
@@ -58,13 +58,13 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
             public String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public int f35632b;
+            public int f35838b;
 
             /* renamed from: c  reason: collision with root package name */
-            public LatLng f35633c;
+            public LatLng f35839c;
 
             /* renamed from: d  reason: collision with root package name */
-            public String f35634d;
+            public String f35840d;
 
             public IndoorStepNode() {
                 Interceptable interceptable = $ic;
@@ -83,13 +83,13 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
             public String getDetail() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35634d : (String) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35840d : (String) invokeV.objValue;
             }
 
             public LatLng getLocation() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35633c : (LatLng) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35839c : (LatLng) invokeV.objValue;
             }
 
             public String getName() {
@@ -101,20 +101,20 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
             public int getType() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35632b : invokeV.intValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35838b : invokeV.intValue;
             }
 
             public void setDetail(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                    this.f35634d = str;
+                    this.f35840d = str;
                 }
             }
 
             public void setLocation(LatLng latLng) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048581, this, latLng) == null) {
-                    this.f35633c = latLng;
+                    this.f35839c = latLng;
                 }
             }
 
@@ -128,7 +128,7 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
             public void setType(int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-                    this.f35632b = i2;
+                    this.f35838b = i2;
                 }
             }
         }
@@ -163,37 +163,37 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
         public String getBuildingId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35629h : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35835h : (String) invokeV.objValue;
         }
 
         public RouteNode getEntrace() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35625d : (RouteNode) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35831d : (RouteNode) invokeV.objValue;
         }
 
         public RouteNode getExit() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35626e : (RouteNode) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35832e : (RouteNode) invokeV.objValue;
         }
 
         public String getFloorId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35628g : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35834g : (String) invokeV.objValue;
         }
 
         public String getInstructions() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f35627f : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f35833f : (String) invokeV.objValue;
         }
 
         public List<IndoorStepNode> getStepNodes() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f35630i : (List) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f35836i : (List) invokeV.objValue;
         }
 
         @Override // com.baidu.mapapi.search.core.RouteStep
@@ -202,7 +202,7 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 if (this.mWayPoints == null) {
-                    this.mWayPoints = a(this.f35631j);
+                    this.mWayPoints = a(this.f35837j);
                 }
                 return this.mWayPoints;
             }
@@ -212,49 +212,49 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
         public void setBuildingId(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-                this.f35629h = str;
+                this.f35835h = str;
             }
         }
 
         public void setEntrace(RouteNode routeNode) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, routeNode) == null) {
-                this.f35625d = routeNode;
+                this.f35831d = routeNode;
             }
         }
 
         public void setExit(RouteNode routeNode) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, routeNode) == null) {
-                this.f35626e = routeNode;
+                this.f35832e = routeNode;
             }
         }
 
         public void setFloorId(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-                this.f35628g = str;
+                this.f35834g = str;
             }
         }
 
         public void setInstructions(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-                this.f35627f = str;
+                this.f35833f = str;
             }
         }
 
         public void setPath(List<Double> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
-                this.f35631j = list;
+                this.f35837j = list;
             }
         }
 
         public void setStepNodes(List<IndoorStepNode> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048589, this, list) == null) {
-                this.f35630i = list;
+                this.f35836i = list;
             }
         }
     }

@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.s0.s.s.m;
+import c.a.t0.s.t.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
@@ -35,7 +35,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes13.dex */
-public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivity> implements c.a.t0.n4.i.b {
+public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivity> implements c.a.u0.q4.i.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EMTextView activitive;
@@ -53,7 +53,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
     public EMTextView maxureTip;
     public AnniversaryEtModel model;
     public NavigationBar navigationBar;
-    public c.a.t0.n4.i.d.b resultData;
+    public c.a.u0.q4.i.d.b resultData;
     public EMTextView shareVideoBtn;
     public LinearLayout shareVideoOuder;
 
@@ -63,7 +63,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Anniversary18thActivity f49263e;
+        public final /* synthetic */ Anniversary18thActivity f49430e;
 
         public a(Anniversary18thActivity anniversary18thActivity) {
             Interceptable interceptable = $ic;
@@ -80,17 +80,17 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
                     return;
                 }
             }
-            this.f49263e = anniversary18thActivity;
+            this.f49430e = anniversary18thActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f49263e.curProgressNumber > 0 && this.f49263e.curProgressNumber < 100) {
-                    this.f49263e.popupMaxureDialog();
+                if (this.f49430e.curProgressNumber > 0 && this.f49430e.curProgressNumber < 100) {
+                    this.f49430e.popupMaxureDialog();
                 } else {
-                    this.f49263e.finish();
+                    this.f49430e.finish();
                 }
             }
         }
@@ -102,7 +102,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Anniversary18thActivity f49264e;
+        public final /* synthetic */ Anniversary18thActivity f49431e;
 
         public b(Anniversary18thActivity anniversary18thActivity) {
             Interceptable interceptable = $ic;
@@ -119,17 +119,17 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
                     return;
                 }
             }
-            this.f49264e = anniversary18thActivity;
+            this.f49431e = anniversary18thActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f49264e.curProgressNumber == 100 && !TextUtils.isEmpty(this.f49264e.mVideoPath)) {
-                    c.a.t0.n4.i.a.n(this.f49264e.getPageContext(), this.f49264e.mVideoPath, this.f49264e.mCoverPath, this.f49264e.mTopicName, this.f49264e.mTopicId);
+                if (this.f49431e.curProgressNumber == 100 && !TextUtils.isEmpty(this.f49431e.mVideoPath)) {
+                    c.a.u0.q4.i.a.n(this.f49431e.getPageContext(), this.f49431e.mVideoPath, this.f49431e.mCoverPath, this.f49431e.mTopicName, this.f49431e.mTopicId);
                 } else {
-                    n.N(TbadkCoreApplication.getInst(), this.f49264e.getString(R.string.sticker_maxure_video_download));
+                    n.N(TbadkCoreApplication.getInst(), this.f49431e.getString(R.string.sticker_maxure_video_download));
                 }
             }
         }
@@ -141,7 +141,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Anniversary18thActivity f49265e;
+        public final /* synthetic */ Anniversary18thActivity f49432e;
 
         public c(Anniversary18thActivity anniversary18thActivity) {
             Interceptable interceptable = $ic;
@@ -158,18 +158,18 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
                     return;
                 }
             }
-            this.f49265e = anniversary18thActivity;
+            this.f49432e = anniversary18thActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f49265e.resultData == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f49432e.resultData == null) {
                 return;
             }
             UrlManager urlManager = UrlManager.getInstance();
-            TbPageContext<Anniversary18thActivity> pageContext = this.f49265e.getPageContext();
-            urlManager.dealOneLink(pageContext, new String[]{"http://tieba.baidu.com/mo/q/checkurl?url=" + this.f49265e.resultData.a()});
+            TbPageContext<Anniversary18thActivity> pageContext = this.f49432e.getPageContext();
+            urlManager.dealOneLink(pageContext, new String[]{"http://tieba.baidu.com/mo/q/checkurl?url=" + this.f49432e.resultData.a()});
         }
     }
 
@@ -253,10 +253,10 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlertDialog f49266e;
+        public final /* synthetic */ AlertDialog f49433e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Anniversary18thActivity f49267f;
+        public final /* synthetic */ Anniversary18thActivity f49434f;
 
         public f(Anniversary18thActivity anniversary18thActivity, AlertDialog alertDialog) {
             Interceptable interceptable = $ic;
@@ -273,20 +273,20 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
                     return;
                 }
             }
-            this.f49267f = anniversary18thActivity;
-            this.f49266e = alertDialog;
+            this.f49434f = anniversary18thActivity;
+            this.f49433e = alertDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             AlertDialog alertDialog;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (alertDialog = this.f49266e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (alertDialog = this.f49433e) == null) {
                 return;
             }
             alertDialog.dismiss();
-            this.f49267f.model.cancel();
-            this.f49267f.finish();
+            this.f49434f.model.cancel();
+            this.f49434f.finish();
         }
     }
 
@@ -296,10 +296,10 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlertDialog f49268e;
+        public final /* synthetic */ AlertDialog f49435e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Anniversary18thActivity f49269f;
+        public final /* synthetic */ Anniversary18thActivity f49436f;
 
         public g(Anniversary18thActivity anniversary18thActivity, AlertDialog alertDialog) {
             Interceptable interceptable = $ic;
@@ -316,15 +316,15 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
                     return;
                 }
             }
-            this.f49269f = anniversary18thActivity;
-            this.f49268e = alertDialog;
+            this.f49436f = anniversary18thActivity;
+            this.f49435e = alertDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             AlertDialog alertDialog;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (alertDialog = this.f49268e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (alertDialog = this.f49435e) == null) {
                 return;
             }
             alertDialog.dismiss();
@@ -360,10 +360,10 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
             MaxureLayerView maxureLayerView = (MaxureLayerView) findViewById(R.id.maxure_layer);
             this.layerView = maxureLayerView;
             maxureLayerView.setHasText(true);
-            this.layerView.setLayerColor(c.a.t0.x3.c.a(SkinManager.getColor(0, R.color.CAM_X0611), SkinManager.RESOURCE_ALPHA_DISABLE));
+            this.layerView.setLayerColor(c.a.u0.z3.c.a(SkinManager.getColor(0, R.color.CAM_X0611), SkinManager.RESOURCE_ALPHA_DISABLE));
             this.layerView.setTextColor(getResources().getColor(R.color.CAM_X0101));
-            this.layerView.setTextBackColor(c.a.t0.x3.c.a(SkinManager.getColor(0, R.color.CAM_X0611), c.a.s0.s.u.a.a(R.string.A_X05)));
-            this.layerView.setLayerLineColor(c.a.t0.x3.c.a(SkinManager.getColor(0, R.color.CAM_X0101), SkinManager.RESOURCE_ALPHA_PRESS));
+            this.layerView.setTextBackColor(c.a.u0.z3.c.a(SkinManager.getColor(0, R.color.CAM_X0611), c.a.t0.s.v.a.a(R.string.A_X05)));
+            this.layerView.setLayerLineColor(c.a.u0.z3.c.a(SkinManager.getColor(0, R.color.CAM_X0101), SkinManager.RESOURCE_ALPHA_PRESS));
             this.layerView.setTextSize(UtilHelper.getDimenPixelSize(R.dimen.T_X07));
             this.mRightArrow = (ImageView) findViewById(R.id.right_arrow);
             this.activityMain = (LinearLayout) findViewById(R.id.activity_main);
@@ -374,7 +374,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
             this.backImageView.setRadiusById(R.string.J_X06);
             this.backImageView.setPlaceHolderAutoChangeSkinType(2);
             this.backImageView.setDrawBorder(false);
-            c.a.s0.s.u.c.d(this.shareVideoBtn).A(R.string.F_X02);
+            c.a.t0.s.v.c.d(this.shareVideoBtn).A(R.string.F_X02);
             this.shareVideoOuder.setBackgroundDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_share_video, WebPManager.ResourceStateType.NORMAL));
             this.shareVideoBtn.setOnClickListener(new b(this));
             this.activityMain.setOnClickListener(new c(this));
@@ -390,14 +390,14 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
             TBAlertConfig.a aVar = new TBAlertConfig.a(getString(R.string.pickerview_submit), TBAlertConfig.OperateBtnStyle.MAIN);
             TBAlertConfig.a aVar2 = new TBAlertConfig.a(R.string.cancel, TBAlertConfig.OperateBtnStyle.SECONDARY);
             m mVar = new m(TbadkCoreApplication.getInst().getCurrentActivity());
-            mVar.s(getString(R.string.sticker_maxure_video_dialog_title));
-            mVar.n(getString(R.string.sticker_maxure_video_dialog_content));
-            mVar.l(true);
-            mVar.p(aVar2, aVar);
-            mVar.g(false);
-            AlertDialog u = mVar.u();
-            aVar.a(new f(this, u));
-            aVar2.a(new g(this, u));
+            mVar.w(getString(R.string.sticker_maxure_video_dialog_title));
+            mVar.p(getString(R.string.sticker_maxure_video_dialog_content));
+            mVar.n(true);
+            mVar.r(aVar2, aVar);
+            mVar.i(false);
+            AlertDialog y = mVar.y();
+            aVar.a(new f(this, y));
+            aVar2.a(new g(this, y));
         }
     }
 
@@ -438,7 +438,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         }
     }
 
-    @Override // c.a.t0.n4.i.b
+    @Override // c.a.u0.q4.i.b
     public void onError(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) {
@@ -446,7 +446,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         }
     }
 
-    @Override // c.a.t0.n4.i.b
+    @Override // c.a.u0.q4.i.b
     public void onFinish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -469,11 +469,11 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         return invokeIL.booleanValue;
     }
 
-    @Override // c.a.t0.n4.i.b
+    @Override // c.a.u0.q4.i.b
     public void onMuxerSucess(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048582, this, str, str2, str3, str4) == null) {
-            this.mVideoPath = c.a.t0.n4.i.a.m(getPageContext(), str);
+            this.mVideoPath = c.a.u0.q4.i.a.m(getPageContext(), str);
             this.mCoverPath = str2;
             this.mTopicName = str3;
             this.mTopicId = str4;
@@ -504,8 +504,8 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         }
     }
 
-    @Override // c.a.t0.n4.i.b
-    public void onResponeSucess(c.a.t0.n4.i.d.b bVar) {
+    @Override // c.a.u0.q4.i.b
+    public void onResponeSucess(c.a.u0.q4.i.d.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
             this.resultData = bVar;
@@ -525,7 +525,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         }
     }
 
-    @Override // c.a.t0.n4.i.b
+    @Override // c.a.u0.q4.i.b
     public void onUpdateProgress(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {

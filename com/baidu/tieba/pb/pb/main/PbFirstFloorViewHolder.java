@@ -10,15 +10,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import c.a.d.f.m.b;
 import c.a.d.f.p.n;
-import c.a.s0.s.q.e2;
-import c.a.t0.t2.g;
-import c.a.t0.t2.h;
-import c.a.t0.t2.i;
-import c.a.t0.t2.j;
-import c.a.t0.t2.u.f.f;
-import c.a.t0.t2.u.f.i1.a;
-import c.a.t0.t2.u.f.s0;
-import c.a.t0.t2.u.f.t;
+import c.a.t0.s.r.e2;
+import c.a.u0.u2.g;
+import c.a.u0.u2.h;
+import c.a.u0.u2.i;
+import c.a.u0.u2.j;
+import c.a.u0.u2.u.f.f;
+import c.a.u0.u2.u.f.i1.a;
+import c.a.u0.u2.u.f.s0;
+import c.a.u0.u2.u.f.t;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
@@ -37,14 +37,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f46484b;
+    public View f46626b;
     public AppletsCellView mAppletsCellView;
     public View mBottomDivider;
     public View mContentReadMoreMaskView;
@@ -54,7 +54,7 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public LinearLayout mLinkContainer;
     public a mManagerSelectView;
     public NovelInfoCardView mNovelInfoCardView;
-    public c.a.t0.t2.u.f.f1.a mOriginalThreadView;
+    public c.a.u0.u2.u.f.f1.a mOriginalThreadView;
     public FrameLayout mOrignalThreadRootView;
     public PbBusinessPromotionContainer mPbBusinessPromotionContainer;
     public ThreadSkinView mPbItemSkinView;
@@ -98,7 +98,7 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         Matrix matrix = new Matrix();
         matrix.postTranslate(0.0f, -s0.g());
         this.a.setImageMatrix(matrix);
-        this.f46484b = view.findViewById(i.blank_view_above_rich_text);
+        this.f46626b = view.findViewById(i.blank_view_above_rich_text);
         this.richText = (TbRichTextView) view.findViewById(i.richText);
         this.pbItemViewRoot = view;
         int k = (((n.k(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.richText.getPaddingLeft()) - this.richText.getPaddingRight();
@@ -142,20 +142,20 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public void showBlankViewAboveRichText(boolean z, int i2) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (view = this.f46484b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (view = this.f46626b) == null) {
             return;
         }
         if (z) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
             layoutParams.height = i2;
-            this.f46484b.setLayoutParams(layoutParams);
-            this.f46484b.setVisibility(0);
+            this.f46626b.setLayoutParams(layoutParams);
+            this.f46626b.setVisibility(0);
             return;
         }
         view.setVisibility(8);
     }
 
-    public void showForumEnterButton(@NonNull c.a.t0.t2.r.f fVar, boolean z, boolean z2) {
+    public void showForumEnterButton(@NonNull c.a.u0.u2.r.f fVar, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{fVar, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.mForumEnterButtonContainer == null || fVar == null || fVar.l() == null) {
             return;
@@ -177,7 +177,7 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         if (fVar.O() != null) {
             e2Var.E4(fVar.O().d0);
         }
-        if (fVar.f22687i) {
+        if (fVar.f23185i) {
             this.mForumEnterButtonContainer.setVisibility(8);
             this.mPbBusinessPromotionContainer.bindForumData(e2Var, fVar.h(), fVar.r0());
             return;
@@ -185,10 +185,10 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         this.mPbBusinessPromotionContainer.setVisibility(8);
     }
 
-    public void showThreadTypeStampBottomPart(c.a.t0.t2.r.f fVar, boolean z, boolean z2) {
+    public void showThreadTypeStampBottomPart(c.a.u0.u2.r.f fVar, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{fVar, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (fVar != null && fVar.f22688j) {
+            if (fVar != null && fVar.f23186j) {
                 this.a.setImageResource(h.pic_frs_headlines_n);
                 this.a.setVisibility(0);
             } else if (z && z2) {

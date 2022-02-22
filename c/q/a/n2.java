@@ -15,7 +15,7 @@ public class n2 implements View.OnTouchListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ u2 f30412e;
+    public final /* synthetic */ u2 f30618e;
 
     public n2(u2 u2Var) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class n2 implements View.OnTouchListener {
                 return;
             }
         }
-        this.f30412e = u2Var;
+        this.f30618e = u2Var;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -43,40 +43,40 @@ public class n2 implements View.OnTouchListener {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f30412e.f30518j = true;
-                this.f30412e.k = System.currentTimeMillis();
-                this.f30412e.l = motionEvent.getX();
-                this.f30412e.m = motionEvent.getY();
-                this.f30412e.n = (int) motionEvent.getRawX();
-                this.f30412e.o = (int) motionEvent.getRawY();
-                this.f30412e.v = System.currentTimeMillis();
-                this.f30412e.p = (int) motionEvent.getX();
-                this.f30412e.q = (int) motionEvent.getY();
-                u2.c(this.f30412e, view);
+                this.f30618e.f30724j = true;
+                this.f30618e.k = System.currentTimeMillis();
+                this.f30618e.l = motionEvent.getX();
+                this.f30618e.m = motionEvent.getY();
+                this.f30618e.n = (int) motionEvent.getRawX();
+                this.f30618e.o = (int) motionEvent.getRawY();
+                this.f30618e.v = System.currentTimeMillis();
+                this.f30618e.p = (int) motionEvent.getX();
+                this.f30618e.q = (int) motionEvent.getY();
+                u2.c(this.f30618e, view);
             } else if (action == 1) {
-                this.f30412e.w = (int) motionEvent.getRawX();
-                this.f30412e.x = (int) motionEvent.getRawY();
-                this.f30412e.r = (int) motionEvent.getX();
-                this.f30412e.s = (int) motionEvent.getY();
-                this.f30412e.y = System.currentTimeMillis();
-                Math.abs(motionEvent.getX() - this.f30412e.l);
-                Math.abs(motionEvent.getY() - this.f30412e.m);
-                if (System.currentTimeMillis() - this.f30412e.k < 2000) {
-                    u2 u2Var = this.f30412e;
-                    if (u2Var.f30518j && (info = u2Var.f30511c) != null && a2.d(info, u2Var.f30516h)) {
-                        this.f30412e.f30516h = System.currentTimeMillis();
-                        u2 u2Var2 = this.f30412e;
+                this.f30618e.w = (int) motionEvent.getRawX();
+                this.f30618e.x = (int) motionEvent.getRawY();
+                this.f30618e.r = (int) motionEvent.getX();
+                this.f30618e.s = (int) motionEvent.getY();
+                this.f30618e.y = System.currentTimeMillis();
+                Math.abs(motionEvent.getX() - this.f30618e.l);
+                Math.abs(motionEvent.getY() - this.f30618e.m);
+                if (System.currentTimeMillis() - this.f30618e.k < 2000) {
+                    u2 u2Var = this.f30618e;
+                    if (u2Var.f30724j && (info = u2Var.f30717c) != null && a2.d(info, u2Var.f30722h)) {
+                        this.f30618e.f30722h = System.currentTimeMillis();
+                        u2 u2Var2 = this.f30618e;
                         Context context = u2Var2.a;
-                        String open = u2Var2.f30511c.getOpen();
-                        u2 u2Var3 = this.f30412e;
-                        a2.a(context, open, u2Var3.f30511c, u2Var3.f30515g, u2Var3.g().toString());
-                        y2 a = c3.a(this.f30412e.a);
-                        a.h(new g3(this.f30412e.f30511c), null);
-                        a.l("desc", this.f30412e.g().toString());
+                        String open = u2Var2.f30717c.getOpen();
+                        u2 u2Var3 = this.f30618e;
+                        a2.a(context, open, u2Var3.f30717c, u2Var3.f30721g, u2Var3.g().toString());
+                        y2 a = c3.a(this.f30618e.a);
+                        a.h(new g3(this.f30618e.f30717c), null);
+                        a.l("desc", this.f30618e.g().toString());
                         a.m();
-                        u2 u2Var4 = this.f30412e;
-                        r0.p(u2Var4.f30511c, u2Var4.g().toString());
-                        i3 i3Var = this.f30412e.f30514f;
+                        u2 u2Var4 = this.f30618e;
+                        r0.p(u2Var4.f30717c, u2Var4.g().toString());
+                        i3 i3Var = this.f30618e.f30720f;
                         if (i3Var != null) {
                             i3Var.onClicked();
                         }

@@ -17,10 +17,10 @@ public class d {
     public ExecutorService a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ExecutorService f59662b;
+    public ExecutorService f59829b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ScheduledExecutorService f59663c;
+    public ScheduledExecutorService f59830c;
 
     /* loaded from: classes4.dex */
     public static class a {
@@ -36,27 +36,27 @@ public class d {
     }
 
     public ExecutorService c() {
-        if (this.f59662b == null) {
+        if (this.f59829b == null) {
             synchronized (d.class) {
-                if (this.f59662b == null) {
+                if (this.f59829b == null) {
                     TimeUnit timeUnit = TimeUnit.SECONDS;
                     SynchronousQueue synchronousQueue = new SynchronousQueue();
-                    this.f59662b = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, timeUnit, synchronousQueue, new com.ss.android.socialbase.downloader.h.a(g.class.getName() + "-IOThreadPool"));
+                    this.f59829b = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, timeUnit, synchronousQueue, new com.ss.android.socialbase.downloader.h.a(g.class.getName() + "-IOThreadPool"));
                 }
             }
         }
-        return this.f59662b;
+        return this.f59829b;
     }
 
     public ScheduledExecutorService d() {
-        if (this.f59663c == null) {
+        if (this.f59830c == null) {
             synchronized (d.class) {
-                if (this.f59663c == null) {
-                    this.f59663c = new ScheduledThreadPoolExecutor(0, new com.ss.android.socialbase.downloader.h.a(g.class.getName() + "-ScheduledThreadPool"));
+                if (this.f59830c == null) {
+                    this.f59830c = new ScheduledThreadPoolExecutor(0, new com.ss.android.socialbase.downloader.h.a(g.class.getName() + "-ScheduledThreadPool"));
                 }
             }
         }
-        return this.f59663c;
+        return this.f59830c;
     }
 
     public void e() {

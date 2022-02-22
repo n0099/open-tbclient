@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.d.a.j;
-import c.a.s0.x0.a;
+import c.a.t0.x0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
@@ -16,28 +16,28 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class DressupItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f45896e;
+    public Context f46038e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f45897f;
+    public View f46039f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f45898g;
+    public TbImageView f46040g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f45899h;
+    public TbImageView f46041h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f45900i;
+    public TextView f46042i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f45901j;
+    public TextView f46043j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DressupItemView(Context context) {
@@ -57,41 +57,41 @@ public class DressupItemView extends LinearLayout {
                 return;
             }
         }
-        this.f45896e = context;
+        this.f46038e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f45896e).inflate(R.layout.index_dressup_item, this);
-            this.f45897f = inflate;
-            this.f45898g = (TbImageView) inflate.findViewById(R.id.bg_image);
-            TbImageView tbImageView = (TbImageView) this.f45897f.findViewById(R.id.permission_icon);
-            this.f45899h = tbImageView;
+            View inflate = LayoutInflater.from(this.f46038e).inflate(R.layout.index_dressup_item, this);
+            this.f46039f = inflate;
+            this.f46040g = (TbImageView) inflate.findViewById(R.id.bg_image);
+            TbImageView tbImageView = (TbImageView) this.f46039f.findViewById(R.id.permission_icon);
+            this.f46041h = tbImageView;
             tbImageView.setDefaultResource(R.drawable.transparent_bg);
-            this.f45899h.setDefaultBgResource(R.drawable.transparent_bg);
-            this.f45900i = (TextView) this.f45897f.findViewById(R.id.txt_type);
-            this.f45901j = (TextView) this.f45897f.findViewById(R.id.txt_name);
+            this.f46041h.setDefaultBgResource(R.drawable.transparent_bg);
+            this.f46042i = (TextView) this.f46039f.findViewById(R.id.txt_type);
+            this.f46043j = (TextView) this.f46039f.findViewById(R.id.txt_name);
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a.a((TbPageContext) j.a(this.f45896e), this.f45897f);
+            a.a((TbPageContext) j.a(this.f46038e), this.f46039f);
         }
     }
 
-    public void renderView(c.a.t0.g2.c.k.j jVar) {
+    public void renderView(c.a.u0.h2.c.k.j jVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jVar) == null) || jVar == null) {
             return;
         }
-        this.f45898g.startLoad(jVar.b(), 10, false);
-        this.f45899h.startLoad(jVar.e(), 10, false);
-        this.f45901j.setText(jVar.f());
-        this.f45900i.setText(jVar.g());
+        this.f46040g.startLoad(jVar.b(), 10, false);
+        this.f46041h.startLoad(jVar.e(), 10, false);
+        this.f46043j.setText(jVar.f());
+        this.f46042i.setText(jVar.g());
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -113,7 +113,7 @@ public class DressupItemView extends LinearLayout {
                 return;
             }
         }
-        this.f45896e = context;
+        this.f46038e = context;
         a();
     }
 
@@ -136,7 +136,7 @@ public class DressupItemView extends LinearLayout {
                 return;
             }
         }
-        this.f45896e = context;
+        this.f46038e = context;
         a();
     }
 }

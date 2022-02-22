@@ -18,13 +18,13 @@ public class a extends c.b.b.n.l.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f27222h;
+    public boolean f27428h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f27223i;
+    public int f27429i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f27224j;
+    public int f27430j;
     public float k;
 
     static {
@@ -68,23 +68,23 @@ public class a extends c.b.b.n.l.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            long j2 = this.f27209e;
-            long j3 = aVar.f27209e;
+            long j2 = this.f27415e;
+            long j3 = aVar.f27415e;
             if (j2 != j3) {
                 return (int) (j2 - j3);
             }
             a aVar2 = (a) aVar;
-            boolean z = this.f27222h;
-            if (z != aVar2.f27222h) {
+            boolean z = this.f27428h;
+            if (z != aVar2.f27428h) {
                 return z ? 1 : -1;
             }
-            int i2 = this.f27223i;
-            int i3 = aVar2.f27223i;
+            int i2 = this.f27429i;
+            int i3 = aVar2.f27429i;
             if (i2 != i3) {
                 return i2 - i3;
             }
-            int i4 = this.f27224j;
-            int i5 = aVar2.f27224j;
+            int i4 = this.f27430j;
+            int i5 = aVar2.f27430j;
             if (i4 != i5) {
                 return i4 - i5;
             }
@@ -101,7 +101,7 @@ public class a extends c.b.b.n.l.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (((((((super.hashCode() * 947) + (this.f27222h ? 1 : 0)) * 947) + this.f27223i) * 947) + this.f27224j) * 947) + t.b(this.k);
+            return (((((((super.hashCode() * 947) + (this.f27428h ? 1 : 0)) * 947) + this.f27429i) * 947) + this.f27430j) * 947) + t.b(this.k);
         }
         return invokeV.intValue;
     }
@@ -125,9 +125,9 @@ public class a extends c.b.b.n.l.a {
             }
         }
         this.k = 1.0f;
-        this.f27222h = z;
-        this.f27223i = i2;
-        this.f27224j = i3;
+        this.f27428h = z;
+        this.f27429i = i2;
+        this.f27430j = i3;
         this.k = f2;
     }
 
@@ -154,7 +154,7 @@ public class a extends c.b.b.n.l.a {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(a aVar) {
-        this(aVar == null || aVar.f27222h, aVar == null ? BankSignFactory.BEAN_ID_QUERY : aVar.f27223i, aVar == null ? BankSignFactory.BEAN_ID_BIND_CARD : aVar.f27224j, aVar == null ? 1.0f : aVar.k);
+        this(aVar == null || aVar.f27428h, aVar == null ? BankSignFactory.BEAN_ID_QUERY : aVar.f27429i, aVar == null ? BankSignFactory.BEAN_ID_BIND_CARD : aVar.f27430j, aVar == null ? 1.0f : aVar.k);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

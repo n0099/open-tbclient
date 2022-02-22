@@ -24,7 +24,7 @@ public class NHCreditPicGroup extends BaseItemLayout {
     public NHTitleView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f51290b;
+    public LinearLayout f51457b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NHCreditPicGroup(Context context) {
@@ -63,7 +63,7 @@ public class NHCreditPicGroup extends BaseItemLayout {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_nh_credit_long_layout"), this);
             this.a = (NHTitleView) findViewById(ResUtils.id(getContext(), "credit_group_title"));
             LinearLayout linearLayout = (LinearLayout) findViewById(ResUtils.id(getContext(), "credit_group_list"));
-            this.f51290b = linearLayout;
+            this.f51457b = linearLayout;
             linearLayout.setOrientation(0);
         }
     }
@@ -91,13 +91,13 @@ public class NHCreditPicGroup extends BaseItemLayout {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(displayWidth, i2);
             NHCreditPicItem nHCreditPicItem = new NHCreditPicItem(getContext());
             nHCreditPicItem.setData(this.mConfigData.list[0], getWalletInterface());
-            this.f51290b.addView(nHCreditPicItem, layoutParams);
+            this.f51457b.addView(nHCreditPicItem, layoutParams);
             if (this.mConfigData.list.length > 1) {
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(displayWidth, i2);
                 NHCreditPicItem nHCreditPicItem2 = new NHCreditPicItem(getContext());
                 layoutParams2.setMargins(DisplayUtils.dip2px(getContext(), 15.0f), 0, 0, 0);
                 nHCreditPicItem2.setData(this.mConfigData.list[1], getWalletInterface());
-                this.f51290b.addView(nHCreditPicItem2, layoutParams2);
+                this.f51457b.addView(nHCreditPicItem2, layoutParams2);
             }
         }
     }

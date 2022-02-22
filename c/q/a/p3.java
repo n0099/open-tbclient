@@ -36,7 +36,7 @@ public class p3 implements i3 {
     public void a(boolean z) {
         VideoView videoView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (videoView = this.a.f30315h) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (videoView = this.a.f30521h) == null) {
             return;
         }
         if (!z) {
@@ -51,7 +51,7 @@ public class p3 implements i3 {
     public void onClicked() {
         c1 c1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (c1Var = this.a.f30310c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (c1Var = this.a.f30516c) == null) {
             return;
         }
         c1Var.onClicked();
@@ -62,13 +62,13 @@ public class p3 implements i3 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             b1 b1Var = this.a;
-            if (b1Var.f30310c != null) {
-                VideoView videoView = b1Var.f30315h;
+            if (b1Var.f30516c != null) {
+                VideoView videoView = b1Var.f30521h;
                 if (videoView != null) {
                     videoView.start();
                     this.a.a();
                 }
-                this.a.f30310c.onDisplayed();
+                this.a.f30516c.onDisplayed();
             }
         }
     }
@@ -78,7 +78,7 @@ public class p3 implements i3 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, pBError) == null) {
             if (pBError == PBError.PID_INVALID) {
-                c1 c1Var = this.a.f30310c;
+                c1 c1Var = this.a.f30516c;
                 if (c1Var != null) {
                     c1Var.onFail(PBError.NO_FILL);
                     return;
@@ -86,8 +86,8 @@ public class p3 implements i3 {
                 return;
             }
             b1 b1Var = this.a;
-            c1 c1Var2 = b1Var.f30310c;
-            if (c1Var2 == null || b1Var.f30312e) {
+            c1 c1Var2 = b1Var.f30516c;
+            if (c1Var2 == null || b1Var.f30518e) {
                 return;
             }
             c1Var2.onFail(PBError.NO_FILL);
@@ -98,23 +98,23 @@ public class p3 implements i3 {
     public void onLoaded() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            u2 u2Var = this.a.f30309b.a;
+            u2 u2Var = this.a.f30515b.a;
             if (u2Var != null && u2Var.e()) {
                 b1 b1Var = this.a;
                 Context context = b1Var.a;
-                u2 u2Var2 = b1Var.f30309b.a;
-                m2.l(context, (u2Var2 == null || !u2Var2.e()) ? 0L : u2Var2.f30511c.getLo_timeout());
-                u2 u2Var3 = this.a.f30309b.a;
+                u2 u2Var2 = b1Var.f30515b.a;
+                m2.l(context, (u2Var2 == null || !u2Var2.e()) ? 0L : u2Var2.f30717c.getLo_timeout());
+                u2 u2Var3 = this.a.f30515b.a;
                 String str = "";
-                if (((u2Var3 == null || !u2Var3.e()) ? "" : u2Var3.f30511c.getLoad_type()).equals("video")) {
-                    u2 u2Var4 = this.a.f30309b.a;
+                if (((u2Var3 == null || !u2Var3.e()) ? "" : u2Var3.f30717c.getLoad_type()).equals("video")) {
+                    u2 u2Var4 = this.a.f30515b.a;
                     if (u2Var4 != null && u2Var4.e()) {
-                        str = u2Var4.f30511c.getLoad();
+                        str = u2Var4.f30717c.getLoad();
                     }
                     this.a.c(str);
                     return;
                 }
-                c1 c1Var = this.a.f30310c;
+                c1 c1Var = this.a.f30516c;
                 if (c1Var != null) {
                     c1Var.onFail(PBError.LOAD_TYPE_ERROR);
                 }

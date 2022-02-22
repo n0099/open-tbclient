@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.util.Preconditions;
 import java.security.MessageDigest;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Option<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final CacheKeyUpdater<Object> EMPTY_UPDATER;
@@ -24,7 +24,7 @@ public final class Option<T> {
     public final String key;
     public volatile byte[] keyBytes;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface CacheKeyUpdater<T> {
         void update(@NonNull byte[] bArr, @NonNull T t, @NonNull MessageDigest messageDigest);
     }

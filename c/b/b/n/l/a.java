@@ -14,14 +14,14 @@ public abstract class a implements Comparable<a> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final c.b.b.q.a<String> f27208g;
+    public static final c.b.b.q.a<String> f27414g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f27209e;
+    public final long f27415e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f27210f;
+    public final int f27416f;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +36,7 @@ public abstract class a implements Comparable<a> {
                 return;
             }
         }
-        f27208g = new c.b.b.q.a<>();
+        f27414g = new c.b.b.q.a<>();
     }
 
     public a(long j2) {
@@ -54,15 +54,15 @@ public abstract class a implements Comparable<a> {
                 return;
             }
         }
-        this.f27209e = j2;
-        this.f27210f = Long.numberOfTrailingZeros(j2);
+        this.f27415e = j2;
+        this.f27416f = Long.numberOfTrailingZeros(j2);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:13:0x001d, code lost:
-        r7 = c.b.b.n.l.a.f27208g;
+        r7 = c.b.b.n.l.a.f27414g;
      */
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0021, code lost:
-        if (r0 >= r7.f27389f) goto L17;
+        if (r0 >= r7.f27595f) goto L17;
      */
     /* JADX WARN: Code restructure failed: missing block: B:25:?, code lost:
         return r7.get(r0);
@@ -90,8 +90,8 @@ public abstract class a implements Comparable<a> {
         }
         int i2 = 0;
         while (true) {
-            c.b.b.q.a<String> aVar = f27208g;
-            if (i2 >= aVar.f27389f) {
+            c.b.b.q.a<String> aVar = f27414g;
+            if (i2 >= aVar.f27595f) {
                 return 0L;
             }
             if (aVar.get(i2).compareTo(str) == 0) {
@@ -109,8 +109,8 @@ public abstract class a implements Comparable<a> {
             if (c2 > 0) {
                 return c2;
             }
-            f27208g.a(str);
-            return 1 << (f27208g.f27389f - 1);
+            f27414g.a(str);
+            return 1 << (f27414g.f27595f - 1);
         }
         return invokeL.longValue;
     }
@@ -133,7 +133,7 @@ public abstract class a implements Comparable<a> {
             }
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                if (this.f27209e != aVar.f27209e) {
+                if (this.f27415e != aVar.f27415e) {
                     return false;
                 }
                 return a(aVar);
@@ -146,12 +146,12 @@ public abstract class a implements Comparable<a> {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27210f * 7489 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27416f * 7489 : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? b(this.f27209e) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? b(this.f27415e) : (String) invokeV.objValue;
     }
 }

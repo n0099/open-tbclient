@@ -12,13 +12,13 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Point f35511b;
+    public Point f35717b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Point f35512c;
+    public Point f35718c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<ArrayList<Point>> f35513d;
+    public ArrayList<ArrayList<Point>> f35719d;
 
     public a() {
         Interceptable interceptable = $ic;

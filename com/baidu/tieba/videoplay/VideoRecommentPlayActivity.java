@@ -13,12 +13,12 @@ import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentTransaction;
 import c.a.d.f.p.n;
-import c.a.t0.m4.c;
-import c.a.t0.m4.d;
-import c.a.t0.m4.e;
-import c.a.t0.m4.f;
-import c.a.t0.m4.g;
-import c.a.t0.m4.i;
+import c.a.u0.p4.c;
+import c.a.u0.p4.d;
+import c.a.u0.p4.e;
+import c.a.u0.p4.f;
+import c.a.u0.p4.g;
+import c.a.u0.p4.i;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -59,7 +59,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
     public VideoVerticalPageFragment mFragment;
     public String mFrom;
     public boolean mIsFromSchema;
-    public c.a.t0.k.a mNEGFeedBackManager;
+    public c.a.u0.k.a mNEGFeedBackManager;
     public String mNid;
     public CustomMessageListener mSuspendedViewAnimationListener;
     public List<VideoItemData> mVideoDataList;
@@ -113,7 +113,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoRecommentPlayActivity f48851e;
+        public final /* synthetic */ VideoRecommentPlayActivity f49018e;
 
         public b(VideoRecommentPlayActivity videoRecommentPlayActivity) {
             Interceptable interceptable = $ic;
@@ -130,14 +130,14 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f48851e = videoRecommentPlayActivity;
+            this.f49018e = videoRecommentPlayActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f48851e.finish();
+                this.f49018e.finish();
             }
         }
     }
@@ -416,7 +416,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             }
             super.onCreate(bundle);
             setContentView(g.video_play_activity);
-            this.mNEGFeedBackManager = new c.a.t0.k.a(getPageContext(), "client_videomiddle");
+            this.mNEGFeedBackManager = new c.a.u0.k.a(getPageContext(), "client_videomiddle");
             initData();
             initFragment();
             addNoAdjustSoftInputHeightListener();
@@ -434,8 +434,8 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            DanmuProgressManager.f48867b.a().b();
-            c.a.t0.k.a aVar = this.mNEGFeedBackManager;
+            DanmuProgressManager.f49034b.a().b();
+            c.a.u0.k.a aVar = this.mNEGFeedBackManager;
             if (aVar != null) {
                 aVar.h();
             }
@@ -486,7 +486,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                 videoVerticalPageFragment.setPrimary(false);
                 this.mFragment.setUserVisibleHint(false);
             }
-            c.a.s0.a.d.y().G();
+            c.a.t0.a.d.y().G();
         }
     }
 
@@ -499,7 +499,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             if (videoVerticalPageFragment != null) {
                 videoVerticalPageFragment.setPrimary(true);
                 this.mFragment.setUserVisibleHint(true);
-                c.a.s0.a.d.y().R(c.a.s0.a.c.a0, this.mFragment.getMissionTid());
+                c.a.t0.a.d.y().R(c.a.t0.a.c.a0, this.mFragment.getMissionTid());
             }
         }
     }

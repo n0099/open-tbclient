@@ -35,10 +35,10 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final f f62563i;
+        public final f f62730i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ OperatorZip$Zip f62564j;
+        public final /* synthetic */ OperatorZip$Zip f62731j;
 
         public a(OperatorZip$Zip operatorZip$Zip) {
             Interceptable interceptable = $ic;
@@ -55,15 +55,15 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
                     return;
                 }
             }
-            this.f62564j = operatorZip$Zip;
-            this.f62563i = f.a();
+            this.f62731j = operatorZip$Zip;
+            this.f62730i = f.a();
         }
 
         @Override // i.j
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e(f.f62064g);
+                e(f.f62231g);
             }
         }
 
@@ -78,8 +78,8 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f62563i.f();
-                this.f62564j.tick();
+                this.f62730i.f();
+                this.f62731j.tick();
             }
         }
 
@@ -87,7 +87,7 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                this.f62564j.child.onError(th);
+                this.f62731j.child.onError(th);
             }
         }
 
@@ -96,11 +96,11 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
                 try {
-                    this.f62563i.g(obj);
+                    this.f62730i.g(obj);
                 } catch (MissingBackpressureException e2) {
                     onError(e2);
                 }
-                this.f62564j.tick();
+                this.f62731j.tick();
             }
         }
     }
@@ -118,7 +118,7 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
                 return;
             }
         }
-        THRESHOLD = (int) (f.f62064g * 0.7d);
+        THRESHOLD = (int) (f.f62231g * 0.7d);
     }
 
     public OperatorZip$Zip(j<? super R> jVar, h<? extends R> hVar) {
@@ -174,7 +174,7 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
             Object[] objArr2 = new Object[length];
             boolean z = true;
             for (int i2 = 0; i2 < length; i2++) {
-                f fVar = ((a) objArr[i2]).f62563i;
+                f fVar = ((a) objArr[i2]).f62730i;
                 Object h2 = fVar.h();
                 if (h2 == null) {
                     z = false;
@@ -192,7 +192,7 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
                     atomicLong.decrementAndGet();
                     this.emitted++;
                     for (Object obj : objArr) {
-                        f fVar2 = ((a) obj).f62563i;
+                        f fVar2 = ((a) obj).f62730i;
                         fVar2.i();
                         if (fVar2.d(fVar2.h())) {
                             eVar.onCompleted();

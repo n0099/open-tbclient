@@ -9,41 +9,41 @@ import com.baidu.webkit.sdk.Log;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public C2037a a;
+    public C2047a a;
 
     /* renamed from: com.baidu.webkit.internal.monitor.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C2037a {
+    /* loaded from: classes3.dex */
+    public class C2047a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f52825b;
+        public boolean f52992b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f52826c;
+        public long f52993c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f52827d;
+        public long f52994d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f52828e;
+        public boolean f52995e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f52829f;
+        public boolean f52996f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Map<String, Long> f52830g;
+        public Map<String, Long> f52997g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f52831h;
+        public final /* synthetic */ a f52998h;
 
-        public C2037a(a aVar) {
+        public C2047a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,14 +58,14 @@ public final class a {
                     return;
                 }
             }
-            this.f52831h = aVar;
-            this.f52825b = true;
-            this.f52826c = -1L;
-            this.f52827d = -1L;
-            this.f52830g = new HashMap();
+            this.f52998h = aVar;
+            this.f52992b = true;
+            this.f52993c = -1L;
+            this.f52994d = -1L;
+            this.f52997g = new HashMap();
         }
 
-        public /* synthetic */ C2037a(a aVar, byte b2) {
+        public /* synthetic */ C2047a(a aVar, byte b2) {
             this(aVar);
         }
 
@@ -73,12 +73,12 @@ public final class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a = false;
-                this.f52825b = true;
-                this.f52826c = -1L;
-                this.f52827d = -1L;
-                this.f52828e = false;
-                this.f52829f = false;
-                this.f52830g.clear();
+                this.f52992b = true;
+                this.f52993c = -1L;
+                this.f52994d = -1L;
+                this.f52995e = false;
+                this.f52996f = false;
+                this.f52997g.clear();
             }
         }
     }
@@ -102,15 +102,15 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                if (this.a != null && this.a.f52829f) {
+                if (this.a != null && this.a.f52996f) {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("coldbootfirst", this.a.a);
-                    jSONObject.put("loadasycsearch", this.a.f52825b);
-                    jSONObject.put("starttosearch", this.a.f52826c);
-                    jSONObject.put("starttofragment", this.a.f52827d);
-                    jSONObject.put("state50", this.a.f52828e);
-                    for (String str : this.a.f52830g.keySet()) {
-                        jSONObject.put(str, this.a.f52830g.get(str));
+                    jSONObject.put("loadasycsearch", this.a.f52992b);
+                    jSONObject.put("starttosearch", this.a.f52993c);
+                    jSONObject.put("starttofragment", this.a.f52994d);
+                    jSONObject.put("state50", this.a.f52995e);
+                    for (String str : this.a.f52997g.keySet()) {
+                        jSONObject.put(str, this.a.f52997g.get(str));
                     }
                     this.a.a();
                     return jSONObject;

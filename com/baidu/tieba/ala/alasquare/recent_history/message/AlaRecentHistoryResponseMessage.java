@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.alasquare.recent_history.message;
 
-import c.a.t0.a0.f.f.b.a;
-import c.a.t0.a0.f.f.b.b;
+import c.a.u0.a0.f.f.b.a;
+import c.a.u0.a0.f.f.b.b;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -60,7 +60,7 @@ public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
                 }
                 arrayList = arrayList2;
             }
-            this.mHistoryData.f14727b = arrayList;
+            this.mHistoryData.f15001b = arrayList;
         }
     }
 

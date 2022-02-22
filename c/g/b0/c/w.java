@@ -23,7 +23,7 @@ public class w implements FunNativeAd2Bridger<f, JYNativeAdView> {
     public final /* synthetic */ z a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ v f28349b;
+    public final /* synthetic */ v f28555b;
 
     public w(v vVar, z zVar) {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class w implements FunNativeAd2Bridger<f, JYNativeAdView> {
                 return;
             }
         }
-        this.f28349b = vVar;
+        this.f28555b = vVar;
         this.a = zVar;
     }
 
@@ -51,7 +51,7 @@ public class w implements FunNativeAd2Bridger<f, JYNativeAdView> {
     public JYNativeAdView createExpressView(f fVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) ? this.f28349b.a(fVar) : (View) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) ? this.f28555b.a(fVar) : (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
@@ -61,8 +61,8 @@ public class w implements FunNativeAd2Bridger<f, JYNativeAdView> {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, fVar, baseNativeAd2, funAdInteractionListener}) == null) {
             f fVar2 = fVar;
             ViewGroup inflate = customInflater.inflate();
-            v vVar = this.f28349b;
-            View view = this.a.f28358d;
+            v vVar = this.f28555b;
+            View view = this.a.f28564d;
             List<View> clickViews = customInflater.getClickViews();
             vVar.d(fVar2, str, funAdInteractionListener);
             fVar2.d(inflate, view, clickViews);
@@ -74,7 +74,7 @@ public class w implements FunNativeAd2Bridger<f, JYNativeAdView> {
     public void showExpress(Activity activity, ExpressInflater expressInflater, String str, f fVar, BaseNativeAd2<f, JYNativeAdView> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, fVar, baseNativeAd2, funAdInteractionListener}) == null) {
-            this.f28349b.d(fVar, str, funAdInteractionListener);
+            this.f28555b.d(fVar, str, funAdInteractionListener);
             expressInflater.inflate();
         }
     }

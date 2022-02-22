@@ -1,8 +1,8 @@
 package com.baidu.searchbox.task.async.appcreate;
 
 import c.a.d.f.p.n;
-import c.a.s0.a.d;
-import c.a.s0.d1.c0;
+import c.a.t0.a.d;
+import c.a.t0.d1.d0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbConfig;
@@ -39,9 +39,13 @@ public class PreLoadTiebaClass extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             TbConfig.getVersion();
             RomTypeUtil.check("EMUI");
+            try {
+                Class.forName("com.baidu.tieba.im.memorycache.ImMemoryCacheRegister");
+            } catch (ClassNotFoundException unused) {
+            }
             d.y();
             ItemCardHelper.i();
-            c0.b();
+            d0.b();
             n.x(TbadkCoreApplication.getInst());
         }
     }

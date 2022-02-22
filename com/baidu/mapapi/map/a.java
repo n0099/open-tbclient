@@ -52,9 +52,9 @@ public class a implements Overlay.a {
                 list6 = this.a.k;
                 if (list6.contains(overlay)) {
                     Bundle a = overlay.a();
-                    eVar3 = this.a.f35247i;
+                    eVar3 = this.a.f35453i;
                     if (eVar3 != null) {
-                        eVar4 = this.a.f35247i;
+                        eVar4 = this.a.f35453i;
                         eVar4.d(a);
                     }
                     list7 = this.a.k;
@@ -77,9 +77,9 @@ public class a implements Overlay.a {
                         list2.remove(marker);
                         list3 = this.a.l;
                         if (list3.size() == 0) {
-                            eVar = this.a.f35247i;
+                            eVar = this.a.f35453i;
                             if (eVar != null) {
-                                eVar2 = this.a.f35247i;
+                                eVar2 = this.a.f35453i;
                                 eVar2.b(false);
                             }
                         }
@@ -113,15 +113,15 @@ public class a implements Overlay.a {
                     boolean z = false;
                     if (overlay instanceof Marker) {
                         Marker marker = (Marker) overlay;
-                        if (marker.f35369b != null) {
+                        if (marker.f35575b != null) {
                             ArrayList<BitmapDescriptor> arrayList = marker.o;
                             if (arrayList != null && arrayList.size() > 1) {
                                 Bundle bundle = new Bundle();
-                                eVar5 = this.a.f35247i;
+                                eVar5 = this.a.f35453i;
                                 if (eVar5 != null) {
                                     marker.remove();
                                     marker.o.clear();
-                                    eVar6 = this.a.f35247i;
+                                    eVar6 = this.a.f35453i;
                                     eVar6.b(overlay.a(bundle));
                                     list8 = this.a.k;
                                     list8.add(overlay);
@@ -138,18 +138,18 @@ public class a implements Overlay.a {
                                 }
                                 list6 = this.a.l;
                                 list6.add(marker);
-                                eVar3 = this.a.f35247i;
+                                eVar3 = this.a.f35453i;
                                 if (eVar3 != null) {
-                                    eVar4 = this.a.f35247i;
+                                    eVar4 = this.a.f35453i;
                                     eVar4.b(true);
                                 }
                             }
                         }
                     }
-                    eVar = this.a.f35247i;
+                    eVar = this.a.f35453i;
                     if (eVar != null && !z) {
                         Bundle bundle2 = new Bundle();
-                        eVar2 = this.a.f35247i;
+                        eVar2 = this.a.f35453i;
                         eVar2.c(overlay.a(bundle2));
                     }
                 }

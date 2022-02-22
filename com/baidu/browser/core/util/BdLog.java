@@ -20,16 +20,16 @@ public final class BdLog {
     public static boolean a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static FileOutputStream f33071b;
+    public static FileOutputStream f33277b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f33072c;
+    public static boolean f33278c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f33073d;
+    public static String f33279d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f33074e;
+    public static String f33280e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -155,13 +155,13 @@ public final class BdLog {
                 return;
             }
         }
-        f33073d = Environment.getExternalStorageDirectory() + File.separator + "baidu" + File.separator + "flyflow" + File.separator + TbConfig.TMP_LOG_DIR_NAME + File.separator;
+        f33279d = Environment.getExternalStorageDirectory() + File.separator + "baidu" + File.separator + "flyflow" + File.separator + TbConfig.TMP_LOG_DIR_NAME + File.separator;
         StringBuilder sb = new StringBuilder();
-        sb.append(f33073d);
+        sb.append(f33279d);
         sb.append("baiduliulanqi_log.txt");
-        f33074e = sb.toString();
+        f33280e = sb.toString();
         StringBuilder sb2 = new StringBuilder();
-        sb2.append(f33073d);
+        sb2.append(f33279d);
         sb2.append("baiduliulanqi_lasttime_log.txt");
         sb2.toString();
     }
@@ -181,7 +181,7 @@ public final class BdLog {
             int i2 = a.a[logLevel.ordinal()];
             if (i2 == 1 || i2 == 2 || i2 == 3 || i2 != 4) {
             }
-            if (f33072c) {
+            if (f33278c) {
                 d(str, str2);
             }
         }
@@ -198,15 +198,15 @@ public final class BdLog {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && Environment.getExternalStorageState().equals("mounted")) {
             try {
-                File file = new File(f33073d);
+                File file = new File(f33279d);
                 if (!file.exists()) {
                     file.mkdirs();
                 }
-                if (f33071b == null) {
-                    f33071b = new FileOutputStream(f33074e);
+                if (f33277b == null) {
+                    f33277b = new FileOutputStream(f33280e);
                 }
-                f33071b.write((str + ZeusCrashHandler.NAME_SEPERATOR + str2).getBytes("UTF-8"));
-                f33071b.write(StringUtils.LF.getBytes());
+                f33277b.write((str + ZeusCrashHandler.NAME_SEPERATOR + str2).getBytes("UTF-8"));
+                f33277b.write(StringUtils.LF.getBytes());
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

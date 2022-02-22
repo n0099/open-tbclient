@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ReadRecordsData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f41098e;
+    public String f41327e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f41099f;
+    public String f41328f;
 
     public ReadRecordsData() {
         Interceptable interceptable = $ic;
@@ -38,10 +38,10 @@ public class ReadRecordsData extends OrmObject {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (StringUtils.isNull(this.f41098e)) {
+            if (StringUtils.isNull(this.f41327e)) {
                 return 0L;
             }
-            return Double.valueOf(b.c(this.f41098e, 0.0d) * 100.0d).longValue();
+            return Double.valueOf(b.c(this.f41327e, 0.0d) * 100.0d).longValue();
         }
         return invokeV.longValue;
     }
@@ -49,20 +49,20 @@ public class ReadRecordsData extends OrmObject {
     public String x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41099f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41328f : (String) invokeV.objValue;
     }
 
     public void y(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f41098e = str;
+            this.f41327e = str;
         }
     }
 
     public void z(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f41099f = str;
+            this.f41328f = str;
         }
     }
 
@@ -81,7 +81,7 @@ public class ReadRecordsData extends OrmObject {
                 return;
             }
         }
-        this.f41098e = str;
-        this.f41099f = str3;
+        this.f41327e = str;
+        this.f41328f = str3;
     }
 }

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import okhttp3.internal.Util;
 import okio.ByteString;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Http2 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] BINARY;

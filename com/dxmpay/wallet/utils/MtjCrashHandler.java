@@ -61,7 +61,7 @@ public class MtjCrashHandler {
             linkedList.add("com.baidu.wallet");
             linkedList.add(BuildConfig.APPLICATION_ID);
             linkedList.add("com.baidu.android.pay");
-            linkedList.add(a.f32362b);
+            linkedList.add(a.f32568b);
             linkedList.add("com.baidu.android.minipay");
             linkedList.add(com.baidu.android.lbspay.BuildConfig.LIBRARY_PACKAGE_NAME);
             linkedList.add("com.dxm.face");

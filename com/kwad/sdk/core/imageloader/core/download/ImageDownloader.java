@@ -2,10 +2,10 @@ package com.kwad.sdk.core.imageloader.core.download;
 
 import java.io.InputStream;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface ImageDownloader {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum Scheme {
         HTTP("http"),
         HTTPS("https"),

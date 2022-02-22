@@ -9,7 +9,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes11.dex */
 public class TopToastEvent extends SerializableEvent {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int STAUS_ERROR = 0;
+    public static final int STAUS_SUCCES = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public String content;
     public int status;

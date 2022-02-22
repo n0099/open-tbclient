@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BIMRtcTrackDatabase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DB_NAME = "bimrtc_track.db";
@@ -34,7 +34,7 @@ public class BIMRtcTrackDatabase {
     public transient /* synthetic */ FieldHolder $fh;
     public Context context;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class DbOpenHelper extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public static final String SQL_TABLE_CREATE_REQUEST;
@@ -136,7 +136,7 @@ public class BIMRtcTrackDatabase {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class RequestEnum {
         public static final /* synthetic */ RequestEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;

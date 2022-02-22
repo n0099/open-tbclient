@@ -1,7 +1,7 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.a.e0.c;
+import c.a.t0.a.e0.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.RTCLoadManager;
 import com.baidu.searchbox.StartupCountStatsController;

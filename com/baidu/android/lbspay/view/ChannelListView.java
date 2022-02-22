@@ -110,7 +110,7 @@ public class ChannelListView extends LinearLayout {
                 public final /* synthetic */ ViewGroup a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ChannelListView f31610b;
+                public final /* synthetic */ ChannelListView f31816b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -127,7 +127,7 @@ public class ChannelListView extends LinearLayout {
                             return;
                         }
                     }
-                    this.f31610b = this;
+                    this.f31816b = this;
                     this.a = viewGroup;
                 }
 
@@ -136,10 +136,10 @@ public class ChannelListView extends LinearLayout {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         this.a.setVisibility(4);
-                        if (this.f31610b.radioGroupChannels != null) {
-                            this.f31610b.radioGroupChannels.showAllChannels();
+                        if (this.f31816b.radioGroupChannels != null) {
+                            this.f31816b.radioGroupChannels.showAllChannels();
                         }
-                        PayChannelController.DoShowAllChannelClick doShowAllChannelClick = this.f31610b.mShowAllChannelClick;
+                        PayChannelController.DoShowAllChannelClick doShowAllChannelClick = this.f31816b.mShowAllChannelClick;
                         if (doShowAllChannelClick != null) {
                             doShowAllChannelClick.doClick();
                         }
@@ -376,7 +376,7 @@ public class ChannelListView extends LinearLayout {
                     public final /* synthetic */ NewCashierContent.CommonMarketing a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ ChannelListView f31609b;
+                    public final /* synthetic */ ChannelListView f31815b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -393,7 +393,7 @@ public class ChannelListView extends LinearLayout {
                                 return;
                             }
                         }
-                        this.f31609b = this;
+                        this.f31815b = this;
                         this.a = commonMarketing;
                     }
 
@@ -404,7 +404,7 @@ public class ChannelListView extends LinearLayout {
                             return;
                         }
                         StatisticManager.onEventWithValue(LbsStatistics.WALLET_LBS_BANNER_CLICK, this.a.url);
-                        BaiduWalletDelegate.getInstance().openH5Module(this.f31609b.getContext(), this.a.url, false);
+                        BaiduWalletDelegate.getInstance().openH5Module(this.f31815b.getContext(), this.a.url, false);
                     }
                 });
             }

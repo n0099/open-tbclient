@@ -32,8 +32,8 @@ public class d6 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) && i2 == 1 && i3 == 0) {
             d1 d1Var = this.a;
-            e1 e1Var = d1Var.f30332e;
-            if (e1Var != null && !d1Var.f30333f && !d1Var.k && !d1.x) {
+            e1 e1Var = d1Var.f30538e;
+            if (e1Var != null && !d1Var.f30539f && !d1Var.k && !d1.x) {
                 if (e1Var != null) {
                     e1Var.e();
                     return;
@@ -41,16 +41,16 @@ public class d6 {
                 return;
             }
             d1 d1Var2 = this.a;
-            if (d1Var2.f30332e == null || d1Var2.f30333f || !d1Var2.k || d1.x) {
+            if (d1Var2.f30538e == null || d1Var2.f30539f || !d1Var2.k || d1.x) {
                 return;
             }
-            u uVar = d1Var2.f30329b.a;
-            if (((uVar == null || !uVar.f()) ? -1 : uVar.f30497c.getOpent()) == 1) {
+            u uVar = d1Var2.f30535b.a;
+            if (((uVar == null || !uVar.f()) ? -1 : uVar.f30703c.getOpent()) == 1) {
                 d1 d1Var3 = this.a;
-                if (d1Var3.f30332e == null || !d1Var3.r.isShown()) {
+                if (d1Var3.f30538e == null || !d1Var3.r.isShown()) {
                     return;
                 }
-                this.a.f30332e.e();
+                this.a.f30538e.e();
             }
         }
     }

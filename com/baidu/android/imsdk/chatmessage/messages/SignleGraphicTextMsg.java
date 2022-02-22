@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SignleGraphicTextMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<SignleGraphicTextMsg> CREATOR;

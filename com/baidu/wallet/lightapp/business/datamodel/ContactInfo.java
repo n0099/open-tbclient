@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.Comparator;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class ContactInfo implements Comparator<ContactInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f51643b;
+    public String f51810b;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static class Phone implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,30 +79,30 @@ public class ContactInfo implements Comparator<ContactInfo> {
             } else if (contactInfo2 == null) {
                 return contactInfo == null ? 0 : -1;
             } else {
-                contactInfo.f51643b = a(contactInfo.a);
-                contactInfo2.f51643b = a(contactInfo2.a);
-                if (TextUtils.isEmpty(contactInfo.f51643b) && TextUtils.isEmpty(contactInfo2.f51643b)) {
+                contactInfo.f51810b = a(contactInfo.a);
+                contactInfo2.f51810b = a(contactInfo2.a);
+                if (TextUtils.isEmpty(contactInfo.f51810b) && TextUtils.isEmpty(contactInfo2.f51810b)) {
                     return 0;
                 }
-                if (TextUtils.isEmpty(contactInfo.f51643b)) {
-                    return !TextUtils.isEmpty(contactInfo2.f51643b) ? 1 : 0;
+                if (TextUtils.isEmpty(contactInfo.f51810b)) {
+                    return !TextUtils.isEmpty(contactInfo2.f51810b) ? 1 : 0;
                 }
-                if (TextUtils.isEmpty(contactInfo2.f51643b)) {
-                    return TextUtils.isEmpty(contactInfo.f51643b) ? 0 : -1;
+                if (TextUtils.isEmpty(contactInfo2.f51810b)) {
+                    return TextUtils.isEmpty(contactInfo.f51810b) ? 0 : -1;
                 }
-                contactInfo.f51643b = contactInfo.f51643b.toUpperCase();
-                String upperCase = contactInfo2.f51643b.toUpperCase();
-                contactInfo2.f51643b = upperCase;
-                if (contactInfo.f51643b.equals(upperCase)) {
+                contactInfo.f51810b = contactInfo.f51810b.toUpperCase();
+                String upperCase = contactInfo2.f51810b.toUpperCase();
+                contactInfo2.f51810b = upperCase;
+                if (contactInfo.f51810b.equals(upperCase)) {
                     return 0;
                 }
-                if (contactInfo.f51643b.equals("#")) {
+                if (contactInfo.f51810b.equals("#")) {
                     return 1;
                 }
-                if (contactInfo2.f51643b.equals("#")) {
+                if (contactInfo2.f51810b.equals("#")) {
                     return -1;
                 }
-                return contactInfo.f51643b.compareTo(contactInfo2.f51643b);
+                return contactInfo.f51810b.compareTo(contactInfo2.f51810b);
             }
         }
         return invokeLL.intValue;

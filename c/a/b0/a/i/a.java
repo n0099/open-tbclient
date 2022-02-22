@@ -1,88 +1,163 @@
 package c.a.b0.a.i;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Build;
+import android.os.Process;
+import android.telephony.TelephonyManager;
+import androidx.core.view.InputDeviceCompat;
 import c.a.b0.a.e;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.kuaishou.weapon.un.s;
 /* loaded from: classes.dex */
-public final class a {
+public class a {
     public static /* synthetic */ Interceptable $ic;
-    public static e a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: c.a.b0.a.i.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public static class C0034a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public long f1578b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public int f1579c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public String f1580d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public String f1581e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public String f1582f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public String f1583g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public String f1584h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public String f1585i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public boolean f1586j;
-        public boolean k;
-        public boolean l;
-        public int m;
-        public int n;
-        public JSONObject o;
-        public JSONObject p;
-
-        public C0034a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public static NetworkInfo a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            e.c("DpNetworkUtils", "getNetWorkInfo()");
+            if (context == null) {
+                return null;
             }
+            try {
+                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+                if (connectivityManager != null) {
+                    return connectivityManager.getActiveNetworkInfo();
+                }
+            } catch (Exception unused) {
+            }
+            return null;
+        }
+        return (NetworkInfo) invokeL.objValue;
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            e.c("DpNetworkUtils", "shouldCheckPermission()");
+            return Build.VERSION.SDK_INT >= 23;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean c(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            e.c("DpNetworkUtils", "checkPermissionGranted()");
+            return str != null && context.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0041  */
+    /* JADX WARN: Removed duplicated region for block: B:37:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean d(Context context) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, context)) != null) {
+            return invokeL.booleanValue;
+        }
+        e.c("DpNetworkUtils", "checkPhonePermission()");
+        boolean z2 = true;
+        if (!b()) {
+            return true;
+        }
+        if (context == null) {
+            return false;
+        }
+        try {
+            if (!c(context, "android.permission.CALL_PHONE") && !c(context, "android.permission.MODIFY_PHONE_STATE") && !c(context, s.f55454c) && !c(context, "android.permission.PROCESS_OUTGOING_CALLS")) {
+                z = false;
+                if (Build.VERSION.SDK_INT < 16) {
+                    if (!z) {
+                        if (!c(context, "android.permission.READ_CALL_LOG")) {
+                            z2 = false;
+                        }
+                    }
+                    return z2;
+                }
+                return z;
+            }
+            z = true;
+            if (Build.VERSION.SDK_INT < 16) {
+            }
+        } catch (Throwable unused) {
+            return false;
         }
     }
 
-    public static void a(String str, JSONObject jSONObject) {
+    public static String e(Context context) {
+        InterceptResult invokeL;
+        int i2;
+        TelephonyManager telephonyManager;
+        String subscriberId;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, str, jSONObject) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.putOpt("sdk_version", Integer.valueOf(c.a.b0.a.b.h()));
-                if (jSONObject2.length() > 0) {
-                    jSONObject2.put("debug_info", jSONObject);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            e.c("DpNetworkUtils", "getNetworkStatisticsData()");
+            NetworkInfo a = a(context);
+            int i3 = 3;
+            if (a == null || a.getState() != NetworkInfo.State.CONNECTED) {
+                i2 = 0;
+            } else if (a.getType() == 0) {
+                switch (a.getSubtype()) {
+                    case 1:
+                    case 2:
+                    case 4:
+                    case 7:
+                    case 11:
+                        i2 = 2;
+                        break;
+                    case 3:
+                    case 5:
+                    case 6:
+                    case 8:
+                    case 9:
+                    case 10:
+                    case 12:
+                    case 14:
+                    case 15:
+                        i2 = 3;
+                        break;
+                    case 13:
+                        i2 = 4;
+                        break;
+                    default:
+                        i2 = 1;
+                        break;
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } else {
+                i2 = a.getType() == 1 ? 100 : a.getType() == 9 ? 101 : 999;
             }
-            e eVar = a;
-            if (eVar != null) {
-                eVar.report(str, jSONObject2);
+            int i4 = 99;
+            try {
+                if (!d(context) || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || (subscriberId = telephonyManager.getSubscriberId()) == null) {
+                    i3 = 0;
+                } else {
+                    if (!subscriberId.startsWith("46000") && !subscriberId.startsWith("46002")) {
+                        if (!subscriberId.startsWith("46001")) {
+                            i3 = subscriberId.startsWith("46003") ? 2 : 99;
+                        }
+                    }
+                    i3 = 1;
+                }
+                i4 = i3;
+            } catch (Throwable th) {
+                e.e("DpNetworkUtils", "network changed: " + th);
             }
+            return i2 + "_" + i4;
         }
+        return (String) invokeL.objValue;
     }
 }

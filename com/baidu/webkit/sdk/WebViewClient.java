@@ -7,6 +7,7 @@ import android.view.KeyEvent;
 import android.webkit.SslErrorHandler;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +24,7 @@ import com.baidu.webkit.internal.b.f;
 import com.baidu.webkit.internal.b.g;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WebViewClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_AUTHENTICATION = -4;
@@ -49,7 +50,7 @@ public class WebViewClient {
     public List<g> mUrlHandlers;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class InteractionType {
         public static final /* synthetic */ InteractionType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -112,7 +113,7 @@ public class WebViewClient {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SecurityInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -163,7 +164,7 @@ public class WebViewClient {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SecurityLevel {
         public static final /* synthetic */ SecurityLevel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -197,7 +198,7 @@ public class WebViewClient {
             FAKE_BAIDU = new SecurityLevel("FAKE_BAIDU", 4);
             FAKE_SITE = new SecurityLevel("FAKE_SITE", 5);
             MALCIOUS_RESOURCE = new SecurityLevel("MALCIOUS_RESOURCE", 6);
-            SecurityLevel securityLevel = new SecurityLevel("DEFAULT", 7);
+            SecurityLevel securityLevel = new SecurityLevel(EngineName.DEFAULT_ENGINE, 7);
             DEFAULT = securityLevel;
             $VALUES = new SecurityLevel[]{SECURE, DANGEROUS, UNCERTAIN, FORBIDDEN, FAKE_BAIDU, FAKE_SITE, MALCIOUS_RESOURCE, securityLevel};
         }
@@ -234,7 +235,7 @@ public class WebViewClient {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class WebSiteInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -275,7 +276,7 @@ public class WebViewClient {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class WebSiteType {
         public static final /* synthetic */ WebSiteType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -309,7 +310,7 @@ public class WebViewClient {
             UNCERTAIN = new WebSiteType("UNCERTAIN", 4);
             PHONE_STATE = new WebSiteType("PHONE_STATE", 5);
             EVIL_DOWNLOAD = new WebSiteType("EVIL_DOWNLOAD", 6);
-            WebSiteType webSiteType = new WebSiteType("DEFAULT", 7);
+            WebSiteType webSiteType = new WebSiteType(EngineName.DEFAULT_ENGINE, 7);
             DEFAULT = webSiteType;
             $VALUES = new WebSiteType[]{BANK, PAYMENT, EBUSINESS, FAKEBAIDU, UNCERTAIN, PHONE_STATE, EVIL_DOWNLOAD, webSiteType};
         }
@@ -346,7 +347,7 @@ public class WebViewClient {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface ZeusVideoInfoDelegate {
         void notifyUpdateVideoInfo(String str);
     }

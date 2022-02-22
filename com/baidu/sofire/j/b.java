@@ -19,13 +19,13 @@ public final class b {
     public static final byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f38495b;
+    public static final byte[] f38723b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f38496c;
+    public static final byte[] f38724c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final byte[] f38497d;
+    public static final byte[] f38725d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,9 +42,9 @@ public final class b {
             }
         }
         a = "ftyp".getBytes();
-        f38495b = MediaDataBox.TYPE.getBytes();
-        f38496c = MovieBox.TYPE.getBytes();
-        f38497d = "free".getBytes();
+        f38723b = MediaDataBox.TYPE.getBytes();
+        f38724c = MovieBox.TYPE.getBytes();
+        f38725d = "free".getBytes();
     }
 
     public static int a(byte[] bArr, int i2, int i3, byte[] bArr2, int i4) {

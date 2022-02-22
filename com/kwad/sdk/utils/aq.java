@@ -5,7 +5,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class aq {
     @NonNull
     public static String a(Context context) {

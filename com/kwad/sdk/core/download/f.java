@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.download;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class f {
     public volatile boolean a = false;
 

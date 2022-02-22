@@ -3,11 +3,11 @@ package com.baidu.tieba.homepage.personalize.adapter;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.s0.o0.c;
-import c.a.t0.g0.d0;
-import c.a.t0.g0.f0.j;
-import c.a.t0.t.e;
-import c.a.t0.t.f;
+import c.a.t0.o0.c;
+import c.a.u0.g0.b0;
+import c.a.u0.g0.d0.j;
+import c.a.u0.t.e;
+import c.a.u0.t.f;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,24 +24,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes12.dex */
-public class HomePageAlaFriendRoomAdapter extends c.a.d.n.e.a<j, HomePageAlaLiveThreadViewHolder> implements f {
+public class HomePageAlaFriendRoomAdapter extends c.a.d.o.e.a<j, HomePageAlaLiveThreadViewHolder> implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId m;
     public TbPageContext<?> n;
-    public c.a.t0.g0.j o;
+    public c.a.u0.g0.j o;
     public NEGFeedBackView.b p;
     public String q;
-    public d0<j> r;
+    public b0<j> r;
 
     /* loaded from: classes12.dex */
     public static class HomePageAlaLiveThreadViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public c.a.t0.g0.j mView;
+        public c.a.u0.g0.j mView;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HomePageAlaLiveThreadViewHolder(c.a.t0.g0.j jVar) {
+        public HomePageAlaLiveThreadViewHolder(c.a.u0.g0.j jVar) {
             super(jVar.j());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -63,12 +63,12 @@ public class HomePageAlaFriendRoomAdapter extends c.a.d.n.e.a<j, HomePageAlaLive
     }
 
     /* loaded from: classes12.dex */
-    public class a extends d0<j> {
+    public class a extends b0<j> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ HomePageAlaFriendRoomAdapter f44353b;
+        public final /* synthetic */ HomePageAlaFriendRoomAdapter f44611b;
 
         public a(HomePageAlaFriendRoomAdapter homePageAlaFriendRoomAdapter) {
             Interceptable interceptable = $ic;
@@ -85,17 +85,17 @@ public class HomePageAlaFriendRoomAdapter extends c.a.d.n.e.a<j, HomePageAlaLive
                     return;
                 }
             }
-            this.f44353b = homePageAlaFriendRoomAdapter;
+            this.f44611b = homePageAlaFriendRoomAdapter;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Code restructure failed: missing block: B:16:0x0058, code lost:
-            if (r5.getId() == r4.f44353b.o.J().getId()) goto L6;
+            if (r5.getId() == r4.f44611b.o.J().getId()) goto L6;
          */
         /* JADX WARN: Code restructure failed: missing block: B:21:0x0079, code lost:
-            if (r5.getId() == r4.f44353b.o.K().getId()) goto L6;
+            if (r5.getId() == r4.f44611b.o.K().getId()) goto L6;
          */
-        @Override // c.a.t0.g0.d0
+        @Override // c.a.u0.g0.b0
         /* renamed from: d */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -104,24 +104,24 @@ public class HomePageAlaFriendRoomAdapter extends c.a.d.n.e.a<j, HomePageAlaLive
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, jVar) == null) {
                 int i2 = 2;
-                if (this.f44353b.o.A == view) {
+                if (this.f44611b.o.A == view) {
                     i2 = 1;
-                } else if (view == this.f44353b.o.p.getCommentContainer()) {
-                    this.f44353b.b0(jVar, view);
+                } else if (view == this.f44611b.o.p.getCommentContainer()) {
+                    this.f44611b.b0(jVar, view);
                     i2 = 5;
                 } else {
-                    if (view == this.f44353b.o.q.getCommentContainer()) {
-                        this.f44353b.b0(jVar, view);
+                    if (view == this.f44611b.o.q.getCommentContainer()) {
+                        this.f44611b.b0(jVar, view);
                     } else {
-                        if (this.f44353b.o.J() != null) {
+                        if (this.f44611b.o.J() != null) {
                         }
-                        if (this.f44353b.o.K() != null) {
+                        if (this.f44611b.o.K() != null) {
                         }
                     }
                     i2 = 0;
                 }
                 if (i2 != 0) {
-                    c.a.t0.p1.h.m.a.c(jVar.f17600e, this.f44353b.m, jVar.q(), i2);
+                    c.a.u0.p1.i.m.a.c(jVar.f17886e, this.f44611b.m, jVar.q(), i2);
                 }
             }
         }
@@ -180,13 +180,13 @@ public class HomePageAlaFriendRoomAdapter extends c.a.d.n.e.a<j, HomePageAlaLive
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.n.e.a
+    @Override // c.a.d.o.e.a
     /* renamed from: c0 */
     public HomePageAlaLiveThreadViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            c.a.t0.g0.j jVar = new c.a.t0.g0.j(this.n, this.m);
+            c.a.u0.g0.j jVar = new c.a.u0.g0.j(this.n, this.m);
             this.o = jVar;
             jVar.B(2);
             BdUniqueId bdUniqueId = this.m;
@@ -199,15 +199,15 @@ public class HomePageAlaFriendRoomAdapter extends c.a.d.n.e.a<j, HomePageAlaLive
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.n.e.a
+    @Override // c.a.d.o.e.a
     /* renamed from: d0 */
     public View S(int i2, View view, ViewGroup viewGroup, j jVar, HomePageAlaLiveThreadViewHolder homePageAlaLiveThreadViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, jVar, homePageAlaLiveThreadViewHolder})) == null) {
-            jVar.K(jVar.position + 1);
-            jVar.f17600e.T1 = jVar.q();
-            c.a.t0.g0.j jVar2 = homePageAlaLiveThreadViewHolder.mView;
+            jVar.J(jVar.position + 1);
+            jVar.f17886e.T1 = jVar.q();
+            c.a.u0.g0.j jVar2 = homePageAlaLiveThreadViewHolder.mView;
             if (jVar2 instanceof e) {
                 jVar2.d(this.q);
             }
@@ -215,7 +215,7 @@ public class HomePageAlaFriendRoomAdapter extends c.a.d.n.e.a<j, HomePageAlaLive
             homePageAlaLiveThreadViewHolder.mView.k(jVar);
             homePageAlaLiveThreadViewHolder.mView.m(this.r);
             homePageAlaLiveThreadViewHolder.mView.A(this.p);
-            c.a.t0.p1.h.m.a.f(jVar.f17600e, this.m, jVar.q());
+            c.a.u0.p1.i.m.a.f(jVar.f17886e, this.m, jVar.q());
             if (jVar.getThreadData() != null && jVar.getThreadData().p1() != null) {
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.ALA_FRIEND_ROOM_CARD_SHOW);
                 statisticItem.param("obj_locate", 1);
@@ -235,7 +235,7 @@ public class HomePageAlaFriendRoomAdapter extends c.a.d.n.e.a<j, HomePageAlaLive
         }
     }
 
-    @Override // c.a.t0.t.f
+    @Override // c.a.u0.t.f
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {

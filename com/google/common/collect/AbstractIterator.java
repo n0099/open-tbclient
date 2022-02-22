@@ -17,10 +17,10 @@ public abstract class AbstractIterator<T> extends o1<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public State f54553e;
+    public State f54720e;
 
     /* renamed from: f  reason: collision with root package name */
-    public T f54554f;
+    public T f54721f;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
@@ -131,7 +131,7 @@ public abstract class AbstractIterator<T> extends o1<T> {
                 return;
             }
         }
-        this.f54553e = State.NOT_READY;
+        this.f54720e = State.NOT_READY;
     }
 
     public abstract T a();
@@ -140,7 +140,7 @@ public abstract class AbstractIterator<T> extends o1<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            this.f54553e = State.DONE;
+            this.f54720e = State.DONE;
             return null;
         }
         return (T) invokeV.objValue;
@@ -150,10 +150,10 @@ public abstract class AbstractIterator<T> extends o1<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            this.f54553e = State.FAILED;
-            this.f54554f = a();
-            if (this.f54553e != State.DONE) {
-                this.f54553e = State.READY;
+            this.f54720e = State.FAILED;
+            this.f54721f = a();
+            if (this.f54720e != State.DONE) {
+                this.f54720e = State.READY;
                 return true;
             }
             return false;
@@ -166,8 +166,8 @@ public abstract class AbstractIterator<T> extends o1<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            n.w(this.f54553e != State.FAILED);
-            int i2 = a.a[this.f54553e.ordinal()];
+            n.w(this.f54720e != State.FAILED);
+            int i2 = a.a[this.f54720e.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     return c();
@@ -185,9 +185,9 @@ public abstract class AbstractIterator<T> extends o1<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (hasNext()) {
-                this.f54553e = State.NOT_READY;
-                T t = this.f54554f;
-                this.f54554f = null;
+                this.f54720e = State.NOT_READY;
+                T t = this.f54721f;
+                this.f54721f = null;
                 return t;
             }
             throw new NoSuchElementException();

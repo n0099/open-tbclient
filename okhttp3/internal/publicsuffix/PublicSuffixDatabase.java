@@ -21,7 +21,7 @@ import okhttp3.internal.platform.Platform;
 import okio.BufferedSource;
 import okio.GzipSource;
 import okio.Okio;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class PublicSuffixDatabase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] EMPTY_RULE;

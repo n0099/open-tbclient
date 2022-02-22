@@ -12,15 +12,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Serializable;
+import java.util.Map;
 /* loaded from: classes11.dex */
 public class PersonalChatActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IS_FRIEND = 1;
     public static final int IS_NOT_FRIEND = 0;
+    public static final String KEY_FROM_REPORT_SELECT = "key_from_report_select";
+    public static final String KEY_HAS_SELECT_MSG_LIST = "key_has_select_msg_list";
     public static final String KEY_IS_FOLLOW = "key_is_follow";
     public static final String KEY_IS_FRIEND = "key_is_friend";
     public static final String KEY_LEAVE_MSG = "key_leave_msg";
     public static final String KEY_REPLY_CONTENT = "key_reply_content";
+    public static final String KEY_SELECT_MSG_LIST_FINISH = "key_select_msg_list_finish";
     public static final String KEY_SHARE_MSG = "key_share_msg";
     public static final String KEY_USER_ID = "key_user_id";
     public static final String KEY_USER_NAME = "key_user_name";
@@ -59,6 +64,20 @@ public class PersonalChatActivityConfig extends IntentConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             getIntent().putExtra(KEY_IS_FOLLOW, i2);
+        }
+    }
+
+    public void setIsReportSelect(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            getIntent().putExtra(KEY_FROM_REPORT_SELECT, z);
+        }
+    }
+
+    public void setSelectList(Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
+            getIntent().putExtra(KEY_HAS_SELECT_MSG_LIST, (Serializable) map);
         }
     }
 

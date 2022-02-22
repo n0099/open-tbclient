@@ -11,7 +11,7 @@ public class a {
     public static char[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static byte[] f61678b;
+    public static byte[] f61845b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -50,10 +50,10 @@ public class a {
         char[] cArr = a;
         cArr[i2] = '+';
         cArr[i2 + 1] = '/';
-        f61678b = new byte[128];
+        f61845b = new byte[128];
         int i3 = 0;
         while (true) {
-            byte[] bArr = f61678b;
+            byte[] bArr = f61845b;
             if (i3 >= bArr.length) {
                 break;
             }
@@ -61,7 +61,7 @@ public class a {
             i3++;
         }
         for (int i4 = 0; i4 < 64; i4++) {
-            f61678b[a[i4]] = (byte) i4;
+            f61845b[a[i4]] = (byte) i4;
         }
     }
 
@@ -107,8 +107,8 @@ public class a {
                 cArr[i8] = cArr2[i11];
                 int i16 = i15 + 1;
                 cArr[i15] = cArr2[i12];
-                char c2 = com.alipay.sdk.encrypt.a.f30893h;
-                cArr[i16] = i16 < i6 ? cArr2[i13] : com.alipay.sdk.encrypt.a.f30893h;
+                char c2 = com.alipay.sdk.encrypt.a.f31099h;
+                cArr[i16] = i16 < i6 ? cArr2[i13] : com.alipay.sdk.encrypt.a.f31099h;
                 int i17 = i16 + 1;
                 if (i17 < i6) {
                     c2 = a[i14];

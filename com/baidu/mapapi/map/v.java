@@ -38,9 +38,9 @@ public class v implements View.OnClickListener {
         ac acVar3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            acVar = this.a.f35450b;
+            acVar = this.a.f35656b;
             float f2 = acVar.b().a;
-            acVar2 = this.a.f35450b;
+            acVar2 = this.a.f35656b;
             ab E = acVar2.b().E();
             float f3 = E.a + 1.0f;
             E.a = f3;
@@ -49,7 +49,7 @@ public class v implements View.OnClickListener {
             }
             E.a = f2;
             BaiduMap.mapStatusReason |= 16;
-            acVar3 = this.a.f35450b;
+            acVar3 = this.a.f35656b;
             acVar3.b().a(E, 300);
         }
     }

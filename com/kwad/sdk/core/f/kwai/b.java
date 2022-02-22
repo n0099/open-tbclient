@@ -7,20 +7,20 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import com.kwad.sdk.core.f.a.b;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f55876b = new LinkedBlockingQueue<>(1);
+    public final LinkedBlockingQueue<IBinder> f56043b = new LinkedBlockingQueue<>(1);
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f55877c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.kwai.b.1
+    public ServiceConnection f56044c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.kwai.b.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
                 com.kwad.sdk.core.d.a.c("HWDeviceIDHelper", "onServiceConnected");
-                b.this.f55876b.put(iBinder);
+                b.this.f56043b.put(iBinder);
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
@@ -42,18 +42,18 @@ public class b {
         try {
             Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
             intent.setPackage("com.huawei.hwid");
-            if (this.a.bindService(intent, this.f55877c, 1)) {
+            if (this.a.bindService(intent, this.f56044c, 1)) {
                 try {
-                    b.a aVar = new b.a(this.f55876b.take());
+                    b.a aVar = new b.a(this.f56043b.take());
                     str = aVar.a();
                     boolean b2 = aVar.b();
                     com.kwad.sdk.core.d.a.c("HWDeviceIDHelper", "getOAID oaid:" + str + "--boos:" + b2);
                     context = this.a;
-                    serviceConnection = this.f55877c;
+                    serviceConnection = this.f56044c;
                 } catch (Exception e2) {
                     com.kwad.sdk.core.d.a.a(e2);
                     context = this.a;
-                    serviceConnection = this.f55877c;
+                    serviceConnection = this.f56044c;
                 }
                 context.unbindService(serviceConnection);
             }

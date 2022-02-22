@@ -2,7 +2,6 @@ package okhttp3.internal.connection;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.response.ResponseException;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +27,7 @@ import okhttp3.internal.http.HttpCodec;
 import okhttp3.internal.http2.ConnectionShutdownException;
 import okhttp3.internal.http2.ErrorCode;
 import okhttp3.internal.http2.StreamResetException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class StreamAllocation {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -48,7 +47,7 @@ public final class StreamAllocation {
     public RouteSelector.Selection routeSelection;
     public final RouteSelector routeSelector;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class StreamAllocationReference extends WeakReference<StreamAllocation> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -197,7 +196,7 @@ public final class StreamAllocation {
                             }
                             z2 = false;
                         } else {
-                            throw new IOException(ResponseException.CANCELED);
+                            throw new IOException("Canceled");
                         }
                     } else {
                         throw new IllegalStateException("codec != null");
@@ -224,7 +223,7 @@ public final class StreamAllocation {
             }
             synchronized (this.connectionPool) {
                 if (this.canceled) {
-                    throw new IOException(ResponseException.CANCELED);
+                    throw new IOException("Canceled");
                 }
                 if (z3) {
                     List<Route> all = this.routeSelection.getAll();

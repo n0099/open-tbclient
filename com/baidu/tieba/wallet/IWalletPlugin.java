@@ -2,7 +2,7 @@ package com.baidu.tieba.wallet;
 
 import android.app.Activity;
 import android.content.Context;
-import c.a.s0.r0.g;
+import c.a.t0.r0.g;
 import com.baidu.adp.BdUniqueId;
 import java.util.Map;
 /* loaded from: classes13.dex */

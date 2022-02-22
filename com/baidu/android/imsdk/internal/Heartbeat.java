@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.os.Handler;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t.a;
+import c.a.u.a;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.utils.StatHelper;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Heartbeat {
     public static /* synthetic */ Interceptable $ic = null;
     public static int ALARM_TIMEOUT = 60000;
@@ -30,7 +30,7 @@ public class Heartbeat {
     public Handler mHandler;
     public HeartbeatOpearation mOperator;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class BoxHeartbeat implements HeartbeatOpearation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -152,7 +152,7 @@ public class Heartbeat {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class NormalHeartbeat implements HeartbeatOpearation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

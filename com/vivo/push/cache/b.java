@@ -16,7 +16,7 @@ public final class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f60730b;
+    public d f60897b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public final class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            d dVar = this.f60730b;
+            d dVar = this.f60897b;
             if (dVar != null) {
                 return dVar;
             }
@@ -61,7 +61,7 @@ public final class b {
                 Method method = Class.forName(str).getMethod("getInstance", Context.class);
                 p.d("ConfigManagerFactory", "createConfig success is ".concat(str));
                 d dVar2 = (d) method.invoke(null, context);
-                this.f60730b = dVar2;
+                this.f60897b = dVar2;
                 return dVar2;
             } catch (Exception e2) {
                 e2.printStackTrace();

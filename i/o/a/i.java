@@ -13,13 +13,13 @@ public final class i implements d.a<Long> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f61908e;
+    public final long f62075e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final TimeUnit f61909f;
+    public final TimeUnit f62076f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final i.g f61910g;
+    public final i.g f62077g;
 
     /* loaded from: classes4.dex */
     public class a implements i.n.a {
@@ -27,7 +27,7 @@ public final class i implements d.a<Long> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i.j f61911e;
+        public final /* synthetic */ i.j f62078e;
 
         public a(i iVar, i.j jVar) {
             Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public final class i implements d.a<Long> {
                     return;
                 }
             }
-            this.f61911e = jVar;
+            this.f62078e = jVar;
         }
 
         @Override // i.n.a
@@ -52,10 +52,10 @@ public final class i implements d.a<Long> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f61911e.onNext(0L);
-                    this.f61911e.onCompleted();
+                    this.f62078e.onNext(0L);
+                    this.f62078e.onCompleted();
                 } catch (Throwable th) {
-                    i.m.a.f(th, this.f61911e);
+                    i.m.a.f(th, this.f62078e);
                 }
             }
         }
@@ -76,9 +76,9 @@ public final class i implements d.a<Long> {
                 return;
             }
         }
-        this.f61908e = j2;
-        this.f61909f = timeUnit;
-        this.f61910g = gVar;
+        this.f62075e = j2;
+        this.f62076f = timeUnit;
+        this.f62077g = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -86,9 +86,9 @@ public final class i implements d.a<Long> {
     public void call(i.j<? super Long> jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
-            g.a createWorker = this.f61910g.createWorker();
+            g.a createWorker = this.f62077g.createWorker();
             jVar.b(createWorker);
-            createWorker.c(new a(this, jVar), this.f61908e, this.f61909f);
+            createWorker.c(new a(this, jVar), this.f62075e, this.f62076f);
         }
     }
 }

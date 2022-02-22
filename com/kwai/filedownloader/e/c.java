@@ -9,37 +9,37 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwai.filedownloader.exception.PathConflictException;
 import com.kwai.filedownloader.y;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     @SuppressLint({"StaticFieldLeak"})
     public static Context a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         int a(int i2, String str, String str2, long j2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         com.kwai.filedownloader.kwai.b a(String str);
     }
 
     /* renamed from: com.kwai.filedownloader.e.c$c  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC2166c {
+    /* loaded from: classes4.dex */
+    public interface InterfaceC2176c {
         com.kwai.filedownloader.a.a a();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface d {
         int a(int i2, String str, String str2, boolean z);
 
         int a(String str, String str2, boolean z);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface e {
         com.kwai.filedownloader.d.a a(File file);
 

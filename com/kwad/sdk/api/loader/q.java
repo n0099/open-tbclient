@@ -2,7 +2,7 @@ package com.kwad.sdk.api.loader;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class q {
     public static String a = "kssdk_api_pref";
 

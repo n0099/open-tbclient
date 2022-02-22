@@ -6,11 +6,11 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import c.a.x.b.e.b;
-import c.a.x.b.f.a;
-import c.a.x.c.a.c;
-import c.a.x.c.a.d;
-import c.a.x.k.f;
+import c.a.y.b.e.b;
+import c.a.y.b.f.a;
+import c.a.y.c.a.c;
+import c.a.y.c.a.d;
+import c.a.y.k.f;
 import com.airbnb.lottie.LottieAnimationView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,10 +23,10 @@ public class LoadingView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f34848e;
+    public boolean f35054e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LottieAnimationView f34849f;
+    public LottieAnimationView f35055f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingView(Context context) {
@@ -46,7 +46,7 @@ public class LoadingView extends LinearLayout {
                 return;
             }
         }
-        this.f34848e = true;
+        this.f35054e = true;
         a();
     }
 
@@ -57,18 +57,18 @@ public class LoadingView extends LinearLayout {
             setOrientation(1);
             LayoutInflater.from(getContext()).inflate(d.live_feed_page_loading_view, (ViewGroup) this, true);
             LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(c.loading_anim_view);
-            this.f34849f = lottieAnimationView;
+            this.f35055f = lottieAnimationView;
             if (lottieAnimationView == null || !lottieAnimationView.isAnimating()) {
                 return;
             }
-            this.f34849f.cancelAnimation();
+            this.f35055f.cancelAnimation();
         }
     }
 
     public void destroy() {
         LottieAnimationView lottieAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (lottieAnimationView = this.f34849f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (lottieAnimationView = this.f35055f) == null) {
             return;
         }
         lottieAnimationView.cancelAnimation();
@@ -77,30 +77,30 @@ public class LoadingView extends LinearLayout {
     public void onDarkModeChange(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f34849f.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f35055f.getLayoutParams();
             layoutParams.width = a.a(getContext(), b.a().C);
             layoutParams.height = a.a(getContext(), b.a().D);
-            this.f34849f.setLayoutParams(layoutParams);
-            this.f34849f.setImageAssetsFolder(b.a().B);
+            this.f35055f.setLayoutParams(layoutParams);
+            this.f35055f.setImageAssetsFolder(b.a().B);
             String h2 = f.e().h(z);
             if (TextUtils.isEmpty(h2)) {
                 int i2 = f.e().i(z);
                 if (i2 != 0) {
-                    this.f34849f.setAnimation(i2);
+                    this.f35055f.setAnimation(i2);
                     return;
                 }
                 return;
             }
-            this.f34849f.setAnimation(h2);
+            this.f35055f.setAnimation(h2);
         }
     }
 
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f34848e = false;
-            if (this.f34849f.isAnimating()) {
-                this.f34849f.cancelAnimation();
+            this.f35054e = false;
+            if (this.f35055f.isAnimating()) {
+                this.f35055f.cancelAnimation();
             }
         }
     }
@@ -108,11 +108,11 @@ public class LoadingView extends LinearLayout {
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f34848e = true;
-            if (getVisibility() != 0 || this.f34849f.isAnimating()) {
+            this.f35054e = true;
+            if (getVisibility() != 0 || this.f35055f.isAnimating()) {
                 return;
             }
-            this.f34849f.playAnimation();
+            this.f35055f.playAnimation();
         }
     }
 
@@ -121,11 +121,11 @@ public class LoadingView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             if (i2 == 0) {
-                if (this.f34848e) {
-                    this.f34849f.playAnimation();
+                if (this.f35054e) {
+                    this.f35055f.playAnimation();
                 }
             } else {
-                this.f34849f.cancelAnimation();
+                this.f35055f.cancelAnimation();
             }
             super.setVisibility(i2);
         }
@@ -150,7 +150,7 @@ public class LoadingView extends LinearLayout {
                 return;
             }
         }
-        this.f34848e = true;
+        this.f35054e = true;
         a();
     }
 
@@ -173,7 +173,7 @@ public class LoadingView extends LinearLayout {
                 return;
             }
         }
-        this.f34848e = true;
+        this.f35054e = true;
         a();
     }
 }

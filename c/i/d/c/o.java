@@ -14,10 +14,10 @@ public abstract class o {
     public static final o a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final o f30084b;
+    public static final o f30290b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final o f30085c;
+    public static final o f30291c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -65,9 +65,9 @@ public abstract class o {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
                 if (i2 < 0) {
-                    return o.f30084b;
+                    return o.f30290b;
                 }
-                return i2 > 0 ? o.f30085c : o.a;
+                return i2 > 0 ? o.f30291c : o.a;
             }
             return (o) invokeI.objValue;
         }
@@ -79,7 +79,7 @@ public abstract class o {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f30086d;
+        public final int f30292d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(int i2) {
@@ -99,7 +99,7 @@ public abstract class o {
                     return;
                 }
             }
-            this.f30086d = i2;
+            this.f30292d = i2;
         }
 
         @Override // c.i.d.c.o
@@ -113,7 +113,7 @@ public abstract class o {
         public int e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30086d : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30292d : invokeV.intValue;
         }
     }
 
@@ -131,8 +131,8 @@ public abstract class o {
             }
         }
         a = new a();
-        f30084b = new b(-1);
-        f30085c = new b(1);
+        f30290b = new b(-1);
+        f30291c = new b(1);
     }
 
     public /* synthetic */ o(a aVar) {

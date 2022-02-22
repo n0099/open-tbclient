@@ -24,7 +24,7 @@ import okhttp3.internal.Util;
 import okhttp3.internal.http.HttpDate;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Cookie {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern DAY_OF_MONTH_PATTERN;
@@ -42,7 +42,7 @@ public final class Cookie {
     public final boolean secure;
     public final String value;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +69,7 @@ public final class Cookie {
                     return;
                 }
             }
-            this.expiresAt = HttpDate.MAX_DATE;
+            this.expiresAt = 253402300799999L;
             this.path = "/";
         }
 
@@ -92,7 +92,7 @@ public final class Cookie {
                 if (j2 <= 0) {
                     j2 = Long.MIN_VALUE;
                 }
-                if (j2 > HttpDate.MAX_DATE) {
+                if (j2 > 253402300799999L) {
                     j2 = 253402300799999L;
                 }
                 this.expiresAt = j2;
@@ -537,8 +537,8 @@ public final class Cookie {
             int length = str.length();
             char c2 = ';';
             int delimiterOffset = Util.delimiterOffset(str, 0, length, ';');
-            char c3 = a.f30893h;
-            int delimiterOffset2 = Util.delimiterOffset(str, 0, delimiterOffset, (char) a.f30893h);
+            char c3 = a.f31099h;
+            int delimiterOffset2 = Util.delimiterOffset(str, 0, delimiterOffset, (char) a.f31099h);
             if (delimiterOffset2 == delimiterOffset) {
                 return null;
             }
@@ -584,18 +584,18 @@ public final class Cookie {
                     }
                     i2 = delimiterOffset3 + 1;
                     c2 = ';';
-                    c3 = a.f30893h;
+                    c3 = a.f31099h;
                 }
                 z4 = true;
                 i2 = delimiterOffset3 + 1;
                 c2 = ';';
-                c3 = a.f30893h;
+                c3 = a.f31099h;
             }
             long j6 = Long.MIN_VALUE;
             if (j4 != Long.MIN_VALUE) {
                 if (j4 != -1) {
                     j6 = j2 + (j4 <= 9223372036854775L ? j4 * 1000 : Long.MAX_VALUE);
-                    if (j6 < j2 || j6 > HttpDate.MAX_DATE) {
+                    if (j6 < j2 || j6 > 253402300799999L) {
                         j3 = 253402300799999L;
                     }
                 } else {
@@ -645,7 +645,7 @@ public final class Cookie {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(this.name);
-            sb.append(a.f30893h);
+            sb.append(a.f31099h);
             sb.append(this.value);
             if (this.persistent) {
                 if (this.expiresAt == Long.MIN_VALUE) {

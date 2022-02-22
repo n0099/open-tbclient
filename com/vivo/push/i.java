@@ -36,14 +36,14 @@ public final class i implements IPushActionListener {
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             if (i2 == 0) {
                 this.a.k = "";
-                bVar2 = this.a.f60744j;
+                bVar2 = this.a.f60911j;
                 bVar2.a("APP_TOKEN", "");
                 this.a.m();
-                this.a.f60744j.b("APP_TAGS");
+                this.a.f60911j.b("APP_TAGS");
                 return;
             }
             this.a.k = null;
-            bVar = this.a.f60744j;
+            bVar = this.a.f60911j;
             bVar.b("APP_TOKEN");
         }
     }

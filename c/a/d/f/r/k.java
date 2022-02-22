@@ -11,10 +11,10 @@ public class k extends r {
     public byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f3195b;
+    public long f2281b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f3196c;
+    public long f2282c;
 
     public k(byte[] bArr, long j2, long j3) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class k extends r {
             }
         }
         this.a = bArr;
-        this.f3195b = j2;
-        this.f3196c = j3;
+        this.f2281b = j2;
+        this.f2282c = j3;
     }
 }

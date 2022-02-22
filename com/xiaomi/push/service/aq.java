@@ -162,7 +162,7 @@ public class aq {
                 String a2 = a(i2);
                 return this.f903a.contains(a2) ? this.f903a.getInt(a2, 0) : i3;
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m134a(i2 + " oc int error " + e2);
+                com.xiaomi.channel.commonutils.logger.b.m133a(i2 + " oc int error " + e2);
                 return i3;
             }
         }
@@ -181,7 +181,7 @@ public class aq {
                 String a2 = a(i2);
                 return this.f903a.contains(a2) ? this.f903a.getString(a2, null) : str;
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m134a(i2 + " oc string error " + e2);
+                com.xiaomi.channel.commonutils.logger.b.m133a(i2 + " oc string error " + e2);
                 return str;
             }
         }
@@ -235,7 +235,7 @@ public class aq {
                 String a2 = a(i2);
                 return this.f903a.contains(a2) ? this.f903a.getBoolean(a2, false) : z;
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m134a(i2 + " oc boolean error " + e2);
+                com.xiaomi.channel.commonutils.logger.b.m133a(i2 + " oc boolean error " + e2);
                 return z;
             }
         }

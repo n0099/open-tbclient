@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class MapLocAddrAdapter extends BaseRecyclerViewAdapter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ADDR_LOC_TYPE = 1;
@@ -44,7 +44,7 @@ public class MapLocAddrAdapter extends BaseRecyclerViewAdapter {
     public MapLocationPoiPresenter presenter;
     public String queryContent;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class AddrPoiInfoViewHolder extends BaseRecyclerViewHolder<JSONObject> implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -162,7 +162,7 @@ public class MapLocAddrAdapter extends BaseRecyclerViewAdapter {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class HeaderViewHolder extends BaseRecyclerViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

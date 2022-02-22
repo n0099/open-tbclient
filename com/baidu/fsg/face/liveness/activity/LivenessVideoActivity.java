@@ -74,28 +74,28 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f34188c = false;
+    public static boolean f34394c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f34189d = "CONSTRASTBEANTAG";
+    public static final String f34395d = "CONSTRASTBEANTAG";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f34190e = "LivenessVideoActivity";
+    public static final String f34396e = "LivenessVideoActivity";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f34191f = -1;
+    public static final int f34397f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f34192g = 0;
+    public static final int f34398g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f34193h = 1;
+    public static final int f34399h = 1;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f34194i = 2;
+    public static final int f34400i = 2;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f34195j = 3;
+    public static final int f34401j = 3;
     public static final int k = 4;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
@@ -401,7 +401,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                 public final /* synthetic */ BioAlertDialog a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f34207b;
+                public final /* synthetic */ LivenessVideoActivity f34413b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -418,7 +418,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                             return;
                         }
                     }
-                    this.f34207b = this;
+                    this.f34413b = this;
                     this.a = bioAlertDialog;
                 }
 
@@ -426,14 +426,14 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f34207b.M = false;
+                        this.f34413b.M = false;
                         this.a.dismiss();
-                        if (this.f34207b.v != null) {
+                        if (this.f34413b.v != null) {
                             LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
                             livenessRecogResult.setResultCode(-401);
-                            this.f34207b.v.b(livenessRecogResult);
+                            this.f34413b.v.b(livenessRecogResult);
                         }
-                        this.f34207b.c();
+                        this.f34413b.c();
                     }
                 }
             });
@@ -458,7 +458,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                 public final /* synthetic */ BioAlertDialog a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f34208b;
+                public final /* synthetic */ LivenessVideoActivity f34414b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -475,7 +475,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                             return;
                         }
                     }
-                    this.f34208b = this;
+                    this.f34414b = this;
                     this.a = bioAlertDialog;
                 }
 
@@ -485,7 +485,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         RimStatisticsUtil.onEvent(d.X);
                         this.a.dismiss();
-                        this.f34208b.k();
+                        this.f34414b.k();
                     }
                 }
             });
@@ -495,7 +495,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                 public final /* synthetic */ BioAlertDialog a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f34209b;
+                public final /* synthetic */ LivenessVideoActivity f34415b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -512,7 +512,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                             return;
                         }
                     }
-                    this.f34209b = this;
+                    this.f34415b = this;
                     this.a = bioAlertDialog;
                 }
 
@@ -522,8 +522,8 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         RimStatisticsUtil.onEvent(d.Y);
                         this.a.dismiss();
-                        g.c(g.b(this.f34209b.getActivity()));
-                        this.f34209b.a(-204, a.ERROR_MSG_USER_CANCEL);
+                        g.c(g.b(this.f34415b.getActivity()));
+                        this.f34415b.a(-204, a.ERROR_MSG_USER_CANCEL);
                     }
                 }
             });
@@ -548,7 +548,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                 public final /* synthetic */ BioAlertDialog a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f34210b;
+                public final /* synthetic */ LivenessVideoActivity f34416b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -565,7 +565,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                             return;
                         }
                     }
-                    this.f34210b = this;
+                    this.f34416b = this;
                     this.a = bioAlertDialog;
                 }
 
@@ -574,7 +574,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         this.a.dismiss();
-                        this.f34210b.k();
+                        this.f34416b.k();
                     }
                 }
             });
@@ -584,7 +584,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                 public final /* synthetic */ BioAlertDialog a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f34211b;
+                public final /* synthetic */ LivenessVideoActivity f34417b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -601,7 +601,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                             return;
                         }
                     }
-                    this.f34211b = this;
+                    this.f34417b = this;
                     this.a = bioAlertDialog;
                 }
 
@@ -610,8 +610,8 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         this.a.dismiss();
-                        g.c(g.b(this.f34211b.getActivity()));
-                        this.f34211b.a(-204, a.ERROR_MSG_USER_CANCEL);
+                        g.c(g.b(this.f34417b.getActivity()));
+                        this.f34417b.a(-204, a.ERROR_MSG_USER_CANCEL);
                     }
                 }
             });
@@ -636,7 +636,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                 public final /* synthetic */ BioAlertDialog a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f34212b;
+                public final /* synthetic */ LivenessVideoActivity f34418b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -653,7 +653,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                             return;
                         }
                     }
-                    this.f34212b = this;
+                    this.f34418b = this;
                     this.a = bioAlertDialog;
                 }
 
@@ -662,7 +662,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         this.a.dismiss();
-                        this.f34212b.a(-204, a.ERROR_MSG_USER_CANCEL);
+                        this.f34418b.a(-204, a.ERROR_MSG_USER_CANCEL);
                     }
                 }
             });
@@ -688,7 +688,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                 public final /* synthetic */ BioAlertDialog a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f34196b;
+                public final /* synthetic */ LivenessVideoActivity f34402b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -705,7 +705,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                             return;
                         }
                     }
-                    this.f34196b = this;
+                    this.f34402b = this;
                     this.a = bioAlertDialog;
                 }
 
@@ -714,7 +714,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         this.a.dismiss();
-                        this.f34196b.a(-204, a.ERROR_MSG_USER_CANCEL);
+                        this.f34402b.a(-204, a.ERROR_MSG_USER_CANCEL);
                     }
                 }
             });
@@ -739,7 +739,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                 public final /* synthetic */ BioAlertDialog a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f34197b;
+                public final /* synthetic */ LivenessVideoActivity f34403b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -756,7 +756,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                             return;
                         }
                     }
-                    this.f34197b = this;
+                    this.f34403b = this;
                     this.a = bioAlertDialog;
                 }
 
@@ -765,7 +765,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         this.a.dismiss();
-                        this.f34197b.a(-402, LivenessRecogResult.ERROR_MSG_LIVENESS_VIDEO_TOOLARGE);
+                        this.f34403b.a(-402, LivenessRecogResult.ERROR_MSG_LIVENESS_VIDEO_TOOLARGE);
                     }
                 }
             });
@@ -908,11 +908,11 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
             this.v = SapiLivenessRecogManager.getInstance().getLivenessRecogCallback();
             if (this.livenessRecogDTO == null) {
                 a(-206, a.ERROR_MSG_SERVER_ERROR);
-            } else if (f34188c) {
+            } else if (f34394c) {
                 i();
                 LogUtil.d("hello", "callManyTimes");
             } else {
-                f34188c = true;
+                f34394c = true;
                 d();
                 FaceSDKResSettings.initializeResId();
                 if (getIntent().getExtras() != null && (serializable = getIntent().getExtras().getSerializable(LivenessVideoLoadingActivity.KEY_VIDEOGETPORTRAITMODEL)) != null && (serializable instanceof VideoGetPortraitModel)) {
@@ -938,9 +938,9 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
             if (livenessVideoXfordView != null) {
                 livenessVideoXfordView.release();
             }
-            BeanManager.getInstance().removeAllBeans(f34190e);
+            BeanManager.getInstance().removeAllBeans(f34396e);
             BeanManager.getInstance().removeAllBeans("CONSTRASTBEANTAG");
-            f34188c = false;
+            f34394c = false;
         }
     }
 
@@ -1304,7 +1304,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                 } else {
                     RimStatisticsUtil.onEventStart(d.W);
                     LogUtil.d("hello", "onEventStart(StatServiceEvent.VIDEOUPLOAD):  视频上传接口开始");
-                    com.baidu.fsg.face.liveness.beans.a aVar = (com.baidu.fsg.face.liveness.beans.a) FaceSDKBeansFactory.getInstance().getBean(getActivity(), 11, f34190e);
+                    com.baidu.fsg.face.liveness.beans.a aVar = (com.baidu.fsg.face.liveness.beans.a) FaceSDKBeansFactory.getInstance().getBean(getActivity(), 11, f34396e);
                     UploadBean.UploadFileModel uploadFileModel = new UploadBean.UploadFileModel();
                     uploadFileModel.contentType = "video/mp4";
                     uploadFileModel.filedata = bArr;
@@ -1354,10 +1354,10 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                                     public final /* synthetic */ long a;
 
                                     /* renamed from: b  reason: collision with root package name */
-                                    public final /* synthetic */ long f34198b;
+                                    public final /* synthetic */ long f34404b;
 
                                     /* renamed from: c  reason: collision with root package name */
-                                    public final /* synthetic */ AnonymousClass17 f34199c;
+                                    public final /* synthetic */ AnonymousClass17 f34405c;
 
                                     {
                                         Interceptable interceptable3 = $ic;
@@ -1374,16 +1374,16 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                                                 return;
                                             }
                                         }
-                                        this.f34199c = this;
+                                        this.f34405c = this;
                                         this.a = j2;
-                                        this.f34198b = j3;
+                                        this.f34404b = j3;
                                     }
 
                                     @Override // java.lang.Runnable
                                     public void run() {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                            this.f34199c.a.t.updateProgress((int) ((((float) this.a) / ((float) this.f34198b)) * 100.0f));
+                                            this.f34405c.a.t.updateProgress((int) ((((float) this.a) / ((float) this.f34404b)) * 100.0f));
                                         }
                                     }
                                 });
@@ -1572,13 +1572,13 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                 public final /* synthetic */ BioAlertDialog a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f34204b;
+                public final /* synthetic */ boolean f34410b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ boolean f34205c;
+                public final /* synthetic */ boolean f34411c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f34206d;
+                public final /* synthetic */ LivenessVideoActivity f34412d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1595,28 +1595,28 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                             return;
                         }
                     }
-                    this.f34206d = this;
+                    this.f34412d = this;
                     this.a = bioAlertDialog;
-                    this.f34204b = z2;
-                    this.f34205c = z;
+                    this.f34410b = z2;
+                    this.f34411c = z;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f34206d.M = false;
+                        this.f34412d.M = false;
                         this.a.dismiss();
-                        if (this.f34206d.v != null) {
+                        if (this.f34412d.v != null) {
                             LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
-                            if (!this.f34204b) {
+                            if (!this.f34410b) {
                                 livenessRecogResult.setResultCode(-304);
-                            } else if (!this.f34205c) {
+                            } else if (!this.f34411c) {
                                 livenessRecogResult.setResultCode(LivenessRecogResult.ERROR_CODE_MAY_BE_NO_RECORD_AUDIO_PERMISSION);
                             }
-                            this.f34206d.v.b(livenessRecogResult);
+                            this.f34412d.v.b(livenessRecogResult);
                         }
-                        this.f34206d.c();
+                        this.f34412d.c();
                     }
                 }
             });
@@ -1686,8 +1686,8 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
             this.R = i3;
             this.S = cameraInfo.orientation;
             b bVar = this.faceRectGroup;
-            bVar.f34067c = i2;
-            bVar.f34068d = i3;
+            bVar.f34273c = i2;
+            bVar.f34274d = i3;
             GetFPResponse.LivenessConfig livenessConfig = this.w;
             if (livenessConfig == null || TextUtils.isEmpty(livenessConfig.min_face_size)) {
                 int i4 = this.Q;
@@ -1707,7 +1707,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f34200b;
+                public final /* synthetic */ LivenessVideoActivity f34406b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1724,7 +1724,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                             return;
                         }
                     }
-                    this.f34200b = this;
+                    this.f34406b = this;
                     this.a = str;
                 }
 
@@ -1732,29 +1732,29 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        LivenessVideoActivity livenessVideoActivity = this.f34200b;
+                        LivenessVideoActivity livenessVideoActivity = this.f34406b;
                         LivenessVideoState livenessVideoState = livenessVideoActivity.livenessVideoState;
                         if (livenessVideoState.isWarningTipAnimCalled) {
                             livenessVideoActivity.s.startVisibleAnim();
-                            this.f34200b.s.setText(this.a);
-                            LivenessVideoActivity livenessVideoActivity2 = this.f34200b;
+                            this.f34406b.s.setText(this.a);
+                            LivenessVideoActivity livenessVideoActivity2 = this.f34406b;
                             if (livenessVideoActivity2.livenessVideoState.currentState == 5 && livenessVideoActivity2.u.getVisibility() == 0) {
-                                this.f34200b.u.setVisibility(4);
-                                this.f34200b.livenessVideoState.isLrcTipViewHadGone = true;
+                                this.f34406b.u.setVisibility(4);
+                                this.f34406b.livenessVideoState.isLrcTipViewHadGone = true;
                                 return;
                             }
                             return;
                         }
                         if (livenessVideoState.currentState == 5 && livenessVideoActivity.u.getVisibility() == 0) {
-                            this.f34200b.u.setVisibility(4);
-                            this.f34200b.livenessVideoState.isLrcTipViewHadGone = true;
+                            this.f34406b.u.setVisibility(4);
+                            this.f34406b.livenessVideoState.isLrcTipViewHadGone = true;
                         }
-                        LivenessVideoActivity livenessVideoActivity3 = this.f34200b;
+                        LivenessVideoActivity livenessVideoActivity3 = this.f34406b;
                         livenessVideoActivity3.livenessVideoState.isWarningTipAnimCalled = true;
                         livenessVideoActivity3.s.setVisibility(0);
-                        this.f34200b.s.setText(this.a);
-                        this.f34200b.J = true;
-                        this.f34200b.s.startTranslateAnim(new LivenessVideoWarningTipTextView.a(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.18.1
+                        this.f34406b.s.setText(this.a);
+                        this.f34406b.J = true;
+                        this.f34406b.s.startTranslateAnim(new LivenessVideoWarningTipTextView.a(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.18.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass18 a;
@@ -1788,7 +1788,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                             public void b() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                                    this.a.f34200b.J = false;
+                                    this.a.f34406b.J = false;
                                 }
                             }
                         });
@@ -1852,13 +1852,13 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                 public final /* synthetic */ BioAlertDialog a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f34201b;
+                public final /* synthetic */ boolean f34407b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ boolean f34202c;
+                public final /* synthetic */ boolean f34408c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f34203d;
+                public final /* synthetic */ LivenessVideoActivity f34409d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1875,28 +1875,28 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                             return;
                         }
                     }
-                    this.f34203d = this;
+                    this.f34409d = this;
                     this.a = bioAlertDialog;
-                    this.f34201b = z;
-                    this.f34202c = z2;
+                    this.f34407b = z;
+                    this.f34408c = z2;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f34203d.M = false;
+                        this.f34409d.M = false;
                         this.a.dismiss();
-                        if (this.f34203d.v != null) {
+                        if (this.f34409d.v != null) {
                             LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
-                            if (!this.f34201b) {
+                            if (!this.f34407b) {
                                 livenessRecogResult.setResultCode(a.ERROR_CODE_CAMERA_EXCEPTION);
-                            } else if (!this.f34202c) {
+                            } else if (!this.f34408c) {
                                 livenessRecogResult.setResultCode(LivenessRecogResult.ERROR_CODE_MAY_BE_NO_RECORD_AUDIO_PERMISSION);
                             }
-                            this.f34203d.v.b(livenessRecogResult);
+                            this.f34409d.v.b(livenessRecogResult);
                         }
-                        this.f34203d.c();
+                        this.f34409d.c();
                     }
                 }
             });

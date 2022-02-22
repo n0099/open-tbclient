@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.event;
 
 import androidx.annotation.Keep;
-import c.a.r0.a.c1.a;
-import c.a.r0.a.k;
-import c.a.r0.a.q2.b;
+import c.a.s0.a.c1.a;
+import c.a.s0.a.k;
+import c.a.s0.a.q2.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.tbadk.core.data.SmallTailInfo;

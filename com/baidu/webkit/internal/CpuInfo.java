@@ -16,7 +16,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CpuInfo implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CPU_TYPE_ARM_AR = 2;

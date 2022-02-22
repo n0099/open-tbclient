@@ -12,28 +12,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AdVideoProgressBar extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f38246e;
+    public float f38475e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f38247f;
+    public int f38476f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f38248g;
+    public int f38477g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f38249h;
+    public int f38478h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f38250i;
+    public Paint f38479i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final Rect f38251j;
+    public final Rect f38480j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdVideoProgressBar(Context context) {
@@ -53,17 +53,17 @@ public class AdVideoProgressBar extends View {
                 return;
             }
         }
-        this.f38247f = -7829368;
-        this.f38248g = -16777216;
-        this.f38249h = 4;
-        this.f38250i = new Paint();
-        this.f38251j = new Rect();
+        this.f38476f = -7829368;
+        this.f38477g = -16777216;
+        this.f38478h = 4;
+        this.f38479i = new Paint();
+        this.f38480j = new Rect();
     }
 
     public float getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38246e : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38475e : invokeV.floatValue;
     }
 
     @Override // android.view.View
@@ -71,26 +71,26 @@ public class AdVideoProgressBar extends View {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            getDrawingRect(this.f38251j);
-            Rect rect = this.f38251j;
-            this.f38250i.setStyle(Paint.Style.STROKE);
-            this.f38250i.setStrokeWidth(this.f38249h);
-            this.f38250i.setStrokeCap(Paint.Cap.SQUARE);
-            this.f38250i.setAlpha(204);
-            this.f38250i.setAntiAlias(true);
-            this.f38250i.setColor(this.f38248g);
-            Rect rect2 = this.f38251j;
+            getDrawingRect(this.f38480j);
+            Rect rect = this.f38480j;
+            this.f38479i.setStyle(Paint.Style.STROKE);
+            this.f38479i.setStrokeWidth(this.f38478h);
+            this.f38479i.setStrokeCap(Paint.Cap.SQUARE);
+            this.f38479i.setAlpha(204);
+            this.f38479i.setAntiAlias(true);
+            this.f38479i.setColor(this.f38477g);
+            Rect rect2 = this.f38480j;
             float f2 = (rect.top + rect.bottom) / 2;
-            canvas.drawLine(rect2.left, f2, rect2.right, f2, this.f38250i);
-            this.f38250i.setColor(this.f38247f);
-            canvas.drawLine(this.f38251j.left, f2, i2 + ((int) (((rect.right - rect.left) * this.f38246e) / 100.0f)), f2, this.f38250i);
+            canvas.drawLine(rect2.left, f2, rect2.right, f2, this.f38479i);
+            this.f38479i.setColor(this.f38476f);
+            canvas.drawLine(this.f38480j.left, f2, i2 + ((int) (((rect.right - rect.left) * this.f38475e) / 100.0f)), f2, this.f38479i);
         }
     }
 
     public void setProgress(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
-            this.f38246e = f2 * 100.0f;
+            this.f38475e = f2 * 100.0f;
             invalidate();
         }
     }
@@ -98,21 +98,21 @@ public class AdVideoProgressBar extends View {
     public void setProgressBackgroundColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f38248g = i2;
+            this.f38477g = i2;
         }
     }
 
     public void setProgressColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f38247f = i2;
+            this.f38476f = i2;
         }
     }
 
     public void setProgressHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f38249h = i2;
+            this.f38478h = i2;
         }
     }
 
@@ -135,11 +135,11 @@ public class AdVideoProgressBar extends View {
                 return;
             }
         }
-        this.f38247f = -7829368;
-        this.f38248g = -16777216;
-        this.f38249h = 4;
-        this.f38250i = new Paint();
-        this.f38251j = new Rect();
+        this.f38476f = -7829368;
+        this.f38477g = -16777216;
+        this.f38478h = 4;
+        this.f38479i = new Paint();
+        this.f38480j = new Rect();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -161,10 +161,10 @@ public class AdVideoProgressBar extends View {
                 return;
             }
         }
-        this.f38247f = -7829368;
-        this.f38248g = -16777216;
-        this.f38249h = 4;
-        this.f38250i = new Paint();
-        this.f38251j = new Rect();
+        this.f38476f = -7829368;
+        this.f38477g = -16777216;
+        this.f38478h = 4;
+        this.f38479i = new Paint();
+        this.f38480j = new Rect();
     }
 }

@@ -7,57 +7,57 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class h extends j {
     public static final g a = g.a("multipart/mixed");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f58598b = g.a("multipart/alternative");
+    public static final g f58765b = g.a("multipart/alternative");
 
     /* renamed from: c  reason: collision with root package name */
-    public static final g f58599c = g.a("multipart/digest");
+    public static final g f58766c = g.a("multipart/digest");
 
     /* renamed from: d  reason: collision with root package name */
-    public static final g f58600d = g.a("multipart/parallel");
+    public static final g f58767d = g.a("multipart/parallel");
 
     /* renamed from: e  reason: collision with root package name */
-    public static final g f58601e = g.a(IMAudioTransRequest.CONTENT_TYPE);
+    public static final g f58768e = g.a(IMAudioTransRequest.CONTENT_TYPE);
 
     /* renamed from: f  reason: collision with root package name */
-    public static final byte[] f58602f = {58, 32};
+    public static final byte[] f58769f = {58, 32};
 
     /* renamed from: g  reason: collision with root package name */
-    public static final byte[] f58603g = {13, 10};
+    public static final byte[] f58770g = {13, 10};
 
     /* renamed from: h  reason: collision with root package name */
-    public static final byte[] f58604h = {UtilsBlink.VER_TYPE_SEPARATOR, UtilsBlink.VER_TYPE_SEPARATOR};
+    public static final byte[] f58771h = {UtilsBlink.VER_TYPE_SEPARATOR, UtilsBlink.VER_TYPE_SEPARATOR};
 
     /* renamed from: i  reason: collision with root package name */
-    public final com.meizu.cloud.pushsdk.b.g.e f58605i;
+    public final com.meizu.cloud.pushsdk.b.g.e f58772i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final g f58606j;
+    public final g f58773j;
     public final g k;
     public final List<b> l;
     public long m = -1;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class a {
         public final com.meizu.cloud.pushsdk.b.g.e a;
 
         /* renamed from: b  reason: collision with root package name */
-        public g f58607b;
+        public g f58774b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final List<b> f58608c;
+        public final List<b> f58775c;
 
         public a() {
             this(UUID.randomUUID().toString());
         }
 
         public a(String str) {
-            this.f58607b = h.a;
-            this.f58608c = new ArrayList();
+            this.f58774b = h.a;
+            this.f58775c = new ArrayList();
             this.a = com.meizu.cloud.pushsdk.b.g.e.a(str);
         }
 
@@ -68,7 +68,7 @@ public final class h extends j {
         public a a(g gVar) {
             if (gVar != null) {
                 if (gVar.a().equals("multipart")) {
-                    this.f58607b = gVar;
+                    this.f58774b = gVar;
                     return this;
                 }
                 throw new IllegalArgumentException("multipart != " + gVar);
@@ -78,30 +78,30 @@ public final class h extends j {
 
         public a a(b bVar) {
             if (bVar != null) {
-                this.f58608c.add(bVar);
+                this.f58775c.add(bVar);
                 return this;
             }
             throw new NullPointerException("part == null");
         }
 
         public h a() {
-            if (this.f58608c.isEmpty()) {
+            if (this.f58775c.isEmpty()) {
                 throw new IllegalStateException("Multipart body must have at least one part.");
             }
-            return new h(this.a, this.f58607b, this.f58608c);
+            return new h(this.a, this.f58774b, this.f58775c);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class b {
         public final c a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final j f58609b;
+        public final j f58776b;
 
         public b(c cVar, j jVar) {
             this.a = cVar;
-            this.f58609b = jVar;
+            this.f58776b = jVar;
         }
 
         public static b a(c cVar, j jVar) {
@@ -119,8 +119,8 @@ public final class h extends j {
     }
 
     public h(com.meizu.cloud.pushsdk.b.g.e eVar, g gVar, List<b> list) {
-        this.f58605i = eVar;
-        this.f58606j = gVar;
+        this.f58772i = eVar;
+        this.f58773j = gVar;
         this.k = g.a(gVar + "; boundary=" + eVar.a());
         this.l = m.a(list);
     }
@@ -142,39 +142,39 @@ public final class h extends j {
         for (int i2 = 0; i2 < size; i2++) {
             b bVar2 = this.l.get(i2);
             c cVar2 = bVar2.a;
-            j jVar = bVar2.f58609b;
-            cVar.c(f58604h);
-            cVar.b(this.f58605i);
-            cVar.c(f58603g);
+            j jVar = bVar2.f58776b;
+            cVar.c(f58771h);
+            cVar.b(this.f58772i);
+            cVar.c(f58770g);
             if (cVar2 != null) {
                 int a2 = cVar2.a();
                 for (int i3 = 0; i3 < a2; i3++) {
-                    cVar.b(cVar2.a(i3)).c(f58602f).b(cVar2.b(i3)).c(f58603g);
+                    cVar.b(cVar2.a(i3)).c(f58769f).b(cVar2.b(i3)).c(f58770g);
                 }
             }
             g a3 = jVar.a();
             if (a3 != null) {
-                cVar.b(Part.CONTENT_TYPE).b(a3.toString()).c(f58603g);
+                cVar.b(Part.CONTENT_TYPE).b(a3.toString()).c(f58770g);
             }
             long b2 = jVar.b();
             if (b2 != -1) {
-                cVar.b("Content-Length: ").e(b2).c(f58603g);
+                cVar.b("Content-Length: ").e(b2).c(f58770g);
             } else if (z) {
                 bVar.j();
                 return -1L;
             }
-            cVar.c(f58603g);
+            cVar.c(f58770g);
             if (z) {
                 j2 += b2;
             } else {
                 jVar.a(cVar);
             }
-            cVar.c(f58603g);
+            cVar.c(f58770g);
         }
-        cVar.c(f58604h);
-        cVar.b(this.f58605i);
-        cVar.c(f58604h);
-        cVar.c(f58603g);
+        cVar.c(f58771h);
+        cVar.b(this.f58772i);
+        cVar.c(f58771h);
+        cVar.c(f58770g);
         if (z) {
             long a4 = j2 + bVar.a();
             bVar.j();

@@ -1,5 +1,5 @@
 package com.baidu.rtc.record;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface IMediaRecord {
     void startRecording(String str, MediaEncodeParams mediaEncodeParams, RecorderCallback recorderCallback);
 

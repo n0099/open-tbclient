@@ -15,14 +15,14 @@ public interface g extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.g$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class C2212a implements g {
+        public static class C2222a implements g {
             public static g a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f59977b;
+            public IBinder f60144b;
 
-            public C2212a(IBinder iBinder) {
-                this.f59977b = iBinder;
+            public C2222a(IBinder iBinder) {
+                this.f60144b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.g
@@ -33,7 +33,7 @@ public interface g extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadAidlFileProvider");
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    if (!this.f59977b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f60144b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().a(str, str2);
                     }
                     obtain2.readException();
@@ -46,7 +46,7 @@ public interface g extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f59977b;
+                return this.f60144b;
             }
         }
 
@@ -62,7 +62,7 @@ public interface g extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof g)) {
                 return (g) queryLocalInterface;
             }
-            return new C2212a(iBinder);
+            return new C2222a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -92,7 +92,7 @@ public interface g extends IInterface {
         }
 
         public static g a() {
-            return C2212a.a;
+            return C2222a.a;
         }
     }
 }

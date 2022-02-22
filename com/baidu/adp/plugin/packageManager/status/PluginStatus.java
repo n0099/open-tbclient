@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PluginStatus extends OrmObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATUS_INSTALL_ERROR_ROMSIZE = 2;
@@ -22,22 +22,22 @@ public class PluginStatus extends OrmObject {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f31266e;
+    public String f31472e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PluginPackageManager.PluginStatus f31267f;
+    public PluginPackageManager.PluginStatus f31473f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f31268g;
+    public int f31474g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f31269h;
+    public String f31475h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f31270i;
+    public String f31476i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f31271j;
+    public boolean f31477j;
 
     public PluginStatus() {
         Interceptable interceptable = $ic;
@@ -56,24 +56,24 @@ public class PluginStatus extends OrmObject {
     public int getErrorCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31268g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31474g : invokeV.intValue;
     }
 
     public String getErrorMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31269h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31475h : (String) invokeV.objValue;
     }
 
     public String getPkgName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31266e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31472e : (String) invokeV.objValue;
     }
 
     public String w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31270i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31476i : (String) invokeV.objValue;
     }
 }

@@ -1,10 +1,11 @@
 package com.baidu.tieba.gift.send;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.d1.b0;
+import c.a.t0.d1.c0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,8 +57,8 @@ public class SendFreeGiftRequest extends NetMessage {
             builder.thread_id = Long.valueOf(this.threadId);
             builder.post_id = Long.valueOf(this.postId);
             builder.num = Integer.valueOf(this.sendCount);
-            if (z) {
-                b0.a(builder, true);
+            if (z || SocketAddCommonParamSwitch.getIsOn()) {
+                c0.a(builder, true);
             }
             SendFreeGiftReqIdl.Builder builder2 = new SendFreeGiftReqIdl.Builder();
             builder2.data = builder.build(false);

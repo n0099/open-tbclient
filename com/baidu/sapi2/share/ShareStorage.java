@@ -43,7 +43,7 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ShareStorage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_PORTRAIT;
@@ -65,12 +65,12 @@ public class ShareStorage {
     public String mAesKey;
     public boolean readSpFromChmodFile;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface CallBack {
         void call(StorageModel storageModel);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class StorageModel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -494,7 +494,7 @@ public class ShareStorage {
             } catch (Exception e2) {
                 Log.e(ShareUtils.TAG, e2.getMessage());
             }
-            if (!SapiUtils.checkRequestPermission(s.f55293i, this.context)) {
+            if (!SapiUtils.checkRequestPermission(s.f55460i, this.context)) {
                 Log.d(ShareUtils.TAG, "getSd is not has READ_EXTERNAL_STORAGE permission");
                 return null;
             }

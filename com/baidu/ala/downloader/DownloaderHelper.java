@@ -28,7 +28,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DownloaderHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

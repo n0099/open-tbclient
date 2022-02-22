@@ -20,33 +20,33 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g implements com.kwad.sdk.core.b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f56209b;
+    public String f56376b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f56210c;
+    public int f56377c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Long f56211d;
+    public Long f56378d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Long f56212e;
+    public Long f56379e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Long f56213f;
+    public Long f56380f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Long f56214g;
+    public Long f56381g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f56215h;
+    public String f56382h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f56216i;
+    public String f56383i;
     public long k;
     public String l;
     public String m;
@@ -61,23 +61,23 @@ public class g implements com.kwad.sdk.core.b {
     public List<com.kwad.sdk.collector.kwai.e> y;
 
     /* renamed from: j  reason: collision with root package name */
-    public List<com.kwad.sdk.core.request.model.a> f56217j = new ArrayList();
+    public List<com.kwad.sdk.core.request.model.a> f56384j = new ArrayList();
     public int o = -1;
     public float r = -1.0f;
     public int t = -1;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f56218b = -1;
+        public int f56385b = -1;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f56219c = -1;
+        public int f56386c = -1;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f56220d = -1;
+        public int f56387d = -1;
 
         public a(int i2) {
             this.a = -1;
@@ -128,10 +128,10 @@ public class g implements com.kwad.sdk.core.b {
             }
             int[] audioVolumes = DeviceInfo.getAudioVolumes(context, a(this.a));
             if (audioVolumes != null && audioVolumes.length == 3) {
-                this.f56220d = audioVolumes[0];
-                this.f56218b = audioVolumes[1];
+                this.f56387d = audioVolumes[0];
+                this.f56385b = audioVolumes[1];
                 if (Build.VERSION.SDK_INT >= 28) {
-                    this.f56219c = audioVolumes[2];
+                    this.f56386c = audioVolumes[2];
                 }
             }
             return this;
@@ -143,10 +143,10 @@ public class g implements com.kwad.sdk.core.b {
             }
             int a = a(this.a);
             AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
-            this.f56220d = audioManager.getStreamVolume(a);
-            this.f56218b = audioManager.getStreamMaxVolume(a);
+            this.f56387d = audioManager.getStreamVolume(a);
+            this.f56385b = audioManager.getStreamMaxVolume(a);
             if (Build.VERSION.SDK_INT >= 28) {
-                this.f56219c = audioManager.getStreamMinVolume(a);
+                this.f56386c = audioManager.getStreamMinVolume(a);
             }
             return this;
         }
@@ -156,15 +156,15 @@ public class g implements com.kwad.sdk.core.b {
     public static g a() {
         g gVar = new g();
         gVar.a = av.c();
-        gVar.f56209b = AbiUtil.a();
-        gVar.f56210c = av.a(KsAdSDKImpl.get().getContext());
-        gVar.f56211d = Long.valueOf(av.b(KsAdSDKImpl.get().getContext()));
-        gVar.f56212e = Long.valueOf(av.c(KsAdSDKImpl.get().getContext()));
-        gVar.f56213f = Long.valueOf(av.a());
-        gVar.f56214g = Long.valueOf(av.b());
-        gVar.f56215h = av.h(KsAdSDKImpl.get().getContext());
-        gVar.f56216i = av.j(KsAdSDKImpl.get().getContext());
-        gVar.f56217j = bg.a(KsAdSDKImpl.get().getContext(), 15);
+        gVar.f56376b = AbiUtil.a();
+        gVar.f56377c = av.a(KsAdSDKImpl.get().getContext());
+        gVar.f56378d = Long.valueOf(av.b(KsAdSDKImpl.get().getContext()));
+        gVar.f56379e = Long.valueOf(av.c(KsAdSDKImpl.get().getContext()));
+        gVar.f56380f = Long.valueOf(av.a());
+        gVar.f56381g = Long.valueOf(av.b());
+        gVar.f56382h = av.h(KsAdSDKImpl.get().getContext());
+        gVar.f56383i = av.j(KsAdSDKImpl.get().getContext());
+        gVar.f56384j = bg.a(KsAdSDKImpl.get().getContext(), 15);
         gVar.k = av.h();
         gVar.n = av.i();
         gVar.q = av.j();
@@ -232,15 +232,15 @@ public class g implements com.kwad.sdk.core.b {
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
         t.a(jSONObject, "cpuCount", this.a);
-        t.a(jSONObject, "cpuAbi", this.f56209b);
-        t.a(jSONObject, "batteryPercent", this.f56210c);
-        t.a(jSONObject, "totalMemorySize", this.f56211d.longValue());
-        t.a(jSONObject, "availableMemorySize", this.f56212e.longValue());
-        t.a(jSONObject, "totalDiskSize", this.f56213f.longValue());
-        t.a(jSONObject, "availableDiskSize", this.f56214g.longValue());
-        t.a(jSONObject, BaseStatisContent.IMSI, this.f56215h);
-        t.a(jSONObject, "iccid", this.f56216i);
-        t.a(jSONObject, "wifiList", this.f56217j);
+        t.a(jSONObject, "cpuAbi", this.f56376b);
+        t.a(jSONObject, "batteryPercent", this.f56377c);
+        t.a(jSONObject, "totalMemorySize", this.f56378d.longValue());
+        t.a(jSONObject, "availableMemorySize", this.f56379e.longValue());
+        t.a(jSONObject, "totalDiskSize", this.f56380f.longValue());
+        t.a(jSONObject, "availableDiskSize", this.f56381g.longValue());
+        t.a(jSONObject, BaseStatisContent.IMSI, this.f56382h);
+        t.a(jSONObject, "iccid", this.f56383i);
+        t.a(jSONObject, "wifiList", this.f56384j);
         t.a(jSONObject, "bootTime", this.k);
         t.a(jSONObject, "romName", this.l);
         t.a(jSONObject, "romVersion", this.m);

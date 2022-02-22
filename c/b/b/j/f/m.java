@@ -11,7 +11,7 @@ public class m extends b<c.b.b.k.b, a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.b.b.k.b f27026b;
+    public c.b.b.k.b f27232b;
 
     /* loaded from: classes9.dex */
     public static class a extends c.b.b.j.c<c.b.b.k.b> {
@@ -71,7 +71,7 @@ public class m extends b<c.b.b.k.b, a> {
     public void c(c.b.b.j.e eVar, String str, c.b.b.m.a aVar, a aVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, eVar, str, aVar, aVar2) == null) {
-            this.f27026b = c.b.b.f.f26965c.a(aVar);
+            this.f27232b = c.b.b.f.f27171c.a(aVar);
         }
     }
 
@@ -82,8 +82,8 @@ public class m extends b<c.b.b.k.b, a> {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, eVar, str, aVar, aVar2)) == null) {
-            c.b.b.k.b bVar = this.f27026b;
-            this.f27026b = null;
+            c.b.b.k.b bVar = this.f27232b;
+            this.f27232b = null;
             return bVar;
         }
         return (c.b.b.k.b) invokeLLLL.objValue;

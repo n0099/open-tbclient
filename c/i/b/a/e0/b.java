@@ -13,22 +13,22 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final CharSequence f29425e;
+    public final CharSequence f29631e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Layout.Alignment f29426f;
+    public final Layout.Alignment f29632f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Bitmap f29427g;
+    public final Bitmap f29633g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final float f29428h;
+    public final float f29634h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f29429i;
+    public final int f29635i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f29430j;
+    public final int f29636j;
     public final float k;
     public final int l;
     public final float m;
@@ -135,12 +135,12 @@ public class b {
                 return;
             }
         }
-        this.f29425e = charSequence;
-        this.f29426f = alignment;
-        this.f29427g = bitmap;
-        this.f29428h = f2;
-        this.f29429i = i2;
-        this.f29430j = i3;
+        this.f29631e = charSequence;
+        this.f29632f = alignment;
+        this.f29633g = bitmap;
+        this.f29634h = f2;
+        this.f29635i = i2;
+        this.f29636j = i3;
         this.k = f3;
         this.l = i4;
         this.m = f4;

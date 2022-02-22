@@ -9,20 +9,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class v {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static v f55314d;
+    public static v f55481d;
     public transient /* synthetic */ FieldHolder $fh;
     public w a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f55315b;
+    public d f55482b;
 
     /* renamed from: c  reason: collision with root package name */
-    public u f55316c;
+    public u f55483c;
 
     static {
         InterceptResult invokeClinit;
@@ -55,29 +55,29 @@ public class v {
             }
         }
         d dVar = new d(context);
-        this.f55315b = dVar;
+        this.f55482b = dVar;
         this.a = new w(dVar);
-        this.f55316c = new u(this.f55315b);
+        this.f55483c = new u(this.f55482b);
     }
 
     public static v a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f55314d : (v) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f55481d : (v) invokeV.objValue;
     }
 
     public static v a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f55314d == null) {
+            if (f55481d == null) {
                 synchronized (v.class) {
-                    if (f55314d == null) {
-                        f55314d = new v(context);
+                    if (f55481d == null) {
+                        f55481d = new v(context);
                     }
                 }
             }
-            return f55314d;
+            return f55481d;
         }
         return (v) invokeL.objValue;
     }
@@ -85,13 +85,13 @@ public class v {
     public String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f55316c.a(str, "") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f55483c.a(str, "") : (String) invokeL.objValue;
     }
 
     public String a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) ? this.f55316c.a(str, str2) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) ? this.f55483c.a(str, str2) : (String) invokeLL.objValue;
     }
 
     public boolean a(int i2) {
@@ -103,6 +103,6 @@ public class v {
     public boolean b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) ? this.f55316c.b(str, str2) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) ? this.f55483c.b(str, str2) : invokeLL.booleanValue;
     }
 }

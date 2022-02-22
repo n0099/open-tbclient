@@ -73,7 +73,7 @@ public class b extends c {
             if (AnonymousClass1.a[com.baidu.android.pushservice.a.d.a(this.a, kVar.e()).a().ordinal()] != 1) {
                 i2 = 7;
             } else {
-                if (kVar.i() == k.f32317h.b()) {
+                if (kVar.i() == k.f32523h.b()) {
                     if (kVar.b() != 0 && com.baidu.android.pushservice.c.c.a(this.a, b2)) {
                         com.baidu.android.pushservice.i.h.a(this.a, b2);
                         if (com.baidu.android.pushservice.c.c.b(this.a, b2)) {

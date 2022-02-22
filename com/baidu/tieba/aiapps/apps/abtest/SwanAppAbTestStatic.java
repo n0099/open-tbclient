@@ -8,8 +8,8 @@ import android.text.TextUtils;
 import android.widget.PopupWindow;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.r0.a.l;
-import c.a.r0.a.z2.q0;
+import c.a.s0.a.l;
+import c.a.s0.a.z2.q0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
@@ -59,14 +59,14 @@ public class SwanAppAbTestStatic {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f41846b;
+    public static String f42079b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static c.a.s0.k0.i f41847c;
+    public static c.a.t0.k0.i f42080c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes12.dex */
-    public static class a extends c.a.s0.k0.i<PrivacyPolicyEvent> {
+    public static class a extends c.a.t0.k0.i<PrivacyPolicyEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -85,7 +85,7 @@ public class SwanAppAbTestStatic {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.s0.k0.b
+        @Override // c.a.t0.k0.b
         /* renamed from: a */
         public boolean onEvent(PrivacyPolicyEvent privacyPolicyEvent) {
             InterceptResult invokeL;
@@ -95,9 +95,9 @@ public class SwanAppAbTestStatic {
                     return true;
                 }
                 SwanAppAbTestStatic.e();
-                if (!TextUtils.isEmpty(SwanAppAbTestStatic.f41846b) && TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    c.a.r0.g.m.b.a(SwanAppAbTestStatic.f41846b);
-                    SwanAppAbTestStatic.f41846b = null;
+                if (!TextUtils.isEmpty(SwanAppAbTestStatic.f42079b) && TbadkCoreApplication.getInst().isMainProcess(false)) {
+                    c.a.s0.g.m.b.a(SwanAppAbTestStatic.f42079b);
+                    SwanAppAbTestStatic.f42079b = null;
                 }
                 return true;
             }
@@ -182,7 +182,7 @@ public class SwanAppAbTestStatic {
             PopupWindow a;
             Activity b2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof c.a.s0.a.h) && (a = c.a.t0.z.b.a.a((c.a.s0.a.h) customResponsedMessage.getData())) != null && (b2 = c.a.d.a.b.f().b()) != null && b2.getWindow() != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof c.a.t0.a.h) && (a = c.a.u0.z.b.a.a((c.a.t0.a.h) customResponsedMessage.getData())) != null && (b2 = c.a.d.a.b.f().b()) != null && b2.getWindow() != null) {
                 try {
                     a.showAtLocation(b2.getWindow().getDecorView(), 17, 0, 0);
                 } catch (Exception unused) {
@@ -314,12 +314,12 @@ public class SwanAppAbTestStatic {
             public void onSuccess(GetUserInfoResult getUserInfoResult) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048582, this, getUserInfoResult) == null) {
-                    c.a.r0.a.o2.g.h.a().putString("bd_box_display_name", getUserInfoResult.displayname);
-                    c.a.r0.a.o2.g.h.a().putString("bd_box_uid", getUserInfoResult.uid);
-                    c.a.r0.a.o2.g.h.a().putString("bd_box_avatar_url", getUserInfoResult.portraitHttps);
-                    c.a.r0.a.o2.g.h.a().putString("bd_box_bduss", SapiAccountManager.getInstance().getSession().bduss);
-                    c.a.r0.a.o2.g.h.a().putString("bd_box_ptoken", SapiAccountManager.getInstance().getSession().getPtoken());
-                    c.a.t0.z.b.b.a.l().y(getUserInfoResult);
+                    c.a.s0.a.o2.g.h.a().putString("bd_box_display_name", getUserInfoResult.displayname);
+                    c.a.s0.a.o2.g.h.a().putString("bd_box_uid", getUserInfoResult.uid);
+                    c.a.s0.a.o2.g.h.a().putString("bd_box_avatar_url", getUserInfoResult.portraitHttps);
+                    c.a.s0.a.o2.g.h.a().putString("bd_box_bduss", SapiAccountManager.getInstance().getSession().bduss);
+                    c.a.s0.a.o2.g.h.a().putString("bd_box_ptoken", SapiAccountManager.getInstance().getSession().getPtoken());
+                    c.a.u0.z.b.b.a.l().y(getUserInfoResult);
                 }
             }
         }
@@ -355,7 +355,7 @@ public class SwanAppAbTestStatic {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921328, TbadkCoreApplication.getInst().getApp()));
                 }
                 if (!SapiAccountManager.getInstance().isLogin()) {
-                    c.a.t0.z.b.b.a.l().y(null);
+                    c.a.u0.z.b.b.a.l().y(null);
                 }
                 SapiAccountManager.getInstance().getAccountService().getUserInfo(new a(this), SapiAccountManager.getInstance().getSession().bduss);
             }
@@ -387,8 +387,8 @@ public class SwanAppAbTestStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 String a = l.a();
-                long f2 = c.a.r0.a.q2.b.f(0);
-                long f3 = c.a.r0.a.q2.b.f(1);
+                long f2 = c.a.s0.a.q2.b.f(0);
+                long f3 = c.a.s0.a.q2.b.f(1);
                 TbadkCoreApplication.getInst().setSdk_ver(a);
                 TbadkCoreApplication.getInst().setFramework_ver(Long.toString(f2));
                 TbadkCoreApplication.getInst().setSwan_game_ver(Long.toString(f3));
@@ -424,8 +424,8 @@ public class SwanAppAbTestStatic {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 String a = l.a();
                 if (TbadkCoreApplication.getInst().getSwan_game_ver() == null) {
-                    long f2 = c.a.r0.a.q2.b.f(0);
-                    long f3 = c.a.r0.a.q2.b.f(1);
+                    long f2 = c.a.s0.a.q2.b.f(0);
+                    long f3 = c.a.s0.a.q2.b.f(1);
                     TbadkCoreApplication.getInst().setSdk_ver(a);
                     TbadkCoreApplication.getInst().setFramework_ver(Long.toString(f2));
                     TbadkCoreApplication.getInst().setSwan_game_ver(Long.toString(f3));
@@ -496,7 +496,7 @@ public class SwanAppAbTestStatic {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.g.p.b.b.a();
+                c.a.s0.g.p.b.b.a();
             }
         }
     }
@@ -514,7 +514,7 @@ public class SwanAppAbTestStatic {
                 return;
             }
         }
-        f41847c = new a();
+        f42080c = new a();
         d();
         CustomMessageTask customMessageTask = new CustomMessageTask(2921361, new b());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -524,7 +524,7 @@ public class SwanAppAbTestStatic {
         TbadkCoreApplication.getInst().RegisterIntent(AiAppGuideActivityConfig.class, AiAppGuideActivity.class);
         MessageManager.getInstance().registerTask(new TbHttpMessageTask(CmdConfigHttp.CMD_SMART_APP_BROWSE_HISTORY, TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_BROWSE_HISTORY));
         MessageManager.getInstance().registerListener(new e(2921410));
-        CustomMessageTask customMessageTask2 = new CustomMessageTask(2921666, new f());
+        CustomMessageTask customMessageTask2 = new CustomMessageTask(2921669, new f());
         customMessageTask2.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask2);
         CustomMessageTask customMessageTask3 = new CustomMessageTask(2921512, new g());
@@ -551,9 +551,9 @@ public class SwanAppAbTestStatic {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
             if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libBaiduMapSDK_map_v5_4_4.so"))) {
                 RequestParams requestParams = new RequestParams();
-                requestParams.setRunType(c.a.d.l.e.a);
+                requestParams.setRunType(c.a.d.m.e.a);
                 requestParams.setRunNode("aps");
-                requestParams.addChannel(new c.a.d.l.d("com.baidu.tieba.soloader.libbaidumap", (DefaultDownloadCallback) null));
+                requestParams.addChannel(new c.a.d.m.d("com.baidu.tieba.soloader.libbaidumap", (DefaultDownloadCallback) null));
                 PmsManager.getInstance().execute(requestParams);
             }
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_AIAPPS_START);
@@ -572,7 +572,7 @@ public class SwanAppAbTestStatic {
                 e();
                 return;
             }
-            c.a.s0.k0.h.f().m(PrivacyPolicyEvent.class, f41847c, BdUniqueId.gen());
+            c.a.t0.k0.h.f().m(PrivacyPolicyEvent.class, f42080c, BdUniqueId.gen());
         }
     }
 
@@ -586,12 +586,12 @@ public class SwanAppAbTestStatic {
         if (Build.VERSION.SDK_INT <= 21 || TbadkCoreApplication.getInst().isRemoteProcess()) {
             return;
         }
-        c.a.t0.z.b.l.a.b();
+        c.a.u0.z.b.l.a.b();
         if (ProcessUtils.isMainProcess() && !Fresco.hasBeenInitialized()) {
             Fresco.initialize(AppRuntime.getAppContext());
         }
-        c.a.t0.z.b.b.a.l().q(TbadkCoreApplication.getInst());
-        c.a.t0.z.b.k.c.a().b(TbadkCoreApplication.getInst());
+        c.a.u0.z.b.b.a.l().q(TbadkCoreApplication.getInst());
+        c.a.u0.z.b.k.c.a().b(TbadkCoreApplication.getInst());
         c.a.r.b.f(TbadkCoreApplication.getInst()).o(new h());
         q0.b0(new i(), 3000L);
     }

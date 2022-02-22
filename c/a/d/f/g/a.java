@@ -18,10 +18,10 @@ public class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, layoutInflater, bVar)) == null) {
             View c2 = bVar.c(layoutInflater);
             MaskView.LayoutParams layoutParams = new MaskView.LayoutParams(-2, -2);
-            layoutParams.f31213c = bVar.getXOffset();
-            layoutParams.f31214d = bVar.getYOffset();
+            layoutParams.f31419c = bVar.getXOffset();
+            layoutParams.f31420d = bVar.getYOffset();
             layoutParams.a = bVar.a();
-            layoutParams.f31212b = bVar.b();
+            layoutParams.f31418b = bVar.b();
             c2.setLayoutParams(layoutParams);
             return c2;
         }

@@ -6,7 +6,7 @@ import android.os.IBinder;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.api.proxy.BaseProxyService;
 import com.kwad.sdk.api.proxy.IServiceProxy;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class c implements IServiceProxy {
     @Override // com.kwad.sdk.api.proxy.IServiceProxy
     public IBinder onBind(@NonNull Service service, Intent intent) {

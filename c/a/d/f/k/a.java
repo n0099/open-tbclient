@@ -16,22 +16,22 @@ public class a<K, V> {
     public final LinkedHashMap<K, V> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f2944b;
+    public int f2030b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f2945c;
+    public int f2031c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f2946d;
+    public int f2032d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2947e;
+    public int f2033e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f2948f;
+    public int f2034f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f2949g;
+    public int f2035g;
 
     public a(int i2) {
         Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class a<K, V> {
                 return;
             }
         }
-        this.f2945c = i2;
+        this.f2031c = i2;
         this.a = new LinkedHashMap<>(0, 0.75f, true);
     }
 
@@ -57,10 +57,10 @@ public class a<K, V> {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
                 c();
-                this.f2946d = 0;
-                this.f2947e = 0;
-                this.f2948f = 0;
-                this.f2949g = 0;
+                this.f2032d = 0;
+                this.f2033e = 0;
+                this.f2034f = 0;
+                this.f2035g = 0;
             }
         }
     }
@@ -84,7 +84,7 @@ public class a<K, V> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (this) {
-                i2 = this.f2947e;
+                i2 = this.f2033e;
             }
             return i2;
         }
@@ -96,8 +96,8 @@ public class a<K, V> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
             synchronized (this) {
-                if (this.f2944b + i2 > this.f2945c * 0.8d) {
-                    n(this.f2944b - i2);
+                if (this.f2030b + i2 > this.f2031c * 0.8d) {
+                    n(this.f2030b - i2);
                 }
             }
             return true;
@@ -115,10 +115,10 @@ public class a<K, V> {
             synchronized (this) {
                 V v = this.a.get(k);
                 if (v != null) {
-                    this.f2948f++;
+                    this.f2034f++;
                     return v;
                 }
-                this.f2949g++;
+                this.f2035g++;
                 return null;
             }
         }
@@ -131,7 +131,7 @@ public class a<K, V> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
-                i2 = this.f2945c;
+                i2 = this.f2031c;
             }
             return i2;
         }
@@ -147,17 +147,17 @@ public class a<K, V> {
                 return null;
             }
             synchronized (this) {
-                this.f2946d++;
-                this.f2944b += j(k, v);
+                this.f2032d++;
+                this.f2030b += j(k, v);
                 put = this.a.put(k, v);
                 if (put != null) {
-                    this.f2944b -= j(k, put);
+                    this.f2030b -= j(k, put);
                 }
             }
             if (put != null) {
                 b(false, k, put, v);
             }
-            n(this.f2945c);
+            n(this.f2031c);
             return put;
         }
         return (V) invokeLL.objValue;
@@ -174,7 +174,7 @@ public class a<K, V> {
             synchronized (this) {
                 remove = this.a.remove(k);
                 if (remove != null) {
-                    this.f2944b -= j(k, remove);
+                    this.f2030b -= j(k, remove);
                 }
             }
             if (remove != null) {
@@ -202,7 +202,7 @@ public class a<K, V> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
             synchronized (this) {
-                this.f2945c = i2;
+                this.f2031c = i2;
                 n(i2);
             }
         }
@@ -214,7 +214,7 @@ public class a<K, V> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             synchronized (this) {
-                i2 = this.f2944b;
+                i2 = this.f2030b;
             }
             return i2;
         }
@@ -243,16 +243,16 @@ public class a<K, V> {
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
             while (true) {
                 synchronized (this) {
-                    if (this.f2944b >= 0 && (!this.a.isEmpty() || this.f2944b == 0)) {
-                        if (this.f2944b <= i2 || this.a.isEmpty()) {
+                    if (this.f2030b >= 0 && (!this.a.isEmpty() || this.f2030b == 0)) {
+                        if (this.f2030b <= i2 || this.a.isEmpty()) {
                             break;
                         }
                         Map.Entry<K, V> next = this.a.entrySet().iterator().next();
                         key = next.getKey();
                         value = next.getValue();
                         this.a.remove(key);
-                        this.f2944b -= j(key, value);
-                        this.f2947e++;
+                        this.f2030b -= j(key, value);
+                        this.f2033e++;
                     } else {
                         break;
                     }

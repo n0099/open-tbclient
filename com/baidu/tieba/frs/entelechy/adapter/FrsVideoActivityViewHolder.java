@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.entelechy.adapter;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import c.a.t0.e1.f1;
+import c.a.u0.e1.f1;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

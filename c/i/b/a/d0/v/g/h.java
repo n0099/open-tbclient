@@ -16,10 +16,10 @@ public abstract class h {
     public final f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f29288b;
+    public final long f29494b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f29289c;
+    public final long f29495c;
 
     /* loaded from: classes9.dex */
     public static abstract class a extends h {
@@ -27,13 +27,13 @@ public abstract class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f29290d;
+        public final int f29496d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final long f29291e;
+        public final long f29497e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final List<d> f29292f;
+        public final List<d> f29498f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(f fVar, long j2, long j3, int i2, long j4, List<d> list) {
@@ -54,15 +54,15 @@ public abstract class h {
                     return;
                 }
             }
-            this.f29290d = i2;
-            this.f29291e = j4;
-            this.f29292f = list;
+            this.f29496d = i2;
+            this.f29497e = j4;
+            this.f29498f = list;
         }
 
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29290d : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29496d : invokeV.intValue;
         }
 
         public abstract int d(long j2);
@@ -71,12 +71,12 @@ public abstract class h {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-                List<d> list = this.f29292f;
+                List<d> list = this.f29498f;
                 if (list != null) {
-                    return (list.get(i2 - this.f29290d).f29296b * 1000000) / this.f29288b;
+                    return (list.get(i2 - this.f29496d).f29502b * 1000000) / this.f29494b;
                 }
                 int d2 = d(j2);
-                return (d2 == -1 || i2 != (c() + d2) + (-1)) ? (this.f29291e * 1000000) / this.f29288b : j2 - g(i2);
+                return (d2 == -1 || i2 != (c() + d2) + (-1)) ? (this.f29497e * 1000000) / this.f29494b : j2 - g(i2);
             }
             return invokeCommon.longValue;
         }
@@ -90,8 +90,8 @@ public abstract class h {
                 if (d2 == 0) {
                     return c2;
                 }
-                if (this.f29292f == null) {
-                    int i2 = this.f29290d + ((int) (j2 / ((this.f29291e * 1000000) / this.f29288b)));
+                if (this.f29498f == null) {
+                    int i2 = this.f29496d + ((int) (j2 / ((this.f29497e * 1000000) / this.f29494b)));
                     return i2 < c2 ? c2 : d2 == -1 ? i2 : Math.min(i2, (c2 + d2) - 1);
                 }
                 int i3 = (d2 + c2) - 1;
@@ -117,13 +117,13 @@ public abstract class h {
             long j2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-                List<d> list = this.f29292f;
+                List<d> list = this.f29498f;
                 if (list != null) {
-                    j2 = list.get(i2 - this.f29290d).a - this.f29289c;
+                    j2 = list.get(i2 - this.f29496d).a - this.f29495c;
                 } else {
-                    j2 = (i2 - this.f29290d) * this.f29291e;
+                    j2 = (i2 - this.f29496d) * this.f29497e;
                 }
-                return v.F(j2, 1000000L, this.f29288b);
+                return v.F(j2, 1000000L, this.f29494b);
             }
             return invokeI.longValue;
         }
@@ -133,7 +133,7 @@ public abstract class h {
         public boolean i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f29292f != null : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f29498f != null : invokeV.booleanValue;
         }
     }
 
@@ -143,7 +143,7 @@ public abstract class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final List<f> f29293g;
+        public final List<f> f29499g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(f fVar, long j2, long j3, int i2, long j4, List<d> list, List<f> list2) {
@@ -164,21 +164,21 @@ public abstract class h {
                     return;
                 }
             }
-            this.f29293g = list2;
+            this.f29499g = list2;
         }
 
         @Override // c.i.b.a.d0.v.g.h.a
         public int d(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? this.f29293g.size() : invokeJ.intValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? this.f29499g.size() : invokeJ.intValue;
         }
 
         @Override // c.i.b.a.d0.v.g.h.a
         public f h(g gVar, int i2) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar, i2)) == null) ? this.f29293g.get(i2 - this.f29290d) : (f) invokeLI.objValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar, i2)) == null) ? this.f29499g.get(i2 - this.f29496d) : (f) invokeLI.objValue;
         }
 
         @Override // c.i.b.a.d0.v.g.h.a
@@ -198,10 +198,10 @@ public abstract class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final j f29294g;
+        public final j f29500g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final j f29295h;
+        public final j f29501h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(f fVar, long j2, long j3, int i2, long j4, List<d> list, j jVar, j jVar2) {
@@ -222,8 +222,8 @@ public abstract class h {
                     return;
                 }
             }
-            this.f29294g = jVar;
-            this.f29295h = jVar2;
+            this.f29500g = jVar;
+            this.f29501h = jVar2;
         }
 
         @Override // c.i.b.a.d0.v.g.h
@@ -231,7 +231,7 @@ public abstract class h {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
-                j jVar = this.f29294g;
+                j jVar = this.f29500g;
                 if (jVar != null) {
                     Format format = gVar.a;
                     return new f(jVar.a(format.id, 0, format.bitrate, 0L), 0L, -1L);
@@ -246,12 +246,12 @@ public abstract class h {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-                List<d> list = this.f29292f;
+                List<d> list = this.f29498f;
                 if (list != null) {
                     return list.size();
                 }
                 if (j2 != -9223372036854775807L) {
-                    return (int) v.g(j2, (this.f29291e * 1000000) / this.f29288b);
+                    return (int) v.g(j2, (this.f29497e * 1000000) / this.f29494b);
                 }
                 return -1;
             }
@@ -264,14 +264,14 @@ public abstract class h {
             long j2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, gVar, i2)) == null) {
-                List<d> list = this.f29292f;
+                List<d> list = this.f29498f;
                 if (list != null) {
-                    j2 = list.get(i2 - this.f29290d).a;
+                    j2 = list.get(i2 - this.f29496d).a;
                 } else {
-                    j2 = (i2 - this.f29290d) * this.f29291e;
+                    j2 = (i2 - this.f29496d) * this.f29497e;
                 }
                 long j3 = j2;
-                j jVar = this.f29295h;
+                j jVar = this.f29501h;
                 Format format = gVar.a;
                 return new f(jVar.a(format.id, i2, format.bitrate, j3), 0L, -1L);
             }
@@ -286,7 +286,7 @@ public abstract class h {
         public final long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f29296b;
+        public final long f29502b;
 
         public d(long j2, long j3) {
             Interceptable interceptable = $ic;
@@ -304,7 +304,7 @@ public abstract class h {
                 }
             }
             this.a = j2;
-            this.f29296b = j3;
+            this.f29502b = j3;
         }
     }
 
@@ -324,8 +324,8 @@ public abstract class h {
             }
         }
         this.a = fVar;
-        this.f29288b = j2;
-        this.f29289c = j3;
+        this.f29494b = j2;
+        this.f29495c = j3;
     }
 
     public f a(g gVar) {
@@ -337,7 +337,7 @@ public abstract class h {
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? v.F(this.f29289c, 1000000L, this.f29288b) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? v.F(this.f29495c, 1000000L, this.f29494b) : invokeV.longValue;
     }
 
     /* loaded from: classes9.dex */
@@ -346,10 +346,10 @@ public abstract class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public final long f29297d;
+        public final long f29503d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final long f29298e;
+        public final long f29504e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(f fVar, long j2, long j3, long j4, long j5) {
@@ -370,19 +370,19 @@ public abstract class h {
                     return;
                 }
             }
-            this.f29297d = j4;
-            this.f29298e = j5;
+            this.f29503d = j4;
+            this.f29504e = j5;
         }
 
         public f c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                long j2 = this.f29298e;
+                long j2 = this.f29504e;
                 if (j2 <= 0) {
                     return null;
                 }
-                return new f(null, this.f29297d, j2);
+                return new f(null, this.f29503d, j2);
             }
             return (f) invokeV.objValue;
         }

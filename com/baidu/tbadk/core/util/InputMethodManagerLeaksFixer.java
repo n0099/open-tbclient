@@ -5,7 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import c.a.s0.n.g;
+import c.a.t0.n.g;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -72,7 +72,7 @@ public class InputMethodManagerLeaksFixer {
                 this.val$inputMethodManager = inputMethodManager;
             }
 
-            @Override // c.a.s0.n.g, android.app.Application.ActivityLifecycleCallbacks
+            @Override // c.a.t0.n.g, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityDestroyed(Activity activity) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, activity) == null) {

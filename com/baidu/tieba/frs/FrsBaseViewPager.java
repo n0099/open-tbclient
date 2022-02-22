@@ -18,7 +18,7 @@ public class FrsBaseViewPager extends BdBaseViewPager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f43061j;
+    public int f43294j;
     public float k;
     public Activity l;
     public boolean m;
@@ -67,7 +67,7 @@ public class FrsBaseViewPager extends BdBaseViewPager {
                 if (aVar != null) {
                     aVar.a();
                 }
-                if (this.k >= getMeasuredWidth() - this.f43061j && this.k <= getMeasuredWidth()) {
+                if (this.k >= getMeasuredWidth() - this.f43294j && this.k <= getMeasuredWidth()) {
                     setmDisallowSlip(false);
                     this.m = true;
                     this.p = true;
@@ -155,11 +155,11 @@ public class FrsBaseViewPager extends BdBaseViewPager {
                 return;
             }
         }
-        this.f43061j = 0;
+        this.f43294j = 0;
         this.p = true;
         Activity activity = (Activity) context;
         this.l = activity;
-        this.f43061j = n.d(activity, 0);
+        this.f43294j = n.d(activity, 0);
         BdBaseViewPager.a aVar = new BdBaseViewPager.a(this, this.l);
         aVar.b(1000);
         aVar.a(this);

@@ -52,7 +52,7 @@ public class JavaBeanInfo {
     public final JSONType jsonType;
 
     /* renamed from: kotlin  reason: collision with root package name */
-    public boolean f30662kotlin;
+    public boolean f30868kotlin;
     public Constructor<?> kotlinDefaultConstructor;
     public String[] orders;
     public final int parserFeatures;
@@ -141,7 +141,7 @@ public class JavaBeanInfo {
         if (constructor2 != null) {
             this.creatorConstructorParameterTypes = constructor2.getParameterTypes();
             boolean isKotlin = TypeUtils.isKotlin(cls);
-            this.f30662kotlin = isKotlin;
+            this.f30868kotlin = isKotlin;
             if (isKotlin) {
                 this.creatorConstructorParameters = TypeUtils.getKoltinConstructorParameters(cls);
                 try {
@@ -501,17 +501,17 @@ public class JavaBeanInfo {
         return (Class) invokeLL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:402:0x0887, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:402:0x0885, code lost:
         if (r3 == null) goto L268;
      */
     /* JADX WARN: Removed duplicated region for block: B:127:0x0276  */
     /* JADX WARN: Removed duplicated region for block: B:185:0x033d  */
     /* JADX WARN: Removed duplicated region for block: B:186:0x0343  */
-    /* JADX WARN: Removed duplicated region for block: B:277:0x05bc  */
-    /* JADX WARN: Removed duplicated region for block: B:413:0x08c8  */
-    /* JADX WARN: Removed duplicated region for block: B:420:0x08fa  */
-    /* JADX WARN: Removed duplicated region for block: B:431:0x0975  */
-    /* JADX WARN: Removed duplicated region for block: B:434:0x0988  */
+    /* JADX WARN: Removed duplicated region for block: B:277:0x05ba  */
+    /* JADX WARN: Removed duplicated region for block: B:413:0x08c6  */
+    /* JADX WARN: Removed duplicated region for block: B:420:0x08f8  */
+    /* JADX WARN: Removed duplicated region for block: B:431:0x0973  */
+    /* JADX WARN: Removed duplicated region for block: B:434:0x0986  */
     /* JADX WARN: Removed duplicated region for block: B:50:0x00cc  */
     /* JADX WARN: Removed duplicated region for block: B:94:0x01c9  */
     /*

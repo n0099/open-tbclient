@@ -5,15 +5,15 @@ import android.view.ViewGroup;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
 import tv.athena.revenue.payui.view.AbsViewEventHandler;
 import tv.athena.revenue.payui.view.dialog.CancelType;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface d {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(CancelType cancelType);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(CancelType cancelType);
 

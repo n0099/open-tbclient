@@ -15,17 +15,17 @@ import com.baidu.wallet.core.BaseActivity;
 import com.baidu.wallet.core.SDKBaseActivity;
 import com.baidu.wallet.lightapp.business.presenter.ContactInfoPresenter;
 import com.baidu.wallet.lightapp.business.presenter.b;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class SelectAddressProxy extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public static b a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public ContactInfoPresenter f51399b;
+    public ContactInfoPresenter f51566b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f51400c;
+    public boolean f51567c;
 
     static {
         InterceptResult invokeClinit;
@@ -55,13 +55,13 @@ public class SelectAddressProxy extends BaseActivity {
                 return;
             }
         }
-        this.f51400c = true;
+        this.f51567c = true;
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f51399b = new ContactInfoPresenter(getActivity(), a);
+            this.f51566b = new ContactInfoPresenter(getActivity(), a);
             Intent intent = new Intent();
             intent.setAction("android.intent.action.PICK");
             intent.setType("vnd.android.cursor.dir/phone_v2");
@@ -72,7 +72,7 @@ public class SelectAddressProxy extends BaseActivity {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f51399b = null;
+            this.f51566b = null;
             a = null;
             finish();
         }
@@ -110,7 +110,7 @@ public class SelectAddressProxy extends BaseActivity {
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, intent) == null) {
             if (i2 == 4) {
                 if (i3 == -1) {
-                    if (intent != null && intent.getData() != null && (contactInfoPresenter = this.f51399b) != null) {
+                    if (intent != null && intent.getData() != null && (contactInfoPresenter = this.f51566b) != null) {
                         contactInfoPresenter.a(intent.getData());
                     }
                 } else {
@@ -131,9 +131,9 @@ public class SelectAddressProxy extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onResume();
-            if (this.f51400c) {
+            if (this.f51567c) {
                 a();
-                this.f51400c = false;
+                this.f51567c = false;
             }
         }
     }

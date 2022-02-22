@@ -7,28 +7,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "pref_trade_token";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f30967b = ";";
+    public static final String f31173b = ";";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f30968c = "result={";
+    public static final String f31174c = "result={";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f30969d = "}";
+    public static final String f31175d = "}";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f30970e = "trade_token=\"";
+    public static final String f31176e = "trade_token=\"";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f30971f = "\"";
+    public static final String f31177f = "\"";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f30972g = "trade_token=";
+    public static final String f31178g = "trade_token=";
     public transient /* synthetic */ FieldHolder $fh;
 
     public g() {
@@ -72,16 +72,16 @@ public class g {
             }
             String[] split = str.split(";");
             for (int i2 = 0; i2 < split.length; i2++) {
-                if (split[i2].startsWith(f30968c) && split[i2].endsWith("}")) {
+                if (split[i2].startsWith(f31174c) && split[i2].endsWith("}")) {
                     String[] split2 = split[i2].substring(8, split[i2].length() - 1).split("&");
                     int i3 = 0;
                     while (true) {
                         if (i3 >= split2.length) {
                             break;
-                        } else if (split2[i3].startsWith(f30970e) && split2[i3].endsWith("\"")) {
+                        } else if (split2[i3].startsWith(f31176e) && split2[i3].endsWith("\"")) {
                             str2 = split2[i3].substring(13, split2[i3].length() - 1);
                             break;
-                        } else if (split2[i3].startsWith(f30972g)) {
+                        } else if (split2[i3].startsWith(f31178g)) {
                             str2 = split2[i3].substring(12);
                             break;
                         } else {

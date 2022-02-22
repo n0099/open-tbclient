@@ -25,10 +25,10 @@ public class CouponBaseActivity extends BeanActivity {
         public float a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float f52610b;
+        public float f52777b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f52611c;
+        public int f52778c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Resources resources) {
@@ -58,8 +58,8 @@ public class CouponBaseActivity extends BeanActivity {
                 float f3 = displayMetrics.scaledDensity;
                 float f4 = displayMetrics.widthPixels / 360.0f;
                 this.a = f4;
-                this.f52610b = (f3 / f2) * f4;
-                this.f52611c = (int) (f4 * 160.0f);
+                this.f52777b = (f3 / f2) * f4;
+                this.f52778c = (int) (f4 * 160.0f);
             }
         }
 
@@ -67,7 +67,7 @@ public class CouponBaseActivity extends BeanActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65538, this, displayMetrics) == null) {
                 displayMetrics.density = this.a;
-                displayMetrics.densityDpi = this.f52611c;
+                displayMetrics.densityDpi = this.f52778c;
             }
         }
 

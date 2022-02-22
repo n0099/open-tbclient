@@ -3,7 +3,7 @@ package com.baidu.tbadk.game;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
-import c.a.s0.l0.b.a;
+import c.a.t0.l0.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.GameCenterCoreUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;

@@ -32,14 +32,14 @@ import org.json.JSONObject;
 public class l {
 
     /* renamed from: b  reason: collision with root package name */
-    public static Object[] f59730b = new Object[0];
+    public static Object[] f59897b = new Object[0];
 
     /* renamed from: c  reason: collision with root package name */
-    public static Object[] f59731c = new Object[73];
+    public static Object[] f59898c = new Object[73];
     public static final char[] a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f59732d = null;
+    public static String f59899d = null;
 
     public static boolean a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -326,10 +326,10 @@ public class l {
             PackageInfo packageInfo = com.ss.android.downloadlib.addownload.j.getContext().getPackageManager().getPackageInfo(str, 0);
             if (packageInfo != null) {
                 cVar.b(packageInfo.versionCode);
-                cVar.a(com.ss.android.downloadlib.addownload.b.c.f59494b);
+                cVar.a(com.ss.android.downloadlib.addownload.b.c.f59661b);
                 n g2 = com.ss.android.downloadlib.addownload.j.g();
                 if (g2 != null && g2.a() && !a(packageInfo.versionCode, i2, packageInfo.versionName, str2)) {
-                    cVar.a(com.ss.android.downloadlib.addownload.b.c.f59495c);
+                    cVar.a(com.ss.android.downloadlib.addownload.b.c.f59662c);
                 }
             }
         } catch (Exception e2) {

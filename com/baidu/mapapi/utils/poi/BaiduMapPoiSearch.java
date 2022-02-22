@@ -71,9 +71,9 @@ public class BaiduMapPoiSearch {
             StringBuilder sb = new StringBuilder();
             sb.append("http://api.map.baidu.com/place/search?");
             sb.append("query=");
-            sb.append(poiParaOption.f35741b);
+            sb.append(poiParaOption.f35947b);
             sb.append("&location=");
-            LatLng latLng = poiParaOption.f35742c;
+            LatLng latLng = poiParaOption.f35948c;
             if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                 latLng = CoordTrans.gcjToBaidu(latLng);
             }
@@ -81,7 +81,7 @@ public class BaiduMapPoiSearch {
             sb.append(",");
             sb.append(latLng.longitude);
             sb.append("&radius=");
-            sb.append(poiParaOption.f35743d);
+            sb.append(poiParaOption.f35949d);
             sb.append("&output=html");
             sb.append("&src=");
             sb.append(context.getPackageName());
@@ -194,14 +194,14 @@ public class BaiduMapPoiSearch {
             if (poiParaOption == null || context == null) {
                 throw new IllegalPoiSearchArgumentException("BDMapSDKException: para or context can not be null.");
             }
-            String str = poiParaOption.f35741b;
+            String str = poiParaOption.f35947b;
             if (str != null) {
-                LatLng latLng = poiParaOption.f35742c;
+                LatLng latLng = poiParaOption.f35948c;
                 if (latLng != null) {
                     if (latLng.longitude == 0.0d || latLng.latitude == 0.0d) {
                         throw new IllegalPoiSearchArgumentException("BDMapSDKException: poi search center longitude or latitude can not be 0.");
                     }
-                    if (poiParaOption.f35743d != 0) {
+                    if (poiParaOption.f35949d != 0) {
                         if (str.equals("")) {
                             return false;
                         }

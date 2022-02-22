@@ -6,7 +6,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.CharsKt__CharJVMKt;
 @Metadata(d1 = {"\u00000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0006\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\t\n\u0002\u0010\t\n\u0002\b\u0007\n\u0002\u0010\u000e\n\u0002\b\u0002\u001a\u0018\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\u0001ø\u0001\u0000¢\u0006\u0002\u0010\u0004\u001a\u0018\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0002\u001a\u00020\u0003H\u0001ø\u0001\u0000¢\u0006\u0002\u0010\u0007\u001a\u0018\u0010\b\u001a\u00020\t2\u0006\u0010\n\u001a\u00020\t2\u0006\u0010\u000b\u001a\u00020\tH\u0001\u001a\"\u0010\f\u001a\u00020\u00012\u0006\u0010\n\u001a\u00020\u00012\u0006\u0010\u000b\u001a\u00020\u0001H\u0001ø\u0001\u0000¢\u0006\u0004\b\r\u0010\u000e\u001a\"\u0010\u000f\u001a\u00020\u00012\u0006\u0010\n\u001a\u00020\u00012\u0006\u0010\u000b\u001a\u00020\u0001H\u0001ø\u0001\u0000¢\u0006\u0004\b\u0010\u0010\u000e\u001a\u0010\u0010\u0011\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\tH\u0001\u001a\u0018\u0010\u0012\u001a\u00020\t2\u0006\u0010\n\u001a\u00020\u00132\u0006\u0010\u000b\u001a\u00020\u0013H\u0001\u001a\"\u0010\u0014\u001a\u00020\u00062\u0006\u0010\n\u001a\u00020\u00062\u0006\u0010\u000b\u001a\u00020\u0006H\u0001ø\u0001\u0000¢\u0006\u0004\b\u0015\u0010\u0016\u001a\"\u0010\u0017\u001a\u00020\u00062\u0006\u0010\n\u001a\u00020\u00062\u0006\u0010\u000b\u001a\u00020\u0006H\u0001ø\u0001\u0000¢\u0006\u0004\b\u0018\u0010\u0016\u001a\u0010\u0010\u0019\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0013H\u0001\u001a\u0010\u0010\u001a\u001a\u00020\u001b2\u0006\u0010\u0002\u001a\u00020\u0013H\u0000\u001a\u0018\u0010\u001a\u001a\u00020\u001b2\u0006\u0010\u0002\u001a\u00020\u00132\u0006\u0010\u001c\u001a\u00020\tH\u0000\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u001d"}, d2 = {"doubleToUInt", "Lkotlin/UInt;", "v", "", "(D)I", "doubleToULong", "Lkotlin/ULong;", "(D)J", "uintCompare", "", "v1", "v2", "uintDivide", "uintDivide-J1ME1BU", "(II)I", "uintRemainder", "uintRemainder-J1ME1BU", "uintToDouble", "ulongCompare", "", "ulongDivide", "ulongDivide-eb3DHEI", "(JJ)J", "ulongRemainder", "ulongRemainder-eb3DHEI", "ulongToDouble", "ulongToString", "", SchemeCollecter.CLASSIFY_BASE, "kotlin-stdlib"}, k = 2, mv = {1, 5, 1})
 @JvmName(name = "UnsignedKt")
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class UnsignedKt {
     @PublishedApi
     public static final int doubleToUInt(double d2) {
@@ -16,9 +16,9 @@ public final class UnsignedKt {
             }
             double d3 = Integer.MAX_VALUE;
             if (d2 <= d3) {
-                return UInt.m808constructorimpl((int) d2);
+                return UInt.m807constructorimpl((int) d2);
             }
-            return UInt.m808constructorimpl(UInt.m808constructorimpl((int) (d2 - d3)) + UInt.m808constructorimpl(Integer.MAX_VALUE));
+            return UInt.m807constructorimpl(UInt.m807constructorimpl((int) (d2 - d3)) + UInt.m807constructorimpl(Integer.MAX_VALUE));
         }
         return 0;
     }
@@ -30,9 +30,9 @@ public final class UnsignedKt {
                 return -1L;
             }
             if (d2 < Long.MAX_VALUE) {
-                return ULong.m886constructorimpl((long) d2);
+                return ULong.m885constructorimpl((long) d2);
             }
-            return ULong.m886constructorimpl(ULong.m886constructorimpl((long) (d2 - 9.223372036854776E18d)) - Long.MIN_VALUE);
+            return ULong.m885constructorimpl(ULong.m885constructorimpl((long) (d2 - 9.223372036854776E18d)) - Long.MIN_VALUE);
         }
         return 0L;
     }
@@ -44,14 +44,14 @@ public final class UnsignedKt {
 
     @PublishedApi
     /* renamed from: uintDivide-J1ME1BU  reason: not valid java name */
-    public static final int m1061uintDivideJ1ME1BU(int i2, int i3) {
-        return UInt.m808constructorimpl((int) ((i2 & 4294967295L) / (i3 & 4294967295L)));
+    public static final int m1060uintDivideJ1ME1BU(int i2, int i3) {
+        return UInt.m807constructorimpl((int) ((i2 & 4294967295L) / (i3 & 4294967295L)));
     }
 
     @PublishedApi
     /* renamed from: uintRemainder-J1ME1BU  reason: not valid java name */
-    public static final int m1062uintRemainderJ1ME1BU(int i2, int i3) {
-        return UInt.m808constructorimpl((int) ((i2 & 4294967295L) % (i3 & 4294967295L)));
+    public static final int m1061uintRemainderJ1ME1BU(int i2, int i3) {
+        return UInt.m807constructorimpl((int) ((i2 & 4294967295L) % (i3 & 4294967295L)));
     }
 
     @PublishedApi
@@ -66,30 +66,30 @@ public final class UnsignedKt {
 
     @PublishedApi
     /* renamed from: ulongDivide-eb3DHEI  reason: not valid java name */
-    public static final long m1063ulongDivideeb3DHEI(long j2, long j3) {
+    public static final long m1062ulongDivideeb3DHEI(long j2, long j3) {
         if (j3 < 0) {
-            return ulongCompare(j2, j3) < 0 ? ULong.m886constructorimpl(0L) : ULong.m886constructorimpl(1L);
+            return ulongCompare(j2, j3) < 0 ? ULong.m885constructorimpl(0L) : ULong.m885constructorimpl(1L);
         } else if (j2 >= 0) {
-            return ULong.m886constructorimpl(j2 / j3);
+            return ULong.m885constructorimpl(j2 / j3);
         } else {
             long j4 = ((j2 >>> 1) / j3) << 1;
-            return ULong.m886constructorimpl(j4 + (ulongCompare(ULong.m886constructorimpl(j2 - (j4 * j3)), ULong.m886constructorimpl(j3)) < 0 ? 0 : 1));
+            return ULong.m885constructorimpl(j4 + (ulongCompare(ULong.m885constructorimpl(j2 - (j4 * j3)), ULong.m885constructorimpl(j3)) < 0 ? 0 : 1));
         }
     }
 
     @PublishedApi
     /* renamed from: ulongRemainder-eb3DHEI  reason: not valid java name */
-    public static final long m1064ulongRemaindereb3DHEI(long j2, long j3) {
+    public static final long m1063ulongRemaindereb3DHEI(long j2, long j3) {
         if (j3 < 0) {
-            return ulongCompare(j2, j3) < 0 ? j2 : ULong.m886constructorimpl(j2 - j3);
+            return ulongCompare(j2, j3) < 0 ? j2 : ULong.m885constructorimpl(j2 - j3);
         } else if (j2 >= 0) {
-            return ULong.m886constructorimpl(j2 % j3);
+            return ULong.m885constructorimpl(j2 % j3);
         } else {
             long j4 = j2 - ((((j2 >>> 1) / j3) << 1) * j3);
-            if (ulongCompare(ULong.m886constructorimpl(j4), ULong.m886constructorimpl(j3)) < 0) {
+            if (ulongCompare(ULong.m885constructorimpl(j4), ULong.m885constructorimpl(j3)) < 0) {
                 j3 = 0;
             }
-            return ULong.m886constructorimpl(j4 - j3);
+            return ULong.m885constructorimpl(j4 - j3);
         }
     }
 

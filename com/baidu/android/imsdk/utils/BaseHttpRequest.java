@@ -14,7 +14,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.ResponseHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

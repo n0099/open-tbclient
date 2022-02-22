@@ -34,32 +34,32 @@ public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f28119e = "a";
+    public static final String f28325e = "a";
 
     /* renamed from: f  reason: collision with root package name */
-    public static a f28120f;
+    public static a f28326f;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HeartBeatCfgEntity f28121b;
+    public HeartBeatCfgEntity f28327b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f28122c;
+    public Context f28328c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f28123d;
+    public String f28329d;
 
     /* renamed from: c.f.a.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class RunnableC1637a implements Runnable {
+    public class RunnableC1647a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f28124e;
+        public final /* synthetic */ a f28330e;
 
-        public RunnableC1637a(a aVar) {
+        public RunnableC1647a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,27 +74,27 @@ public final class a {
                     return;
                 }
             }
-            this.f28124e = aVar;
+            this.f28330e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a aVar = this.f28124e;
-                HeartBeatCfgEntity m = aVar.m(aVar.f28122c);
+                a aVar = this.f28330e;
+                HeartBeatCfgEntity m = aVar.m(aVar.f28328c);
                 if (m != null) {
-                    long c2 = c.c(this.f28124e.f28122c, com.baidu.apollon.heartbeat.c.f32495b, 300L);
+                    long c2 = c.c(this.f28330e.f28328c, com.baidu.apollon.heartbeat.c.f32701b, 300L);
                     if (!m.isValidRequestTime(c2)) {
-                        this.f28124e.e(m);
+                        this.f28330e.e(m);
                         return;
                     }
-                    String str = a.f28119e;
-                    LogUtil.i(str, a.f28119e + " onChange lastRequestTime:" + c2 + " execute tryLoadCfg.");
-                    this.f28124e.n();
+                    String str = a.f28325e;
+                    LogUtil.i(str, a.f28325e + " onChange lastRequestTime:" + c2 + " execute tryLoadCfg.");
+                    this.f28330e.n();
                     return;
                 }
-                this.f28124e.n();
+                this.f28330e.n();
             }
         }
     }
@@ -158,8 +158,8 @@ public final class a {
             }
         }
         this.a = "https://www.baifubao.com";
-        this.f28121b = null;
-        this.f28122c = null;
+        this.f28327b = null;
+        this.f28328c = null;
     }
 
     public static synchronized a i() {
@@ -168,10 +168,10 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             synchronized (a.class) {
-                if (f28120f == null) {
-                    f28120f = new a();
+                if (f28326f == null) {
+                    f28326f = new a();
                 }
-                aVar = f28120f;
+                aVar = f28326f;
             }
             return aVar;
         }
@@ -185,10 +185,10 @@ public final class a {
             if (context == null) {
                 return null;
             }
-            if (this.f28121b == null) {
-                this.f28121b = m(context);
+            if (this.f28327b == null) {
+                this.f28327b = m(context);
             }
-            return this.f28121b;
+            return this.f28327b;
         }
         return (HeartBeatCfgEntity) invokeL.objValue;
     }
@@ -211,13 +211,13 @@ public final class a {
             return;
         }
         if (heartBeatCfgEntity != null) {
-            HeartBeatCfgEntity heartBeatCfgEntity2 = this.f28121b;
+            HeartBeatCfgEntity heartBeatCfgEntity2 = this.f28327b;
             if ((heartBeatCfgEntity2 == null || (heartBeatCfgEntity2 != null && !TextUtils.equals(heartBeatCfgEntity2.toString(), heartBeatCfgEntity.toString()))) && heartBeatCfgEntity.checkResponseValidity()) {
-                this.f28121b = heartBeatCfgEntity;
-                heartBeatCfgEntity.storeResponse(this.f28122c);
+                this.f28327b = heartBeatCfgEntity;
+                heartBeatCfgEntity.storeResponse(this.f28328c);
                 z = true;
-                String str = f28119e;
-                LogUtil.i(str, f28119e + " refreshHeartBeatCfg mResponse.");
+                String str = f28325e;
+                LogUtil.i(str, f28325e + " refreshHeartBeatCfg mResponse.");
                 if (z) {
                     return;
                 }
@@ -225,8 +225,8 @@ public final class a {
                 return;
             }
         } else {
-            String str2 = f28119e;
-            LogUtil.w(str2, f28119e + " refreshHeartBeatCfg resp is null || mResponse = resp.");
+            String str2 = f28325e;
+            LogUtil.w(str2, f28325e + " refreshHeartBeatCfg resp is null || mResponse = resp.");
         }
         z = false;
         if (z) {
@@ -252,14 +252,14 @@ public final class a {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, context) == null) || context == null) {
             return;
         }
-        this.f28122c = context;
-        new Thread(new RunnableC1637a(this)).start();
+        this.f28328c = context;
+        new Thread(new RunnableC1647a(this)).start();
     }
 
     public void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f28123d = str;
+            this.f28329d = str;
         }
     }
 
@@ -296,7 +296,7 @@ public final class a {
                         if (!TextUtils.isEmpty(copyToString)) {
                             heartBeatCfgEntity2 = HeartBeatCfgEntity.build(copyToString);
                         } else {
-                            LogUtil.w(f28119e, f28119e + " cache:" + file.getPath() + " content json is empty.");
+                            LogUtil.w(f28325e, f28325e + " cache:" + file.getPath() + " content json is empty.");
                         }
                         heartBeatCfgEntity = heartBeatCfgEntity2;
                         fileReader2 = fileReader;
@@ -318,7 +318,7 @@ public final class a {
                         return null;
                     }
                 } else {
-                    LogUtil.w(f28119e, f28119e + " cache:" + file.getPath() + " isn't exist.");
+                    LogUtil.w(f28325e, f28325e + " cache:" + file.getPath() + " isn't exist.");
                     heartBeatCfgEntity = null;
                 }
                 if (fileReader2 != null) {
@@ -356,12 +356,12 @@ public final class a {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (NetworkUtils.isNetworkAvailable(this.f28122c)) {
+            if (NetworkUtils.isNetworkAvailable(this.f28328c)) {
                 try {
                     String o = o();
                     if (!TextUtils.isEmpty(o)) {
-                        String str = f28119e;
-                        LogUtil.i(str, f28119e + " execute success,response:" + o);
+                        String str = f28325e;
+                        LogUtil.i(str, f28325e + " execute success,response:" + o);
                         try {
                             String optString = new JSONObject(o).optString("content");
                             if (!TextUtils.isEmpty(optString)) {
@@ -371,8 +371,8 @@ public final class a {
                             e2.printStackTrace();
                         }
                     } else {
-                        String str2 = f28119e;
-                        LogUtil.w(str2, f28119e + " the response is null.");
+                        String str2 = f28325e;
+                        LogUtil.w(str2, f28325e + " the response is null.");
                     }
                     return;
                 } catch (Exception e3) {
@@ -380,8 +380,8 @@ public final class a {
                     return;
                 }
             }
-            String str3 = f28119e;
-            LogUtil.d(str3, f28119e + " loadCfg current network is't available.");
+            String str3 = f28325e;
+            LogUtil.d(str3, f28325e + " loadCfg current network is't available.");
         }
     }
 
@@ -389,17 +389,17 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            Context context = this.f28122c;
+            Context context = this.f28328c;
             RestTemplate restTemplate = new RestTemplate(context, BussinessUtils.getUA(context), "dxm stastics bean http request");
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("ua", this.f28123d));
-            arrayList.add(new RestNameValuePair("nettype", new c.f.a.g.d.b(this.f28122c).a()));
+            arrayList.add(new RestNameValuePair("ua", this.f28329d));
+            arrayList.add(new RestNameValuePair("nettype", new c.f.a.g.d.b(this.f28328c).a()));
             arrayList.add(new RestNameValuePair("cate[heartbeat]", ""));
             ArrayList arrayList2 = new ArrayList();
             arrayList2.add(new b(this));
             restTemplate.setMessageConverter(new c.f.a.g.b.b());
             restTemplate.setRequestInterceptor(arrayList2);
-            return (String) restTemplate.d(this.a + com.baidu.apollon.heartbeat.a.f32482f, arrayList, "utf-8", String.class);
+            return (String) restTemplate.d(this.a + com.baidu.apollon.heartbeat.a.f32688f, arrayList, "utf-8", String.class);
         }
         return (String) invokeV.objValue;
     }

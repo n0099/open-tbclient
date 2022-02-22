@@ -31,22 +31,22 @@ public final class i implements c.i.b.a.d0.k, l.b, HlsPlaylistTracker.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final f f29319e;
+    public final f f29525e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HlsPlaylistTracker f29320f;
+    public final HlsPlaylistTracker f29526f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final e f29321g;
+    public final e f29527g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f29322h;
+    public final int f29528h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final b.a f29323i;
+    public final b.a f29529i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final c.i.b.a.h0.b f29324j;
+    public final c.i.b.a.h0.b f29530j;
     public final IdentityHashMap<o, Integer> k;
     public final m l;
     public final Handler m;
@@ -72,12 +72,12 @@ public final class i implements c.i.b.a.d0.k, l.b, HlsPlaylistTracker.c {
                 return;
             }
         }
-        this.f29319e = fVar;
-        this.f29320f = hlsPlaylistTracker;
-        this.f29321g = eVar;
-        this.f29322h = i2;
-        this.f29323i = aVar;
-        this.f29324j = bVar;
+        this.f29525e = fVar;
+        this.f29526f = hlsPlaylistTracker;
+        this.f29527g = eVar;
+        this.f29528h = i2;
+        this.f29529i = aVar;
+        this.f29530j = bVar;
         this.k = new IdentityHashMap<>();
         this.l = new m();
         this.m = new Handler();
@@ -85,11 +85,11 @@ public final class i implements c.i.b.a.d0.k, l.b, HlsPlaylistTracker.c {
         this.r = new l[0];
     }
 
-    public static boolean u(a.C1660a c1660a, String str) {
+    public static boolean u(a.C1670a c1670a, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, c1660a, str)) == null) {
-            String str2 = c1660a.f29352b.codecs;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, c1670a, str)) == null) {
+            String str2 = c1670a.f29558b.codecs;
             if (TextUtils.isEmpty(str2)) {
                 return false;
             }
@@ -104,11 +104,11 @@ public final class i implements c.i.b.a.d0.k, l.b, HlsPlaylistTracker.c {
     }
 
     @Override // com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistTracker.c
-    public void a(a.C1660a c1660a, long j2) {
+    public void a(a.C1670a c1670a, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048576, this, c1660a, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048576, this, c1670a, j2) == null) {
             for (l lVar : this.q) {
-                lVar.K(c1660a, j2);
+                lVar.K(c1670a, j2);
             }
             p();
         }
@@ -285,10 +285,10 @@ public final class i implements c.i.b.a.d0.k, l.b, HlsPlaylistTracker.c {
     }
 
     @Override // c.i.b.a.d0.w.l.b
-    public void i(a.C1660a c1660a) {
+    public void i(a.C1670a c1670a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, c1660a) == null) {
-            this.f29320f.H(c1660a);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, c1670a) == null) {
+            this.f29526f.H(c1670a);
         }
     }
 
@@ -302,18 +302,18 @@ public final class i implements c.i.b.a.d0.k, l.b, HlsPlaylistTracker.c {
     public final void m(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            c.i.b.a.d0.w.o.a u = this.f29320f.u();
-            ArrayList arrayList = new ArrayList(u.f29347c);
+            c.i.b.a.d0.w.o.a u = this.f29526f.u();
+            ArrayList arrayList = new ArrayList(u.f29553c);
             ArrayList arrayList2 = new ArrayList();
             ArrayList arrayList3 = new ArrayList();
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                a.C1660a c1660a = (a.C1660a) arrayList.get(i2);
-                if (c1660a.f29352b.height <= 0 && !u(c1660a, "avc")) {
-                    if (u(c1660a, AudioSampleEntry.TYPE3)) {
-                        arrayList3.add(c1660a);
+                a.C1670a c1670a = (a.C1670a) arrayList.get(i2);
+                if (c1670a.f29558b.height <= 0 && !u(c1670a, "avc")) {
+                    if (u(c1670a, AudioSampleEntry.TYPE3)) {
+                        arrayList3.add(c1670a);
                     }
                 } else {
-                    arrayList2.add(c1660a);
+                    arrayList2.add(c1670a);
                 }
             }
             if (!arrayList2.isEmpty()) {
@@ -321,22 +321,22 @@ public final class i implements c.i.b.a.d0.k, l.b, HlsPlaylistTracker.c {
             } else if (arrayList3.size() < arrayList.size()) {
                 arrayList.removeAll(arrayList3);
             }
-            List<a.C1660a> list = u.f29348d;
-            List<a.C1660a> list2 = u.f29349e;
+            List<a.C1670a> list = u.f29554d;
+            List<a.C1670a> list2 = u.f29555e;
             l[] lVarArr = new l[list.size() + 1 + list2.size()];
             this.q = lVarArr;
             this.o = lVarArr.length;
             c.i.b.a.i0.a.a(!arrayList.isEmpty());
-            a.C1660a[] c1660aArr = new a.C1660a[arrayList.size()];
-            arrayList.toArray(c1660aArr);
-            l n = n(0, c1660aArr, u.f29350f, u.f29351g, j2);
+            a.C1670a[] c1670aArr = new a.C1670a[arrayList.size()];
+            arrayList.toArray(c1670aArr);
+            l n = n(0, c1670aArr, u.f29556f, u.f29557g, j2);
             this.q[0] = n;
             n.S(true);
             n.u();
             int i3 = 0;
             int i4 = 1;
             while (i3 < list.size()) {
-                l n2 = n(1, new a.C1660a[]{list.get(i3)}, null, Collections.emptyList(), j2);
+                l n2 = n(1, new a.C1670a[]{list.get(i3)}, null, Collections.emptyList(), j2);
                 this.q[i4] = n2;
                 n2.u();
                 i3++;
@@ -344,9 +344,9 @@ public final class i implements c.i.b.a.d0.k, l.b, HlsPlaylistTracker.c {
             }
             int i5 = 0;
             while (i5 < list2.size()) {
-                a.C1660a c1660a2 = list2.get(i5);
-                l n3 = n(3, new a.C1660a[]{c1660a2}, null, Collections.emptyList(), j2);
-                n3.L(c1660a2.f29352b);
+                a.C1670a c1670a2 = list2.get(i5);
+                l n3 = n(3, new a.C1670a[]{c1670a2}, null, Collections.emptyList(), j2);
+                n3.L(c1670a2.f29558b);
                 this.q[i4] = n3;
                 i5++;
                 i4++;
@@ -355,10 +355,10 @@ public final class i implements c.i.b.a.d0.k, l.b, HlsPlaylistTracker.c {
         }
     }
 
-    public final l n(int i2, a.C1660a[] c1660aArr, Format format, List<Format> list, long j2) {
+    public final l n(int i2, a.C1670a[] c1670aArr, Format format, List<Format> list, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i2), c1660aArr, format, list, Long.valueOf(j2)})) == null) ? new l(i2, this, new d(this.f29319e, this.f29320f, c1660aArr, this.f29321g, this.l, list), this.f29324j, j2, format, this.f29322h, this.f29323i) : (l) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i2), c1670aArr, format, list, Long.valueOf(j2)})) == null) ? new l(i2, this, new d(this.f29525e, this.f29526f, c1670aArr, this.f29527g, this.l, list), this.f29530j, j2, format, this.f29528h, this.f29529i) : (l) invokeCommon.objValue;
     }
 
     @Override // c.i.b.a.d0.k
@@ -366,7 +366,7 @@ public final class i implements c.i.b.a.d0.k, l.b, HlsPlaylistTracker.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048589, this, aVar, j2) == null) {
             this.n = aVar;
-            this.f29320f.o(this);
+            this.f29526f.o(this);
             m(j2);
         }
     }
@@ -448,7 +448,7 @@ public final class i implements c.i.b.a.d0.k, l.b, HlsPlaylistTracker.c {
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            this.f29320f.J(this);
+            this.f29526f.J(this);
             this.m.removeCallbacksAndMessages(null);
             for (l lVar : this.q) {
                 lVar.N();

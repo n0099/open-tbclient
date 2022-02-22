@@ -238,15 +238,15 @@ public final class StorageUtils {
         return invokeL.longValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:108:0x01aa */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:108:0x01a8 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:109:0x003d */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:113:0x003d */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:138:0x0050 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:151:0x0050 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:156:0x0155 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:96:0x01ab */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:156:0x0153 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:96:0x01a9 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:111:0x01af A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:111:0x01ad A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r7v0, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r7v1 */
     /* JADX WARN: Type inference failed for: r7v10 */
@@ -263,7 +263,7 @@ public final class StorageUtils {
     /* JADX WARN: Type inference failed for: r7v27 */
     /* JADX WARN: Type inference failed for: r7v4 */
     /* JADX WARN: Type inference failed for: r7v7 */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:94:0x01a6 -> B:108:0x01aa). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:94:0x01a4 -> B:108:0x01a8). Please submit an issue!!! */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -298,55 +298,55 @@ public final class StorageUtils {
                     e2.printStackTrace();
                     bufferedReader3 = bufferedReader3;
                 }
-                try {
-                    boolean z3 = DEBUG;
-                    while (true) {
-                        String readLine = bufferedReader2.readLine();
-                        if (readLine == null) {
-                            break;
-                        }
-                        boolean z4 = DEBUG;
-                        StringTokenizer stringTokenizer = new StringTokenizer(readLine, " ");
-                        String nextToken = stringTokenizer.nextToken();
-                        String nextToken2 = stringTokenizer.nextToken();
-                        if (!hashSet.contains(nextToken2)) {
-                            stringTokenizer.nextToken();
-                            bufferedReader3 = Arrays.asList(stringTokenizer.nextToken().split(",")).contains("ro");
-                            if (!readLine.contains("vfat") && !readLine.contains("/mnt")) {
-                                if (isFuseStorage(nextToken, nextToken2)) {
-                                    hashSet.add(nextToken2);
-                                    if (isPathAccessable(nextToken2)) {
-                                        i2 = i3 + 1;
-                                        arrayList.add(new StorageInfo(nextToken2, false, bufferedReader3, i3));
-                                        i3 = i2;
-                                    }
+            } catch (FileNotFoundException e3) {
+                e = e3;
+                bufferedReader3 = null;
+            } catch (IOException e4) {
+                e = e4;
+                bufferedReader3 = null;
+            } catch (Throwable th3) {
+                th = th3;
+                bufferedReader3 = 0;
+                th = th;
+                bufferedReader = bufferedReader3;
+                if (bufferedReader != null) {
+                    try {
+                        bufferedReader.close();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+            try {
+                boolean z3 = DEBUG;
+                while (true) {
+                    String readLine = bufferedReader2.readLine();
+                    if (readLine == null) {
+                        break;
+                    }
+                    boolean z4 = DEBUG;
+                    StringTokenizer stringTokenizer = new StringTokenizer(readLine, " ");
+                    String nextToken = stringTokenizer.nextToken();
+                    String nextToken2 = stringTokenizer.nextToken();
+                    if (!hashSet.contains(nextToken2)) {
+                        stringTokenizer.nextToken();
+                        bufferedReader3 = Arrays.asList(stringTokenizer.nextToken().split(",")).contains("ro");
+                        if (!readLine.contains("vfat") && !readLine.contains("/mnt")) {
+                            if (isFuseStorage(nextToken, nextToken2)) {
+                                hashSet.add(nextToken2);
+                                if (isPathAccessable(nextToken2)) {
+                                    i2 = i3 + 1;
+                                    arrayList.add(new StorageInfo(nextToken2, false, bufferedReader3, i3));
+                                    i3 = i2;
                                 }
                             }
-                            if (nextToken2.equals(path)) {
-                                hashSet.add(path);
-                                hashMap.put(nextToken, new StorageInfo(path, z, bufferedReader3, -1));
-                            } else if (readLine.contains("/dev/block/vold")) {
-                                if (!readLine.contains("/mnt/secure") && !readLine.contains("/mnt/asec") && !readLine.contains("/mnt/obb") && !readLine.contains("/dev/mapper") && !readLine.contains("tmpfs")) {
-                                    hashSet.add(nextToken2);
-                                    if (!hashMap.containsKey(nextToken)) {
-                                        i2 = i3 + 1;
-                                        hashMap.put(nextToken, new StorageInfo(nextToken2, false, bufferedReader3, i3));
-                                        i3 = i2;
-                                    }
-                                }
-                            } else if (hashSet.contains(nextToken)) {
-                                Iterator it = hashMap.keySet().iterator();
-                                while (true) {
-                                    if (!it.hasNext()) {
-                                        str = null;
-                                        break;
-                                    }
-                                    str = (String) it.next();
-                                    if (TextUtils.equals(((StorageInfo) hashMap.get(str)).mPath, nextToken)) {
-                                        break;
-                                    }
-                                }
-                                hashMap.remove(str);
+                        }
+                        if (nextToken2.equals(path)) {
+                            hashSet.add(path);
+                            hashMap.put(nextToken, new StorageInfo(path, z, bufferedReader3, -1));
+                        } else if (readLine.contains("/dev/block/vold")) {
+                            if (!readLine.contains("/mnt/secure") && !readLine.contains("/mnt/asec") && !readLine.contains("/mnt/obb") && !readLine.contains("/dev/mapper") && !readLine.contains("tmpfs")) {
                                 hashSet.add(nextToken2);
                                 if (!hashMap.containsKey(nextToken)) {
                                     i2 = i3 + 1;
@@ -354,60 +354,60 @@ public final class StorageUtils {
                                     i3 = i2;
                                 }
                             }
+                        } else if (hashSet.contains(nextToken)) {
+                            Iterator it = hashMap.keySet().iterator();
+                            while (true) {
+                                if (!it.hasNext()) {
+                                    str = null;
+                                    break;
+                                }
+                                str = (String) it.next();
+                                if (TextUtils.equals(((StorageInfo) hashMap.get(str)).mPath, nextToken)) {
+                                    break;
+                                }
+                            }
+                            hashMap.remove(str);
+                            hashSet.add(nextToken2);
+                            if (!hashMap.containsKey(nextToken)) {
+                                i2 = i3 + 1;
+                                hashMap.put(nextToken, new StorageInfo(nextToken2, false, bufferedReader3, i3));
+                                i3 = i2;
+                            }
                         }
                     }
-                    for (StorageInfo storageInfo : hashMap.values()) {
-                        bufferedReader3 = isPathAccessable(storageInfo.mPath);
-                        if (bufferedReader3 != 0) {
-                            arrayList.add(storageInfo);
-                        }
-                    }
-                    if (!hashSet.contains(path) && z2) {
-                        arrayList.add(0, new StorageInfo(path, z, equals, -1));
-                    }
-                    bufferedReader2.close();
-                    bufferedReader3 = bufferedReader3;
-                } catch (FileNotFoundException e3) {
-                    e = e3;
-                    bufferedReader3 = bufferedReader2;
-                    e.printStackTrace();
-                    if (bufferedReader3 != null) {
-                        bufferedReader3.close();
-                        bufferedReader3 = bufferedReader3;
-                    }
-                    return arrayList;
-                } catch (IOException e4) {
-                    e = e4;
-                    bufferedReader3 = bufferedReader2;
-                    e.printStackTrace();
-                    if (bufferedReader3 != null) {
-                        bufferedReader3.close();
-                        bufferedReader3 = bufferedReader3;
-                    }
-                    return arrayList;
-                } catch (Throwable th3) {
-                    th = th3;
-                    bufferedReader = bufferedReader2;
-                    if (bufferedReader != null) {
-                        try {
-                            bufferedReader.close();
-                        } catch (IOException e5) {
-                            e5.printStackTrace();
-                        }
-                    }
-                    throw th;
                 }
+                for (StorageInfo storageInfo : hashMap.values()) {
+                    bufferedReader3 = isPathAccessable(storageInfo.mPath);
+                    if (bufferedReader3 != 0) {
+                        arrayList.add(storageInfo);
+                    }
+                }
+                if (!hashSet.contains(path) && z2) {
+                    arrayList.add(0, new StorageInfo(path, z, equals, -1));
+                }
+                bufferedReader2.close();
+                bufferedReader3 = bufferedReader3;
             } catch (FileNotFoundException e6) {
                 e = e6;
-                bufferedReader3 = null;
+                bufferedReader3 = bufferedReader2;
+                e.printStackTrace();
+                if (bufferedReader3 != null) {
+                    bufferedReader3.close();
+                    bufferedReader3 = bufferedReader3;
+                }
+                return arrayList;
             } catch (IOException e7) {
                 e = e7;
-                bufferedReader3 = null;
+                bufferedReader3 = bufferedReader2;
+                e.printStackTrace();
+                if (bufferedReader3 != null) {
+                    bufferedReader3.close();
+                    bufferedReader3 = bufferedReader3;
+                }
+                return arrayList;
             } catch (Throwable th4) {
                 th = th4;
-                bufferedReader3 = 0;
-                th = th;
-                bufferedReader = bufferedReader3;
+                bufferedReader = bufferedReader2;
                 if (bufferedReader != null) {
                 }
                 throw th;

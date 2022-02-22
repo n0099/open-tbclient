@@ -169,7 +169,7 @@ public class RequestCall implements Cancelable {
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
             HttpRequest httpRequest = this.httpRequest;
             if (httpRequest.isWifiOnly && !httpRequest.httpManager.isWifi()) {
-                throw new IOException(ResponseException.ONLY_WIFI_EXECUTE);
+                throw new IOException(" only allow wifi connected");
             }
         }
     }
@@ -188,7 +188,7 @@ public class RequestCall implements Cancelable {
     private void recordStatusCode(Request request, int i2, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLIL(65546, this, request, i2, str) == null) && request != null && StatusCodeException.isStatusCodeMatched(i2)) {
-            StatusCodeException statusCodeException = new StatusCodeException(String.format(StatusCodeException.ERROR_MSG_FORMATED, Integer.valueOf(i2), str));
+            StatusCodeException statusCodeException = new StatusCodeException(String.format("Server statusCode Error; statusCode=%s; response.message=%s", Integer.valueOf(i2), str));
             try {
                 if (this.httpRequest.networkStat != null) {
                     this.httpRequest.networkStat.onException(request, statusCodeException);

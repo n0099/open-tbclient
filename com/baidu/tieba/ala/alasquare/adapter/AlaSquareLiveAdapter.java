@@ -3,9 +3,9 @@ package com.baidu.tieba.ala.alasquare.adapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
-import c.a.d.n.e.a;
-import c.a.t0.a0.f.a.e;
-import c.a.t0.a0.f.i.d;
+import c.a.d.o.e.a;
+import c.a.u0.a0.f.a.e;
+import c.a.u0.a0.f.i.d;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -32,10 +32,10 @@ public class AlaSquareLiveAdapter extends a<e, SquareLiveViewHolder> {
     public class SquareLiveViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public c.a.t0.a0.f.i.e mView;
+        public c.a.u0.a0.f.i.e mView;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SquareLiveViewHolder(AlaSquareLiveAdapter alaSquareLiveAdapter, c.a.t0.a0.f.i.e eVar) {
+        public SquareLiveViewHolder(AlaSquareLiveAdapter alaSquareLiveAdapter, c.a.u0.a0.f.i.e eVar) {
             super(eVar.j());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -95,17 +95,17 @@ public class AlaSquareLiveAdapter extends a<e, SquareLiveViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.n.e.a
+    @Override // c.a.d.o.e.a
     /* renamed from: b0 */
     public SquareLiveViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
-        c.a.t0.a0.f.i.e eVar;
+        c.a.u0.a0.f.i.e eVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
             if (this.q == 1) {
-                eVar = new c.a.t0.a0.f.i.e(this.m, c.a.t0.a0.f.i.a.a());
+                eVar = new c.a.u0.a0.f.i.e(this.m, c.a.u0.a0.f.i.a.a());
             } else {
-                eVar = new c.a.t0.a0.f.i.e(this.m);
+                eVar = new c.a.u0.a0.f.i.e(this.m);
             }
             eVar.x(this.n);
             eVar.w(this.o);
@@ -118,23 +118,23 @@ public class AlaSquareLiveAdapter extends a<e, SquareLiveViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.n.e.a
+    @Override // c.a.d.o.e.a
     /* renamed from: c0 */
     public View S(int i2, View view, ViewGroup viewGroup, e eVar, SquareLiveViewHolder squareLiveViewHolder) {
         InterceptResult invokeCommon;
-        c.a.t0.a0.f.i.e eVar2;
+        c.a.u0.a0.f.i.e eVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), view, viewGroup, eVar, squareLiveViewHolder})) == null) {
             if (squareLiveViewHolder == null || (eVar2 = squareLiveViewHolder.mView) == null || eVar2.j() == null) {
                 return null;
             }
             if (eVar != null) {
-                eVar.f14485i = i2 + 1;
+                eVar.f14759i = i2 + 1;
             }
             eVar2.k(eVar);
-            c.a.t0.a0.f.e.a.c().a(eVar.k(a0(), false));
+            c.a.u0.a0.f.e.a.c().a(eVar.k(a0(), false));
             if (i2 == this.r) {
-                eVar2.j().setAnimation(AnimationUtils.loadAnimation(this.f3360e, R.anim.list_anim));
+                eVar2.j().setAnimation(AnimationUtils.loadAnimation(this.f2447e, R.anim.list_anim));
             }
             return squareLiveViewHolder.getView();
         }

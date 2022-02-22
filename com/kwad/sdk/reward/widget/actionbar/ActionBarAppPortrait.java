@@ -21,40 +21,40 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.reward.widget.AppScoreView;
 import com.kwad.sdk.widget.d;
 import com.kwad.sdk.widget.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ActionBarAppPortrait extends LinearLayout implements d {
     public ImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f57672b;
+    public TextView f57839b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f57673c;
+    public TextView f57840c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AppScoreView f57674d;
+    public AppScoreView f57841d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f57675e;
+    public TextView f57842e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextProgressBar f57676f;
+    public TextProgressBar f57843f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f57677g;
+    public View f57844g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AdTemplate f57678h;
+    public AdTemplate f57845h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AdInfo f57679i;
+    public AdInfo f57846i;
 
     /* renamed from: j  reason: collision with root package name */
-    public a f57680j;
+    public a f57847j;
     public b k;
     public KsAppDownloadListener l;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(boolean z);
     }
@@ -75,56 +75,56 @@ public class ActionBarAppPortrait extends LinearLayout implements d {
     private void a() {
         LinearLayout.inflate(getContext(), R.layout.ksad_video_actionbar_app_portrait, this);
         this.a = (ImageView) findViewById(R.id.ksad_app_icon);
-        this.f57672b = (TextView) findViewById(R.id.ksad_app_title);
-        this.f57673c = (TextView) findViewById(R.id.ksad_app_desc);
-        this.f57674d = (AppScoreView) findViewById(R.id.ksad_app_score);
-        this.f57675e = (TextView) findViewById(R.id.ksad_app_download_count);
+        this.f57839b = (TextView) findViewById(R.id.ksad_app_title);
+        this.f57840c = (TextView) findViewById(R.id.ksad_app_desc);
+        this.f57841d = (AppScoreView) findViewById(R.id.ksad_app_score);
+        this.f57842e = (TextView) findViewById(R.id.ksad_app_download_count);
         TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.ksad_app_download_btn);
-        this.f57676f = textProgressBar;
+        this.f57843f = textProgressBar;
         textProgressBar.setTextDimen(com.kwad.sdk.a.kwai.a.a(getContext(), 16.0f));
-        this.f57676f.setTextColor(-1);
-        this.f57677g = findViewById(R.id.ksad_download_bar_cover);
+        this.f57843f.setTextColor(-1);
+        this.f57844g = findViewById(R.id.ksad_download_bar_cover);
     }
 
     private void a(View view, final boolean z) {
-        com.kwad.sdk.core.download.a.a.a(new a.C2106a(view.getContext()).a(this.f57678h).a(this.k).a(view == this.f57676f).a(view == this.f57677g ? 1 : 2).a(new a.b() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarAppPortrait.2
+        com.kwad.sdk.core.download.a.a.a(new a.C2116a(view.getContext()).a(this.f57845h).a(this.k).a(view == this.f57843f).a(view == this.f57844g ? 1 : 2).a(new a.b() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarAppPortrait.2
             @Override // com.kwad.sdk.core.download.a.a.b
             public void a() {
-                if (ActionBarAppPortrait.this.f57680j != null) {
-                    ActionBarAppPortrait.this.f57680j.a(z);
+                if (ActionBarAppPortrait.this.f57847j != null) {
+                    ActionBarAppPortrait.this.f57847j.a(z);
                 }
             }
         }));
     }
 
     private void b() {
-        String w = com.kwad.sdk.core.response.a.a.w(this.f57679i);
+        String w = com.kwad.sdk.core.response.a.a.w(this.f57846i);
         boolean z = !TextUtils.isEmpty(w);
-        float x = com.kwad.sdk.core.response.a.a.x(this.f57679i);
+        float x = com.kwad.sdk.core.response.a.a.x(this.f57846i);
         boolean z2 = x >= 3.0f;
         if (z && z2) {
-            ((LinearLayout.LayoutParams) this.f57672b.getLayoutParams()).bottomMargin = com.kwad.sdk.a.kwai.a.a(getContext(), 1.0f);
-            ((LinearLayout.LayoutParams) this.f57674d.getLayoutParams()).bottomMargin = com.kwad.sdk.a.kwai.a.a(getContext(), 1.0f);
-            this.f57675e.setText(w);
-            this.f57675e.setVisibility(0);
-            this.f57674d.setVisibility(0);
-            this.f57674d.setScore(x);
+            ((LinearLayout.LayoutParams) this.f57839b.getLayoutParams()).bottomMargin = com.kwad.sdk.a.kwai.a.a(getContext(), 1.0f);
+            ((LinearLayout.LayoutParams) this.f57841d.getLayoutParams()).bottomMargin = com.kwad.sdk.a.kwai.a.a(getContext(), 1.0f);
+            this.f57842e.setText(w);
+            this.f57842e.setVisibility(0);
+            this.f57841d.setVisibility(0);
+            this.f57841d.setScore(x);
         } else if (z) {
-            this.f57675e.setText(w);
-            this.f57675e.setVisibility(0);
-            this.f57674d.setVisibility(8);
+            this.f57842e.setText(w);
+            this.f57842e.setVisibility(0);
+            this.f57841d.setVisibility(8);
         } else if (!z2) {
-            this.f57673c.setText(com.kwad.sdk.core.response.a.a.s(this.f57679i));
-            this.f57675e.setVisibility(8);
-            this.f57674d.setVisibility(8);
-            this.f57673c.setVisibility(0);
+            this.f57840c.setText(com.kwad.sdk.core.response.a.a.s(this.f57846i));
+            this.f57842e.setVisibility(8);
+            this.f57841d.setVisibility(8);
+            this.f57840c.setVisibility(0);
             return;
         } else {
-            this.f57675e.setVisibility(8);
-            this.f57674d.setScore(x);
-            this.f57674d.setVisibility(0);
+            this.f57842e.setVisibility(8);
+            this.f57841d.setScore(x);
+            this.f57841d.setVisibility(0);
         }
-        this.f57673c.setVisibility(8);
+        this.f57840c.setVisibility(8);
     }
 
     private KsAppDownloadListener getAppDownloadListener() {
@@ -132,38 +132,38 @@ public class ActionBarAppPortrait extends LinearLayout implements d {
             this.l = new c() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarAppPortrait.1
                 @Override // com.kwad.sdk.core.download.a.c
                 public void a(int i2) {
-                    ActionBarAppPortrait.this.f57676f.a(com.kwad.sdk.core.response.a.a.b(i2), i2);
-                    ActionBarAppPortrait.this.f57677g.setVisibility(8);
+                    ActionBarAppPortrait.this.f57843f.a(com.kwad.sdk.core.response.a.a.b(i2), i2);
+                    ActionBarAppPortrait.this.f57844g.setVisibility(8);
                 }
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
                 public void onDownloadFailed() {
-                    ActionBarAppPortrait.this.f57676f.a(com.kwad.sdk.core.response.a.a.A(ActionBarAppPortrait.this.f57679i), 0);
-                    ActionBarAppPortrait.this.f57677g.setVisibility(0);
+                    ActionBarAppPortrait.this.f57843f.a(com.kwad.sdk.core.response.a.a.A(ActionBarAppPortrait.this.f57846i), 0);
+                    ActionBarAppPortrait.this.f57844g.setVisibility(0);
                 }
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
                 public void onDownloadFinished() {
-                    ActionBarAppPortrait.this.f57676f.a(com.kwad.sdk.core.response.a.a.a(ActionBarAppPortrait.this.f57678h), 0);
-                    ActionBarAppPortrait.this.f57677g.setVisibility(0);
+                    ActionBarAppPortrait.this.f57843f.a(com.kwad.sdk.core.response.a.a.a(ActionBarAppPortrait.this.f57845h), 0);
+                    ActionBarAppPortrait.this.f57844g.setVisibility(0);
                 }
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
                 public void onIdle() {
-                    ActionBarAppPortrait.this.f57676f.a(com.kwad.sdk.core.response.a.a.A(ActionBarAppPortrait.this.f57679i), 0);
-                    ActionBarAppPortrait.this.f57677g.setVisibility(0);
+                    ActionBarAppPortrait.this.f57843f.a(com.kwad.sdk.core.response.a.a.A(ActionBarAppPortrait.this.f57846i), 0);
+                    ActionBarAppPortrait.this.f57844g.setVisibility(0);
                 }
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
                 public void onInstalled() {
-                    ActionBarAppPortrait.this.f57676f.a(com.kwad.sdk.core.response.a.a.m(ActionBarAppPortrait.this.f57679i), 0);
-                    ActionBarAppPortrait.this.f57677g.setVisibility(0);
+                    ActionBarAppPortrait.this.f57843f.a(com.kwad.sdk.core.response.a.a.m(ActionBarAppPortrait.this.f57846i), 0);
+                    ActionBarAppPortrait.this.f57844g.setVisibility(0);
                 }
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
                 public void onProgressUpdate(int i2) {
-                    ActionBarAppPortrait.this.f57676f.a(com.kwad.sdk.core.response.a.a.a(i2), i2);
-                    ActionBarAppPortrait.this.f57677g.setVisibility(8);
+                    ActionBarAppPortrait.this.f57843f.a(com.kwad.sdk.core.response.a.a.a(i2), i2);
+                    ActionBarAppPortrait.this.f57844g.setVisibility(8);
                 }
             };
         }
@@ -171,22 +171,22 @@ public class ActionBarAppPortrait extends LinearLayout implements d {
     }
 
     public void a(@NonNull AdTemplate adTemplate, @Nullable b bVar, a aVar) {
-        this.f57678h = adTemplate;
+        this.f57845h = adTemplate;
         AdInfo j2 = com.kwad.sdk.core.response.a.d.j(adTemplate);
-        this.f57679i = j2;
-        this.f57680j = aVar;
+        this.f57846i = j2;
+        this.f57847j = aVar;
         this.k = bVar;
         KSImageLoader.loadAppIcon(this.a, com.kwad.sdk.core.response.a.a.au(j2), adTemplate, 12);
-        this.f57672b.setText(com.kwad.sdk.core.response.a.a.at(this.f57679i));
+        this.f57839b.setText(com.kwad.sdk.core.response.a.a.at(this.f57846i));
         b();
-        this.f57676f.a(com.kwad.sdk.core.response.a.a.A(this.f57679i), 0);
+        this.f57843f.a(com.kwad.sdk.core.response.a.a.A(this.f57846i), 0);
         b bVar2 = this.k;
         if (bVar2 != null) {
             bVar2.a(getAppDownloadListener());
         }
         setClickable(true);
         new f(this, this);
-        new f(this.f57677g, this);
+        new f(this.f57844g, this);
     }
 
     @Override // com.kwad.sdk.widget.d
@@ -196,7 +196,7 @@ public class ActionBarAppPortrait extends LinearLayout implements d {
 
     @Override // com.kwad.sdk.widget.d
     public void b(View view) {
-        if (com.kwad.sdk.core.response.a.c.g(this.f57678h)) {
+        if (com.kwad.sdk.core.response.a.c.g(this.f57845h)) {
             a(view, false);
         }
     }

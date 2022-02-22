@@ -17,8 +17,8 @@ import c.a.d.a.g;
 import c.a.d.a.i;
 import c.a.d.f.l.d;
 import c.a.d.f.p.n;
-import c.a.d.g.a.h;
-import c.a.d.n.e.q;
+import c.a.d.h.a.h;
+import c.a.d.o.e.q;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class BdBaseFragmentActivity<T> extends FragmentActivity implements View.OnClickListener, View.OnLongClickListener, g<T>, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, i {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PRELOAD_DELAY = 100;
@@ -41,13 +41,13 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
     public boolean mIsScroll;
     public final Runnable preLoadRunnable;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdBaseFragmentActivity f31173e;
+        public final /* synthetic */ BdBaseFragmentActivity f31379e;
 
         public a(BdBaseFragmentActivity bdBaseFragmentActivity) {
             Interceptable interceptable = $ic;
@@ -64,14 +64,14 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
                     return;
                 }
             }
-            this.f31173e = bdBaseFragmentActivity;
+            this.f31379e = bdBaseFragmentActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BdBaseFragmentActivity bdBaseFragmentActivity = this.f31173e;
+                BdBaseFragmentActivity bdBaseFragmentActivity = this.f31379e;
                 bdBaseFragmentActivity.onPreLoad(bdBaseFragmentActivity.onGetPreLoadListView());
             }
         }

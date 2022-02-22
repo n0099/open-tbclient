@@ -144,12 +144,12 @@ public final class e extends c.i.b.a.a implements Handler.Callback {
                         this.w = true;
                     } else if (!this.q.i()) {
                         c cVar = this.q;
-                        cVar.f29029j = this.p.a.subsampleOffsetUs;
+                        cVar.f29235j = this.p.a.subsampleOffsetUs;
                         cVar.o();
                         try {
                             int i2 = (this.t + this.u) % 5;
                             this.r[i2] = this.v.a(this.q);
-                            this.s[i2] = this.q.f29985h;
+                            this.s[i2] = this.q.f30191h;
                             this.u++;
                         } catch (MetadataDecoderException e2) {
                             throw ExoPlaybackException.createForRenderer(e2, u());

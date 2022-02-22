@@ -1,16 +1,36 @@
 package c.a.d0;
 
+import com.baidu.nadcore.app.dependency.AppInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes.dex */
-public final class a {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int alert_force_update_negative_msg = 2131690071;
-    public static final int alert_force_update_positive_msg = 2131690072;
-    public static final int alert_msg_force_update = 2131690073;
-    public static final int alert_title_force_update = 2131690075;
-    public static final int app_name = 2131690142;
-    public static final int predownload_net_error_msg = 2131693717;
-    public static final int predownload_no_available_msg = 2131693718;
+public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        boolean z;
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1336128759, "Lc/a/d0/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1336128759, "Lc/a/d0/a;");
+                return;
+            }
+        }
+        try {
+            z = AppInfo.DEBUG;
+        } catch (Throwable unused) {
+            z = false;
+        }
+        a = z;
+    }
 }

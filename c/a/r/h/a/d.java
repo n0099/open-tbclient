@@ -13,10 +13,10 @@ public abstract class d {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f5073b;
+    public int f5143b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f5074c;
+    public int f5144c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public abstract class d {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5073b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5143b : invokeV.intValue;
     }
 
     public abstract com.baidu.helios.common.cc.a b(byte[] bArr, int i2, int i3);
@@ -49,6 +49,6 @@ public abstract class d {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f5074c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f5144c : invokeV.intValue;
     }
 }

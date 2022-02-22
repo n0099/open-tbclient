@@ -16,22 +16,22 @@ public class z implements Animator.AnimatorListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ a0.a f28324e;
+    public final /* synthetic */ a0.a f28530e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ View f28325f;
+    public final /* synthetic */ View f28531f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ ViewGroup f28326g;
+    public final /* synthetic */ ViewGroup f28532g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final /* synthetic */ float f28327h;
+    public final /* synthetic */ float f28533h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final /* synthetic */ float f28328i;
+    public final /* synthetic */ float f28534i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final /* synthetic */ int[] f28329j;
+    public final /* synthetic */ int[] f28535j;
     public final /* synthetic */ ViewGroup k;
     public final /* synthetic */ a0 l;
 
@@ -51,12 +51,12 @@ public class z implements Animator.AnimatorListener {
             }
         }
         this.l = a0Var;
-        this.f28324e = aVar;
-        this.f28325f = view;
-        this.f28326g = viewGroup;
-        this.f28327h = f2;
-        this.f28328i = f3;
-        this.f28329j = iArr;
+        this.f28530e = aVar;
+        this.f28531f = view;
+        this.f28532g = viewGroup;
+        this.f28533h = f2;
+        this.f28534i = f3;
+        this.f28535j = iArr;
         this.k = viewGroup2;
     }
 
@@ -71,7 +71,7 @@ public class z implements Animator.AnimatorListener {
     public void onAnimationEnd(Animator animator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-            this.l.a(this.f28325f, this.f28326g, this.f28327h, this.f28328i, this.f28329j, this.k, this.f28324e);
+            this.l.a(this.f28531f, this.f28532g, this.f28533h, this.f28534i, this.f28535j, this.k, this.f28530e);
         }
     }
 

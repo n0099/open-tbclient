@@ -17,16 +17,16 @@ public final class o {
     public static final /* synthetic */ o[] f825a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final o f61444b;
+    public static final o f61611b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final o f61445c;
+    public static final o f61612c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final o f61446d;
+    public static final o f61613d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final o f61447e;
+    public static final o f61614e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,12 +43,12 @@ public final class o {
             }
         }
         a = new o("China", 0);
-        f61444b = new o("Global", 1);
-        f61445c = new o("Europe", 2);
-        f61446d = new o("Russia", 3);
+        f61611b = new o("Global", 1);
+        f61612c = new o("Europe", 2);
+        f61613d = new o("Russia", 3);
         o oVar = new o("India", 4);
-        f61447e = oVar;
-        f825a = new o[]{a, f61444b, f61445c, f61446d, oVar};
+        f61614e = oVar;
+        f825a = new o[]{a, f61611b, f61612c, f61613d, oVar};
     }
 
     public o(String str, int i2) {

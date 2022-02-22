@@ -22,9 +22,9 @@ public class n extends ag {
                 return;
             }
         }
-        this.f35884c = 6;
-        this.f35883b = "tile";
-        this.f35885d = 500;
-        this.f35873g = 89076;
+        this.f36090c = 6;
+        this.f36089b = "tile";
+        this.f36091d = 500;
+        this.f36079g = 89076;
     }
 }

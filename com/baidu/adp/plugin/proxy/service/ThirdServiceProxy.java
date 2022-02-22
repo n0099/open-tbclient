@@ -3,8 +3,8 @@ package com.baidu.adp.plugin.proxy.service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.text.TextUtils;
-import c.a.d.i.d;
-import c.a.d.i.h.a;
+import c.a.d.j.d;
+import c.a.d.j.h.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ThirdServiceProxy extends ServiceProxy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

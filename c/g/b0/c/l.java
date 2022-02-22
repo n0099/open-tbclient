@@ -49,7 +49,7 @@ public class l extends g {
                 x.a aVar = (x.a) this.a;
                 aVar.getClass();
                 LogPrinter.d();
-                aVar.f28352d.onRewardedVideo();
+                aVar.f28558d.onRewardedVideo();
             }
         }
 
@@ -60,7 +60,7 @@ public class l extends g {
                 x.a aVar = (x.a) this.a;
                 aVar.getClass();
                 LogPrinter.e("onRewardedShowFail: errorCode: 0, , errorMessage: " + str, new Object[0]);
-                aVar.f28352d.onAdError(0, str);
+                aVar.f28558d.onAdError(0, str);
             }
         }
 
@@ -71,7 +71,7 @@ public class l extends g {
                 x.a aVar = (x.a) this.a;
                 aVar.getClass();
                 LogPrinter.d();
-                aVar.f28352d.onAdClose();
+                aVar.f28558d.onAdClose();
             }
         }
 
@@ -82,7 +82,7 @@ public class l extends g {
                 x.a aVar = (x.a) this.a;
                 aVar.getClass();
                 LogPrinter.d();
-                aVar.f28352d.onAdShow(aVar.f28351c, aVar.a);
+                aVar.f28558d.onAdShow(aVar.f28557c, aVar.a);
                 aVar.a = true;
             }
         }

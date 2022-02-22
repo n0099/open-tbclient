@@ -1,6 +1,6 @@
 package com.baidu.tieba.screenlocknotify.loadmore;
 
-import c.a.t0.m3.e.a;
+import c.a.u0.n3.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
@@ -13,7 +13,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetMoreMsg.DataRes;
 import tbclient.GetMoreMsg.GetMoreMsgResIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class ScreenLockLoadMoreHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

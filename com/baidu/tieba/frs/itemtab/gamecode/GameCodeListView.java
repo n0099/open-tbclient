@@ -11,13 +11,14 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import c.a.d.f.p.n;
-import c.a.s0.s.u.c;
-import c.a.t0.e1.c1;
-import c.a.t0.e1.d1;
-import c.a.t0.e1.f1;
-import c.a.t0.e1.g1;
-import c.a.t0.e1.i1;
-import c.a.t0.e1.n2.h.a;
+import c.a.t0.b1.i.f;
+import c.a.t0.s.v.c;
+import c.a.u0.e1.c1;
+import c.a.u0.e1.d1;
+import c.a.u0.e1.f1;
+import c.a.u0.e1.g1;
+import c.a.u0.e1.i1;
+import c.a.u0.e1.n2.h.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
@@ -32,11 +33,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.GameCodeList;
 /* loaded from: classes12.dex */
-public class GameCodeListView extends ConstraintLayout {
+public class GameCodeListView extends ConstraintLayout implements f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f43652j;
+    public static final int f43887j;
     public static final int k;
     public static final int l;
     public static final int m;
@@ -46,19 +47,19 @@ public class GameCodeListView extends ConstraintLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public EMTextView f43653e;
+    public EMTextView f43888e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecyclerView f43654f;
+    public RecyclerView f43889f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GameCodeAdapter f43655g;
+    public GameCodeAdapter f43890g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EMTextView f43656h;
+    public EMTextView f43891h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f43657i;
+    public int f43892i;
 
     static {
         InterceptResult invokeClinit;
@@ -73,7 +74,7 @@ public class GameCodeListView extends ConstraintLayout {
                 return;
             }
         }
-        f43652j = n.f(TbadkCoreApplication.getInst(), d1.tbds48);
+        f43887j = n.f(TbadkCoreApplication.getInst(), d1.tbds48);
         k = n.f(TbadkCoreApplication.getInst(), d1.M_H_X007);
         l = n.f(TbadkCoreApplication.getInst(), d1.M_H_X004);
         m = n.f(TbadkCoreApplication.getInst(), d1.M_H_X005);
@@ -100,7 +101,7 @@ public class GameCodeListView extends ConstraintLayout {
                 return;
             }
         }
-        this.f43657i = 0;
+        this.f43892i = 0;
         a(context);
     }
 
@@ -109,41 +110,42 @@ public class GameCodeListView extends ConstraintLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(g1.frs_item_game_code_dialog_view, this);
             EMTextView eMTextView = (EMTextView) findViewById(f1.game_code_title);
-            this.f43653e = eMTextView;
+            this.f43888e = eMTextView;
             eMTextView.setTextSize(0, n);
-            EMTextView eMTextView2 = this.f43653e;
-            int i2 = f43652j;
+            EMTextView eMTextView2 = this.f43888e;
+            int i2 = f43887j;
             eMTextView2.setPadding(i2, k, i2, l);
-            this.f43653e.setGravity(1);
-            this.f43653e.setText(i1.all_game_code_title);
+            this.f43888e.setGravity(1);
+            this.f43888e.setText(i1.all_game_code_title);
             RecyclerView recyclerView = (RecyclerView) findViewById(f1.game_code_list);
-            this.f43654f = recyclerView;
+            this.f43889f = recyclerView;
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
             GameCodeAdapter gameCodeAdapter = new GameCodeAdapter(context);
-            this.f43655g = gameCodeAdapter;
-            this.f43654f.setAdapter(gameCodeAdapter);
+            this.f43890g = gameCodeAdapter;
+            this.f43889f.setAdapter(gameCodeAdapter);
             EMTextView eMTextView3 = (EMTextView) findViewById(f1.game_code_cancel);
-            this.f43656h = eMTextView3;
+            this.f43891h = eMTextView3;
             eMTextView3.setTextSize(0, o);
-            this.f43656h.setText(i1.cancel);
-            ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) this.f43656h.getLayoutParams();
+            this.f43891h.setText(i1.cancel);
+            ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) this.f43891h.getLayoutParams();
             ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = p;
-            this.f43656h.setLayoutParams(layoutParams);
-            EMTextView eMTextView4 = this.f43656h;
+            this.f43891h.setLayoutParams(layoutParams);
+            EMTextView eMTextView4 = this.f43891h;
             int i3 = m;
             eMTextView4.setPadding(0, i3, 0, i3);
         }
     }
 
+    @Override // c.a.t0.b1.i.f
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             c d2 = c.d(this);
             d2.n(i1.J_X14);
             d2.f(c1.CAM_X0212);
-            SkinManager.setViewTextColor(this.f43653e, c1.CAM_X0109);
-            SkinManager.setViewTextColorSelector(this.f43656h, c1.CAM_X0107);
-            this.f43655g.notifyDataSetChanged();
+            SkinManager.setViewTextColor(this.f43888e, c1.CAM_X0109);
+            SkinManager.setViewTextColorSelector(this.f43891h, c1.CAM_X0107);
+            this.f43890g.notifyDataSetChanged();
         }
     }
 
@@ -151,22 +153,22 @@ public class GameCodeListView extends ConstraintLayout {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            super.onMeasure(i2, View.MeasureSpec.makeMeasureSpec(Math.min(View.MeasureSpec.getSize(i3), this.f43657i), Integer.MIN_VALUE));
+            super.onMeasure(i2, View.MeasureSpec.makeMeasureSpec(Math.min(View.MeasureSpec.getSize(i3), this.f43892i), Integer.MIN_VALUE));
         }
     }
 
     public void setCancelClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f43656h.setOnClickListener(onClickListener);
+            this.f43891h.setOnClickListener(onClickListener);
         }
     }
 
     public void setData(List<GameCodeList> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.f43655g.setGameCodeList(list);
-            this.f43655g.notifyDataSetChanged();
+            this.f43890g.setGameCodeList(list);
+            this.f43890g.notifyDataSetChanged();
         }
     }
 
@@ -174,14 +176,14 @@ public class GameCodeListView extends ConstraintLayout {
     public void setMaxHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f43657i = i2;
+            this.f43892i = i2;
         }
     }
 
     public void updateAfterGetGameCodeSuccess(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.f43655g.updateAfterGetGameCodeSuccess(aVar);
+            this.f43890g.updateAfterGetGameCodeSuccess(aVar);
         }
     }
 
@@ -204,7 +206,7 @@ public class GameCodeListView extends ConstraintLayout {
                 return;
             }
         }
-        this.f43657i = 0;
+        this.f43892i = 0;
         a(context);
     }
 
@@ -227,7 +229,7 @@ public class GameCodeListView extends ConstraintLayout {
                 return;
             }
         }
-        this.f43657i = 0;
+        this.f43892i = 0;
         a(context);
     }
 
@@ -249,8 +251,8 @@ public class GameCodeListView extends ConstraintLayout {
                 return;
             }
         }
-        this.f43657i = 0;
-        this.f43657i = i2;
+        this.f43892i = 0;
+        this.f43892i = i2;
         a(context);
     }
 }

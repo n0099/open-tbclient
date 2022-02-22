@@ -42,7 +42,7 @@ public class ak extends ai.b {
             obj = this.a.f112a;
             synchronized (obj) {
                 map = this.a.f113a;
-                map.remove(super.a.mo248a());
+                map.remove(super.a.mo247a());
             }
         }
     }

@@ -28,7 +28,7 @@ public class StickerUnit extends RichStickerBaseUnit {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public StickerUnit m100clone() throws CloneNotSupportedException {
+    public StickerUnit m99clone() throws CloneNotSupportedException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (StickerUnit) super.clone() : (StickerUnit) invokeV.objValue;

@@ -1,7 +1,7 @@
 package com.baidu.tieba.flutter.plugin.tiebautility;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
+import com.baidu.tbadk.core.atomData.TbTitleActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;

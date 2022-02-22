@@ -3,12 +3,13 @@ package com.baidu.tbadk.core.util;
 import android.os.Handler;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.j.b.a;
+import c.a.d.f.j.c.a;
 import c.a.d.f.p.t;
-import c.a.s0.k0.f;
-import c.a.s0.s.l.c;
-import c.a.s0.s.q.s0;
-import c.a.s0.t.a.b;
+import c.a.t0.k0.f;
+import c.a.t0.s.m.c;
+import c.a.t0.s.r.s0;
+import c.a.t0.t.a.b;
+import c.a.u0.a4.j;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
@@ -21,7 +22,6 @@ import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.core.util.httpNet.HttpResponse;
 import com.baidu.tbadk.core.util.httpNet.NetWorkUtil;
 import com.baidu.tbadk.switchs.EncSigNewSwitch;
-import com.baidu.tieba.R;
 import com.baidu.tieba.StringU;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -139,7 +139,7 @@ public class NetWork {
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, this, str, str2, z)) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                 try {
-                    c.a.s0.s.c0.a.a("account", -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
+                    c.a.t0.s.d0.a.a("account", -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
                     TbadkCoreApplication.setCurrentAccount(null, TbadkCoreApplication.getInst().getApp().getApplicationContext());
                     StringBuilder sb = new StringBuilder(32);
                     sb.append(TbConfig.LOGIN_FULL_ADDRESS);
@@ -179,11 +179,11 @@ public class NetWork {
                             }
                             c.g(accountData);
                             TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(accountData, accountData.getBDUSS(), accountData.getTbs());
-                            c.a.s0.s.c0.a.a("account", -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
+                            c.a.t0.s.d0.a.a("account", -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
                             TbadkCoreApplication.setCurrentAccount(accountData, TbadkCoreApplication.getInst().getApp().getApplicationContext());
                             return s0Var;
                         }
-                        this.netContext.getResponse().mErrorString = TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.neterror);
+                        this.netContext.getResponse().mErrorString = TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(j.neterror);
                         return null;
                     } else if (this.mNetLogin.isNetSuccess()) {
                         int serverErrorCode = this.mNetLogin.getServerErrorCode();
@@ -276,7 +276,7 @@ public class NetWork {
     private void removeAccount(AccountData accountData) {
         b b2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65548, this, accountData) == null) || TextUtils.isEmpty(accountData.getID()) || (b2 = c.a.s0.t.a.a.b()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65548, this, accountData) == null) || TextUtils.isEmpty(accountData.getID()) || (b2 = c.a.t0.t.a.a.b()) == null) {
             return;
         }
         b2.c(accountData);
@@ -344,7 +344,7 @@ public class NetWork {
     public long getNetDataSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.netContext.getStat().stat.f2895b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.netContext.getStat().stat.f1978b : invokeV.longValue;
     }
 
     public int getNetErrorCode() {
@@ -581,7 +581,7 @@ public class NetWork {
                         return null;
                     }
                 }
-                c.a.t0.l1.a.b(this);
+                c.a.u0.l1.a.b(this);
                 return netString;
             }
         }

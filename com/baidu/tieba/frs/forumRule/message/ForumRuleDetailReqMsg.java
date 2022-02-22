@@ -1,9 +1,10 @@
 package com.baidu.tieba.frs.forumRule.message;
 
-import c.a.s0.d1.b0;
+import c.a.t0.d1.c0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,8 +51,8 @@ public class ForumRuleDetailReqMsg extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.forum_id = getForumRuleId();
-                if (z) {
-                    b0.c(builder, true, true, false);
+                if (z || SocketAddCommonParamSwitch.getIsOn()) {
+                    c0.c(builder, true, true, false);
                 }
                 ForumRuleDetailReqIdl.Builder builder2 = new ForumRuleDetailReqIdl.Builder();
                 builder2.data = builder.build(false);

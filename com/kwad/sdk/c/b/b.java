@@ -5,14 +5,14 @@ import com.kwad.sdk.c.kwai.d;
 import com.kwad.sdk.core.report.ReportAction;
 import com.kwad.sdk.core.report.f;
 import java.util.Random;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static void a(d dVar, int i2) {
         if (a()) {
             ReportAction reportAction = new ReportAction(230L);
             reportAction.bz = dVar.a;
-            reportAction.bA = dVar.f55515e;
-            reportAction.bB = dVar.f55517g;
+            reportAction.bA = dVar.f55682e;
+            reportAction.bB = dVar.f55684g;
             reportAction.bC = i2;
             reportAction.bD = System.currentTimeMillis();
             f.a(reportAction);
@@ -23,8 +23,8 @@ public class b {
         if (a()) {
             ReportAction reportAction = new ReportAction(230L);
             reportAction.bz = dVar.a;
-            reportAction.bA = dVar.f55515e;
-            reportAction.bB = dVar.f55517g;
+            reportAction.bA = dVar.f55682e;
+            reportAction.bB = dVar.f55684g;
             reportAction.bC = 0;
             reportAction.bE = i2;
             reportAction.bD = System.currentTimeMillis();

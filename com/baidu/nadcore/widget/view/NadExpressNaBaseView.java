@@ -8,11 +8,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.c0.d.e;
-import c.a.c0.k0.x.a;
-import c.a.c0.k0.z.b;
-import c.a.c0.k0.z.c;
-import c.a.c0.s.o;
+import c.a.d0.d.e;
+import c.a.d0.l0.x.a;
+import c.a.d0.l0.z.b;
+import c.a.d0.l0.z.c;
+import c.a.d0.s.s;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.feed.AdFeedBaseView;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class NadExpressNaBaseView extends AdFeedBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +90,7 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    public abstract void initInflate(LayoutInflater layoutInflater, o oVar);
+    public abstract void initInflate(LayoutInflater layoutInflater, s sVar);
 
     public abstract void initLayout(Context context);
 
@@ -114,10 +114,37 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
         textView.setMaxLines(i2);
     }
 
+    public void setTitleColor(int i2) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || (textView = this.mTitle) == null) {
+            return;
+        }
+        textView.setTextColor(i2);
+    }
+
+    public void setTitleLineSpacing(float f2, float f3) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || (textView = this.mTitle) == null) {
+            return;
+        }
+        textView.setLineSpacing(f2, f3);
+    }
+
+    public void setTitleSize(float f2) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeF(1048586, this, f2) == null) || (textView = this.mTitle) == null) {
+            return;
+        }
+        textView.setTextSize(f2);
+    }
+
     @Override // com.baidu.nadcore.widget.feed.AdFeedBaseView
     public void setViewDownloadListener(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
             super.setViewDownloadListener(aVar);
             b bVar = this.mNadExpressOperateBar;
             if (bVar != null) {
@@ -127,9 +154,9 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
     }
 
     @Override // com.baidu.nadcore.widget.feed.AdFeedBaseView
-    public void setViewStatChangeListener(c.a.c0.k0.x.b bVar) {
+    public void setViewStatChangeListener(c.a.d0.l0.x.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
             super.setViewStatChangeListener(bVar);
             b bVar2 = this.mNadExpressOperateBar;
             if (bVar2 != null) {
@@ -141,7 +168,7 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
     @Override // com.baidu.nadcore.widget.feed.AdFeedBaseView
     public void update(@NonNull AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, adBaseModel) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, adBaseModel) == null) {
             super.update(adBaseModel);
             updateSubViewData(adBaseModel);
             NadExpressBottomView nadExpressBottomView = this.mLabelView;
@@ -153,14 +180,14 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
             updateTitleColor(adBaseModel);
             TextView textView = this.mTitle;
             if (textView != null) {
-                textView.setText(adBaseModel.f37044d.f2236e);
+                textView.setText(adBaseModel.f37258f.f3096g);
             }
         }
     }
 
     public void updateOperateBar(AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, adBaseModel) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, adBaseModel) == null) {
             b c2 = this.mCreator.c(adBaseModel);
             this.mNadExpressOperateBar = c2;
             if (c2 != null) {
@@ -171,7 +198,7 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
                 if (aVar != null) {
                     this.mNadExpressOperateBar.h(aVar);
                 }
-                c.a.c0.k0.x.b bVar = this.mFeedListener;
+                c.a.d0.l0.x.b bVar = this.mFeedListener;
                 if (bVar != null) {
                     this.mNadExpressOperateBar.f(bVar);
                 }
@@ -185,12 +212,15 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
 
     public void updateTitleColor(AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, adBaseModel) == null) || adBaseModel == null || this.mTitle == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, adBaseModel) == null) || adBaseModel == null || this.mTitle == null) {
             return;
         }
-        int i2 = adBaseModel.f37042b ? c.a.c0.d.b.NAD_FC4 : c.a.c0.d.b.NAD_FC1;
-        TextView textView = this.mTitle;
-        textView.setTextColor(textView.getContext().getResources().getColor(i2));
+        s sVar = adBaseModel.q;
+        if (sVar == null || sVar.l) {
+            int i2 = adBaseModel.f37254b ? c.a.d0.d.b.NAD_FC4 : c.a.d0.d.b.NAD_FC1;
+            TextView textView = this.mTitle;
+            textView.setTextColor(textView.getContext().getResources().getColor(i2));
+        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -227,7 +257,7 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (o) objArr2[3]);
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (s) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -236,13 +266,13 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NadExpressNaBaseView(Context context, AttributeSet attributeSet, int i2, @Nullable o oVar) {
+    public NadExpressNaBaseView(Context context, AttributeSet attributeSet, int i2, @Nullable s sVar) {
         super(context, attributeSet, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2), oVar};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2), sVar};
             interceptable.invokeUnInit(65539, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -254,7 +284,7 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
                 return;
             }
         }
-        initInflate(LayoutInflater.from(context), oVar);
+        initInflate(LayoutInflater.from(context), sVar);
         doInitLayout(context);
         this.mCreator = new c(this);
     }

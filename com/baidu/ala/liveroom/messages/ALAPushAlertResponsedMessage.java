@@ -9,8 +9,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import c.a.d.f.l.d;
-import c.a.d.n.d.a;
-import c.a.s0.c0.c;
+import c.a.d.o.d.a;
+import c.a.t0.c0.c;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.AlaCmdConfigSocket;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -171,7 +171,7 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                                         public void onLoaded(a aVar, String str3, int i3) {
                                             Interceptable interceptable3 = $ic;
                                             if (interceptable3 == null || interceptable3.invokeLLI(1048576, this, aVar, str3, i3) == null) {
-                                                super.onLoaded((C17121) aVar, str3, i3);
+                                                super.onLoaded((C17221) aVar, str3, i3);
                                                 if (aVar != null && aVar.p() != null) {
                                                     Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
                                                     int hashCode = Long.valueOf(this.this$1.val$uid).hashCode();

@@ -6,12 +6,15 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.t0.t1.f.e;
+import c.a.u0.a4.d;
+import c.a.u0.a4.f;
+import c.a.u0.a4.g;
+import c.a.u0.a4.h;
+import c.a.u0.t1.f.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.view.ChatClipImageItemView;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 import com.baidu.tieba.im.message.chat.ChatMessage;
@@ -25,14 +28,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes12.dex */
 public class MsgrightView extends e {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String z = "com.baidu.tieba.im.chat.MsgrightView";
+    public static final String E = "com.baidu.tieba.im.chat.MsgrightView";
     public transient /* synthetic */ FieldHolder $fh;
-    public ProgressBar t;
-    public ImageButton u;
-    public TextView v;
-    public HeadImageView w;
-    public TextView x;
-    public TextView y;
+    public TextView A;
+    public HeadImageView B;
+    public TextView C;
+    public TextView D;
+    public ProgressBar y;
+    public ImageButton z;
 
     /* loaded from: classes12.dex */
     public class a implements View.OnClickListener {
@@ -40,7 +43,7 @@ public class MsgrightView extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgrightView f44840e;
+        public final /* synthetic */ MsgrightView f44982e;
 
         public a(MsgrightView msgrightView) {
             Interceptable interceptable = $ic;
@@ -57,15 +60,15 @@ public class MsgrightView extends e {
                     return;
                 }
             }
-            this.f44840e = msgrightView;
+            this.f44982e = msgrightView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MsgrightView msgrightView = this.f44840e;
-                msgrightView.f22208b.onItemViewClick(view, 6, msgrightView.f22212f, 0L);
+                MsgrightView msgrightView = this.f44982e;
+                msgrightView.f22418b.onItemViewClick(view, 6, msgrightView.f22422f, 0L);
             }
         }
     }
@@ -76,7 +79,7 @@ public class MsgrightView extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgrightView f44841e;
+        public final /* synthetic */ MsgrightView f44983e;
 
         public b(MsgrightView msgrightView) {
             Interceptable interceptable = $ic;
@@ -93,15 +96,15 @@ public class MsgrightView extends e {
                     return;
                 }
             }
-            this.f44841e = msgrightView;
+            this.f44983e = msgrightView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MsgrightView msgrightView = this.f44841e;
-                msgrightView.f22208b.onItemViewClick(view, 1, msgrightView.f22212f, 0L);
+                MsgrightView msgrightView = this.f44983e;
+                msgrightView.f22418b.onItemViewClick(view, 1, msgrightView.f22422f, 0L);
             }
         }
     }
@@ -123,7 +126,7 @@ public class MsgrightView extends e {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgrightView(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.msg_msgright_view);
+        super(tbPageContext, h.msg_msgright_view);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -140,128 +143,129 @@ public class MsgrightView extends e {
                 return;
             }
         }
-        f();
+        k();
         ChatImageWithTailView chatImageWithTailView = this.p;
         if (chatImageWithTailView != null && chatImageWithTailView.getImage() != null && (this.p.getImage() instanceof ChatClipImageItemView)) {
             this.p.getImage().setLeft(false);
         }
-        this.v = (TextView) c(R.id.img_msgitem_progressbar);
-        this.t = (ProgressBar) c(R.id.progress);
-        this.u = (ImageButton) c(R.id.btn_msgitem_resend);
-        HeadImageView headImageView = (HeadImageView) c(R.id.img_msgitem_photo);
-        this.w = headImageView;
+        this.A = (TextView) c(g.img_msgitem_progressbar);
+        this.y = (ProgressBar) c(g.progress);
+        this.z = (ImageButton) c(g.btn_msgitem_resend);
+        HeadImageView headImageView = (HeadImageView) c(g.img_msgitem_photo);
+        this.B = headImageView;
         headImageView.setAutoChangeStyle(false);
-        this.w.setDrawerType(1);
-        this.w.setRadius(n.d(this.mContext.getContext(), 4.0f));
-        this.w.setPlaceHolder(1);
-        this.w.setOnClickListener(new a(this));
-        this.x = (TextView) c(R.id.has_read);
-        this.y = (TextView) c(R.id.has_sent);
+        this.B.setDrawerType(1);
+        this.B.setRadius(n.d(this.mContext.getContext(), 4.0f));
+        this.B.setPlaceHolder(1);
+        this.B.setOnClickListener(new a(this));
+        this.C = (TextView) c(g.has_read);
+        this.D = (TextView) c(g.has_sent);
         this.m.setIsLeft(false);
         this.n.setIsLeft(false);
     }
 
-    @Override // c.a.t0.t1.f.e
-    public void i(View view, ChatMessage chatMessage) {
+    @Override // c.a.u0.t1.f.e
+    public void n(View view, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, view, chatMessage) == null) {
-            super.i(view, chatMessage);
+            super.n(view, chatMessage);
             if (chatMessage == null) {
-                this.f22214h.setVisibility(8);
-                this.t.setVisibility(8);
-                this.u.setVisibility(8);
-                this.x.setVisibility(8);
+                this.f22424h.setVisibility(8);
                 this.y.setVisibility(8);
-                this.f22215i.setVisibility(0);
-                this.f22215i.setText(null);
-                j(8);
+                this.z.setVisibility(8);
+                this.C.setVisibility(8);
+                this.D.setVisibility(8);
+                this.f22425i.setVisibility(0);
+                this.f22425i.setText(null);
+                p(8);
                 this.p.getImage().setTag(null);
-                this.f22216j.setVisibility(8);
-                this.f22216j.setTag(null);
+                this.f22426j.setVisibility(8);
+                this.f22426j.setTag(null);
                 this.m.setVisibility(8);
                 this.n.setVisibility(8);
                 this.o.setVisibility(8);
                 return;
             }
             try {
-                u(chatMessage);
-                this.w.setDefaultResource(R.drawable.photo);
+                B(chatMessage);
+                G(chatMessage);
+                this.B.setDefaultResource(f.photo);
                 if (chatMessage.getUserInfo() != null) {
-                    this.w.setUserId(chatMessage.getUserInfo().getUserId());
+                    this.B.setUserId(chatMessage.getUserInfo().getUserId());
                     String currentAvatar = TbadkCoreApplication.isLogin() ? TbadkCoreApplication.getCurrentAvatar() : null;
                     if (currentAvatar != null && currentAvatar.length() > 0) {
-                        this.w.startLoad(currentAvatar, 12, false);
+                        this.B.startLoad(currentAvatar, 12, false);
                     }
                 }
-                this.w.setContentDescription(chatMessage.getUserInfo().getName_show());
-                this.t.setVisibility(8);
-                this.u.setVisibility(8);
-                this.x.setVisibility(8);
+                this.B.setContentDescription(chatMessage.getUserInfo().getName_show());
                 this.y.setVisibility(8);
+                this.z.setVisibility(8);
+                this.C.setVisibility(8);
+                this.D.setVisibility(8);
                 if (chatMessage.getLocalData() != null && chatMessage.getLocalData().getStatus() != null) {
                     short shortValue = chatMessage.getLocalData().getStatus().shortValue();
                     if (shortValue == 1) {
-                        this.t.setVisibility(0);
+                        this.y.setVisibility(0);
                     } else if (shortValue == 2) {
-                        this.u.setVisibility(0);
+                        this.z.setVisibility(0);
                     } else if (shortValue == 3) {
-                        this.t.setVisibility(8);
+                        this.y.setVisibility(8);
                         if (this.r) {
                             if (chatMessage.isHasRead()) {
-                                this.x.setVisibility(0);
-                                this.y.setVisibility(8);
+                                this.C.setVisibility(0);
+                                this.D.setVisibility(8);
                             } else {
-                                this.x.setVisibility(8);
-                                this.y.setVisibility(0);
+                                this.C.setVisibility(8);
+                                this.D.setVisibility(0);
                             }
                         }
                     }
                 }
-                if (this.u.getVisibility() == 0) {
-                    this.u.setOnClickListener(new b(this));
+                if (this.z.getVisibility() == 0) {
+                    this.z.setOnClickListener(new b(this));
                 }
-                this.f22215i.setVisibility(8);
-                j(8);
-                this.f22216j.setVisibility(8);
+                this.f22425i.setVisibility(8);
+                p(8);
+                this.f22426j.setVisibility(8);
                 this.k.setVisibility(8);
                 this.n.setVisibility(8);
                 this.m.setVisibility(8);
                 this.o.setVisibility(8);
                 int msgType = chatMessage.getMsgType();
                 if (msgType == 1) {
-                    x(chatMessage, z);
+                    E(chatMessage, E);
                 } else if (msgType == 2) {
-                    w(view, chatMessage, z);
+                    D(view, chatMessage, E);
                 } else if (msgType == 3) {
-                    y(chatMessage, z);
-                    this.f22216j.setVisibility(0);
+                    F(chatMessage, E);
+                    this.f22426j.setVisibility(0);
                 } else if (msgType == 4) {
-                    s(chatMessage, true);
+                    z(chatMessage, true);
                 } else if (msgType != 9) {
                 } else {
-                    t(view, chatMessage, z);
+                    A(view, chatMessage, E);
                 }
             } catch (Exception unused) {
             }
         }
     }
 
-    @Override // c.a.t0.t1.f.e
-    public void q(View view, ChatMessage chatMessage) {
+    @Override // c.a.u0.t1.f.e
+    public void w(View view, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, chatMessage) == null) {
             if (chatMessage.getLocalData() != null && chatMessage.getLocalData().getStatus() != null && (chatMessage.getLocalData().getStatus().shortValue() == 3 || chatMessage.getLocalData().getStatus().shortValue() == 2)) {
-                if (this.v.getVisibility() != 8) {
-                    this.v.setVisibility(8);
+                if (this.A.getVisibility() != 8) {
+                    this.A.setVisibility(8);
                     this.p.getImage().setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
                 }
             } else if (chatMessage.getProgressValue() < 100 && chatMessage.getIsUploading()) {
-                this.p.getImage().setColorFilter(TbadkCoreApplication.getInst().getApp().getResources().getColor(R.color.common_color_10227), PorterDuff.Mode.SRC_ATOP);
-                TextView textView = this.v;
+                this.p.getImage().setColorFilter(TbadkCoreApplication.getInst().getApp().getResources().getColor(d.common_color_10227), PorterDuff.Mode.SRC_ATOP);
+                TextView textView = this.A;
                 textView.setText(chatMessage.getProgressValue() + "%");
-                this.v.setVisibility(0);
-            } else if (this.v.getVisibility() != 8) {
-                this.v.setVisibility(8);
+                this.A.setVisibility(0);
+            } else if (this.A.getVisibility() != 8) {
+                this.A.setVisibility(8);
                 this.p.getImage().setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
             }
         }

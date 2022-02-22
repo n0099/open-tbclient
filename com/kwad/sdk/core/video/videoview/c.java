@@ -6,23 +6,23 @@ import androidx.annotation.NonNull;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class c extends FrameLayout {
     public static final AtomicInteger a = new AtomicInteger(0);
 
     /* renamed from: b  reason: collision with root package name */
-    public Timer f56304b;
+    public Timer f56471b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TimerTask f56305c;
+    public TimerTask f56472c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public final d f56306d;
+    public final d f56473d;
 
     public c(Context context, @NonNull d dVar) {
         super(context);
-        this.f56306d = dVar;
+        this.f56473d = dVar;
     }
 
     public abstract void a(int i2);
@@ -36,11 +36,11 @@ public abstract class c extends FrameLayout {
 
     public void k() {
         l();
-        if (this.f56304b == null) {
-            this.f56304b = new Timer("ksad-IVideoPlayer-timer" + a.getAndIncrement());
+        if (this.f56471b == null) {
+            this.f56471b = new Timer("ksad-IVideoPlayer-timer" + a.getAndIncrement());
         }
-        if (this.f56305c == null) {
-            this.f56305c = new TimerTask() { // from class: com.kwad.sdk.core.video.videoview.c.1
+        if (this.f56472c == null) {
+            this.f56472c = new TimerTask() { // from class: com.kwad.sdk.core.video.videoview.c.1
                 @Override // java.util.TimerTask, java.lang.Runnable
                 public void run() {
                     c.this.post(new Runnable() { // from class: com.kwad.sdk.core.video.videoview.c.1.1
@@ -52,19 +52,19 @@ public abstract class c extends FrameLayout {
                 }
             };
         }
-        this.f56304b.schedule(this.f56305c, 0L, 1000L);
+        this.f56471b.schedule(this.f56472c, 0L, 1000L);
     }
 
     public void l() {
-        Timer timer = this.f56304b;
+        Timer timer = this.f56471b;
         if (timer != null) {
             timer.cancel();
-            this.f56304b = null;
+            this.f56471b = null;
         }
-        TimerTask timerTask = this.f56305c;
+        TimerTask timerTask = this.f56472c;
         if (timerTask != null) {
             timerTask.cancel();
-            this.f56305c = null;
+            this.f56472c = null;
         }
     }
 }

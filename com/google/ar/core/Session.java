@@ -40,10 +40,10 @@ public class Session {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f54425b;
+    public final Object f54592b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.i.c.a.g f54426c;
+    public final c.i.c.a.g f54593c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
@@ -115,11 +115,11 @@ public class Session {
         public static final a a;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final /* synthetic */ a[] f54427c;
+        public static final /* synthetic */ a[] f54594c;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f54428b;
+        public final int f54595b;
 
         static {
             InterceptResult invokeClinit;
@@ -136,7 +136,7 @@ public class Session {
             }
             a aVar = new a("END_OF_LIST", 0, 0);
             a = aVar;
-            f54427c = new a[]{aVar};
+            f54594c = new a[]{aVar};
         }
 
         public a(String str, int i2, int i3) {
@@ -157,13 +157,13 @@ public class Session {
                     return;
                 }
             }
-            this.f54428b = 0;
+            this.f54595b = 0;
         }
 
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (a[]) f54427c.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (a[]) f54594c.clone() : (a[]) invokeV.objValue;
         }
     }
 
@@ -178,28 +178,28 @@ public class Session {
         public static final b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final b f54429b;
+        public static final b f54596b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final b f54430c;
+        public static final b f54597c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final b f54431d;
+        public static final b f54598d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final b f54432e;
+        public static final b f54599e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final b f54433f;
+        public static final b f54600f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final b f54434g;
+        public static final b f54601g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final b f54435h;
+        public static final b f54602h;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final b f54436i;
+        public static final b f54603i;
         public static final b m;
         public static final b n;
         public static final b o;
@@ -217,7 +217,7 @@ public class Session {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: j  reason: collision with root package name */
-        public final int f54437j;
+        public final int f54604j;
         public final Class<? extends Exception> k;
         public final String l;
 
@@ -235,8 +235,8 @@ public class Session {
                 }
             }
             a = new b(com.alipay.security.mobile.module.http.model.c.p, 0, 0, null);
-            f54429b = new b("ERROR_INVALID_ARGUMENT", 1, -1, IllegalArgumentException.class);
-            f54430c = new b("ERROR_FATAL", 2, -2, FatalException.class);
+            f54596b = new b("ERROR_INVALID_ARGUMENT", 1, -1, IllegalArgumentException.class);
+            f54597c = new b("ERROR_FATAL", 2, -2, FatalException.class);
             m = new b("ERROR_SESSION_PAUSED", 3, -3, SessionPausedException.class);
             n = new b("ERROR_SESSION_NOT_PAUSED", 4, -4, SessionNotPausedException.class);
             o = new b("ERROR_NOT_TRACKING", 5, -5, NotTrackingException.class);
@@ -245,7 +245,7 @@ public class Session {
             r = new b("ERROR_UNSUPPORTED_CONFIGURATION", 8, -8, UnsupportedConfigurationException.class);
             s = new b("ERROR_CAMERA_PERMISSION_NOT_GRANTED", 9, -9, SecurityException.class, "Camera permission is not granted");
             t = new b("ERROR_DEADLINE_EXCEEDED", 10, -10, DeadlineExceededException.class);
-            f54431d = new b("ERROR_RESOURCE_EXHAUSTED", 11, -11, ResourceExhaustedException.class);
+            f54598d = new b("ERROR_RESOURCE_EXHAUSTED", 11, -11, ResourceExhaustedException.class);
             u = new b("ERROR_NOT_YET_AVAILABLE", 12, -12, NotYetAvailableException.class);
             v = new b("ERROR_CAMERA_NOT_AVAILABLE", 13, -13, CameraNotAvailableException.class);
             w = new b("ERROR_ANCHOR_NOT_SUPPORTED_FOR_HOSTING", 14, -16, AnchorNotSupportedForHostingException.class);
@@ -255,13 +255,13 @@ public class Session {
             A = new b("ERROR_ILLEGAL_STATE", 18, -20, IllegalStateException.class);
             B = new b("ERROR_CLOUD_ANCHORS_NOT_CONFIGURED", 19, -14, CloudAnchorsNotConfiguredException.class);
             C = new b("ERROR_INTERNET_PERMISSION_NOT_GRANTED", 20, -15, SecurityException.class, "Internet permission is not granted");
-            f54432e = new b("UNAVAILABLE_ARCORE_NOT_INSTALLED", 21, -100, UnavailableArcoreNotInstalledException.class);
-            f54433f = new b("UNAVAILABLE_DEVICE_NOT_COMPATIBLE", 22, -101, UnavailableDeviceNotCompatibleException.class);
-            f54434g = new b("UNAVAILABLE_APK_TOO_OLD", 23, -103, UnavailableApkTooOldException.class);
-            f54435h = new b("UNAVAILABLE_SDK_TOO_OLD", 24, -104, UnavailableSdkTooOldException.class);
+            f54599e = new b("UNAVAILABLE_ARCORE_NOT_INSTALLED", 21, -100, UnavailableArcoreNotInstalledException.class);
+            f54600f = new b("UNAVAILABLE_DEVICE_NOT_COMPATIBLE", 22, -101, UnavailableDeviceNotCompatibleException.class);
+            f54601g = new b("UNAVAILABLE_APK_TOO_OLD", 23, -103, UnavailableApkTooOldException.class);
+            f54602h = new b("UNAVAILABLE_SDK_TOO_OLD", 24, -104, UnavailableSdkTooOldException.class);
             b bVar = new b("UNAVAILABLE_USER_DECLINED_INSTALLATION", 25, -105, UnavailableUserDeclinedInstallationException.class);
-            f54436i = bVar;
-            D = new b[]{a, f54429b, f54430c, m, n, o, p, q, r, s, t, f54431d, u, v, w, x, y, z, A, B, C, f54432e, f54433f, f54434g, f54435h, bVar};
+            f54603i = bVar;
+            D = new b[]{a, f54596b, f54597c, m, n, o, p, q, r, s, t, f54598d, u, v, w, x, y, z, A, B, C, f54599e, f54600f, f54601g, f54602h, bVar};
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -309,7 +309,7 @@ public class Session {
                     return;
                 }
             }
-            this.f54437j = i3;
+            this.f54604j = i3;
             this.k = cls;
             this.l = str2;
         }
@@ -328,8 +328,8 @@ public class Session {
                 return;
             }
         }
-        this.f54425b = new Object();
-        this.f54426c = new c.i.c.a.g();
+        this.f54592b = new Object();
+        this.f54593c = new c.i.c.a.g();
         this.a = 0L;
     }
 
@@ -404,9 +404,9 @@ public class Session {
         Frame frame;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this.f54425b) {
+            synchronized (this.f54592b) {
                 frame = new Frame(this);
-                nativeUpdate(this.a, frame.f54421c);
+                nativeUpdate(this.a, frame.f54588c);
             }
             return frame;
         }
@@ -420,29 +420,29 @@ public class Session {
         public static final c a;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final c f54438c;
+        public static final c f54605c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final c f54439d;
+        public static final c f54606d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final c f54440e;
+        public static final c f54607e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final c f54441f;
+        public static final c f54608f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final c f54442g;
+        public static final c f54609g;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final /* synthetic */ c[] f54443i;
+        public static final /* synthetic */ c[] f54610i;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f54444b;
+        public final int f54611b;
 
         /* renamed from: h  reason: collision with root package name */
-        public final Class<?> f54445h;
+        public final Class<?> f54612h;
 
         static {
             InterceptResult invokeClinit;
@@ -457,14 +457,14 @@ public class Session {
                     return;
                 }
             }
-            f54438c = new ad("BASE_TRACKABLE", 0, 1095893248, c.i.c.a.b.class);
+            f54605c = new ad("BASE_TRACKABLE", 0, 1095893248, c.i.c.a.b.class);
             a = new ae("UNKNOWN_TO_JAVA", 1, -1, null);
-            f54439d = new af("PLANE", 2, 1095893249, Plane.class);
-            f54440e = new ag("POINT", 3, 1095893250, Point.class);
-            f54441f = new ah("AUGMENTED_IMAGE", 4, 1095893252, AugmentedImage.class);
+            f54606d = new af("PLANE", 2, 1095893249, Plane.class);
+            f54607e = new ag("POINT", 3, 1095893250, Point.class);
+            f54608f = new ah("AUGMENTED_IMAGE", 4, 1095893252, AugmentedImage.class);
             ai aiVar = new ai("FACE", 5, 1095893253, AugmentedFace.class);
-            f54442g = aiVar;
-            f54443i = new c[]{f54438c, a, f54439d, f54440e, f54441f, aiVar};
+            f54609g = aiVar;
+            f54610i = new c[]{f54605c, a, f54606d, f54607e, f54608f, aiVar};
         }
 
         public c(String str, int i2, int i3, Class cls) {
@@ -485,8 +485,8 @@ public class Session {
                     return;
                 }
             }
-            this.f54444b = i3;
-            this.f54445h = cls;
+            this.f54611b = i3;
+            this.f54612h = cls;
         }
 
         public static c a(Class<? extends c.i.c.a.b> cls) {
@@ -495,7 +495,7 @@ public class Session {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
                 for (c cVar : values()) {
-                    Class<?> cls2 = cVar.f54445h;
+                    Class<?> cls2 = cVar.f54612h;
                     if (cls2 != null && cls2.equals(cls)) {
                         return cVar;
                     }
@@ -508,7 +508,7 @@ public class Session {
         public static c[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (c[]) f54443i.clone() : (c[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (c[]) f54610i.clone() : (c[]) invokeV.objValue;
         }
 
         public abstract c.i.c.a.b a(long j2, Session session);

@@ -12,7 +12,7 @@ public class z4 implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ GifImageView f30569e;
+    public final /* synthetic */ GifImageView f30775e;
 
     public z4(GifImageView gifImageView) {
         Interceptable interceptable = $ic;
@@ -29,17 +29,17 @@ public class z4 implements Runnable {
                 return;
             }
         }
-        this.f30569e = gifImageView;
+        this.f30775e = gifImageView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bitmap = this.f30569e.f60883b) == null || bitmap.isRecycled()) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bitmap = this.f30775e.f61050b) == null || bitmap.isRecycled()) {
             return;
         }
-        GifImageView gifImageView = this.f30569e;
-        gifImageView.setImageBitmap(gifImageView.f60883b);
+        GifImageView gifImageView = this.f30775e;
+        gifImageView.setImageBitmap(gifImageView.f61050b);
     }
 }

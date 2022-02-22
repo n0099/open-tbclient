@@ -372,24 +372,24 @@ public abstract class Converter<A, B> implements g<A, B> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Iterable f54453e;
+        public final /* synthetic */ Iterable f54620e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Converter f54454f;
+        public final /* synthetic */ Converter f54621f;
 
         /* renamed from: com.google.common.base.Converter$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C2069a implements Iterator<B> {
+        public class C2079a implements Iterator<B> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final Iterator<? extends A> f54455e;
+            public final Iterator<? extends A> f54622e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f54456f;
+            public final /* synthetic */ a f54623f;
 
-            public C2069a(a aVar) {
+            public C2079a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -404,29 +404,29 @@ public abstract class Converter<A, B> implements g<A, B> {
                         return;
                     }
                 }
-                this.f54456f = aVar;
-                this.f54455e = this.f54456f.f54453e.iterator();
+                this.f54623f = aVar;
+                this.f54622e = this.f54623f.f54620e.iterator();
             }
 
             @Override // java.util.Iterator
             public boolean hasNext() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54455e.hasNext() : invokeV.booleanValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54622e.hasNext() : invokeV.booleanValue;
             }
 
             @Override // java.util.Iterator
             public B next() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (B) this.f54456f.f54454f.convert(this.f54455e.next()) : (B) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (B) this.f54623f.f54621f.convert(this.f54622e.next()) : (B) invokeV.objValue;
             }
 
             @Override // java.util.Iterator
             public void remove() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.f54455e.remove();
+                    this.f54622e.remove();
                 }
             }
         }
@@ -446,15 +446,15 @@ public abstract class Converter<A, B> implements g<A, B> {
                     return;
                 }
             }
-            this.f54454f = converter;
-            this.f54453e = iterable;
+            this.f54621f = converter;
+            this.f54620e = iterable;
         }
 
         @Override // java.lang.Iterable
         public Iterator<B> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C2069a(this) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C2079a(this) : (Iterator) invokeV.objValue;
         }
     }
 

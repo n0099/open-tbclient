@@ -67,11 +67,11 @@ public class hy implements iq<hy, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hyVar)) == null) {
             if (hy.class.equals(hyVar.getClass())) {
-                int compareTo = Boolean.valueOf(m493a()).compareTo(Boolean.valueOf(hyVar.m493a()));
+                int compareTo = Boolean.valueOf(m492a()).compareTo(Boolean.valueOf(hyVar.m492a()));
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m493a() || (a2 = ir.a(this.f608a, hyVar.f608a)) == 0) {
+                if (!m492a() || (a2 = ir.a(this.f608a, hyVar.f608a)) == 0) {
                     return 0;
                 }
                 return a2;
@@ -104,19 +104,19 @@ public class hy implements iq<hy, Object>, Serializable, Cloneable {
         if (interceptable != null && interceptable.invokeL(1048579, this, jbVar) != null) {
             return;
         }
-        jbVar.m588a();
+        jbVar.m587a();
         while (true) {
-            iy m584a = jbVar.m584a();
-            byte b2 = m584a.a;
+            iy m583a = jbVar.m583a();
+            byte b2 = m583a.a;
             if (b2 == 0) {
                 jbVar.f();
                 a();
                 return;
             }
-            if (m584a.f815a == 1 && b2 == 15) {
-                iz m585a = jbVar.m585a();
-                this.f608a = new ArrayList(m585a.f816a);
-                for (int i2 = 0; i2 < m585a.f816a; i2++) {
+            if (m583a.f815a == 1 && b2 == 15) {
+                iz m584a = jbVar.m584a();
+                this.f608a = new ArrayList(m584a.f816a);
+                for (int i2 = 0; i2 < m584a.f816a; i2++) {
                     hn hnVar = new hn();
                     hnVar.a(jbVar);
                     this.f608a.add(hnVar);
@@ -130,24 +130,24 @@ public class hy implements iq<hy, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m493a() {
+    public boolean m492a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f608a != null : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m494a(hy hyVar) {
+    public boolean m493a(hy hyVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, hyVar)) == null) {
             if (hyVar == null) {
                 return false;
             }
-            boolean m493a = m493a();
-            boolean m493a2 = hyVar.m493a();
-            if (m493a || m493a2) {
-                return m493a && m493a2 && this.f608a.equals(hyVar.f608a);
+            boolean m492a = m492a();
+            boolean m492a2 = hyVar.m492a();
+            if (m492a || m492a2) {
+                return m492a && m492a2 && this.f608a.equals(hyVar.f608a);
             }
             return true;
         }
@@ -170,7 +170,7 @@ public class hy implements iq<hy, Object>, Serializable, Cloneable {
                 jbVar.b();
             }
             jbVar.c();
-            jbVar.m592a();
+            jbVar.m591a();
         }
     }
 
@@ -179,7 +179,7 @@ public class hy implements iq<hy, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj)) == null) {
             if (obj != null && (obj instanceof hy)) {
-                return m494a((hy) obj);
+                return m493a((hy) obj);
             }
             return false;
         }

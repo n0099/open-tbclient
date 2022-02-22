@@ -283,7 +283,7 @@ public final class PayUtils {
                         value = "";
                     }
                     sb.append(name);
-                    sb.append(com.alipay.sdk.encrypt.a.f30893h);
+                    sb.append(com.alipay.sdk.encrypt.a.f31099h);
                     sb.append(value);
                     sb.append(Typography.amp);
                 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.write.write.work.topic.model;
 
-import c.a.t0.p4.e0.p.a0.a.a;
+import c.a.u0.s4.e0.p.a0.a.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +39,7 @@ public class GetRecommendTopicSocketResMessage extends SocketResponsedMessage im
         }
     }
 
-    @Override // c.a.t0.p4.e0.p.a0.a.a
+    @Override // c.a.u0.s4.e0.p.a0.a.a
     public List<TopicList> getTopicList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

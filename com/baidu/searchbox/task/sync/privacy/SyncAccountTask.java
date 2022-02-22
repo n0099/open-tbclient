@@ -1,7 +1,7 @@
 package com.baidu.searchbox.task.sync.privacy;
 
-import c.a.s0.s.c0.a;
-import c.a.s0.s.l.c;
+import c.a.t0.s.d0.a;
+import c.a.t0.s.m.c;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
@@ -49,5 +49,15 @@ public class SyncAccountTask extends LaunchTask {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "SyncAccountTask" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
+    public int getProcess() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
     }
 }

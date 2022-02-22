@@ -1,10 +1,11 @@
 package com.baidu.tieba.hottopic.message;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.d1.b0;
+import c.a.t0.d1.c0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +20,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f44690common;
+    public CommonReq f44929common;
     public Long last_id;
     public Integer page_no;
     public Integer pmy_source;
@@ -59,7 +60,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.f62814common = getCommon();
+                builder.f62981common = getCommon();
                 builder.topic_id = getTopicId();
                 builder.topic_name = getTopicName();
                 builder.rn = getRn();
@@ -72,8 +73,8 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
                 builder.pmy_topic_id = getPmy_topic_id();
                 builder.pmy_source = getPmy_source();
                 builder.sort_type = getSort_type();
-                if (z) {
-                    b0.a(builder, true);
+                if (z || SocketAddCommonParamSwitch.getIsOn()) {
+                    c0.a(builder, true);
                 }
                 GetTopicRelateThreadReqIdl.Builder builder2 = new GetTopicRelateThreadReqIdl.Builder();
                 builder2.data = builder.build(false);
@@ -88,7 +89,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
     public CommonReq getCommon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44690common : (CommonReq) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44929common : (CommonReq) invokeV.objValue;
     }
 
     public Long getLastId() {
@@ -166,7 +167,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, commonReq) == null) {
-            this.f44690common = commonReq;
+            this.f44929common = commonReq;
         }
     }
 

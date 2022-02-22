@@ -22,7 +22,7 @@ public class a {
     public X509Certificate a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SSLContext f53484b;
+    public SSLContext f53651b;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public class a {
             TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
             trustManagerFactory.init(keyStore);
             SSLContext sSLContext = SSLContext.getInstance(BdSailorConfig.SAILOR_BASE_SSL);
-            this.f53484b = sSLContext;
+            this.f53651b = sSLContext;
             sSLContext.init(null, trustManagerFactory.getTrustManagers(), null);
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -101,6 +101,6 @@ public class a {
     public SSLContext a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53484b : (SSLContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53651b : (SSLContext) invokeV.objValue;
     }
 }

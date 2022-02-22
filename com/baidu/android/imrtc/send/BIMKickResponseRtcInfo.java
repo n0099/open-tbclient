@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BIMKickResponseRtcInfo extends BIMKickRequestRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMKickResponseRtcInfo";

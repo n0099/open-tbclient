@@ -9,38 +9,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ModelMaterial {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f31138b;
+    public a f31344b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f31139c;
+    public a f31345c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f31140d;
+    public a f31346d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f31141e;
+    public a f31347e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f31142f;
+    public a f31348f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f31143g;
+    public float f31349g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f31144h;
+    public float f31350h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.b.b.q.a<i> f31145i;
+    public c.b.b.q.a<i> f31351i;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class MaterialType {
         public static final /* synthetic */ MaterialType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -112,6 +112,6 @@ public class ModelMaterial {
                 return;
             }
         }
-        this.f31144h = 1.0f;
+        this.f31350h = 1.0f;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.nadcore.video.videoplayer.ui.full;
 
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
-import c.a.c0.k0.j;
+import c.a.d0.l0.j;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;

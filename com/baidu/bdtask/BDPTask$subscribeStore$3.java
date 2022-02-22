@@ -36,13 +36,13 @@ public final class BDPTask$subscribeStore$3 extends Lambda implements Function1<
         @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u000e\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
         /* renamed from: com.baidu.bdtask.BDPTask$subscribeStore$3$1$1  reason: invalid class name and collision with other inner class name */
         /* loaded from: classes10.dex */
-        public static final class C17741 extends Lambda implements Function0<String> {
+        public static final class C17841 extends Lambda implements Function0<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SubTaskState $subState;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C17741(SubTaskState subTaskState) {
+            public C17841(SubTaskState subTaskState) {
                 super(0);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -112,7 +112,7 @@ public final class BDPTask$subscribeStore$3 extends Lambda implements Function1<
                 if (dVar != null) {
                     O = this.this$0.this$0.O();
                     SubTaskState k = O.k(dVar.f());
-                    DebugTrace.a.c(new C17741(k));
+                    DebugTrace.a.c(new C17841(k));
                     return new Pair<>(k, dVar);
                 }
                 return new Pair<>(null, dVar);

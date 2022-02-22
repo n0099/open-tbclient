@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class NightPluginManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PLUGIN_IMPL_CLASS = "com.baidu.tieba.plugin.night.NightPluginImpl";
@@ -24,14 +24,14 @@ public class NightPluginManager {
     public transient /* synthetic */ FieldHolder $fh;
     public INightPlugin mINightPlugin;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a implements IInvokeCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NightPluginManager f47393b;
+        public final /* synthetic */ NightPluginManager f47539b;
 
         public a(NightPluginManager nightPluginManager, int i2) {
             Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class NightPluginManager {
                     return;
                 }
             }
-            this.f47393b = nightPluginManager;
+            this.f47539b = nightPluginManager;
             this.a = i2;
         }
 
@@ -57,10 +57,10 @@ public class NightPluginManager {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeILL(1048576, this, i2, str, obj) == null) && i2 == 14) {
                 try {
-                    if (this.f47393b.mINightPlugin == null) {
-                        this.f47393b.mINightPlugin = (INightPlugin) ((Class) obj).newInstance();
+                    if (this.f47539b.mINightPlugin == null) {
+                        this.f47539b.mINightPlugin = (INightPlugin) ((Class) obj).newInstance();
                     }
-                    SkinManager.setPackageName(this.f47393b.mINightPlugin.getNightPluginPackageName());
+                    SkinManager.setPackageName(this.f47539b.mINightPlugin.getNightPluginPackageName());
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921608, Integer.valueOf(this.a)));
                 } catch (IllegalAccessException e2) {
                     e2.printStackTrace();
@@ -71,7 +71,7 @@ public class NightPluginManager {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class b implements IInstallCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,7 +111,7 @@ public class NightPluginManager {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public static final NightPluginManager a;

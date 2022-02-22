@@ -13,10 +13,10 @@ public abstract class z<T> {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27571b;
+    public int f27777b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.b.b.q.a<T> f27572c;
+    public final c.b.b.q.a<T> f27778c;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -52,12 +52,12 @@ public abstract class z<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             for (int i3 = 0; i3 < i2; i3++) {
-                c.b.b.q.a<T> aVar = this.f27572c;
-                if (aVar.f27389f < this.a) {
+                c.b.b.q.a<T> aVar = this.f27778c;
+                if (aVar.f27595f < this.a) {
                     aVar.a(d());
                 }
             }
-            this.f27571b = Math.max(this.f27571b, this.f27572c.f27389f);
+            this.f27777b = Math.max(this.f27777b, this.f27778c.f27595f);
         }
     }
 
@@ -65,10 +65,10 @@ public abstract class z<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
             if (t != null) {
-                c.b.b.q.a<T> aVar = this.f27572c;
-                if (aVar.f27389f < this.a) {
+                c.b.b.q.a<T> aVar = this.f27778c;
+                if (aVar.f27595f < this.a) {
                     aVar.a(t);
-                    this.f27571b = Math.max(this.f27571b, this.f27572c.f27389f);
+                    this.f27777b = Math.max(this.f27777b, this.f27778c.f27595f);
                     f(t);
                     return;
                 }
@@ -85,8 +85,8 @@ public abstract class z<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            c.b.b.q.a<T> aVar = this.f27572c;
-            return aVar.f27389f == 0 ? d() : aVar.pop();
+            c.b.b.q.a<T> aVar = this.f27778c;
+            return aVar.f27595f == 0 ? d() : aVar.pop();
         }
         return (T) invokeV.objValue;
     }
@@ -113,7 +113,7 @@ public abstract class z<T> {
                 return;
             }
         }
-        this.f27572c = new c.b.b.q.a<>(false, i2);
+        this.f27778c = new c.b.b.q.a<>(false, i2);
         this.a = i3;
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.atomData.TbPreviewVideoActivityConfig;
 import com.kwad.sdk.core.response.model.PhotoInfo;
 import com.kwad.sdk.live.mode.LiveInfo;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class cz implements com.kwad.sdk.core.d<PhotoInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d

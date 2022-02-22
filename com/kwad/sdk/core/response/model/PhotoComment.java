@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.response.model;
 
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PhotoComment extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static final long serialVersionUID = -8159360430336434144L;
     public long author_id;

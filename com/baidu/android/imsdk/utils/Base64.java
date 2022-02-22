@@ -12,7 +12,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Base64 {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] legalChars;

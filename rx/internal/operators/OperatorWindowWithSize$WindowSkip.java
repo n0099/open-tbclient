@@ -18,10 +18,10 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends j<T> implements 
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final j<? super d<T>> f62561i;
+    public final j<? super d<T>> f62728i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f62562j;
+    public final int f62729j;
     public final int k;
     public final AtomicInteger l;
     public int m;
@@ -64,7 +64,7 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends j<T> implements 
                     if (get() || !compareAndSet(false, true)) {
                         operatorWindowWithSize$WindowSkip.e(i.o.a.a.c(j2, operatorWindowWithSize$WindowSkip.k));
                     } else {
-                        operatorWindowWithSize$WindowSkip.e(i.o.a.a.a(i.o.a.a.c(j2, operatorWindowWithSize$WindowSkip.f62562j), i.o.a.a.c(operatorWindowWithSize$WindowSkip.k - operatorWindowWithSize$WindowSkip.f62562j, j2 - 1)));
+                        operatorWindowWithSize$WindowSkip.e(i.o.a.a.a(i.o.a.a.c(j2, operatorWindowWithSize$WindowSkip.f62729j), i.o.a.a.c(operatorWindowWithSize$WindowSkip.k - operatorWindowWithSize$WindowSkip.f62729j, j2 - 1)));
                     }
                 }
             }
@@ -88,7 +88,7 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends j<T> implements 
                 this.n = null;
                 dVar.onCompleted();
             }
-            this.f62561i.onCompleted();
+            this.f62728i.onCompleted();
         }
     }
 
@@ -101,7 +101,7 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends j<T> implements 
                 this.n = null;
                 dVar.onError(th);
             }
-            this.f62561i.onError(th);
+            this.f62728i.onError(th);
         }
     }
 
@@ -113,15 +113,15 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends j<T> implements 
             UnicastSubject unicastSubject = this.n;
             if (i2 == 0) {
                 this.l.getAndIncrement();
-                unicastSubject = UnicastSubject.F(this.f62562j, this);
+                unicastSubject = UnicastSubject.F(this.f62729j, this);
                 this.n = unicastSubject;
-                this.f62561i.onNext(unicastSubject);
+                this.f62728i.onNext(unicastSubject);
             }
             int i3 = i2 + 1;
             if (unicastSubject != null) {
                 unicastSubject.onNext(t);
             }
-            if (i3 == this.f62562j) {
+            if (i3 == this.f62729j) {
                 this.m = i3;
                 this.n = null;
                 unicastSubject.onCompleted();

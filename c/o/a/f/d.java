@@ -14,10 +14,10 @@ public class d extends b {
     public final c.o.a.d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final MethodChannel.Result f30285b;
+    public final MethodChannel.Result f30491b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Boolean f30286c;
+    public final Boolean f30492c;
 
     public d(MethodChannel.Result result, c.o.a.d dVar, Boolean bool) {
         Interceptable interceptable = $ic;
@@ -34,9 +34,9 @@ public class d extends b {
                 return;
             }
         }
-        this.f30285b = result;
+        this.f30491b = result;
         this.a = dVar;
-        this.f30286c = bool;
+        this.f30492c = bool;
     }
 
     @Override // c.o.a.f.f
@@ -60,14 +60,14 @@ public class d extends b {
     public Boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30286c : (Boolean) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30492c : (Boolean) invokeV.objValue;
     }
 
     @Override // c.o.a.f.g
     public void error(String str, String str2, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, obj) == null) {
-            this.f30285b.error(str, str2, obj);
+            this.f30491b.error(str, str2, obj);
         }
     }
 
@@ -75,7 +75,7 @@ public class d extends b {
     public void success(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-            this.f30285b.success(obj);
+            this.f30491b.success(obj);
         }
     }
 }

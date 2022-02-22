@@ -19,16 +19,16 @@ public class a extends ThreadPoolExecutor {
 
     /* renamed from: com.baidu.android.pushservice.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public class C1726a<V> extends FutureTask<V> implements Comparable<C1726a<V>> {
+    public class C1736a<V> extends FutureTask<V> implements Comparable<C1736a<V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Object f31965b;
+        public Object f32171b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1726a(a aVar, Runnable runnable, V v) {
+        public C1736a(a aVar, Runnable runnable, V v) {
             super(runnable, v);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -47,11 +47,11 @@ public class a extends ThreadPoolExecutor {
                 }
             }
             this.a = aVar;
-            this.f31965b = runnable;
+            this.f32171b = runnable;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1726a(a aVar, Callable<V> callable) {
+        public C1736a(a aVar, Callable<V> callable) {
             super(callable);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -69,28 +69,28 @@ public class a extends ThreadPoolExecutor {
                 }
             }
             this.a = aVar;
-            this.f31965b = callable;
+            this.f32171b = callable;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.Comparable
         /* renamed from: a */
-        public int compareTo(C1726a<V> c1726a) {
+        public int compareTo(C1736a<V> c1736a) {
             InterceptResult invokeL;
             Object obj;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c1726a)) == null) {
-                if (this == c1726a) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c1736a)) == null) {
+                if (this == c1736a) {
                     return 0;
                 }
-                if (c1726a == null) {
+                if (c1736a == null) {
                     return -1;
                 }
-                Object obj2 = this.f31965b;
-                if (obj2 == null || (obj = c1726a.f31965b) == null || !(obj2 instanceof c) || !(obj instanceof c)) {
+                Object obj2 = this.f32171b;
+                if (obj2 == null || (obj = c1736a.f32171b) == null || !(obj2 instanceof c) || !(obj instanceof c)) {
                     return 0;
                 }
-                return ((c) obj).d() - ((c) this.f31965b).d();
+                return ((c) obj).d() - ((c) this.f32171b).d();
             }
             return invokeL.intValue;
         }
@@ -139,13 +139,13 @@ public class a extends ThreadPoolExecutor {
     public <T> RunnableFuture<T> newTaskFor(Runnable runnable, T t) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, t)) == null) ? new C1726a(this, runnable, t) : (RunnableFuture) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, t)) == null) ? new C1736a(this, runnable, t) : (RunnableFuture) invokeLL.objValue;
     }
 
     @Override // java.util.concurrent.AbstractExecutorService
     public <T> RunnableFuture<T> newTaskFor(Callable<T> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callable)) == null) ? new C1726a(this, callable) : (RunnableFuture) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callable)) == null) ? new C1736a(this, callable) : (RunnableFuture) invokeL.objValue;
     }
 }

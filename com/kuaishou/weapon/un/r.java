@@ -15,13 +15,13 @@ public class r {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f55271b;
+    public String f55438b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f55272c;
+    public String f55439c;
 
     /* renamed from: d  reason: collision with root package name */
-    public IntentFilter f55273d;
+    public IntentFilter f55440d;
 
     public r(String str, String str2, String str3, IntentFilter intentFilter) {
         Interceptable interceptable = $ic;
@@ -39,9 +39,9 @@ public class r {
             }
         }
         this.a = str;
-        this.f55271b = str2;
-        this.f55272c = str3;
-        this.f55273d = intentFilter;
+        this.f55438b = str2;
+        this.f55439c = str3;
+        this.f55440d = intentFilter;
     }
 
     public boolean a(r rVar) {
@@ -49,11 +49,11 @@ public class r {
         IntentFilter intentFilter;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rVar)) == null) {
-            if (rVar == null || TextUtils.isEmpty(rVar.a) || TextUtils.isEmpty(rVar.f55271b) || TextUtils.isEmpty(rVar.f55272c) || !rVar.a.equals(this.a) || !rVar.f55271b.equals(this.f55271b) || !rVar.f55272c.equals(this.f55272c)) {
+            if (rVar == null || TextUtils.isEmpty(rVar.a) || TextUtils.isEmpty(rVar.f55438b) || TextUtils.isEmpty(rVar.f55439c) || !rVar.a.equals(this.a) || !rVar.f55438b.equals(this.f55438b) || !rVar.f55439c.equals(this.f55439c)) {
                 return false;
             }
-            IntentFilter intentFilter2 = rVar.f55273d;
-            return intentFilter2 == null || (intentFilter = this.f55273d) == null || intentFilter == intentFilter2;
+            IntentFilter intentFilter2 = rVar.f55440d;
+            return intentFilter2 == null || (intentFilter = this.f55440d) == null || intentFilter == intentFilter2;
         }
         return invokeL.booleanValue;
     }
@@ -63,7 +63,7 @@ public class r {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             try {
-                return "WeaponSDKIntentFilter:" + this.a + "-" + this.f55271b + "-" + this.f55272c + "-" + this.f55273d;
+                return "WeaponSDKIntentFilter:" + this.a + "-" + this.f55438b + "-" + this.f55439c + "-" + this.f55440d;
             } catch (Throwable unused) {
                 return "";
             }

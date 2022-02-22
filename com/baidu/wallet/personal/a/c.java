@@ -21,10 +21,10 @@ public class c extends a<CouponList.Coupon> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f52595c;
+    public Context f52762c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f52596d;
+    public int f52763d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(ListView listView, Context context) {
@@ -44,8 +44,8 @@ public class c extends a<CouponList.Coupon> {
                 return;
             }
         }
-        this.f52596d = 0;
-        this.f52595c = context;
+        this.f52763d = 0;
+        this.f52762c = context;
     }
 
     private boolean d(int i2) {
@@ -80,7 +80,7 @@ public class c extends a<CouponList.Coupon> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) {
             List<T> list = this.a;
-            return list != 0 && i2 < list.size() && (coupon = (CouponList.Coupon) this.a.get(i2)) != null && coupon.coupon_receive_timestamp > this.f52596d;
+            return list != 0 && i2 < list.size() && (coupon = (CouponList.Coupon) this.a.get(i2)) != null && coupon.coupon_receive_timestamp > this.f52763d;
         }
         return invokeI.booleanValue;
     }
@@ -89,7 +89,7 @@ public class c extends a<CouponList.Coupon> {
     public int a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? ResUtils.layout(this.f52595c, "wallet_personal_coupon_group_item") : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? ResUtils.layout(this.f52762c, "wallet_personal_coupon_group_item") : invokeI.intValue;
     }
 
     @Override // com.baidu.wallet.personal.a.a
@@ -133,7 +133,7 @@ public class c extends a<CouponList.Coupon> {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f52596d = i2;
+            this.f52763d = i2;
         }
     }
 

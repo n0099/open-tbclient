@@ -15,7 +15,7 @@ public final class m extends FutureTask<u> {
     public final /* synthetic */ q a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ l f30694b;
+    public final /* synthetic */ l f30900b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(l lVar, Callable callable, q qVar) {
@@ -35,7 +35,7 @@ public final class m extends FutureTask<u> {
                 return;
             }
         }
-        this.f30694b = lVar;
+        this.f30900b = lVar;
         this.a = qVar;
     }
 

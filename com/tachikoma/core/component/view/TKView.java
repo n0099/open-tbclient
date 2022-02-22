@@ -164,7 +164,7 @@ public class TKView extends TKBase<TKYogaLayout> {
                                     tKDispatchEvent.setPosition(new HashMap<String, Float>(this) { // from class: com.tachikoma.core.component.view.TKView.1.1.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ C22491 this$2;
+                                        public final /* synthetic */ C22591 this$2;
 
                                         {
                                             Interceptable interceptable4 = $ic;

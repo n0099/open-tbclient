@@ -32,13 +32,13 @@ public final class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f3862e;
+        public String f3747e;
 
         /* renamed from: f  reason: collision with root package name */
-        public a f3863f;
+        public a f3748f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ f f3864g;
+        public final /* synthetic */ f f3749g;
 
         public b(f fVar, String str, a aVar) {
             Interceptable interceptable = $ic;
@@ -55,9 +55,9 @@ public final class f {
                     return;
                 }
             }
-            this.f3864g = fVar;
-            this.f3862e = str;
-            this.f3863f = aVar;
+            this.f3749g = fVar;
+            this.f3747e = str;
+            this.f3748f = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -66,7 +66,7 @@ public final class f {
             ArrayList<String> arrayList2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Map e2 = this.f3864g.e(this.f3862e);
+                Map e2 = this.f3749g.e(this.f3747e);
                 if (e2 != null) {
                     arrayList2 = (ArrayList) e2.get(HttpDnsCacheForHost.JSON_KEY_IPV6);
                     arrayList = (ArrayList) e2.get("ipv4");
@@ -74,7 +74,7 @@ public final class f {
                     arrayList = null;
                     arrayList2 = null;
                 }
-                this.f3863f.a(((arrayList == null || arrayList.isEmpty()) && (arrayList2 == null || arrayList2.isEmpty())) ? -1 : 0, arrayList, arrayList2, 60L, this.f3862e);
+                this.f3748f.a(((arrayList == null || arrayList.isEmpty()) && (arrayList2 == null || arrayList2.isEmpty())) ? -1 : 0, arrayList, arrayList2, 60L, this.f3747e);
             }
         }
     }

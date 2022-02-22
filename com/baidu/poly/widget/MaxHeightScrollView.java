@@ -6,24 +6,24 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ScrollView;
-import c.a.h0.e;
-import c.a.h0.k;
+import c.a.i0.e;
+import c.a.i0.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class MaxHeightScrollView extends ScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f37814e;
+    public float f38043e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f37815f;
+    public float f38044f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaxHeightScrollView(Context context) {
@@ -60,8 +60,8 @@ public class MaxHeightScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, k.MaxHeightScrollView);
-            this.f37814e = obtainStyledAttributes.getFloat(k.MaxHeightScrollView_maxHeightRatio, -1.0f);
-            this.f37815f = obtainStyledAttributes.getFloat(k.MaxHeightScrollView_minHeightRatio, -1.0f);
+            this.f38043e = obtainStyledAttributes.getFloat(k.MaxHeightScrollView_maxHeightRatio, -1.0f);
+            this.f38044f = obtainStyledAttributes.getFloat(k.MaxHeightScrollView_minHeightRatio, -1.0f);
             obtainStyledAttributes.recycle();
         }
     }
@@ -70,13 +70,13 @@ public class MaxHeightScrollView extends ScrollView {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            if (this.f37814e > 0.0f || this.f37815f > 0.0f) {
+            if (this.f38043e > 0.0f || this.f38044f > 0.0f) {
                 int size = View.MeasureSpec.getSize(i3);
-                float f2 = this.f37814e;
+                float f2 = this.f38043e;
                 if (f2 > 0.0f) {
                     size = (int) Math.min(a(f2), size);
                 }
-                float f3 = this.f37815f;
+                float f3 = this.f38044f;
                 if (f3 > 0.0f) {
                     size = (int) Math.max(a(f3), size);
                 }

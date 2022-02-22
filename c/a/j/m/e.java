@@ -27,10 +27,10 @@ public final class e {
     public static final int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static byte[] f4225b;
+    public static byte[] f4245b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final e f4226c;
+    public static final e f4246c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,7 +46,7 @@ public final class e {
                 return;
             }
         }
-        f4226c = new e();
+        f4246c = new e();
         a = new int[]{219, 74, 195, 53, 166, 242, 116, 193, 174, 134, 57, Opcodes.ARETURN, 41, 16, 150, 94, WriteActivity.CONTENT_MAX_COUNT, 21, 62, 77, 117, 76, 201, w0.c1, 66, 209, 249, 34, 66, 113, 52, 203};
     }
 
@@ -77,11 +77,11 @@ public final class e {
                     if (arrayList.size() <= 16) {
                         return "";
                     }
-                    if (f4225b == null) {
-                        f4225b = new byte[a.length];
+                    if (f4245b == null) {
+                        f4245b = new byte[a.length];
                         int length = a.length;
                         for (int i3 = 0; i3 < length; i3++) {
-                            byte[] bArr = f4225b;
+                            byte[] bArr = f4245b;
                             if (bArr == null) {
                                 Intrinsics.throwNpe();
                             }
@@ -89,7 +89,7 @@ public final class e {
                         }
                     }
                     byte[] byteArray = CollectionsKt___CollectionsKt.toByteArray(arrayList.subList(0, 16));
-                    byte[] bArr2 = f4225b;
+                    byte[] bArr2 = f4245b;
                     if (bArr2 == null) {
                         Intrinsics.throwNpe();
                     }
@@ -109,7 +109,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, bArr2, bArr3)) == null) {
             SecretKeySpec secretKeySpec = new SecretKeySpec(bArr2, "AES");
-            Cipher cipher = Cipher.getInstance(i1.f55121c);
+            Cipher cipher = Cipher.getInstance(i1.f55288c);
             cipher.init(2, secretKeySpec, new IvParameterSpec(bArr));
             return cipher.doFinal(bArr3);
         }

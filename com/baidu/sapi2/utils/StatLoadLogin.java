@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class StatLoadLogin {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_IS_LOAD_CACHE = "is_load_cache";

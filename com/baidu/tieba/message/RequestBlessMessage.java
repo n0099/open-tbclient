@@ -1,9 +1,10 @@
 package com.baidu.tieba.message;
 
-import c.a.s0.d1.b0;
+import c.a.t0.d1.c0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,14 +13,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.CommonReq;
 import tbclient.UserPk.DataReq;
 import tbclient.UserPk.UserPkReqIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class RequestBlessMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int click_type;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f46007common;
+    public CommonReq f46149common;
     public Long pk_id;
     public int pk_index;
     public int pk_type;
@@ -51,15 +52,15 @@ public class RequestBlessMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f62956common = this.f46007common;
+            builder.f63123common = this.f46149common;
             builder.pk_id = this.pk_id;
             builder.topic_id = this.topic_id;
             builder.pk_index = Integer.valueOf(this.pk_index);
             builder.click_type = Integer.valueOf(this.click_type);
             builder.pk_type = Integer.valueOf(this.pk_type);
             builder.user_pk_id = Long.valueOf(this.user_pk_id);
-            if (z) {
-                b0.a(builder, true);
+            if (z || SocketAddCommonParamSwitch.getIsOn()) {
+                c0.a(builder, true);
             }
             UserPkReqIdl.Builder builder2 = new UserPkReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -78,7 +79,7 @@ public class RequestBlessMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, commonReq) == null) {
-            this.f46007common = commonReq;
+            this.f46149common = commonReq;
         }
     }
 

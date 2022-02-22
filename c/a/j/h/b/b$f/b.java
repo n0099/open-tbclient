@@ -17,7 +17,7 @@ public abstract class b {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f4085b;
+    public int f4105b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public abstract class b {
             }
         }
         this.a = false;
-        this.f4085b = 0;
+        this.f4105b = 0;
     }
 
     public abstract String a();
@@ -45,7 +45,7 @@ public abstract class b {
     public final void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f4085b = 0;
+            this.f4105b = 0;
             b.e.a().b(str, this);
         }
     }
@@ -74,11 +74,11 @@ public abstract class b {
                     if (!TextUtils.isEmpty(b2.a())) {
                         str = b2.a();
                     }
-                    this.f4085b = b2.d().intValue();
+                    this.f4105b = b2.d().intValue();
                 } else {
-                    this.f4085b = -1;
+                    this.f4105b = -1;
                 }
-                b.h.b().i().b(this.f4085b);
+                b.h.b().i().b(this.f4105b);
             }
             return str;
         }

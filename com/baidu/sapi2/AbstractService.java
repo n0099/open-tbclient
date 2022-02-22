@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class AbstractService implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String API_V3 = "3";

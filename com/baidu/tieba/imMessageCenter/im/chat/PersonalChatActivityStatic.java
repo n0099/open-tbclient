@@ -1,12 +1,12 @@
 package com.baidu.tieba.imMessageCenter.im.chat;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.d1.k0;
-import c.a.s0.d1.n0;
-import c.a.s0.d1.s;
-import c.a.s0.d1.v0;
-import c.a.t0.t1.h.m;
-import c.a.t0.u1.b.j;
+import c.a.t0.d1.l0;
+import c.a.t0.d1.o0;
+import c.a.t0.d1.s;
+import c.a.t0.d1.w0;
+import c.a.u0.t1.h.m;
+import c.a.u0.u1.b.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -66,10 +66,10 @@ import java.util.LinkedList;
 /* loaded from: classes12.dex */
 public class PersonalChatActivityStatic {
     public static /* synthetic */ Interceptable $ic;
-    public static c.a.t0.u1.a.b.b.e a;
+    public static c.a.u0.u1.a.b.b.e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static CustomMessageListener f45197b;
+    public static CustomMessageListener f45339b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes12.dex */
@@ -102,7 +102,7 @@ public class PersonalChatActivityStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                c.a.t0.u1.a.b.b.e unused = PersonalChatActivityStatic.a = null;
+                c.a.u0.u1.a.b.b.e unused = PersonalChatActivityStatic.a = null;
             }
         }
     }
@@ -113,7 +113,7 @@ public class PersonalChatActivityStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes12.dex */
-        public class a extends k0<Void> {
+        public class a extends l0<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ LinkedList a;
@@ -137,7 +137,7 @@ public class PersonalChatActivityStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // c.a.s0.d1.k0
+            @Override // c.a.t0.d1.l0
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
@@ -148,12 +148,12 @@ public class PersonalChatActivityStatic {
 
         /* renamed from: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic$b$b  reason: collision with other inner class name */
         /* loaded from: classes12.dex */
-        public class C1931b implements s<Void> {
+        public class C1941b implements s<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomMessage a;
 
-            public C1931b(b bVar, CustomMessage customMessage) {
+            public C1941b(b bVar, CustomMessage customMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -172,12 +172,12 @@ public class PersonalChatActivityStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // c.a.s0.d1.s
+            @Override // c.a.t0.d1.s
             /* renamed from: a */
             public void onReturnDataInUI(Void r5) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, r5) == null) {
-                    ((PersonalChatActivityConfig) this.a.getData()).getIntent();
+                    ((PersonalChatActivityConfig) this.a.getData()).getIntent().addFlags(268435456);
                     if (((PersonalChatActivityConfig) this.a.getData()).getUserData().getUserIdLong() == 0) {
                         return;
                     }
@@ -211,7 +211,7 @@ public class PersonalChatActivityStatic {
                 }
                 LinkedList linkedList = new LinkedList();
                 linkedList.add(String.valueOf(userData.getUserId()));
-                n0.c(new a(this, linkedList), new C1931b(this, customMessage));
+                o0.c(new a(this, linkedList), new C1941b(this, customMessage));
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -246,9 +246,9 @@ public class PersonalChatActivityStatic {
                     String str = strArr[0];
                     if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains(UrlSchemaHelper.GOTO_PERSONAL_CHAT)) {
                         if (ViewHelper.checkUpIsLogin(TbadkCoreApplication.getInst().getContext())) {
-                            String c2 = v0.c(str, "userid=");
-                            String c3 = v0.c(str, "username=");
-                            String c4 = v0.c(str, "portrait=");
+                            String c2 = w0.c(str, "userid=");
+                            String c3 = w0.c(str, "username=");
+                            String c4 = w0.c(str, "portrait=");
                             if (c2 != null && c2.length() > 0) {
                                 try {
                                     MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(tbPageContext.getPageActivity(), Long.parseLong(c2), c3, c3, c4, 0)));
@@ -337,12 +337,12 @@ public class PersonalChatActivityStatic {
                 return;
             }
             MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-            if (aVar.f44836b == null || (tbPageContext = aVar.a) == null) {
+            if (aVar.f44978b == null || (tbPageContext = aVar.a) == null) {
                 return;
             }
             MsgReplyCardViewItemAdapter msgReplyCardViewItemAdapter = new MsgReplyCardViewItemAdapter(tbPageContext, ChatMessage.TYPE_MSG_REPLY_CARD);
-            msgReplyCardViewItemAdapter.d0(true);
-            aVar.f44836b.add(msgReplyCardViewItemAdapter);
+            msgReplyCardViewItemAdapter.e0(true);
+            aVar.f44978b.add(msgReplyCardViewItemAdapter);
         }
     }
 
@@ -475,7 +475,7 @@ public class PersonalChatActivityStatic {
                 return;
             }
         }
-        f45197b = new a(2005016);
+        f45339b = new a(2005016);
         TbadkCoreApplication.getInst().RegisterIntent(PersonalMsgImageActivityConfig.class, PersonalMsgImageActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(MessageCenterActivityConfig.class, MessageCenterActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AtMessageActivityConfig.class, AtMessageActivity.class);
@@ -487,18 +487,19 @@ public class PersonalChatActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(StrangerListActivityConfig.class, StrangerListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AddFriendActivityConfig.class, AddFriendActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(OfficialNotificationActivityConfig.class, OfficialNotificationActivity.class);
-        c.a.t0.t1.c.b(205101, ResponsePersonalLbsInfoMessage.class, false);
-        c.a.t0.t1.c.b(205001, ResponseCommitPersonalMessage.class, false);
-        c.a.t0.t1.c.b(205003, ResponseQueryUserInfoMessage.class, false);
-        c.a.t0.t1.c.b(205006, ResponsedPersonalMsgReadMessage.class, false);
-        c.a.t0.t1.c.a(2001143, c.a.t0.u1.a.b.b.b.class);
-        c.a.t0.t1.c.a(2001146, c.a.t0.u1.a.b.b.d.class);
-        c.a.t0.t1.c.a(2001149, c.a.t0.u1.a.b.b.c.class);
+        TbadkCoreApplication.getInst().RegisterIntent(PersonalChatActivityConfig.class, PersonalChatActivity.class);
+        c.a.u0.t1.c.b(205101, ResponsePersonalLbsInfoMessage.class, false);
+        c.a.u0.t1.c.b(205001, ResponseCommitPersonalMessage.class, false);
+        c.a.u0.t1.c.b(205003, ResponseQueryUserInfoMessage.class, false);
+        c.a.u0.t1.c.b(205006, ResponsedPersonalMsgReadMessage.class, false);
+        c.a.u0.t1.c.a(2001143, c.a.u0.u1.a.b.b.b.class);
+        c.a.u0.t1.c.a(2001146, c.a.u0.u1.a.b.b.d.class);
+        c.a.u0.t1.c.a(2001149, c.a.u0.u1.a.b.b.c.class);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FRIEND_LIST, TbConfig.SERVER_ADDRESS + "c/u/follow/list");
         tbHttpMessageTask.setResponsedClass(ResponseFriendListMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         c();
-        MessageManager.getInstance().registerListener(f45197b);
+        MessageManager.getInstance().registerListener(f45339b);
         CustomMessageTask customMessageTask = new CustomMessageTask(2002005, new b());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
@@ -525,10 +526,10 @@ public class PersonalChatActivityStatic {
         }
     }
 
-    public static c.a.t0.u1.a.b.b.e b() {
+    public static c.a.u0.u1.a.b.b.e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a : (c.a.t0.u1.a.b.b.e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a : (c.a.u0.u1.a.b.b.e) invokeV.objValue;
     }
 
     public static void c() {
@@ -538,7 +539,7 @@ public class PersonalChatActivityStatic {
         }
     }
 
-    public static void d(c.a.t0.u1.a.b.b.e eVar) {
+    public static void d(c.a.u0.u1.a.b.b.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, eVar) == null) {
             a = eVar;

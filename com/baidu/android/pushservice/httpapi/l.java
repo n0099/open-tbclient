@@ -20,29 +20,29 @@ public class l {
         public static final a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f32260b;
+        public static final a f32466b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f32261c;
+        public static final a f32467c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f32262d;
+        public static final a f32468d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f32263e;
+        public static final a f32469e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final a f32264f;
+        public static final a f32470f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final a f32265g;
+        public static final a f32471g;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final /* synthetic */ a[] f32266i;
+        public static final /* synthetic */ a[] f32472i;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f32267h;
+        public int f32473h;
 
         static {
             InterceptResult invokeClinit;
@@ -58,14 +58,14 @@ public class l {
                 }
             }
             a = new a("MODEL_O", 0, 1);
-            f32260b = new a("MODEL_C", 1, 2);
-            f32261c = new a("MODEL_HW", 2, 3);
-            f32262d = new a("MODEL_XM", 3, 4);
-            f32263e = new a("MODEL_MZ", 4, 5);
-            f32264f = new a("MODEL_OP", 5, 6);
+            f32466b = new a("MODEL_C", 1, 2);
+            f32467c = new a("MODEL_HW", 2, 3);
+            f32468d = new a("MODEL_XM", 3, 4);
+            f32469e = new a("MODEL_MZ", 4, 5);
+            f32470f = new a("MODEL_OP", 5, 6);
             a aVar = new a("MODEL_VI", 6, 7);
-            f32265g = aVar;
-            f32266i = new a[]{a, f32260b, f32261c, f32262d, f32263e, f32264f, aVar};
+            f32471g = aVar;
+            f32472i = new a[]{a, f32466b, f32467c, f32468d, f32469e, f32470f, aVar};
         }
 
         public a(String str, int i2, int i3) {
@@ -86,14 +86,14 @@ public class l {
                     return;
                 }
             }
-            this.f32267h = i3;
+            this.f32473h = i3;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.f32267h : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.f32473h : invokeV.intValue;
         }
     }
 
@@ -105,19 +105,19 @@ public class l {
             int a2 = a.a.a();
             int b2 = com.baidu.android.pushservice.b.d.a(context).b();
             if (com.baidu.android.pushservice.b.d.l(context)) {
-                aVar = a.f32261c;
+                aVar = a.f32467c;
             } else if (com.baidu.android.pushservice.b.d.k(context)) {
-                aVar = a.f32262d;
+                aVar = a.f32468d;
             } else if (com.baidu.android.pushservice.b.d.m(context)) {
-                aVar = a.f32264f;
+                aVar = a.f32470f;
             } else if (com.baidu.android.pushservice.b.d.n(context)) {
-                aVar = a.f32265g;
+                aVar = a.f32471g;
             } else if (com.baidu.android.pushservice.b.d.j(context)) {
-                aVar = a.f32263e;
+                aVar = a.f32469e;
             } else if (b2 != 2 && b2 != 4 && b2 != 3) {
                 return a2;
             } else {
-                aVar = a.f32260b;
+                aVar = a.f32466b;
             }
             return aVar.a();
         }

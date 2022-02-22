@@ -30,10 +30,10 @@ public class s extends BaseBean<DirectPayContentResponse> {
     public PayRequest a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f51987b;
+    public String f52154b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f51988c;
+    public String f52155c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> s(Context context) {
@@ -54,15 +54,15 @@ public class s extends BaseBean<DirectPayContentResponse> {
             }
         }
         this.a = null;
-        this.f51987b = null;
-        this.f51988c = null;
+        this.f52154b = null;
+        this.f52155c = null;
         this.a = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f51987b = str;
+            this.f52154b = str;
         }
     }
 
@@ -70,7 +70,7 @@ public class s extends BaseBean<DirectPayContentResponse> {
     public void execBean() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (BeanConstants.API_GET_PAY_ORDER.equals(this.f51988c)) {
+            if (BeanConstants.API_GET_PAY_ORDER.equals(this.f52155c)) {
                 List<String> collectData = StatHelper.collectData(StatHelper.getOrderNo(), StatHelper.getSpNo());
                 HashMap hashMap = new HashMap();
                 hashMap.put("sp_no", StatHelper.getSpNo());
@@ -124,24 +124,24 @@ public class s extends BaseBean<DirectPayContentResponse> {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            this.f51988c = BeanConstants.API_GET_PAY_ORDER;
+            this.f52155c = BeanConstants.API_GET_PAY_ORDER;
             if (this.a.hasCashDeskCode()) {
-                this.f51988c = BeanConstants.API_GET_PAY_ORDER_PREPAY;
+                this.f52155c = BeanConstants.API_GET_PAY_ORDER_PREPAY;
             } else if (BaiduPay.PAY_FROM_HUA_ZHUAN_ZHANG.equals(this.a.getPayFrom())) {
-                this.f51988c = BeanConstants.API_GET_PAY_ORDER_TRANSFER;
+                this.f52155c = BeanConstants.API_GET_PAY_ORDER_TRANSFER;
             } else if (BaiduPay.PAY_FROM_HUA_FEI.equals(this.a.getPayFrom())) {
-                this.f51988c = BeanConstants.API_GET_PAY_ORDER_CHARGE;
+                this.f52155c = BeanConstants.API_GET_PAY_ORDER_CHARGE;
             } else if (BaiduPay.PAY_FROM_BIND_CARD.equals(this.a.getPayFrom())) {
-                this.f51988c = BeanConstants.API_CARD_ADD;
+                this.f52155c = BeanConstants.API_CARD_ADD;
             } else if (BaiduPay.PAY_FROM_AUTHORIZE.equals(this.a.getPayFrom())) {
-                this.f51988c = BeanConstants.API_AUTHORIZE_ORDER;
+                this.f52155c = BeanConstants.API_AUTHORIZE_ORDER;
             } else if (PayDataCache.getInstance().isFromPreCashier()) {
-                this.f51988c = BeanConstants.API_GET_PRE_PAY_ORDER;
+                this.f52155c = BeanConstants.API_GET_PRE_PAY_ORDER;
             }
             if (PayDataCache.getInstance().isFromPreCashier()) {
-                str = DomainConfig.getInstance().getAppPayHost() + this.f51988c + "?" + this.a.mParams + "&" + this.f51987b;
+                str = DomainConfig.getInstance().getAppPayHost() + this.f52155c + "?" + this.a.mParams + "&" + this.f52154b;
             } else {
-                str = DomainConfig.getInstance().getAppPayHost() + this.f51988c + "?" + this.a.mParams;
+                str = DomainConfig.getInstance().getAppPayHost() + this.f52155c + "?" + this.a.mParams;
             }
             if (WalletFingerprint.getInstance(this.mContext).hasEnrollFingerprint()) {
                 str = str + "&enroll_fingerprint=1";

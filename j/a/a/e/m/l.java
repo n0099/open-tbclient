@@ -17,22 +17,22 @@ import j.a.a.e.q.d;
 import tv.athena.revenue.payui.model.PayFlowType;
 import tv.athena.revenue.payui.view.AbsViewEventHandler;
 import tv.athena.revenue.payui.view.dialog.PayDialogType;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class l implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public i a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PayFlowType f62289b;
+    public PayFlowType f62456b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j.a.a.e.n.a f62290c;
+    public j.a.a.e.n.a f62457c;
 
     /* renamed from: d  reason: collision with root package name */
-    public j.a.a.e.n.a f62291d;
+    public j.a.a.e.n.a f62458d;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements c.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,14 +65,14 @@ public class l implements d {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements d.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d.b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Dialog f62292b;
+        public final /* synthetic */ Dialog f62459b;
 
         public b(l lVar, d.b bVar, Dialog dialog) {
             Interceptable interceptable = $ic;
@@ -90,7 +90,7 @@ public class l implements d {
                 }
             }
             this.a = bVar;
-            this.f62292b = dialog;
+            this.f62459b = dialog;
         }
 
         @Override // j.a.a.e.q.d.a
@@ -101,7 +101,7 @@ public class l implements d {
                 if (bVar != null) {
                     bVar.b();
                 }
-                j.a.a.e.p.h.a(this.f62292b, PayDialogType.PAY_SHOW_GIFT_DIALOG);
+                j.a.a.e.p.h.a(this.f62459b, PayDialogType.PAY_SHOW_GIFT_DIALOG);
             }
         }
     }
@@ -122,7 +122,7 @@ public class l implements d {
             }
         }
         RLog.info("PayCampaignManager", "create PayCampaignManager:" + this);
-        this.f62289b = payFlowType;
+        this.f62456b = payFlowType;
         this.a = iVar;
     }
 
@@ -131,7 +131,7 @@ public class l implements d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            j.a.a.e.n.a aVar = this.f62290c;
+            j.a.a.e.n.a aVar = this.f62457c;
             if (aVar != null) {
                 return aVar.a();
             }
@@ -145,14 +145,14 @@ public class l implements d {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bVar, fVar, absViewEventHandler)) == null) {
-            RLog.info("PayCampaignManager", "showPayGiftDialog mGiftPackageData:" + this.f62291d + " mPayFlowType:" + this.f62289b);
-            if (this.f62289b != PayFlowType.DIOALOG_PAY_FLOW) {
+            RLog.info("PayCampaignManager", "showPayGiftDialog mGiftPackageData:" + this.f62458d + " mPayFlowType:" + this.f62456b);
+            if (this.f62456b != PayFlowType.DIOALOG_PAY_FLOW) {
                 RLog.info("PayCampaignManager", "showPayGiftDialog but not DIOALOG_PAY_FLOW ");
                 return false;
-            } else if (j.a.a.e.n.a.b(this.f62291d)) {
+            } else if (j.a.a.e.n.a.b(this.f62458d)) {
                 RLog.info("PayCampaignManager", "showPayGiftDialog but giftbag empty");
                 return false;
-            } else if (this.f62291d.c()) {
+            } else if (this.f62458d.c()) {
                 RLog.info("PayCampaignManager", "showPayGiftDialog but hasShow");
                 return false;
             } else {
@@ -162,9 +162,9 @@ public class l implements d {
                     return false;
                 }
                 j.a.a.e.q.d d2 = iVar.d(activity);
-                d2.setGiftBagsInfo(this.f62291d.a());
+                d2.setGiftBagsInfo(this.f62458d.a());
                 d2.refreshView();
-                this.f62291d.d(true);
+                this.f62458d.d(true);
                 d2.setCallback(new b(this, bVar, h(activity, "", d2, bVar, fVar, absViewEventHandler)));
                 return true;
             }
@@ -179,7 +179,7 @@ public class l implements d {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, activity) == null) || viewGroup == null) {
             return;
         }
-        if (j.a.a.e.n.a.b(this.f62290c)) {
+        if (j.a.a.e.n.a.b(this.f62457c)) {
             viewGroup.removeAllViews();
             return;
         }
@@ -188,7 +188,7 @@ public class l implements d {
             return;
         }
         viewGroup.removeAllViews();
-        c2.setGiftBagsInfo(this.f62290c.a());
+        c2.setGiftBagsInfo(this.f62457c.a());
         viewGroup.addView(c2.getContentView());
         c2.refreshView();
     }
@@ -197,8 +197,8 @@ public class l implements d {
     public void d(GiftBagsInfo giftBagsInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, giftBagsInfo) == null) {
-            RLog.info("PayCampaignManager", "updateConfirmLeaveData- confirmLeaveData:" + giftBagsInfo + " mPayFlowType:" + this.f62289b);
-            this.f62290c = new j.a.a.e.n.a(giftBagsInfo, false);
+            RLog.info("PayCampaignManager", "updateConfirmLeaveData- confirmLeaveData:" + giftBagsInfo + " mPayFlowType:" + this.f62456b);
+            this.f62457c = new j.a.a.e.n.a(giftBagsInfo, false);
         }
     }
 
@@ -207,14 +207,14 @@ public class l implements d {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, activity, aVar, fVar, absViewEventHandler)) == null) {
-            RLog.info("PayCampaignManager", "showConfirmLeaveDialog mConfirmLeaveData:" + this.f62290c + " mPayFlowType:" + this.f62289b);
-            if (this.f62289b != PayFlowType.DIOALOG_PAY_FLOW) {
+            RLog.info("PayCampaignManager", "showConfirmLeaveDialog mConfirmLeaveData:" + this.f62457c + " mPayFlowType:" + this.f62456b);
+            if (this.f62456b != PayFlowType.DIOALOG_PAY_FLOW) {
                 RLog.info("PayCampaignManager", "showPayGiftDialog but not DIOALOG_PAY_FLOW ");
                 return false;
-            } else if (j.a.a.e.n.a.b(this.f62290c)) {
+            } else if (j.a.a.e.n.a.b(this.f62457c)) {
                 RLog.info("PayCampaignManager", "showConfirmLeaveDialog but giftbag empty");
                 return false;
-            } else if (this.f62290c.c()) {
+            } else if (this.f62457c.c()) {
                 RLog.info("PayCampaignManager", "showConfirmFinishDialog but hasShow");
                 return false;
             } else {
@@ -224,9 +224,9 @@ public class l implements d {
                     return false;
                 }
                 j.a.a.e.q.c b2 = iVar.b(activity);
-                b2.setGiftBagsInfo(this.f62290c.a());
+                b2.setGiftBagsInfo(this.f62457c.a());
                 b2.refreshView();
-                this.f62290c.d(true);
+                this.f62457c.d(true);
                 b2.setCallback(new a(this, g(activity, "", b2, aVar, fVar, absViewEventHandler)));
                 return true;
             }
@@ -238,8 +238,8 @@ public class l implements d {
     public void f(GiftBagsInfo giftBagsInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, giftBagsInfo) == null) {
-            RLog.info("PayCampaignManager", "updateGiftPackageData packageData:" + giftBagsInfo + " mPayFlowType:" + this.f62289b);
-            this.f62291d = new j.a.a.e.n.a(giftBagsInfo, false);
+            RLog.info("PayCampaignManager", "updateGiftPackageData packageData:" + giftBagsInfo + " mPayFlowType:" + this.f62456b);
+            this.f62458d = new j.a.a.e.n.a(giftBagsInfo, false);
         }
     }
 
@@ -249,7 +249,7 @@ public class l implements d {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{activity, str, cVar, aVar, fVar, absViewEventHandler})) == null) {
             RLog.info("PayCampaignManager", "createConfirmFinishDialog");
             fVar.h(absViewEventHandler, PayDialogType.PAY_CONFIRM_FINISH_DIALOG);
-            return j.a.a.e.q.g.b.f62430b.e(activity, str, cVar.getContentView(), new j.a.a.e.m.r.e(aVar), absViewEventHandler, PayDialogType.PAY_CONFIRM_FINISH_DIALOG, this.f62289b);
+            return j.a.a.e.q.g.b.f62597b.e(activity, str, cVar.getContentView(), new j.a.a.e.m.r.e(aVar), absViewEventHandler, PayDialogType.PAY_CONFIRM_FINISH_DIALOG, this.f62456b);
         }
         return (Dialog) invokeCommon.objValue;
     }
@@ -260,7 +260,7 @@ public class l implements d {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{activity, str, dVar, bVar, fVar, absViewEventHandler})) == null) {
             RLog.info("PayCampaignManager", "createPayGiftDialog");
             fVar.h(absViewEventHandler, PayDialogType.PAY_SHOW_GIFT_DIALOG);
-            return j.a.a.e.q.g.b.f62430b.e(activity, str, dVar.getContentView(), new j.a.a.e.m.r.g(bVar), absViewEventHandler, PayDialogType.PAY_SHOW_GIFT_DIALOG, this.f62289b);
+            return j.a.a.e.q.g.b.f62597b.e(activity, str, dVar.getContentView(), new j.a.a.e.m.r.g(bVar), absViewEventHandler, PayDialogType.PAY_SHOW_GIFT_DIALOG, this.f62456b);
         }
         return (Dialog) invokeCommon.objValue;
     }

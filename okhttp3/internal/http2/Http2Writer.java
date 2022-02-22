@@ -18,7 +18,7 @@ import okhttp3.internal.Util;
 import okhttp3.internal.http2.Hpack;
 import okio.Buffer;
 import okio.BufferedSink;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Http2Writer implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger logger;

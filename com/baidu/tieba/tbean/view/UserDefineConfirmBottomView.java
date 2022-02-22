@@ -24,22 +24,22 @@ public class UserDefineConfirmBottomView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f48287e;
+    public Context f48452e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f48288f;
+    public RelativeLayout f48453f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f48289g;
+    public LinearLayout f48454g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f48290h;
+    public TextView f48455h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f48291i;
+    public TextView f48456i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f48292j;
+    public TextView f48457j;
     public View.OnClickListener k;
     public String l;
 
@@ -67,15 +67,15 @@ public class UserDefineConfirmBottomView extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f48287e = context;
+            this.f48452e = context;
             LayoutInflater.from(context).inflate(R.layout.user_define_confirm_bottom_view, (ViewGroup) this, true);
             setOrientation(1);
-            this.f48288f = (RelativeLayout) findViewById(R.id.confirm_btn_root);
-            this.f48289g = (LinearLayout) findViewById(R.id.big_tbean_root);
-            this.f48290h = (TextView) findViewById(R.id.big_tbean_toast_tv);
-            this.f48291i = (TextView) findViewById(R.id.big_tbean_jump_tv);
-            this.f48292j = (TextView) findViewById(R.id.user_define_confirm_tv);
-            this.f48288f.setOnClickListener(null);
+            this.f48453f = (RelativeLayout) findViewById(R.id.confirm_btn_root);
+            this.f48454g = (LinearLayout) findViewById(R.id.big_tbean_root);
+            this.f48455h = (TextView) findViewById(R.id.big_tbean_toast_tv);
+            this.f48456i = (TextView) findViewById(R.id.big_tbean_jump_tv);
+            this.f48457j = (TextView) findViewById(R.id.user_define_confirm_tv);
+            this.f48453f.setOnClickListener(null);
         }
     }
 
@@ -83,22 +83,22 @@ public class UserDefineConfirmBottomView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                SkinManager.setBackgroundColor(this.f48289g, R.color.CAM_X0110);
+                SkinManager.setBackgroundColor(this.f48454g, R.color.CAM_X0110);
             } else {
-                SkinManager.setBackgroundColor(this.f48289g, R.color.common_color_10333);
+                SkinManager.setBackgroundColor(this.f48454g, R.color.common_color_10333);
             }
-            SkinManager.setViewTextColor(this.f48290h, R.color.CAM_X0106);
-            SkinManager.setViewTextColor(this.f48291i, R.color.CAM_X0106);
-            SkinManager.setBackgroundColor(this.f48288f, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.f48455h, R.color.CAM_X0106);
+            SkinManager.setViewTextColor(this.f48456i, R.color.CAM_X0106);
+            SkinManager.setBackgroundColor(this.f48453f, R.color.CAM_X0201);
         }
     }
 
     public void setBigTbeanToastText(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            String format = String.format(this.f48287e.getString(R.string.big_tbean_toast), StringHelper.numberUniform(i2));
+            String format = String.format(this.f48452e.getString(R.string.big_tbean_toast), StringHelper.numberUniform(i2));
             this.l = format;
-            this.f48290h.setText(format);
+            this.f48455h.setText(format);
         }
     }
 
@@ -106,8 +106,8 @@ public class UserDefineConfirmBottomView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
             this.k = onClickListener;
-            this.f48291i.setOnClickListener(onClickListener);
-            this.f48292j.setOnClickListener(this.k);
+            this.f48456i.setOnClickListener(onClickListener);
+            this.f48457j.setOnClickListener(this.k);
         }
     }
 
@@ -115,20 +115,20 @@ public class UserDefineConfirmBottomView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             if (z) {
-                this.f48290h.setText(this.l);
-                this.f48290h.setGravity(3);
+                this.f48455h.setText(this.l);
+                this.f48455h.setGravity(3);
                 showBitTBeanToastView(true);
-                this.f48292j.setEnabled(true);
-                this.f48289g.setVisibility(0);
-                this.f48291i.setVisibility(0);
+                this.f48457j.setEnabled(true);
+                this.f48454g.setVisibility(0);
+                this.f48456i.setVisibility(0);
                 return;
             }
-            this.f48290h.setText(R.string.user_define_max_money);
-            this.f48290h.setGravity(17);
-            this.f48292j.setEnabled(false);
+            this.f48455h.setText(R.string.user_define_max_money);
+            this.f48455h.setGravity(17);
+            this.f48457j.setEnabled(false);
             showBitTBeanToastView(false);
-            this.f48289g.setVisibility(0);
-            this.f48291i.setVisibility(8);
+            this.f48454g.setVisibility(0);
+            this.f48456i.setVisibility(8);
         }
     }
 
@@ -136,9 +136,9 @@ public class UserDefineConfirmBottomView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             if (z) {
-                this.f48289g.setVisibility(0);
+                this.f48454g.setVisibility(0);
             } else {
-                this.f48289g.setVisibility(4);
+                this.f48454g.setVisibility(4);
             }
         }
     }

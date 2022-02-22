@@ -33,11 +33,11 @@ public class s {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static s f36928b;
+    public static s f37134b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f36929c;
+    public Handler f37135c;
 
     static {
         InterceptResult invokeClinit;
@@ -70,7 +70,7 @@ public class s {
         }
         HandlerThread handlerThread = new HandlerThread(com.baidu.fsg.base.statistics.n.a);
         handlerThread.start();
-        this.f36929c = new Handler(handlerThread.getLooper());
+        this.f37135c = new Handler(handlerThread.getLooper());
     }
 
     private boolean b(Context context, String str) {
@@ -97,14 +97,14 @@ public class s {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f36928b == null) {
+            if (f37134b == null) {
                 synchronized (s.class) {
-                    if (f36928b == null) {
-                        f36928b = new s();
+                    if (f37134b == null) {
+                        f37134b = new s();
                     }
                 }
             }
-            return f36928b;
+            return f37134b;
         }
         return (s) invokeV.objValue;
     }
@@ -117,16 +117,16 @@ public class s {
             if (str == null || "".equals(str)) {
                 return;
             }
-            this.f36929c.post(new Runnable(this, str, context) { // from class: com.baidu.mobstat.s.1
+            this.f37135c.post(new Runnable(this, str, context) { // from class: com.baidu.mobstat.s.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f36930b;
+                public final /* synthetic */ Context f37136b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ s f36931c;
+                public final /* synthetic */ s f37137c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -143,9 +143,9 @@ public class s {
                             return;
                         }
                     }
-                    this.f36931c = this;
+                    this.f37137c = this;
                     this.a = str;
-                    this.f36930b = context;
+                    this.f37136b = context;
                 }
 
                 @Override // java.lang.Runnable
@@ -153,11 +153,11 @@ public class s {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            this.f36931c.a(this.a);
-                            if (this.f36930b == null) {
+                            this.f37137c.a(this.a);
+                            if (this.f37136b == null) {
                                 return;
                             }
-                            this.f36931c.a(this.f36930b.getApplicationContext());
+                            this.f37137c.a(this.f37136b.getApplicationContext());
                         } catch (Throwable th) {
                             bb.c().b(th);
                         }

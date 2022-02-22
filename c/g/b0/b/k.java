@@ -24,7 +24,7 @@ public class k implements FunNativeAd2Bridger<NativeExpressADData2, View> {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ f f28289b;
+    public final /* synthetic */ f f28495b;
 
     public k(f fVar) {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class k implements FunNativeAd2Bridger<NativeExpressADData2, View> {
                 return;
             }
         }
-        this.f28289b = fVar;
+        this.f28495b = fVar;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -65,9 +65,9 @@ public class k implements FunNativeAd2Bridger<NativeExpressADData2, View> {
     public void showExpress(Activity activity, ExpressInflater expressInflater, String str, NativeExpressADData2 nativeExpressADData2, BaseNativeAd2<NativeExpressADData2, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, nativeExpressADData2, baseNativeAd2, funAdInteractionListener}) == null) {
-            this.f28289b.onShowStart(this.a);
+            this.f28495b.onShowStart(this.a);
             this.a = true;
-            ExpressAdListenerWrapper<AdEventListener> expressAdListenerWrapper = this.f28289b.f28282h.get(nativeExpressADData2);
+            ExpressAdListenerWrapper<AdEventListener> expressAdListenerWrapper = this.f28495b.f28488h.get(nativeExpressADData2);
             if (expressAdListenerWrapper == null) {
                 LogPrinter.e("Can not get correspond listener by gdtNativeExpress2.", new Object[0]);
             } else {

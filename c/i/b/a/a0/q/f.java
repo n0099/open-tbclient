@@ -24,31 +24,31 @@ public final class f {
     public static final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f28727b;
+    public static final int f28933b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f28728c;
+    public static final int f28934c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f28729d;
+    public static final int f28935d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f28730e;
+    public static final int f28936e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f28731f;
+    public static final int f28937f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f28732g;
+    public static final int f28938g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f28733h;
+    public static final int f28939h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f28734i;
+    public static final int f28940i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f28735j;
+    public static final int f28941j;
     public static final int k;
     public static final int l;
     public static final int m;
@@ -81,15 +81,15 @@ public final class f {
             }
         }
         a = v.q("nam");
-        f28727b = v.q("trk");
-        f28728c = v.q("cmt");
-        f28729d = v.q("day");
-        f28730e = v.q("ART");
-        f28731f = v.q("too");
-        f28732g = v.q("alb");
-        f28733h = v.q("com");
-        f28734i = v.q("wrt");
-        f28735j = v.q("lyr");
+        f28933b = v.q("trk");
+        f28934c = v.q("cmt");
+        f28935d = v.q("day");
+        f28936e = v.q("ART");
+        f28937f = v.q("too");
+        f28938g = v.q("alb");
+        f28939h = v.q("com");
+        f28940i = v.q("wrt");
+        f28941j = v.q("lyr");
         k = v.q("gen");
         l = v.q("covr");
         m = v.q(GenreBox.TYPE);
@@ -213,24 +213,24 @@ public final class f {
                     }
                 } else {
                     int i4 = 16777215 & i2;
-                    if (i4 == f28728c) {
+                    if (i4 == f28934c) {
                         return a(i2, lVar);
                     }
-                    if (i4 != a && i4 != f28727b) {
-                        if (i4 != f28733h && i4 != f28734i) {
-                            if (i4 == f28729d) {
+                    if (i4 != a && i4 != f28933b) {
+                        if (i4 != f28939h && i4 != f28940i) {
+                            if (i4 == f28935d) {
                                 return g(i2, "TDRC", lVar);
                             }
-                            if (i4 == f28730e) {
+                            if (i4 == f28936e) {
                                 return g(i2, "TPE1", lVar);
                             }
-                            if (i4 == f28731f) {
+                            if (i4 == f28937f) {
                                 return g(i2, "TSSE", lVar);
                             }
-                            if (i4 == f28732g) {
+                            if (i4 == f28938g) {
                                 return g(i2, "TALB", lVar);
                             }
-                            if (i4 == f28735j) {
+                            if (i4 == f28941j) {
                                 return g(i2, "USLT", lVar);
                             }
                             if (i4 == k) {

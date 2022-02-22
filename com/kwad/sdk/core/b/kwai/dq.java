@@ -3,7 +3,7 @@ package com.kwad.sdk.core.b.kwai;
 import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
 import com.kwad.sdk.core.response.model.AdMatrixInfo;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class dq implements com.kwad.sdk.core.d<AdMatrixInfo.ShakeInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d

@@ -30,30 +30,30 @@ public class p1 {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f55247g = 60000;
+    public static final int f55414g = 60000;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f55248h = 1024;
+    public static final int f55415h = 1024;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f55249i = "gzip";
+    public static final String f55416i = "gzip";
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f55250b;
+    public String f55417b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f55251c;
+    public String f55418c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f55252d;
+    public int f55419d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f55253e;
+    public int f55420e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f55254f;
+    public boolean f55421f;
 
     public p1(Context context) {
         Interceptable interceptable = $ic;
@@ -70,9 +70,9 @@ public class p1 {
                 return;
             }
         }
-        this.f55252d = 60000;
-        this.f55253e = 60000;
-        this.f55254f = false;
+        this.f55419d = 60000;
+        this.f55420e = 60000;
+        this.f55421f = false;
         this.a = context;
     }
 
@@ -91,9 +91,9 @@ public class p1 {
                 return;
             }
         }
-        this.f55252d = 60000;
-        this.f55253e = 60000;
-        this.f55254f = false;
+        this.f55419d = 60000;
+        this.f55420e = 60000;
+        this.f55421f = false;
         this.a = context;
     }
 
@@ -104,9 +104,9 @@ public class p1 {
             if (httpURLConnection != null && httpURLConnection != null) {
                 try {
                     if ("gzip".equalsIgnoreCase(httpURLConnection.getContentEncoding())) {
-                        this.f55254f = true;
+                        this.f55421f = true;
                     } else {
-                        this.f55254f = false;
+                        this.f55421f = false;
                     }
                     return httpURLConnection.getInputStream();
                 } catch (IOException e2) {
@@ -131,9 +131,9 @@ public class p1 {
                     if (responseCode == 200) {
                         String contentEncoding = httpURLConnection.getContentEncoding();
                         if (TextUtils.isEmpty(contentEncoding) || !"gzip".equalsIgnoreCase(contentEncoding)) {
-                            this.f55254f = false;
+                            this.f55421f = false;
                         } else {
-                            this.f55254f = true;
+                            this.f55421f = true;
                         }
                         return httpURLConnection.getInputStream();
                     }
@@ -148,9 +148,9 @@ public class p1 {
                 int responseCode2 = httpURLConnection.getResponseCode();
                 if (responseCode2 == 200) {
                     if ("gzip".equalsIgnoreCase(httpURLConnection.getContentEncoding())) {
-                        this.f55254f = true;
+                        this.f55421f = true;
                     } else {
-                        this.f55254f = false;
+                        this.f55421f = false;
                     }
                     return httpURLConnection.getInputStream();
                 }
@@ -187,24 +187,24 @@ public class p1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            if (TextUtils.isEmpty(this.f55250b) || TextUtils.isEmpty(this.f55251c)) {
+            if (TextUtils.isEmpty(this.f55417b) || TextUtils.isEmpty(this.f55418c)) {
                 throw new IllegalArgumentException();
             }
-            if (!this.f55250b.equals("POST") && !this.f55250b.equals("GET")) {
-                this.f55250b = "POST";
+            if (!this.f55417b.equals("POST") && !this.f55417b.equals("GET")) {
+                this.f55417b = "POST";
             }
-            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f55251c).openConnection();
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f55418c).openConnection();
             if (httpURLConnection instanceof HttpsURLConnection) {
                 a((HttpsURLConnection) httpURLConnection);
             }
-            httpURLConnection.setRequestMethod(this.f55250b);
+            httpURLConnection.setRequestMethod(this.f55417b);
             httpURLConnection.setDoInput(true);
-            if ("POST".equals(this.f55250b)) {
+            if ("POST".equals(this.f55417b)) {
                 httpURLConnection.setDoOutput(true);
             }
             httpURLConnection.setInstanceFollowRedirects(true);
-            httpURLConnection.setConnectTimeout(this.f55252d);
-            httpURLConnection.setReadTimeout(this.f55253e);
+            httpURLConnection.setConnectTimeout(this.f55419d);
+            httpURLConnection.setReadTimeout(this.f55420e);
             String[] a = l1.a(this.a);
             String str = (a == null || a.length != 2 || TextUtils.isEmpty(a[0])) ? "16" : a[0];
             httpURLConnection.setRequestProperty("User-Agent", "Android/" + str + "/" + a2.b(this.a) + "/2.8.3");
@@ -241,7 +241,7 @@ public class p1 {
         if (interceptable != null && (invokeLL = interceptable.invokeLL(65543, this, inputStream, file)) != null) {
             return invokeLL.booleanValue;
         }
-        if (this.f55254f) {
+        if (this.f55421f) {
             try {
                 inputStream = new GZIPInputStream(inputStream);
             } catch (IOException e2) {
@@ -317,7 +317,7 @@ public class p1 {
                 try {
                     byte[] a = a(inputStream);
                     if (a != null) {
-                        if (this.f55254f) {
+                        if (this.f55421f) {
                             a = o1.b(a);
                         }
                         if (a != null) {
@@ -339,8 +339,8 @@ public class p1 {
     private void b(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, this, str, str2) == null) {
-            this.f55250b = str;
-            this.f55251c = str2;
+            this.f55417b = str;
+            this.f55418c = str2;
         }
     }
 
@@ -428,7 +428,7 @@ public class p1 {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f55252d = i2;
+            this.f55419d = i2;
         }
     }
 
@@ -501,7 +501,7 @@ public class p1 {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f55253e = i2;
+            this.f55420e = i2;
         }
     }
 }

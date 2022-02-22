@@ -16,8 +16,8 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.g;
 import c.a.d.a.j;
 import c.a.d.f.m.f;
-import c.a.s0.k0.h;
-import c.a.s0.o0.c;
+import c.a.t0.k0.h;
+import c.a.t0.o0.c;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -158,7 +158,7 @@ public class IntentConfig extends OrmObject {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IntentConfig f40275e;
+        public final /* synthetic */ IntentConfig f40504e;
 
         public a(IntentConfig intentConfig) {
             Interceptable interceptable = $ic;
@@ -175,7 +175,7 @@ public class IntentConfig extends OrmObject {
                     return;
                 }
             }
-            this.f40275e = intentConfig;
+            this.f40504e = intentConfig;
         }
 
         @Override // android.content.ServiceConnection
@@ -184,17 +184,17 @@ public class IntentConfig extends OrmObject {
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) || iBinder == null) {
                 return;
             }
-            this.f40275e.mReplyMessenger = new Messenger(iBinder);
-            if (this.f40275e.mReplyMessenger != null) {
+            this.f40504e.mReplyMessenger = new Messenger(iBinder);
+            if (this.f40504e.mReplyMessenger != null) {
                 Message obtain = Message.obtain();
                 Bundle bundle = new Bundle();
-                if (this.f40275e.mComponentClass != null) {
-                    bundle.putString(DealIntentService.KEY_CLASS, this.f40275e.mComponentClass.getName());
+                if (this.f40504e.mComponentClass != null) {
+                    bundle.putString(DealIntentService.KEY_CLASS, this.f40504e.mComponentClass.getName());
                 }
                 obtain.setData(bundle);
-                obtain.replyTo = this.f40275e.mClientMessenger;
+                obtain.replyTo = this.f40504e.mClientMessenger;
                 try {
-                    this.f40275e.mReplyMessenger.send(obtain);
+                    this.f40504e.mReplyMessenger.send(obtain);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -308,7 +308,7 @@ public class IntentConfig extends OrmObject {
             return;
         }
         g<?> b2 = j.b(context);
-        c.a.s0.p0.b tbPageInfo = b2 instanceof c.a.s0.p0.a ? ((c.a.s0.p0.a) b2).getTbPageInfo() : null;
+        c.a.t0.p0.b tbPageInfo = b2 instanceof c.a.t0.p0.a ? ((c.a.t0.p0.a) b2).getTbPageInfo() : null;
         if (tbPageInfo != null) {
             this.mIntent.putExtra("tb_page_tag_source_trace", tbPageInfo.a());
         }
@@ -353,7 +353,7 @@ public class IntentConfig extends OrmObject {
             return;
         }
         g<?> b2 = j.b(this.mContext);
-        ArrayList<String> arrayList = b2 instanceof c.a.s0.q0.a ? (ArrayList) ((c.a.s0.q0.a) b2).getNextPageSourceKeyList() : null;
+        ArrayList<String> arrayList = b2 instanceof c.a.t0.q0.a ? (ArrayList) ((c.a.t0.q0.a) b2).getNextPageSourceKeyList() : null;
         if (ListUtils.isEmpty(arrayList)) {
             return;
         }
@@ -378,7 +378,7 @@ public class IntentConfig extends OrmObject {
             }
             String pluginNameByClassloader = PluginCenter.getInstance().getPluginNameByClassloader(this.mComponentClass.getClassLoader());
             if (!TextUtils.isEmpty(pluginNameByClassloader) && !pluginNameByClassloader.equals(BdBaseApplication.getInst().getPackageName())) {
-                if (c.a.d.i.j.f.c.j().m(pluginNameByClassloader)) {
+                if (c.a.d.j.j.f.c.j().m(pluginNameByClassloader)) {
                     return;
                 }
                 PluginCenter.getInstance().bindService(this.mContext, pluginNameByClassloader, this.mIntent, this.mServiceConnection, this.mServiceConnectionFlags);
@@ -392,14 +392,14 @@ public class IntentConfig extends OrmObject {
                         return;
                     }
                 } catch (Exception e2) {
-                    c.a.d.i.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
+                    c.a.d.j.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(e2);
                 }
             }
             try {
                 this.mContext.bindService(this.mIntent, this.mServiceConnection, this.mServiceConnectionFlags);
             } catch (Throwable th) {
-                c.a.d.i.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
+                c.a.d.j.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
                 BdLog.detailException(th);
             }
         }
@@ -547,7 +547,7 @@ public class IntentConfig extends OrmObject {
             }
             String pluginNameByClassloader = PluginCenter.getInstance().getPluginNameByClassloader(this.mComponentClass.getClassLoader());
             if (!TextUtils.isEmpty(pluginNameByClassloader) && !pluginNameByClassloader.equals(BdBaseApplication.getInst().getPackageName())) {
-                if (c.a.d.i.j.f.c.j().m(pluginNameByClassloader)) {
+                if (c.a.d.j.j.f.c.j().m(pluginNameByClassloader)) {
                     return false;
                 }
                 return PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
@@ -561,7 +561,7 @@ public class IntentConfig extends OrmObject {
                         return PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
                     }
                 } catch (Exception e2) {
-                    c.a.d.i.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
+                    c.a.d.j.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(e2);
                     return false;
                 }
@@ -581,7 +581,7 @@ public class IntentConfig extends OrmObject {
                 this.mContext.startActivity(this.mIntent);
                 return true;
             } catch (Throwable th) {
-                c.a.d.i.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
+                c.a.d.j.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
                 BdLog.detailException(th);
                 return false;
             }
@@ -644,7 +644,7 @@ public class IntentConfig extends OrmObject {
             }
             String pluginNameByClassloader = PluginCenter.getInstance().getPluginNameByClassloader(this.mComponentClass.getClassLoader());
             if (!TextUtils.isEmpty(pluginNameByClassloader) && !pluginNameByClassloader.equals(BdBaseApplication.getInst().getPackageName())) {
-                if (c.a.d.i.j.f.c.j().m(pluginNameByClassloader)) {
+                if (c.a.d.j.j.f.c.j().m(pluginNameByClassloader)) {
                     return;
                 }
                 PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
@@ -658,14 +658,14 @@ public class IntentConfig extends OrmObject {
                         return;
                     }
                 } catch (Exception e2) {
-                    c.a.d.i.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
+                    c.a.d.j.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(e2);
                 }
             }
             try {
                 this.mContext.startService(this.mIntent);
             } catch (Throwable th) {
-                c.a.d.i.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
+                c.a.d.j.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
                 BdLog.detailException(th);
             }
         }
@@ -681,7 +681,7 @@ public class IntentConfig extends OrmObject {
             }
             String pluginNameByClassloader = PluginCenter.getInstance().getPluginNameByClassloader(this.mComponentClass.getClassLoader());
             if (!TextUtils.isEmpty(pluginNameByClassloader) && !pluginNameByClassloader.equals(BdBaseApplication.getInst().getPackageName())) {
-                if (c.a.d.i.j.f.c.j().m(pluginNameByClassloader)) {
+                if (c.a.d.j.j.f.c.j().m(pluginNameByClassloader)) {
                     return;
                 }
                 PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
@@ -695,7 +695,7 @@ public class IntentConfig extends OrmObject {
                         return;
                     }
                 } catch (Exception e2) {
-                    c.a.d.i.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
+                    c.a.d.j.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(e2);
                 }
             }
@@ -710,7 +710,7 @@ public class IntentConfig extends OrmObject {
                 }
                 startActivityForResult(i2);
             } catch (Throwable th) {
-                c.a.d.i.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
+                c.a.d.j.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
                 BdLog.detailException(th);
             }
         }

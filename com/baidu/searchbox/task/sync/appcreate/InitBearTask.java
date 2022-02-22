@@ -1,7 +1,8 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
-import c.a.s0.s.i0.b;
-import c.a.t0.f1.a;
+import c.a.t0.d1.f;
+import c.a.t0.s.j0.b;
+import c.a.u0.f1.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -97,10 +98,8 @@ public class InitBearTask extends LaunchTask {
 
     public void initBearSdk() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && PermissionUtil.isAgreePrivacyPolicy()) {
-            if (TbadkCoreApplication.getInst().isNeedBearAd(b.k().l("splash_ad_strategy_key", 0))) {
-                a.i().l();
-            }
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && PermissionUtil.isAgreePrivacyPolicy() && f.i(b.k().l("splash_ad_strategy_key", 0))) {
+            a.i().l();
         }
     }
 }

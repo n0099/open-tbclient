@@ -19,8 +19,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.h0.g;
-import c.a.h0.h;
+import c.a.i0.g;
+import c.a.i0.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.view.PayChannelController;
 import com.baidu.mytransformapp.util.LogUtil;
@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class PayWebActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LAUNCH_PAYMENT_DATA = "launch_payment_data";
@@ -46,13 +46,13 @@ public class PayWebActivity extends Activity {
     public Bundle mBundle;
     public WebView webView;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PayWebActivity f37816e;
+        public final /* synthetic */ PayWebActivity f38045e;
 
         public a(PayWebActivity payWebActivity) {
             Interceptable interceptable = $ic;
@@ -69,15 +69,15 @@ public class PayWebActivity extends Activity {
                     return;
                 }
             }
-            this.f37816e = payWebActivity;
+            this.f38045e = payWebActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f37816e.setResult(0);
-                this.f37816e.finish();
+                this.f38045e.setResult(0);
+                this.f38045e.finish();
             }
         }
     }
@@ -105,7 +105,7 @@ public class PayWebActivity extends Activity {
                 return true;
             }
             if (str.startsWith(URL_CLOSE_WINDOW)) {
-                c.a.h0.p.b.g(119102, "3", PayChannelController.WXPAY_PAYCHANNEL, "-105", "调起微信H5支付失败");
+                c.a.i0.p.b.g(119102, "3", PayChannelController.WXPAY_PAYCHANNEL, "-105", "调起微信H5支付失败");
                 setResult(0);
                 finish();
                 return true;
@@ -156,7 +156,7 @@ public class PayWebActivity extends Activity {
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.a.h0.p.b.g(119103, "4", PayChannelController.WXPAY_PAYCHANNEL, "-106", "取消微信H5支付");
+            c.a.i0.p.b.g(119103, "4", PayChannelController.WXPAY_PAYCHANNEL, "-106", "取消微信H5支付");
             setResult(0);
             finish();
             super.onBackPressed();
@@ -206,7 +206,7 @@ public class PayWebActivity extends Activity {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class b extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

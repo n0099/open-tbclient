@@ -41,7 +41,7 @@ public class bl implements Runnable {
                     aVar.run();
                 }
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m134a("Sync job exception :" + e2.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m133a("Sync job exception :" + e2.getMessage());
             }
             this.a.f943a = false;
         }

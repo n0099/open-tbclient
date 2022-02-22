@@ -57,7 +57,7 @@ public class gq {
         public String f452a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f61197b;
+        public int f61364b;
 
         /* renamed from: b  reason: collision with other field name */
         public long f453b;
@@ -83,13 +83,13 @@ public class gq {
             this.f452a = "";
             this.f451a = 0L;
             this.a = -1;
-            this.f61197b = -1;
+            this.f61364b = -1;
             this.f454b = "";
             this.f453b = 0L;
             this.f452a = str;
             this.f451a = j2;
             this.a = i2;
-            this.f61197b = i3;
+            this.f61364b = i3;
             this.f454b = str2;
             this.f453b = j3;
         }
@@ -97,7 +97,7 @@ public class gq {
         public boolean a(a aVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? TextUtils.equals(aVar.f452a, this.f452a) && TextUtils.equals(aVar.f454b, this.f454b) && aVar.a == this.a && aVar.f61197b == this.f61197b && Math.abs(aVar.f451a - this.f451a) <= 5000 : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? TextUtils.equals(aVar.f452a, this.f452a) && TextUtils.equals(aVar.f454b, this.f454b) && aVar.a == this.a && aVar.f61364b == this.f61364b && Math.abs(aVar.f451a - this.f451a) <= 5000 : invokeL.booleanValue;
         }
     }
 
@@ -165,7 +165,7 @@ public class gq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static com.xiaomi.push.providers.a m420a(Context context) {
+    public static com.xiaomi.push.providers.a m419a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
@@ -181,7 +181,7 @@ public class gq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m421a(Context context) {
+    public static synchronized String m420a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
@@ -193,7 +193,7 @@ public class gq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m423a(Context context) {
+    public static void m422a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
             a = b(context);
@@ -209,7 +209,7 @@ public class gq {
         }
         synchronized (f448a) {
             isEmpty = f450a.isEmpty();
-            a(new a(str, j3, a2, z ? 1 : 0, a2 == 0 ? m421a(context) : "", j2));
+            a(new a(str, j3, a2, z ? 1 : 0, a2 == 0 ? m420a(context) : "", j2));
         }
         if (isEmpty) {
             f446a.a(new gr(context), 5000L);
@@ -237,7 +237,7 @@ public class gq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized void m424a(String str) {
+    public static synchronized void m423a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, str) == null) {
             synchronized (gq.class) {
@@ -274,7 +274,7 @@ public class gq {
         if (interceptable == null || interceptable.invokeLL(65551, null, context, list) == null) {
             try {
                 synchronized (com.xiaomi.push.providers.a.f831a) {
-                    SQLiteDatabase writableDatabase = m420a(context).getWritableDatabase();
+                    SQLiteDatabase writableDatabase = m419a(context).getWritableDatabase();
                     writableDatabase.beginTransaction();
                     try {
                         for (a aVar : list) {
@@ -283,7 +283,7 @@ public class gq {
                             contentValues.put("message_ts", Long.valueOf(aVar.f451a));
                             contentValues.put("network_type", Integer.valueOf(aVar.a));
                             contentValues.put("bytes", Long.valueOf(aVar.f453b));
-                            contentValues.put("rcv", Integer.valueOf(aVar.f61197b));
+                            contentValues.put("rcv", Integer.valueOf(aVar.f61364b));
                             contentValues.put(BaseStatisContent.IMSI, aVar.f454b);
                             writableDatabase.insert("traffic", null, contentValues);
                         }

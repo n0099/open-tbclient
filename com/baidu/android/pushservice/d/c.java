@@ -51,7 +51,7 @@ public class c {
         public HostnameVerifier a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HttpsURLConnection f31910b;
+        public HttpsURLConnection f32116b;
 
         public a(HttpsURLConnection httpsURLConnection) {
             Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class c {
                 }
             }
             this.a = HttpsURLConnection.getDefaultHostnameVerifier();
-            this.f31910b = httpsURLConnection;
+            this.f32116b = httpsURLConnection;
         }
 
         @Override // javax.net.SocketFactory
@@ -127,7 +127,7 @@ public class c {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{socket, str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-                String requestProperty = this.f31910b.getRequestProperty("Host");
+                String requestProperty = this.f32116b.getRequestProperty("Host");
                 if (!TextUtils.isEmpty(requestProperty)) {
                     str = requestProperty;
                 }

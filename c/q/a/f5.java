@@ -36,7 +36,7 @@ public class f5 implements PBNativeListener {
     public void onClicked() {
         PBNativeListener pBNativeListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (pBNativeListener = this.a.f60850c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (pBNativeListener = this.a.f61017c) == null) {
             return;
         }
         pBNativeListener.onClicked();
@@ -46,7 +46,7 @@ public class f5 implements PBNativeListener {
     public void onDisplayed() {
         PBNativeListener pBNativeListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (pBNativeListener = this.a.f60850c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (pBNativeListener = this.a.f61017c) == null) {
             return;
         }
         pBNativeListener.onDisplayed();
@@ -56,7 +56,7 @@ public class f5 implements PBNativeListener {
     public void onFail(PBError pBError) {
         PBNativeListener pBNativeListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (pBNativeListener = this.a.f60850c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (pBNativeListener = this.a.f61017c) == null) {
             return;
         }
         pBNativeListener.onFail(pBError);
@@ -66,7 +66,7 @@ public class f5 implements PBNativeListener {
     public void onLoaded() {
         PBNativeListener pBNativeListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (pBNativeListener = this.a.f60850c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (pBNativeListener = this.a.f61017c) == null) {
             return;
         }
         pBNativeListener.onLoaded();

@@ -10,25 +10,25 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class k implements com.kwad.sdk.core.webview.kwai.a {
     public final com.kwad.sdk.core.webview.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f56449b = 0;
+    public int f56616b = 0;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class a implements com.kwad.sdk.core.b {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f56450b;
+        public String f56617b;
 
         /* renamed from: c  reason: collision with root package name */
-        public AdTemplate f56451c;
+        public AdTemplate f56618c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f56452d;
+        public int f56619d;
 
         @Override // com.kwad.sdk.core.b
         public void parseJson(@Nullable JSONObject jSONObject) {
@@ -36,14 +36,14 @@ public class k implements com.kwad.sdk.core.webview.kwai.a {
                 return;
             }
             this.a = jSONObject.optInt(LightInvokerImpl.VOICE_ACTIONTYPE);
-            this.f56452d = jSONObject.optInt("refreshType");
-            this.f56450b = jSONObject.optString("payload");
+            this.f56619d = jSONObject.optInt("refreshType");
+            this.f56617b = jSONObject.optString("payload");
             try {
                 String string = jSONObject.getString("adTemplate");
-                if (this.f56451c == null) {
-                    this.f56451c = new AdTemplate();
+                if (this.f56618c == null) {
+                    this.f56618c = new AdTemplate();
                 }
-                this.f56451c.parseJson(new JSONObject(string));
+                this.f56618c.parseJson(new JSONObject(string));
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.b(e2);
             }
@@ -53,9 +53,9 @@ public class k implements com.kwad.sdk.core.webview.kwai.a {
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
             com.kwad.sdk.utils.t.a(jSONObject, LightInvokerImpl.VOICE_ACTIONTYPE, this.a);
-            com.kwad.sdk.utils.t.a(jSONObject, "payload", this.f56450b);
-            com.kwad.sdk.utils.t.a(jSONObject, "refreshType", this.f56452d);
-            com.kwad.sdk.utils.t.a(jSONObject, "adTemplate", this.f56451c);
+            com.kwad.sdk.utils.t.a(jSONObject, "payload", this.f56617b);
+            com.kwad.sdk.utils.t.a(jSONObject, "refreshType", this.f56619d);
+            com.kwad.sdk.utils.t.a(jSONObject, "adTemplate", this.f56618c);
             return jSONObject;
         }
     }
@@ -65,7 +65,7 @@ public class k implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     private AdTemplate b(@NonNull a aVar) {
-        return aVar.f56451c != null ? aVar.f56451c : this.a.a();
+        return aVar.f56618c != null ? aVar.f56618c : this.a.a();
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
@@ -80,31 +80,31 @@ public class k implements com.kwad.sdk.core.webview.kwai.a {
         AdTemplate a2;
         com.kwad.sdk.core.d.a.a("WebCardLogHandler", "handleH5Log actionType actionType" + aVar.a);
         if (aVar.a == 1) {
-            if (aVar.f56451c != null) {
+            if (aVar.f56618c != null) {
                 aVar2 = new p.a();
-                aVar2.f56112h = aVar.f56450b;
-                aVar2.o = this.f56449b;
-                a2 = aVar.f56451c;
+                aVar2.f56279h = aVar.f56617b;
+                aVar2.o = this.f56616b;
+                a2 = aVar.f56618c;
             } else {
                 aVar2 = new p.a();
-                aVar2.f56112h = aVar.f56450b;
+                aVar2.f56279h = aVar.f56617b;
                 a2 = this.a.a();
             }
             com.kwad.sdk.core.report.a.a(a2, (JSONObject) null, aVar2);
         } else if (aVar.a != 2) {
             if (aVar.a == 12006) {
-                com.kwad.sdk.core.report.d.a(b(aVar), aVar.f56452d, this.f56449b);
+                com.kwad.sdk.core.report.d.a(b(aVar), aVar.f56619d, this.f56616b);
             } else {
-                com.kwad.sdk.core.report.a.a(b(aVar), aVar.a, this.a.f56373c, aVar.f56450b);
+                com.kwad.sdk.core.report.a.a(b(aVar), aVar.a, this.a.f56540c, aVar.f56617b);
             }
         } else {
-            AdBaseFrameLayout adBaseFrameLayout = this.a.f56372b;
+            AdBaseFrameLayout adBaseFrameLayout = this.a.f56539b;
             p.a aVar3 = new p.a();
-            aVar3.o = this.f56449b;
+            aVar3.o = this.f56616b;
             if (adBaseFrameLayout != null) {
-                com.kwad.sdk.core.report.a.a(b(aVar), this.a.f56373c, aVar3, adBaseFrameLayout.getTouchCoords(), aVar.f56450b);
+                com.kwad.sdk.core.report.a.a(b(aVar), this.a.f56540c, aVar3, adBaseFrameLayout.getTouchCoords(), aVar.f56617b);
             } else {
-                com.kwad.sdk.core.report.a.a(b(aVar), this.a.f56373c, aVar3, aVar.f56450b);
+                com.kwad.sdk.core.report.a.a(b(aVar), this.a.f56540c, aVar3, aVar.f56617b);
             }
         }
     }

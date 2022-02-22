@@ -19,7 +19,7 @@ public class h extends Thread {
     public final /* synthetic */ String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ e f35190b;
+    public final /* synthetic */ e f35396b;
 
     public h(e eVar, String str) {
         Interceptable interceptable = $ic;
@@ -36,22 +36,22 @@ public class h extends Thread {
                 return;
             }
         }
-        this.f35190b = eVar;
+        this.f35396b = eVar;
         this.a = str;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:103:0x01ce  */
-    /* JADX WARN: Removed duplicated region for block: B:120:0x01f1  */
-    /* JADX WARN: Removed duplicated region for block: B:137:0x01a7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:141:0x01af A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:143:0x01db A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:148:0x0206 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:150:0x01d3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:154:0x01f6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:158:0x01fe A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:103:0x01cd  */
+    /* JADX WARN: Removed duplicated region for block: B:120:0x01f0  */
+    /* JADX WARN: Removed duplicated region for block: B:137:0x01a6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:141:0x01ae A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:143:0x01da A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:148:0x0205 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:150:0x01d2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:154:0x01f5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:158:0x01fd A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:174:? A[RETURN, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:175:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:88:0x01a2  */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x01a1  */
     @Override // java.lang.Thread, java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -64,308 +64,311 @@ public class h extends Thread {
         InputStream inputStream2;
         URL url;
         HttpsURLConnection httpsURLConnection;
+        StringBuffer stringBuffer;
+        URL url2;
+        HttpsURLConnection httpsURLConnection2;
         ByteArrayOutputStream byteArrayOutputStream3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f35190b.a();
-            this.f35190b.b();
-            this.f35190b.f35185h = this.a;
-            HttpsURLConnection httpsURLConnection2 = null;
+            this.f35396b.a();
+            this.f35396b.b();
+            this.f35396b.f35391h = this.a;
+            HttpsURLConnection httpsURLConnection3 = null;
             InputStream inputStream3 = null;
-            httpsURLConnection2 = null;
+            httpsURLConnection3 = null;
             try {
                 try {
                     try {
-                        StringBuffer stringBuffer = new StringBuffer();
-                        URL url2 = new URL(this.f35190b.f35185h);
+                        stringBuffer = new StringBuffer();
+                        url2 = new URL(this.f35396b.f35391h);
                         try {
-                            HttpsURLConnection httpsURLConnection3 = (HttpsURLConnection) url2.openConnection();
+                            httpsURLConnection2 = (HttpsURLConnection) url2.openConnection();
+                        } catch (Error e2) {
+                            e = e2;
+                            byteArrayOutputStream2 = null;
+                            httpsURLConnection = null;
+                            outputStream = null;
+                        } catch (Exception e3) {
+                            e = e3;
+                            byteArrayOutputStream2 = null;
+                            httpsURLConnection = null;
+                            outputStream = null;
+                        } catch (Throwable th) {
+                            th = th;
+                            byteArrayOutputStream = null;
+                            inputStream = null;
+                            outputStream = null;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        byteArrayOutputStream = byteArrayOutputStream2;
+                        inputStream = inputStream2;
+                        httpsURLConnection3 = httpsURLConnection;
+                    }
+                } catch (Error e4) {
+                    e = e4;
+                    byteArrayOutputStream2 = null;
+                    inputStream2 = null;
+                    url = null;
+                    httpsURLConnection = null;
+                    outputStream = null;
+                } catch (Exception e5) {
+                    e = e5;
+                    byteArrayOutputStream2 = null;
+                    inputStream2 = null;
+                    url = null;
+                    httpsURLConnection = null;
+                    outputStream = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    byteArrayOutputStream = null;
+                    inputStream = null;
+                    outputStream = null;
+                }
+                try {
+                    httpsURLConnection2.setInstanceFollowRedirects(false);
+                    httpsURLConnection2.setDoOutput(true);
+                    httpsURLConnection2.setDoInput(true);
+                    httpsURLConnection2.setConnectTimeout(a.f35356b);
+                    httpsURLConnection2.setReadTimeout(a.f35357c);
+                    httpsURLConnection2.setRequestMethod("POST");
+                    httpsURLConnection2.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
+                    httpsURLConnection2.setRequestProperty("Accept-Encoding", "gzip");
+                    if (k.ax != null) {
+                        httpsURLConnection2.setRequestProperty("bd-loc-android", k.ax);
+                    }
+                    for (Map.Entry<String, Object> entry : this.f35396b.k.entrySet()) {
+                        stringBuffer.append(entry.getKey());
+                        stringBuffer.append("=");
+                        stringBuffer.append(entry.getValue());
+                        stringBuffer.append("&");
+                    }
+                    if (stringBuffer.length() > 0) {
+                        stringBuffer.deleteCharAt(stringBuffer.length() - 1);
+                    }
+                    outputStream = httpsURLConnection2.getOutputStream();
+                    try {
+                        outputStream.write(stringBuffer.toString().getBytes());
+                        outputStream.flush();
+                        if (httpsURLConnection2.getResponseCode() == 200) {
+                            inputStream = httpsURLConnection2.getInputStream();
                             try {
-                                httpsURLConnection3.setInstanceFollowRedirects(false);
-                                httpsURLConnection3.setDoOutput(true);
-                                httpsURLConnection3.setDoInput(true);
-                                httpsURLConnection3.setConnectTimeout(a.f35150b);
-                                httpsURLConnection3.setReadTimeout(a.f35151c);
-                                httpsURLConnection3.setRequestMethod("POST");
-                                httpsURLConnection3.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
-                                httpsURLConnection3.setRequestProperty("Accept-Encoding", "gzip");
-                                if (k.ax != null) {
-                                    httpsURLConnection3.setRequestProperty("bd-loc-android", k.ax);
+                                String contentEncoding = httpsURLConnection2.getContentEncoding();
+                                if (contentEncoding != null && contentEncoding.contains("gzip")) {
+                                    inputStream = new GZIPInputStream(new BufferedInputStream(inputStream));
                                 }
-                                for (Map.Entry<String, Object> entry : this.f35190b.k.entrySet()) {
-                                    stringBuffer.append(entry.getKey());
-                                    stringBuffer.append("=");
-                                    stringBuffer.append(entry.getValue());
-                                    stringBuffer.append("&");
-                                }
-                                if (stringBuffer.length() > 0) {
-                                    stringBuffer.deleteCharAt(stringBuffer.length() - 1);
-                                }
-                                outputStream = httpsURLConnection3.getOutputStream();
+                                byteArrayOutputStream3 = new ByteArrayOutputStream();
                                 try {
-                                    outputStream.write(stringBuffer.toString().getBytes());
-                                    outputStream.flush();
-                                    if (httpsURLConnection3.getResponseCode() == 200) {
-                                        inputStream = httpsURLConnection3.getInputStream();
-                                        try {
-                                            String contentEncoding = httpsURLConnection3.getContentEncoding();
-                                            if (contentEncoding != null && contentEncoding.contains("gzip")) {
-                                                inputStream = new GZIPInputStream(new BufferedInputStream(inputStream));
-                                            }
-                                            byteArrayOutputStream3 = new ByteArrayOutputStream();
-                                            try {
-                                                byte[] bArr = new byte[1024];
-                                                while (true) {
-                                                    int read = inputStream.read(bArr);
-                                                    if (read == -1) {
-                                                        break;
-                                                    }
-                                                    byteArrayOutputStream3.write(bArr, 0, read);
-                                                }
-                                                this.f35190b.f35187j = new String(byteArrayOutputStream3.toByteArray(), "utf-8");
-                                                this.f35190b.a(true);
-                                                inputStream3 = inputStream;
-                                            } catch (Error e2) {
-                                                InputStream inputStream4 = inputStream;
-                                                byteArrayOutputStream2 = byteArrayOutputStream3;
-                                                e = e2;
-                                                httpsURLConnection = httpsURLConnection3;
-                                                url = url2;
-                                                inputStream2 = inputStream4;
-                                                e.printStackTrace();
-                                                String str = a.a;
-                                                this.f35190b.f35187j = null;
-                                                this.f35190b.a(false);
-                                                if (httpsURLConnection != null) {
-                                                }
-                                                if (outputStream != null) {
-                                                }
-                                                if (inputStream2 != null) {
-                                                }
-                                                if (byteArrayOutputStream2 == null) {
-                                                }
-                                                byteArrayOutputStream2.close();
-                                            } catch (Exception e3) {
-                                                InputStream inputStream5 = inputStream;
-                                                byteArrayOutputStream2 = byteArrayOutputStream3;
-                                                e = e3;
-                                                httpsURLConnection = httpsURLConnection3;
-                                                url = url2;
-                                                inputStream2 = inputStream5;
-                                                e.printStackTrace();
-                                                String str2 = a.a;
-                                                this.f35190b.f35187j = null;
-                                                this.f35190b.a(false);
-                                                if (httpsURLConnection != null) {
-                                                }
-                                                if (outputStream != null) {
-                                                }
-                                                if (inputStream2 != null) {
-                                                }
-                                                if (byteArrayOutputStream2 == null) {
-                                                }
-                                                byteArrayOutputStream2.close();
-                                            } catch (Throwable th) {
-                                                httpsURLConnection2 = httpsURLConnection3;
-                                                byteArrayOutputStream = byteArrayOutputStream3;
-                                                th = th;
-                                                if (httpsURLConnection2 != null) {
-                                                    httpsURLConnection2.disconnect();
-                                                }
-                                                if (outputStream != null) {
-                                                    try {
-                                                        outputStream.close();
-                                                    } catch (Exception unused) {
-                                                        String str3 = a.a;
-                                                    }
-                                                }
-                                                if (inputStream != null) {
-                                                    try {
-                                                        inputStream.close();
-                                                    } catch (Exception unused2) {
-                                                        String str4 = a.a;
-                                                    }
-                                                }
-                                                if (byteArrayOutputStream != null) {
-                                                    try {
-                                                        byteArrayOutputStream.close();
-                                                    } catch (Exception unused3) {
-                                                        String str5 = a.a;
-                                                    }
-                                                }
-                                                throw th;
-                                            }
-                                        } catch (Error e4) {
-                                            e = e4;
-                                            httpsURLConnection = httpsURLConnection3;
-                                            url = url2;
-                                            inputStream2 = inputStream;
-                                            byteArrayOutputStream2 = null;
-                                        } catch (Exception e5) {
-                                            e = e5;
-                                            httpsURLConnection = httpsURLConnection3;
-                                            url = url2;
-                                            inputStream2 = inputStream;
-                                            byteArrayOutputStream2 = null;
-                                        } catch (Throwable th2) {
-                                            th = th2;
-                                            byteArrayOutputStream = null;
-                                            httpsURLConnection2 = httpsURLConnection3;
-                                            if (httpsURLConnection2 != null) {
-                                            }
-                                            if (outputStream != null) {
-                                            }
-                                            if (inputStream != null) {
-                                            }
-                                            if (byteArrayOutputStream != null) {
-                                            }
-                                            throw th;
+                                    byte[] bArr = new byte[1024];
+                                    while (true) {
+                                        int read = inputStream.read(bArr);
+                                        if (read == -1) {
+                                            break;
                                         }
-                                    } else {
-                                        this.f35190b.f35187j = null;
-                                        this.f35190b.a(false);
-                                        byteArrayOutputStream3 = null;
+                                        byteArrayOutputStream3.write(bArr, 0, read);
                                     }
+                                    this.f35396b.f35393j = new String(byteArrayOutputStream3.toByteArray(), "utf-8");
+                                    this.f35396b.a(true);
+                                    inputStream3 = inputStream;
+                                } catch (Error e6) {
+                                    InputStream inputStream4 = inputStream;
+                                    byteArrayOutputStream2 = byteArrayOutputStream3;
+                                    e = e6;
+                                    httpsURLConnection = httpsURLConnection2;
+                                    url = url2;
+                                    inputStream2 = inputStream4;
+                                    e.printStackTrace();
+                                    String str = a.a;
+                                    this.f35396b.f35393j = null;
+                                    this.f35396b.a(false);
+                                    if (httpsURLConnection != null) {
+                                        httpsURLConnection.disconnect();
+                                    }
+                                    if (outputStream != null) {
+                                        try {
+                                            outputStream.close();
+                                        } catch (Exception unused) {
+                                            String str2 = a.a;
+                                        }
+                                    }
+                                    if (inputStream2 != null) {
+                                        try {
+                                            inputStream2.close();
+                                        } catch (Exception unused2) {
+                                            String str3 = a.a;
+                                        }
+                                    }
+                                    if (byteArrayOutputStream2 == null) {
+                                        return;
+                                    }
+                                    byteArrayOutputStream2.close();
+                                } catch (Exception e7) {
+                                    InputStream inputStream5 = inputStream;
+                                    byteArrayOutputStream2 = byteArrayOutputStream3;
+                                    e = e7;
+                                    httpsURLConnection = httpsURLConnection2;
+                                    url = url2;
+                                    inputStream2 = inputStream5;
+                                    e.printStackTrace();
+                                    String str4 = a.a;
+                                    this.f35396b.f35393j = null;
+                                    this.f35396b.a(false);
+                                    if (httpsURLConnection != null) {
+                                        httpsURLConnection.disconnect();
+                                    }
+                                    if (outputStream != null) {
+                                        try {
+                                            outputStream.close();
+                                        } catch (Exception unused3) {
+                                            String str5 = a.a;
+                                        }
+                                    }
+                                    if (inputStream2 != null) {
+                                        try {
+                                            inputStream2.close();
+                                        } catch (Exception unused4) {
+                                            String str6 = a.a;
+                                        }
+                                    }
+                                    if (byteArrayOutputStream2 == null) {
+                                        return;
+                                    }
+                                    byteArrayOutputStream2.close();
+                                } catch (Throwable th4) {
+                                    httpsURLConnection3 = httpsURLConnection2;
+                                    byteArrayOutputStream = byteArrayOutputStream3;
+                                    th = th4;
                                     if (httpsURLConnection3 != null) {
                                         httpsURLConnection3.disconnect();
                                     }
                                     if (outputStream != null) {
                                         try {
                                             outputStream.close();
-                                        } catch (Exception unused4) {
-                                            String str6 = a.a;
-                                        }
-                                    }
-                                    if (inputStream3 != null) {
-                                        try {
-                                            inputStream3.close();
                                         } catch (Exception unused5) {
                                             String str7 = a.a;
                                         }
                                     }
-                                } catch (Error e6) {
-                                    e = e6;
-                                    byteArrayOutputStream2 = null;
-                                    httpsURLConnection = httpsURLConnection3;
-                                    url = url2;
-                                    inputStream2 = null;
-                                } catch (Exception e7) {
-                                    e = e7;
-                                    byteArrayOutputStream2 = null;
-                                    httpsURLConnection = httpsURLConnection3;
-                                    url = url2;
-                                    inputStream2 = null;
-                                } catch (Throwable th3) {
-                                    th = th3;
-                                    byteArrayOutputStream = null;
-                                    inputStream = null;
+                                    if (inputStream != null) {
+                                        try {
+                                            inputStream.close();
+                                        } catch (Exception unused6) {
+                                            String str8 = a.a;
+                                        }
+                                    }
+                                    if (byteArrayOutputStream != null) {
+                                        try {
+                                            byteArrayOutputStream.close();
+                                        } catch (Exception unused7) {
+                                            String str9 = a.a;
+                                        }
+                                    }
+                                    throw th;
                                 }
                             } catch (Error e8) {
                                 e = e8;
-                                byteArrayOutputStream2 = null;
-                                outputStream = null;
-                                httpsURLConnection = httpsURLConnection3;
+                                httpsURLConnection = httpsURLConnection2;
                                 url = url2;
-                                inputStream2 = outputStream;
-                                e.printStackTrace();
-                                String str8 = a.a;
-                                this.f35190b.f35187j = null;
-                                this.f35190b.a(false);
-                                if (httpsURLConnection != null) {
-                                    httpsURLConnection.disconnect();
-                                }
-                                if (outputStream != null) {
-                                    try {
-                                        outputStream.close();
-                                    } catch (Exception unused6) {
-                                        String str9 = a.a;
-                                    }
-                                }
-                                if (inputStream2 != null) {
-                                    try {
-                                        inputStream2.close();
-                                    } catch (Exception unused7) {
-                                        String str10 = a.a;
-                                    }
-                                }
-                                if (byteArrayOutputStream2 == null) {
-                                    return;
-                                }
-                                byteArrayOutputStream2.close();
+                                inputStream2 = inputStream;
+                                byteArrayOutputStream2 = null;
                             } catch (Exception e9) {
                                 e = e9;
-                                byteArrayOutputStream2 = null;
-                                outputStream = null;
-                                httpsURLConnection = httpsURLConnection3;
+                                httpsURLConnection = httpsURLConnection2;
                                 url = url2;
-                                inputStream2 = outputStream;
-                                e.printStackTrace();
-                                String str22 = a.a;
-                                this.f35190b.f35187j = null;
-                                this.f35190b.a(false);
-                                if (httpsURLConnection != null) {
-                                    httpsURLConnection.disconnect();
+                                inputStream2 = inputStream;
+                                byteArrayOutputStream2 = null;
+                            } catch (Throwable th5) {
+                                th = th5;
+                                byteArrayOutputStream = null;
+                                httpsURLConnection3 = httpsURLConnection2;
+                                if (httpsURLConnection3 != null) {
                                 }
                                 if (outputStream != null) {
-                                    try {
-                                        outputStream.close();
-                                    } catch (Exception unused8) {
-                                        String str11 = a.a;
-                                    }
                                 }
-                                if (inputStream2 != null) {
-                                    try {
-                                        inputStream2.close();
-                                    } catch (Exception unused9) {
-                                        String str12 = a.a;
-                                    }
+                                if (inputStream != null) {
                                 }
-                                if (byteArrayOutputStream2 == null) {
-                                    return;
+                                if (byteArrayOutputStream != null) {
                                 }
-                                byteArrayOutputStream2.close();
-                            } catch (Throwable th4) {
-                                th = th4;
-                                byteArrayOutputStream = null;
-                                inputStream = null;
-                                outputStream = null;
+                                throw th;
                             }
-                        } catch (Error e10) {
-                            e = e10;
-                            byteArrayOutputStream2 = null;
-                            httpsURLConnection = null;
-                            outputStream = null;
-                        } catch (Exception e11) {
-                            e = e11;
-                            byteArrayOutputStream2 = null;
-                            httpsURLConnection = null;
-                            outputStream = null;
-                        } catch (Throwable th5) {
-                            th = th5;
-                            byteArrayOutputStream = null;
-                            inputStream = null;
-                            outputStream = null;
+                        } else {
+                            this.f35396b.f35393j = null;
+                            this.f35396b.a(false);
+                            byteArrayOutputStream3 = null;
                         }
+                        if (httpsURLConnection2 != null) {
+                            httpsURLConnection2.disconnect();
+                        }
+                        if (outputStream != null) {
+                            try {
+                                outputStream.close();
+                            } catch (Exception unused8) {
+                                String str10 = a.a;
+                            }
+                        }
+                        if (inputStream3 != null) {
+                            try {
+                                inputStream3.close();
+                            } catch (Exception unused9) {
+                                String str11 = a.a;
+                            }
+                        }
+                    } catch (Error e10) {
+                        e = e10;
+                        byteArrayOutputStream2 = null;
+                        httpsURLConnection = httpsURLConnection2;
+                        url = url2;
+                        inputStream2 = null;
+                    } catch (Exception e11) {
+                        e = e11;
+                        byteArrayOutputStream2 = null;
+                        httpsURLConnection = httpsURLConnection2;
+                        url = url2;
+                        inputStream2 = null;
                     } catch (Throwable th6) {
                         th = th6;
-                        byteArrayOutputStream = byteArrayOutputStream2;
-                        inputStream = inputStream2;
-                        httpsURLConnection2 = httpsURLConnection;
+                        byteArrayOutputStream = null;
+                        inputStream = null;
                     }
                 } catch (Error e12) {
                     e = e12;
                     byteArrayOutputStream2 = null;
-                    inputStream2 = null;
-                    url = null;
-                    httpsURLConnection = null;
                     outputStream = null;
+                    httpsURLConnection = httpsURLConnection2;
+                    url = url2;
+                    inputStream2 = outputStream;
+                    e.printStackTrace();
+                    String str12 = a.a;
+                    this.f35396b.f35393j = null;
+                    this.f35396b.a(false);
+                    if (httpsURLConnection != null) {
+                    }
+                    if (outputStream != null) {
+                    }
+                    if (inputStream2 != null) {
+                    }
+                    if (byteArrayOutputStream2 == null) {
+                    }
+                    byteArrayOutputStream2.close();
                 } catch (Exception e13) {
                     e = e13;
                     byteArrayOutputStream2 = null;
-                    inputStream2 = null;
-                    url = null;
-                    httpsURLConnection = null;
                     outputStream = null;
+                    httpsURLConnection = httpsURLConnection2;
+                    url = url2;
+                    inputStream2 = outputStream;
+                    e.printStackTrace();
+                    String str42 = a.a;
+                    this.f35396b.f35393j = null;
+                    this.f35396b.a(false);
+                    if (httpsURLConnection != null) {
+                    }
+                    if (outputStream != null) {
+                    }
+                    if (inputStream2 != null) {
+                    }
+                    if (byteArrayOutputStream2 == null) {
+                    }
+                    byteArrayOutputStream2.close();
                 } catch (Throwable th7) {
                     th = th7;
                     byteArrayOutputStream = null;

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.s;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RequsetLocationUtils extends BaseUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class RequsetLocationUtils extends BaseUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (context.checkCallingOrSelfPermission(s.f55291g) == 0) {
+            if (context.checkCallingOrSelfPermission(s.f55458g) == 0) {
                 LocationManager locationManager = (LocationManager) context.getSystemService("location");
                 List<String> providers = locationManager.getProviders(true);
                 String str = "gps";

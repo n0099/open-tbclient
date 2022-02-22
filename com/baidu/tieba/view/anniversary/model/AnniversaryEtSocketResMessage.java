@@ -1,6 +1,6 @@
 package com.baidu.tieba.view.anniversary.model;
 
-import c.a.t0.n4.i.d.b;
+import c.a.u0.q4.i.d.b;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;

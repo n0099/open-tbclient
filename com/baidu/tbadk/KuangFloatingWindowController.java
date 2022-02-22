@@ -10,7 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import c.a.d.f.p.n;
-import c.a.t0.i4.d;
+import c.a.u0.a4.e;
+import c.a.u0.a4.h;
+import c.a.u0.l4.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -19,7 +21,6 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.ConfigChangeMessage;
 import com.baidu.tbadk.core.message.KeyBoardSwitchMessage;
 import com.baidu.tbadk.core.message.WindowSwitchMessage;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -195,7 +196,7 @@ public class KuangFloatingWindowController {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (currentActivity == null) {
-                return n.f(TbadkCoreApplication.getInst(), R.dimen.tbds800);
+                return n.f(TbadkCoreApplication.getInst(), e.tbds800);
             }
             WindowManager windowManager = (WindowManager) currentActivity.getSystemService("window");
             windowManager.getDefaultDisplay().getMetrics(displayMetrics);
@@ -253,7 +254,7 @@ public class KuangFloatingWindowController {
             if (view != null) {
                 return view.getParent() == null;
             }
-            View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_window_from_kuang, (ViewGroup) null);
+            View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(h.floating_window_from_kuang, (ViewGroup) null);
             this.mFloatingView = inflate;
             inflate.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tbadk.KuangFloatingWindowController.4
                 public static /* synthetic */ Interceptable $ic;
@@ -311,7 +312,7 @@ public class KuangFloatingWindowController {
             layoutParams.x = 0;
             layoutParams.y = (int) (getHeightPx() * 0.75d);
             layoutParams.width = -2;
-            layoutParams.height = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds84);
+            layoutParams.height = n.f(TbadkCoreApplication.getInst(), e.tbds84);
             layoutParams.gravity = 51;
             if (this.manager == null) {
                 this.manager = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");

@@ -17,31 +17,31 @@ public class c {
     public Texture a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27158b;
+    public int f27364b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27159c;
+    public int f27365c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f27160d;
+    public int f27366d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f27161e;
+    public int f27367e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27162f;
+    public int f27368f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27163g;
+    public int f27369g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f27164h;
+    public int f27370h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f27165i;
+    public int f27371i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f27166j;
+    public int f27372j;
     public float k;
     public float l;
     public float m;
@@ -86,7 +86,7 @@ public class c {
             }
         }
         this.q = new float[180];
-        this.s = new c.b.b.n.a(c.b.b.n.a.f27109e);
+        this.s = new c.b.b.n.a(c.b.b.n.a.f27315e);
         this.t = -1.0f;
         this.u = -1.0f;
         this.v = -1.0f;
@@ -160,10 +160,10 @@ public class c {
             } else if (texture != iVar.f()) {
                 throw new IllegalArgumentException("All regions must be from the same texture.");
             }
-            float f2 = iVar.f27202b;
-            float f3 = iVar.f27205e;
-            float f4 = iVar.f27204d;
-            float f5 = iVar.f27203c;
+            float f2 = iVar.f27408b;
+            float f3 = iVar.f27411e;
+            float f4 = iVar.f27410d;
+            float f5 = iVar.f27409c;
             if (this.a.f() == Texture.TextureFilter.Linear || this.a.h() == Texture.TextureFilter.Linear) {
                 if (z) {
                     float x = 0.5f / this.a.x();
@@ -272,67 +272,67 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, iVarArr) == null) {
             if (iVarArr[6] != null) {
-                this.f27158b = a(iVarArr[6], false, false);
+                this.f27364b = a(iVarArr[6], false, false);
                 this.k = iVarArr[6].c();
                 this.p = iVarArr[6].b();
             } else {
-                this.f27158b = -1;
+                this.f27364b = -1;
             }
             if (iVarArr[7] != null) {
-                this.f27159c = a(iVarArr[7], (iVarArr[6] == null && iVarArr[8] == null) ? false : true, false);
+                this.f27365c = a(iVarArr[7], (iVarArr[6] == null && iVarArr[8] == null) ? false : true, false);
                 this.m = Math.max(this.m, iVarArr[7].c());
                 this.p = Math.max(this.p, iVarArr[7].b());
             } else {
-                this.f27159c = -1;
+                this.f27365c = -1;
             }
             if (iVarArr[8] != null) {
-                this.f27160d = a(iVarArr[8], false, false);
+                this.f27366d = a(iVarArr[8], false, false);
                 this.l = Math.max(this.l, iVarArr[8].c());
                 this.p = Math.max(this.p, iVarArr[8].b());
             } else {
-                this.f27160d = -1;
+                this.f27366d = -1;
             }
             if (iVarArr[3] != null) {
-                this.f27161e = a(iVarArr[3], false, (iVarArr[0] == null && iVarArr[6] == null) ? false : true);
+                this.f27367e = a(iVarArr[3], false, (iVarArr[0] == null && iVarArr[6] == null) ? false : true);
                 this.k = Math.max(this.k, iVarArr[3].c());
                 this.n = Math.max(this.n, iVarArr[3].b());
             } else {
-                this.f27161e = -1;
+                this.f27367e = -1;
             }
             if (iVarArr[4] != null) {
-                this.f27162f = a(iVarArr[4], (iVarArr[3] == null && iVarArr[5] == null) ? false : true, (iVarArr[1] == null && iVarArr[7] == null) ? false : true);
+                this.f27368f = a(iVarArr[4], (iVarArr[3] == null && iVarArr[5] == null) ? false : true, (iVarArr[1] == null && iVarArr[7] == null) ? false : true);
                 this.m = Math.max(this.m, iVarArr[4].c());
                 this.n = Math.max(this.n, iVarArr[4].b());
             } else {
-                this.f27162f = -1;
+                this.f27368f = -1;
             }
             if (iVarArr[5] != null) {
-                this.f27163g = a(iVarArr[5], false, (iVarArr[2] == null && iVarArr[8] == null) ? false : true);
+                this.f27369g = a(iVarArr[5], false, (iVarArr[2] == null && iVarArr[8] == null) ? false : true);
                 this.l = Math.max(this.l, iVarArr[5].c());
                 this.n = Math.max(this.n, iVarArr[5].b());
             } else {
-                this.f27163g = -1;
+                this.f27369g = -1;
             }
             if (iVarArr[0] != null) {
-                this.f27164h = a(iVarArr[0], false, false);
+                this.f27370h = a(iVarArr[0], false, false);
                 this.k = Math.max(this.k, iVarArr[0].c());
                 this.o = Math.max(this.o, iVarArr[0].b());
             } else {
-                this.f27164h = -1;
+                this.f27370h = -1;
             }
             if (iVarArr[1] != null) {
-                this.f27165i = a(iVarArr[1], (iVarArr[0] == null && iVarArr[2] == null) ? false : true, false);
+                this.f27371i = a(iVarArr[1], (iVarArr[0] == null && iVarArr[2] == null) ? false : true, false);
                 this.m = Math.max(this.m, iVarArr[1].c());
                 this.o = Math.max(this.o, iVarArr[1].b());
             } else {
-                this.f27165i = -1;
+                this.f27371i = -1;
             }
             if (iVarArr[2] != null) {
-                this.f27166j = a(iVarArr[2], false, false);
+                this.f27372j = a(iVarArr[2], false, false);
                 this.l = Math.max(this.l, iVarArr[2].c());
                 this.o = Math.max(this.o, iVarArr[2].b());
             } else {
-                this.f27166j = -1;
+                this.f27372j = -1;
             }
             int i2 = this.r;
             float[] fArr = this.q;
@@ -398,7 +398,7 @@ public class c {
             }
         }
         this.q = new float[180];
-        this.s = new c.b.b.n.a(c.b.b.n.a.f27109e);
+        this.s = new c.b.b.n.a(c.b.b.n.a.f27315e);
         this.t = -1.0f;
         this.u = -1.0f;
         this.v = -1.0f;
@@ -422,21 +422,21 @@ public class c {
             }
         }
         this.q = new float[180];
-        this.s = new c.b.b.n.a(c.b.b.n.a.f27109e);
+        this.s = new c.b.b.n.a(c.b.b.n.a.f27315e);
         this.t = -1.0f;
         this.u = -1.0f;
         this.v = -1.0f;
         this.w = -1.0f;
         this.a = cVar.a;
-        this.f27158b = cVar.f27158b;
-        this.f27159c = cVar.f27159c;
-        this.f27160d = cVar.f27160d;
-        this.f27161e = cVar.f27161e;
-        this.f27162f = cVar.f27162f;
-        this.f27163g = cVar.f27163g;
-        this.f27164h = cVar.f27164h;
-        this.f27165i = cVar.f27165i;
-        this.f27166j = cVar.f27166j;
+        this.f27364b = cVar.f27364b;
+        this.f27365c = cVar.f27365c;
+        this.f27366d = cVar.f27366d;
+        this.f27367e = cVar.f27367e;
+        this.f27368f = cVar.f27368f;
+        this.f27369g = cVar.f27369g;
+        this.f27370h = cVar.f27370h;
+        this.f27371i = cVar.f27371i;
+        this.f27372j = cVar.f27372j;
         this.k = cVar.k;
         this.l = cVar.l;
         this.m = cVar.m;

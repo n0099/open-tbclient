@@ -101,7 +101,7 @@ public final class i {
                     } else {
                         int i6 = (int) (z4 - j3);
                         i3 += i6;
-                        if (i4 == a.f28670b) {
+                        if (i4 == a.f28876b) {
                             if (i6 < 8) {
                                 return false;
                             }

@@ -31,25 +31,25 @@ public class AuthorizeInfoView extends LinearLayout {
     public NetImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f52436b;
+    public TextView f52603b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f52437c;
+    public TextView f52604c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f52438d;
+    public TextView f52605d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f52439e;
+    public TextView f52606e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f52440f;
+    public TextView f52607f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f52441g;
+    public String f52608g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f52442h;
+    public String f52609h;
 
     /* loaded from: classes2.dex */
     public static class a {
@@ -58,7 +58,7 @@ public class AuthorizeInfoView extends LinearLayout {
 
         /* renamed from: com.baidu.wallet.paysdk.ui.widget.AuthorizeInfoView$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C2024a {
+        public static class C2034a {
             public static /* synthetic */ Interceptable $ic;
             public static a a;
             public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +83,7 @@ public class AuthorizeInfoView extends LinearLayout {
         public static a a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2024a.a : (a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2034a.a : (a) invokeV.objValue;
         }
 
         public a() {
@@ -158,8 +158,8 @@ public class AuthorizeInfoView extends LinearLayout {
                 return;
             }
         }
-        this.f52441g = "";
-        this.f52442h = "";
+        this.f52608g = "";
+        this.f52609h = "";
         a();
     }
 
@@ -171,23 +171,23 @@ public class AuthorizeInfoView extends LinearLayout {
             return;
         }
         this.a.setImageUrl(authorize.sp_logo_url);
-        this.f52436b.setText(authorize.sp_company_title);
+        this.f52603b.setText(authorize.sp_company_title);
         setTips(authorize.authorize_action_desc);
         String[] strArr = authorize.authorize_desc;
         int i2 = 0;
         if (strArr != null && strArr.length > 0) {
-            this.f52438d.setText(strArr[0]);
+            this.f52605d.setText(strArr[0]);
         }
         UserData.UserModel userModel = payResponse.user;
         if (userModel != null) {
-            this.f52440f.setText(userModel.authorize_display_name);
+            this.f52607f.setText(userModel.authorize_display_name);
         }
         Authorize.AuthDetailInfo authDetailInfo = authorize.detail_info;
         if (authDetailInfo == null) {
             return;
         }
         if (!TextUtils.isEmpty(authDetailInfo.introduce)) {
-            this.f52442h += authorize.detail_info.introduce + StringUtils.LF;
+            this.f52609h += authorize.detail_info.introduce + StringUtils.LF;
         }
         while (true) {
             String[] strArr2 = authorize.detail_info.detail;
@@ -195,7 +195,7 @@ public class AuthorizeInfoView extends LinearLayout {
                 return;
             }
             if (!TextUtils.isEmpty(strArr2[i2])) {
-                this.f52442h += "\n· " + authorize.detail_info.detail[i2];
+                this.f52609h += "\n· " + authorize.detail_info.detail[i2];
             }
             i2++;
         }
@@ -204,7 +204,7 @@ public class AuthorizeInfoView extends LinearLayout {
     public void setAmount(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (textView = this.f52439e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (textView = this.f52606e) == null) {
             return;
         }
         textView.setText(str);
@@ -213,7 +213,7 @@ public class AuthorizeInfoView extends LinearLayout {
     public void setDesc(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (textView = this.f52438d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (textView = this.f52605d) == null) {
             return;
         }
         textView.setText(str);
@@ -231,7 +231,7 @@ public class AuthorizeInfoView extends LinearLayout {
     public void setPhone(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (textView = this.f52440f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (textView = this.f52607f) == null) {
             return;
         }
         textView.setText(str);
@@ -240,25 +240,25 @@ public class AuthorizeInfoView extends LinearLayout {
     public void setTipMessage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f52442h = str;
+            this.f52609h = str;
         }
     }
 
     public void setTips(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            TextView textView = this.f52437c;
+            TextView textView = this.f52604c;
             if (textView != null) {
                 textView.setText(str);
             }
-            this.f52441g = str;
+            this.f52608g = str;
         }
     }
 
     public void setTitle(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || (textView = this.f52436b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || (textView = this.f52603b) == null) {
             return;
         }
         textView.setText(str);
@@ -269,12 +269,12 @@ public class AuthorizeInfoView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_cashdesk_authorize_info_view"), this);
             this.a = (NetImageView) findViewById(ResUtils.id(getContext(), "ni_sp_logo"));
-            this.f52436b = (TextView) findViewById(ResUtils.id(getContext(), "tv_sp_name"));
-            this.f52437c = (TextView) findViewById(ResUtils.id(getContext(), "tv_sp_action"));
-            this.f52438d = (TextView) findViewById(ResUtils.id(getContext(), "tv_auth_desc"));
-            this.f52439e = (TextView) findViewById(ResUtils.id(getContext(), "tv_amount_tips"));
-            this.f52440f = (TextView) findViewById(ResUtils.id(getContext(), "tv_amount_phone"));
-            this.f52437c.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.widget.AuthorizeInfoView.1
+            this.f52603b = (TextView) findViewById(ResUtils.id(getContext(), "tv_sp_name"));
+            this.f52604c = (TextView) findViewById(ResUtils.id(getContext(), "tv_sp_action"));
+            this.f52605d = (TextView) findViewById(ResUtils.id(getContext(), "tv_auth_desc"));
+            this.f52606e = (TextView) findViewById(ResUtils.id(getContext(), "tv_amount_tips"));
+            this.f52607f = (TextView) findViewById(ResUtils.id(getContext(), "tv_amount_phone"));
+            this.f52604c.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.widget.AuthorizeInfoView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AuthorizeInfoView a;
@@ -300,12 +300,12 @@ public class AuthorizeInfoView extends LinearLayout {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.a.f52442h)) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.a.f52609h)) {
                         return;
                     }
                     PromptTipDialog promptTipDialog = new PromptTipDialog(this.a.getContext());
-                    promptTipDialog.setTitleMessage(this.a.f52441g);
-                    promptTipDialog.setMessage(this.a.f52442h);
+                    promptTipDialog.setTitleMessage(this.a.f52608g);
+                    promptTipDialog.setMessage(this.a.f52609h);
                     promptTipDialog.setButtonMessage(ResUtils.getString(this.a.getContext(), "dxm_ebpay_know"));
                     promptTipDialog.show();
                 }
@@ -332,8 +332,8 @@ public class AuthorizeInfoView extends LinearLayout {
                 return;
             }
         }
-        this.f52441g = "";
-        this.f52442h = "";
+        this.f52608g = "";
+        this.f52609h = "";
         a();
     }
 
@@ -356,8 +356,8 @@ public class AuthorizeInfoView extends LinearLayout {
                 return;
             }
         }
-        this.f52441g = "";
-        this.f52442h = "";
+        this.f52608g = "";
+        this.f52609h = "";
         a();
     }
 }

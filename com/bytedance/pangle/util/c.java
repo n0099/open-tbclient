@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.security.MessageDigest;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] a;

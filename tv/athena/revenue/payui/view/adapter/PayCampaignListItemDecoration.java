@@ -19,7 +19,7 @@ public class PayCampaignListItemDecoration extends RecyclerView.ItemDecoration {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f63061b;
+    public int f63228b;
 
     public PayCampaignListItemDecoration() {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class PayCampaignListItemDecoration extends RecyclerView.ItemDecoration {
             }
         }
         this.a = 14;
-        this.f63061b = 15;
+        this.f63228b = 15;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -49,7 +49,7 @@ public class PayCampaignListItemDecoration extends RecyclerView.ItemDecoration {
                 RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(f.rl_item_content);
                 relativeLayout.measure(0, 0);
                 int measuredWidth = relativeLayout.getMeasuredWidth() + c.a(this.a);
-                int b2 = ((m.b(view.getContext()) - measuredWidth) / 2) - c.a(this.f63061b);
+                int b2 = ((m.b(view.getContext()) - measuredWidth) / 2) - c.a(this.f63228b);
                 rect.left = b2;
                 RLog.debug("PayCampaignListItemDecoration", "getItemOffsets itemCount == 1 width:" + measuredWidth + " marginLeft:" + b2 + " position:" + childAdapterPosition);
             } else if (itemCount == 2) {
@@ -58,7 +58,7 @@ public class PayCampaignListItemDecoration extends RecyclerView.ItemDecoration {
                 int measuredWidth2 = relativeLayout2.getMeasuredWidth() + c.a(this.a);
                 int b3 = m.b(view.getContext()) / 2;
                 if (childAdapterPosition == 0) {
-                    i2 = ((b3 - (c.a(this.a) / 2)) - measuredWidth2) - c.a(this.f63061b);
+                    i2 = ((b3 - (c.a(this.a) / 2)) - measuredWidth2) - c.a(this.f63228b);
                     rect.left = i2;
                 } else if (childAdapterPosition == 1) {
                     i2 = c.a(this.a) / 2;

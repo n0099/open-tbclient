@@ -14,10 +14,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.s0.f1.n.f;
-import c.a.t0.n4.h;
-import c.a.t0.t1.g.d;
-import c.a.t0.t1.l.c.a;
+import c.a.t0.f1.n.f;
+import c.a.u0.q4.h;
+import c.a.u0.t1.g.d;
+import c.a.u0.t1.l.c.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -25,6 +25,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumRulesShowActivityConfig;
+import com.baidu.tbadk.core.atomData.TbTitleActivityConfig;
 import com.baidu.tbadk.core.util.NewUrlSchemaHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -34,7 +35,7 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
+import com.baidu.tieba.stampmission.message.StampMissionHttpRequestMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,22 +48,22 @@ public class SingleImageTextView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f44948e;
+    public Context f45090e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f44949f;
+    public TextView f45091f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f44950g;
+    public TextView f45092g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f44951h;
+    public TbImageView f45093h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f44952i;
+    public View f45094i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f44953j;
+    public TextView f45095j;
     public ImageView k;
     public TextView l;
     public c.a.d.f.h.b m;
@@ -74,7 +75,7 @@ public class SingleImageTextView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SingleImageTextView f44954e;
+        public final /* synthetic */ SingleImageTextView f45096e;
 
         public a(SingleImageTextView singleImageTextView) {
             Interceptable interceptable = $ic;
@@ -91,7 +92,7 @@ public class SingleImageTextView extends RelativeLayout {
                     return;
                 }
             }
-            this.f44954e = singleImageTextView;
+            this.f45096e = singleImageTextView;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -99,8 +100,8 @@ public class SingleImageTextView extends RelativeLayout {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                if (this.f44954e.m != null) {
-                    this.f44954e.m.onItemViewLongClick(view, 9, this.f44954e.n, 0L);
+                if (this.f45096e.m != null) {
+                    this.f45096e.m.onItemViewLongClick(view, 9, this.f45096e.n, 0L);
                     return false;
                 }
                 return false;
@@ -113,17 +114,17 @@ public class SingleImageTextView extends RelativeLayout {
     public class b extends f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a.C1381a l;
+        public final /* synthetic */ a.C1387a l;
         public final /* synthetic */ SingleImageTextView m;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(SingleImageTextView singleImageTextView, int i2, String str, a.C1381a c1381a) {
+        public b(SingleImageTextView singleImageTextView, int i2, String str, a.C1387a c1387a) {
             super(i2, str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {singleImageTextView, Integer.valueOf(i2), str, c1381a};
+                Object[] objArr = {singleImageTextView, Integer.valueOf(i2), str, c1387a};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -136,18 +137,18 @@ public class SingleImageTextView extends RelativeLayout {
                 }
             }
             this.m = singleImageTextView;
-            this.l = c1381a;
+            this.l = c1387a;
         }
 
-        @Override // c.a.s0.f1.n.f, android.text.style.ClickableSpan
+        @Override // c.a.t0.f1.n.f, android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumRulesShowActivityConfig(this.m.f44948e, this.m.f(this.l.f22434d), ForumRulesShowActivityConfig.FORUM_RULE_SHOW_FROM_MESSAGE)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumRulesShowActivityConfig(this.m.f45090e, this.m.f(this.l.f22647d), ForumRulesShowActivityConfig.FORUM_RULE_SHOW_FROM_MESSAGE)));
             }
         }
 
-        @Override // c.a.s0.f1.n.f, android.text.style.ClickableSpan, android.text.style.CharacterStyle
+        @Override // c.a.t0.f1.n.f, android.text.style.ClickableSpan, android.text.style.CharacterStyle
         public void updateDrawState(TextPaint textPaint) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
@@ -163,23 +164,23 @@ public class SingleImageTextView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a.C1381a f44955e;
+        public final /* synthetic */ a.C1387a f45097e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f44956f;
+        public final /* synthetic */ TbPageContext f45098f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f44957g;
+        public final /* synthetic */ int f45099g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ SingleImageTextView f44958h;
+        public final /* synthetic */ SingleImageTextView f45100h;
 
-        public c(SingleImageTextView singleImageTextView, a.C1381a c1381a, TbPageContext tbPageContext, int i2) {
+        public c(SingleImageTextView singleImageTextView, a.C1387a c1387a, TbPageContext tbPageContext, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {singleImageTextView, c1381a, tbPageContext, Integer.valueOf(i2)};
+                Object[] objArr = {singleImageTextView, c1387a, tbPageContext, Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -189,10 +190,10 @@ public class SingleImageTextView extends RelativeLayout {
                     return;
                 }
             }
-            this.f44958h = singleImageTextView;
-            this.f44955e = c1381a;
-            this.f44956f = tbPageContext;
-            this.f44957g = i2;
+            this.f45100h = singleImageTextView;
+            this.f45097e = c1387a;
+            this.f45098f = tbPageContext;
+            this.f45099g = i2;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:77:0x0244  */
@@ -202,26 +203,26 @@ public class SingleImageTextView extends RelativeLayout {
         */
         public void onClick(View view) {
             String str;
-            a.C1381a c1381a;
+            a.C1387a c1387a;
             String str2;
             int i2;
             String str3;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                a.C1381a c1381a2 = this.f44955e;
-                if (c1381a2 != null && (str3 = c1381a2.f22434d) != null && str3.contains(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
+                a.C1387a c1387a2 = this.f45097e;
+                if (c1387a2 != null && (str3 = c1387a2.f22647d) != null && str3.contains(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
                     try {
-                        this.f44958h.f44948e.startActivity(Intent.parseUri(this.f44955e.f22434d, 1));
+                        this.f45100h.f45090e.startActivity(Intent.parseUri(this.f45097e.f22647d, 1));
                     } catch (URISyntaxException e2) {
                         e2.printStackTrace();
                     }
                 }
-                UrlManager.getInstance().dealOneLink(this.f44956f, new String[]{this.f44955e.f22434d});
-                String str4 = this.f44955e.f22434d;
+                UrlManager.getInstance().dealOneLink(this.f45098f, new String[]{this.f45097e.f22647d});
+                String str4 = this.f45097e.f22647d;
                 if (str4 != null && str4.contains("ForumGradePage")) {
                     StatisticItem param = new StatisticItem("c13783").param("uid", TbadkCoreApplication.getCurrentAccountId());
                     try {
-                        Uri parse = Uri.parse(this.f44955e.f22434d);
+                        Uri parse = Uri.parse(this.f45097e.f22647d);
                         String queryParameter = parse.getQueryParameter("forum_id");
                         String queryParameter2 = parse.getQueryParameter("obj_type");
                         param.param("fid", queryParameter);
@@ -231,42 +232,42 @@ public class SingleImageTextView extends RelativeLayout {
                     }
                     TiebaStatic.log(param);
                 }
-                String str5 = this.f44955e.f22434d;
+                String str5 = this.f45097e.f22647d;
                 if (str5 != null && str5.contains("weeklygodview")) {
                     TiebaStatic.log(new StatisticItem("c13691").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_source", 1));
                 }
-                String str6 = this.f44955e.f22434d;
+                String str6 = this.f45097e.f22647d;
                 if (str6 != null && str6.contains("unidispatch/hotuserrank")) {
                     TiebaStatic.log(new StatisticItem("c13665").param("uid", TbadkCoreApplication.getCurrentAccountId()));
                 }
-                if (this.f44957g == 1) {
-                    TiebaStatic.eventStat(this.f44958h.f44948e, "official_msg_ck", "click", 1, "fid", this.f44955e.f22435e);
-                    d j2 = c.a.t0.t1.w.c.j(this.f44955e.f22436f);
+                if (this.f45099g == 1) {
+                    TiebaStatic.eventStat(this.f45100h.f45090e, "official_msg_ck", "click", 1, "fid", this.f45097e.f22648e);
+                    d j2 = c.a.u0.t1.w.c.j(this.f45097e.f22649f);
                     if (j2 != null) {
-                        TiebaStatic.eventStat(this.f44958h.f44948e, "message_open_detail", "click", 1, "task_type", j2.a, "task_id", j2.f22322b, "loc", "0");
-                        int i3 = this.f44955e.f22437g;
-                        if ((i3 == 1 || i3 == 3) && !"0".equals(j2.f22322b)) {
-                            c.a.t0.t1.u.a.c().a(j2.f22322b);
+                        TiebaStatic.eventStat(this.f45100h.f45090e, "message_open_detail", "click", 1, StampMissionHttpRequestMessage.KEY_TASK_TYPE, j2.a, "task_id", j2.f22535b, "loc", "0");
+                        int i3 = this.f45097e.f22650g;
+                        if ((i3 == 1 || i3 == 3) && !"0".equals(j2.f22535b)) {
+                            c.a.u0.t1.u.a.c().a(j2.f22535b);
                         }
                     }
                     StatisticItem statisticItem = new StatisticItem("official_message_open_detail");
-                    statisticItem.param("msg_id", this.f44955e.f22438h / 100);
-                    statisticItem.param("official_id", this.f44955e.f22439i);
-                    statisticItem.param("official_type", this.f44955e.f22440j);
+                    statisticItem.param("msg_id", this.f45097e.f22651h / 100);
+                    statisticItem.param("official_id", this.f45097e.f22652i);
+                    statisticItem.param("official_type", this.f45097e.f22653j);
                     statisticItem.param("operate_time", System.currentTimeMillis() / 1000);
-                    statisticItem.param("task_id", this.f44955e.k);
-                    statisticItem.param("obj_params1", this.f44955e.f22434d);
+                    statisticItem.param("task_id", this.f45097e.k);
+                    statisticItem.param("obj_params1", this.f45097e.f22647d);
                     TiebaStatic.log(statisticItem);
                 }
                 StatisticItem statisticItem2 = new StatisticItem("c13784");
-                statisticItem2.param("service_id", this.f44955e.l);
-                statisticItem2.param("task_id", this.f44955e.k);
+                statisticItem2.param("service_id", this.f45097e.l);
+                statisticItem2.param("task_id", this.f45097e.k);
                 statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem2.param("fid", this.f44955e.f22435e);
-                if (!TextUtils.isEmpty(this.f44955e.a)) {
-                    if (!TextUtils.isEmpty(this.f44955e.f22434d)) {
+                statisticItem2.param("fid", this.f45097e.f22648e);
+                if (!TextUtils.isEmpty(this.f45097e.a)) {
+                    if (!TextUtils.isEmpty(this.f45097e.f22647d)) {
                         String str7 = null;
-                        String[] split = this.f44955e.f22434d.split("tid=");
+                        String[] split = this.f45097e.f22647d.split("tid=");
                         if (split.length > 1) {
                             int indexOf = split[1].indexOf("&");
                             if (indexOf != -1) {
@@ -277,34 +278,34 @@ public class SingleImageTextView extends RelativeLayout {
                         }
                         statisticItem2.param("tid", str7);
                     }
-                    if (this.f44955e.a.contains("互动量")) {
+                    if (this.f45097e.a.contains("互动量")) {
                         statisticItem2.param("obj_source", 2);
                         statisticItem2.param("obj_type", 9);
-                    } else if (this.f44955e.a.contains("被加精")) {
+                    } else if (this.f45097e.a.contains("被加精")) {
                         statisticItem2.param("obj_source", 1);
                         statisticItem2.param("obj_type", 9);
-                    } else if (this.f44955e.a.contains("热贴榜")) {
+                    } else if (this.f45097e.a.contains("热贴榜")) {
                         statisticItem2.param("obj_type", 8);
                     } else {
-                        int i4 = this.f44955e.f22437g;
+                        int i4 = this.f45097e.f22650g;
                         if (i4 == 4) {
                             statisticItem2.param("obj_type", 10);
                         } else if (i4 == 3) {
                             statisticItem2.param("obj_type", 5);
-                            str = this.f44955e.f22439i;
+                            str = this.f45097e.f22652i;
                             if (str != null && str.equals("4754917018")) {
                                 statisticItem2.delete("obj_type");
                                 statisticItem2.param("obj_type", 9);
-                                str2 = this.f44955e.f22434d;
+                                str2 = this.f45097e.f22647d;
                                 if (str2 != null) {
                                     if (str2.contains("type=interaction")) {
                                         i2 = 2;
-                                    } else if (this.f44955e.f22434d.contains("type=recommend")) {
+                                    } else if (this.f45097e.f22647d.contains("type=recommend")) {
                                         i2 = 3;
-                                    } else if (this.f44955e.f22434d.contains("type=attention-bazhu")) {
+                                    } else if (this.f45097e.f22647d.contains("type=attention-bazhu")) {
                                         i2 = 4;
                                     } else {
-                                        i2 = this.f44955e.f22434d.contains("type=attention-common") ? 5 : -1;
+                                        i2 = this.f45097e.f22647d.contains("type=attention-common") ? 5 : -1;
                                     }
                                     if (i2 != -1) {
                                         statisticItem2.delete("obj_source");
@@ -313,25 +314,25 @@ public class SingleImageTextView extends RelativeLayout {
                                 }
                             }
                             TiebaStatic.log(statisticItem2);
-                            c1381a = this.f44955e;
-                            if (c1381a.f22434d == null && c1381a.f22439i.contains("5044059141")) {
+                            c1387a = this.f45097e;
+                            if (c1387a.f22647d == null && c1387a.f22652i.contains("5044059141")) {
                                 TiebaStatic.log(new StatisticItem("c14447").param("uid", TbadkCoreApplication.getCurrentAccount()));
                                 return;
                             }
                         }
                     }
                 }
-                str = this.f44955e.f22439i;
+                str = this.f45097e.f22652i;
                 if (str != null) {
                     statisticItem2.delete("obj_type");
                     statisticItem2.param("obj_type", 9);
-                    str2 = this.f44955e.f22434d;
+                    str2 = this.f45097e.f22647d;
                     if (str2 != null) {
                     }
                 }
                 TiebaStatic.log(statisticItem2);
-                c1381a = this.f44955e;
-                if (c1381a.f22434d == null) {
+                c1387a = this.f45097e;
+                if (c1387a.f22647d == null) {
                 }
             }
         }
@@ -361,21 +362,21 @@ public class SingleImageTextView extends RelativeLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.f44948e).inflate(R.layout.msg_single_pic_text_view, (ViewGroup) this, true);
-            this.f44949f = (TextView) findViewById(R.id.single_title);
-            this.f44950g = (TextView) findViewById(R.id.single_abstract);
+            LayoutInflater.from(this.f45090e).inflate(R.layout.msg_single_pic_text_view, (ViewGroup) this, true);
+            this.f45091f = (TextView) findViewById(R.id.single_title);
+            this.f45092g = (TextView) findViewById(R.id.single_abstract);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.single_content_pic);
-            this.f44951h = tbImageView;
+            this.f45093h = tbImageView;
             tbImageView.setAutoChangeStyle(false);
-            this.f44951h.setRadius(n.f(getContext(), R.dimen.tbds20));
-            this.f44951h.setConrers(15);
-            this.f44953j = (TextView) findViewById(R.id.read_all);
+            this.f45093h.setRadius(n.f(getContext(), R.dimen.tbds20));
+            this.f45093h.setConrers(15);
+            this.f45095j = (TextView) findViewById(R.id.read_all);
             this.k = (ImageView) findViewById(R.id.arrow);
-            this.f44952i = findViewById(R.id.single_divider);
+            this.f45094i = findViewById(R.id.single_divider);
             this.l = (TextView) findViewById(R.id.show_time_single);
             setOnLongClickListener(new a(this));
-            int dimension = (int) this.f44948e.getResources().getDimension(R.dimen.tbds38);
-            int dimension2 = (int) this.f44948e.getResources().getDimension(R.dimen.tbds10);
+            int dimension = (int) this.f45090e.getResources().getDimension(R.dimen.tbds38);
+            int dimension2 = (int) this.f45090e.getResources().getDimension(R.dimen.tbds10);
             setPadding(dimension, dimension2, dimension, dimension2);
         }
     }
@@ -401,63 +402,63 @@ public class SingleImageTextView extends RelativeLayout {
             if (!z) {
                 skinType = 0;
             }
-            this.f44951h.setAutoChangeStyle(z);
-            SkinManager.setViewTextColor(this.f44949f, R.color.CAM_X0105, 1, skinType);
-            SkinManager.setViewTextColor(this.f44950g, R.color.CAM_X0109, 1, skinType);
-            SkinManager.setViewTextColor(this.f44953j, R.color.CAM_X0107, 1, skinType);
+            this.f45093h.setAutoChangeStyle(z);
+            SkinManager.setViewTextColor(this.f45091f, R.color.CAM_X0105, 1, skinType);
+            SkinManager.setViewTextColor(this.f45092g, R.color.CAM_X0109, 1, skinType);
+            SkinManager.setViewTextColor(this.f45095j, R.color.CAM_X0107, 1, skinType);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0109, null);
             SkinManager.setViewTextColor(this.l, R.color.common_color_10067, 1, skinType);
-            SkinManager.setBackgroundResource(this.f44952i, R.drawable.multi_single_divider_selector, skinType);
+            SkinManager.setBackgroundResource(this.f45094i, R.drawable.multi_single_divider_selector, skinType);
         }
     }
 
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f44949f.setText("");
-            this.f44950g.setText("");
-            this.f44951h.setBackgroundDrawable(null);
-            this.f44951h.setImageDrawable(null);
+            this.f45091f.setText("");
+            this.f45092g.setText("");
+            this.f45093h.setBackgroundDrawable(null);
+            this.f45093h.setImageDrawable(null);
             this.l.setText("");
             this.l.setVisibility(8);
         }
     }
 
-    public void setData(TbPageContext<?> tbPageContext, a.C1381a c1381a, View view, int i2) {
+    public void setData(TbPageContext<?> tbPageContext, a.C1387a c1387a, View view, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(1048580, this, tbPageContext, c1381a, view, i2) == null) || c1381a == null) {
+        if (!(interceptable == null || interceptable.invokeLLLI(1048580, this, tbPageContext, c1387a, view, i2) == null) || c1387a == null) {
             return;
         }
-        this.f44949f.setText(!TextUtils.isEmpty(c1381a.a) ? c1381a.a : "");
-        String str = TextUtils.isEmpty(c1381a.f22432b) ? "" : c1381a.f22432b;
-        if (!TextUtils.isEmpty(c1381a.f22432b) && c1381a.f22432b.contains(this.f44948e.getResources().getString(R.string.inconformity_forum_rules))) {
-            b bVar = new b(this, 2, c1381a.f22434d, c1381a);
-            int indexOf = c1381a.f22432b.indexOf(this.f44948e.getResources().getString(R.string.inconformity_forum_rules));
-            SpannableString spannableString = new SpannableString(c1381a.f22432b);
+        this.f45091f.setText(!TextUtils.isEmpty(c1387a.a) ? c1387a.a : "");
+        String str = TextUtils.isEmpty(c1387a.f22645b) ? "" : c1387a.f22645b;
+        if (!TextUtils.isEmpty(c1387a.f22645b) && c1387a.f22645b.contains(this.f45090e.getResources().getString(R.string.inconformity_forum_rules))) {
+            b bVar = new b(this, 2, c1387a.f22647d, c1387a);
+            int indexOf = c1387a.f22645b.indexOf(this.f45090e.getResources().getString(R.string.inconformity_forum_rules));
+            SpannableString spannableString = new SpannableString(c1387a.f22645b);
             spannableString.setSpan(bVar, indexOf - 1, indexOf + 6, 33);
-            this.f44950g.setOnTouchListener(new h(spannableString));
-            this.f44950g.setText(spannableString);
-            this.f44953j.setText(R.string.bar_tie_complain);
+            this.f45092g.setOnTouchListener(new h(spannableString));
+            this.f45092g.setText(spannableString);
+            this.f45095j.setText(R.string.bar_tie_complain);
         } else {
-            this.f44950g.setText(str);
+            this.f45092g.setText(str);
         }
-        if (!TextUtils.isEmpty(c1381a.f22434d)) {
-            if (NewUrlSchemaHelper.SCHEME.equals(c1381a.f22434d)) {
+        if (!TextUtils.isEmpty(c1387a.f22647d)) {
+            if (NewUrlSchemaHelper.SCHEME.equals(c1387a.f22647d)) {
                 setEnabled(false);
             } else {
                 setEnabled(true);
             }
-            setOnClickListener(new c(this, c1381a, tbPageContext, i2));
+            setOnClickListener(new c(this, c1387a, tbPageContext, i2));
         }
-        if (!TextUtils.isEmpty(c1381a.f22433c)) {
-            this.f44951h.setTag(c1381a.f22433c);
-            this.f44951h.startLoad(c1381a.f22433c, 10, false);
+        if (!TextUtils.isEmpty(c1387a.f22646c)) {
+            this.f45093h.setTag(c1387a.f22646c);
+            this.f45093h.startLoad(c1387a.f22646c, 10, false);
         }
-        ViewGroup.LayoutParams layoutParams = this.f44950g.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.f45092g.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.bottomMargin = 0;
-            this.f44950g.setLayoutParams(marginLayoutParams);
+            this.f45092g.setLayoutParams(marginLayoutParams);
         }
     }
 
@@ -529,7 +530,7 @@ public class SingleImageTextView extends RelativeLayout {
             }
         }
         this.m = null;
-        this.f44948e = context;
+        this.f45090e = context;
         e();
     }
 }

@@ -1,13 +1,13 @@
 package com.kwad.sdk.core.imageloader.core.assist;
 
 import android.widget.ImageView;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public enum ViewScaleType {
     FIT_INSIDE,
     CROP;
 
     /* renamed from: com.kwad.sdk.core.imageloader.core.assist.ViewScaleType$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$widget$ImageView$ScaleType;
 

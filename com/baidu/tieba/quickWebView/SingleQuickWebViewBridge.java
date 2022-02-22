@@ -3,7 +3,7 @@ package com.baidu.tieba.quickWebView;
 import android.content.Context;
 import android.webkit.JsPromptResult;
 import c.a.f.a.a;
-import c.a.t0.x3.n0.d.c;
+import c.a.u0.z3.o0.d.c;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
@@ -17,15 +17,15 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONObject;
 @a
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class SingleQuickWebViewBridge extends CommonTbJsBridge {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String REQUEST_BY_NATIVE;
-    public c.a.t0.i3.a mProxy;
+    public c.a.u0.j3.a mProxy;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SingleQuickWebViewBridge(Context context, c.a.t0.i3.a aVar) {
+    public SingleQuickWebViewBridge(Context context, c.a.u0.j3.a aVar) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -46,7 +46,7 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
         this.mProxy = aVar;
     }
 
-    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, c.a.t0.x3.n0.b
+    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, c.a.u0.z3.o0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -83,12 +83,13 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
                 HashMap hashMap = new HashMap();
                 Iterator<String> keys = jSONObject.keys();
                 while (keys.hasNext()) {
-                    hashMap.put(keys.next(), jSONObject.optString(keys.next()));
+                    String next = keys.next();
+                    hashMap.put(next, jSONObject.optString(next));
                 }
                 quickWebViewBridgeData.data = hashMap;
             }
             quickWebViewBridgeData.begin = System.currentTimeMillis();
-            c.a.t0.i3.a aVar = this.mProxy;
+            c.a.u0.j3.a aVar = this.mProxy;
             if (aVar != null) {
                 aVar.j(quickWebViewBridgeData, quickWebViewBridgeData.callBack, true);
             }
@@ -107,6 +108,7 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
                 cVar.o(hashMap.get("result"));
                 cVar.w(hashMap.get("NotificationKey"));
             }
+            cVar.z(true);
             return cVar;
         }
         return (c) invokeL.objValue;

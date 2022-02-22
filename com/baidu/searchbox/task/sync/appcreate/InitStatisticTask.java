@@ -1,6 +1,6 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
-import c.a.s0.s0.l;
+import c.a.t0.s0.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;

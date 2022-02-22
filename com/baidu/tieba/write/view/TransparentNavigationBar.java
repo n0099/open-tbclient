@@ -3,7 +3,7 @@ package com.baidu.tieba.write.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import c.a.d.a.f;
-import c.a.t0.p4.d;
+import c.a.u0.s4.d;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.titan.sdk.runtime.FieldHolder;

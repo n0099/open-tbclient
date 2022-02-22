@@ -16,7 +16,7 @@ public final class e {
     public static final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f62063b;
+    public static final boolean f62230b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -63,7 +63,7 @@ public final class e {
         }
         int d2 = d();
         a = d2;
-        f62063b = d2 != 0;
+        f62230b = d2 != 0;
     }
 
     public static int a() {
@@ -87,7 +87,7 @@ public final class e {
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f62063b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f62230b : invokeV.booleanValue;
     }
 
     public static int d() {

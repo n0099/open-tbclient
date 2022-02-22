@@ -37,7 +37,7 @@ import java.util.Map;
 import java.util.UUID;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHARSET = "utf-8";
@@ -120,9 +120,9 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                     this.this$0 = this;
                 }
 
-                /* JADX WARN: Removed duplicated region for block: B:79:0x02f3 A[Catch: Exception -> 0x02ef, TryCatch #2 {Exception -> 0x02ef, blocks: (B:75:0x02eb, B:79:0x02f3, B:81:0x02f8), top: B:88:0x02eb }] */
-                /* JADX WARN: Removed duplicated region for block: B:81:0x02f8 A[Catch: Exception -> 0x02ef, TRY_LEAVE, TryCatch #2 {Exception -> 0x02ef, blocks: (B:75:0x02eb, B:79:0x02f3, B:81:0x02f8), top: B:88:0x02eb }] */
-                /* JADX WARN: Removed duplicated region for block: B:88:0x02eb A[EXC_TOP_SPLITTER, SYNTHETIC] */
+                /* JADX WARN: Removed duplicated region for block: B:79:0x02f2 A[Catch: Exception -> 0x02ee, TryCatch #2 {Exception -> 0x02ee, blocks: (B:75:0x02ea, B:79:0x02f2, B:81:0x02f7), top: B:88:0x02ea }] */
+                /* JADX WARN: Removed duplicated region for block: B:81:0x02f7 A[Catch: Exception -> 0x02ee, TRY_LEAVE, TryCatch #2 {Exception -> 0x02ee, blocks: (B:75:0x02ea, B:79:0x02f2, B:81:0x02f7), top: B:88:0x02ea }] */
+                /* JADX WARN: Removed duplicated region for block: B:88:0x02ea A[EXC_TOP_SPLITTER, SYNTHETIC] */
                 @Override // java.lang.Runnable
                 /*
                     Code decompiled incorrectly, please refer to instructions dump.

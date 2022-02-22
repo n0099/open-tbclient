@@ -17,7 +17,7 @@ public final class b implements OAuthListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ a f60505f;
+    public final /* synthetic */ a f60672f;
 
     public b(a aVar) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public final class b implements OAuthListener {
                 return;
             }
         }
-        this.f60505f = aVar;
+        this.f60672f = aVar;
     }
 
     @Override // com.tencent.mm.opensdk.diffdev.OAuthListener
@@ -43,9 +43,9 @@ public final class b implements OAuthListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, oAuthErrCode, str) == null) {
             Log.d("MicroMsg.SDK.ListenerWrapper", String.format("onAuthFinish, errCode = %s, authCode = %s", oAuthErrCode.toString(), str));
-            this.f60505f.f60503d = null;
+            this.f60672f.f60670d = null;
             ArrayList<OAuthListener> arrayList = new ArrayList();
-            list = this.f60505f.f60502c;
+            list = this.f60672f.f60669c;
             arrayList.addAll(list);
             for (OAuthListener oAuthListener : arrayList) {
                 oAuthListener.onAuthFinish(oAuthErrCode, str);
@@ -60,7 +60,7 @@ public final class b implements OAuthListener {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr) == null) {
             Log.d("MicroMsg.SDK.ListenerWrapper", "onAuthGotQrcode, qrcodeImgPath = ".concat(String.valueOf(str)));
             ArrayList<OAuthListener> arrayList = new ArrayList();
-            list = this.f60505f.f60502c;
+            list = this.f60672f.f60669c;
             arrayList.addAll(list);
             for (OAuthListener oAuthListener : arrayList) {
                 oAuthListener.onAuthGotQrcode(str, bArr);
@@ -75,9 +75,9 @@ public final class b implements OAuthListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Log.d("MicroMsg.SDK.ListenerWrapper", "onQrcodeScanned");
-            handler = this.f60505f.handler;
+            handler = this.f60672f.handler;
             if (handler != null) {
-                handler2 = this.f60505f.handler;
+                handler2 = this.f60672f.handler;
                 handler2.post(new c(this));
             }
         }

@@ -54,16 +54,16 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     public static final int BT_INVIEW = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f35474b;
+    public static final String f35680b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f35475c;
+    public static String f35681c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f35476d;
+    public static int f35682d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f35477e;
+    public static int f35683e;
     public static int s;
     public static int t;
     public static int u;
@@ -80,19 +80,19 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     public ScreenShape a;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.baidu.mapsdkplatform.comapi.map.j f35478f;
+    public com.baidu.mapsdkplatform.comapi.map.j f35684f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BaiduMap f35479g;
+    public BaiduMap f35685g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f35480h;
+    public ImageView f35686h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Bitmap f35481i;
+    public Bitmap f35687i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ak f35482j;
+    public ak f35688j;
     public boolean k;
     public Point l;
     public Point m;
@@ -220,7 +220,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
         public final /* synthetic */ WearMapView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final WeakReference<Context> f35483b;
+        public final WeakReference<Context> f35689b;
 
         public a(WearMapView wearMapView, Context context) {
             Interceptable interceptable = $ic;
@@ -238,17 +238,17 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
                 }
             }
             this.a = wearMapView;
-            this.f35483b = new WeakReference<>(context);
+            this.f35689b = new WeakReference<>(context);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || this.f35483b.get() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || this.f35689b.get() == null) {
                 return;
             }
             super.handleMessage(message);
-            if (message.what == 1 && this.a.f35482j != null) {
+            if (message.what == 1 && this.a.f35688j != null) {
                 this.a.a(true);
             }
         }
@@ -267,9 +267,9 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
                 return;
             }
         }
-        f35474b = MapView.class.getSimpleName();
-        f35476d = 0;
-        f35477e = 0;
+        f35680b = MapView.class.getSimpleName();
+        f35682d = 0;
+        f35683e = 0;
         s = 0;
         t = 0;
         u = 10;
@@ -412,7 +412,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     private void a(int i2) {
         com.baidu.mapsdkplatform.comapi.map.j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65545, this, i2) == null) || (jVar = this.f35478f) == null) {
+        if (!(interceptable == null || interceptable.invokeI(65545, this, i2) == null) || (jVar = this.f35684f) == null) {
             return;
         }
         if (i2 == 0) {
@@ -456,18 +456,18 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
             this.mTimer.schedule(animationTask2, 5000L);
             com.baidu.mapsdkplatform.comapi.map.i.a();
             BMapManager.init();
-            a(context, baiduMapOptions, f35476d == 0 ? f35475c : CustomMapStyleLoader.getCustomStyleFilePath());
-            this.f35479g = new BaiduMap(this.f35478f);
-            this.f35478f.a().t(false);
-            this.f35478f.a().s(false);
+            a(context, baiduMapOptions, f35682d == 0 ? f35681c : CustomMapStyleLoader.getCustomStyleFilePath());
+            this.f35685g = new BaiduMap(this.f35684f);
+            this.f35684f.a().t(false);
+            this.f35684f.a().s(false);
             c(context);
             d(context);
             b(context);
-            if (baiduMapOptions != null && !baiduMapOptions.f35255h) {
-                this.f35482j.setVisibility(4);
+            if (baiduMapOptions != null && !baiduMapOptions.f35461h) {
+                this.f35688j.setVisibility(4);
             }
             e(context);
-            if (baiduMapOptions != null && !baiduMapOptions.f35256i) {
+            if (baiduMapOptions != null && !baiduMapOptions.f35462i) {
                 this.n.setVisibility(4);
             }
             if (baiduMapOptions != null && (point2 = baiduMapOptions.l) != null) {
@@ -484,13 +484,13 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65548, this, context, baiduMapOptions, str) == null) {
             if (baiduMapOptions == null) {
-                this.f35478f = new com.baidu.mapsdkplatform.comapi.map.j(context, null, str, f35477e);
+                this.f35684f = new com.baidu.mapsdkplatform.comapi.map.j(context, null, str, f35683e);
             } else {
-                this.f35478f = new com.baidu.mapsdkplatform.comapi.map.j(context, baiduMapOptions.a(), str, f35477e);
+                this.f35684f = new com.baidu.mapsdkplatform.comapi.map.j(context, baiduMapOptions.a(), str, f35683e);
             }
-            addView(this.f35478f);
+            addView(this.f35684f);
             this.B = new x(this);
-            this.f35478f.a().a(this.B);
+            this.f35684f.a().a(this.B);
         }
     }
 
@@ -530,13 +530,13 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(65552, this, z) == null) && this.k) {
-            a(this.f35482j, z);
+            a(this.f35688j, z);
         }
     }
 
     private void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65554, this) == null) || this.f35478f == null || this.v) {
+        if (!(interceptable == null || interceptable.invokeV(65554, this) == null) || this.f35684f == null || this.v) {
             return;
         }
         d();
@@ -556,7 +556,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
 
     private void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65557, this) == null) && this.f35478f != null && this.v) {
+        if ((interceptable == null || interceptable.invokeV(65557, this) == null) && this.f35684f != null && this.v) {
             e();
             this.v = false;
         }
@@ -580,12 +580,12 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
             matrix = new Matrix();
             f2 = 2.0f;
         } else if (densityDpi <= 320 || densityDpi > 480) {
-            this.f35481i = a2;
-            if (this.f35481i == null) {
+            this.f35687i = a2;
+            if (this.f35687i == null) {
                 ImageView imageView = new ImageView(context);
-                this.f35480h = imageView;
-                imageView.setImageBitmap(this.f35481i);
-                addView(this.f35480h);
+                this.f35686h = imageView;
+                imageView.setImageBitmap(this.f35687i);
+                addView(this.f35686h);
                 return;
             }
             return;
@@ -594,15 +594,15 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
             f2 = 1.5f;
         }
         matrix.postScale(f2, f2);
-        this.f35481i = Bitmap.createBitmap(a2, 0, 0, a2.getWidth(), a2.getHeight(), matrix, true);
-        if (this.f35481i == null) {
+        this.f35687i = Bitmap.createBitmap(a2, 0, 0, a2.getWidth(), a2.getHeight(), matrix, true);
+        if (this.f35687i == null) {
         }
     }
 
     private void d() {
         com.baidu.mapsdkplatform.comapi.map.j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65560, this) == null) || (jVar = this.f35478f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65560, this) == null) || (jVar = this.f35684f) == null) {
             return;
         }
         jVar.b();
@@ -612,11 +612,11 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65561, this, context) == null) {
             ak akVar = new ak(context, true);
-            this.f35482j = akVar;
+            this.f35688j = akVar;
             if (akVar.a()) {
-                this.f35482j.b(new y(this));
-                this.f35482j.a(new z(this));
-                addView(this.f35482j);
+                this.f35688j.b(new y(this));
+                this.f35688j.a(new z(this));
+                addView(this.f35688j);
             }
         }
     }
@@ -624,7 +624,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     private void e() {
         com.baidu.mapsdkplatform.comapi.map.j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65563, this) == null) || (jVar = this.f35478f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65563, this) == null) || (jVar = this.f35684f) == null) {
             return;
         }
         jVar.c();
@@ -679,7 +679,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
             if (!new File(str).exists()) {
                 throw new RuntimeException("BDMapSDKException: please check whether the customMapStylePath file exits");
             }
-            f35475c = str;
+            f35681c = str;
         }
     }
 
@@ -687,14 +687,14 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     public static void setIconCustom(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65567, null, i2) == null) {
-            f35477e = i2;
+            f35683e = i2;
         }
     }
 
     public static void setLoadCustomMapStyleFileMode(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65568, null, i2) == null) {
-            f35476d = i2;
+            f35682d = i2;
         }
     }
 
@@ -718,8 +718,8 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            BaiduMap baiduMap = this.f35479g;
-            baiduMap.f35242c = this;
+            BaiduMap baiduMap = this.f35685g;
+            baiduMap.f35448c = this;
             return baiduMap;
         }
         return (BaiduMap) invokeV.objValue;
@@ -728,7 +728,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     public final int getMapLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? x.get((int) this.f35478f.a().E().a).intValue() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? x.get((int) this.f35684f.a().E().a).intValue() : invokeV.intValue;
     }
 
     public int getScaleControlViewHeight() {
@@ -777,14 +777,14 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             Context context = this.w;
             if (context != null) {
-                this.f35478f.b(context.hashCode());
+                this.f35684f.b(context.hashCode());
             }
-            Bitmap bitmap = this.f35481i;
+            Bitmap bitmap = this.f35687i;
             if (bitmap != null && !bitmap.isRecycled()) {
-                this.f35481i.recycle();
-                this.f35481i = null;
+                this.f35687i.recycle();
+                this.f35687i = null;
             }
-            this.f35482j.b();
+            this.f35688j.b();
             BMapManager.destroy();
             com.baidu.mapsdkplatform.comapi.map.i.b();
             AnimationTask animationTask = this.mTask;
@@ -834,7 +834,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
                     this.mTask = animationTask2;
                     this.mTimer.schedule(animationTask2, 5000L);
                 }
-            } else if (this.f35482j.getVisibility() == 0) {
+            } else if (this.f35688j.getVisibility() == 0) {
                 Timer timer2 = this.mTimer;
                 if (timer2 != null) {
                     if (this.mTask != null) {
@@ -844,7 +844,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
                     this.mTimer = null;
                     this.mTask = null;
                 }
-            } else if (this.f35482j.getVisibility() == 4) {
+            } else if (this.f35688j.getVisibility() == 4) {
                 if (this.mTimer != null) {
                     AnimationTask animationTask3 = this.mTask;
                     if (animationTask3 != null) {
@@ -872,9 +872,9 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             int childCount = getChildCount();
-            a(this.f35480h);
+            a(this.f35686h);
             float f3 = 1.0f;
-            if (((getWidth() - this.C) - this.D) - this.f35480h.getMeasuredWidth() <= 0 || ((getHeight() - this.E) - this.F) - this.f35480h.getMeasuredHeight() <= 0) {
+            if (((getWidth() - this.C) - this.D) - this.f35686h.getMeasuredWidth() <= 0 || ((getHeight() - this.E) - this.F) - this.f35686h.getMeasuredHeight() <= 0) {
                 this.C = 0;
                 this.D = 0;
                 this.F = 0;
@@ -887,15 +887,15 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
             }
             for (int i10 = 0; i10 < childCount; i10++) {
                 View childAt = getChildAt(i10);
-                com.baidu.mapsdkplatform.comapi.map.j jVar = this.f35478f;
+                com.baidu.mapsdkplatform.comapi.map.j jVar = this.f35684f;
                 if (childAt == jVar) {
                     jVar.layout(0, 0, getWidth(), getHeight());
-                } else if (childAt == this.f35480h) {
+                } else if (childAt == this.f35686h) {
                     int i11 = (int) (this.F + (12.0f * f3));
                     if (this.a == ScreenShape.ROUND) {
-                        a(this.f35482j);
+                        a(this.f35688j);
                         int i12 = s / 2;
-                        i8 = a(i12, this.f35482j.getMeasuredWidth() / 2);
+                        i8 = a(i12, this.f35688j.getMeasuredWidth() / 2);
                         i9 = ((s / 2) - a(i12, i12 - i8)) + u;
                     } else {
                         i8 = 0;
@@ -903,28 +903,28 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
                     }
                     int i13 = (t - i8) - i11;
                     int i14 = s - i9;
-                    this.f35480h.layout(i14 - this.f35480h.getMeasuredWidth(), i13 - this.f35480h.getMeasuredHeight(), i14, i13);
+                    this.f35686h.layout(i14 - this.f35686h.getMeasuredWidth(), i13 - this.f35686h.getMeasuredHeight(), i14, i13);
                 } else {
-                    ak akVar = this.f35482j;
+                    ak akVar = this.f35688j;
                     if (childAt == akVar) {
                         if (akVar.a()) {
-                            a(this.f35482j);
+                            a(this.f35688j);
                             Point point = this.m;
                             if (point == null) {
-                                int a2 = (int) ((12.0f * f3) + this.E + (this.a == ScreenShape.ROUND ? a(t / 2, this.f35482j.getMeasuredWidth() / 2) : 0));
-                                int measuredWidth = (s - this.f35482j.getMeasuredWidth()) / 2;
-                                this.f35482j.layout(measuredWidth, a2, this.f35482j.getMeasuredWidth() + measuredWidth, this.f35482j.getMeasuredHeight() + a2);
+                                int a2 = (int) ((12.0f * f3) + this.E + (this.a == ScreenShape.ROUND ? a(t / 2, this.f35688j.getMeasuredWidth() / 2) : 0));
+                                int measuredWidth = (s - this.f35688j.getMeasuredWidth()) / 2;
+                                this.f35688j.layout(measuredWidth, a2, this.f35688j.getMeasuredWidth() + measuredWidth, this.f35688j.getMeasuredHeight() + a2);
                             } else {
-                                ak akVar2 = this.f35482j;
+                                ak akVar2 = this.f35688j;
                                 int i15 = point.x;
-                                akVar2.layout(i15, point.y, akVar2.getMeasuredWidth() + i15, this.m.y + this.f35482j.getMeasuredHeight());
+                                akVar2.layout(i15, point.y, akVar2.getMeasuredWidth() + i15, this.m.y + this.f35688j.getMeasuredHeight());
                             }
                         }
                     } else if (childAt == this.n) {
                         if (this.a == ScreenShape.ROUND) {
                             a(akVar);
                             int i16 = s / 2;
-                            i6 = a(i16, this.f35482j.getMeasuredWidth() / 2);
+                            i6 = a(i16, this.f35688j.getMeasuredWidth() / 2);
                             i7 = ((s / 2) - a(i16, i16 - i6)) + u;
                         } else {
                             i6 = 0;
@@ -952,14 +952,14 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
                             ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
                             if (layoutParams instanceof MapViewLayoutParams) {
                                 MapViewLayoutParams mapViewLayoutParams = (MapViewLayoutParams) layoutParams;
-                                Point a3 = mapViewLayoutParams.f35358c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.f35357b : this.f35478f.a().a(CoordUtil.ll2mc(mapViewLayoutParams.a));
+                                Point a3 = mapViewLayoutParams.f35564c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.f35563b : this.f35684f.a().a(CoordUtil.ll2mc(mapViewLayoutParams.a));
                                 a(childAt);
                                 int measuredWidth2 = childAt.getMeasuredWidth();
                                 int measuredHeight = childAt.getMeasuredHeight();
-                                float f4 = mapViewLayoutParams.f35359d;
-                                float f5 = mapViewLayoutParams.f35360e;
+                                float f4 = mapViewLayoutParams.f35565d;
+                                float f5 = mapViewLayoutParams.f35566e;
                                 int i20 = (int) (a3.x - (f4 * measuredWidth2));
-                                int i21 = ((int) (a3.y - (f5 * measuredHeight))) + mapViewLayoutParams.f35361f;
+                                int i21 = ((int) (a3.y - (f5 * measuredHeight))) + mapViewLayoutParams.f35567f;
                                 childAt.layout(i20, i21, measuredWidth2 + i20, measuredHeight + i21);
                             }
                         }
@@ -972,7 +972,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     public void onSaveInstanceState(Bundle bundle) {
         BaiduMap baiduMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) || bundle == null || (baiduMap = this.f35479g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) || bundle == null || (baiduMap = this.f35685g) == null) {
             return;
         }
         bundle.putParcelable("mapstatus", baiduMap.getMapStatus());
@@ -995,7 +995,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     @Override // android.view.ViewGroup, android.view.ViewManager
     public void removeView(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, view) == null) || view == this.f35480h) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, view) == null) || view == this.f35686h) {
             return;
         }
         super.removeView(view);
@@ -1065,8 +1065,8 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
 
     public void showZoomControls(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048598, this, z) == null) && this.f35482j.a()) {
-            this.f35482j.setVisibility(z ? 0 : 8);
+        if ((interceptable == null || interceptable.invokeZ(1048598, this, z) == null) && this.f35688j.a()) {
+            this.f35688j.setVisibility(z ? 0 : 8);
             this.y = z;
         }
     }

@@ -17,12 +17,12 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Enumeration;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PatchReplaceMethodHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a extends ClassLoader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,11 +107,11 @@ public class PatchReplaceMethodHelper {
                         setFieldsFlag(cls);
                     }
                 } catch (IOException e2) {
-                    c.a.d.i.h.a b2 = c.a.d.i.h.a.b();
+                    c.a.d.j.h.a b2 = c.a.d.j.h.a.b();
                     b2.p("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e2.getMessage());
                     e2.printStackTrace();
                 } catch (ClassNotFoundException e3) {
-                    c.a.d.i.h.a b3 = c.a.d.i.h.a.b();
+                    c.a.d.j.h.a b3 = c.a.d.j.h.a.b();
                     b3.p("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e3.getMessage());
                     e3.printStackTrace();
                 }

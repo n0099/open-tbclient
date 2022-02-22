@@ -29,7 +29,7 @@ import com.baidu.webkit.sdk.system.GeolocationPermissionsImpl;
 import com.baidu.webkit.sdk.system.WebStorageImpl;
 import com.baidu.webkit.sdk.system.WebViewImpl;
 import java.util.Objects;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class WebChromeClientWrapper extends WebChromeClient {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -38,13 +38,13 @@ public final class WebChromeClientWrapper extends WebChromeClient {
     public final WebViewImpl mWebView;
 
     /* renamed from: com.baidu.webkit.sdk.system.WebChromeClientWrapper$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CustomViewCallbackImpl implements WebChromeClient.CustomViewCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +82,7 @@ public final class WebChromeClientWrapper extends WebChromeClient {
     }
 
     @TargetApi(21)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class FileChooserParamsImpl extends WebChromeClient.FileChooserParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

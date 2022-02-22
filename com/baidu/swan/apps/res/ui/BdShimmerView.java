@@ -5,8 +5,8 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.a.c2.b.d.b;
-import c.a.r0.a.e;
+import c.a.s0.a.c2.b.d.b;
+import c.a.s0.a.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.ShimmerFrameLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView
     public int v;
 
     /* loaded from: classes11.dex */
-    public class a implements c.a.r0.a.j2.a {
+    public class a implements c.a.s0.a.j2.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdShimmerView a;
@@ -77,7 +77,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.r0.a.c2.b.d.b
+    @Override // c.a.s0.a.c2.b.d.b
     public BdShimmerView getLoadingView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onAttachedToWindow();
-            c.a.r0.a.c1.a.M().f(this, new a(this));
+            c.a.s0.a.c1.a.M().f(this, new a(this));
         }
     }
 
@@ -107,7 +107,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDetachedFromWindow();
-            c.a.r0.a.c1.a.M().g(this);
+            c.a.s0.a.c1.a.M().g(this);
         }
     }
 
@@ -125,7 +125,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView
             }
             this.u.setImageDrawable(getResources().getDrawable(e.aiapps_black_shimmer_loading));
             ShimmerFrameLayout.MaskShape maskShape = ShimmerFrameLayout.MaskShape.LINEAR;
-            if (c.a.r0.a.c1.a.M().a()) {
+            if (c.a.s0.a.c1.a.M().a()) {
                 maskShape = ShimmerFrameLayout.MaskShape.WHITE_LINEAR;
             }
             setMaskShape(maskShape);

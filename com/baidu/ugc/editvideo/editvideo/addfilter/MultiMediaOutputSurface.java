@@ -2,8 +2,8 @@ package com.baidu.ugc.editvideo.editvideo.addfilter;
 
 import android.opengl.GLES20;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a1.t.h;
-import c.a.b0.b.a.e;
+import c.a.b1.t.h;
+import c.a.c0.b.a.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;

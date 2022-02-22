@@ -19,7 +19,7 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile WeakReference<SharedPreferences> f60645b;
+    public volatile WeakReference<SharedPreferences> f60812b;
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +49,7 @@ public class h {
                 return;
             }
         }
-        this.f60645b = null;
+        this.f60812b = null;
     }
 
     public static synchronized h a() {
@@ -72,8 +72,8 @@ public class h {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
-            if (this.f60645b == null || this.f60645b.get() == null) {
-                this.f60645b = new WeakReference<>(context.getSharedPreferences("ServerPrefs", 0));
+            if (this.f60812b == null || this.f60812b.get() == null) {
+                this.f60812b = new WeakReference<>(context.getSharedPreferences("ServerPrefs", 0));
             }
             try {
                 String host = new URL(str).getHost();
@@ -81,7 +81,7 @@ public class h {
                     SLog.e("openSDK_LOG.ServerSetting", "Get host error. url=" + str);
                     return str;
                 }
-                String string = this.f60645b.get().getString(host, null);
+                String string = this.f60812b.get().getString(host, null);
                 if (string != null && !host.equals(string)) {
                     String replace = str.replace(host, string);
                     SLog.v("openSDK_LOG.ServerSetting", "return environment url : " + replace);

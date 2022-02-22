@@ -14,10 +14,10 @@ public abstract class Tracer {
     public volatile int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f60590b;
+    public volatile boolean f60757b;
 
     /* renamed from: c  reason: collision with root package name */
-    public g f60591c;
+    public g f60758c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public Tracer() {
@@ -48,7 +48,7 @@ public abstract class Tracer {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f60590b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f60757b : invokeV.booleanValue;
     }
 
     public abstract void doTrace(int i2, Thread thread, long j2, String str, String str2, Throwable th);
@@ -56,7 +56,7 @@ public abstract class Tracer {
     public g e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f60591c : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f60758c : (g) invokeV.objValue;
     }
 
     public Tracer(int i2, boolean z, g gVar) {
@@ -75,8 +75,8 @@ public abstract class Tracer {
             }
         }
         this.a = c.a;
-        this.f60590b = true;
-        this.f60591c = g.a;
+        this.f60757b = true;
+        this.f60758c = g.a;
         a(i2);
         a(z);
         a(gVar);
@@ -92,14 +92,14 @@ public abstract class Tracer {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f60590b = z;
+            this.f60757b = z;
         }
     }
 
     public void a(g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gVar) == null) {
-            this.f60591c = gVar;
+            this.f60758c = gVar;
         }
     }
 }

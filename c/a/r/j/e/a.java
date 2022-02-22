@@ -19,34 +19,34 @@ public class a extends c.a.r.j.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public a.C0259a f5135d;
+    public a.C0264a f5205d;
 
     /* renamed from: e  reason: collision with root package name */
-    public C0262a f5136e;
+    public C0267a f5206e;
 
     /* renamed from: c.a.r.j.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0262a {
+    public class C0267a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f5137b;
+        public boolean f5207b;
 
         /* renamed from: c  reason: collision with root package name */
-        public e f5138c;
+        public e f5208c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f5139d;
+        public String f5209d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f5140e;
+        public String f5210e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f5141f;
+        public final /* synthetic */ a f5211f;
 
-        public C0262a(a aVar) {
+        public C0267a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,26 +61,26 @@ public class a extends c.a.r.j.a {
                     return;
                 }
             }
-            this.f5141f = aVar;
-            this.f5137b = true;
-            this.f5138c = new e();
+            this.f5211f = aVar;
+            this.f5207b = true;
+            this.f5208c = new e();
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5139d : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5209d : (String) invokeV.objValue;
         }
 
         public void b(String str) {
             String str2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (str2 = this.f5139d) == str) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (str2 = this.f5209d) == str) {
                 return;
             }
             if (str == null || !str.equals(str2)) {
-                this.f5139d = str;
-                this.f5137b = true;
+                this.f5209d = str;
+                this.f5207b = true;
             }
         }
 
@@ -90,18 +90,18 @@ public class a extends c.a.r.j.a {
                 return;
             }
             this.a = j2;
-            this.f5137b = true;
+            this.f5207b = true;
         }
 
         public void d(String str) {
             String str2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (str2 = this.f5140e) == str) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (str2 = this.f5210e) == str) {
                 return;
             }
             if (str == null || !str.equals(str2)) {
-                this.f5140e = str;
-                this.f5137b = true;
+                this.f5210e = str;
+                this.f5207b = true;
             }
         }
 
@@ -109,16 +109,16 @@ public class a extends c.a.r.j.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                if (this.f5137b) {
+                if (this.f5207b) {
                     try {
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("form_id", this.f5139d);
+                        jSONObject.put("form_id", this.f5209d);
                         jSONObject.put("lst_fe_ts", this.a);
                         jSONObject.put("c_form_ver", 1);
-                        jSONObject.put("flags", this.f5138c.d());
-                        jSONObject.put("uuid", this.f5140e);
-                        this.f5141f.f5135d.i("cache.dat", jSONObject.toString(), true);
-                        this.f5137b = false;
+                        jSONObject.put("flags", this.f5208c.d());
+                        jSONObject.put("uuid", this.f5210e);
+                        this.f5211f.f5205d.i("cache.dat", jSONObject.toString(), true);
+                        this.f5207b = false;
                         return true;
                     } catch (Exception unused) {
                     }
@@ -132,17 +132,17 @@ public class a extends c.a.r.j.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                String g2 = this.f5141f.f5135d.g("cache.dat", true);
+                String g2 = this.f5211f.f5205d.g("cache.dat", true);
                 if (TextUtils.isEmpty(g2)) {
                     return false;
                 }
                 try {
                     JSONObject jSONObject = new JSONObject(g2);
-                    this.f5139d = jSONObject.optString("form_id");
+                    this.f5209d = jSONObject.optString("form_id");
                     this.a = jSONObject.getLong("lst_fe_ts");
                     jSONObject.getInt("c_form_ver");
-                    this.f5140e = jSONObject.getString("uuid");
-                    this.f5138c.b(jSONObject.getLong("flags"));
+                    this.f5210e = jSONObject.getString("uuid");
+                    this.f5208c.b(jSONObject.getLong("flags"));
                     return true;
                 } catch (Exception unused) {
                     return false;
@@ -168,32 +168,32 @@ public class a extends c.a.r.j.a {
                 return;
             }
         }
-        this.f5136e = new C0262a(this);
+        this.f5206e = new C0267a(this);
     }
 
     @Override // c.a.r.j.a
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5136e.a() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5206e.a() : (String) invokeV.objValue;
     }
 
     @Override // c.a.r.j.a
     public void f(a.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f5135d = this.a.f(e());
-            this.f5136e.f();
-            if (TextUtils.isEmpty(this.f5136e.a())) {
+            this.f5205d = this.a.f(e());
+            this.f5206e.f();
+            if (TextUtils.isEmpty(this.f5206e.a())) {
                 String uuid = UUID.randomUUID().toString();
-                this.f5136e.d(uuid);
+                this.f5206e.d(uuid);
                 try {
-                    this.f5136e.b(c.a.r.j.a.b("A50", new b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(uuid.getBytes("UTF-8"))));
+                    this.f5206e.b(c.a.r.j.a.b("A50", new b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(uuid.getBytes("UTF-8"))));
                 } catch (Exception unused) {
                 }
-                this.f5136e.c(System.currentTimeMillis());
+                this.f5206e.c(System.currentTimeMillis());
             }
-            this.f5136e.e();
+            this.f5206e.e();
         }
     }
 }

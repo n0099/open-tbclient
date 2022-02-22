@@ -17,7 +17,7 @@ public final class b implements com.yxcorp.kuaishou.addfp.a.b.a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f61573b;
+    public Context f61740b;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public final class b implements com.yxcorp.kuaishou.addfp.a.b.a {
             }
         }
         this.a = "";
-        this.f61573b = context;
+        this.f61740b = context;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
@@ -77,7 +77,7 @@ public final class b implements com.yxcorp.kuaishou.addfp.a.b.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String b2 = a.a(this.f61573b).b();
+            String b2 = a.a(this.f61740b).b();
             return TextUtils.isEmpty(b2) ? "" : b2;
         }
         return (String) invokeV.objValue;
@@ -87,7 +87,7 @@ public final class b implements com.yxcorp.kuaishou.addfp.a.b.a {
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? a.a(this.f61573b).a() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? a.a(this.f61740b).a() : invokeV.booleanValue;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a

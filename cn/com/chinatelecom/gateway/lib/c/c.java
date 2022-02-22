@@ -20,7 +20,7 @@ public class c {
     public static final String a = "cn.com.chinatelecom.gateway.lib.c.c";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f30653b = "";
+    public static String f30859b = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -71,16 +71,16 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (TextUtils.isEmpty(f30653b)) {
+            if (TextUtils.isEmpty(f30859b)) {
                 String b2 = b(context);
-                f30653b = b2;
+                f30859b = b2;
                 if (TextUtils.isEmpty(b2)) {
                     String c2 = c(context);
-                    f30653b = c2;
+                    f30859b = c2;
                     a(context, c2);
                 }
             }
-            return f30653b;
+            return f30859b;
         }
         return (String) invokeL.objValue;
     }

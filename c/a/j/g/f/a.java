@@ -16,19 +16,19 @@ public final class a extends c.a.j.g.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final UniqueId f4030b;
+    public static final UniqueId f4050b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final C0179a f4031c;
+    public static final C0181a f4051c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.j.g.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0179a {
+    public static final class C0181a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0179a() {
+        public C0181a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,10 +45,10 @@ public final class a extends c.a.j.g.a {
         public final UniqueId a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.f4030b : (UniqueId) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.f4050b : (UniqueId) invokeV.objValue;
         }
 
-        public /* synthetic */ C0179a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C0181a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
     }
@@ -66,10 +66,10 @@ public final class a extends c.a.j.g.a {
                 return;
             }
         }
-        f4031c = new C0179a(null);
+        f4051c = new C0181a(null);
         UniqueId gen = UniqueId.gen("TaskBackFlowCancelEvent");
         Intrinsics.checkExpressionValueIsNotNull(gen, "UniqueId.gen(\"TaskBackFlowCancelEvent\")");
-        f4030b = gen;
+        f4050b = gen;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -96,7 +96,7 @@ public final class a extends c.a.j.g.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "" + f4031c.a().getAlias() + ':' + a().toJson();
+            return "" + f4051c.a().getAlias() + ':' + a().toJson();
         }
         return (String) invokeV.objValue;
     }

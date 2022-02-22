@@ -24,10 +24,10 @@ public final class d extends c.a.j.l.h.d.c {
     public static WeakReference<e> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Toast f4173b;
+    public static Toast f4193b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Handler f4174c;
+    public static Handler f4194c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -36,24 +36,24 @@ public final class d extends c.a.j.l.h.d.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f4175e;
+        public final /* synthetic */ Context f4195e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f4176f;
+        public final /* synthetic */ ViewGroup f4196f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f4177g;
+        public final /* synthetic */ int f4197g;
 
         /* renamed from: c.a.j.l.h.d.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0196a implements Runnable {
+        public class RunnableC0198a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f4178e;
+            public final /* synthetic */ a f4198e;
 
-            public RunnableC0196a(a aVar) {
+            public RunnableC0198a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,18 +68,18 @@ public final class d extends c.a.j.l.h.d.c {
                         return;
                     }
                 }
-                this.f4178e = aVar;
+                this.f4198e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && c.a.j.m.c.q()) {
-                    Toast unused = d.f4173b = new Toast(this.f4178e.f4175e);
-                    d.f4173b.setView(this.f4178e.f4176f);
-                    d.f4173b.setGravity(81, 0, this.f4178e.f4177g);
-                    c.a.j.m.c.m(d.f4173b, g.toast_animation);
-                    d.f4173b.show();
+                    Toast unused = d.f4193b = new Toast(this.f4198e.f4195e);
+                    d.f4193b.setView(this.f4198e.f4196f);
+                    d.f4193b.setGravity(81, 0, this.f4198e.f4197g);
+                    c.a.j.m.c.m(d.f4193b, g.toast_animation);
+                    d.f4193b.show();
                 }
             }
         }
@@ -99,16 +99,16 @@ public final class d extends c.a.j.l.h.d.c {
                     return;
                 }
             }
-            this.f4175e = context;
-            this.f4176f = viewGroup;
-            this.f4177g = i2;
+            this.f4195e = context;
+            this.f4196f = viewGroup;
+            this.f4197g = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                d.f4174c.post(new RunnableC0196a(this));
+                d.f4194c.post(new RunnableC0198a(this));
             }
         }
     }
@@ -119,16 +119,16 @@ public final class d extends c.a.j.l.h.d.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f4179e;
+        public final /* synthetic */ Context f4199e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f4180f;
+        public final /* synthetic */ ViewGroup f4200f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f4181g;
+        public final /* synthetic */ int f4201g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ b.a f4182h;
+        public final /* synthetic */ b.a f4202h;
 
         /* loaded from: classes.dex */
         public class a implements Runnable {
@@ -136,18 +136,18 @@ public final class d extends c.a.j.l.h.d.c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f4183e;
+            public final /* synthetic */ b f4203e;
 
             /* renamed from: c.a.j.l.h.d.d$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes.dex */
-            public class View$OnClickListenerC0197a implements View.OnClickListener {
+            public class View$OnClickListenerC0199a implements View.OnClickListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ a f4184e;
+                public final /* synthetic */ a f4204e;
 
-                public View$OnClickListenerC0197a(a aVar) {
+                public View$OnClickListenerC0199a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -162,14 +162,14 @@ public final class d extends c.a.j.l.h.d.c {
                             return;
                         }
                     }
-                    this.f4184e = aVar;
+                    this.f4204e = aVar;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     b.a aVar;
                     Interceptable interceptable = $ic;
-                    if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.f4184e.f4183e.f4182h) == null) {
+                    if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.f4204e.f4203e.f4202h) == null) {
                         return;
                     }
                     aVar.a();
@@ -191,19 +191,19 @@ public final class d extends c.a.j.l.h.d.c {
                         return;
                     }
                 }
-                this.f4183e = bVar;
+                this.f4203e = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && c.a.j.m.c.q()) {
-                    Toast unused = d.f4173b = new Toast(this.f4183e.f4179e);
-                    d.f4173b.setView(this.f4183e.f4180f);
-                    d.f4173b.setGravity(81, 0, this.f4183e.f4181g);
-                    c.a.j.m.c.m(d.f4173b, g.toast_animation);
-                    this.f4183e.f4180f.setOnClickListener(new View$OnClickListenerC0197a(this));
-                    d.f4173b.show();
+                    Toast unused = d.f4193b = new Toast(this.f4203e.f4199e);
+                    d.f4193b.setView(this.f4203e.f4200f);
+                    d.f4193b.setGravity(81, 0, this.f4203e.f4201g);
+                    c.a.j.m.c.m(d.f4193b, g.toast_animation);
+                    this.f4203e.f4200f.setOnClickListener(new View$OnClickListenerC0199a(this));
+                    d.f4193b.show();
                 }
             }
         }
@@ -223,17 +223,17 @@ public final class d extends c.a.j.l.h.d.c {
                     return;
                 }
             }
-            this.f4179e = context;
-            this.f4180f = viewGroup;
-            this.f4181g = i2;
-            this.f4182h = aVar;
+            this.f4199e = context;
+            this.f4200f = viewGroup;
+            this.f4201g = i2;
+            this.f4202h = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                d.f4174c.post(new a(this));
+                d.f4194c.post(new a(this));
             }
         }
     }
@@ -245,10 +245,10 @@ public final class d extends c.a.j.l.h.d.c {
         public final /* synthetic */ Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f4185b;
+        public final /* synthetic */ int f4205b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f4186c;
+        public final /* synthetic */ int f4206c;
 
         public c(Context context, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -266,8 +266,8 @@ public final class d extends c.a.j.l.h.d.c {
                 }
             }
             this.a = context;
-            this.f4185b = i2;
-            this.f4186c = i3;
+            this.f4205b = i2;
+            this.f4206c = i3;
         }
 
         @Override // c.a.j.l.h.d.c.e
@@ -280,8 +280,8 @@ public final class d extends c.a.j.l.h.d.c {
                     eVar.n(2003);
                 }
                 eVar.f(viewGroup);
-                eVar.e(81, 0, this.f4185b);
-                eVar.d(this.f4186c);
+                eVar.e(81, 0, this.f4205b);
+                eVar.d(this.f4206c);
                 eVar.j(g.toast_animation);
                 eVar.c();
             }
@@ -290,12 +290,12 @@ public final class d extends c.a.j.l.h.d.c {
 
     /* renamed from: c.a.j.l.h.d.d$d  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0198d implements b.a {
+    public static class C0200d implements b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b.a a;
 
-        public C0198d(b.a aVar) {
+        public C0200d(b.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -339,7 +339,7 @@ public final class d extends c.a.j.l.h.d.c {
                 return;
             }
         }
-        f4174c = new Handler(Looper.getMainLooper());
+        f4194c = new Handler(Looper.getMainLooper());
     }
 
     public static void e() {
@@ -350,7 +350,7 @@ public final class d extends c.a.j.l.h.d.c {
             if (weakReference != null && (eVar = weakReference.get()) != null) {
                 eVar.i();
             }
-            Toast toast = f4173b;
+            Toast toast = f4193b;
             if (toast != null) {
                 toast.cancel();
             }
@@ -370,7 +370,7 @@ public final class d extends c.a.j.l.h.d.c {
                 c.a.j.l.h.d.c.c(str, a2, new b(applicationContext, a2, dimension, aVar));
                 return;
             }
-            c.a.j.l.h.d.c.b(context, charSequence, i2, charSequence2, i3, str2, str, str3, str4, str5, str6, new c(applicationContext, dimension, i4), new C0198d(aVar));
+            c.a.j.l.h.d.c.b(context, charSequence, i2, charSequence2, i3, str2, str, str3, str4, str5, str6, new c(applicationContext, dimension, i4), new C0200d(aVar));
         }
     }
 

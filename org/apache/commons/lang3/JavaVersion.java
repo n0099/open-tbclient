@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.math.NumberUtils;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class JavaVersion {
     public static final /* synthetic */ JavaVersion[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

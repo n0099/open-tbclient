@@ -13,22 +13,22 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ah {
     public static Map<String, Integer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Set<String> f57937b;
+    public static Set<String> f58104b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Method f57938c;
+    public static Method f58105c;
 
     static {
         HashSet hashSet = new HashSet();
-        f57937b = hashSet;
+        f58104b = hashSet;
         hashSet.add("android.permission.REQUEST_INSTALL_PACKAGES");
-        f57937b.add("android.permission.WRITE_SETTINGS");
-        f57937b.add("android.permission.SYSTEM_ALERT_WINDOW");
+        f58104b.add("android.permission.WRITE_SETTINGS");
+        f58104b.add("android.permission.SYSTEM_ALERT_WINDOW");
     }
 
     public static int a(Context context, String str) {
@@ -39,7 +39,7 @@ public class ah {
             } catch (PackageManager.NameNotFoundException unused) {
             }
         }
-        if (!f57937b.contains(str) || (b2 = b(context, str)) == -2) {
+        if (!f58104b.contains(str) || (b2 = b(context, str)) == -2) {
             int c2 = c(context, str);
             return c2 != -2 ? c2 : context.checkPermission(str, Process.myPid(), Process.myUid());
         }
@@ -144,12 +144,12 @@ public class ah {
         if (a.containsKey(str)) {
             int intValue = a.get(str).intValue();
             try {
-                if (f57938c == null) {
+                if (f58105c == null) {
                     Method declaredMethod = AppOpsManager.class.getDeclaredMethod("checkOp", Integer.TYPE, Integer.TYPE, String.class);
-                    f57938c = declaredMethod;
+                    f58105c = declaredMethod;
                     declaredMethod.setAccessible(true);
                 }
-                return ((Integer) f57938c.invoke((AppOpsManager) context.getSystemService("appops"), Integer.valueOf(intValue), Integer.valueOf(Binder.getCallingUid()), context.getPackageName())).intValue() == 0 ? 0 : -1;
+                return ((Integer) f58105c.invoke((AppOpsManager) context.getSystemService("appops"), Integer.valueOf(intValue), Integer.valueOf(Binder.getCallingUid()), context.getPackageName())).intValue() == 0 ? 0 : -1;
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
                 return 0;

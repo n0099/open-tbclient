@@ -1,6 +1,7 @@
 package com.baidu.searchbox.live.chainlog;
 
 import android.os.Handler;
+import android.os.HandlerThread;
 import android.os.Looper;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -33,7 +34,8 @@ public class NpsLoadChainLog {
     public String entry;
     public String hostName;
     public String hostVersion;
-    public Handler mainHandler;
+    public HandlerThread mHandlerThread;
+    public Handler mSubHandler;
     public JSONObject pathJsonObj;
     public String pathTemp;
     public String pluginVersion;
@@ -75,6 +77,12 @@ public class NpsLoadChainLog {
                 }
             }
         }
+    }
+
+    public static /* synthetic */ String access$1084(NpsLoadChainLog npsLoadChainLog, Object obj) {
+        String str = npsLoadChainLog.pathTemp + obj;
+        npsLoadChainLog.pathTemp = str;
+        return str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -148,12 +156,12 @@ public class NpsLoadChainLog {
         if (!(interceptable == null || interceptable.invokeL(65562, this, runnable) == null) || runnable == null) {
             return;
         }
-        if (Looper.myLooper() == Looper.getMainLooper()) {
+        if (Looper.myLooper() == this.mSubHandler.getLooper()) {
             dLog("********************主线程********************");
             runnable.run();
-        } else if (this.mainHandler != null) {
+        } else if (this.mSubHandler != null) {
             dLog("@@@@@@@@@@@@@@@@@@@@子线程@@@@@@@@@@@@@@@@@@@@");
-            this.mainHandler.post(runnable);
+            this.mSubHandler.post(runnable);
         }
     }
 
@@ -162,6 +170,7 @@ public class NpsLoadChainLog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65563, this) == null) {
             JSONObject jSONObject = new JSONObject();
+            long currentTimeMillis = System.currentTimeMillis();
             try {
                 jSONObject.put("from", FROM);
                 jSONObject.put("type", TYPE);
@@ -186,6 +195,7 @@ public class NpsLoadChainLog {
             dLog(jSONObject.toString());
             dLog("-----------------------\n");
             this.ubcManager.onEvent(UBC_ID_4347, jSONObject.toString());
+            dLog("---report cost time = " + (System.currentTimeMillis() - currentTimeMillis) + "---\n");
         }
     }
 
@@ -232,8 +242,7 @@ public class NpsLoadChainLog {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("livenpsEndDowlonad") || this.this$0.pathJsonObj == null) {
                         return;
                     }
-                    NpsLoadChainLog npsLoadChainLog = this.this$0;
-                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "livenpsEndDowlonad";
+                    NpsLoadChainLog.access$1084(this.this$0, "livenpsEndDowlonad");
                     try {
                         this.this$0.pathJsonObj.put("livenpsEndDowlonad", this.this$0.genNodeJsonObj(1, Integer.MIN_VALUE, this.val$downloadSize, this.val$totalSize));
                     } catch (JSONException e2) {
@@ -249,7 +258,7 @@ public class NpsLoadChainLog {
     public void endInitYY(boolean z, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, str) == null) {
-            postTask(new Runnable(this, z, str) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.16
+            postTask(new Runnable(this, z, str) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.19
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ NpsLoadChainLog this$0;
@@ -282,8 +291,7 @@ public class NpsLoadChainLog {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("initEnd") || this.this$0.pathJsonObj == null) {
                         return;
                     }
-                    NpsLoadChainLog npsLoadChainLog = this.this$0;
-                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "initEnd";
+                    NpsLoadChainLog.access$1084(this.this$0, "initEnd");
                     try {
                         this.this$0.pathJsonObj.put("initEnd", this.this$0.genNodeJsonObj(this.val$isSucc ? 1 : 0, Integer.MIN_VALUE, this.val$errorMsg));
                     } catch (JSONException e2) {
@@ -303,7 +311,7 @@ public class NpsLoadChainLog {
     public void endInstallEntrance(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            postTask(new Runnable(this, z) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.12
+            postTask(new Runnable(this, z) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.15
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ NpsLoadChainLog this$0;
@@ -334,8 +342,7 @@ public class NpsLoadChainLog {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("entranceEndInstall") || this.this$0.pathJsonObj == null) {
                         return;
                     }
-                    NpsLoadChainLog npsLoadChainLog = this.this$0;
-                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "entranceEndInstall";
+                    NpsLoadChainLog.access$1084(this.this$0, "entranceEndInstall");
                     try {
                         this.this$0.pathJsonObj.put("entranceEndInstall", this.this$0.genNodeJsonObj(this.val$isSucc ? 1 : 0, Integer.MIN_VALUE));
                     } catch (JSONException e2) {
@@ -388,8 +395,7 @@ public class NpsLoadChainLog {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("endInstallLiveNps") || this.this$0.pathJsonObj == null) {
                         return;
                     }
-                    NpsLoadChainLog npsLoadChainLog = this.this$0;
-                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "endInstallLiveNps";
+                    NpsLoadChainLog.access$1084(this.this$0, "endInstallLiveNps");
                     try {
                         this.this$0.pathJsonObj.put("livenpsEndInstall", this.this$0.genNodeJsonObj(this.val$isSucc ? 1 : 0, this.val$errCode));
                     } catch (JSONException e2) {
@@ -409,7 +415,7 @@ public class NpsLoadChainLog {
     public void endLoadClazzLiveNps(boolean z, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            postTask(new Runnable(this, z, i2) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.10
+            postTask(new Runnable(this, z, i2) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.11
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ NpsLoadChainLog this$0;
@@ -442,8 +448,7 @@ public class NpsLoadChainLog {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("livenpsEndLoad") || this.this$0.pathJsonObj == null) {
                         return;
                     }
-                    NpsLoadChainLog npsLoadChainLog = this.this$0;
-                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "livenpsEndLoad";
+                    NpsLoadChainLog.access$1084(this.this$0, "livenpsEndLoad");
                     try {
                         this.this$0.pathJsonObj.put("livenpsEndLoad", this.this$0.genNodeJsonObj(this.val$isSucc ? 1 : 0, this.val$errCode));
                     } catch (JSONException e2) {
@@ -463,7 +468,7 @@ public class NpsLoadChainLog {
     public void endMergeDexEntrance(boolean z, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            postTask(new Runnable(this, z, i2) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.14
+            postTask(new Runnable(this, z, i2) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.17
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ NpsLoadChainLog this$0;
@@ -496,10 +501,62 @@ public class NpsLoadChainLog {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("entranceEndLoad") || this.this$0.pathJsonObj == null) {
                         return;
                     }
-                    NpsLoadChainLog npsLoadChainLog = this.this$0;
-                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "entranceEndLoad";
+                    NpsLoadChainLog.access$1084(this.this$0, "entranceEndLoad");
                     try {
                         this.this$0.pathJsonObj.put("entranceEndLoad", this.this$0.genNodeJsonObj(this.val$isSucc ? 1 : 0, this.val$errCode));
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
+                    }
+                    this.this$0.showPathAndDuration();
+                    this.this$0.ubcLog();
+                    if (this.val$isSucc) {
+                        return;
+                    }
+                    this.this$0.reset();
+                }
+            });
+        }
+    }
+
+    public void endPreloadClazzLiveNps(boolean z, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            postTask(new Runnable(this, z, i2) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.13
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ NpsLoadChainLog this$0;
+                public final /* synthetic */ int val$errCode;
+                public final /* synthetic */ boolean val$isSucc;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Boolean.valueOf(z), Integer.valueOf(i2)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$isSucc = z;
+                    this.val$errCode = i2;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("livenpsEndPreLoad") || this.this$0.pathJsonObj == null) {
+                        return;
+                    }
+                    NpsLoadChainLog.access$1084(this.this$0, "livenpsEndPreLoad");
+                    try {
+                        this.this$0.pathJsonObj.put("livenpsEndPreLoad", this.this$0.genNodeJsonObj(this.val$isSucc ? 1 : 0, this.val$errCode));
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }
@@ -517,28 +574,31 @@ public class NpsLoadChainLog {
     public String getEntry() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.entry : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.entry : (String) invokeV.objValue;
+    }
+
+    public HandlerThread getHandlerThread() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mHandlerThread : (HandlerThread) invokeV.objValue;
     }
 
     public String getHostName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.hostName : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.hostName : (String) invokeV.objValue;
     }
 
     public String getHostVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.hostVersion : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.hostVersion : (String) invokeV.objValue;
     }
 
     public String getPath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (isDebug() && Looper.myLooper() != Looper.getMainLooper()) {
-                throw new RuntimeException("Must invoke in main thread~");
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             try {
                 return this.pathJsonObj == null ? "" : this.pathJsonObj.toString();
             } catch (Exception e2) {
@@ -552,18 +612,18 @@ public class NpsLoadChainLog {
     public String getPluginVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.pluginVersion : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.pluginVersion : (String) invokeV.objValue;
     }
 
     public String getSessionId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.sessionId : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.sessionId : (String) invokeV.objValue;
     }
 
     public void initAndStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             postTask(new Runnable(this) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -606,7 +666,7 @@ public class NpsLoadChainLog {
 
     public void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             postTask(new Runnable(this) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -641,7 +701,7 @@ public class NpsLoadChainLog {
                         this.this$0.hostVersion = "";
                         this.this$0.pathJsonObj = null;
                         this.this$0.pathTemp = "";
-                        this.this$0.mainHandler.removeCallbacksAndMessages(null);
+                        this.this$0.mSubHandler.removeCallbacksAndMessages(null);
                     }
                 }
             });
@@ -650,7 +710,7 @@ public class NpsLoadChainLog {
 
     public void setEntry(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
             postTask(new Runnable(this, str) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -683,8 +743,7 @@ public class NpsLoadChainLog {
                         return;
                     }
                     this.this$0.entry = this.val$entryValue;
-                    NpsLoadChainLog npsLoadChainLog = this.this$0;
-                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "entry";
+                    NpsLoadChainLog.access$1084(this.this$0, "entry");
                     try {
                         this.this$0.pathJsonObj.put("entry", this.this$0.genNodeJsonObj(-1, Integer.MIN_VALUE));
                     } catch (JSONException e2) {
@@ -699,7 +758,7 @@ public class NpsLoadChainLog {
 
     public void setPluginVersion(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
             postTask(new Runnable(this, str) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -738,14 +797,14 @@ public class NpsLoadChainLog {
 
     public void showPathAndDuration() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && isDebug() && this.pathJsonObj != null) {
+        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && isDebug() && this.pathJsonObj != null) {
             String str = "path = " + getPath();
         }
     }
 
     public void startDownloadLiveNps() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             postTask(new Runnable(this) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -775,8 +834,7 @@ public class NpsLoadChainLog {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("livenpsStartDownload") || this.this$0.pathJsonObj == null) {
                         return;
                     }
-                    NpsLoadChainLog npsLoadChainLog = this.this$0;
-                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "livenpsStartDownload";
+                    NpsLoadChainLog.access$1084(this.this$0, "livenpsStartDownload");
                     try {
                         this.this$0.pathJsonObj.put("livenpsStartDownload", this.this$0.genNodeJsonObj(-1, Integer.MIN_VALUE));
                     } catch (JSONException e2) {
@@ -791,8 +849,8 @@ public class NpsLoadChainLog {
 
     public void startInitYY() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            postTask(new Runnable(this) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.15
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            postTask(new Runnable(this) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.18
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ NpsLoadChainLog this$0;
@@ -821,8 +879,7 @@ public class NpsLoadChainLog {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("initStart") || this.this$0.pathJsonObj == null) {
                         return;
                     }
-                    NpsLoadChainLog npsLoadChainLog = this.this$0;
-                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "initStart";
+                    NpsLoadChainLog.access$1084(this.this$0, "initStart");
                     try {
                         this.this$0.pathJsonObj.put("initStart", this.this$0.genNodeJsonObj(-1, Integer.MIN_VALUE));
                     } catch (JSONException e2) {
@@ -837,8 +894,8 @@ public class NpsLoadChainLog {
 
     public void startInstallEntrance() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            postTask(new Runnable(this) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.11
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            postTask(new Runnable(this) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.14
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ NpsLoadChainLog this$0;
@@ -867,8 +924,7 @@ public class NpsLoadChainLog {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("entranceStartInstall") || this.this$0.pathJsonObj == null) {
                         return;
                     }
-                    NpsLoadChainLog npsLoadChainLog = this.this$0;
-                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "entranceStartInstall";
+                    NpsLoadChainLog.access$1084(this.this$0, "entranceStartInstall");
                     try {
                         this.this$0.pathJsonObj.put("entranceStartInstall", this.this$0.genNodeJsonObj(-1, Integer.MIN_VALUE));
                     } catch (JSONException e2) {
@@ -883,7 +939,7 @@ public class NpsLoadChainLog {
 
     public void startInstallLiveNps() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             postTask(new Runnable(this) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -913,8 +969,7 @@ public class NpsLoadChainLog {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("livenpsStartInstall") || this.this$0.pathJsonObj == null) {
                         return;
                     }
-                    NpsLoadChainLog npsLoadChainLog = this.this$0;
-                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "livenpsStartInstall";
+                    NpsLoadChainLog.access$1084(this.this$0, "livenpsStartInstall");
                     try {
                         this.this$0.pathJsonObj.put("livenpsStartInstall", this.this$0.genNodeJsonObj(-1, Integer.MIN_VALUE));
                     } catch (JSONException e2) {
@@ -929,7 +984,7 @@ public class NpsLoadChainLog {
 
     public void startLoadClazzLiveNps() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             postTask(new Runnable(this) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -959,8 +1014,7 @@ public class NpsLoadChainLog {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("livenpsStartLoad") || this.this$0.pathJsonObj == null) {
                         return;
                     }
-                    NpsLoadChainLog npsLoadChainLog = this.this$0;
-                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "livenpsStartLoad";
+                    NpsLoadChainLog.access$1084(this.this$0, "livenpsStartLoad");
                     try {
                         this.this$0.pathJsonObj.put("livenpsStartLoad", this.this$0.genNodeJsonObj(-1, Integer.MIN_VALUE));
                     } catch (JSONException e2) {
@@ -973,10 +1027,55 @@ public class NpsLoadChainLog {
         }
     }
 
+    public void startLoadClazzLiveNpsPreload() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            postTask(new Runnable(this) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.10
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ NpsLoadChainLog this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("livenpsStartPreLoad") || this.this$0.pathJsonObj == null) {
+                        return;
+                    }
+                    NpsLoadChainLog.access$1084(this.this$0, "livenpsStartPreLoad");
+                    try {
+                        this.this$0.pathJsonObj.put("livenpsStartPreLoad", this.this$0.genNodeJsonObj(-1, Integer.MIN_VALUE));
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
+                    }
+                    this.this$0.showPathAndDuration();
+                    this.this$0.ubcLog();
+                }
+            });
+        }
+    }
+
     public void startMergeDexEntrance() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            postTask(new Runnable(this) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.13
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+            postTask(new Runnable(this) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.16
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ NpsLoadChainLog this$0;
@@ -1005,10 +1104,54 @@ public class NpsLoadChainLog {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("entranceStartLoad") || this.this$0.pathJsonObj == null) {
                         return;
                     }
-                    NpsLoadChainLog npsLoadChainLog = this.this$0;
-                    npsLoadChainLog.pathTemp = this.this$0.pathTemp + "entranceStartLoad";
+                    NpsLoadChainLog.access$1084(this.this$0, "entranceStartLoad");
                     try {
                         this.this$0.pathJsonObj.put("entranceStartLoad", this.this$0.genNodeJsonObj(-1, Integer.MIN_VALUE));
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
+                    }
+                    this.this$0.showPathAndDuration();
+                    this.this$0.ubcLog();
+                }
+            });
+        }
+    }
+
+    public void startPreloadClazzLiveNps() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+            postTask(new Runnable(this) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.12
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ NpsLoadChainLog this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode("livenpsStartPreLoad") || this.this$0.pathJsonObj == null) {
+                        return;
+                    }
+                    NpsLoadChainLog.access$1084(this.this$0, "livenpsStartPreLoad");
+                    try {
+                        this.this$0.pathJsonObj.put("livenpsStartPreLoad", this.this$0.genNodeJsonObj(-1, Integer.MIN_VALUE));
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }
@@ -1034,12 +1177,15 @@ public class NpsLoadChainLog {
         }
         this.ubcManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
         this.appService = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
-        this.mainHandler = new Handler(Looper.getMainLooper());
         this.sessionId = "";
         this.pluginVersion = "";
         this.hostName = "";
         this.hostVersion = "";
         this.entry = "";
+        HandlerThread handlerThread = new HandlerThread("nps_load_chain");
+        this.mHandlerThread = handlerThread;
+        handlerThread.start();
+        this.mSubHandler = new Handler(this.mHandlerThread.getLooper());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1071,7 +1217,7 @@ public class NpsLoadChainLog {
                     jSONObject.put("status", i2);
                 }
                 if (1 != i2 && Integer.MIN_VALUE != i3) {
-                    jSONObject.put("errorCode", i2);
+                    jSONObject.put("errorCode", i3);
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();

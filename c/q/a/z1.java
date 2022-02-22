@@ -19,19 +19,19 @@ public class z1 extends Thread {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30563e;
+    public String f30769e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List f30564f;
+    public List f30770f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f2 f30565g;
+    public f2 f30771g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f30566h;
+    public Context f30772h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f30567i;
+    public boolean f30773i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public z1(Context context, String str, List list, f2 f2Var) {
@@ -51,10 +51,10 @@ public class z1 extends Thread {
                 return;
             }
         }
-        this.f30566h = context;
-        this.f30563e = str;
-        this.f30564f = list;
-        this.f30565g = f2Var;
+        this.f30772h = context;
+        this.f30769e = str;
+        this.f30770f = list;
+        this.f30771g = f2Var;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:100:0x0063 A[SYNTHETIC] */
@@ -81,8 +81,8 @@ public class z1 extends Thread {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.run();
             long currentTimeMillis = System.currentTimeMillis();
-            for (String str : this.f30564f) {
-                String str2 = this.f30563e;
+            for (String str : this.f30770f) {
+                String str2 = this.f30769e;
                 FileOutputStream fileOutputStream = null;
                 r6 = null;
                 InputStream inputStream2 = null;
@@ -101,7 +101,7 @@ public class z1 extends Thread {
                     httpURLConnection = null;
                 }
                 if (file.exists() && file.isFile()) {
-                    if (file.length() == c2.b(this.f30566h).a(str)) {
+                    if (file.length() == c2.b(this.f30772h).a(str)) {
                         z = true;
                         if (z) {
                             httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
@@ -112,7 +112,7 @@ public class z1 extends Thread {
                                 httpURLConnection.connect();
                                 long contentLength = httpURLConnection.getContentLength();
                                 if (contentLength > 0) {
-                                    c2.b(this.f30566h).c(str, contentLength);
+                                    c2.b(this.f30772h).c(str, contentLength);
                                     FileOutputStream fileOutputStream2 = new FileOutputStream(file);
                                     try {
                                         inputStream2 = httpURLConnection.getInputStream();
@@ -136,7 +136,7 @@ public class z1 extends Thread {
                                         fileOutputStream = fileOutputStream2;
                                         inputStream = inputStream3;
                                         try {
-                                            if (this.f30565g != null) {
+                                            if (this.f30771g != null) {
                                             }
                                             if (fileOutputStream != null) {
                                             }
@@ -174,15 +174,15 @@ public class z1 extends Thread {
                                         }
                                         throw th;
                                     }
-                                } else if (this.f30565g != null) {
-                                    this.f30567i = true;
-                                    this.f30565g.a(950, str);
+                                } else if (this.f30771g != null) {
+                                    this.f30773i = true;
+                                    this.f30771g.a(950, str);
                                 }
                             } catch (Exception e5) {
                                 e = e5;
                                 e2 = e;
                                 inputStream = null;
-                                if (this.f30565g != null) {
+                                if (this.f30771g != null) {
                                     int i2 = CyberPlayerManager.MEDIA_INFO_VIDEO_FRAMERATE;
                                     if (httpURLConnection != null) {
                                         try {
@@ -190,8 +190,8 @@ public class z1 extends Thread {
                                         } catch (Exception unused3) {
                                         }
                                     }
-                                    this.f30567i = true;
-                                    this.f30565g.a(i2, e2.getMessage());
+                                    this.f30773i = true;
+                                    this.f30771g.a(i2, e2.getMessage());
                                 }
                                 if (fileOutputStream != null) {
                                     fileOutputStream.close();
@@ -224,12 +224,12 @@ public class z1 extends Thread {
                 }
             }
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-            f2 f2Var = this.f30565g;
-            if (f2Var == null || this.f30567i) {
+            f2 f2Var = this.f30771g;
+            if (f2Var == null || this.f30773i) {
                 return;
             }
             y2 a = c3.a(f2Var.a);
-            a.c(new g3(f2Var.f30346b), 200);
+            a.c(new g3(f2Var.f30552b), 200);
             a.k("dr", currentTimeMillis2);
             a.m();
         }

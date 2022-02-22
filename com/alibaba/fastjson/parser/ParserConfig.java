@@ -887,13 +887,13 @@ public class ParserConfig {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:160:0x02f3  */
-    /* JADX WARN: Removed duplicated region for block: B:168:0x0301 A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:171:0x0307 A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:177:0x0315  */
-    /* JADX WARN: Removed duplicated region for block: B:202:0x0397  */
-    /* JADX WARN: Removed duplicated region for block: B:205:0x039d  */
-    /* JADX WARN: Removed duplicated region for block: B:209:0x03c9  */
+    /* JADX WARN: Removed duplicated region for block: B:160:0x02f2  */
+    /* JADX WARN: Removed duplicated region for block: B:168:0x0300 A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:171:0x0306 A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:177:0x0314  */
+    /* JADX WARN: Removed duplicated region for block: B:202:0x0396  */
+    /* JADX WARN: Removed duplicated region for block: B:205:0x039c  */
+    /* JADX WARN: Removed duplicated region for block: B:209:0x03c8  */
     /* JADX WARN: Removed duplicated region for block: B:55:0x00e2  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1014,32 +1014,16 @@ public class ParserConfig {
                                     if (resourceAsStream != null) {
                                         try {
                                             try {
+                                                ClassReader classReader = new ClassReader(resourceAsStream, true);
                                                 try {
-                                                    ClassReader classReader = new ClassReader(resourceAsStream, true);
-                                                    try {
-                                                        TypeCollector typeCollector = new TypeCollector("<clinit>", new Class[0]);
-                                                        classReader.accept(typeCollector);
-                                                        z2 = typeCollector.hasJsonType();
-                                                    } catch (Exception unused) {
-                                                        inputStream2 = resourceAsStream;
-                                                        IOUtils.close(inputStream2);
-                                                        z2 = false;
-                                                        int i7 = Feature.SupportAutoType.mask;
-                                                        if (this.autoTypeSupport) {
-                                                        }
-                                                        if (!z3) {
-                                                        }
-                                                        classFromMapping = TypeUtils.loadClass(str, this.defaultClassLoader, !z3 || z2);
-                                                        if (classFromMapping != null) {
-                                                        }
-                                                        if (z3) {
-                                                        }
-                                                    }
-                                                } catch (Exception unused2) {
+                                                    TypeCollector typeCollector = new TypeCollector("<clinit>", new Class[0]);
+                                                    classReader.accept(typeCollector);
+                                                    z2 = typeCollector.hasJsonType();
+                                                } catch (Exception unused) {
                                                     inputStream2 = resourceAsStream;
                                                     IOUtils.close(inputStream2);
                                                     z2 = false;
-                                                    int i72 = Feature.SupportAutoType.mask;
+                                                    int i7 = Feature.SupportAutoType.mask;
                                                     if (this.autoTypeSupport) {
                                                     }
                                                     if (!z3) {
@@ -1050,19 +1034,32 @@ public class ParserConfig {
                                                     if (z3) {
                                                     }
                                                 }
-                                            } catch (Throwable th) {
-                                                th = th;
-                                                inputStream = resourceAsStream;
-                                                IOUtils.close(inputStream);
-                                                throw th;
+                                            } catch (Exception unused2) {
+                                                inputStream2 = resourceAsStream;
+                                                IOUtils.close(inputStream2);
+                                                z2 = false;
+                                                int i72 = Feature.SupportAutoType.mask;
+                                                if (this.autoTypeSupport) {
+                                                }
+                                                if (!z3) {
+                                                }
+                                                classFromMapping = TypeUtils.loadClass(str, this.defaultClassLoader, !z3 || z2);
+                                                if (classFromMapping != null) {
+                                                }
+                                                if (z3) {
+                                                }
                                             }
-                                        } catch (Exception unused3) {
+                                        } catch (Throwable th) {
+                                            th = th;
+                                            inputStream = resourceAsStream;
+                                            IOUtils.close(inputStream);
+                                            throw th;
                                         }
                                     } else {
                                         z2 = false;
                                     }
                                     IOUtils.close(resourceAsStream);
-                                } catch (Exception unused4) {
+                                } catch (Exception unused3) {
                                     inputStream2 = null;
                                 } catch (Throwable th2) {
                                     th = th2;

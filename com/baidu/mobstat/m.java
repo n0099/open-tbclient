@@ -20,7 +20,7 @@ public class m extends SQLiteOpenHelper {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SQLiteDatabase f36927b;
+    public SQLiteDatabase f37133b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(Context context, String str) throws SQLiteException {
@@ -51,14 +51,14 @@ public class m extends SQLiteOpenHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
                 z = false;
-                if (this.f36927b == null || !this.f36927b.isOpen()) {
+                if (this.f37133b == null || !this.f37133b.isOpen()) {
                     try {
-                        this.f36927b = getWritableDatabase();
+                        this.f37133b = getWritableDatabase();
                     } catch (NullPointerException unused) {
                         throw new NullPointerException("db path is null");
                     }
                 }
-                if (this.f36927b != null && this.f36927b.isOpen()) {
+                if (this.f37133b != null && this.f37133b.isOpen()) {
                     z = true;
                 }
             }
@@ -74,7 +74,7 @@ public class m extends SQLiteOpenHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             Cursor cursor = null;
             try {
-                SQLiteDatabase sQLiteDatabase = this.f36927b;
+                SQLiteDatabase sQLiteDatabase = this.f37133b;
                 cursor = sQLiteDatabase.rawQuery("SELECT COUNT(*) FROM " + this.a, null);
                 if (cursor == null || !cursor.moveToNext()) {
                     if (cursor != null) {
@@ -98,9 +98,9 @@ public class m extends SQLiteOpenHelper {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             synchronized (this) {
                 super.close();
-                if (this.f36927b != null) {
-                    this.f36927b.close();
-                    this.f36927b = null;
+                if (this.f37133b != null) {
+                    this.f37133b.close();
+                    this.f37133b = null;
                 }
             }
         }
@@ -138,7 +138,7 @@ public class m extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, sQLiteDatabase) == null) {
-            this.f36927b = sQLiteDatabase;
+            this.f37133b = sQLiteDatabase;
         }
     }
 
@@ -167,18 +167,18 @@ public class m extends SQLiteOpenHelper {
     public Cursor a(String[] strArr, String str, String[] strArr2, String str2, String str3, String str4, String str5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{strArr, str, strArr2, str2, str3, str4, str5})) == null) ? this.f36927b.query(this.a, strArr, str, strArr2, str2, str3, str4, str5) : (Cursor) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{strArr, str, strArr2, str2, str3, str4, str5})) == null) ? this.f37133b.query(this.a, strArr, str, strArr2, str2, str3, str4, str5) : (Cursor) invokeCommon.objValue;
     }
 
     public long a(String str, ContentValues contentValues) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, contentValues)) == null) ? this.f36927b.insert(this.a, str, contentValues) : invokeLL.longValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, contentValues)) == null) ? this.f37133b.insert(this.a, str, contentValues) : invokeLL.longValue;
     }
 
     public int a(String str, String[] strArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, strArr)) == null) ? this.f36927b.delete(this.a, str, strArr) : invokeLL.intValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, strArr)) == null) ? this.f37133b.delete(this.a, str, strArr) : invokeLL.intValue;
     }
 }

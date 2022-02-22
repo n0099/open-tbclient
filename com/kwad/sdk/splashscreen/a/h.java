@@ -4,12 +4,12 @@ import android.content.Context;
 import android.widget.Toast;
 import com.kwad.sdk.api.core.ResContext;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class h extends Presenter {
     public com.kwad.sdk.splashscreen.g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.c f57840b;
+    public com.kwad.sdk.core.download.a.c f58007b;
 
     public static String b(Context context) {
         try {
@@ -64,15 +64,15 @@ public class h extends Presenter {
             public void onProgressUpdate(int i2) {
             }
         };
-        this.f57840b = cVar;
-        this.a.f57923g.a(cVar);
+        this.f58007b = cVar;
+        this.a.f58090g.a(cVar);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
-        com.kwad.sdk.core.download.a.c cVar = this.f57840b;
+        com.kwad.sdk.core.download.a.c cVar = this.f58007b;
         if (cVar != null) {
-            this.a.f57923g.b(cVar);
+            this.a.f58090g.b(cVar);
         }
     }
 }

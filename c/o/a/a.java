@@ -18,27 +18,27 @@ public class a {
     public final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f30225b;
+    public final String f30431b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f30226c;
+    public final int f30432c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f30227d;
+    public final int f30433d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SQLiteDatabase f30228e;
+    public SQLiteDatabase f30434e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f30229f;
+    public boolean f30435f;
 
     /* renamed from: c.o.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class C1690a implements DatabaseErrorHandler {
+    public class C1700a implements DatabaseErrorHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1690a(a aVar) {
+        public C1700a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,10 +77,10 @@ public class a {
                 return;
             }
         }
-        this.f30225b = str;
+        this.f30431b = str;
         this.a = z;
-        this.f30226c = i2;
-        this.f30227d = i3;
+        this.f30432c = i2;
+        this.f30433d = i3;
     }
 
     public static void b(String str) {
@@ -93,14 +93,14 @@ public class a {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f30228e.close();
+            this.f30434e.close();
         }
     }
 
     public SQLiteDatabase c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30228e : (SQLiteDatabase) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30434e : (SQLiteDatabase) invokeV.objValue;
     }
 
     public String d() {
@@ -117,7 +117,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             Thread currentThread = Thread.currentThread();
-            return "" + this.f30226c + "," + currentThread.getName() + "(" + currentThread.getId() + SmallTailInfo.EMOTION_SUFFIX;
+            return "" + this.f30432c + "," + currentThread.getName() + "(" + currentThread.getId() + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
@@ -125,20 +125,20 @@ public class a {
     public SQLiteDatabase f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30228e : (SQLiteDatabase) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30434e : (SQLiteDatabase) invokeV.objValue;
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f30228e = SQLiteDatabase.openDatabase(this.f30225b, null, 268435456);
+            this.f30434e = SQLiteDatabase.openDatabase(this.f30431b, null, 268435456);
         }
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f30228e = SQLiteDatabase.openDatabase(this.f30225b, null, 1, new C1690a(this));
+            this.f30434e = SQLiteDatabase.openDatabase(this.f30431b, null, 1, new C1700a(this));
         }
     }
 }

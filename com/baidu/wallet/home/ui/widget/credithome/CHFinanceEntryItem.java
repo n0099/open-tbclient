@@ -24,10 +24,10 @@ public class CHFinanceEntryItem extends BaseItemView {
     public NetImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f51232b;
+    public MaskTextView f51399b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f51233c;
+    public MaskTextView f51400c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes13.dex */
@@ -125,8 +125,8 @@ public class CHFinanceEntryItem extends BaseItemView {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), EntryType.ENTRY_TYPE_NORMAL.equals(entryType) ? "wallet_home_ch_finance_entry_normal_item" : "wallet_home_ch_finance_entry_large_item"), this);
             setGravity(13);
             this.a = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_fe_logo"));
-            this.f51232b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fe_title"));
-            this.f51233c = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fe_desc"));
+            this.f51399b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fe_title"));
+            this.f51400c = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fe_desc"));
         }
     }
 
@@ -136,8 +136,8 @@ public class CHFinanceEntryItem extends BaseItemView {
             return;
         }
         setNetImageViewUrl(this.a, getData().logo);
-        this.f51232b.setMaskText(getData().name);
-        this.f51233c.setMaskText(getData().value1);
+        this.f51399b.setMaskText(getData().name);
+        this.f51400c.setMaskText(getData().value1);
         handlePoint();
     }
 

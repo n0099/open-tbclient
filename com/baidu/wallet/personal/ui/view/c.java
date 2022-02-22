@@ -31,31 +31,31 @@ public class c implements a.b<CouponList.Coupon> {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f52661b;
+    public ViewGroup f52828b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f52662c;
+    public TextView f52829c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f52663d;
+    public View f52830d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f52664e;
+    public RelativeLayout f52831e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f52665f;
+    public View f52832f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f52666g;
+    public a f52833g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f52667h;
+    public TextView f52834h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f52668i;
+    public TextView f52835i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f52669j;
+    public TextView f52836j;
     public b k;
     public TextView l;
     public TextView m;
@@ -77,10 +77,10 @@ public class c implements a.b<CouponList.Coupon> {
         public RelativeLayout a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f52675b;
+        public boolean f52842b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f52676c;
+        public final /* synthetic */ c f52843c;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -97,8 +97,8 @@ public class c implements a.b<CouponList.Coupon> {
                     return;
                 }
             }
-            this.f52676c = cVar;
-            this.f52675b = false;
+            this.f52843c = cVar;
+            this.f52842b = false;
         }
     }
 
@@ -109,10 +109,10 @@ public class c implements a.b<CouponList.Coupon> {
         public TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f52677b;
+        public boolean f52844b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f52678c;
+        public final /* synthetic */ c f52845c;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -129,8 +129,8 @@ public class c implements a.b<CouponList.Coupon> {
                     return;
                 }
             }
-            this.f52678c = cVar;
-            this.f52677b = false;
+            this.f52845c = cVar;
+            this.f52844b = false;
         }
     }
 
@@ -150,7 +150,7 @@ public class c implements a.b<CouponList.Coupon> {
         this.t = false;
         this.u = false;
         this.a = false;
-        this.f52666g = new a(this);
+        this.f52833g = new a(this);
         this.k = new b(this);
         this.v = new View.OnClickListener(this) { // from class: com.baidu.wallet.personal.ui.view.c.3
             public static /* synthetic */ Interceptable $ic;
@@ -217,17 +217,17 @@ public class c implements a.b<CouponList.Coupon> {
     public void a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a) {
-            this.f52665f.getBackground().setAlpha(102);
+            this.f52832f.getBackground().setAlpha(102);
             TextView textView = this.k.a;
             textView.setTextColor(textView.getTextColors().withAlpha(102));
             this.k.a.getBackground().setAlpha(102);
-            TextView textView2 = this.f52667h;
+            TextView textView2 = this.f52834h;
             textView2.setTextColor(textView2.getTextColors().withAlpha(102));
             TextView textView3 = this.l;
             textView3.setTextColor(textView3.getTextColors().withAlpha(102));
-            TextView textView4 = this.f52668i;
+            TextView textView4 = this.f52835i;
             textView4.setTextColor(textView4.getTextColors().withAlpha(102));
-            TextView textView5 = this.f52669j;
+            TextView textView5 = this.f52836j;
             textView5.setTextColor(textView5.getTextColors().withAlpha(102));
             TextView textView6 = this.m;
             textView6.setTextColor(textView6.getTextColors().withAlpha(102));
@@ -249,14 +249,14 @@ public class c implements a.b<CouponList.Coupon> {
             return;
         }
         if (!this.t || TextUtils.isEmpty(coupon.groupDesc)) {
-            this.f52662c.setVisibility(8);
+            this.f52829c.setVisibility(8);
         } else {
-            this.f52662c.setVisibility(0);
-            this.f52662c.setText(coupon.groupDesc);
-            this.f52662c.setOnClickListener(this.v);
+            this.f52829c.setVisibility(0);
+            this.f52829c.setText(coupon.groupDesc);
+            this.f52829c.setOnClickListener(this.v);
         }
         if (!TextUtils.isEmpty(coupon.coupon_color_bg)) {
-            ImageLoader.getInstance(this.f52661b.getContext()).getBitmap(coupon.coupon_color_bg, new ImageLoader.OnGetBitmapListener(this) { // from class: com.baidu.wallet.personal.ui.view.c.1
+            ImageLoader.getInstance(this.f52828b.getContext()).getBitmap(coupon.coupon_color_bg, new ImageLoader.OnGetBitmapListener(this) { // from class: com.baidu.wallet.personal.ui.view.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ c a;
@@ -293,7 +293,7 @@ public class c implements a.b<CouponList.Coupon> {
                 public void onError(String str2, Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2, obj) == null) {
-                        this.a.f52666g.f52675b = false;
+                        this.a.f52833g.f52842b = false;
                     }
                 }
 
@@ -303,13 +303,13 @@ public class c implements a.b<CouponList.Coupon> {
                     if (!(interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str2, obj, bitmap) == null) || bitmap == null) {
                         return;
                     }
-                    this.a.f52666g.a.post(new Runnable(this, bitmap) { // from class: com.baidu.wallet.personal.ui.view.c.1.1
+                    this.a.f52833g.a.post(new Runnable(this, bitmap) { // from class: com.baidu.wallet.personal.ui.view.c.1.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ Bitmap a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ AnonymousClass1 f52670b;
+                        public final /* synthetic */ AnonymousClass1 f52837b;
 
                         {
                             Interceptable interceptable3 = $ic;
@@ -326,7 +326,7 @@ public class c implements a.b<CouponList.Coupon> {
                                     return;
                                 }
                             }
-                            this.f52670b = this;
+                            this.f52837b = this;
                             this.a = bitmap;
                         }
 
@@ -334,8 +334,8 @@ public class c implements a.b<CouponList.Coupon> {
                         public void run() {
                             Interceptable interceptable3 = $ic;
                             if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                this.f52670b.a.f52666g.a.setBackgroundDrawable(new BitmapDrawable(this.a));
-                                this.f52670b.a.f52666g.f52675b = true;
+                                this.f52837b.a.f52833g.a.setBackgroundDrawable(new BitmapDrawable(this.a));
+                                this.f52837b.a.f52833g.f52842b = true;
                             }
                         }
                     });
@@ -343,38 +343,38 @@ public class c implements a.b<CouponList.Coupon> {
             }, null, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP);
         }
         if (!TextUtils.isEmpty(coupon.coupon_color) && Build.VERSION.SDK_INT >= 16) {
-            this.f52665f.setBackground(com.baidu.wallet.personal.b.b.a(this.f52661b.getContext(), com.baidu.wallet.personal.b.b.a(this.f52661b.getContext(), coupon.coupon_color, "coupon_base_red_f75348"), 0));
+            this.f52832f.setBackground(com.baidu.wallet.personal.b.b.a(this.f52828b.getContext(), com.baidu.wallet.personal.b.b.a(this.f52828b.getContext(), coupon.coupon_color, "coupon_base_red_f75348"), 0));
         }
         if (!TextUtils.isEmpty(coupon.coupon_name)) {
             if (coupon.coupon_name.length() > 7) {
-                textView2 = this.f52667h;
+                textView2 = this.f52834h;
                 str = coupon.coupon_name.substring(0, 7);
             } else {
-                textView2 = this.f52667h;
+                textView2 = this.f52834h;
                 str = coupon.coupon_name;
             }
             textView2.setText(str);
         }
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.k.a.getLayoutParams();
-        layoutParams.height = DisplayUtils.dip2px(this.f52661b.getContext(), 14.0f);
+        layoutParams.height = DisplayUtils.dip2px(this.f52828b.getContext(), 14.0f);
         this.k.a.setLayoutParams(layoutParams);
         if (!TextUtils.isEmpty(coupon.marketing_label)) {
-            int dip2px = DisplayUtils.dip2px(this.f52661b.getContext(), 2.0f);
+            int dip2px = DisplayUtils.dip2px(this.f52828b.getContext(), 2.0f);
             this.k.a.setPadding(dip2px, 0, dip2px, 0);
             this.k.a.setText(coupon.marketing_label.length() > 6 ? coupon.marketing_label.substring(0, 6) : coupon.marketing_label);
             this.k.a.setVisibility(0);
         }
         if (!TextUtils.isEmpty(coupon.marketing_label_bgpic)) {
-            ImageLoader.getInstance(this.f52661b.getContext()).getBitmap(coupon.marketing_label_bgpic, new ImageLoader.OnGetBitmapListener(this, coupon, layoutParams) { // from class: com.baidu.wallet.personal.ui.view.c.2
+            ImageLoader.getInstance(this.f52828b.getContext()).getBitmap(coupon.marketing_label_bgpic, new ImageLoader.OnGetBitmapListener(this, coupon, layoutParams) { // from class: com.baidu.wallet.personal.ui.view.c.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ CouponList.Coupon a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ RelativeLayout.LayoutParams f52671b;
+                public final /* synthetic */ RelativeLayout.LayoutParams f52838b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ c f52672c;
+                public final /* synthetic */ c f52839c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -391,9 +391,9 @@ public class c implements a.b<CouponList.Coupon> {
                             return;
                         }
                     }
-                    this.f52672c = this;
+                    this.f52839c = this;
                     this.a = coupon;
-                    this.f52671b = layoutParams;
+                    this.f52838b = layoutParams;
                 }
 
                 @Override // com.baidu.apollon.imagemanager.ImageLoader.OnGetBitmapListener
@@ -410,7 +410,7 @@ public class c implements a.b<CouponList.Coupon> {
                 public void onError(String str2, Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2, obj) == null) {
-                        this.f52672c.k.f52677b = false;
+                        this.f52839c.k.f52844b = false;
                     }
                 }
 
@@ -421,13 +421,13 @@ public class c implements a.b<CouponList.Coupon> {
                         return;
                     }
                     if (TextUtils.isEmpty(this.a.marketing_label)) {
-                        this.f52672c.f52661b.post(new Runnable(this, bitmap) { // from class: com.baidu.wallet.personal.ui.view.c.2.1
+                        this.f52839c.f52828b.post(new Runnable(this, bitmap) { // from class: com.baidu.wallet.personal.ui.view.c.2.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ Bitmap a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass2 f52673b;
+                            public final /* synthetic */ AnonymousClass2 f52840b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -444,7 +444,7 @@ public class c implements a.b<CouponList.Coupon> {
                                         return;
                                     }
                                 }
-                                this.f52673b = this;
+                                this.f52840b = this;
                                 this.a = bitmap;
                             }
 
@@ -452,32 +452,32 @@ public class c implements a.b<CouponList.Coupon> {
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    AnonymousClass2 anonymousClass2 = this.f52673b;
-                                    c cVar = anonymousClass2.f52672c;
-                                    cVar.k.f52677b = true;
-                                    anonymousClass2.f52671b.width = DisplayUtils.dip2px(cVar.f52661b.getContext(), 57.0f);
-                                    AnonymousClass2 anonymousClass22 = this.f52673b;
-                                    anonymousClass22.f52671b.height = DisplayUtils.dip2px(anonymousClass22.f52672c.f52661b.getContext(), 14.0f);
-                                    AnonymousClass2 anonymousClass23 = this.f52673b;
-                                    anonymousClass23.f52672c.k.a.setLayoutParams(anonymousClass23.f52671b);
-                                    this.f52673b.f52672c.k.a.setBackgroundDrawable(new BitmapDrawable(this.a));
-                                    this.f52673b.f52672c.k.a.setVisibility(0);
+                                    AnonymousClass2 anonymousClass2 = this.f52840b;
+                                    c cVar = anonymousClass2.f52839c;
+                                    cVar.k.f52844b = true;
+                                    anonymousClass2.f52838b.width = DisplayUtils.dip2px(cVar.f52828b.getContext(), 57.0f);
+                                    AnonymousClass2 anonymousClass22 = this.f52840b;
+                                    anonymousClass22.f52838b.height = DisplayUtils.dip2px(anonymousClass22.f52839c.f52828b.getContext(), 14.0f);
+                                    AnonymousClass2 anonymousClass23 = this.f52840b;
+                                    anonymousClass23.f52839c.k.a.setLayoutParams(anonymousClass23.f52838b);
+                                    this.f52840b.f52839c.k.a.setBackgroundDrawable(new BitmapDrawable(this.a));
+                                    this.f52840b.f52839c.k.a.setVisibility(0);
                                 }
                             }
                         });
                         return;
                     }
-                    com.baidu.wallet.personal.b.a aVar = new com.baidu.wallet.personal.b.a(this.f52672c.f52661b.getResources(), bitmap);
+                    com.baidu.wallet.personal.b.a aVar = new com.baidu.wallet.personal.b.a(this.f52839c.f52828b.getResources(), bitmap);
                     aVar.a(bitmap.getWidth() / 2, 1).b(bitmap.getHeight() / 2, 1);
                     NinePatchDrawable c2 = aVar.c();
                     if (c2 != null) {
-                        this.f52672c.f52661b.post(new Runnable(this, c2) { // from class: com.baidu.wallet.personal.ui.view.c.2.2
+                        this.f52839c.f52828b.post(new Runnable(this, c2) { // from class: com.baidu.wallet.personal.ui.view.c.2.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ NinePatchDrawable a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass2 f52674b;
+                            public final /* synthetic */ AnonymousClass2 f52841b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -494,7 +494,7 @@ public class c implements a.b<CouponList.Coupon> {
                                         return;
                                     }
                                 }
-                                this.f52674b = this;
+                                this.f52841b = this;
                                 this.a = c2;
                             }
 
@@ -502,11 +502,11 @@ public class c implements a.b<CouponList.Coupon> {
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    b bVar = this.f52674b.f52672c.k;
-                                    bVar.f52677b = true;
+                                    b bVar = this.f52841b.f52839c.k;
+                                    bVar.f52844b = true;
                                     bVar.a.setBackgroundDrawable(this.a);
-                                    if (this.f52674b.f52672c.k.a.getVisibility() == 8) {
-                                        this.f52674b.f52672c.k.a.setVisibility(0);
+                                    if (this.f52841b.f52839c.k.a.getVisibility() == 8) {
+                                        this.f52841b.f52839c.k.a.setVisibility(0);
                                     }
                                 }
                             }
@@ -525,7 +525,7 @@ public class c implements a.b<CouponList.Coupon> {
             this.m.setVisibility(8);
         } else {
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
-            layoutParams2.topMargin = DisplayUtils.dip2px(this.f52661b.getContext(), 8.5f);
+            layoutParams2.topMargin = DisplayUtils.dip2px(this.f52828b.getContext(), 8.5f);
             this.m.setLayoutParams(layoutParams2);
             this.m.setText(coupon.sub_title);
             this.m.setVisibility(0);
@@ -534,14 +534,14 @@ public class c implements a.b<CouponList.Coupon> {
             this.n.setVisibility(8);
         } else {
             RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.n.getLayoutParams();
-            layoutParams3.topMargin = DisplayUtils.dip2px(this.f52661b.getContext(), 7.0f);
+            layoutParams3.topMargin = DisplayUtils.dip2px(this.f52828b.getContext(), 7.0f);
             this.n.setLayoutParams(layoutParams3);
             this.n.setText(coupon.sub_title2);
             this.n.setVisibility(0);
         }
         if (TextUtils.isEmpty(coupon.list_scene_service_label)) {
             textView = this.r;
-            string = ResUtils.getString(this.f52661b.getContext(), "去使用");
+            string = ResUtils.getString(this.f52828b.getContext(), "去使用");
         } else {
             textView = this.r;
             string = coupon.list_scene_service_label;
@@ -550,7 +550,7 @@ public class c implements a.b<CouponList.Coupon> {
         if (TextUtils.isEmpty(coupon.use_limit) || this.a) {
             this.o.setVisibility(8);
         } else {
-            this.f52664e.bringToFront();
+            this.f52831e.bringToFront();
             this.q.setText(coupon.use_limit);
             if (!TextUtils.isEmpty(coupon.icon_url)) {
                 this.p.setImageUrl(coupon.icon_url);
@@ -559,10 +559,10 @@ public class c implements a.b<CouponList.Coupon> {
             this.o.setOnClickListener(this.w);
         }
         if (!TextUtils.isEmpty(coupon.coupon_title_head)) {
-            this.f52668i.setText(coupon.coupon_title_head);
+            this.f52835i.setText(coupon.coupon_title_head);
         }
         if (!TextUtils.isEmpty(coupon.coupon_title_desc)) {
-            this.f52669j.setText(coupon.coupon_title_desc);
+            this.f52836j.setText(coupon.coupon_title_desc);
         }
         if (coupon.app_scene_service != null || !TextUtils.isEmpty(coupon.list_scene_service_label)) {
             this.r.setText(coupon.list_scene_service_label);
@@ -571,50 +571,50 @@ public class c implements a.b<CouponList.Coupon> {
             this.s.setVisibility(8);
             return;
         }
-        this.s.setBackgroundDrawable(ResUtils.getDrawable(this.f52661b.getContext(), "wallet_personal_coupon_new_icon"));
+        this.s.setBackgroundDrawable(ResUtils.getDrawable(this.f52828b.getContext(), "wallet_personal_coupon_new_icon"));
         this.s.setVisibility(0);
     }
 
     @Override // com.baidu.wallet.personal.a.a.b
     public void a(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view) == null) && this.f52661b == null) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view) == null) && this.f52828b == null) {
             ViewGroup viewGroup = (ViewGroup) view;
-            this.f52661b = viewGroup;
-            this.f52664e = (RelativeLayout) viewGroup.findViewById(ResUtils.id(viewGroup.getContext(), "coupon_item_title_layout"));
-            a aVar = this.f52666g;
-            ViewGroup viewGroup2 = this.f52661b;
+            this.f52828b = viewGroup;
+            this.f52831e = (RelativeLayout) viewGroup.findViewById(ResUtils.id(viewGroup.getContext(), "coupon_item_title_layout"));
+            a aVar = this.f52833g;
+            ViewGroup viewGroup2 = this.f52828b;
             aVar.a = (RelativeLayout) viewGroup2.findViewById(ResUtils.id(viewGroup2.getContext(), "coupon_item_layout"));
-            ViewGroup viewGroup3 = this.f52661b;
-            this.f52663d = viewGroup3.findViewById(ResUtils.id(viewGroup3.getContext(), "mist_view"));
-            ViewGroup viewGroup4 = this.f52661b;
-            this.f52662c = (TextView) viewGroup4.findViewById(ResUtils.id(viewGroup4.getContext(), "group_title"));
-            ViewGroup viewGroup5 = this.f52661b;
-            this.f52665f = viewGroup5.findViewById(ResUtils.id(viewGroup5.getContext(), "icon"));
-            ViewGroup viewGroup6 = this.f52661b;
-            this.f52667h = (TextView) viewGroup6.findViewById(ResUtils.id(viewGroup6.getContext(), "coupon_name"));
+            ViewGroup viewGroup3 = this.f52828b;
+            this.f52830d = viewGroup3.findViewById(ResUtils.id(viewGroup3.getContext(), "mist_view"));
+            ViewGroup viewGroup4 = this.f52828b;
+            this.f52829c = (TextView) viewGroup4.findViewById(ResUtils.id(viewGroup4.getContext(), "group_title"));
+            ViewGroup viewGroup5 = this.f52828b;
+            this.f52832f = viewGroup5.findViewById(ResUtils.id(viewGroup5.getContext(), "icon"));
+            ViewGroup viewGroup6 = this.f52828b;
+            this.f52834h = (TextView) viewGroup6.findViewById(ResUtils.id(viewGroup6.getContext(), "coupon_name"));
             b bVar = this.k;
-            ViewGroup viewGroup7 = this.f52661b;
+            ViewGroup viewGroup7 = this.f52828b;
             bVar.a = (TextView) viewGroup7.findViewById(ResUtils.id(viewGroup7.getContext(), "market_label"));
-            ViewGroup viewGroup8 = this.f52661b;
+            ViewGroup viewGroup8 = this.f52828b;
             this.l = (TextView) viewGroup8.findViewById(ResUtils.id(viewGroup8.getContext(), "date_msg"));
-            ViewGroup viewGroup9 = this.f52661b;
-            this.f52668i = (TextView) viewGroup9.findViewById(ResUtils.id(viewGroup9.getContext(), "coupon_title_head"));
-            ViewGroup viewGroup10 = this.f52661b;
-            this.f52669j = (TextView) viewGroup10.findViewById(ResUtils.id(viewGroup10.getContext(), "coupon_title_desc"));
-            ViewGroup viewGroup11 = this.f52661b;
+            ViewGroup viewGroup9 = this.f52828b;
+            this.f52835i = (TextView) viewGroup9.findViewById(ResUtils.id(viewGroup9.getContext(), "coupon_title_head"));
+            ViewGroup viewGroup10 = this.f52828b;
+            this.f52836j = (TextView) viewGroup10.findViewById(ResUtils.id(viewGroup10.getContext(), "coupon_title_desc"));
+            ViewGroup viewGroup11 = this.f52828b;
             this.m = (TextView) viewGroup11.findViewById(ResUtils.id(viewGroup11.getContext(), "sub_title"));
-            ViewGroup viewGroup12 = this.f52661b;
+            ViewGroup viewGroup12 = this.f52828b;
             this.n = (TextView) viewGroup12.findViewById(ResUtils.id(viewGroup12.getContext(), "sub_title2"));
-            ViewGroup viewGroup13 = this.f52661b;
+            ViewGroup viewGroup13 = this.f52828b;
             this.r = (TextView) viewGroup13.findViewById(ResUtils.id(viewGroup13.getContext(), "scene_service_label"));
-            ViewGroup viewGroup14 = this.f52661b;
+            ViewGroup viewGroup14 = this.f52828b;
             this.s = (ImageView) viewGroup14.findViewById(ResUtils.id(viewGroup14.getContext(), "coupn_new"));
-            ViewGroup viewGroup15 = this.f52661b;
+            ViewGroup viewGroup15 = this.f52828b;
             this.o = (LinearLayout) viewGroup15.findViewById(ResUtils.id(viewGroup15.getContext(), "use_limit_layout"));
-            ViewGroup viewGroup16 = this.f52661b;
+            ViewGroup viewGroup16 = this.f52828b;
             this.p = (NetImageView) viewGroup16.findViewById(ResUtils.id(viewGroup16.getContext(), "use_limit_icon"));
-            ViewGroup viewGroup17 = this.f52661b;
+            ViewGroup viewGroup17 = this.f52828b;
             this.q = (TextView) viewGroup17.findViewById(ResUtils.id(viewGroup17.getContext(), "use_limit"));
         }
     }

@@ -10,7 +10,7 @@ import javax.annotation.Nullable;
 import okhttp3.MediaType;
 import okhttp3.ResponseBody;
 import okio.BufferedSource;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class RealResponseBody extends ResponseBody {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

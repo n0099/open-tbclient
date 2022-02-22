@@ -6,7 +6,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.handler.a.c;
 import com.meizu.cloud.pushsdk.util.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends c {
     public a(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);

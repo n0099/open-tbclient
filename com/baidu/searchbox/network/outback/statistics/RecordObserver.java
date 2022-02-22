@@ -1,0 +1,5 @@
+package com.baidu.searchbox.network.outback.statistics;
+/* loaded from: classes11.dex */
+public interface RecordObserver {
+    void doRecord(NetworkStatRecord networkStatRecord, int i2);
+}

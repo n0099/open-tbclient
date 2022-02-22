@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import c.a.u0.a4.j;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,7 +58,7 @@ public class SupplementSignActivityConfig extends TbWebViewActivityConfig {
                 return;
             }
         }
-        String string = context.getResources().getString(R.string.resign);
+        String string = context.getResources().getString(j.resign);
         getIntent().putExtra(FORUM_ID, i2);
         setRequestCode(i3);
         setIntentAction(IntentAction.ActivityForResult);

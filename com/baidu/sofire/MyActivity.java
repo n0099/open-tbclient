@@ -90,10 +90,10 @@ public class MyActivity extends Activity {
                         public final /* synthetic */ Intent a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ WeakReference f38345b;
+                        public final /* synthetic */ WeakReference f38573b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ Context f38346c;
+                        public final /* synthetic */ Context f38574c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -111,8 +111,8 @@ public class MyActivity extends Activity {
                                 }
                             }
                             this.a = intent;
-                            this.f38345b = weakReference;
-                            this.f38346c = applicationContext;
+                            this.f38573b = weakReference;
+                            this.f38574c = applicationContext;
                         }
 
                         @Override // java.lang.Runnable
@@ -124,12 +124,12 @@ public class MyActivity extends Activity {
                                     Intent intent3 = new Intent();
                                     intent3.putExtra("t", "a");
                                     intent3.putExtra("c", stringExtra);
-                                    String a = MyActivity.a((Activity) this.f38345b.get());
+                                    String a = MyActivity.a((Activity) this.f38573b.get());
                                     if (a == null) {
                                         a = "";
                                     }
                                     intent3.putExtra("source", a);
-                                    a.a(this.f38346c.getApplicationContext(), intent3);
+                                    a.a(this.f38574c.getApplicationContext(), intent3);
                                 } catch (Throwable unused) {
                                     com.baidu.sofire.utility.c.a();
                                 }

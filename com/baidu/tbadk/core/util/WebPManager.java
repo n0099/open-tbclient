@@ -10,9 +10,9 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.x3.c;
+import c.a.u0.a4.d;
+import c.a.u0.z3.c;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -184,7 +184,7 @@ public class WebPManager {
             }
             Drawable mutate = drawable.mutate();
             if (TbadkCoreApplication.getInst().getSkinType() != 0) {
-                mutate.setColorFilter(SkinManager.getColor(R.color.CAM_X0501), PorterDuff.Mode.SRC_ATOP);
+                mutate.setColorFilter(SkinManager.getColor(d.CAM_X0501), PorterDuff.Mode.SRC_ATOP);
             }
             return mutate;
         }
@@ -221,7 +221,7 @@ public class WebPManager {
             if (i2 <= 0) {
                 return null;
             }
-            int i5 = R.color.CAM_X0105;
+            int i5 = d.CAM_X0105;
             StateListDrawable stateListDrawable = new StateListDrawable();
             Drawable drawable2 = SkinManager.getDrawable(i2);
             if (drawable2 == null) {
@@ -254,8 +254,8 @@ public class WebPManager {
             if (i2 <= 0) {
                 return null;
             }
-            int i5 = R.color.CAM_X0107;
-            int i6 = R.color.CAM_X0302;
+            int i5 = d.CAM_X0107;
+            int i6 = d.CAM_X0302;
             StateListDrawable stateListDrawable = new StateListDrawable();
             Drawable drawable2 = SkinManager.getDrawable(i2);
             if (drawable2 == null) {
@@ -320,7 +320,7 @@ public class WebPManager {
             Drawable mutate = drawable.mutate();
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (z && skinType != 0) {
-                mutate.setColorFilter(SkinManager.getColor(R.color.CAM_X0501), PorterDuff.Mode.SRC_ATOP);
+                mutate.setColorFilter(SkinManager.getColor(d.CAM_X0501), PorterDuff.Mode.SRC_ATOP);
             }
             return mutate;
         }

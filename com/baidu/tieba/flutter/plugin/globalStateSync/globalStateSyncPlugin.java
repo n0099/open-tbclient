@@ -4,20 +4,21 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import c.a.d.f.p.m;
-import c.a.s0.b.d;
-import c.a.s0.b.e;
-import c.a.s0.b.f.b0;
-import c.a.s0.d1.t0;
-import c.a.s0.g1.b.c;
-import c.a.s0.s.i0.b;
-import c.a.s0.t.b.a;
-import c.a.t0.a1.a.b.g;
+import c.a.t0.b.d;
+import c.a.t0.b.e;
+import c.a.t0.b.f.e0;
+import c.a.t0.d1.u0;
+import c.a.t0.g1.b.c;
+import c.a.t0.s.a0.a;
+import c.a.t0.s.j0.b;
+import c.a.u0.a1.a.b.g;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.TbConfig;
@@ -36,6 +37,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes12.dex */
@@ -445,7 +448,7 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            e a = d.a(b0.f12348c);
+            e a = d.a(e0.f12460c);
             if (a == null || m.isEmpty(a.a)) {
                 return "";
             }
@@ -516,7 +519,7 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
             if (from != null && from.length() > 0) {
                 hashMap.put("appFrom", from);
             }
-            hashMap.put("isVideoAutoPlay", Boolean.valueOf(t0.e()));
+            hashMap.put("isVideoAutoPlay", Boolean.valueOf(u0.e()));
             hashMap.put("cuid", TbadkCoreApplication.getInst().getCuid());
             hashMap.put("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
             hashMap.put("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
@@ -530,6 +533,19 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
             hashMap.put("framework_ver", TbadkCoreApplication.getInst().getFramework_ver());
             hashMap.put("swan_game_ver", TbadkCoreApplication.getInst().getSwan_game_ver());
             hashMap.put(TiebaStatic.Params.SAMPLE_ID, TbSingleton.getInstance().getSampleId());
+            StringBuilder sb = new StringBuilder();
+            sb.append(a.f13402f);
+            String str = "";
+            sb.append("");
+            hashMap.put("start_type", sb.toString());
+            try {
+                if (!StringUtils.isNull(a.f13401e)) {
+                    str = URLEncoder.encode(a.f13401e, "utf-8");
+                }
+                hashMap.put("start_scheme", str);
+            } catch (UnsupportedEncodingException e2) {
+                e2.printStackTrace();
+            }
             return hashMap;
         }
         return (HashMap) invokeV.objValue;
@@ -572,7 +588,7 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
             HashMap<String, Object> hashMap = new HashMap<>();
-            String a = a.b().a();
+            String a = c.a.t0.t.b.a.b().a();
             hashMap.put("keepAliveWifi", Integer.valueOf(TbadkCoreApplication.getInst().getKeepaliveWifi()));
             hashMap.put("keepAliveNoWifi", Integer.valueOf(TbadkCoreApplication.getInst().getKeepaliveNonWifi()));
             hashMap.put("puEnvValue", TbSingleton.getInstance().getPubEnvValue());
@@ -626,9 +642,9 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
             hashMap2.put("userBigPhotoHost", TbConfig.getBigPhotoAdress());
             hashMap2.put("isYYUser", TbSingleton.getInstance().getSyncYYSwitch() ? "1" : "0");
             hashMap2.put("videoWorksProgressBarWaitingTime", String.valueOf(b.k().l("key_video_works_progress_bar_waiting_time", 0)));
-            hashMap2.put("experimentPersonalVideoTabID", d.W() ? "12_10_zhuye_feed_b" : "");
-            hashMap2.put("experimentNickNameID", d.S() ? "12_11_nick_name_a" : "");
-            hashMap2.put("ubsConfigMap", c.a.s0.b.c.d().f());
+            hashMap2.put("experimentPersonalVideoTabID", d.a0() ? "12_10_zhuye_feed_b" : "");
+            hashMap2.put("experimentNickNameID", d.W() ? "12_11_nick_name_a" : "");
+            hashMap2.put("ubsConfigMap", c.a.t0.b.c.d().f());
             hashMap.put("syncData", hashMap2);
             if (TbSingleton.getInstance().getTiebaPlusConfigData() != null) {
                 hashMap3.put("heatingSwitchOpen", TbSingleton.getInstance().getTiebaPlusConfigData().f() ? "1" : "0");

@@ -52,7 +52,7 @@ public class b {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x001d, code lost:
-        if (com.baidu.permissionhelper.context.ContextCompat.checkPermissionGranted(r5, com.kuaishou.weapon.un.s.f55293i) != false) goto L17;
+        if (com.baidu.permissionhelper.context.ContextCompat.checkPermissionGranted(r5, com.kuaishou.weapon.un.s.f55460i) != false) goto L17;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.

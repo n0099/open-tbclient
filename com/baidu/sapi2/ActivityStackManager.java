@@ -14,20 +14,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.Stack;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ActivityStackManager implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Stack<Activity> stack;
 
     /* renamed from: com.baidu.sapi2.ActivityStackManager$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class Instance {
         public static /* synthetic */ Interceptable $ic;
         public static ActivityStackManager INSTANCE;

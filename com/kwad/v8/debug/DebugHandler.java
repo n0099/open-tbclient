@@ -18,7 +18,7 @@ import com.kwad.v8.V8Object;
 import com.kwad.v8.V8Value;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DebugHandler implements Releasable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHANGE_BREAK_POINT_CONDITION = "changeBreakPointCondition";
@@ -41,7 +41,7 @@ public class DebugHandler implements Releasable {
     public V8 runtime;
 
     /* renamed from: com.kwad.v8.debug.DebugHandler$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$kwad$v8$debug$DebugHandler$DebugEvent;
         public static /* synthetic */ Interceptable $ic;
@@ -81,7 +81,7 @@ public class DebugHandler implements Releasable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class BreakpointHandler implements JavaVoidCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -219,7 +219,7 @@ public class DebugHandler implements Releasable {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class DebugEvent {
         public static final /* synthetic */ DebugEvent[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

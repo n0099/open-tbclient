@@ -13,11 +13,11 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import c.a.r0.a.f;
-import c.a.r0.a.g;
-import c.a.r0.a.i;
-import c.a.r0.a.k;
-import c.a.r0.a.z2.n0;
+import c.a.s0.a.f;
+import c.a.s0.a.g;
+import c.a.s0.a.i;
+import c.a.s0.a.k;
+import c.a.s0.a.z2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -37,23 +37,23 @@ public class SwanAppPropertyWindow extends FrameLayout {
     public static final String KEY_TITLE = "title";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f38742i;
+    public static final boolean f38970i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static Map<String, String> f38743j;
+    public static Map<String, String> f38971j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b[] f38744e;
+    public b[] f38972e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Map<String, TextView> f38745f;
+    public Map<String, TextView> f38973f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f38746g;
+    public c f38974g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Map<String, Object> f38747h;
+    public Map<String, Object> f38975h;
 
     /* loaded from: classes11.dex */
     public class a implements View.OnClickListener {
@@ -61,16 +61,16 @@ public class SwanAppPropertyWindow extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ScrollView f38748e;
+        public final /* synthetic */ ScrollView f38976e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TextView f38749f;
+        public final /* synthetic */ TextView f38977f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f38750g;
+        public final /* synthetic */ String f38978g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ SwanAppPropertyWindow f38751h;
+        public final /* synthetic */ SwanAppPropertyWindow f38979h;
 
         public a(SwanAppPropertyWindow swanAppPropertyWindow, ScrollView scrollView, TextView textView, String str) {
             Interceptable interceptable = $ic;
@@ -87,24 +87,24 @@ public class SwanAppPropertyWindow extends FrameLayout {
                     return;
                 }
             }
-            this.f38751h = swanAppPropertyWindow;
-            this.f38748e = scrollView;
-            this.f38749f = textView;
-            this.f38750g = str;
+            this.f38979h = swanAppPropertyWindow;
+            this.f38976e = scrollView;
+            this.f38977f = textView;
+            this.f38978g = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f38748e.getVisibility() == 0) {
-                    this.f38748e.setVisibility(8);
+                if (this.f38976e.getVisibility() == 0) {
+                    this.f38976e.setVisibility(8);
                 } else {
-                    this.f38748e.setVisibility(0);
+                    this.f38976e.setVisibility(0);
                 }
-                String str = this.f38748e.getVisibility() == 0 ? "(点击关闭)" : "(点击打开)";
-                TextView textView = this.f38749f;
-                textView.setText(this.f38750g + str);
+                String str = this.f38976e.getVisibility() == 0 ? "(点击关闭)" : "(点击打开)";
+                TextView textView = this.f38977f;
+                textView.setText(this.f38978g + str);
             }
         }
     }
@@ -138,13 +138,13 @@ public class SwanAppPropertyWindow extends FrameLayout {
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                if (this.a.f38747h != null && this.a.f38747h.size() > 0) {
-                    for (Map.Entry entry : this.a.f38747h.entrySet()) {
+                if (this.a.f38975h != null && this.a.f38975h.size() > 0) {
+                    for (Map.Entry entry : this.a.f38975h.entrySet()) {
                         this.a.f((String) entry.getKey(), entry.getValue());
                     }
                 }
-                if (this.a.f38746g != null) {
-                    this.a.f38746g.sendEmptyMessageDelayed(0, 3000L);
+                if (this.a.f38974g != null) {
+                    this.a.f38974g.sendEmptyMessageDelayed(0, 3000L);
                 }
             }
         }
@@ -167,11 +167,11 @@ public class SwanAppPropertyWindow extends FrameLayout {
                 return;
             }
         }
-        f38742i = k.a;
+        f38970i = k.a;
         HashMap hashMap = new HashMap();
-        f38743j = hashMap;
-        hashMap.put(c.a.r0.a.e0.g.b.q, "api_info_expend");
-        f38743j.put(c.a.r0.a.e0.g.b.r, "prelink_info_expend");
+        f38971j = hashMap;
+        hashMap.put(c.a.s0.a.e0.g.b.q, "api_info_expend");
+        f38971j.put(c.a.s0.a.e0.g.b.r, "prelink_info_expend");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -192,8 +192,8 @@ public class SwanAppPropertyWindow extends FrameLayout {
                 return;
             }
         }
-        this.f38744e = new b[]{new b(this, "对应开发者平台指标"), new b(this, c.a.r0.a.e0.g.b.m, "上屏时长：%s ms"), new b(this, c.a.r0.a.e0.g.b.k, "加载总时长(老指标)：%s ms"), new b(this, "中间指标"), new b(this, c.a.r0.a.e0.g.b.l, "下载耗时：%s ms"), new b(this, c.a.r0.a.e0.g.b.f5843j, "页面切换耗时：%s ms"), new b(this, c.a.r0.a.e0.g.b.n, "初次渲染耗时：%s ms"), new b(this, c.a.r0.a.e0.g.b.o, "再次渲染耗时：%s ms"), new b(this, ExecutionState.FRAME, "帧率：%s fps"), new b(this, "其他"), new b(this, "cpu", "CPU：%s"), new b(this, "mem", "内存：%sm"), new b(this, c.a.r0.a.e0.g.b.p, "数据缓存：%s B"), new b(this, "prelink_info_expend", "预连接调用情况"), new b(this, c.a.r0.a.e0.g.b.r, FormattableUtils.SIMPLEST_FORMAT), new b(this, "api_info_expend", "启动过程API调用"), new b(this, c.a.r0.a.e0.g.b.q, FormattableUtils.SIMPLEST_FORMAT)};
-        this.f38745f = new HashMap(this.f38744e.length);
+        this.f38972e = new b[]{new b(this, "对应开发者平台指标"), new b(this, c.a.s0.a.e0.g.b.m, "上屏时长：%s ms"), new b(this, c.a.s0.a.e0.g.b.k, "加载总时长(老指标)：%s ms"), new b(this, "中间指标"), new b(this, c.a.s0.a.e0.g.b.l, "下载耗时：%s ms"), new b(this, c.a.s0.a.e0.g.b.f5943j, "页面切换耗时：%s ms"), new b(this, c.a.s0.a.e0.g.b.n, "初次渲染耗时：%s ms"), new b(this, c.a.s0.a.e0.g.b.o, "再次渲染耗时：%s ms"), new b(this, ExecutionState.FRAME, "帧率：%s fps"), new b(this, "其他"), new b(this, "cpu", "CPU：%s"), new b(this, "mem", "内存：%sm"), new b(this, c.a.s0.a.e0.g.b.p, "数据缓存：%s B"), new b(this, "prelink_info_expend", "预连接调用情况"), new b(this, c.a.s0.a.e0.g.b.r, FormattableUtils.SIMPLEST_FORMAT), new b(this, "api_info_expend", "启动过程API调用"), new b(this, c.a.s0.a.e0.g.b.q, FormattableUtils.SIMPLEST_FORMAT)};
+        this.f38973f = new HashMap(this.f38972e.length);
         d(context);
     }
 
@@ -203,25 +203,25 @@ public class SwanAppPropertyWindow extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(g.aiapps_property_window, this);
             LinearLayout linearLayout = (LinearLayout) findViewById(f.ai_apps_property_root);
-            for (b bVar : this.f38744e) {
+            for (b bVar : this.f38972e) {
                 TextView textView = new TextView(context);
                 if (TextUtils.equals(bVar.a, "title")) {
                     textView.setTextAppearance(context, i.SwanAppPropertyWindowTitle);
-                    textView.setText(bVar.f38752b);
+                    textView.setText(bVar.f38980b);
                 } else if (!TextUtils.equals(bVar.a, "api_info_expend") && !TextUtils.equals(bVar.a, "prelink_info_expend")) {
                     textView.setTextAppearance(context, i.SwanAppPropertyWindowContent);
-                    textView.setTag(bVar.f38752b);
+                    textView.setTag(bVar.f38980b);
                     textView.setVisibility(8);
                 } else {
                     textView.setTextAppearance(context, i.SwanAppPropertyWindowTitle);
-                    textView.setText(bVar.f38752b);
+                    textView.setText(bVar.f38980b);
                     int g2 = n0.g(5.0f);
                     textView.setPadding(0, g2, 0, g2);
                 }
                 linearLayout.addView(textView);
-                this.f38745f.put(bVar.a, textView);
-                if (f38743j.containsKey(bVar.a)) {
-                    e(linearLayout, context, f38743j.get(bVar.a), bVar.a);
+                this.f38973f.put(bVar.a, textView);
+                if (f38971j.containsKey(bVar.a)) {
+                    e(linearLayout, context, f38971j.get(bVar.a), bVar.a);
                 }
             }
             g();
@@ -233,14 +233,14 @@ public class SwanAppPropertyWindow extends FrameLayout {
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linearLayout, context, str, str2) == null) {
             ScrollView scrollView = new ScrollView(context);
             ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, n0.g(200.0f));
-            View view = (TextView) this.f38745f.get(str2);
+            View view = (TextView) this.f38973f.get(str2);
             if (view != null) {
                 linearLayout.removeView(view);
                 linearLayout.addView(scrollView, layoutParams);
                 scrollView.addView(view);
                 scrollView.setVisibility(8);
             }
-            TextView textView = this.f38745f.get(str);
+            TextView textView = this.f38973f.get(str);
             if (textView != null) {
                 String charSequence = textView.getText().toString();
                 String str3 = scrollView.getVisibility() == 0 ? "(点击关闭)" : "(点击打开)";
@@ -253,12 +253,12 @@ public class SwanAppPropertyWindow extends FrameLayout {
     public final void f(String str, Object obj) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, obj) == null) || (textView = this.f38745f.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, obj) == null) || (textView = this.f38973f.get(str)) == null) {
             return;
         }
         textView.setText(String.format((String) textView.getTag(), obj));
         textView.setVisibility(0);
-        if (f38742i) {
+        if (f38970i) {
             String str2 = str + ZeusCrashHandler.NAME_SEPERATOR + obj;
         }
     }
@@ -266,13 +266,13 @@ public class SwanAppPropertyWindow extends FrameLayout {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            boolean z = f38742i;
-            if (this.f38747h == null) {
-                this.f38747h = c.a.r0.a.e0.g.b.g().h();
+            boolean z = f38970i;
+            if (this.f38975h == null) {
+                this.f38975h = c.a.s0.a.e0.g.b.g().h();
             }
-            if (this.f38746g == null) {
+            if (this.f38974g == null) {
                 c cVar = new c(this, null);
-                this.f38746g = cVar;
+                this.f38974g = cVar;
                 cVar.sendEmptyMessage(0);
             }
         }
@@ -281,15 +281,15 @@ public class SwanAppPropertyWindow extends FrameLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            boolean z = f38742i;
-            if (this.f38747h != null) {
-                c.a.r0.a.e0.g.b.g().i();
-                this.f38747h = null;
+            boolean z = f38970i;
+            if (this.f38975h != null) {
+                c.a.s0.a.e0.g.b.g().i();
+                this.f38975h = null;
             }
-            c cVar = this.f38746g;
+            c cVar = this.f38974g;
             if (cVar != null) {
                 cVar.removeMessages(0);
-                this.f38746g = null;
+                this.f38974g = null;
             }
         }
     }
@@ -331,10 +331,10 @@ public class SwanAppPropertyWindow extends FrameLayout {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f38752b;
+        public String f38980b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SwanAppPropertyWindow f38753c;
+        public final /* synthetic */ SwanAppPropertyWindow f38981c;
 
         public b(SwanAppPropertyWindow swanAppPropertyWindow, String str) {
             Interceptable interceptable = $ic;
@@ -351,9 +351,9 @@ public class SwanAppPropertyWindow extends FrameLayout {
                     return;
                 }
             }
-            this.f38753c = swanAppPropertyWindow;
+            this.f38981c = swanAppPropertyWindow;
             this.a = "title";
-            this.f38752b = str;
+            this.f38980b = str;
         }
 
         public b(SwanAppPropertyWindow swanAppPropertyWindow, String str, String str2) {
@@ -371,10 +371,10 @@ public class SwanAppPropertyWindow extends FrameLayout {
                     return;
                 }
             }
-            this.f38753c = swanAppPropertyWindow;
+            this.f38981c = swanAppPropertyWindow;
             this.a = "title";
             this.a = str;
-            this.f38752b = str2;
+            this.f38980b = str2;
         }
     }
 
@@ -397,8 +397,8 @@ public class SwanAppPropertyWindow extends FrameLayout {
                 return;
             }
         }
-        this.f38744e = new b[]{new b(this, "对应开发者平台指标"), new b(this, c.a.r0.a.e0.g.b.m, "上屏时长：%s ms"), new b(this, c.a.r0.a.e0.g.b.k, "加载总时长(老指标)：%s ms"), new b(this, "中间指标"), new b(this, c.a.r0.a.e0.g.b.l, "下载耗时：%s ms"), new b(this, c.a.r0.a.e0.g.b.f5843j, "页面切换耗时：%s ms"), new b(this, c.a.r0.a.e0.g.b.n, "初次渲染耗时：%s ms"), new b(this, c.a.r0.a.e0.g.b.o, "再次渲染耗时：%s ms"), new b(this, ExecutionState.FRAME, "帧率：%s fps"), new b(this, "其他"), new b(this, "cpu", "CPU：%s"), new b(this, "mem", "内存：%sm"), new b(this, c.a.r0.a.e0.g.b.p, "数据缓存：%s B"), new b(this, "prelink_info_expend", "预连接调用情况"), new b(this, c.a.r0.a.e0.g.b.r, FormattableUtils.SIMPLEST_FORMAT), new b(this, "api_info_expend", "启动过程API调用"), new b(this, c.a.r0.a.e0.g.b.q, FormattableUtils.SIMPLEST_FORMAT)};
-        this.f38745f = new HashMap(this.f38744e.length);
+        this.f38972e = new b[]{new b(this, "对应开发者平台指标"), new b(this, c.a.s0.a.e0.g.b.m, "上屏时长：%s ms"), new b(this, c.a.s0.a.e0.g.b.k, "加载总时长(老指标)：%s ms"), new b(this, "中间指标"), new b(this, c.a.s0.a.e0.g.b.l, "下载耗时：%s ms"), new b(this, c.a.s0.a.e0.g.b.f5943j, "页面切换耗时：%s ms"), new b(this, c.a.s0.a.e0.g.b.n, "初次渲染耗时：%s ms"), new b(this, c.a.s0.a.e0.g.b.o, "再次渲染耗时：%s ms"), new b(this, ExecutionState.FRAME, "帧率：%s fps"), new b(this, "其他"), new b(this, "cpu", "CPU：%s"), new b(this, "mem", "内存：%sm"), new b(this, c.a.s0.a.e0.g.b.p, "数据缓存：%s B"), new b(this, "prelink_info_expend", "预连接调用情况"), new b(this, c.a.s0.a.e0.g.b.r, FormattableUtils.SIMPLEST_FORMAT), new b(this, "api_info_expend", "启动过程API调用"), new b(this, c.a.s0.a.e0.g.b.q, FormattableUtils.SIMPLEST_FORMAT)};
+        this.f38973f = new HashMap(this.f38972e.length);
         d(context);
     }
 
@@ -421,8 +421,8 @@ public class SwanAppPropertyWindow extends FrameLayout {
                 return;
             }
         }
-        this.f38744e = new b[]{new b(this, "对应开发者平台指标"), new b(this, c.a.r0.a.e0.g.b.m, "上屏时长：%s ms"), new b(this, c.a.r0.a.e0.g.b.k, "加载总时长(老指标)：%s ms"), new b(this, "中间指标"), new b(this, c.a.r0.a.e0.g.b.l, "下载耗时：%s ms"), new b(this, c.a.r0.a.e0.g.b.f5843j, "页面切换耗时：%s ms"), new b(this, c.a.r0.a.e0.g.b.n, "初次渲染耗时：%s ms"), new b(this, c.a.r0.a.e0.g.b.o, "再次渲染耗时：%s ms"), new b(this, ExecutionState.FRAME, "帧率：%s fps"), new b(this, "其他"), new b(this, "cpu", "CPU：%s"), new b(this, "mem", "内存：%sm"), new b(this, c.a.r0.a.e0.g.b.p, "数据缓存：%s B"), new b(this, "prelink_info_expend", "预连接调用情况"), new b(this, c.a.r0.a.e0.g.b.r, FormattableUtils.SIMPLEST_FORMAT), new b(this, "api_info_expend", "启动过程API调用"), new b(this, c.a.r0.a.e0.g.b.q, FormattableUtils.SIMPLEST_FORMAT)};
-        this.f38745f = new HashMap(this.f38744e.length);
+        this.f38972e = new b[]{new b(this, "对应开发者平台指标"), new b(this, c.a.s0.a.e0.g.b.m, "上屏时长：%s ms"), new b(this, c.a.s0.a.e0.g.b.k, "加载总时长(老指标)：%s ms"), new b(this, "中间指标"), new b(this, c.a.s0.a.e0.g.b.l, "下载耗时：%s ms"), new b(this, c.a.s0.a.e0.g.b.f5943j, "页面切换耗时：%s ms"), new b(this, c.a.s0.a.e0.g.b.n, "初次渲染耗时：%s ms"), new b(this, c.a.s0.a.e0.g.b.o, "再次渲染耗时：%s ms"), new b(this, ExecutionState.FRAME, "帧率：%s fps"), new b(this, "其他"), new b(this, "cpu", "CPU：%s"), new b(this, "mem", "内存：%sm"), new b(this, c.a.s0.a.e0.g.b.p, "数据缓存：%s B"), new b(this, "prelink_info_expend", "预连接调用情况"), new b(this, c.a.s0.a.e0.g.b.r, FormattableUtils.SIMPLEST_FORMAT), new b(this, "api_info_expend", "启动过程API调用"), new b(this, c.a.s0.a.e0.g.b.q, FormattableUtils.SIMPLEST_FORMAT)};
+        this.f38973f = new HashMap(this.f38972e.length);
         d(context);
     }
 }

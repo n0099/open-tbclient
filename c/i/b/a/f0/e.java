@@ -22,10 +22,10 @@ public abstract class e extends h {
     public final SparseArray<Map<t, b>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final SparseBooleanArray f29625b;
+    public final SparseBooleanArray f29831b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f29626c;
+    public int f29832c;
 
     /* loaded from: classes9.dex */
     public static final class a {
@@ -58,15 +58,15 @@ public abstract class e extends h {
         public final f.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f29627b;
+        public final int f29833b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int[] f29628c;
+        public final int[] f29834c;
 
         public f a(t tVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tVar)) == null) ? this.a.a(tVar.a(this.f29627b), this.f29628c) : (f) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tVar)) == null) ? this.a.a(tVar.a(this.f29833b), this.f29834c) : (f) invokeL.objValue;
         }
     }
 
@@ -84,8 +84,8 @@ public abstract class e extends h {
             }
         }
         this.a = new SparseArray<>();
-        this.f29625b = new SparseBooleanArray();
-        this.f29626c = 0;
+        this.f29831b = new SparseBooleanArray();
+        this.f29832c = 0;
     }
 
     public static int e(s[] sVarArr, c.i.b.a.d0.s sVar) throws ExoPlaybackException {
@@ -242,7 +242,7 @@ public abstract class e extends h {
                 if (i8 >= sVarArr.length) {
                     break;
                 }
-                if (this.f29625b.get(i8)) {
+                if (this.f29831b.get(i8)) {
                     k[i8] = null;
                 } else {
                     t tVar3 = tVarArr[i8];
@@ -257,9 +257,9 @@ public abstract class e extends h {
             a aVar = new a(iArr3, tVarArr, g2, iArr2, tVar2);
             c.i.b.a.t[] tVarArr2 = new c.i.b.a.t[sVarArr.length];
             for (int i9 = 0; i9 < sVarArr.length; i9++) {
-                tVarArr2[i9] = d2[i9] ? c.i.b.a.t.f29858b : null;
+                tVarArr2[i9] = d2[i9] ? c.i.b.a.t.f30064b : null;
             }
-            i(sVarArr, tVarArr, iArr2, tVarArr2, k, this.f29626c);
+            i(sVarArr, tVarArr, iArr2, tVarArr2, k, this.f29832c);
             return new i(tVar, d2, new g(k), aVar, tVarArr2);
         }
         return (i) invokeLL.objValue;
@@ -272,7 +272,7 @@ public abstract class e extends h {
             int length = fVarArr.length;
             boolean[] zArr = new boolean[length];
             for (int i2 = 0; i2 < length; i2++) {
-                zArr[i2] = !this.f29625b.get(i2) && (sVarArr[i2].e() == 5 || fVarArr[i2] != null);
+                zArr[i2] = !this.f29831b.get(i2) && (sVarArr[i2].e() == 5 || fVarArr[i2] != null);
             }
             return zArr;
         }

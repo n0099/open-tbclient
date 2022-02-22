@@ -35,7 +35,7 @@ public class f {
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final T f59151b;
+        public final T f59318b;
 
         public b(String str, T t) {
             Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class f {
                 }
             }
             this.a = str;
-            this.f59151b = t;
+            this.f59318b = t;
         }
 
         public /* synthetic */ b(String str, Object obj, a aVar) {
@@ -63,7 +63,7 @@ public class f {
         public T a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59151b : (T) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59318b : (T) invokeV.objValue;
         }
 
         public String b() {

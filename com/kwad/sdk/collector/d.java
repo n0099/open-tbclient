@@ -7,11 +7,11 @@ import com.kwad.sdk.utils.AbiUtil;
 import com.kwai.sodler.lib.ext.PluginError;
 import com.kwai.sodler.lib.ext.b;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d {
     public static final AtomicBoolean a = new AtomicBoolean(false);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a();
 
@@ -46,11 +46,11 @@ public class d {
         }
         com.kwai.sodler.kwai.b.a(context);
         com.kwai.sodler.lib.a.b bVar = new com.kwai.sodler.lib.a.b();
-        bVar.f58414c = ad;
-        bVar.f58416e = true;
+        bVar.f58581c = ad;
+        bVar.f58583e = true;
         bVar.a = str;
-        bVar.f58413b = ah;
-        bVar.f58418g = false;
+        bVar.f58580b = ah;
+        bVar.f58585g = false;
         com.kwai.sodler.kwai.b.a(str, bVar, new b.a() { // from class: com.kwad.sdk.collector.d.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */

@@ -22,19 +22,19 @@ public class LivenessCircleProgressView extends FrameLayout {
     public Paint a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f34436b;
+    public Paint f34642b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f34437c;
+    public Paint f34643c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f34438d;
+    public int f34644d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RectF f34439e;
+    public RectF f34645e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f34440f;
+    public int f34646f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LivenessCircleProgressView(@NonNull Context context) {
@@ -60,26 +60,26 @@ public class LivenessCircleProgressView extends FrameLayout {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f34440f = 12;
+            this.f34646f = 12;
             Paint paint = new Paint();
             this.a = paint;
             paint.setColor(Color.argb(127, 255, 255, 255));
             this.a.setAntiAlias(true);
-            this.a.setStrokeWidth(this.f34440f);
+            this.a.setStrokeWidth(this.f34646f);
             this.a.setStyle(Paint.Style.STROKE);
             Paint paint2 = new Paint();
-            this.f34436b = paint2;
+            this.f34642b = paint2;
             paint2.setColor(Color.argb(255, 255, 255, 255));
-            this.f34436b.setAntiAlias(true);
-            this.f34436b.setStrokeWidth(this.f34440f);
-            this.f34436b.setStyle(Paint.Style.STROKE);
+            this.f34642b.setAntiAlias(true);
+            this.f34642b.setStrokeWidth(this.f34646f);
+            this.f34642b.setStyle(Paint.Style.STROKE);
             Paint paint3 = new Paint();
-            this.f34437c = paint3;
+            this.f34643c = paint3;
             paint3.setColor(Color.rgb(255, 255, 255));
-            this.f34437c.setAntiAlias(true);
-            this.f34437c.setTextSize(getResources().getDimensionPixelSize(R.dimen.rim_text_size_20));
-            this.f34437c.setTextAlign(Paint.Align.CENTER);
-            this.f34439e = new RectF();
+            this.f34643c.setAntiAlias(true);
+            this.f34643c.setTextSize(getResources().getDimensionPixelSize(R.dimen.rim_text_size_20));
+            this.f34643c.setTextAlign(Paint.Align.CENTER);
+            this.f34645e = new RectF();
         }
     }
 
@@ -88,22 +88,22 @@ public class LivenessCircleProgressView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             super.onDraw(canvas);
-            canvas.drawCircle(getWidth() / 2, getHeight() / 2, (getWidth() / 2) - (this.f34440f / 2), this.a);
-            RectF rectF = this.f34439e;
-            int i2 = this.f34440f;
+            canvas.drawCircle(getWidth() / 2, getHeight() / 2, (getWidth() / 2) - (this.f34646f / 2), this.a);
+            RectF rectF = this.f34645e;
+            int i2 = this.f34646f;
             rectF.left = i2 / 2;
             rectF.top = i2 / 2;
-            rectF.right = getWidth() - (this.f34440f / 2);
-            this.f34439e.bottom = getHeight() - (this.f34440f / 2);
-            canvas.drawArc(this.f34439e, -90.0f, (this.f34438d / 100.0f) * 360.0f, false, this.f34436b);
-            canvas.drawText(this.f34438d + "%", getWidth() / 2, getHeight() / 2, this.f34437c);
+            rectF.right = getWidth() - (this.f34646f / 2);
+            this.f34645e.bottom = getHeight() - (this.f34646f / 2);
+            canvas.drawArc(this.f34645e, -90.0f, (this.f34644d / 100.0f) * 360.0f, false, this.f34642b);
+            canvas.drawText(this.f34644d + "%", getWidth() / 2, getHeight() / 2, this.f34643c);
         }
     }
 
     public void updateProgress(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f34438d = i2;
+            this.f34644d = i2;
             invalidate();
         }
     }

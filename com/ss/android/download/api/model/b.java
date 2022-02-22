@@ -9,104 +9,104 @@ public class b {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59369b;
+    public String f59536b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f59370c;
+    public String f59537c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f59371d;
+    public String f59538d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f59372e;
+    public String f59539e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f59373f;
+    public boolean f59540f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Drawable f59374g;
+    public Drawable f59541g;
 
     /* renamed from: h  reason: collision with root package name */
-    public InterfaceC2185b f59375h;
+    public InterfaceC2195b f59542h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f59376i;
+    public View f59543i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f59377j;
+    public int f59544j;
 
     /* loaded from: classes4.dex */
     public static final class a {
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f59378b;
+        public int f59545b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Context f59379c;
+        public Context f59546c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f59380d;
+        public String f59547d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f59381e;
+        public String f59548e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f59382f;
+        public String f59549f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f59383g;
+        public String f59550g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f59384h;
+        public boolean f59551h;
 
         /* renamed from: i  reason: collision with root package name */
-        public Drawable f59385i;
+        public Drawable f59552i;
 
         /* renamed from: j  reason: collision with root package name */
-        public InterfaceC2185b f59386j;
+        public InterfaceC2195b f59553j;
 
         public a(Context context) {
-            this.f59379c = context;
+            this.f59546c = context;
         }
 
         public a a(String str) {
-            this.f59380d = str;
+            this.f59547d = str;
             return this;
         }
 
         public a b(String str) {
-            this.f59381e = str;
+            this.f59548e = str;
             return this;
         }
 
         public a c(String str) {
-            this.f59382f = str;
+            this.f59549f = str;
             return this;
         }
 
         public a d(String str) {
-            this.f59383g = str;
+            this.f59550g = str;
             return this;
         }
 
         public a a(boolean z) {
-            this.f59384h = z;
+            this.f59551h = z;
             return this;
         }
 
         public a a(Drawable drawable) {
-            this.f59385i = drawable;
+            this.f59552i = drawable;
             return this;
         }
 
-        public a a(InterfaceC2185b interfaceC2185b) {
-            this.f59386j = interfaceC2185b;
+        public a a(InterfaceC2195b interfaceC2195b) {
+            this.f59553j = interfaceC2195b;
             return this;
         }
 
         public a a(int i2) {
-            this.f59378b = i2;
+            this.f59545b = i2;
             return this;
         }
 
@@ -117,7 +117,7 @@ public class b {
 
     /* renamed from: com.ss.android.download.api.model.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC2185b {
+    public interface InterfaceC2195b {
         void a(DialogInterface dialogInterface);
 
         void b(DialogInterface dialogInterface);
@@ -126,16 +126,16 @@ public class b {
     }
 
     public b(a aVar) {
-        this.f59373f = true;
-        this.a = aVar.f59379c;
-        this.f59369b = aVar.f59380d;
-        this.f59370c = aVar.f59381e;
-        this.f59371d = aVar.f59382f;
-        this.f59372e = aVar.f59383g;
-        this.f59373f = aVar.f59384h;
-        this.f59374g = aVar.f59385i;
-        this.f59375h = aVar.f59386j;
-        this.f59376i = aVar.a;
-        this.f59377j = aVar.f59378b;
+        this.f59540f = true;
+        this.a = aVar.f59546c;
+        this.f59536b = aVar.f59547d;
+        this.f59537c = aVar.f59548e;
+        this.f59538d = aVar.f59549f;
+        this.f59539e = aVar.f59550g;
+        this.f59540f = aVar.f59551h;
+        this.f59541g = aVar.f59552i;
+        this.f59542h = aVar.f59553j;
+        this.f59543i = aVar.a;
+        this.f59544j = aVar.f59545b;
     }
 }

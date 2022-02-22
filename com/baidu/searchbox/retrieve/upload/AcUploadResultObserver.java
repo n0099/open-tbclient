@@ -2,7 +2,7 @@ package com.baidu.searchbox.retrieve.upload;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.c1.b.a;
+import c.a.d1.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
@@ -114,14 +114,14 @@ public class AcUploadResultObserver implements a {
         }
     }
 
-    @Override // c.a.c1.b.a
+    @Override // c.a.d1.b.a
     public String getBizType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "acupload" : (String) invokeV.objValue;
     }
 
-    @Override // c.a.c1.b.a
+    @Override // c.a.d1.b.a
     public void onReceiveResult(boolean z, String str, String str2, JSONObject jSONObject, JSONObject jSONObject2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, str2, jSONObject, jSONObject2}) == null) {

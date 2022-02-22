@@ -5,8 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import c.a.c0.k0.m;
-import c.a.c0.k0.n;
+import c.a.d0.l0.m;
+import c.a.d0.l0.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.widget.dialog.AutoOrientationBtnDialog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ public class SslCertificateDialog extends AutoOrientationBtnDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public View f37338g;
+        public View f37570g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Context context) {
@@ -72,7 +72,7 @@ public class SslCertificateDialog extends AutoOrientationBtnDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view)) == null) {
-                this.f37338g = view;
+                this.f37570g = view;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -128,7 +128,7 @@ public class SslCertificateDialog extends AutoOrientationBtnDialog {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.m) == null) {
             return;
         }
-        this.l.addView(aVar.f37338g);
+        this.l.addView(aVar.f37570g);
     }
 
     public void setSafeBuilder(a aVar) {

@@ -22,7 +22,7 @@ import okio.BufferedSource;
 import okio.ByteString;
 import okio.Source;
 import okio.Timeout;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Http2Reader implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger logger;
@@ -32,7 +32,7 @@ public final class Http2Reader implements Closeable {
     public final Hpack.Reader hpackReader;
     public final BufferedSource source;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class ContinuationSource implements Source {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,7 +126,7 @@ public final class Http2Reader implements Closeable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface Handler {
         void ackSettings();
 

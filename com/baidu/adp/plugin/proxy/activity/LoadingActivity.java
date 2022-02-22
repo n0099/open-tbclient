@@ -7,8 +7,8 @@ import android.view.KeyEvent;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import c.a.d.a.f;
-import c.a.d.i.g.b;
-import c.a.d.i.k.c;
+import c.a.d.j.g.b;
+import c.a.d.j.k.c;
 import com.baidu.adp.base.BdBaseActivity;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
@@ -20,28 +20,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoadingActivity a;
 
         /* renamed from: com.baidu.adp.plugin.proxy.activity.LoadingActivity$a$a  reason: collision with other inner class name */
-        /* loaded from: classes9.dex */
-        public class C1711a implements c {
+        /* loaded from: classes10.dex */
+        public class C1721a implements c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Plugin a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f31274b;
+            public final /* synthetic */ a f31480b;
 
-            public C1711a(a aVar, Plugin plugin2) {
+            public C1721a(a aVar, Plugin plugin2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,18 +56,18 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
                         return;
                     }
                 }
-                this.f31274b = aVar;
+                this.f31480b = aVar;
                 this.a = plugin2;
             }
 
-            @Override // c.a.d.i.k.c
+            @Override // c.a.d.j.k.c
             public void a(Plugin.c cVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(1048576, this, cVar, str) == null) {
-                    Intent intent = new Intent(this.f31274b.a.getIntent());
-                    intent.setComponent(new ComponentName(str, this.f31274b.a.getIntent().getStringExtra(Plugin.INTENT_EXTRA_REDIRECT_ACTIVITY)));
-                    this.a.launchIntent(this.f31274b.a.getPageContext().getContext(), intent);
-                    this.f31274b.a.finish();
+                    Intent intent = new Intent(this.f31480b.a.getIntent());
+                    intent.setComponent(new ComponentName(str, this.f31480b.a.getIntent().getStringExtra(Plugin.INTENT_EXTRA_REDIRECT_ACTIVITY)));
+                    this.a.launchIntent(this.f31480b.a.getPageContext().getContext(), intent);
+                    this.f31480b.a.finish();
                 }
             }
         }
@@ -90,17 +90,17 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
             this.a = loadingActivity;
         }
 
-        @Override // c.a.d.i.g.b
+        @Override // c.a.d.j.g.b
         public void a(String str) {
             Plugin plugin2;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (plugin2 = PluginCenter.getInstance().getPlugin(str)) == null) {
                 return;
             }
-            plugin2.asyncInit(str, new C1711a(this, plugin2));
+            plugin2.asyncInit(str, new C1721a(this, plugin2));
         }
 
-        @Override // c.a.d.i.g.b
+        @Override // c.a.d.j.g.b
         public void b(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {

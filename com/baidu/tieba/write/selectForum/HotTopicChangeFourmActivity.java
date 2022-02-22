@@ -7,11 +7,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
-import c.a.t0.p4.d;
-import c.a.t0.p4.e;
-import c.a.t0.p4.g;
-import c.a.t0.p4.h;
-import c.a.t0.p4.j;
+import c.a.u0.s4.d;
+import c.a.u0.s4.e;
+import c.a.u0.s4.g;
+import c.a.u0.s4.h;
+import c.a.u0.s4.j;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -35,7 +35,7 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LIMIT_COUNT = 20;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.t0.p4.y.a mAdapter;
+    public c.a.u0.s4.y.a mAdapter;
     public List<HotTopicBussinessData> mList;
     public BdListView mListView;
     public NavigationBar mNavigationBar;
@@ -47,7 +47,7 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicChangeFourmActivity f49662e;
+        public final /* synthetic */ HotTopicChangeFourmActivity f49829e;
 
         public a(HotTopicChangeFourmActivity hotTopicChangeFourmActivity) {
             Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
                     return;
                 }
             }
-            this.f49662e = hotTopicChangeFourmActivity;
+            this.f49829e = hotTopicChangeFourmActivity;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
@@ -73,10 +73,10 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
                 Intent intent = new Intent();
                 intent.putExtra(IntentConfig.HOT_TOPIC_CHANGE_FOURM, i2);
-                intent.putExtra(VideoListActivityConfig.KEY_FORUM_ID, ((HotTopicBussinessData) this.f49662e.mList.get(i2)).getForumId());
-                intent.putExtra("KEY_FORUM_NAME", ((HotTopicBussinessData) this.f49662e.mList.get(i2)).getForumName());
-                this.f49662e.setResult(-1, intent);
-                this.f49662e.finish();
+                intent.putExtra(VideoListActivityConfig.KEY_FORUM_ID, ((HotTopicBussinessData) this.f49829e.mList.get(i2)).getForumId());
+                intent.putExtra("KEY_FORUM_NAME", ((HotTopicBussinessData) this.f49829e.mList.get(i2)).getForumName());
+                this.f49829e.setResult(-1, intent);
+                this.f49829e.finish();
             }
         }
     }
@@ -106,7 +106,7 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             SkinManager.setViewTextColor(this.mNavigationBar.setTitleText(TbadkCoreApplication.getInst().getString(j.change_fourm)), d.CAM_X0106);
             this.mListView = (BdListView) findViewById(g.hot_topic_listview);
-            this.mAdapter = new c.a.t0.p4.y.a(this);
+            this.mAdapter = new c.a.u0.s4.y.a(this);
             if (!this.mUseOriginList) {
                 int size = this.mList.size();
                 ArrayList arrayList = null;

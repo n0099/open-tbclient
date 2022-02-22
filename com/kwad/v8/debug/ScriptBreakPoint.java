@@ -11,7 +11,7 @@ import com.kwad.v8.Releasable;
 import com.kwad.v8.V8Array;
 import com.kwad.v8.V8Object;
 import com.kwad.v8.V8ResultUndefined;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ScriptBreakPoint implements Releasable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONDITION = "condition";

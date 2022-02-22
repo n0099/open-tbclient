@@ -21,7 +21,7 @@ import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class PlayerProxy implements IPlayer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public abstract class PlayerProxy implements IPlayer {
     public String mSourcePath;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class PlayerState {
         public static final /* synthetic */ PlayerState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

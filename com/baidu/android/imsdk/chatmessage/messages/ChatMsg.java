@@ -27,7 +27,7 @@ import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class ChatMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MSG_FORM_OTHER_DEVICE = 2;
@@ -456,8 +456,8 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.mRowId : invokeV.longValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:42:0x00b2 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x00b3  */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00ae A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x00af  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -475,37 +475,37 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
                 } else {
                     jSONObject2 = new JSONObject();
                 }
-            } catch (Exception e2) {
-                e = e2;
-                jSONObject = null;
-            }
-            try {
-                jSONObject2.put("buid", this.senderUid);
-                if (this.mChatType == 0) {
-                    jSONObject2.put("tobuid", this.toBduid);
-                }
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("sub_app_identity", String.valueOf(this.mChatType));
-                if (this.mMinSdkVersion > -1) {
-                    jSONObject3.put("min_sdk_version", this.mMinSdkVersion);
-                }
-                if (this.mSubChatType == 21) {
-                    jSONObject3.put("sub_pa_type", 21);
-                }
-                jSONObject2.put("ext", jSONObject3);
-                if (!TextUtils.isEmpty(this.mjsonContentExtra)) {
-                    jSONObject2.put("extra", this.mjsonContentExtra);
-                }
-                if (!TextUtils.isEmpty(this.mjsonStarExtra)) {
-                    jSONObject2.put("stargroupext", this.mjsonStarExtra);
+                try {
+                    jSONObject2.put("buid", this.senderUid);
+                    if (this.mChatType == 0) {
+                        jSONObject2.put("tobuid", this.toBduid);
+                    }
+                    JSONObject jSONObject3 = new JSONObject();
+                    jSONObject3.put("sub_app_identity", String.valueOf(this.mChatType));
+                    if (this.mMinSdkVersion > -1) {
+                        jSONObject3.put("min_sdk_version", this.mMinSdkVersion);
+                    }
+                    if (this.mSubChatType == 21) {
+                        jSONObject3.put("sub_pa_type", 21);
+                    }
+                    jSONObject2.put("ext", jSONObject3);
+                    if (!TextUtils.isEmpty(this.mjsonContentExtra)) {
+                        jSONObject2.put("extra", this.mjsonContentExtra);
+                    }
+                    if (!TextUtils.isEmpty(this.mjsonStarExtra)) {
+                        jSONObject2.put("stargroupext", this.mjsonStarExtra);
+                    }
+                } catch (Exception e2) {
+                    jSONObject = jSONObject2;
+                    e = e2;
+                    LogUtils.e(TAG, "getMsgContent Json", e);
+                    jSONObject2 = jSONObject;
+                    if (jSONObject2 != null) {
+                    }
                 }
             } catch (Exception e3) {
-                jSONObject = jSONObject2;
                 e = e3;
-                LogUtils.e(TAG, "getMsgContent Json", e);
-                jSONObject2 = jSONObject;
-                if (jSONObject2 != null) {
-                }
+                jSONObject = null;
             }
             if (jSONObject2 != null) {
                 return null;

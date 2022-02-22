@@ -10,10 +10,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
+import c.a.u0.a4.d;
+import c.a.u0.a4.e;
+import c.a.u0.a4.f;
+import c.a.u0.a4.g;
+import c.a.u0.a4.h;
+import c.a.u0.a4.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -24,22 +29,22 @@ public class NewVoteCountDownView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f49162e;
+    public Context f49329e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f49163f;
+    public TextView f49330f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f49164g;
+    public View f49331g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f49165h;
+    public View f49332h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f49166i;
+    public View f49333i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f49167j;
+    public TextView f49334j;
     public TextView k;
     public TextView l;
     public CountDownTimer m;
@@ -132,28 +137,28 @@ public class NewVoteCountDownView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f49163f = (TextView) findViewById(R.id.prefix_count_down_view);
-            this.f49164g = findViewById(R.id.day_num_container);
-            this.f49165h = findViewById(R.id.hour_num_container);
-            this.f49166i = findViewById(R.id.minute_num_container);
-            this.f49167j = (TextView) findViewById(R.id.day_num_count_down_view);
-            this.k = (TextView) findViewById(R.id.hour_num_count_down_view);
-            this.l = (TextView) findViewById(R.id.minute_num_count_down_view);
+            this.f49330f = (TextView) findViewById(g.prefix_count_down_view);
+            this.f49331g = findViewById(g.day_num_container);
+            this.f49332h = findViewById(g.hour_num_container);
+            this.f49333i = findViewById(g.minute_num_container);
+            this.f49334j = (TextView) findViewById(g.day_num_count_down_view);
+            this.k = (TextView) findViewById(g.hour_num_count_down_view);
+            this.l = (TextView) findViewById(g.minute_num_count_down_view);
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f49162e = getContext();
+            this.f49329e = getContext();
             setOrientation(0);
             setClipToPadding(false);
             setClipChildren(false);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.topMargin = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds4);
+            layoutParams.topMargin = n.f(TbadkCoreApplication.getInst(), e.tbds4);
             layoutParams.gravity = 1;
             setLayoutParams(layoutParams);
-            LayoutInflater.from(getContext()).inflate(R.layout.new_vote_count_down_view, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(h.new_vote_count_down_view, (ViewGroup) this, true);
             c();
         }
     }
@@ -180,22 +185,22 @@ public class NewVoteCountDownView extends LinearLayout {
     public void onSkinChange(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            SkinManager.setViewTextColor(this.f49163f, R.color.CAM_X0105, 1, i2);
-            SkinManager.setViewTextColor(this.f49167j, R.color.CAM_X0105, 1, i2);
-            SkinManager.setBackgroundResource(this.f49164g, R.drawable.bg_gradient_round, i2);
-            SkinManager.setBackgroundResource(this.f49165h, R.drawable.bg_gradient_round, i2);
-            SkinManager.setBackgroundResource(this.f49166i, R.drawable.bg_gradient_round, i2);
-            SkinManager.setViewTextColor(this.f49167j, R.color.CAM_X0101, 1, i2);
-            SkinManager.setViewTextColor(this.k, R.color.CAM_X0101, 1, i2);
-            SkinManager.setViewTextColor(this.l, R.color.CAM_X0101, 1, i2);
+            SkinManager.setViewTextColor(this.f49330f, d.CAM_X0105, 1, i2);
+            SkinManager.setViewTextColor(this.f49334j, d.CAM_X0105, 1, i2);
+            SkinManager.setBackgroundResource(this.f49331g, f.bg_gradient_round, i2);
+            SkinManager.setBackgroundResource(this.f49332h, f.bg_gradient_round, i2);
+            SkinManager.setBackgroundResource(this.f49333i, f.bg_gradient_round, i2);
+            SkinManager.setViewTextColor(this.f49334j, d.CAM_X0101, 1, i2);
+            SkinManager.setViewTextColor(this.k, d.CAM_X0101, 1, i2);
+            SkinManager.setViewTextColor(this.l, d.CAM_X0101, 1, i2);
         }
     }
 
     public void setContent(long j2, long j3, long j4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
-            String string = TbadkCoreApplication.getInst().getString(R.string.add_zero_when_less_ten);
-            this.f49167j.setText(String.format(string, Long.valueOf(j2)));
+            String string = TbadkCoreApplication.getInst().getString(j.add_zero_when_less_ten);
+            this.f49334j.setText(String.format(string, Long.valueOf(j2)));
             this.k.setText(String.format(string, Long.valueOf(j3)));
             this.l.setText(String.format(string, Long.valueOf(j4)));
         }

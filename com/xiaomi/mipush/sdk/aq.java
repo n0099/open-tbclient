@@ -53,7 +53,7 @@ public class aq extends ContentObserver {
                 context2.getContentResolver().unregisterContentObserver(this);
                 context3 = this.a.f72a;
                 if (bg.b(context3)) {
-                    this.a.m172c();
+                    this.a.m171c();
                 }
             }
         }

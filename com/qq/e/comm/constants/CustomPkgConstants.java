@@ -22,19 +22,19 @@ public class CustomPkgConstants {
     public static final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f59094b;
+    public static final String f59261b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f59095c;
+    public static final String f59262c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f59096d;
+    public static final String f59263d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f59097e;
+    public static final String f59264e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f59098f;
+    public static final String f59265f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -51,11 +51,11 @@ public class CustomPkgConstants {
             }
         }
         a = DownloadService.class.getName();
-        f59094b = ADActivity.class.getName();
-        f59095c = PortraitADActivity.class.getName();
-        f59096d = RewardvideoPortraitADActivity.class.getName();
-        f59097e = LandscapeADActivity.class.getName();
-        f59098f = RewardvideoLandscapeADActivity.class.getName();
+        f59261b = ADActivity.class.getName();
+        f59262c = PortraitADActivity.class.getName();
+        f59263d = RewardvideoPortraitADActivity.class.getName();
+        f59264e = LandscapeADActivity.class.getName();
+        f59265f = RewardvideoLandscapeADActivity.class.getName();
     }
 
     public CustomPkgConstants() {
@@ -77,7 +77,7 @@ public class CustomPkgConstants {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             String customADActivityClassName = GlobalSetting.getCustomADActivityClassName();
-            return !StringUtil.isEmpty(customADActivityClassName) ? customADActivityClassName : f59094b;
+            return !StringUtil.isEmpty(customADActivityClassName) ? customADActivityClassName : f59261b;
         }
         return (String) invokeV.objValue;
     }
@@ -111,7 +111,7 @@ public class CustomPkgConstants {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             String customLandscapeActivityClassName = GlobalSetting.getCustomLandscapeActivityClassName();
-            return !StringUtil.isEmpty(customLandscapeActivityClassName) ? customLandscapeActivityClassName : f59097e;
+            return !StringUtil.isEmpty(customLandscapeActivityClassName) ? customLandscapeActivityClassName : f59264e;
         }
         return (String) invokeV.objValue;
     }
@@ -121,7 +121,7 @@ public class CustomPkgConstants {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             String customPortraitActivityClassName = GlobalSetting.getCustomPortraitActivityClassName();
-            return !StringUtil.isEmpty(customPortraitActivityClassName) ? customPortraitActivityClassName : f59095c;
+            return !StringUtil.isEmpty(customPortraitActivityClassName) ? customPortraitActivityClassName : f59262c;
         }
         return (String) invokeV.objValue;
     }
@@ -131,7 +131,7 @@ public class CustomPkgConstants {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             String customRewardvideoLandscapeActivityClassName = GlobalSetting.getCustomRewardvideoLandscapeActivityClassName();
-            return !StringUtil.isEmpty(customRewardvideoLandscapeActivityClassName) ? customRewardvideoLandscapeActivityClassName : f59098f;
+            return !StringUtil.isEmpty(customRewardvideoLandscapeActivityClassName) ? customRewardvideoLandscapeActivityClassName : f59265f;
         }
         return (String) invokeV.objValue;
     }
@@ -141,7 +141,7 @@ public class CustomPkgConstants {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             String customRewardvideoPortraitActivityClassName = GlobalSetting.getCustomRewardvideoPortraitActivityClassName();
-            return !StringUtil.isEmpty(customRewardvideoPortraitActivityClassName) ? customRewardvideoPortraitActivityClassName : f59096d;
+            return !StringUtil.isEmpty(customRewardvideoPortraitActivityClassName) ? customRewardvideoPortraitActivityClassName : f59263d;
         }
         return (String) invokeV.objValue;
     }

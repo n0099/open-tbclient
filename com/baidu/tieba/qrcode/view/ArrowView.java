@@ -17,28 +17,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class ArrowView extends View {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f47519i = 20;
+    public static int f47665i = 20;
 
     /* renamed from: j  reason: collision with root package name */
-    public static int f47520j = 13;
+    public static int f47666j = 13;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f47521e;
+    public int f47667e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f47522f;
+    public int f47668f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f47523g;
+    public Paint f47669g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Path f47524h;
+    public Path f47670h;
 
     static {
         InterceptResult invokeClinit;
@@ -79,13 +79,13 @@ public class ArrowView extends View {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            f47519i = n.f(context, R.dimen.tbds20);
-            f47520j = n.f(context, R.dimen.tbds13);
+            f47665i = n.f(context, R.dimen.tbds20);
+            f47666j = n.f(context, R.dimen.tbds13);
             Paint paint = new Paint();
-            this.f47523g = paint;
+            this.f47669g = paint;
             paint.setColor(context.getResources().getColor(R.color.CAM_X0201));
-            this.f47523g.setAntiAlias(true);
-            this.f47524h = new Path();
+            this.f47669g.setAntiAlias(true);
+            this.f47670h = new Path();
         }
     }
 
@@ -94,12 +94,12 @@ public class ArrowView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             super.onDraw(canvas);
-            this.f47524h.reset();
-            this.f47524h.moveTo(this.f47521e / 2, 0.0f);
-            this.f47524h.lineTo(0.0f, this.f47522f);
-            this.f47524h.lineTo(this.f47521e, this.f47522f);
-            this.f47524h.close();
-            canvas.drawPath(this.f47524h, this.f47523g);
+            this.f47670h.reset();
+            this.f47670h.moveTo(this.f47667e / 2, 0.0f);
+            this.f47670h.lineTo(0.0f, this.f47668f);
+            this.f47670h.lineTo(this.f47667e, this.f47668f);
+            this.f47670h.close();
+            canvas.drawPath(this.f47670h, this.f47669g);
         }
     }
 
@@ -113,11 +113,11 @@ public class ArrowView extends View {
             int mode2 = View.MeasureSpec.getMode(i3);
             int size2 = View.MeasureSpec.getSize(i3);
             if (mode == Integer.MIN_VALUE && mode2 == Integer.MIN_VALUE) {
-                setMeasuredDimension(f47519i, f47520j);
+                setMeasuredDimension(f47665i, f47666j);
             } else if (mode == Integer.MIN_VALUE) {
-                setMeasuredDimension(f47519i, size2);
+                setMeasuredDimension(f47665i, size2);
             } else if (mode2 == Integer.MIN_VALUE) {
-                setMeasuredDimension(size, f47520j);
+                setMeasuredDimension(size, f47666j);
             }
         }
     }
@@ -127,8 +127,8 @@ public class ArrowView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f47521e = i2;
-            this.f47522f = i3;
+            this.f47667e = i2;
+            this.f47668f = i3;
         }
     }
 

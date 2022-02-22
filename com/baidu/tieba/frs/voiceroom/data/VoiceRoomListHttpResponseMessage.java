@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.voiceroom.data;
 
-import c.a.t0.e1.e3.g.c;
+import c.a.u0.e1.g3.g.c;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

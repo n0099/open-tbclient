@@ -9,7 +9,7 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static Process a(String[] strArr) {
         return Runtime.getRuntime().exec(strArr);

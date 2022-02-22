@@ -8,7 +8,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.schedulers.NonBlockingThread;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class BlockingHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

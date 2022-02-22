@@ -403,7 +403,7 @@ public class BdSailorWebSettings implements INoProGuard {
             }
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:29:0x0070, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:29:0x006f, code lost:
             if (com.baidu.browser.sailor.BdSailorWebSettings.lastNightModeEnabled == r5) goto L32;
          */
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt

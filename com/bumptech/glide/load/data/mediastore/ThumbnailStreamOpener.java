@@ -25,7 +25,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ThumbnailStreamOpener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final FileService DEFAULT_SERVICE;

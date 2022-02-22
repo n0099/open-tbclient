@@ -14,19 +14,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public static Method a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Method f62267b;
+    public static Method f62434b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Field f62268c;
+    public static Field f62435c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f62269d;
+    public static int f62436d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,15 +47,15 @@ public class c {
         } catch (NoSuchMethodException unused) {
         }
         try {
-            f62267b = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
+            f62434b = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
         } catch (NoSuchMethodException unused2) {
         }
         try {
-            f62268c = WindowManager.LayoutParams.class.getField("statusBarColor");
+            f62435c = WindowManager.LayoutParams.class.getField("statusBarColor");
         } catch (NoSuchFieldException unused3) {
         }
         try {
-            f62269d = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR").getInt(null);
+            f62436d = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR").getInt(null);
         } catch (IllegalAccessException | NoSuchFieldException unused4) {
         }
     }
@@ -104,11 +104,11 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65539, null, window, i2) == null) {
             WindowManager.LayoutParams attributes = window.getAttributes();
-            Field field = f62268c;
+            Field field = f62435c;
             if (field != null) {
                 try {
                     if (field.getInt(attributes) != i2) {
-                        f62268c.set(attributes, Integer.valueOf(i2));
+                        f62435c.set(attributes, Integer.valueOf(i2));
                         window.setAttributes(attributes);
                     }
                 } catch (IllegalAccessException e2) {
@@ -135,7 +135,7 @@ public class c {
                 }
             }
             boolean b2 = b(i2, 50);
-            if (f62268c != null) {
+            if (f62435c != null) {
                 f(activity, b2, b2);
                 h(activity.getWindow(), i2);
                 return;
@@ -154,7 +154,7 @@ public class c {
     public static void f(Activity activity, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{activity, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            Method method = f62267b;
+            Method method = f62434b;
             if (method == null) {
                 if (z2) {
                     i(activity.getWindow(), z);
@@ -178,9 +178,9 @@ public class c {
         if (interceptable == null || interceptable.invokeLZ(65543, null, view, z) == null) {
             int systemUiVisibility = view.getSystemUiVisibility();
             if (z) {
-                i2 = f62269d | systemUiVisibility;
+                i2 = f62436d | systemUiVisibility;
             } else {
-                i2 = (~f62269d) & systemUiVisibility;
+                i2 = (~f62436d) & systemUiVisibility;
             }
             if (i2 != systemUiVisibility) {
                 view.setSystemUiVisibility(i2);

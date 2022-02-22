@@ -17,19 +17,19 @@ public final class at {
     public static final /* synthetic */ at[] f82a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final at f60931b;
+    public static final at f61098b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final at f60932c;
+    public static final at f61099c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final at f60933d;
+    public static final at f61100d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final at f60934e;
+    public static final at f61101e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final at f60935f;
+    public static final at f61102f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,13 +46,13 @@ public final class at {
             }
         }
         a = new at("DISABLE_PUSH", 0);
-        f60931b = new at("ENABLE_PUSH", 1);
-        f60932c = new at("UPLOAD_HUAWEI_TOKEN", 2);
-        f60933d = new at("UPLOAD_FCM_TOKEN", 3);
-        f60934e = new at("UPLOAD_COS_TOKEN", 4);
+        f61098b = new at("ENABLE_PUSH", 1);
+        f61099c = new at("UPLOAD_HUAWEI_TOKEN", 2);
+        f61100d = new at("UPLOAD_FCM_TOKEN", 3);
+        f61101e = new at("UPLOAD_COS_TOKEN", 4);
         at atVar = new at("UPLOAD_FTOS_TOKEN", 5);
-        f60935f = atVar;
-        f82a = new at[]{a, f60931b, f60932c, f60933d, f60934e, atVar};
+        f61102f = atVar;
+        f82a = new at[]{a, f61098b, f61099c, f61100d, f61101e, atVar};
     }
 
     public at(String str, int i2) {

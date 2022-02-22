@@ -42,31 +42,31 @@ public class m0 {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28461b;
+    public String f28667b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28462c;
+    public String f28668c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f28463d;
+    public String f28669d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f28464e;
+    public String f28670e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f28465f;
+    public String f28671f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f28466g;
+    public String f28672g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f28467h;
+    public String f28673h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f28468i;
+    public String f28674i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f28469j;
+    public String f28675j;
     public String k;
     public String l;
     public String m;
@@ -107,7 +107,7 @@ public class m0 {
                         m0 m0Var = t;
                         m0Var.getClass();
                         i0 i0Var = new i0(m0Var);
-                        HashSet<p0.b> hashSet = com.fun.p0.f54271b;
+                        HashSet<p0.b> hashSet = com.fun.p0.f54438b;
                         synchronized (hashSet) {
                             hashSet.add(i0Var);
                         }
@@ -129,16 +129,16 @@ public class m0 {
             }
             m0 m0Var2 = t;
             jSONObject.put("app", m0Var2.a);
-            jSONObject.put("appv", m0Var2.f28462c);
-            jSONObject.put("appvn", m0Var2.f28461b);
-            jSONObject.put("net", m0Var2.f28463d);
-            jSONObject.put("manu", m0Var2.f28464e);
-            jSONObject.put("model", m0Var2.f28465f);
-            jSONObject.put("sysv", m0Var2.f28466g);
-            jSONObject.put("h", m0Var2.f28467h);
-            jSONObject.put("w", m0Var2.f28468i);
+            jSONObject.put("appv", m0Var2.f28668c);
+            jSONObject.put("appvn", m0Var2.f28667b);
+            jSONObject.put("net", m0Var2.f28669d);
+            jSONObject.put("manu", m0Var2.f28670e);
+            jSONObject.put("model", m0Var2.f28671f);
+            jSONObject.put("sysv", m0Var2.f28672g);
+            jSONObject.put("h", m0Var2.f28673h);
+            jSONObject.put("w", m0Var2.f28674i);
             jSONObject.put("locale", m0Var2.n);
-            jSONObject.put("opcode", m0Var2.f28469j);
+            jSONObject.put("opcode", m0Var2.f28675j);
             jSONObject.put("tk", m0Var2.k);
             jSONObject.put("sdkvn", BuildConfig.VERSION_NAME);
             jSONObject.put("sdkv", BuildConfig.VERSION_CODE);
@@ -178,7 +178,7 @@ public class m0 {
         if (interceptable == null || interceptable.invokeL(65539, null, jSONObject) == null) {
             m0 a = a(jSONObject);
             long currentTimeMillis = System.currentTimeMillis();
-            String str = a.k + a.a + a.f28461b + a.n + currentTimeMillis + "c643144089d135c383c4c87f1df87a9d4ccc1c0f70cee0a5f78fd32d475f1a49";
+            String str = a.k + a.a + a.f28667b + a.n + currentTimeMillis + "c643144089d135c383c4c87f1df87a9d4ccc1c0f70cee0a5f78fd32d475f1a49";
             try {
                 MessageDigest messageDigest = MessageDigest.getInstance("MD5");
                 messageDigest.update(str.getBytes());
@@ -213,20 +213,20 @@ public class m0 {
             try {
                 PackageInfo packageInfo = packageManager.getPackageInfo(context.getPackageName(), 0);
                 this.a = packageInfo.packageName;
-                this.f28461b = packageInfo.versionName;
-                this.f28462c = String.valueOf(packageInfo.versionCode);
+                this.f28667b = packageInfo.versionName;
+                this.f28668c = String.valueOf(packageInfo.versionCode);
             } catch (PackageManager.NameNotFoundException unused) {
             }
             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
             if (telephonyManager != null) {
                 String networkOperator = telephonyManager.getNetworkOperator();
                 if (!TextUtils.isEmpty(networkOperator)) {
-                    this.f28469j = networkOperator;
+                    this.f28675j = networkOperator;
                 }
             }
-            this.f28464e = Build.MANUFACTURER;
-            this.f28465f = Build.MODEL;
-            this.f28466g = String.valueOf(Build.VERSION.SDK_INT);
+            this.f28670e = Build.MANUFACTURER;
+            this.f28671f = Build.MODEL;
+            this.f28672g = String.valueOf(Build.VERSION.SDK_INT);
             WindowManager windowManager = (WindowManager) context.getSystemService("window");
             if (windowManager == null) {
                 displayMetrics = context.getResources().getDisplayMetrics();
@@ -236,8 +236,8 @@ public class m0 {
                 defaultDisplay.getMetrics(displayMetrics2);
                 displayMetrics = displayMetrics2;
             }
-            this.f28467h = String.valueOf(displayMetrics.heightPixels);
-            this.f28468i = String.valueOf(displayMetrics.widthPixels);
+            this.f28673h = String.valueOf(displayMetrics.heightPixels);
+            this.f28674i = String.valueOf(displayMetrics.widthPixels);
             if (TextUtils.isEmpty(d.a)) {
                 SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(FunAdSdk.getAppContext());
                 String string = defaultSharedPreferences.getString("u_tok", "");
@@ -265,7 +265,7 @@ public class m0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "HostAppInfo{packageName='" + this.a + ExtendedMessageFormat.QUOTE + ", versionName='" + this.f28461b + ExtendedMessageFormat.QUOTE + ", versionCode='" + this.f28462c + ExtendedMessageFormat.QUOTE + ", networkTypeName='" + this.f28463d + ExtendedMessageFormat.QUOTE + ", manufacturer='" + this.f28464e + ExtendedMessageFormat.QUOTE + ", model='" + this.f28465f + ExtendedMessageFormat.QUOTE + ", osVersion='" + this.f28466g + ExtendedMessageFormat.QUOTE + ", h='" + this.f28467h + ExtendedMessageFormat.QUOTE + ", w='" + this.f28468i + ExtendedMessageFormat.QUOTE + ", opcode='" + this.f28469j + ExtendedMessageFormat.QUOTE + ", token='" + this.k + ExtendedMessageFormat.QUOTE + ", anid='" + this.l + ExtendedMessageFormat.QUOTE + ", oaid='" + this.m + ExtendedMessageFormat.QUOTE + ", locale='" + this.n + ExtendedMessageFormat.QUOTE + ", lic='" + this.o + ExtendedMessageFormat.QUOTE + ", userId='" + this.p + ExtendedMessageFormat.QUOTE + ", imei='" + this.q + ExtendedMessageFormat.QUOTE + ", imeiNew='" + this.r + ExtendedMessageFormat.QUOTE + ", cfgv='" + s + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "HostAppInfo{packageName='" + this.a + ExtendedMessageFormat.QUOTE + ", versionName='" + this.f28667b + ExtendedMessageFormat.QUOTE + ", versionCode='" + this.f28668c + ExtendedMessageFormat.QUOTE + ", networkTypeName='" + this.f28669d + ExtendedMessageFormat.QUOTE + ", manufacturer='" + this.f28670e + ExtendedMessageFormat.QUOTE + ", model='" + this.f28671f + ExtendedMessageFormat.QUOTE + ", osVersion='" + this.f28672g + ExtendedMessageFormat.QUOTE + ", h='" + this.f28673h + ExtendedMessageFormat.QUOTE + ", w='" + this.f28674i + ExtendedMessageFormat.QUOTE + ", opcode='" + this.f28675j + ExtendedMessageFormat.QUOTE + ", token='" + this.k + ExtendedMessageFormat.QUOTE + ", anid='" + this.l + ExtendedMessageFormat.QUOTE + ", oaid='" + this.m + ExtendedMessageFormat.QUOTE + ", locale='" + this.n + ExtendedMessageFormat.QUOTE + ", lic='" + this.o + ExtendedMessageFormat.QUOTE + ", userId='" + this.p + ExtendedMessageFormat.QUOTE + ", imei='" + this.q + ExtendedMessageFormat.QUOTE + ", imeiNew='" + this.r + ExtendedMessageFormat.QUOTE + ", cfgv='" + s + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

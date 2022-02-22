@@ -1,0 +1,12 @@
+package c.a.s0.a.y0.g.h;
+
+import c.a.s0.a.y0.d;
+import com.baidu.swan.apps.inlinewidget.rtcroom.model.RtcStatus;
+/* loaded from: classes.dex */
+public interface c extends d {
+    RtcStatus a();
+
+    void onRelease();
+
+    boolean q();
+}

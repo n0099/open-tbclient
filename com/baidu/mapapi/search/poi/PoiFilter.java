@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,21 +20,21 @@ public final class PoiFilter implements Parcelable {
     public static final Parcelable.Creator<PoiFilter> CREATOR;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Map<SortName, String> f35583f;
+    public static Map<SortName, String> f35789f;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35584b;
+    public String f35790b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f35585c;
+    public String f35791c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f35586d;
+    public String f35792d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f35587e;
+    public String f35793e;
 
     /* loaded from: classes10.dex */
     public static final class Builder {
@@ -42,16 +43,16 @@ public final class PoiFilter implements Parcelable {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f35588b;
+        public String f35794b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f35589c;
+        public String f35795c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f35590d;
+        public String f35796d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f35591e;
+        public String f35797e;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -66,29 +67,29 @@ public final class PoiFilter implements Parcelable {
                     return;
                 }
             }
-            PoiFilter.f35583f.put(SortName.HotelSortName.DEFAULT, "default");
-            PoiFilter.f35583f.put(SortName.HotelSortName.HOTEL_LEVEL, "level");
-            PoiFilter.f35583f.put(SortName.HotelSortName.HOTEL_PRICE, "price");
-            PoiFilter.f35583f.put(SortName.HotelSortName.HOTEL_DISTANCE, "distance");
-            PoiFilter.f35583f.put(SortName.HotelSortName.HOTEL_HEALTH_SCORE, "health_score");
-            PoiFilter.f35583f.put(SortName.HotelSortName.HOTEL_TOTAL_SCORE, "total_score");
-            PoiFilter.f35583f.put(SortName.CaterSortName.DEFAULT, "default");
-            PoiFilter.f35583f.put(SortName.CaterSortName.CATER_DISTANCE, "distance");
-            PoiFilter.f35583f.put(SortName.CaterSortName.CATER_PRICE, "price");
-            PoiFilter.f35583f.put(SortName.CaterSortName.CATER_OVERALL_RATING, "overall_rating");
-            PoiFilter.f35583f.put(SortName.CaterSortName.CATER_SERVICE_RATING, "service_rating");
-            PoiFilter.f35583f.put(SortName.CaterSortName.CATER_TASTE_RATING, "taste_rating");
-            PoiFilter.f35583f.put(SortName.LifeSortName.DEFAULT, "default");
-            PoiFilter.f35583f.put(SortName.LifeSortName.PRICE, "price");
-            PoiFilter.f35583f.put(SortName.LifeSortName.LIFE_COMMENT_RATING, "comment_num");
-            PoiFilter.f35583f.put(SortName.LifeSortName.LIFE_OVERALL_RATING, "overall_rating");
-            PoiFilter.f35583f.put(SortName.LifeSortName.DISTANCE, "distance");
+            PoiFilter.f35789f.put(SortName.HotelSortName.DEFAULT, "default");
+            PoiFilter.f35789f.put(SortName.HotelSortName.HOTEL_LEVEL, "level");
+            PoiFilter.f35789f.put(SortName.HotelSortName.HOTEL_PRICE, "price");
+            PoiFilter.f35789f.put(SortName.HotelSortName.HOTEL_DISTANCE, "distance");
+            PoiFilter.f35789f.put(SortName.HotelSortName.HOTEL_HEALTH_SCORE, "health_score");
+            PoiFilter.f35789f.put(SortName.HotelSortName.HOTEL_TOTAL_SCORE, "total_score");
+            PoiFilter.f35789f.put(SortName.CaterSortName.DEFAULT, "default");
+            PoiFilter.f35789f.put(SortName.CaterSortName.CATER_DISTANCE, "distance");
+            PoiFilter.f35789f.put(SortName.CaterSortName.CATER_PRICE, "price");
+            PoiFilter.f35789f.put(SortName.CaterSortName.CATER_OVERALL_RATING, "overall_rating");
+            PoiFilter.f35789f.put(SortName.CaterSortName.CATER_SERVICE_RATING, "service_rating");
+            PoiFilter.f35789f.put(SortName.CaterSortName.CATER_TASTE_RATING, "taste_rating");
+            PoiFilter.f35789f.put(SortName.LifeSortName.DEFAULT, "default");
+            PoiFilter.f35789f.put(SortName.LifeSortName.PRICE, "price");
+            PoiFilter.f35789f.put(SortName.LifeSortName.LIFE_COMMENT_RATING, "comment_num");
+            PoiFilter.f35789f.put(SortName.LifeSortName.LIFE_OVERALL_RATING, "overall_rating");
+            PoiFilter.f35789f.put(SortName.LifeSortName.DISTANCE, "distance");
         }
 
         public PoiFilter build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new PoiFilter(this.a, this.f35588b, this.f35589c, this.f35591e, this.f35590d) : (PoiFilter) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new PoiFilter(this.a, this.f35794b, this.f35795c, this.f35797e, this.f35796d) : (PoiFilter) invokeV.objValue;
         }
 
         public Builder industryType(IndustryType industryType) {
@@ -106,7 +107,7 @@ public final class PoiFilter implements Parcelable {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.f35591e = z ? "1" : "0";
+                this.f35797e = z ? "1" : "0";
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -116,7 +117,7 @@ public final class PoiFilter implements Parcelable {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-                this.f35590d = z ? "1" : "0";
+                this.f35796d = z ? "1" : "0";
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -127,7 +128,7 @@ public final class PoiFilter implements Parcelable {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sortName)) == null) {
                 if (!TextUtils.isEmpty(this.a) && sortName != null) {
-                    this.f35588b = (String) PoiFilter.f35583f.get(sortName);
+                    this.f35794b = (String) PoiFilter.f35789f.get(sortName);
                 }
                 return this;
             }
@@ -138,7 +139,7 @@ public final class PoiFilter implements Parcelable {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                this.f35589c = i2 + "";
+                this.f35795c = i2 + "";
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -236,7 +237,7 @@ public final class PoiFilter implements Parcelable {
                         return;
                     }
                 }
-                DEFAULT = new CaterSortName("DEFAULT", 0);
+                DEFAULT = new CaterSortName(EngineName.DEFAULT_ENGINE, 0);
                 CATER_PRICE = new CaterSortName("CATER_PRICE", 1);
                 CATER_DISTANCE = new CaterSortName("CATER_DISTANCE", 2);
                 CATER_TASTE_RATING = new CaterSortName("CATER_TASTE_RATING", 3);
@@ -304,7 +305,7 @@ public final class PoiFilter implements Parcelable {
                         return;
                     }
                 }
-                DEFAULT = new HotelSortName("DEFAULT", 0);
+                DEFAULT = new HotelSortName(EngineName.DEFAULT_ENGINE, 0);
                 HOTEL_PRICE = new HotelSortName("HOTEL_PRICE", 1);
                 HOTEL_DISTANCE = new HotelSortName("HOTEL_DISTANCE", 2);
                 HOTEL_TOTAL_SCORE = new HotelSortName("HOTEL_TOTAL_SCORE", 3);
@@ -371,7 +372,7 @@ public final class PoiFilter implements Parcelable {
                         return;
                     }
                 }
-                DEFAULT = new LifeSortName("DEFAULT", 0);
+                DEFAULT = new LifeSortName(EngineName.DEFAULT_ENGINE, 0);
                 PRICE = new LifeSortName("PRICE", 1);
                 DISTANCE = new LifeSortName("DISTANCE", 2);
                 LIFE_OVERALL_RATING = new LifeSortName("LIFE_OVERALL_RATING", 3);
@@ -426,7 +427,7 @@ public final class PoiFilter implements Parcelable {
                 return;
             }
         }
-        f35583f = new HashMap();
+        f35789f = new HashMap();
         CREATOR = new c();
     }
 
@@ -446,15 +447,15 @@ public final class PoiFilter implements Parcelable {
             }
         }
         this.a = "";
-        this.f35584b = "";
-        this.f35585c = "";
-        this.f35586d = "";
-        this.f35587e = "";
+        this.f35790b = "";
+        this.f35791c = "";
+        this.f35792d = "";
+        this.f35793e = "";
         this.a = parcel.readString();
-        this.f35584b = parcel.readString();
-        this.f35585c = parcel.readString();
-        this.f35587e = parcel.readString();
-        this.f35586d = parcel.readString();
+        this.f35790b = parcel.readString();
+        this.f35791c = parcel.readString();
+        this.f35793e = parcel.readString();
+        this.f35792d = parcel.readString();
     }
 
     public PoiFilter(String str, String str2, String str3, String str4, String str5) {
@@ -473,15 +474,15 @@ public final class PoiFilter implements Parcelable {
             }
         }
         this.a = "";
-        this.f35584b = "";
-        this.f35585c = "";
-        this.f35586d = "";
-        this.f35587e = "";
+        this.f35790b = "";
+        this.f35791c = "";
+        this.f35792d = "";
+        this.f35793e = "";
         this.a = str;
-        this.f35584b = str2;
-        this.f35585c = str3;
-        this.f35587e = str4;
-        this.f35586d = str5;
+        this.f35790b = str2;
+        this.f35791c = str3;
+        this.f35793e = str4;
+        this.f35792d = str5;
     }
 
     @Override // android.os.Parcelable
@@ -504,24 +505,24 @@ public final class PoiFilter implements Parcelable {
                 sb.append(this.a);
                 sb.append("|");
             }
-            if (!TextUtils.isEmpty(this.f35584b)) {
+            if (!TextUtils.isEmpty(this.f35790b)) {
                 sb.append("sort_name:");
-                sb.append(this.f35584b);
+                sb.append(this.f35790b);
                 sb.append("|");
             }
-            if (!TextUtils.isEmpty(this.f35585c)) {
+            if (!TextUtils.isEmpty(this.f35791c)) {
                 sb.append("sort_rule:");
-                sb.append(this.f35585c);
+                sb.append(this.f35791c);
                 sb.append("|");
             }
-            if (!TextUtils.isEmpty(this.f35587e)) {
+            if (!TextUtils.isEmpty(this.f35793e)) {
                 sb.append("discount:");
-                sb.append(this.f35587e);
+                sb.append(this.f35793e);
                 sb.append("|");
             }
-            if (!TextUtils.isEmpty(this.f35586d)) {
+            if (!TextUtils.isEmpty(this.f35792d)) {
                 sb.append("groupon:");
-                sb.append(this.f35586d);
+                sb.append(this.f35792d);
                 sb.append("|");
             }
             if (!TextUtils.isEmpty(sb.toString())) {
@@ -537,10 +538,10 @@ public final class PoiFilter implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i2) == null) {
             parcel.writeString(this.a);
-            parcel.writeString(this.f35584b);
-            parcel.writeString(this.f35585c);
-            parcel.writeString(this.f35587e);
-            parcel.writeString(this.f35586d);
+            parcel.writeString(this.f35790b);
+            parcel.writeString(this.f35791c);
+            parcel.writeString(this.f35793e);
+            parcel.writeString(this.f35792d);
         }
     }
 }

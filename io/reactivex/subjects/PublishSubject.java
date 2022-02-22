@@ -17,7 +17,7 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class PublishSubject<T> extends Subject<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final PublishDisposable[] EMPTY;
@@ -26,7 +26,7 @@ public final class PublishSubject<T> extends Subject<T> {
     public Throwable error;
     public final AtomicReference<PublishDisposable<T>[]> subscribers;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class PublishDisposable<T> extends AtomicBoolean implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3562861878281475070L;

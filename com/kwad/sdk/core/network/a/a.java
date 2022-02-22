@@ -2,30 +2,30 @@ package com.kwad.sdk.core.network.a;
 
 import androidx.annotation.NonNull;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f55923b;
+    public long f56090b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f55924c;
+    public long f56091c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f55925d;
+    public long f56092d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f55926e;
+    public long f56093e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f55927f;
+    public String f56094f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f55928g;
+    public String f56095g;
 
     @NonNull
     public String toString() {
-        return "NetworkMonitorInfo{requestTotalTime=" + this.a + ", mRequestCreateTime" + this.f55923b + ", requestResponseTime=" + this.f55924c + ", requestParseDataTime=" + this.f55925d + ", requestCallbackTime=" + this.f55926e + ", requestFailReason='" + this.f55927f + ExtendedMessageFormat.QUOTE + ", requestUrl='" + this.f55928g + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return "NetworkMonitorInfo{requestTotalTime=" + this.a + ", mRequestCreateTime" + this.f56090b + ", requestResponseTime=" + this.f56091c + ", requestParseDataTime=" + this.f56092d + ", requestCallbackTime=" + this.f56093e + ", requestFailReason='" + this.f56094f + ExtendedMessageFormat.QUOTE + ", requestUrl='" + this.f56095g + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
     }
 }

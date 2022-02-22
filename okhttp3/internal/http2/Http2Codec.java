@@ -36,7 +36,7 @@ import okio.ForwardingSource;
 import okio.Okio;
 import okio.Sink;
 import okio.Source;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Http2Codec implements HttpCodec {
     public static /* synthetic */ Interceptable $ic;
     public static final ByteString CONNECTION;
@@ -56,7 +56,7 @@ public final class Http2Codec implements HttpCodec {
     public Http2Stream stream;
     public final StreamAllocation streamAllocation;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class StreamFinishingSource extends ForwardingSource {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
