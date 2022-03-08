@@ -1,7 +1,7 @@
 package com.baidu.android.imsdk.retrieve;
 
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public interface IRetrieveReportTask {
     void reportDispatch(String str, String str2, String str3, JSONObject jSONObject, String str4, IReportListener iReportListener);
 

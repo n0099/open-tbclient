@@ -10,7 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+/* loaded from: classes3.dex */
 public class Type {
     public static /* synthetic */ Interceptable $ic;
     public static final Type BOOLEAN_TYPE;
@@ -202,7 +203,7 @@ public class Type {
                     }
                     return sb.toString();
                 default:
-                    return new String(this.buf, this.off, this.len).replace('/', '.');
+                    return new String(this.buf, this.off, this.len).replace(WebvttCueParser.CHAR_SLASH, '.');
             }
         }
         return (String) invokeV.objValue;

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Date;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class i0 {
     public static /* synthetic */ Interceptable $ic;
     public static i0 a;
@@ -58,16 +58,16 @@ public class i0 {
             }
             context.getApplicationContext();
             if (!TextUtils.isEmpty(str)) {
-                m2.v(context, str);
+                h2.v(context, str);
             }
-            t2.b(new f0(this, context));
+            o2.b(new f0(this, context));
             try {
-                t2.b(new l2(context));
+                o2.b(new g2(context));
             } catch (Throwable th) {
                 th.printStackTrace();
             }
-            y3 c2 = y3.c(context);
-            long B = m2.B(c2.a);
+            t3 c2 = t3.c(context);
+            long B = h2.B(c2.a);
             boolean z = true;
             if (B > 0) {
                 try {
@@ -81,11 +81,11 @@ public class i0 {
                 }
             }
             if (z) {
-                c2.f30767b = System.currentTimeMillis();
-                t2.b(new v3(c2));
+                c2.f29130b = System.currentTimeMillis();
+                o2.b(new q3(c2));
             }
             r0.E(context);
-            x1.a(context);
+            s1.a(context);
         }
     }
 }

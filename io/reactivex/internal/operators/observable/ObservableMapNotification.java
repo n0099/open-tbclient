@@ -15,7 +15,7 @@ import io.reactivex.functions.Function;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.concurrent.Callable;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class ObservableMapNotification<T, R> extends AbstractObservableWithUpstream<T, ObservableSource<? extends R>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public final class ObservableMapNotification<T, R> extends AbstractObservableWit
     public final Function<? super Throwable, ? extends ObservableSource<? extends R>> onErrorMapper;
     public final Function<? super T, ? extends ObservableSource<? extends R>> onNextMapper;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class MapNotificationObserver<T, R> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

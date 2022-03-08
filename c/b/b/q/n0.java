@@ -14,7 +14,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import kotlin.UShort;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class n0 implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -187,7 +187,7 @@ public class n0 implements c {
                     jsonValue2.l = c2;
                     jsonValue.n++;
                 } else {
-                    jsonValue.f31371j = c2;
+                    jsonValue.f29775j = c2;
                     jsonValue.n = 1;
                 }
                 if (j2 > 0) {
@@ -220,7 +220,7 @@ public class n0 implements c {
                     jsonValue2.l = c2;
                     jsonValue.n++;
                 } else {
-                    jsonValue.f31371j = c2;
+                    jsonValue.f29775j = c2;
                     jsonValue.n = 1;
                 }
                 j2++;
@@ -268,7 +268,7 @@ public class n0 implements c {
                     jsonValue2.l = c2;
                     jsonValue.n++;
                 } else {
-                    jsonValue.f31371j = c2;
+                    jsonValue.f29775j = c2;
                     jsonValue.n = 1;
                 }
                 if (j2 > 0) {

@@ -60,7 +60,7 @@ public class ViewUtilsBase {
     public void clearNonTransitionAlpha(@NonNull View view) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view.getVisibility() == 0) {
-            view.setTag(R.id.save_non_transition_alpha, null);
+            view.setTag(R$id.save_non_transition_alpha, null);
         }
     }
 
@@ -68,7 +68,7 @@ public class ViewUtilsBase {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view)) == null) {
-            Float f2 = (Float) view.getTag(R.id.save_non_transition_alpha);
+            Float f2 = (Float) view.getTag(R$id.save_non_transition_alpha);
             if (f2 != null) {
                 return view.getAlpha() / f2.floatValue();
             }
@@ -79,8 +79,8 @@ public class ViewUtilsBase {
 
     public void saveNonTransitionAlpha(@NonNull View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) && view.getTag(R.id.save_non_transition_alpha) == null) {
-            view.setTag(R.id.save_non_transition_alpha, Float.valueOf(view.getAlpha()));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) && view.getTag(R$id.save_non_transition_alpha) == null) {
+            view.setTag(R$id.save_non_transition_alpha, Float.valueOf(view.getAlpha()));
         }
     }
 
@@ -139,7 +139,7 @@ public class ViewUtilsBase {
     public void setTransitionAlpha(@NonNull View view, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(1048581, this, view, f2) == null) {
-            Float f3 = (Float) view.getTag(R.id.save_non_transition_alpha);
+            Float f3 = (Float) view.getTag(R$id.save_non_transition_alpha);
             if (f3 != null) {
                 view.setAlpha(f3.floatValue() * f2);
             } else {

@@ -8,11 +8,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.zxing.client.result.ResultParser;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class StringUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,8 +39,8 @@ public final class StringUtils {
             if (!TextUtils.isEmpty(charSequence) && charSequence.toString().contains("*")) {
                 int indexOf = charSequence.toString().indexOf("*");
                 StringBuffer stringBuffer = new StringBuffer(charSequence);
-                stringBuffer.insert(charSequence.toString().lastIndexOf("*") + 1, ' ');
-                stringBuffer.insert(indexOf, ' ');
+                stringBuffer.insert(charSequence.toString().lastIndexOf("*") + 1, WebvttCueParser.CHAR_SPACE);
+                stringBuffer.insert(indexOf, WebvttCueParser.CHAR_SPACE);
                 return stringBuffer.toString();
             }
             return charSequence;
@@ -126,8 +127,8 @@ public final class StringUtils {
             } else if (stringBuffer.length() < 11) {
                 return null;
             }
-            stringBuffer.insert(7, ' ');
-            stringBuffer.insert(3, ' ');
+            stringBuffer.insert(7, WebvttCueParser.CHAR_SPACE);
+            stringBuffer.insert(3, WebvttCueParser.CHAR_SPACE);
             return stringBuffer.toString();
         }
         return (String) invokeL.objValue;

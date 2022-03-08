@@ -3,7 +3,7 @@ package com.baidu.livesdk.api.player;
 import android.content.Context;
 import android.view.View;
 import android.widget.FrameLayout;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public interface Player {
     public static final int DECODE_MODE_HW = 2;
     public static final int DECODE_MODE_SW = 1;

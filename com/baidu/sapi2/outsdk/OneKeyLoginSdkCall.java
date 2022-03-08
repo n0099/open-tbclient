@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.a;
+import c.a.n0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccountManager;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class OneKeyLoginSdkCall {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CONNECT_TIMEOUT = 15000;
@@ -48,7 +48,7 @@ public class OneKeyLoginSdkCall {
     public static String signFromAbilityApi;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface TokenListener extends NoProguard {
         void onGetTokenComplete(JSONObject jSONObject);
     }
@@ -110,7 +110,7 @@ public class OneKeyLoginSdkCall {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sapiConfiguration, tokenListener) == null) {
             try {
                 try {
-                    a.c().i(sapiConfiguration.context, 15000L, new a.InterfaceC0237a(this, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3
+                    a.c().i(sapiConfiguration.context, 15000L, new a.InterfaceC0212a(this, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ OneKeyLoginSdkCall this$0;
@@ -135,7 +135,7 @@ public class OneKeyLoginSdkCall {
                             this.val$listener = tokenListener;
                         }
 
-                        @Override // c.a.q0.a.InterfaceC0237a
+                        @Override // c.a.n0.a.InterfaceC0212a
                         public void onFinish(String str) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -248,7 +248,7 @@ public class OneKeyLoginSdkCall {
         if (interceptable == null || interceptable.invokeLL(1048581, this, sapiConfiguration, tokenListener) == null) {
             try {
                 try {
-                    a.c().f(sapiConfiguration.context, 15000L, new a.InterfaceC0237a(this, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2
+                    a.c().f(sapiConfiguration.context, 15000L, new a.InterfaceC0212a(this, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ OneKeyLoginSdkCall this$0;
@@ -273,7 +273,7 @@ public class OneKeyLoginSdkCall {
                             this.val$listener = tokenListener;
                         }
 
-                        @Override // c.a.q0.a.InterfaceC0237a
+                        @Override // c.a.n0.a.InterfaceC0212a
                         public void onFinish(String str) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -427,8 +427,8 @@ public class OneKeyLoginSdkCall {
         oneKeyLoginCallback.onFail(oneKeyLoginResult);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0056 A[Catch: NoClassDefFoundError -> 0x00c4, TryCatch #0 {NoClassDefFoundError -> 0x00c4, blocks: (B:5:0x0008, B:7:0x0012, B:9:0x001d, B:11:0x002e, B:13:0x0040, B:15:0x0048, B:21:0x0056, B:23:0x005c, B:25:0x0077, B:27:0x0085, B:28:0x009b, B:30:0x00b6), top: B:40:0x0008 }] */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x009b A[Catch: NoClassDefFoundError -> 0x00c4, TryCatch #0 {NoClassDefFoundError -> 0x00c4, blocks: (B:5:0x0008, B:7:0x0012, B:9:0x001d, B:11:0x002e, B:13:0x0040, B:15:0x0048, B:21:0x0056, B:23:0x005c, B:25:0x0077, B:27:0x0085, B:28:0x009b, B:30:0x00b6), top: B:40:0x0008 }] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0056 A[Catch: NoClassDefFoundError -> 0x00c2, TryCatch #0 {NoClassDefFoundError -> 0x00c2, blocks: (B:5:0x0008, B:7:0x0012, B:9:0x001d, B:11:0x002e, B:13:0x0040, B:15:0x0048, B:21:0x0056, B:23:0x005c, B:25:0x0076, B:27:0x0084, B:28:0x009a, B:30:0x00b4), top: B:40:0x0008 }] */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x009a A[Catch: NoClassDefFoundError -> 0x00c2, TryCatch #0 {NoClassDefFoundError -> 0x00c2, blocks: (B:5:0x0008, B:7:0x0012, B:9:0x001d, B:11:0x002e, B:13:0x0040, B:15:0x0048, B:21:0x0056, B:23:0x005c, B:25:0x0076, B:27:0x0084, B:28:0x009a, B:30:0x00b4), top: B:40:0x0008 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -464,7 +464,7 @@ public class OneKeyLoginSdkCall {
                         }
                         return;
                     }
-                    a.c().g(sapiConfiguration.context, i2, new a.InterfaceC0237a(this, str, SapiUtils.getNetworkClass(sapiConfiguration.context), oneKeyLoginOptCallback) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1
+                    a.c().g(sapiConfiguration.context, i2, new a.InterfaceC0212a(this, str, SapiUtils.getNetworkClass(sapiConfiguration.context), oneKeyLoginOptCallback) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ OneKeyLoginSdkCall this$0;
@@ -493,7 +493,7 @@ public class OneKeyLoginSdkCall {
                             this.val$callback = oneKeyLoginOptCallback;
                         }
 
-                        @Override // c.a.q0.a.InterfaceC0237a
+                        @Override // c.a.n0.a.InterfaceC0212a
                         public void onFinish(String str2) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, str2) == null) {

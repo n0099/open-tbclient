@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.videoPreload;
 
 import android.text.TextUtils;
 import c.a.d.f.p.l;
-import c.a.t0.s.j0.b;
+import c.a.q0.r.j0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.switchs.VideoPreLoadSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class PreLoadVideoSwitchManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_PRE_LOAD_SIZE = 512000;

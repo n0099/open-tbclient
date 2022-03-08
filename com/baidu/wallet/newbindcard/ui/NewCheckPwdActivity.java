@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +26,6 @@ import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import com.baidu.wallet.paysdk.beans.v;
 import com.baidu.wallet.paysdk.payresult.datamodel.PayResultContent;
 import com.baidu.wallet.paysdk.ui.HalfProtocolScreenBaseActivity;
-import com.baidu.walletsdk.pay.R;
 import com.dxmpay.apollon.eventbus.EventBus;
 import com.dxmpay.apollon.utils.GlobalUtils;
 import com.dxmpay.apollon.utils.ResUtils;
@@ -41,7 +41,7 @@ import com.dxmpay.wallet.core.utils.WalletGlobalUtils;
 import com.dxmpay.wallet.paysdk.datamodel.SdkInitResponse;
 import com.dxmpay.wallet.utils.StatHelper;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implements View.OnClickListener, SixNumberPwdView.OnPwdChangedListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHECK_FINGERPRINGT_STATUS = "checkFingerprintStatus";
@@ -49,31 +49,31 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
     public SixNumberPwdView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f51989b;
+    public TextView f50408b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f51990c;
+    public TextView f50409c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f51991d;
+    public View f50410d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f51992e;
+    public boolean f50411e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f51993f;
+    public RelativeLayout f50412f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SafeScrollView f51994g;
+    public SafeScrollView f50413g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SafeKeyBoardEditText f51995h;
+    public SafeKeyBoardEditText f50414h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f51996i;
+    public final int f50415i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f51997j;
+    public final int f50416j;
     public String k;
     public int l;
 
@@ -90,9 +90,9 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                 return;
             }
         }
-        this.f51992e = false;
-        this.f51996i = 1;
-        this.f51997j = 2;
+        this.f50411e = false;
+        this.f50415i = 1;
+        this.f50416j = 2;
         this.l = 0;
     }
 
@@ -196,7 +196,7 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
         if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
             if (view == this.mLeftImg) {
                 onBackPressed();
-            } else if (view == this.f51991d) {
+            } else if (view == this.f50410d) {
                 a();
             }
         }
@@ -239,7 +239,7 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
             this.l = 0;
             a.a(PayStatServiceEvent.NEW_CHECK_PWD_COUNT, hashMap, a.a(), a.b(), "0");
             BeanManager.getInstance().removeAllBeans("NewCheckPwdActivity");
-            if (this.f51992e) {
+            if (this.f50411e) {
                 PasswordController.getPassWordInstance().clearForgetPasswdCallback();
             }
             EventBus.getInstance().unregister(this);
@@ -258,7 +258,7 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                     JSONObject jSONObject = new JSONObject((String) event.mEventObj);
                     if (jSONObject.has("is_succeed") && 1 == jSONObject.getInt("is_succeed")) {
                         a.a(PayStatServiceEvent.NEW_CHECK_PWD_FIND_PWD_RESULT, a.a(), a.b(), "0", "0", NewBindCardEntry.BING_CARD_SUCCESS_MSG);
-                        this.f51989b.setVisibility(4);
+                        this.f50408b.setVisibility(4);
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -329,7 +329,7 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                     public final /* synthetic */ PromptDialog a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ NewCheckPwdActivity f52001b;
+                    public final /* synthetic */ NewCheckPwdActivity f50420b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -346,7 +346,7 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                                 return;
                             }
                         }
-                        this.f52001b = this;
+                        this.f50420b = this;
                         this.a = promptDialog2;
                     }
 
@@ -452,7 +452,7 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             super.onWindowFocusChanged(z);
             if (z) {
-                this.f51995h.requestFocus();
+                this.f50414h.requestFocus();
             }
         }
     }
@@ -468,23 +468,23 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65539, this, i2) == null) {
             this.mActionBar.setVisibility(0);
-            this.f51993f = (RelativeLayout) findViewById(R.id.new_bind_card_check_pwd_layout);
+            this.f50412f = (RelativeLayout) findViewById(R.id.new_bind_card_check_pwd_layout);
             this.a = (SixNumberPwdView) findViewById(R.id.new_pwd_input_box);
-            this.f51989b = (TextView) findViewById(R.id.new_error_tip);
-            this.f51990c = (TextView) findViewById(R.id.tv_check_pwd_tip);
-            this.f51991d = findViewById(R.id.new_forget_pwd);
-            this.f51994g = (SafeScrollView) findViewById(R.id.new_check_pwd_scrollview);
+            this.f50408b = (TextView) findViewById(R.id.new_error_tip);
+            this.f50409c = (TextView) findViewById(R.id.tv_check_pwd_tip);
+            this.f50410d = findViewById(R.id.new_forget_pwd);
+            this.f50413g = (SafeScrollView) findViewById(R.id.new_check_pwd_scrollview);
             SafeKeyBoardEditText safeKeyBoardEditText = (SafeKeyBoardEditText) this.a.findViewById(ResUtils.id(getActivity(), "pwd_input"));
-            this.f51995h = safeKeyBoardEditText;
-            safeKeyBoardEditText.initSafeKeyBoardParams(this.f51993f, this.f51994g, safeKeyBoardEditText, false);
-            this.f51995h.setGap(20);
-            this.f51995h.setDisablePast(true);
+            this.f50414h = safeKeyBoardEditText;
+            safeKeyBoardEditText.initSafeKeyBoardParams(this.f50412f, this.f50413g, safeKeyBoardEditText, false);
+            this.f50414h.setGap(20);
+            this.f50414h.setDisablePast(true);
             this.a.addSixNumberPwdChangedListenter(this);
-            setSafeScrollView(this.f51994g);
-            this.f51995h.requestFocus();
+            setSafeScrollView(this.f50413g);
+            this.f50414h.requestFocus();
             this.mLeftImg.setOnClickListener(this);
             a(ResUtils.getString(this, "wallet_base_new_bind_card_check_pwd_tip"), true);
-            this.f51991d.setOnClickListener(this);
+            this.f50410d.setOnClickListener(this);
         }
     }
 
@@ -548,7 +548,7 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
             }
             a.a(PayStatServiceEvent.NEW_CHECK_PWD_FORGET_PWD, a.a(), a.b(), "0");
             BaiduWalletDelegate.getInstance().openH5Module(getActivity(), findPayPwdUrl, false);
-            this.f51992e = true;
+            this.f50411e = true;
         }
     }
 
@@ -561,7 +561,7 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ NewCheckPwdActivity f51998b;
+                public final /* synthetic */ NewCheckPwdActivity f50417b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -578,7 +578,7 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                             return;
                         }
                     }
-                    this.f51998b = this;
+                    this.f50417b = this;
                     this.a = str;
                 }
 
@@ -586,7 +586,7 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        GlobalUtils.toast(this.f51998b, this.a);
+                        GlobalUtils.toast(this.f50417b, this.a);
                     }
                 }
             });
@@ -602,10 +602,10 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f51999b;
+                public final /* synthetic */ boolean f50418b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ NewCheckPwdActivity f52000c;
+                public final /* synthetic */ NewCheckPwdActivity f50419c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -622,22 +622,22 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                             return;
                         }
                     }
-                    this.f52000c = this;
+                    this.f50419c = this;
                     this.a = str;
-                    this.f51999b = z;
+                    this.f50418b = z;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f52000c.f51989b.setText(this.a);
-                        if (this.f51999b) {
-                            this.f52000c.f51989b.setTextColor(ResUtils.getColor(this.f52000c, "wallet_cashdesk_new_bind_card_7BE6"));
+                        this.f50419c.f50408b.setText(this.a);
+                        if (this.f50418b) {
+                            this.f50419c.f50408b.setTextColor(ResUtils.getColor(this.f50419c, "wallet_cashdesk_new_bind_card_7BE6"));
                         } else {
-                            this.f52000c.f51989b.setTextColor(ResUtils.getColor(this.f52000c, "dxm_wallet_fp_promtion_text"));
+                            this.f50419c.f50408b.setTextColor(ResUtils.getColor(this.f50419c, "dxm_wallet_fp_promtion_text"));
                         }
-                        this.f52000c.f51989b.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.newbindcard.ui.NewCheckPwdActivity.4.1
+                        this.f50419c.f50408b.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.newbindcard.ui.NewCheckPwdActivity.4.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass4 a;
@@ -665,8 +665,8 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(1048576, this, view) == null) {
                                     AnonymousClass4 anonymousClass4 = this.a;
-                                    if (anonymousClass4.f51999b) {
-                                        WalletGlobalUtils.safeShowDialog(anonymousClass4.f52000c.mAct, 1, "");
+                                    if (anonymousClass4.f50418b) {
+                                        WalletGlobalUtils.safeShowDialog(anonymousClass4.f50419c.mAct, 1, "");
                                     }
                                 }
                             }

@@ -3,8 +3,6 @@ package com.google.android.exoplayer2.metadata.scte35;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
-import c.i.b.a.i0.l;
-import c.i.b.a.i0.s;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,51 +11,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.google.android.exoplayer2.C;
+import com.google.android.exoplayer2.util.ParsableByteArray;
+import com.google.android.exoplayer2.util.TimestampAdjuster;
+/* loaded from: classes7.dex */
 public final class TimeSignalCommand extends SpliceCommand {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<TimeSignalCommand> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final long playbackPositionUs;
     public final long ptsTime;
-
-    /* loaded from: classes3.dex */
-    public static class a implements Parcelable.Creator<TimeSignalCommand> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: a */
-        public TimeSignalCommand createFromParcel(Parcel parcel) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new TimeSignalCommand(parcel.readLong(), parcel.readLong(), null) : (TimeSignalCommand) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: b */
-        public TimeSignalCommand[] newArray(int i2) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new TimeSignalCommand[i2] : (TimeSignalCommand[]) invokeI.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -72,32 +35,60 @@ public final class TimeSignalCommand extends SpliceCommand {
                 return;
             }
         }
-        CREATOR = new a();
+        CREATOR = new Parcelable.Creator<TimeSignalCommand>() { // from class: com.google.android.exoplayer2.metadata.scte35.TimeSignalCommand.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // android.os.Parcelable.Creator
+            public TimeSignalCommand createFromParcel(Parcel parcel) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new TimeSignalCommand(parcel.readLong(), parcel.readLong()) : (TimeSignalCommand) invokeL.objValue;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // android.os.Parcelable.Creator
+            public TimeSignalCommand[] newArray(int i2) {
+                InterceptResult invokeI;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new TimeSignalCommand[i2] : (TimeSignalCommand[]) invokeI.objValue;
+            }
+        };
     }
 
-    public /* synthetic */ TimeSignalCommand(long j2, long j3, a aVar) {
-        this(j2, j3);
-    }
-
-    public static TimeSignalCommand parseFromSection(l lVar, long j2, s sVar) {
+    public static TimeSignalCommand parseFromSection(ParsableByteArray parsableByteArray, long j2, TimestampAdjuster timestampAdjuster) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{lVar, Long.valueOf(j2), sVar})) == null) {
-            long parseSpliceTime = parseSpliceTime(lVar, j2);
-            return new TimeSignalCommand(parseSpliceTime, sVar.b(parseSpliceTime));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{parsableByteArray, Long.valueOf(j2), timestampAdjuster})) == null) {
+            long parseSpliceTime = parseSpliceTime(parsableByteArray, j2);
+            return new TimeSignalCommand(parseSpliceTime, timestampAdjuster.adjustTsTimestamp(parseSpliceTime));
         }
         return (TimeSignalCommand) invokeCommon.objValue;
     }
 
-    public static long parseSpliceTime(l lVar, long j2) {
+    public static long parseSpliceTime(ParsableByteArray parsableByteArray, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, lVar, j2)) == null) {
-            long x = lVar.x();
-            if ((128 & x) != 0) {
-                return 8589934591L & ((((x & 1) << 32) | lVar.z()) + j2);
-            }
-            return -9223372036854775807L;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, parsableByteArray, j2)) == null) {
+            long readUnsignedByte = parsableByteArray.readUnsignedByte();
+            return (128 & readUnsignedByte) != 0 ? 8589934591L & ((((readUnsignedByte & 1) << 32) | parsableByteArray.readUnsignedInt()) + j2) : C.TIME_UNSET;
         }
         return invokeLJ.longValue;
     }

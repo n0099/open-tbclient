@@ -26,7 +26,7 @@ import com.baidu.wallet.core.BaseActivity;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.core.utils.WalletGlobalUtils;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public abstract class BeanActivity extends BaseActivity implements IBeanResponseCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BaseActivity";
@@ -34,7 +34,7 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
     public BeanActivity mAct;
     public Handler mHandler;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class ActionBarMenu extends BdMenu {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MENU_ITEM_INDEX_LOGOUT = 35;
@@ -249,13 +249,13 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f51131b;
+                public final /* synthetic */ int f49550b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f51132c;
+                public final /* synthetic */ String f49551c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ BeanActivity f51133d;
+                public final /* synthetic */ BeanActivity f49552d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -272,19 +272,19 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                             return;
                         }
                     }
-                    this.f51133d = this;
+                    this.f49552d = this;
                     this.a = i2;
-                    this.f51131b = i3;
-                    this.f51132c = str;
+                    this.f49550b = i3;
+                    this.f49551c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        BeanActivity beanActivity = this.f51133d;
+                        BeanActivity beanActivity = this.f49552d;
                         if (beanActivity.mAct != null) {
-                            beanActivity.handleFailure(this.a, this.f51131b, this.f51132c);
+                            beanActivity.handleFailure(this.a, this.f49550b, this.f49551c);
                         }
                     }
                 }
@@ -309,13 +309,13 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Object f51128b;
+                public final /* synthetic */ Object f49547b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f51129c;
+                public final /* synthetic */ String f49548c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ BeanActivity f51130d;
+                public final /* synthetic */ BeanActivity f49549d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -332,19 +332,19 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                             return;
                         }
                     }
-                    this.f51130d = this;
+                    this.f49549d = this;
                     this.a = i2;
-                    this.f51128b = obj;
-                    this.f51129c = str;
+                    this.f49547b = obj;
+                    this.f49548c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        BeanActivity beanActivity = this.f51130d;
+                        BeanActivity beanActivity = this.f49549d;
                         if (beanActivity.mAct != null) {
-                            beanActivity.handleResponse(this.a, this.f51128b, this.f51129c);
+                            beanActivity.handleResponse(this.a, this.f49547b, this.f49548c);
                         }
                     }
                 }

@@ -13,13 +13,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.k.a.j;
-import c.a.k.a.k;
-import c.a.k.a.l;
-import c.a.k.a.m;
-import c.a.k.a.n;
-import c.a.k.a.q.a;
+import c.a.k.a.k.a;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,29 +23,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class BdPermissionGoSettingDialog extends Dialog implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static String n = "package";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f33256e;
+    public Context f31659e;
 
     /* renamed from: f  reason: collision with root package name */
-    public DialogInterface.OnCancelListener f33257f;
+    public DialogInterface.OnCancelListener f31660f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f33258g;
+    public View.OnClickListener f31661g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f33259h;
+    public TextView f31662h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f33260i;
+    public String f31663i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f33261j;
+    public TextView f31664j;
     public TextView k;
     public String l;
     public boolean m;
@@ -71,7 +67,7 @@ public class BdPermissionGoSettingDialog extends Dialog implements View.OnClickL
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdPermissionGoSettingDialog(Context context) {
-        super(context, n.BdPermissionGotoSettingDialog);
+        super(context, R.style.BdPermissionGotoSettingDialog);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,28 +84,28 @@ public class BdPermissionGoSettingDialog extends Dialog implements View.OnClickL
                 return;
             }
         }
-        this.f33256e = context;
+        this.f31659e = context;
         this.l = context.getPackageName();
     }
 
     public final void a(DialogInterface.OnCancelListener onCancelListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, onCancelListener) == null) {
-            this.f33257f = onCancelListener;
+            this.f31660f = onCancelListener;
         }
     }
 
     public final void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f33260i = str;
+            this.f31663i = str;
         }
     }
 
     public final void c(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f33258g = onClickListener;
+            this.f31661g = onClickListener;
         }
     }
 
@@ -124,13 +120,13 @@ public class BdPermissionGoSettingDialog extends Dialog implements View.OnClickL
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
-            if (view == this.f33261j) {
-                this.f33257f.onCancel(this);
-            } else if (view != this.k || this.f33256e == null) {
+            if (view == this.f31664j) {
+                this.f31660f.onCancel(this);
+            } else if (view != this.k || this.f31659e == null) {
             } else {
                 if (this.m) {
                     dismiss();
-                    View.OnClickListener onClickListener = this.f33258g;
+                    View.OnClickListener onClickListener = this.f31661g;
                     if (onClickListener != null) {
                         onClickListener.onClick(view);
                         return;
@@ -142,7 +138,7 @@ public class BdPermissionGoSettingDialog extends Dialog implements View.OnClickL
                 intent.setFlags(268435456);
                 intent.setFlags(8388608);
                 intent.setFlags(1073741824);
-                this.f33256e.startActivity(intent);
+                this.f31659e.startActivity(intent);
                 dismiss();
             }
         }
@@ -157,22 +153,22 @@ public class BdPermissionGoSettingDialog extends Dialog implements View.OnClickL
                 requestWindowFeature(1);
                 a.b(getWindow().getDecorView());
             }
-            View inflate = LayoutInflater.from(this.f33256e).inflate(l.core_permission_go_setting, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(k.core_permission_go_setting_message);
-            this.f33259h = textView;
-            textView.setText(this.f33260i);
-            TextView textView2 = (TextView) inflate.findViewById(k.core_permission_go_setting_cancel_button);
-            this.f33261j = textView2;
+            View inflate = LayoutInflater.from(this.f31659e).inflate(R.layout.core_permission_go_setting, (ViewGroup) null);
+            TextView textView = (TextView) inflate.findViewById(R.id.core_permission_go_setting_message);
+            this.f31662h = textView;
+            textView.setText(this.f31663i);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.core_permission_go_setting_cancel_button);
+            this.f31664j = textView2;
             textView2.setOnClickListener(this);
-            TextView textView3 = (TextView) inflate.findViewById(k.core_permission_go_setting_button);
+            TextView textView3 = (TextView) inflate.findViewById(R.id.core_permission_go_setting_button);
             this.k = textView3;
             textView3.setOnClickListener(this);
             if (this.m) {
-                this.k.setText(this.f33256e.getResources().getString(m.core_permission_show_permission_cycle));
+                this.k.setText(this.f31659e.getResources().getString(R.string.core_permission_show_permission_cycle));
             } else {
-                this.k.setText(this.f33256e.getResources().getString(m.core_permission_go_setting));
+                this.k.setText(this.f31659e.getResources().getString(R.string.core_permission_go_setting));
             }
-            setContentView(inflate, new ViewGroup.LayoutParams((int) this.f33256e.getResources().getDimension(j.core_permission_dialog_width), -2));
+            setContentView(inflate, new ViewGroup.LayoutParams((int) this.f31659e.getResources().getDimension(R.dimen.core_permission_dialog_width), -2));
             Window window = getWindow();
             if (window != null) {
                 WindowManager.LayoutParams attributes = window.getAttributes();
@@ -186,11 +182,11 @@ public class BdPermissionGoSettingDialog extends Dialog implements View.OnClickL
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f33261j = null;
-            this.f33257f = null;
-            this.f33258g = null;
-            this.f33256e = null;
-            this.f33259h = null;
+            this.f31664j = null;
+            this.f31660f = null;
+            this.f31661g = null;
+            this.f31659e = null;
+            this.f31662h = null;
         }
     }
 
@@ -212,7 +208,7 @@ public class BdPermissionGoSettingDialog extends Dialog implements View.OnClickL
         c(onClickListener);
         b(str);
         d(z2);
-        setTitle(context.getResources().getString(m.core_permission_go_setting_title));
+        setTitle(context.getResources().getString(R.string.core_permission_go_setting_title));
         show();
     }
 }

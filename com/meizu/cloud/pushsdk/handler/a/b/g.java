@@ -9,7 +9,7 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class g implements Parcelable {
     public static final Parcelable.Creator<g> CREATOR = new Parcelable.Creator<g>() { // from class: com.meizu.cloud.pushsdk.handler.a.b.g.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -29,46 +29,46 @@ public class g implements Parcelable {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f59003b;
+    public boolean f57353b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f59004c;
+    public List<String> f57354c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f59005d;
+    public b f57355d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f59006e;
+    public String f57356e;
 
     public g(Parcel parcel) {
         this.a = parcel.readInt();
-        this.f59003b = parcel.readByte() != 0;
-        this.f59004c = parcel.createStringArrayList();
-        this.f59005d = (b) parcel.readParcelable(b.class.getClassLoader());
-        this.f59006e = parcel.readString();
+        this.f57353b = parcel.readByte() != 0;
+        this.f57354c = parcel.createStringArrayList();
+        this.f57355d = (b) parcel.readParcelable(b.class.getClassLoader());
+        this.f57356e = parcel.readString();
     }
 
     public g(String str, String str2, String str3, String str4) {
-        this.f59006e = str;
+        this.f57356e = str;
         try {
             JSONObject jSONObject = new JSONObject(str);
             if (!jSONObject.isNull(TiebaPrepareImageService.MAX_SIZE)) {
                 this.a = jSONObject.getInt(TiebaPrepareImageService.MAX_SIZE);
             }
             if (!jSONObject.isNull("wifi_upload")) {
-                this.f59003b = jSONObject.getBoolean("wifi_upload");
+                this.f57353b = jSONObject.getBoolean("wifi_upload");
             }
             if (!jSONObject.isNull("upload_files")) {
                 JSONArray jSONArray = jSONObject.getJSONArray("upload_files");
-                this.f59004c = new ArrayList();
+                this.f57354c = new ArrayList();
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    this.f59004c.add(jSONArray.getString(i2));
+                    this.f57354c.add(jSONArray.getString(i2));
                 }
             }
         } catch (JSONException e2) {
             c.k.a.a.a.b("UploadLogMessage", "parse upload message error " + e2.getMessage());
         }
-        this.f59005d = new b(str2, str3, str4);
+        this.f57355d = new b(str2, str3, str4);
     }
 
     public int a() {
@@ -76,15 +76,15 @@ public class g implements Parcelable {
     }
 
     public boolean b() {
-        return this.f59003b;
+        return this.f57353b;
     }
 
     public List<String> c() {
-        return this.f59004c;
+        return this.f57354c;
     }
 
     public b d() {
-        return this.f59005d;
+        return this.f57355d;
     }
 
     @Override // android.os.Parcelable
@@ -93,15 +93,15 @@ public class g implements Parcelable {
     }
 
     public String toString() {
-        return "UploadLogMessage{maxSize=" + this.a + ", wifiUpload=" + this.f59003b + ", fileList=" + this.f59004c + ", controlMessage=" + this.f59005d + ", uploadMessage='" + this.f59006e + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return "UploadLogMessage{maxSize=" + this.a + ", wifiUpload=" + this.f57353b + ", fileList=" + this.f57354c + ", controlMessage=" + this.f57355d + ", uploadMessage='" + this.f57356e + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeInt(this.a);
-        parcel.writeByte(this.f59003b ? (byte) 1 : (byte) 0);
-        parcel.writeStringList(this.f59004c);
-        parcel.writeParcelable(this.f59005d, i2);
-        parcel.writeString(this.f59006e);
+        parcel.writeByte(this.f57353b ? (byte) 1 : (byte) 0);
+        parcel.writeStringList(this.f57354c);
+        parcel.writeParcelable(this.f57355d, i2);
+        parcel.writeString(this.f57356e);
     }
 }

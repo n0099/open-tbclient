@@ -7,23 +7,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36137b;
+    public String f34540b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f36138c;
+    public int f34541c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f36139d;
+    public int f34542d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<q> f36140e;
+    public ArrayList<q> f34543e;
 
     public q() {
         Interceptable interceptable = $ic;
@@ -42,13 +42,13 @@ public class q {
     public ArrayList<q> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36140e : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34543e : (ArrayList) invokeV.objValue;
     }
 
     public void a(ArrayList<q> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-            this.f36140e = arrayList;
+            this.f34543e = arrayList;
         }
     }
 }

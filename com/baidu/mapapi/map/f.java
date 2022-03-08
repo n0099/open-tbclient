@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public /* synthetic */ class f {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ int[] f35691b;
+    public static final /* synthetic */ int[] f34094b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,13 +29,13 @@ public /* synthetic */ class f {
             }
         }
         int[] iArr = new int[com.baidu.mapsdkplatform.comapi.map.aa.values().length];
-        f35691b = iArr;
+        f34094b = iArr;
         try {
-            iArr[com.baidu.mapsdkplatform.comapi.map.aa.f36048b.ordinal()] = 1;
+            iArr[com.baidu.mapsdkplatform.comapi.map.aa.f34451b.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f35691b[com.baidu.mapsdkplatform.comapi.map.aa.a.ordinal()] = 2;
+            f34094b[com.baidu.mapsdkplatform.comapi.map.aa.a.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         int[] iArr2 = new int[MyLocationConfiguration.LocationMode.values().length];

@@ -13,7 +13,7 @@ import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
 import protobuf.GroupInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class Business extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_BUSINESS = "";
@@ -24,7 +24,7 @@ public final class Business extends Message {
     @ProtoField(label = Message.Label.REPEATED, tag = 2)
     public final List<GroupInfo> groups;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder extends Message.Builder<Business> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public final class Business extends Message {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

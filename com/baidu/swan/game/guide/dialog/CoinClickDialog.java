@@ -14,17 +14,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import c.a.s0.a.d2.e;
-import c.a.s0.a.k;
-import c.a.s0.a.z2.f;
-import c.a.s0.a.z2.f0;
-import c.a.s0.h.j.h;
-import c.a.s0.h.j.i;
+import c.a.p0.a.p2.f;
+import c.a.p0.a.p2.f0;
+import c.a.p0.a.t1.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.swan.game.ad.downloader.model.DownloadState;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.swan.game.guide.download.GamenowDownloadButtomView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +31,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
 @SuppressLint({"BaseActivity"})
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class CoinClickDialog extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_COINS_REWARD_THIS_TIME = "rewardCoinsThisTime";
@@ -48,20 +46,20 @@ public class CoinClickDialog extends Activity {
     public int coinsThisTime;
     public int coinsTotal;
     public boolean isShowMax;
-    public c.a.s0.h.i.k.f.a mDownloadCallback;
+    public c.a.p0.h.a.c.f.a mDownloadCallback;
     public DownloadState mDownloadState;
     public boolean mIsStatusQuried;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CheckBox f39951e;
+        public final /* synthetic */ CheckBox f38355e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CoinClickDialog f39952f;
+        public final /* synthetic */ CoinClickDialog f38356f;
 
         public a(CoinClickDialog coinClickDialog, CheckBox checkBox) {
             Interceptable interceptable = $ic;
@@ -78,31 +76,31 @@ public class CoinClickDialog extends Activity {
                     return;
                 }
             }
-            this.f39952f = coinClickDialog;
-            this.f39951e = checkBox;
+            this.f38356f = coinClickDialog;
+            this.f38355e = checkBox;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f39951e.isChecked()) {
-                    this.f39952f.showNotShowEnsureDialog();
+                if (this.f38355e.isChecked()) {
+                    this.f38356f.showNotShowEnsureDialog();
                     return;
                 }
-                c.a.s0.h.j.r.b.n().j("1", this.f39952f.coinsThisTime, this.f39952f.coinsTotal);
-                this.f39952f.finish();
+                c.a.p0.h.b.j.b.n().j("1", this.f38356f.coinsThisTime, this.f38356f.coinsTotal);
+                this.f38356f.finish();
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CoinClickDialog f39953e;
+        public final /* synthetic */ CoinClickDialog f38357e;
 
         public b(CoinClickDialog coinClickDialog) {
             Interceptable interceptable = $ic;
@@ -119,21 +117,21 @@ public class CoinClickDialog extends Activity {
                     return;
                 }
             }
-            this.f39953e = coinClickDialog;
+            this.f38357e = coinClickDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.s0.h.j.r.b.n().j("3", this.f39953e.coinsThisTime, this.f39953e.coinsTotal);
-                c.a.s0.h.j.n.c.n().s(true);
+                c.a.p0.h.b.j.b.n().j("3", this.f38357e.coinsThisTime, this.f38357e.coinsTotal);
+                c.a.p0.h.b.f.c.n().s(true);
             }
         }
     }
 
-    /* loaded from: classes11.dex */
-    public class c implements c.a.s0.h.i.k.f.a {
+    /* loaded from: classes5.dex */
+    public class c implements c.a.p0.h.a.c.f.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CoinClickDialog a;
@@ -156,61 +154,61 @@ public class CoinClickDialog extends Activity {
             this.a = coinClickDialog;
         }
 
-        @Override // c.a.s0.h.i.k.f.a
+        @Override // c.a.p0.h.a.c.f.a
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                c.a.s0.h.j.n.c.n().D(i2);
+                c.a.p0.h.b.f.c.n().D(i2);
             }
         }
 
-        @Override // c.a.s0.h.i.k.f.a
+        @Override // c.a.p0.h.a.c.f.a
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             }
         }
 
-        @Override // c.a.s0.h.i.k.f.a
+        @Override // c.a.p0.h.a.c.f.a
         public void c(DownloadState downloadState, int i2) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, downloadState, i2) == null) || this.a.mDownloadState == downloadState) {
                 return;
             }
-            String H = c.a.s0.h.j.b.o.H();
-            if (TextUtils.equals(c.a.s0.h.j.b.o.I(), c.a.s0.h.j.m.c.a)) {
-                H = c.a.s0.h.j.n.c.n().o();
+            String H = c.a.p0.h.b.b.o.H();
+            if (TextUtils.equals(c.a.p0.h.b.b.o.I(), c.a.p0.h.b.e.c.a)) {
+                H = c.a.p0.h.b.f.c.n().o();
             }
             String str = H;
             if (this.a.mDownloadState != DownloadState.DOWNLOAD_PAUSED && this.a.mDownloadState != DownloadState.DOWNLOAD_FAILED && downloadState == DownloadState.DOWNLOADING) {
-                c.a.s0.h.j.r.b.n().e("statusBeginDownload", "wdview", "0", "", "", str);
+                c.a.p0.h.b.j.b.n().e("statusBeginDownload", "wdview", "0", "", "", str);
             } else if (downloadState == DownloadState.DOWNLOAD_PAUSED) {
                 if (this.a.mIsStatusQuried) {
-                    c.a.s0.h.j.r.b.n().e("statusDownloadPause", "wdview", "0", "", "", str);
+                    c.a.p0.h.b.j.b.n().e("statusDownloadPause", "wdview", "0", "", "", str);
                 }
             } else if (downloadState == DownloadState.DOWNLOADED && this.a.mIsStatusQuried) {
-                c.a.s0.h.j.r.b.n().e("statusDownloaded", "wdview", "0", "", "", str);
+                c.a.p0.h.b.j.b.n().e("statusDownloaded", "wdview", "0", "", "", str);
             }
-            c.a.s0.h.j.n.c.n().E(downloadState);
+            c.a.p0.h.b.f.c.n().E(downloadState);
             this.a.mDownloadState = downloadState;
             this.a.mIsStatusQuried = true;
         }
 
-        @Override // c.a.s0.h.i.k.f.a
+        @Override // c.a.p0.h.a.c.f.a
         public void d(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             }
         }
 
-        @Override // c.a.s0.h.i.k.f.a
+        @Override // c.a.p0.h.a.c.f.a
         public String e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? c.a.s0.h.j.b.o.I() : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? c.a.p0.h.b.b.o.I() : (String) invokeV.objValue;
         }
 
-        @Override // c.a.s0.h.i.k.f.a
+        @Override // c.a.p0.h.a.c.f.a
         public void f(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
@@ -218,13 +216,13 @@ public class CoinClickDialog extends Activity {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class d implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CoinClickDialog f39954e;
+        public final /* synthetic */ CoinClickDialog f38358e;
 
         public d(CoinClickDialog coinClickDialog) {
             Interceptable interceptable = $ic;
@@ -241,7 +239,7 @@ public class CoinClickDialog extends Activity {
                     return;
                 }
             }
-            this.f39954e = coinClickDialog;
+            this.f38358e = coinClickDialog;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
@@ -249,14 +247,14 @@ public class CoinClickDialog extends Activity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
                 if (i2 == -1) {
-                    if (TextUtils.equals(c.a.s0.h.j.b.o.I(), c.a.s0.h.j.m.c.a)) {
-                        c.a.s0.h.j.b.o.V(true);
+                    if (TextUtils.equals(c.a.p0.h.b.b.o.I(), c.a.p0.h.b.e.c.a)) {
+                        c.a.p0.h.b.b.o.V(true);
                     }
-                    c.a.s0.h.j.r.b.n().j("2", this.f39954e.coinsThisTime, this.f39954e.coinsTotal);
-                    this.f39954e.finish();
+                    c.a.p0.h.b.j.b.n().j("2", this.f38358e.coinsThisTime, this.f38358e.coinsTotal);
+                    this.f38358e.finish();
                 }
-                if (i2 == -2 && TextUtils.equals(c.a.s0.h.j.b.o.I(), c.a.s0.h.j.m.c.a)) {
-                    ((CheckBox) this.f39954e.findViewById(h.cb)).setChecked(false);
+                if (i2 == -2 && TextUtils.equals(c.a.p0.h.b.b.o.I(), c.a.p0.h.b.e.c.a)) {
+                    ((CheckBox) this.f38358e.findViewById(R.id.cb)).setChecked(false);
                 }
             }
         }
@@ -284,13 +282,13 @@ public class CoinClickDialog extends Activity {
     private void init(GameGuideConfigInfo gameGuideConfigInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, gameGuideConfigInfo) == null) {
-            TextView textView = (TextView) findViewById(h.tv_content1);
-            TextView textView2 = (TextView) findViewById(h.tv_content2);
-            TextView textView3 = (TextView) findViewById(h.tv_guide1);
-            TextView textView4 = (TextView) findViewById(h.tv_guide2);
-            LinearLayout linearLayout = (LinearLayout) findViewById(h.button);
-            ConstraintLayout constraintLayout = (ConstraintLayout) findViewById(h.cl_gamenow_introduce);
-            ((SimpleDraweeView) findViewById(h.top_icon)).setController(Fresco.newDraweeControllerBuilder().setUri(gameGuideConfigInfo.dialogInfo.iconUrl).setAutoPlayAnimations(true).build());
+            TextView textView = (TextView) findViewById(R.id.tv_content1);
+            TextView textView2 = (TextView) findViewById(R.id.tv_content2);
+            TextView textView3 = (TextView) findViewById(R.id.tv_guide1);
+            TextView textView4 = (TextView) findViewById(R.id.tv_guide2);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.button);
+            ConstraintLayout constraintLayout = (ConstraintLayout) findViewById(R.id.cl_gamenow_introduce);
+            ((SimpleDraweeView) findViewById(R.id.top_icon)).setController(Fresco.newDraweeControllerBuilder().setUri(gameGuideConfigInfo.dialogInfo.iconUrl).setAutoPlayAnimations(true).build());
             if (this.isShowMax) {
                 textView.setText(gameGuideConfigInfo.dialogInfo.maxNumsTips);
             } else {
@@ -318,10 +316,10 @@ public class CoinClickDialog extends Activity {
             }
             textView3.setText(str3);
             textView4.setText(gameGuideConfigInfo.dialogInfo.guideTips2);
-            findViewById(h.iv_close).setOnClickListener(new a(this, (CheckBox) findViewById(h.cb)));
+            findViewById(R.id.iv_close).setOnClickListener(new a(this, (CheckBox) findViewById(R.id.cb)));
             constraintLayout.setOnClickListener(new b(this));
             this.mDownloadCallback = new c(this);
-            GamenowDownloadButtomView j2 = c.a.s0.h.j.n.c.n().j(this.mDownloadCallback, "wdview", "0", this.coinsThisTime, this.coinsTotal);
+            GamenowDownloadButtomView j2 = c.a.p0.h.b.f.c.n().j(this.mDownloadCallback, "wdview", "0", this.coinsThisTime, this.coinsTotal);
             this.buttomView = j2;
             linearLayout.addView(j2);
         }
@@ -350,21 +348,21 @@ public class CoinClickDialog extends Activity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             f.e(this);
             super.onCreate(bundle);
-            setContentView(i.aiapps_coin_click_dialog);
+            setContentView(R.layout.aiapps_coin_click_dialog);
             if (e.a0() != null && f0.p(e.a0().x())) {
                 f0.s(this);
             }
-            GameGuideConfigInfo z = c.a.s0.h.j.b.o.z();
+            GameGuideConfigInfo z = c.a.p0.h.b.b.o.z();
             if (z != null && z.dialogInfo != null) {
                 this.isShowMax = getIntent().getBooleanExtra(KEY_IS_SHOW_MAX, false);
                 this.coinsThisTime = getIntent().getIntExtra(KEY_COINS_REWARD_THIS_TIME, 0);
                 this.coinsTotal = getIntent().getIntExtra(KEY_COINS_REWARD_TOTAL, 0);
-                c.a.s0.h.j.r.b.n().k(this.coinsThisTime, this.coinsTotal);
+                c.a.p0.h.b.j.b.n().k(this.coinsThisTime, this.coinsTotal);
                 init(z);
                 LogUtil.logActivity(this, "onCreate");
                 return;
             }
-            boolean z2 = k.a;
+            boolean z2 = c.a.p0.a.a.a;
             finish();
             LogUtil.logActivity(this, "onCreate");
         }
@@ -375,7 +373,7 @@ public class CoinClickDialog extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onResume();
-            c.a.s0.h.j.n.c.n().t();
+            c.a.p0.h.b.f.c.n().t();
         }
     }
 }

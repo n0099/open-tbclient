@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class FlowPartConstants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PART_1_TO_PLAYDURATION = "V2_P1_PlayDuration";

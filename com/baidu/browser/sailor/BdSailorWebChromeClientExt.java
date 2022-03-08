@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.JsPromptResult;
 import com.baidu.webkit.sdk.WebView;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class BdSailorWebChromeClientExt implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static final BdSailorWebChromeClientExt DEFAULT;

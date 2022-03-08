@@ -4,7 +4,7 @@ import android.content.Context;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
-import c.a.t0.g0.h;
+import c.a.q0.f0.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public abstract class LiveTabBaseSubFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARG_AFTER_LAZY_LOADED = "arg_after_lazy_loaded";
@@ -25,7 +25,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
     public final String FRS_DYNAMIC_FRAGMENT_SHOW;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f42131e;
+    public h f40534e;
     public boolean isAfterLazyLoaded;
     public boolean isHideTopHeader;
     public Context mContext;
@@ -35,7 +35,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
     public CustomMessageListener mTopHeaderListener;
     public int tabId;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,7 +122,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             super.onChangeSkinType(i2);
-            h hVar = this.f42131e;
+            h hVar = this.f40534e;
             if (hVar != null) {
                 hVar.onChangeSkinType();
             }
@@ -143,18 +143,18 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.mTopContainer.setVisibility(0);
-            if (this.f42131e == null) {
-                this.f42131e = new h(this.mContext, null);
+            if (this.f40534e == null) {
+                this.f40534e = new h(this.mContext, null);
             }
-            this.f42131e.e();
-            this.f42131e.i(R.drawable.new_pic_emotion_03);
-            this.f42131e.o(this.mContext.getResources().getString(R.string.no_data_common_txt));
-            this.f42131e.onChangeSkinType();
+            this.f40534e.e();
+            this.f40534e.i(R.drawable.new_pic_emotion_03);
+            this.f40534e.o(this.mContext.getResources().getString(R.string.no_data_common_txt));
+            this.f40534e.onChangeSkinType();
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-            if (this.f42131e.b() == null || this.f42131e.b().getParent() != null) {
+            if (this.f40534e.b() == null || this.f40534e.b().getParent() != null) {
                 return;
             }
-            this.mTopContainer.addView(this.f42131e.b(), layoutParams);
+            this.mTopContainer.addView(this.f40534e.b(), layoutParams);
         }
     }
 }

@@ -26,7 +26,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class CommonEncryptionSampleList extends AbstractList<Sample> {
     public static /* synthetic */ Interceptable $ic;
     public static Cipher cipher;
@@ -36,13 +36,13 @@ public class CommonEncryptionSampleList extends AbstractList<Sample> {
     public SecretKey secretKey;
 
     /* renamed from: com.googlecode.mp4parser.boxes.cenc.CommonEncryptionSampleList$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class EncryptedSampleImpl implements Sample {
         public static final /* synthetic */ boolean $assertionsDisabled = false;
         public static /* synthetic */ Interceptable $ic;

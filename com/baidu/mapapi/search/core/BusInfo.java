@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class BusInfo extends TransitBaseInfo {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<BusInfo> CREATOR;
@@ -18,7 +18,7 @@ public class BusInfo extends TransitBaseInfo {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f35733b;
+    public int f34136b;
 
     static {
         InterceptResult invokeClinit;
@@ -69,7 +69,7 @@ public class BusInfo extends TransitBaseInfo {
             }
         }
         this.a = parcel.readInt();
-        this.f35733b = parcel.readInt();
+        this.f34136b = parcel.readInt();
     }
 
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
@@ -85,7 +85,7 @@ public class BusInfo extends TransitBaseInfo {
     public int getStopNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35733b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34136b : invokeV.intValue;
     }
 
     public int getType() {
@@ -97,7 +97,7 @@ public class BusInfo extends TransitBaseInfo {
     public void setStopNum(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f35733b = i2;
+            this.f34136b = i2;
         }
     }
 
@@ -114,7 +114,7 @@ public class BusInfo extends TransitBaseInfo {
         if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i2) == null) {
             super.writeToParcel(parcel, i2);
             parcel.writeInt(this.a);
-            parcel.writeInt(this.f35733b);
+            parcel.writeInt(this.f34136b);
         }
     }
 }

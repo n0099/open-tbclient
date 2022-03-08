@@ -13,7 +13,7 @@ import com.tachikoma.core.component.TKBase;
 import com.tachikoma.core.utility.TKColorUtil;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class TKMarqueeText extends TKBase<MarqueeTextView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class TKMarqueeText extends TKBase<MarqueeTextView> {
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             int hashCode = str.hashCode();
             if (hashCode != -1039745817) {
-                if (hashCode == 3029637 && str.equals(SpanItem.STYLE_BOLD)) {
+                if (hashCode == 3029637 && str.equals("bold")) {
                     c2 = 0;
                 }
                 c2 = 65535;

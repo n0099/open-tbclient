@@ -17,6 +17,7 @@ import androidx.annotation.CallSuper;
 import androidx.annotation.ColorInt;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +28,6 @@ import com.kwad.lottie.LottieCompositionFactory;
 import com.kwad.lottie.LottieDrawable;
 import com.kwad.lottie.LottieListener;
 import com.kwad.lottie.LottieTask;
-import com.kwad.sdk.R;
 import com.kwad.v8.JavaCallback;
 import com.kwad.v8.V8Array;
 import com.kwad.v8.V8Function;
@@ -69,7 +69,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class TKBase<T extends View> implements ILifeCycle {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DISPLAY_INLINE = "inline";
@@ -100,7 +100,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
     public ViewBackgroundManager viewBackgroundManager;
     public String viewID;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface IJS2NativeInvoker {
         Object onJSInvokeNativeWithJSONString(String str, String str2, IV8Function iV8Function);
     }
@@ -607,7 +607,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                     iBaseEvent.configWithData(new HashMap<String, Object>(this) { // from class: com.tachikoma.core.component.TKBase.2.2.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ C22492 this$2;
+                                        public final /* synthetic */ C22282 this$2;
 
                                         {
                                             Interceptable interceptable4 = $ic;
@@ -981,7 +981,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                         tKTapEvent.setPosition(new HashMap<String, Float>(this) { // from class: com.tachikoma.core.component.TKBase.1.1.1
                                             public static /* synthetic */ Interceptable $ic;
                                             public transient /* synthetic */ FieldHolder $fh;
-                                            public final /* synthetic */ C22461 this$2;
+                                            public final /* synthetic */ C22251 this$2;
 
                                             {
                                                 Interceptable interceptable4 = $ic;

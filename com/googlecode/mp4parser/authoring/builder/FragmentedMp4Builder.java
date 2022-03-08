@@ -50,7 +50,6 @@ import com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox;
 import com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox;
 import com.coremedia.iso.boxes.fragment.TrackRunBox;
 import com.coremedia.iso.boxes.mdat.MediaDataBox;
-import com.coremedia.iso.boxes.sampleentry.VisualSampleEntry;
 import com.googlecode.mp4parser.BasicContainer;
 import com.googlecode.mp4parser.DataSource;
 import com.googlecode.mp4parser.authoring.Movie;
@@ -72,7 +71,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class FragmentedMp4Builder implements Mp4Builder {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger LOG;
@@ -208,7 +207,7 @@ public class FragmentedMp4Builder implements Mp4Builder {
             LinkedList linkedList = new LinkedList();
             linkedList.add("isom");
             linkedList.add("iso2");
-            linkedList.add(VisualSampleEntry.TYPE3);
+            linkedList.add("avc1");
             return new FileTypeBox("isom", 0L, linkedList);
         }
         return (Box) invokeL.objValue;

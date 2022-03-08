@@ -1,10 +1,10 @@
 package com.kwad.sdk.core.report;
 
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class CommercialAction {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class TKDownloadMsg extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final int FAIL = 2;
         public static final int START = 0;
@@ -48,7 +48,7 @@ public class CommercialAction {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class TKPerformMsg extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final int OTHER_FAIL = 3;
         public static final int PAGE_STATUS_FAIL = 2;

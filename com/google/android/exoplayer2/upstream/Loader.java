@@ -5,30 +5,300 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.SystemClock;
-import c.i.b.a.h0.n;
-import c.i.b.a.i0.t;
-import c.i.b.a.i0.v;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.util.Assertions;
+import com.google.android.exoplayer2.util.TraceUtil;
+import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes3.dex */
-public final class Loader implements n {
-    public static /* synthetic */ Interceptable $ic;
+/* loaded from: classes7.dex */
+public final class Loader implements LoaderErrorThrower {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int DONT_RETRY = 2;
+    public static final int DONT_RETRY_FATAL = 3;
+    public static final int RETRY = 0;
+    public static final int RETRY_RESET_ERROR_COUNT = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ExecutorService a;
+    public LoadTask<? extends Loadable> currentTask;
+    public final ExecutorService downloadExecutorService;
+    public IOException fatalError;
 
-    /* renamed from: b  reason: collision with root package name */
-    public b<? extends c> f54568b;
+    /* loaded from: classes7.dex */
+    public interface Callback<T extends Loadable> {
+        void onLoadCanceled(T t, long j2, long j3, boolean z);
 
-    /* renamed from: c  reason: collision with root package name */
-    public IOException f54569c;
+        void onLoadCompleted(T t, long j2, long j3);
 
-    /* loaded from: classes3.dex */
+        int onLoadError(T t, long j2, long j3, IOException iOException);
+    }
+
+    @SuppressLint({"HandlerLeak"})
+    /* loaded from: classes7.dex */
+    public final class LoadTask<T extends Loadable> extends Handler implements Runnable {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int MSG_CANCEL = 1;
+        public static final int MSG_END_OF_SOURCE = 2;
+        public static final int MSG_FATAL_ERROR = 4;
+        public static final int MSG_IO_EXCEPTION = 3;
+        public static final int MSG_START = 0;
+        public static final String TAG = "LoadTask";
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Callback<T> callback;
+        public IOException currentError;
+        public final int defaultMinRetryCount;
+        public int errorCount;
+        public volatile Thread executorThread;
+        public final T loadable;
+        public volatile boolean released;
+        public final long startTimeMs;
+        public final /* synthetic */ Loader this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public LoadTask(Loader loader, Looper looper, T t, Callback<T> callback, int i2, long j2) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {loader, looper, t, callback, Integer.valueOf(i2), Long.valueOf(j2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = loader;
+            this.loadable = t;
+            this.callback = callback;
+            this.defaultMinRetryCount = i2;
+            this.startTimeMs = j2;
+        }
+
+        private void execute() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+                this.currentError = null;
+                this.this$0.downloadExecutorService.execute(this.this$0.currentTask);
+            }
+        }
+
+        private void finish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+                this.this$0.currentTask = null;
+            }
+        }
+
+        private long getRetryDelayMillis() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? Math.min((this.errorCount - 1) * 1000, 5000) : invokeV.longValue;
+        }
+
+        public void cancel(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                this.released = z;
+                this.currentError = null;
+                if (hasMessages(0)) {
+                    removeMessages(0);
+                    if (!z) {
+                        sendEmptyMessage(1);
+                    }
+                } else {
+                    this.loadable.cancelLoad();
+                    if (this.executorThread != null) {
+                        this.executorThread.interrupt();
+                    }
+                }
+                if (z) {
+                    finish();
+                    long elapsedRealtime = SystemClock.elapsedRealtime();
+                    this.callback.onLoadCanceled(this.loadable, elapsedRealtime, elapsedRealtime - this.startTimeMs, true);
+                }
+            }
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) || this.released) {
+                return;
+            }
+            int i2 = message.what;
+            if (i2 == 0) {
+                execute();
+            } else if (i2 != 4) {
+                finish();
+                long elapsedRealtime = SystemClock.elapsedRealtime();
+                long j2 = elapsedRealtime - this.startTimeMs;
+                if (this.loadable.isLoadCanceled()) {
+                    this.callback.onLoadCanceled(this.loadable, elapsedRealtime, j2, false);
+                    return;
+                }
+                int i3 = message.what;
+                if (i3 == 1) {
+                    this.callback.onLoadCanceled(this.loadable, elapsedRealtime, j2, false);
+                } else if (i3 == 2) {
+                    try {
+                        this.callback.onLoadCompleted(this.loadable, elapsedRealtime, j2);
+                    } catch (RuntimeException e2) {
+                        this.this$0.fatalError = new UnexpectedLoaderException(e2);
+                    }
+                } else if (i3 != 3) {
+                } else {
+                    IOException iOException = (IOException) message.obj;
+                    this.currentError = iOException;
+                    int onLoadError = this.callback.onLoadError(this.loadable, elapsedRealtime, j2, iOException);
+                    if (onLoadError == 3) {
+                        this.this$0.fatalError = this.currentError;
+                    } else if (onLoadError != 2) {
+                        this.errorCount = onLoadError != 1 ? 1 + this.errorCount : 1;
+                        start(getRetryDelayMillis());
+                    }
+                }
+            } else {
+                throw ((Error) message.obj);
+            }
+        }
+
+        public void maybeThrowError(int i2) throws IOException {
+            IOException iOException;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) && (iOException = this.currentError) != null && this.errorCount > i2) {
+                throw iOException;
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                try {
+                    this.executorThread = Thread.currentThread();
+                    if (!this.loadable.isLoadCanceled()) {
+                        TraceUtil.beginSection("load:" + this.loadable.getClass().getSimpleName());
+                        try {
+                            this.loadable.load();
+                            TraceUtil.endSection();
+                        } catch (Throwable th) {
+                            TraceUtil.endSection();
+                            throw th;
+                        }
+                    }
+                    if (this.released) {
+                        return;
+                    }
+                    sendEmptyMessage(2);
+                } catch (IOException e2) {
+                    if (this.released) {
+                        return;
+                    }
+                    obtainMessage(3, e2).sendToTarget();
+                } catch (OutOfMemoryError e3) {
+                    if (this.released) {
+                        return;
+                    }
+                    obtainMessage(3, new UnexpectedLoaderException(e3)).sendToTarget();
+                } catch (Error e4) {
+                    if (!this.released) {
+                        obtainMessage(4, e4).sendToTarget();
+                    }
+                    throw e4;
+                } catch (InterruptedException unused) {
+                    Assertions.checkState(this.loadable.isLoadCanceled());
+                    if (this.released) {
+                        return;
+                    }
+                    sendEmptyMessage(2);
+                } catch (Exception e5) {
+                    if (this.released) {
+                        return;
+                    }
+                    obtainMessage(3, new UnexpectedLoaderException(e5)).sendToTarget();
+                }
+            }
+        }
+
+        public void start(long j2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+                Assertions.checkState(this.this$0.currentTask == null);
+                this.this$0.currentTask = this;
+                if (j2 > 0) {
+                    sendEmptyMessageDelayed(0, j2);
+                } else {
+                    execute();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface Loadable {
+        void cancelLoad();
+
+        boolean isLoadCanceled();
+
+        void load() throws IOException, InterruptedException;
+    }
+
+    /* loaded from: classes7.dex */
+    public interface ReleaseCallback {
+        void onLoaderReleased();
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class ReleaseTask extends Handler implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final ReleaseCallback callback;
+
+        public ReleaseTask(ReleaseCallback releaseCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {releaseCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.callback = releaseCallback;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                this.callback.onLoaderReleased();
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && getLooper().getThread().isAlive()) {
+                sendEmptyMessage(0);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
     public static final class UnexpectedLoaderException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,284 +325,6 @@ public final class Loader implements n {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public interface a<T extends c> {
-        void l(T t, long j2, long j3, boolean z);
-
-        void m(T t, long j2, long j3);
-
-        int n(T t, long j2, long j3, IOException iOException);
-    }
-
-    @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes3.dex */
-    public final class b<T extends c> extends Handler implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final T f54570e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final a<T> f54571f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final int f54572g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public final long f54573h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public IOException f54574i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public int f54575j;
-        public volatile Thread k;
-        public volatile boolean l;
-        public final /* synthetic */ Loader m;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(Loader loader, Looper looper, T t, a<T> aVar, int i2, long j2) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {loader, looper, t, aVar, Integer.valueOf(i2), Long.valueOf(j2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.m = loader;
-            this.f54570e = t;
-            this.f54571f = aVar;
-            this.f54572g = i2;
-            this.f54573h = j2;
-        }
-
-        public void a(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.l = z;
-                this.f54574i = null;
-                if (hasMessages(0)) {
-                    removeMessages(0);
-                    if (!z) {
-                        sendEmptyMessage(1);
-                    }
-                } else {
-                    this.f54570e.cancelLoad();
-                    if (this.k != null) {
-                        this.k.interrupt();
-                    }
-                }
-                if (z) {
-                    c();
-                    long elapsedRealtime = SystemClock.elapsedRealtime();
-                    this.f54571f.l(this.f54570e, elapsedRealtime, elapsedRealtime - this.f54573h, true);
-                }
-            }
-        }
-
-        public final void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f54574i = null;
-                this.m.a.execute(this.m.f54568b);
-            }
-        }
-
-        public final void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.m.f54568b = null;
-            }
-        }
-
-        public final long d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Math.min((this.f54575j - 1) * 1000, 5000) : invokeV.longValue;
-        }
-
-        public void e(int i2) throws IOException {
-            IOException iOException;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(1048580, this, i2) == null) && (iOException = this.f54574i) != null && this.f54575j > i2) {
-                throw iOException;
-            }
-        }
-
-        public void f(long j2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-                c.i.b.a.i0.a.f(this.m.f54568b == null);
-                this.m.f54568b = this;
-                if (j2 > 0) {
-                    sendEmptyMessageDelayed(0, j2);
-                } else {
-                    b();
-                }
-            }
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048582, this, message) == null) || this.l) {
-                return;
-            }
-            int i2 = message.what;
-            if (i2 == 0) {
-                b();
-            } else if (i2 != 4) {
-                c();
-                long elapsedRealtime = SystemClock.elapsedRealtime();
-                long j2 = elapsedRealtime - this.f54573h;
-                if (this.f54570e.a()) {
-                    this.f54571f.l(this.f54570e, elapsedRealtime, j2, false);
-                    return;
-                }
-                int i3 = message.what;
-                if (i3 == 1) {
-                    this.f54571f.l(this.f54570e, elapsedRealtime, j2, false);
-                } else if (i3 == 2) {
-                    try {
-                        this.f54571f.m(this.f54570e, elapsedRealtime, j2);
-                    } catch (RuntimeException e2) {
-                        this.m.f54569c = new UnexpectedLoaderException(e2);
-                    }
-                } else if (i3 != 3) {
-                } else {
-                    IOException iOException = (IOException) message.obj;
-                    this.f54574i = iOException;
-                    int n = this.f54571f.n(this.f54570e, elapsedRealtime, j2, iOException);
-                    if (n == 3) {
-                        this.m.f54569c = this.f54574i;
-                    } else if (n != 2) {
-                        this.f54575j = n != 1 ? 1 + this.f54575j : 1;
-                        f(d());
-                    }
-                }
-            } else {
-                throw ((Error) message.obj);
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                try {
-                    this.k = Thread.currentThread();
-                    if (!this.f54570e.a()) {
-                        t.a("load:" + this.f54570e.getClass().getSimpleName());
-                        try {
-                            this.f54570e.load();
-                            t.c();
-                        } catch (Throwable th) {
-                            t.c();
-                            throw th;
-                        }
-                    }
-                    if (this.l) {
-                        return;
-                    }
-                    sendEmptyMessage(2);
-                } catch (IOException e2) {
-                    if (this.l) {
-                        return;
-                    }
-                    obtainMessage(3, e2).sendToTarget();
-                } catch (OutOfMemoryError e3) {
-                    if (this.l) {
-                        return;
-                    }
-                    obtainMessage(3, new UnexpectedLoaderException(e3)).sendToTarget();
-                } catch (Error e4) {
-                    if (!this.l) {
-                        obtainMessage(4, e4).sendToTarget();
-                    }
-                    throw e4;
-                } catch (InterruptedException unused) {
-                    c.i.b.a.i0.a.f(this.f54570e.a());
-                    if (this.l) {
-                        return;
-                    }
-                    sendEmptyMessage(2);
-                } catch (Exception e5) {
-                    if (this.l) {
-                        return;
-                    }
-                    obtainMessage(3, new UnexpectedLoaderException(e5)).sendToTarget();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public interface c {
-        boolean a();
-
-        void cancelLoad();
-
-        void load() throws IOException, InterruptedException;
-    }
-
-    /* loaded from: classes3.dex */
-    public interface d {
-        void i();
-    }
-
-    /* loaded from: classes3.dex */
-    public static final class e extends Handler implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final d f54576e;
-
-        public e(d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f54576e = dVar;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                this.f54576e.i();
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && getLooper().getThread().isAlive()) {
-                sendEmptyMessage(0);
-            }
-        }
-    }
-
     public Loader(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -348,41 +340,62 @@ public final class Loader implements n {
                 return;
             }
         }
-        this.a = v.B(str);
+        this.downloadExecutorService = Util.newSingleThreadExecutor(str);
     }
 
-    @Override // c.i.b.a.h0.n
-    public void a() throws IOException {
+    public void cancelLoading() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            h(Integer.MIN_VALUE);
+            this.currentTask.cancel(false);
         }
     }
 
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f54568b.a(false);
-        }
-    }
-
-    public boolean g() {
+    public boolean isLoading() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54568b != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.currentTask != null : invokeV.booleanValue;
     }
 
-    public void h(int i2) throws IOException {
+    @Override // com.google.android.exoplayer2.upstream.LoaderErrorThrower
+    public void maybeThrowError() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            maybeThrowError(Integer.MIN_VALUE);
+        }
+    }
+
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            release(null);
+        }
+    }
+
+    public <T extends Loadable> long startLoading(T t, Callback<T> callback, int i2) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048582, this, t, callback, i2)) == null) {
+            Looper myLooper = Looper.myLooper();
+            Assertions.checkState(myLooper != null);
+            long elapsedRealtime = SystemClock.elapsedRealtime();
+            new LoadTask(this, myLooper, t, callback, i2, elapsedRealtime).start(0L);
+            return elapsedRealtime;
+        }
+        return invokeLLI.longValue;
+    }
+
+    @Override // com.google.android.exoplayer2.upstream.LoaderErrorThrower
+    public void maybeThrowError(int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            IOException iOException = this.f54569c;
+            IOException iOException = this.fatalError;
             if (iOException == null) {
-                b<? extends c> bVar = this.f54568b;
-                if (bVar != null) {
+                LoadTask<? extends Loadable> loadTask = this.currentTask;
+                if (loadTask != null) {
                     if (i2 == Integer.MIN_VALUE) {
-                        i2 = bVar.f54572g;
+                        i2 = loadTask.defaultMinRetryCount;
                     }
-                    bVar.e(i2);
+                    loadTask.maybeThrowError(i2);
                     return;
                 }
                 return;
@@ -391,46 +404,26 @@ public final class Loader implements n {
         }
     }
 
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            j(null);
-        }
-    }
-
-    public boolean j(d dVar) {
+    public boolean release(ReleaseCallback releaseCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, dVar)) == null) {
-            b<? extends c> bVar = this.f54568b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, releaseCallback)) == null) {
+            LoadTask<? extends Loadable> loadTask = this.currentTask;
             boolean z = true;
-            if (bVar != null) {
-                bVar.a(true);
-                if (dVar != null) {
-                    this.a.execute(new e(dVar));
+            if (loadTask != null) {
+                loadTask.cancel(true);
+                if (releaseCallback != null) {
+                    this.downloadExecutorService.execute(new ReleaseTask(releaseCallback));
                 }
-            } else if (dVar != null) {
-                dVar.i();
-                this.a.shutdown();
+            } else if (releaseCallback != null) {
+                releaseCallback.onLoaderReleased();
+                this.downloadExecutorService.shutdown();
                 return z;
             }
             z = false;
-            this.a.shutdown();
+            this.downloadExecutorService.shutdown();
             return z;
         }
         return invokeL.booleanValue;
-    }
-
-    public <T extends c> long k(T t, a<T> aVar, int i2) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048582, this, t, aVar, i2)) == null) {
-            Looper myLooper = Looper.myLooper();
-            c.i.b.a.i0.a.f(myLooper != null);
-            long elapsedRealtime = SystemClock.elapsedRealtime();
-            new b(this, myLooper, t, aVar, i2, elapsedRealtime).f(0L);
-            return elapsedRealtime;
-        }
-        return invokeLLI.longValue;
     }
 }

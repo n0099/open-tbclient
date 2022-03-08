@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.view.RecommendInfoLayout;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +40,7 @@ public class f0 extends h {
             }
         }
         int f2 = c.a.d.f.p.n.f(context, R.dimen.M_H_X003);
-        int f3 = c.a.d.f.p.n.f(context, c.a.t0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
+        int f3 = c.a.d.f.p.n.f(context, HomeGroupUbsUIHelper.handleDimen(R.dimen.tbds21, R.dimen.tbds0));
         q(f2);
         p(f3);
         if ((TbadkCoreApplication.getInst().getPersonalizeViewData().t instanceof RecommendInfoLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().t.getParent() == null) {
@@ -66,14 +68,14 @@ public class f0 extends h {
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (c.a.t0.b.d.L0()) {
-                int f2 = c.a.d.f.p.n.f(this.f4353f, R.dimen.M_H_X003);
-                int f3 = c.a.d.f.p.n.f(this.f4353f, c.a.t0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
+            if (UbsABTestHelper.showNewUI()) {
+                int f2 = c.a.d.f.p.n.f(this.f4007f, R.dimen.M_H_X003);
+                int f3 = c.a.d.f.p.n.f(this.f4007f, HomeGroupUbsUIHelper.handleDimen(R.dimen.tbds21, R.dimen.tbds0));
                 q(f2);
                 p(f3);
                 return;
             }
-            int f4 = c.a.d.f.p.n.f(this.f4353f, R.dimen.tbds10);
+            int f4 = c.a.d.f.p.n.f(this.f4007f, R.dimen.tbds10);
             q(f4);
             p(0);
             t(this.l, f4, 0);
@@ -83,7 +85,7 @@ public class f0 extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: s */
-    public void onBindDataToView(c.a.t0.s.r.a aVar) {
+    public void onBindDataToView(c.a.q0.r.r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.l.setData(aVar);

@@ -4,37 +4,37 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "status";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f31062b = "msg";
+    public static final String f29466b = "msg";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f31063c = "form";
+    public static final String f29467c = "form";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f31064d = "onload";
+    public static final String f29468d = "onload";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f31065e = "name";
+    public static final String f29469e = "name";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f31066f = "host";
+    public static final String f29470f = "host";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f31067g = "params";
+    public static final String f29471g = "params";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f31068h = "enctype";
+    public static final String f29472h = "enctype";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f31069i = "request_param";
+    public static final String f29473i = "request_param";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f31070j = "validate";
+    public static final String f29474j = "validate";
     public static final String k = "formSubmit";
     public static final String l = "namespace";
     public static final String m = "apiVersion";

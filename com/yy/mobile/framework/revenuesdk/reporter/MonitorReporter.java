@@ -11,7 +11,7 @@ import com.yy.mobile.framework.revenuesdk.RevenueConfig;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.HiidoReport;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IMonitorReporter;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class MonitorReporter implements IMonitorReporter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -11,38 +11,38 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class ExtraInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f37000b;
+    public String f35403b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f37001c;
+    public String f35404c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f37002d;
+    public String f35405d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f37003e;
+    public String f35406e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f37004f;
+    public String f35407f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f37005g;
+    public String f35408g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f37006h;
+    public String f35409h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f37007i;
+    public String f35410i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f37008j;
+    public String f35411j;
 
     public ExtraInfo() {
         Interceptable interceptable = $ic;
@@ -58,15 +58,15 @@ public class ExtraInfo {
             }
         }
         this.a = "";
-        this.f37000b = "";
-        this.f37001c = "";
-        this.f37002d = "";
-        this.f37003e = "";
-        this.f37004f = "";
-        this.f37005g = "";
-        this.f37006h = "";
-        this.f37007i = "";
-        this.f37008j = "";
+        this.f35403b = "";
+        this.f35404c = "";
+        this.f35405d = "";
+        this.f35406e = "";
+        this.f35407f = "";
+        this.f35408g = "";
+        this.f35409h = "";
+        this.f35410i = "";
+        this.f35411j = "";
     }
 
     public static boolean a(String str, int i2) {
@@ -96,32 +96,32 @@ public class ExtraInfo {
                 if (!TextUtils.isEmpty(this.a)) {
                     jSONObject.put("v1", this.a);
                 }
-                if (!TextUtils.isEmpty(this.f37000b)) {
-                    jSONObject.put("v2", this.f37000b);
+                if (!TextUtils.isEmpty(this.f35403b)) {
+                    jSONObject.put("v2", this.f35403b);
                 }
-                if (!TextUtils.isEmpty(this.f37001c)) {
-                    jSONObject.put("v3", this.f37001c);
+                if (!TextUtils.isEmpty(this.f35404c)) {
+                    jSONObject.put("v3", this.f35404c);
                 }
-                if (!TextUtils.isEmpty(this.f37002d)) {
-                    jSONObject.put("v4", this.f37002d);
+                if (!TextUtils.isEmpty(this.f35405d)) {
+                    jSONObject.put("v4", this.f35405d);
                 }
-                if (!TextUtils.isEmpty(this.f37003e)) {
-                    jSONObject.put("v5", this.f37003e);
+                if (!TextUtils.isEmpty(this.f35406e)) {
+                    jSONObject.put("v5", this.f35406e);
                 }
-                if (!TextUtils.isEmpty(this.f37004f)) {
-                    jSONObject.put("v6", this.f37004f);
+                if (!TextUtils.isEmpty(this.f35407f)) {
+                    jSONObject.put("v6", this.f35407f);
                 }
-                if (!TextUtils.isEmpty(this.f37005g)) {
-                    jSONObject.put("v7", this.f37005g);
+                if (!TextUtils.isEmpty(this.f35408g)) {
+                    jSONObject.put("v7", this.f35408g);
                 }
-                if (!TextUtils.isEmpty(this.f37006h)) {
-                    jSONObject.put(V8Engine.TYPE_V8, this.f37006h);
+                if (!TextUtils.isEmpty(this.f35409h)) {
+                    jSONObject.put(V8Engine.TYPE_V8, this.f35409h);
                 }
-                if (!TextUtils.isEmpty(this.f37007i)) {
-                    jSONObject.put("v9", this.f37007i);
+                if (!TextUtils.isEmpty(this.f35410i)) {
+                    jSONObject.put("v9", this.f35410i);
                 }
-                if (!TextUtils.isEmpty(this.f37008j)) {
-                    jSONObject.put("v10", this.f37008j);
+                if (!TextUtils.isEmpty(this.f35411j)) {
+                    jSONObject.put("v10", this.f35411j);
                 }
             } catch (JSONException unused) {
             }
@@ -139,55 +139,55 @@ public class ExtraInfo {
     public String getV10() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37008j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35411j : (String) invokeV.objValue;
     }
 
     public String getV2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f37000b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35403b : (String) invokeV.objValue;
     }
 
     public String getV3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f37001c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f35404c : (String) invokeV.objValue;
     }
 
     public String getV4() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f37002d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f35405d : (String) invokeV.objValue;
     }
 
     public String getV5() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f37003e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f35406e : (String) invokeV.objValue;
     }
 
     public String getV6() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f37004f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f35407f : (String) invokeV.objValue;
     }
 
     public String getV7() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f37005g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f35408g : (String) invokeV.objValue;
     }
 
     public String getV8() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f37006h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f35409h : (String) invokeV.objValue;
     }
 
     public String getV9() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f37007i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f35410i : (String) invokeV.objValue;
     }
 
     public void setV1(String str) {
@@ -200,63 +200,63 @@ public class ExtraInfo {
     public void setV10(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.f37008j = a(str);
+            this.f35411j = a(str);
         }
     }
 
     public void setV2(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f37000b = a(str);
+            this.f35403b = a(str);
         }
     }
 
     public void setV3(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.f37001c = a(str);
+            this.f35404c = a(str);
         }
     }
 
     public void setV4(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.f37002d = a(str);
+            this.f35405d = a(str);
         }
     }
 
     public void setV5(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.f37003e = a(str);
+            this.f35406e = a(str);
         }
     }
 
     public void setV6(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.f37004f = a(str);
+            this.f35407f = a(str);
         }
     }
 
     public void setV7(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            this.f37005g = a(str);
+            this.f35408g = a(str);
         }
     }
 
     public void setV8(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.f37006h = a(str);
+            this.f35409h = a(str);
         }
     }
 
     public void setV9(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.f37007i = a(str);
+            this.f35410i = a(str);
         }
     }
 

@@ -12,22 +12,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class ActivityLifeTask {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ActivityLifeObserver.IActivityLifeCallback f36868b;
+    public static ActivityLifeObserver.IActivityLifeCallback f35271b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ActivityLifeObserver.IActivityLifeCallback f36869c;
+    public static ActivityLifeObserver.IActivityLifeCallback f35272c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ActivityLifeObserver.IActivityLifeCallback f36870d;
+    public static ActivityLifeObserver.IActivityLifeCallback f35273d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static ActivityLifeObserver.IActivityLifeCallback f36871e;
+    public static ActivityLifeObserver.IActivityLifeCallback f35274e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -63,10 +63,10 @@ public class ActivityLifeTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             synchronized (ActivityLifeTask.class) {
-                f36868b = new AutoTrack.MyActivityLifeCallback(1);
-                f36870d = new b.a();
-                f36869c = new d.a();
-                f36871e = new AutoTrack.MyActivityLifeCallback(2);
+                f35271b = new AutoTrack.MyActivityLifeCallback(1);
+                f35273d = new b.a();
+                f35272c = new d.a();
+                f35274e = new AutoTrack.MyActivityLifeCallback(2);
             }
         }
     }
@@ -80,8 +80,8 @@ public class ActivityLifeTask {
                 }
                 a(context);
                 ActivityLifeObserver.instance().clearObservers();
-                ActivityLifeObserver.instance().addObserver(f36868b);
-                ActivityLifeObserver.instance().addObserver(f36871e);
+                ActivityLifeObserver.instance().addObserver(f35271b);
+                ActivityLifeObserver.instance().addObserver(f35274e);
                 ActivityLifeObserver.instance().registerActivityLifeCallback(context);
                 a = true;
             }

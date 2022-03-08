@@ -6,11 +6,11 @@ import android.os.Parcelable;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.u.e;
-import c.a.s0.u.l;
-import c.a.s0.u.n;
-import c.a.s0.u.r;
-import c.a.s0.v.d;
+import c.a.p0.u.e;
+import c.a.p0.u.l;
+import c.a.p0.u.n;
+import c.a.p0.u.r;
+import c.a.p0.v.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.searchbox.live.interfaces.DI;
@@ -28,7 +28,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"SyntheticAccessor"})
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class Flow implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<Flow> CREATOR;
@@ -45,7 +45,7 @@ public class Flow implements Parcelable {
     public l mUbcContext;
     public boolean mValid;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Parcelable.Creator<Flow> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,7 +113,7 @@ public class Flow implements Parcelable {
     public final void cancel() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.mValid) {
-            if (c.a.l0.b.a.a.g()) {
+            if (c.a.i0.b.a.a.g()) {
                 if (d.a()) {
                     n.f().c(this.mId, this.mHandle);
                 }
@@ -145,7 +145,7 @@ public class Flow implements Parcelable {
     public final void end() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.mValid) {
-            if (c.a.l0.b.a.a.g()) {
+            if (c.a.i0.b.a.a.g()) {
                 JSONArray jSONArray = new JSONArray();
                 HashMap<String, Slot> hashMap = this.mSlotMaps;
                 if (hashMap != null && (r1 = hashMap.entrySet().iterator()) != null) {
@@ -240,7 +240,7 @@ public class Flow implements Parcelable {
     public final void setValue(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048591, this, str) == null) && this.mValid) {
-            if (c.a.l0.b.a.a.g()) {
+            if (c.a.i0.b.a.a.g()) {
                 if (d.a()) {
                     n.f().p(this.mId, this.mHandle, str);
                 }
@@ -262,7 +262,7 @@ public class Flow implements Parcelable {
     public void setValueWithDuration(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048593, this, str) == null) && this.mValid) {
-            if (c.a.l0.b.a.a.g()) {
+            if (c.a.i0.b.a.a.g()) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     float currentTimeMillis = ((float) (System.currentTimeMillis() - this.mStartTime)) / 1000.0f;
@@ -350,7 +350,7 @@ public class Flow implements Parcelable {
     public final void addEvent(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && this.mValid) {
-            if (c.a.l0.b.a.a.g()) {
+            if (c.a.i0.b.a.a.g()) {
                 if (d.a()) {
                     n.f().m(this.mId, str, this.mHandle, str2, this.mOption);
                 }
@@ -410,7 +410,7 @@ public class Flow implements Parcelable {
     public final void addEvent(String str, String str2, long j2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j2)}) == null) && this.mValid) {
-            if (c.a.l0.b.a.a.g()) {
+            if (c.a.i0.b.a.a.g()) {
                 if (d.a()) {
                     n.f().n(this.mId, str, this.mHandle, str2, j2, this.mOption);
                 }

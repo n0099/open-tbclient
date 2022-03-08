@@ -14,7 +14,7 @@ public class b extends ContextWrapper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f4307b;
+    public static b f3877b;
     public transient /* synthetic */ FieldHolder $fh;
     public h a;
 
@@ -42,10 +42,10 @@ public class b extends ContextWrapper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (b.class) {
-                if (f4307b == null) {
-                    f4307b = new b();
+                if (f3877b == null) {
+                    f3877b = new b();
                 }
-                bVar = f4307b;
+                bVar = f3877b;
             }
             return bVar;
         }
@@ -65,7 +65,7 @@ public class b extends ContextWrapper {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i2)) == null) {
-            if (c.a.k.a.q.d.c(this)) {
+            if (c.a.k.a.k.d.c(this)) {
                 return d.a(str, this);
             }
             return super.getSharedPreferences(str, i2);

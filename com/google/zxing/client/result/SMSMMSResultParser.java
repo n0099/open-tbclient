@@ -7,11 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.google.zxing.Result;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class SMSMMSResultParser extends ResultParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +67,7 @@ public final class SMSMMSResultParser extends ResultParser {
             str = null;
         } else {
             str2 = parseNameValuePairs.get("subject");
-            str = parseNameValuePairs.get("body");
+            str = parseNameValuePairs.get(TtmlNode.TAG_BODY);
             z = true;
         }
         int indexOf = massagedText.indexOf(63, 4);

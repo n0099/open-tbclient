@@ -15,7 +15,7 @@ import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-import androidx.core.R;
+import androidx.core.R$id;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.accessibility.AccessibilityViewCommand;
 import com.baidu.android.common.others.lang.StringUtil;
@@ -687,7 +687,7 @@ public class AccessibilityNodeInfoCompat {
             SparseArray<WeakReference<ClickableSpan>> spansFromViewTags = getSpansFromViewTags(view);
             if (spansFromViewTags == null) {
                 SparseArray<WeakReference<ClickableSpan>> sparseArray = new SparseArray<>();
-                view.setTag(R.id.tag_accessibility_clickable_spans, sparseArray);
+                view.setTag(R$id.tag_accessibility_clickable_spans, sparseArray);
                 return sparseArray;
             }
             return spansFromViewTags;
@@ -698,7 +698,7 @@ public class AccessibilityNodeInfoCompat {
     private SparseArray<WeakReference<ClickableSpan>> getSpansFromViewTags(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, this, view)) == null) ? (SparseArray) view.getTag(R.id.tag_accessibility_clickable_spans) : (SparseArray) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, this, view)) == null) ? (SparseArray) view.getTag(R$id.tag_accessibility_clickable_spans) : (SparseArray) invokeL.objValue;
     }
 
     private boolean hasSpans() {
@@ -806,7 +806,7 @@ public class AccessibilityNodeInfoCompat {
         if (clickableSpans == null || clickableSpans.length <= 0) {
             return;
         }
-        getExtras().putInt(SPANS_ACTION_ID_KEY, R.id.accessibility_action_clickable_span);
+        getExtras().putInt(SPANS_ACTION_ID_KEY, R$id.accessibility_action_clickable_span);
         SparseArray<WeakReference<ClickableSpan>> orCreateSpansFromViewTags = getOrCreateSpansFromViewTags(view);
         for (int i3 = 0; clickableSpans != null && i3 < clickableSpans.length; i3++) {
             int idForClickableSpan = idForClickableSpan(clickableSpans[i3], orCreateSpansFromViewTags);

@@ -1,6 +1,6 @@
 package com.baidu.tieba.chosen.posts.request;
 
-import c.a.u0.h0.a.d.b;
+import c.a.r0.g0.a.d.b;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.HotThread.HotThreadResIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class ChosenPostSocketResponse extends MvcSocketResponsedMessage<b, HotThreadResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

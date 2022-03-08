@@ -42,34 +42,34 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class y0 implements FunAdLoader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Random a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final l f28705b;
+    public final l f28543b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<Ssp.Pid, PidLoader> f28706c;
+    public final Map<Ssp.Pid, PidLoader> f28544c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.fun.x0 f28707d;
+    public final com.fun.x0 f28545d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final h f28708e;
+    public final h f28546e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f28709f;
+    public f f28547f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FunAdInteractionListener f28710g;
+    public FunAdInteractionListener f28548g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Handler f28711h;
+    public final Handler f28549h;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,17 +105,17 @@ public final class y0 implements FunAdLoader {
                 boolean z = false;
                 if (i2 == 100) {
                     f fVar = (f) message.obj;
-                    f fVar2 = this.a.f28709f;
-                    if (fVar2 == null || fVar2 != fVar || (funAdLoadListener = fVar.f28720c) == null) {
+                    f fVar2 = this.a.f28547f;
+                    if (fVar2 == null || fVar2 != fVar || (funAdLoadListener = fVar.f28558c) == null) {
                         return;
                     }
-                    l lVar = fVar.f28721d.f28705b;
-                    LogPrinter.e("callback onError(%s) because of timeout(%d)", lVar.a, Long.valueOf(lVar.f28656c));
-                    funAdLoadListener.onError(fVar.f28721d.f28705b.a);
+                    l lVar = fVar.f28559d.f28543b;
+                    LogPrinter.e("callback onError(%s) because of timeout(%d)", lVar.a, Long.valueOf(lVar.f28494c));
+                    funAdLoadListener.onError(fVar.f28559d.f28543b.a);
                     fVar.a();
                 } else if (i2 == 101) {
                     f fVar3 = (f) message.obj;
-                    f fVar4 = this.a.f28709f;
+                    f fVar4 = this.a.f28547f;
                     if (fVar4 == null || fVar4 != fVar3) {
                         return;
                     }
@@ -133,23 +133,23 @@ public final class y0 implements FunAdLoader {
                         }
                     }
                     if (z) {
-                        fVar3.b(fVar3.f28720c);
+                        fVar3.b(fVar3.f28558c);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FunAdInteractionListener f28712e;
+        public final /* synthetic */ FunAdInteractionListener f28550e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ y0 f28713f;
+        public final /* synthetic */ y0 f28551f;
 
         public b(y0 y0Var, FunAdInteractionListener funAdInteractionListener) {
             Interceptable interceptable = $ic;
@@ -166,33 +166,33 @@ public final class y0 implements FunAdLoader {
                     return;
                 }
             }
-            this.f28713f = y0Var;
-            this.f28712e = funAdInteractionListener;
+            this.f28551f = y0Var;
+            this.f28550e = funAdInteractionListener;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f28712e.onAdError(this.f28713f.f28705b.a);
+                this.f28550e.onAdError(this.f28551f.f28543b.a);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class c implements t<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Activity a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f28714b;
+        public final /* synthetic */ ViewGroup f28552b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f28715c;
+        public final /* synthetic */ String f28553c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ FunNativeAdInflater f28716d;
+        public final /* synthetic */ FunNativeAdInflater f28554d;
 
         public c(y0 y0Var, Activity activity, ViewGroup viewGroup, String str, FunNativeAdInflater funNativeAdInflater) {
             Interceptable interceptable = $ic;
@@ -210,9 +210,9 @@ public final class y0 implements FunAdLoader {
                 }
             }
             this.a = activity;
-            this.f28714b = viewGroup;
-            this.f28715c = str;
-            this.f28716d = funNativeAdInflater;
+            this.f28552b = viewGroup;
+            this.f28553c = str;
+            this.f28554d = funNativeAdInflater;
         }
 
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
@@ -221,7 +221,7 @@ public final class y0 implements FunAdLoader {
         public Boolean a(PidLoader pidLoader) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pidLoader)) == null) ? Boolean.valueOf(pidLoader.show(this.a, this.f28714b, this.f28715c, this.f28716d)) : invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pidLoader)) == null) ? Boolean.valueOf(pidLoader.show(this.a, this.f28552b, this.f28553c, this.f28554d)) : invokeL.objValue;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -233,17 +233,17 @@ public final class y0 implements FunAdLoader {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class d implements t<FunSplashAd> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Activity a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f28717b;
+        public final /* synthetic */ ViewGroup f28555b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f28718c;
+        public final /* synthetic */ String f28556c;
 
         public d(y0 y0Var, Activity activity, ViewGroup viewGroup, String str) {
             Interceptable interceptable = $ic;
@@ -261,8 +261,8 @@ public final class y0 implements FunAdLoader {
                 }
             }
             this.a = activity;
-            this.f28717b = viewGroup;
-            this.f28718c = str;
+            this.f28555b = viewGroup;
+            this.f28556c = str;
         }
 
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
@@ -271,7 +271,7 @@ public final class y0 implements FunAdLoader {
         public FunSplashAd a(PidLoader pidLoader) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pidLoader)) == null) ? pidLoader.showSplash(this.a, this.f28717b, this.f28718c) : invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pidLoader)) == null) ? pidLoader.showSplash(this.a, this.f28555b, this.f28556c) : invokeL.objValue;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -286,7 +286,7 @@ public final class y0 implements FunAdLoader {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class e implements h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -320,8 +320,8 @@ public final class y0 implements FunAdLoader {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZL = interceptable.invokeZL(1048576, this, z, list)) == null) {
                 HashMap hashMap = new HashMap();
-                for (l.b bVar : this.a.f28705b.f28658e) {
-                    for (l.a aVar : bVar.f28662b) {
+                for (l.b bVar : this.a.f28543b.f28496e) {
+                    for (l.a aVar : bVar.f28500b) {
                         PidLoader a = this.a.a(aVar);
                         if (a != null && !list.contains(a) && a.isLoaded() && (!z || ((rippedAd = a.getRippedAd()) != null && rippedAd.isDeepLinkAd))) {
                             List list2 = (List) hashMap.get(bVar);
@@ -339,20 +339,20 @@ public final class y0 implements FunAdLoader {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final LinkedHashMap<l.b, Integer> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f28719b;
+        public long f28557b;
 
         /* renamed from: c  reason: collision with root package name */
-        public FunAdLoadListener f28720c;
+        public FunAdLoadListener f28558c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ y0 f28721d;
+        public final /* synthetic */ y0 f28559d;
 
         public f(y0 y0Var, FunAdLoadListener funAdLoadListener, List<l.a> list) {
             Interceptable interceptable = $ic;
@@ -369,20 +369,20 @@ public final class y0 implements FunAdLoader {
                     return;
                 }
             }
-            this.f28721d = y0Var;
+            this.f28559d = y0Var;
             this.a = new LinkedHashMap<>();
-            this.f28720c = funAdLoadListener;
+            this.f28558c = funAdLoadListener;
             for (l.a aVar : list) {
-                this.a.put(aVar.f28661d, 0);
+                this.a.put(aVar.f28499d, 0);
             }
         }
 
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f28720c = null;
-                this.f28721d.f28711h.removeMessages(100, this);
-                this.f28721d.f28711h.removeMessages(101, this);
+                this.f28558c = null;
+                this.f28559d.f28549h.removeMessages(100, this);
+                this.f28559d.f28549h.removeMessages(101, this);
             }
         }
 
@@ -391,7 +391,7 @@ public final class y0 implements FunAdLoader {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, funAdLoadListener) == null) || funAdLoadListener == null) {
                 return;
             }
-            funAdLoadListener.onAdLoaded(this.f28721d.f28705b.a);
+            funAdLoadListener.onAdLoaded(this.f28559d.f28543b.a);
             a();
         }
 
@@ -399,16 +399,16 @@ public final class y0 implements FunAdLoader {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
                 synchronized (this) {
-                    Ssp.Pid pid = aVar.f28660c;
-                    LogPrinter.d("onAdLoaded group.weight:%d type:%s pid:%s", Integer.valueOf(aVar.f28661d.a), pid.type, pid.pid);
-                    FunAdLoadListener funAdLoadListener = this.f28720c;
+                    Ssp.Pid pid = aVar.f28498c;
+                    LogPrinter.d("onAdLoaded group.weight:%d type:%s pid:%s", Integer.valueOf(aVar.f28499d.a), pid.type, pid.pid);
+                    FunAdLoadListener funAdLoadListener = this.f28558c;
                     if (funAdLoadListener == null) {
                         return;
                     }
-                    l.b bVar = aVar.f28661d;
+                    l.b bVar = aVar.f28499d;
                     if (this.a.containsKey(bVar)) {
                         this.a.put(bVar, 1);
-                        if (this.f28721d.f28705b.f28655b > 0 && System.currentTimeMillis() - this.f28719b < this.f28721d.f28705b.f28655b) {
+                        if (this.f28559d.f28543b.f28493b > 0 && System.currentTimeMillis() - this.f28557b < this.f28559d.f28543b.f28493b) {
                             e(funAdLoadListener);
                             return;
                         }
@@ -422,11 +422,11 @@ public final class y0 implements FunAdLoader {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048579, this, aVar, i2, str) == null) {
                 synchronized (this) {
-                    Ssp.Pid pid = aVar.f28660c;
-                    LogPrinter.d("onError code:%d message:%s group.weight:%d type:%s pid:%s", Integer.valueOf(i2), str, Integer.valueOf(aVar.f28661d.a), pid.type, pid.pid);
-                    if (this.a.containsKey(aVar.f28661d)) {
-                        this.a.put(aVar.f28661d, -1);
-                        FunAdLoadListener funAdLoadListener = this.f28720c;
+                    Ssp.Pid pid = aVar.f28498c;
+                    LogPrinter.d("onError code:%d message:%s group.weight:%d type:%s pid:%s", Integer.valueOf(i2), str, Integer.valueOf(aVar.f28499d.a), pid.type, pid.pid);
+                    if (this.a.containsKey(aVar.f28499d)) {
+                        this.a.put(aVar.f28499d, -1);
+                        FunAdLoadListener funAdLoadListener = this.f28558c;
                         if (funAdLoadListener == null) {
                             return;
                         }
@@ -453,7 +453,7 @@ public final class y0 implements FunAdLoader {
                             }
                             if (intValue != 0) {
                                 if (intValue == 1) {
-                                    LogPrinter.d("callback onAdLoaded(%s) because max priority adId is loaded", this.f28721d.f28705b.a);
+                                    LogPrinter.d("callback onAdLoaded(%s) because max priority adId is loaded", this.f28559d.f28543b.a);
                                     b(funAdLoadListener);
                                     return;
                                 }
@@ -463,8 +463,8 @@ public final class y0 implements FunAdLoader {
                         }
                     }
                     if (z) {
-                        LogPrinter.e("callback onError(%s) as all group failed to load", this.f28721d.f28705b.a);
-                        funAdLoadListener.onError(this.f28721d.f28705b.a);
+                        LogPrinter.e("callback onError(%s) as all group failed to load", this.f28559d.f28543b.a);
+                        funAdLoadListener.onError(this.f28559d.f28543b.a);
                         a();
                     }
                 }
@@ -472,7 +472,7 @@ public final class y0 implements FunAdLoader {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public interface h {
     }
 
@@ -492,21 +492,21 @@ public final class y0 implements FunAdLoader {
             }
         }
         this.a = new Random();
-        this.f28708e = new e(this, null);
-        this.f28711h = new a(this, Looper.getMainLooper());
-        this.f28705b = lVar;
-        this.f28707d = new x0.c(lVar);
+        this.f28546e = new e(this, null);
+        this.f28549h = new a(this, Looper.getMainLooper());
+        this.f28543b = lVar;
+        this.f28545d = new x0.c(lVar);
         HashMap hashMap = new HashMap();
-        for (l.b bVar : lVar.f28658e) {
-            for (l.a aVar : bVar.f28662b) {
-                PidLoader a2 = kVar.a(aVar.f28660c);
+        for (l.b bVar : lVar.f28496e) {
+            for (l.a aVar : bVar.f28500b) {
+                PidLoader a2 = kVar.a(aVar.f28498c);
                 if (a2 != null) {
                     a2.addListener(new g(this, aVar));
-                    hashMap.put(aVar.f28660c, a2);
+                    hashMap.put(aVar.f28498c, a2);
                 }
             }
         }
-        this.f28706c = Collections.unmodifiableMap(hashMap);
+        this.f28544c = Collections.unmodifiableMap(hashMap);
     }
 
     public final PidLoader a(l.a aVar) {
@@ -516,7 +516,7 @@ public final class y0 implements FunAdLoader {
             if (aVar == null) {
                 return null;
             }
-            return this.f28706c.get(aVar.f28660c);
+            return this.f28544c.get(aVar.f28498c);
         }
         return (PidLoader) invokeL.objValue;
     }
@@ -527,8 +527,8 @@ public final class y0 implements FunAdLoader {
         if (interceptable != null && (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, funAdInteractionListener, iRipperCallBack, tVar)) != null) {
             return (Result) invokeLLL.objValue;
         }
-        this.f28710g = funAdInteractionListener;
-        com.fun.x0 x0Var = this.f28707d;
+        this.f28548g = funAdInteractionListener;
+        com.fun.x0 x0Var = this.f28545d;
         if (iRipperCallBack == null) {
             x0Var.e();
         } else {
@@ -537,11 +537,11 @@ public final class y0 implements FunAdLoader {
         boolean z = FunAdSdk.getFunAdConfig().isFilterDeepLinkAd;
         ArrayList arrayList = new ArrayList();
         while (true) {
-            PidLoader a2 = ((e) this.f28708e).a(z, arrayList);
+            PidLoader a2 = ((e) this.f28546e).a(z, arrayList);
             Result result = null;
             if (a2 == null) {
-                LogPrinter.e("showFailed for sid:%s with No ready pidLoader found or all pidLoader showFailed", this.f28705b.a);
-                this.f28711h.post(new b(this, funAdInteractionListener));
+                LogPrinter.e("showFailed for sid:%s with No ready pidLoader found or all pidLoader showFailed", this.f28543b.a);
+                this.f28549h.post(new b(this, funAdInteractionListener));
                 return null;
             }
             if (iRipperCallBack == null || iRipperCallBack.accept(a2.getRippedAd())) {
@@ -559,14 +559,14 @@ public final class y0 implements FunAdLoader {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                this.f28711h.removeMessages(100);
-                this.f28710g = null;
-                f fVar = this.f28709f;
+                this.f28549h.removeMessages(100);
+                this.f28548g = null;
+                f fVar = this.f28547f;
                 if (fVar != null) {
                     fVar.a();
-                    this.f28709f = null;
+                    this.f28547f = null;
                 }
-                for (PidLoader pidLoader : this.f28706c.values()) {
+                for (PidLoader pidLoader : this.f28544c.values()) {
                     pidLoader.destroy();
                 }
             }
@@ -583,12 +583,12 @@ public final class y0 implements FunAdLoader {
         boolean z = FunAdSdk.getFunAdConfig().isFilterDeepLinkAd;
         ArrayList arrayList = new ArrayList();
         while (true) {
-            PidLoader a2 = ((e) this.f28708e).a(z, arrayList);
+            PidLoader a2 = ((e) this.f28546e).a(z, arrayList);
             if (a2 == null) {
-                LogPrinter.e("getNativeAd for sid:%s with No ready pidLoader found", this.f28705b.a);
+                LogPrinter.e("getNativeAd for sid:%s with No ready pidLoader found", this.f28543b.a);
                 return null;
             }
-            FunNativeAd nativeAd = a2.getNativeAd(context, this.f28705b.a);
+            FunNativeAd nativeAd = a2.getNativeAd(context, this.f28543b.a);
             if (nativeAd != null) {
                 return nativeAd;
             }
@@ -606,12 +606,12 @@ public final class y0 implements FunAdLoader {
         boolean z = FunAdSdk.getFunAdConfig().isFilterDeepLinkAd;
         ArrayList arrayList = new ArrayList();
         while (true) {
-            PidLoader a2 = ((e) this.f28708e).a(z, arrayList);
+            PidLoader a2 = ((e) this.f28546e).a(z, arrayList);
             if (a2 == null) {
-                LogPrinter.e("getNativeAd for sid:%s with No ready pidLoader found", this.f28705b.a);
+                LogPrinter.e("getNativeAd for sid:%s with No ready pidLoader found", this.f28543b.a);
                 return null;
             }
-            FunNativeAd2 nativeAd2 = a2.getNativeAd2(context, this.f28705b.a);
+            FunNativeAd2 nativeAd2 = a2.getNativeAd2(context, this.f28543b.a);
             if (nativeAd2 != null) {
                 return nativeAd2;
             }
@@ -624,7 +624,7 @@ public final class y0 implements FunAdLoader {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            for (PidLoader pidLoader : this.f28706c.values()) {
+            for (PidLoader pidLoader : this.f28544c.values()) {
                 if (pidLoader.isLoaded()) {
                     return true;
                 }
@@ -644,15 +644,15 @@ public final class y0 implements FunAdLoader {
                 if (funAdLoadListener == null) {
                     throw new IllegalArgumentException();
                 }
-                this.f28707d.d();
-                this.f28711h.removeMessages(101);
-                this.f28711h.removeMessages(100);
-                l lVar = this.f28705b;
+                this.f28545d.d();
+                this.f28549h.removeMessages(101);
+                this.f28549h.removeMessages(100);
+                l lVar = this.f28543b;
                 ArrayList arrayList = null;
                 if (lVar != null) {
                     ArrayList arrayList2 = new ArrayList();
-                    for (l.b bVar : lVar.f28658e) {
-                        l.a aVar = (l.a) c.g.d.a(this.a, bVar.f28662b, null);
+                    for (l.b bVar : lVar.f28496e) {
+                        l.a aVar = (l.a) c.g.d.a(this.a, bVar.f28500b, null);
                         if (aVar != null) {
                             arrayList2.add(aVar);
                         }
@@ -662,15 +662,15 @@ public final class y0 implements FunAdLoader {
                 }
                 if (arrayList != null && !arrayList.isEmpty()) {
                     f fVar = new f(this, funAdLoadListener, arrayList);
-                    this.f28709f = fVar;
-                    fVar.f28719b = System.currentTimeMillis();
-                    Message obtainMessage = this.f28711h.obtainMessage(100);
+                    this.f28547f = fVar;
+                    fVar.f28557b = System.currentTimeMillis();
+                    Message obtainMessage = this.f28549h.obtainMessage(100);
                     obtainMessage.obj = fVar;
-                    this.f28711h.sendMessageDelayed(obtainMessage, this.f28705b.f28656c);
-                    if (this.f28705b.f28655b > 0) {
-                        Message obtainMessage2 = this.f28711h.obtainMessage(101);
+                    this.f28549h.sendMessageDelayed(obtainMessage, this.f28543b.f28494c);
+                    if (this.f28543b.f28493b > 0) {
+                        Message obtainMessage2 = this.f28549h.obtainMessage(101);
                         obtainMessage2.obj = fVar;
-                        this.f28711h.sendMessageDelayed(obtainMessage2, this.f28705b.f28655b);
+                        this.f28549h.sendMessageDelayed(obtainMessage2, this.f28543b.f28493b);
                     }
                     LogPrinter.d("Start load for sid:%s", lVar.a);
                     for (int i2 = 0; i2 < arrayList.size(); i2++) {
@@ -684,7 +684,7 @@ public final class y0 implements FunAdLoader {
                             a3.load(context, funAdSlot);
                             z = false;
                         }
-                        Iterator<l.a> it = aVar2.f28661d.f28662b.iterator();
+                        Iterator<l.a> it = aVar2.f28499d.f28500b.iterator();
                         while (true) {
                             if (!it.hasNext()) {
                                 break;
@@ -712,12 +712,12 @@ public final class y0 implements FunAdLoader {
     public void recycleLisener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f28710g = null;
-            f fVar = this.f28709f;
+            this.f28548g = null;
+            f fVar = this.f28547f;
             if (fVar != null) {
                 fVar.a();
             }
-            this.f28709f = null;
+            this.f28547f = null;
         }
     }
 
@@ -752,17 +752,17 @@ public final class y0 implements FunAdLoader {
         return (FunSplashAd) invokeLLLL.objValue;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class g implements i {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final /* synthetic */ boolean f28722c;
+        public static final /* synthetic */ boolean f28560c;
         public transient /* synthetic */ FieldHolder $fh;
         public final l.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ y0 f28723b;
+        public final /* synthetic */ y0 f28561b;
 
         static {
             InterceptResult invokeClinit;
@@ -777,7 +777,7 @@ public final class y0 implements FunAdLoader {
                     return;
                 }
             }
-            f28722c = !y0.class.desiredAssertionStatus();
+            f28560c = !y0.class.desiredAssertionStatus();
         }
 
         public g(y0 y0Var, l.a aVar) {
@@ -795,7 +795,7 @@ public final class y0 implements FunAdLoader {
                     return;
                 }
             }
-            this.f28723b = y0Var;
+            this.f28561b = y0Var;
             this.a = aVar;
         }
 
@@ -804,15 +804,15 @@ public final class y0 implements FunAdLoader {
             y0 y0Var;
             FunAdInteractionListener funAdInteractionListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rippedAd) == null) || (funAdInteractionListener = (y0Var = this.f28723b).f28710g) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rippedAd) == null) || (funAdInteractionListener = (y0Var = this.f28561b).f28548g) == null) {
                 return;
             }
-            if (!f28722c && this.a.f28660c == null) {
+            if (!f28560c && this.a.f28498c == null) {
                 throw new AssertionError();
             }
             CallBackAware callBackAware = Flavors.CALL_BACK_AWARE;
-            String str = y0Var.f28705b.a;
-            Ssp.Pid pid = this.a.f28660c;
+            String str = y0Var.f28543b.a;
+            Ssp.Pid pid = this.a.f28498c;
             callBackAware.show(funAdInteractionListener, str, pid.ssp.type, pid.pid, pid.basePrice, rippedAd);
         }
 
@@ -821,10 +821,10 @@ public final class y0 implements FunAdLoader {
             y0 y0Var;
             FunAdInteractionListener funAdInteractionListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (funAdInteractionListener = (y0Var = this.f28723b).f28710g) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (funAdInteractionListener = (y0Var = this.f28561b).f28548g) == null) {
                 return;
             }
-            funAdInteractionListener.onAdClose(y0Var.f28705b.a);
+            funAdInteractionListener.onAdClose(y0Var.f28543b.a);
         }
 
         @Override // c.g.i
@@ -832,14 +832,14 @@ public final class y0 implements FunAdLoader {
             y0 y0Var;
             FunAdInteractionListener funAdInteractionListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (funAdInteractionListener = (y0Var = this.f28723b).f28710g) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (funAdInteractionListener = (y0Var = this.f28561b).f28548g) == null) {
                 return;
             }
-            if (!f28722c && this.a.f28660c == null) {
+            if (!f28560c && this.a.f28498c == null) {
                 throw new AssertionError();
             }
-            String str = y0Var.f28705b.a;
-            Ssp.Pid pid = this.a.f28660c;
+            String str = y0Var.f28543b.a;
+            Ssp.Pid pid = this.a.f28498c;
             funAdInteractionListener.onAdClicked(str, pid.ssp.type, pid.pid);
         }
 
@@ -847,7 +847,7 @@ public final class y0 implements FunAdLoader {
         public void d() {
             f fVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (fVar = this.f28723b.f28709f) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (fVar = this.f28561b.f28547f) == null) {
                 return;
             }
             fVar.c(this.a);
@@ -865,17 +865,17 @@ public final class y0 implements FunAdLoader {
             y0 y0Var;
             FunAdInteractionListener funAdInteractionListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(1048580, this, i2, str) == null) || (funAdInteractionListener = (y0Var = this.f28723b).f28710g) == null) {
+            if (!(interceptable == null || interceptable.invokeIL(1048580, this, i2, str) == null) || (funAdInteractionListener = (y0Var = this.f28561b).f28548g) == null) {
                 return;
             }
-            funAdInteractionListener.onAdError(y0Var.f28705b.a);
+            funAdInteractionListener.onAdError(y0Var.f28543b.a);
         }
 
         @Override // c.g.i
         public void a(int i2, String str) {
             f fVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || (fVar = this.f28723b.f28709f) == null) {
+            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || (fVar = this.f28561b.f28547f) == null) {
                 return;
             }
             fVar.d(this.a, i2, str);
@@ -886,10 +886,10 @@ public final class y0 implements FunAdLoader {
             y0 y0Var;
             FunAdInteractionListener funAdInteractionListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (funAdInteractionListener = (y0Var = this.f28723b).f28710g) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (funAdInteractionListener = (y0Var = this.f28561b).f28548g) == null) {
                 return;
             }
-            funAdInteractionListener.onRewardedVideo(y0Var.f28705b.a);
+            funAdInteractionListener.onRewardedVideo(y0Var.f28543b.a);
         }
     }
 }

@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.Log;
 import java.net.URISyntaxException;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class b extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -159,7 +159,7 @@ public final class b extends g {
                             public final /* synthetic */ AlertDialog a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ b f52959b;
+                            public final /* synthetic */ b f51378b;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -176,7 +176,7 @@ public final class b extends g {
                                         return;
                                     }
                                 }
-                                this.f52959b = this;
+                                this.f51378b = this;
                                 this.a = show;
                             }
 

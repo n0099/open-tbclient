@@ -6,10 +6,11 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import c.a.d.a.h;
 import c.a.d.f.p.n;
-import c.a.t0.i0.a;
-import c.a.t0.i0.b;
-import c.a.t0.i0.c;
-import c.a.t0.i0.d;
+import c.a.q0.h0.a;
+import c.a.q0.h0.b;
+import c.a.q0.h0.c;
+import c.a.q0.h0.d;
+import c.a.q0.h0.e;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -31,7 +32,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.idlefish.flutterboost.FlutterBoost;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FlutterDelegateStatic extends b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PERSON_INFO_TAB_MIDDLE_REDDOT_DISTANCE = 10;
@@ -155,7 +156,7 @@ public class FlutterDelegateStatic extends b {
         }
     }
 
-    @Override // c.a.t0.i0.b
+    @Override // c.a.q0.h0.b
     public c createFragmentTabStructure() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -163,30 +164,34 @@ public class FlutterDelegateStatic extends b {
             c cVar = new c();
             cVar.a = new FlutterBaseFragment.NewEngineFragmentBuilder(TbFlutterFragment.class).url(OpenFlutter.FRAGMENT_MYTAB).isTabHost(true).build();
             isInited = false;
-            cVar.f13192e = 8;
+            cVar.f12602e = 8;
             Resources resources = h.a().getResources();
-            cVar.f13189b = resources.getIdentifier("mine", "string", BdBaseApplication.getInst().getPackageName());
-            cVar.f13193f = resources.getIdentifier("lottie_tab_my", "raw", BdBaseApplication.getInst().getPackageName());
-            cVar.f13196i = c.m;
-            cVar.f13195h = c.a.t0.i0.e.c.d().c("person");
+            cVar.f12599b = resources.getIdentifier("mine", "string", BdBaseApplication.getInst().getPackageName());
+            cVar.f12603f = resources.getIdentifier("lottie_tab_my", "raw", BdBaseApplication.getInst().getPackageName());
+            cVar.f12606i = c.m;
+            cVar.f12605h = c.a.q0.h0.f.c.d().c("person");
             return cVar;
         }
         return (c) invokeV.objValue;
     }
 
-    @Override // c.a.t0.i0.b
+    @Override // c.a.q0.h0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(h.a().getResources().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
+            MaintabBottomIndicator maintabBottomIndicator = (MaintabBottomIndicator) e.e().d(8);
+            this.mIndicator = maintabBottomIndicator;
+            if (maintabBottomIndicator == null) {
+                this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(h.a().getResources().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
+            }
             this.tipView = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-            aVar.f41301f = this.mIndicator;
-            aVar.f41298c = n.d(context, 10.0f);
+            aVar.f39707f = this.mIndicator;
+            aVar.f39704c = n.d(context, 10.0f);
             aVar.a = this.tipView;
             this.mIndicator.addTipWrapContent(FileHelper.FILE_CACHE_EMOTION_PACKAGE, aVar);
-            boolean h2 = c.a.t0.s.j0.b.k().h("key_feedback_tip_tab_show", false);
+            boolean h2 = c.a.q0.r.j0.b.k().h("key_feedback_tip_tab_show", false);
             if (!this.isNew.booleanValue() && !h2) {
                 this.tipView.setVisibility(8);
             } else {
@@ -198,14 +203,14 @@ public class FlutterDelegateStatic extends b {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // c.a.t0.i0.b
+    @Override // c.a.q0.h0.b
     public boolean isAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? MainTabActivityConfig.PERSON_TAB_AVAIBLE : invokeV.booleanValue;
     }
 
-    @Override // c.a.t0.i0.b
+    @Override // c.a.q0.h0.b
     public void onAdd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -256,7 +261,7 @@ public class FlutterDelegateStatic extends b {
         }
     }
 
-    @Override // c.a.t0.i0.b
+    @Override // c.a.q0.h0.b
     public void onRemove() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {

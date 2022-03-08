@@ -13,10 +13,10 @@ public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f4478b = 5;
+    public static int f4153b = 5;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f4479c = 40;
+    public static int f4154c = 40;
     public transient /* synthetic */ FieldHolder $fh;
     public com.baidu.cesium.i.b a;
 
@@ -48,9 +48,9 @@ public class d {
                 return;
             }
         }
-        com.baidu.cesium.i.b bVar = new com.baidu.cesium.i.b(f4479c);
+        com.baidu.cesium.i.b bVar = new com.baidu.cesium.i.b(f4154c);
         this.a = bVar;
-        bVar.a(0, f4479c, true);
+        bVar.a(0, f4154c, true);
     }
 
     public void a(com.baidu.cesium.i.b bVar, int i2, int i3, int i4) {

@@ -14,7 +14,7 @@ import i.r.f;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class OnErrorThrowable extends RuntimeException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -569558213262703934L;
@@ -22,14 +22,14 @@ public final class OnErrorThrowable extends RuntimeException {
     public final boolean hasValue;
     public final Object value;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class OnNextValue extends RuntimeException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3454462756050397899L;
         public transient /* synthetic */ FieldHolder $fh;
         public final Object value;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes9.dex */
         public static final class a {
             public static /* synthetic */ Interceptable $ic;
             public static final Set<Class<?>> a;

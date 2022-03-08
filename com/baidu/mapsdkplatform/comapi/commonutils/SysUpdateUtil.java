@@ -15,19 +15,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ConectivityUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class SysUpdateUtil implements SysUpdateObserver {
     public static /* synthetic */ Interceptable $ic;
     public static com.baidu.mapsdkplatform.comjni.map.commonmemcache.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f36017b;
+    public static boolean f34420b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f36018c;
+    public static String f34421c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f36019d;
+    public static int f34422d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,9 +44,9 @@ public class SysUpdateUtil implements SysUpdateObserver {
             }
         }
         a = new com.baidu.mapsdkplatform.comjni.map.commonmemcache.a();
-        f36017b = false;
-        f36018c = "";
-        f36019d = 0;
+        f34420b = false;
+        f34421c = "";
+        f34422d = 0;
     }
 
     public SysUpdateUtil() {
@@ -100,46 +100,46 @@ public class SysUpdateUtil implements SysUpdateObserver {
         String lowerCase = activeNetworkInfo.getTypeName().toLowerCase();
         if (lowerCase.equals("wifi") && activeNetworkInfo.isConnected()) {
             AppEngine.SetProxyInfo(null, 0);
-            f36017b = false;
+            f34420b = false;
         } else if (!lowerCase.equals("mobile") && (!lowerCase.equals("wifi") || NetworkUtil.isWifiConnected(activeNetworkInfo))) {
         } else {
             String extraInfo = activeNetworkInfo.getExtraInfo();
-            f36017b = false;
+            f34420b = false;
             if (extraInfo != null) {
                 String lowerCase2 = extraInfo.toLowerCase();
                 if (lowerCase2.startsWith(ConectivityUtils.APN_CMWAP) || lowerCase2.startsWith(ConectivityUtils.APN_UNIWAP) || lowerCase2.startsWith(ConectivityUtils.APN_3GWAP)) {
-                    f36018c = "10.0.0.172";
+                    f34421c = "10.0.0.172";
                 } else {
                     if (!lowerCase2.startsWith(ConectivityUtils.APN_CTWAP)) {
                         if (lowerCase2.startsWith(ConectivityUtils.APN_CMNET) || lowerCase2.startsWith(ConectivityUtils.APN_UNINET) || lowerCase2.startsWith(ConectivityUtils.APN_CTNET) || lowerCase2.startsWith(ConectivityUtils.APN_3GNET)) {
-                            f36017b = false;
+                            f34420b = false;
                         }
-                        if (f36017b) {
-                            AppEngine.SetProxyInfo(f36018c, f36019d);
+                        if (f34420b) {
+                            AppEngine.SetProxyInfo(f34421c, f34422d);
                             return;
                         } else {
                             AppEngine.SetProxyInfo(null, 0);
                             return;
                         }
                     }
-                    f36018c = "10.0.0.200";
+                    f34421c = "10.0.0.200";
                 }
             } else {
                 String defaultHost = Proxy.getDefaultHost();
                 int defaultPort = Proxy.getDefaultPort();
                 if (defaultHost != null && defaultHost.length() > 0) {
                     if ("10.0.0.172".equals(defaultHost.trim())) {
-                        f36018c = "10.0.0.172";
-                        f36019d = defaultPort;
-                        f36017b = true;
+                        f34421c = "10.0.0.172";
+                        f34422d = defaultPort;
+                        f34420b = true;
                     }
                 }
-                if (f36017b) {
+                if (f34420b) {
                 }
             }
-            f36019d = 80;
-            f36017b = true;
-            if (f36017b) {
+            f34422d = 80;
+            f34420b = true;
+            if (f34420b) {
             }
         }
     }

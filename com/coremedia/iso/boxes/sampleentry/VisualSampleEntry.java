@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class VisualSampleEntry extends AbstractSampleEntry implements Container {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -55,7 +55,7 @@ public final class VisualSampleEntry extends AbstractSampleEntry implements Cont
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VisualSampleEntry() {
-        super(TYPE3);
+        super("avc1");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

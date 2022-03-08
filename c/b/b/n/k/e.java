@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,12 +25,12 @@ public class e {
             }
         }
         float[] fArr2 = new float[fArr.length];
-        float f2 = iVar.f27408b;
-        float f3 = iVar.f27409c;
-        float f4 = iVar.f27410d - f2;
-        float f5 = iVar.f27411e - f3;
-        int i4 = iVar.f27412f;
-        int i5 = iVar.f27413g;
+        float f2 = iVar.f27312b;
+        float f3 = iVar.f27313c;
+        float f4 = iVar.f27314d - f2;
+        float f5 = iVar.f27315e - f3;
+        int i4 = iVar.f27316f;
+        int i5 = iVar.f27317g;
         int length = fArr.length;
         for (int i6 = 0; i6 < length; i6 += 2) {
             fArr2[i6] = ((fArr[i6] / i4) * f4) + f2;

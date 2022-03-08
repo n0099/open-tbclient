@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class NetworkQuality {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BAD_NETWORK_QUALITY = 2;
@@ -36,7 +36,7 @@ public class NetworkQuality {
     public static WeakNetCheckConfig sWeakNetCheckConfig;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static abstract class NetworkQualityListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -249,7 +249,7 @@ public class NetworkQuality {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class WeakNetCheckConfig {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long DEFAULT_TTFB_EXPIRE_TIME = 1000;

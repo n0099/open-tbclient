@@ -15,28 +15,28 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class c implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f30494e;
+    public Context f28898e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f30495f;
+    public String f28899f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f30496g;
+    public String f28900g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f30497h;
+    public String f28901h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f30498i;
+    public String f28902i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f30499j;
+    public String f28903j;
     public String k;
     public HashMap<String, String> l;
 
@@ -53,11 +53,11 @@ public class c implements Cloneable {
                 return;
             }
         }
-        this.f30495f = "";
-        this.f30496g = "";
-        this.f30497h = "";
-        this.f30498i = "";
-        this.f30499j = "";
+        this.f28899f = "";
+        this.f28900g = "";
+        this.f28901h = "";
+        this.f28902i = "";
+        this.f28903j = "";
         this.k = "";
         this.l = new HashMap<>();
     }
@@ -67,9 +67,9 @@ public class c implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             if (z) {
-                return n(this.f30495f);
+                return n(this.f28899f);
             }
-            return this.f30495f;
+            return this.f28899f;
         }
         return (String) invokeZ.objValue;
     }
@@ -77,7 +77,7 @@ public class c implements Cloneable {
     public Context b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30494e : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28898e : (Context) invokeV.objValue;
     }
 
     public String c(boolean z) {
@@ -127,9 +127,9 @@ public class c implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
             if (z) {
-                return n(this.f30497h);
+                return n(this.f28901h);
             }
-            return this.f30497h;
+            return this.f28901h;
         }
         return (String) invokeZ.objValue;
     }
@@ -139,9 +139,9 @@ public class c implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
             if (z) {
-                return n(this.f30499j);
+                return n(this.f28903j);
             }
-            return this.f30499j;
+            return this.f28903j;
         }
         return (String) invokeZ.objValue;
     }
@@ -151,9 +151,9 @@ public class c implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
             if (z) {
-                return n(this.f30496g);
+                return n(this.f28900g);
             }
-            return this.f30496g;
+            return this.f28900g;
         }
         return (String) invokeZ.objValue;
     }
@@ -175,9 +175,9 @@ public class c implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
             if (z) {
-                return n(this.f30498i);
+                return n(this.f28902i);
             }
-            return this.f30498i;
+            return this.f28902i;
         }
         return (String) invokeZ.objValue;
     }
@@ -185,28 +185,28 @@ public class c implements Cloneable {
     public void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f30495f = str;
+            this.f28899f = str;
         }
     }
 
     public void k(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
-            this.f30494e = context.getApplicationContext();
+            this.f28898e = context.getApplicationContext();
         }
     }
 
     public void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f30497h = str;
+            this.f28901h = str;
         }
     }
 
     public void m(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.f30498i = str;
+            this.f28902i = str;
         }
     }
 
@@ -226,6 +226,6 @@ public class c implements Cloneable {
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? (this.f30494e == null || TextUtils.isEmpty(this.f30495f) || TextUtils.isEmpty(this.f30497h) || TextUtils.isEmpty(this.f30498i)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? (this.f28898e == null || TextUtils.isEmpty(this.f28899f) || TextUtils.isEmpty(this.f28901h) || TextUtils.isEmpty(this.f28902i)) ? false : true : invokeV.booleanValue;
     }
 }

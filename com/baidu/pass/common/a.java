@@ -6,42 +6,43 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "Security";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.pass.common.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public static class C1849a {
+    /* loaded from: classes4.dex */
+    public static class C1825a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String a = "UTF-8";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f37891b = "AES/CBC/NoPadding";
+        public static final String f36294b = "AES/CBC/NoPadding";
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String f37892c = "AES";
+        public static final String f36295c = "AES";
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f37893d;
+        public String f36296d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f37894e;
+        public String f36297e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f37895f;
+        public String f36298f;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public C1849a() {
+        public C1825a() {
             this("AES", "AES/CBC/NoPadding", "UTF-8");
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -65,9 +66,9 @@ public class a {
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
                 if (str != null && str.length() != 0) {
                     try {
-                        IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.f37893d));
-                        SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f37895f);
-                        Cipher cipher = Cipher.getInstance(this.f37894e);
+                        IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.f36296d));
+                        SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f36298f);
+                        Cipher cipher = Cipher.getInstance(this.f36297e);
                         cipher.init(1, secretKeySpec, ivParameterSpec);
                         return cipher.doFinal(a(str).getBytes());
                     } catch (NoSuchAlgorithmException e2) {
@@ -83,7 +84,7 @@ public class a {
             return (byte[]) invokeLLL.objValue;
         }
 
-        public C1849a(String str, String str2, String str3) {
+        public C1825a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,12 +99,12 @@ public class a {
                     return;
                 }
             }
-            this.f37893d = "UTF-8";
-            this.f37894e = "AES/CBC/NoPadding";
-            this.f37895f = "AES";
-            this.f37895f = str;
-            this.f37894e = str2;
-            this.f37893d = str3;
+            this.f36296d = "UTF-8";
+            this.f36297e = "AES/CBC/NoPadding";
+            this.f36298f = "AES";
+            this.f36298f = str;
+            this.f36297e = str2;
+            this.f36296d = str3;
         }
 
         public byte[] a(byte[] bArr, String str, String str2) throws Exception {
@@ -113,9 +114,9 @@ public class a {
                 if (bArr != null && bArr.length != 0) {
                     byte[] bArr2 = new byte[0];
                     try {
-                        IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.f37893d));
-                        SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f37895f);
-                        Cipher cipher = Cipher.getInstance(this.f37894e);
+                        IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.f36296d));
+                        SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f36298f);
+                        Cipher cipher = Cipher.getInstance(this.f36297e);
                         cipher.init(2, secretKeySpec, ivParameterSpec);
                         return cipher.doFinal(bArr);
                     } catch (Throwable th) {
@@ -134,7 +135,7 @@ public class a {
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
                 int length = 16 - (str.getBytes().length % 16);
                 for (int i2 = 0; i2 < length; i2++) {
-                    str = str + ' ';
+                    str = str + WebvttCueParser.CHAR_SPACE;
                 }
                 return str;
             }

@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.request.transition.Transition;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class NoTransition<R> implements Transition<R> {
     public static /* synthetic */ Interceptable $ic;
     public static final NoTransition<?> NO_ANIMATION;
     public static final TransitionFactory<?> NO_ANIMATION_FACTORY;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class NoAnimationFactory<R> implements TransitionFactory<R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

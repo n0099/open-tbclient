@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.poly.widget.PolyActivity;
-import com.baidu.sapi2.ecommerce.R;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class ScrollLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DRAG_SPEED_MULTIPLIER = 1.2f;
@@ -55,7 +55,7 @@ public class ScrollLayout extends FrameLayout {
     public Scroller scroller;
 
     /* renamed from: com.baidu.pass.ecommerce.view.ScrollLayout$3  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$pass$ecommerce$view$ScrollLayout$InnerStatus;
         public static /* synthetic */ Interceptable $ic;
@@ -88,7 +88,7 @@ public class ScrollLayout extends FrameLayout {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static final class InnerStatus {
         public static final /* synthetic */ InnerStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -153,7 +153,7 @@ public class ScrollLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface OnScrollChangedListener {
         void onChildScroll(int i2);
 
@@ -163,7 +163,7 @@ public class ScrollLayout extends FrameLayout {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static final class Status {
         public static final /* synthetic */ Status[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -395,23 +395,23 @@ public class ScrollLayout extends FrameLayout {
         int dimensionPixelOffset;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.SapiSdkScrollLayout);
-            if (obtainStyledAttributes.hasValue(R.styleable.SapiSdkScrollLayout_SapiSdkHalfOffset) && (dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.SapiSdkScrollLayout_SapiSdkHalfOffset, this.maxOffset)) != getContentHeight()) {
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.SapiSdkAllowHorizontalScroll, R.attr.SapiSdkExitOffset, R.attr.SapiSdkHalfOffset, R.attr.SapiSdkIsSupportExit, R.attr.SapiSdkMode, R.attr.SapiSdkOpenedOffset});
+            if (obtainStyledAttributes.hasValue(2) && (dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(2, this.maxOffset)) != getContentHeight()) {
                 this.maxOffset = getContentHeight() - dimensionPixelOffset;
             }
-            if (obtainStyledAttributes.hasValue(R.styleable.SapiSdkScrollLayout_SapiSdkOpenedOffset)) {
-                this.openedOffset = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.SapiSdkScrollLayout_SapiSdkOpenedOffset, this.openedOffset);
-            } else if (obtainStyledAttributes.hasValue(R.styleable.SapiSdkScrollLayout_SapiSdkExitOffset)) {
-                int dimensionPixelOffset2 = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.SapiSdkScrollLayout_SapiSdkExitOffset, getContentHeight());
+            if (obtainStyledAttributes.hasValue(5)) {
+                this.openedOffset = obtainStyledAttributes.getDimensionPixelOffset(5, this.openedOffset);
+            } else if (obtainStyledAttributes.hasValue(1)) {
+                int dimensionPixelOffset2 = obtainStyledAttributes.getDimensionPixelOffset(1, getContentHeight());
                 if (dimensionPixelOffset2 != getContentHeight()) {
                     this.exitOffset = getContentHeight() - dimensionPixelOffset2;
                 }
-            } else if (obtainStyledAttributes.hasValue(R.styleable.SapiSdkScrollLayout_SapiSdkAllowHorizontalScroll)) {
-                this.isAllowHorizontalScroll = obtainStyledAttributes.getBoolean(R.styleable.SapiSdkScrollLayout_SapiSdkAllowHorizontalScroll, true);
-            } else if (obtainStyledAttributes.hasValue(R.styleable.SapiSdkScrollLayout_SapiSdkIsSupportExit)) {
-                this.isSupportExit = obtainStyledAttributes.getBoolean(R.styleable.SapiSdkScrollLayout_SapiSdkIsSupportExit, true);
-            } else if (obtainStyledAttributes.hasValue(R.styleable.SapiSdkScrollLayout_SapiSdkMode)) {
-                int integer = obtainStyledAttributes.getInteger(R.styleable.SapiSdkScrollLayout_SapiSdkMode, 0);
+            } else if (obtainStyledAttributes.hasValue(0)) {
+                this.isAllowHorizontalScroll = obtainStyledAttributes.getBoolean(0, true);
+            } else if (obtainStyledAttributes.hasValue(3)) {
+                this.isSupportExit = obtainStyledAttributes.getBoolean(3, true);
+            } else if (obtainStyledAttributes.hasValue(4)) {
+                int integer = obtainStyledAttributes.getInteger(4, 0);
                 if (integer == 0) {
                     setHalf();
                 } else if (integer != 2) {

@@ -2,7 +2,7 @@ package com.kwad.sdk.core.videocache.b;
 
 import android.content.Context;
 import com.kwad.sdk.core.videocache.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static f a;
 

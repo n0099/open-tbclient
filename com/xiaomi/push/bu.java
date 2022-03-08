@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
 import com.xiaomi.push.cg;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class bu {
     public static /* synthetic */ Interceptable $ic;
     public static volatile bu a;
@@ -34,25 +34,25 @@ public class bu {
     public final String f169a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ai.a f61154b;
+    public ai.a f59504b;
 
     /* renamed from: b  reason: collision with other field name */
     public final String f170b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ai.a f61155c;
+    public ai.a f59505c;
 
     /* renamed from: c  reason: collision with other field name */
     public final String f171c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f61156d;
+    public final String f59506d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f61157e;
+    public String f59507e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f61158f;
+    public String f59508f;
 
     public bu(Context context) {
         Interceptable interceptable = $ic;
@@ -72,10 +72,10 @@ public class bu {
         this.f169a = "push_stat_sp";
         this.f170b = "upload_time";
         this.f171c = DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM;
-        this.f61156d = "check_time";
+        this.f59506d = "check_time";
         this.f166a = new bv(this);
-        this.f61154b = new bw(this);
-        this.f61155c = new bx(this);
+        this.f59504b = new bw(this);
+        this.f59505c = new bx(this);
         this.f165a = context;
     }
 
@@ -122,7 +122,7 @@ public class bu {
     public String m255a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61157e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59507e : (String) invokeV.objValue;
     }
 
     public void a(cg.a aVar) {
@@ -161,6 +161,6 @@ public class bu {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f61158f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f59508f : (String) invokeV.objValue;
     }
 }

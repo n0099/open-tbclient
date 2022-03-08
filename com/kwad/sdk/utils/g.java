@@ -7,23 +7,23 @@ import androidx.annotation.Nullable;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class g {
     public static HashMap<String, ArrayList<String>> a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f58151b;
+    public static String f56501b;
 
     @Nullable
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f58151b)) {
+        if (TextUtils.isEmpty(f56501b)) {
             ArrayList<String> a2 = a(context, "SHA1");
             if (a2 != null && a2.size() != 0) {
-                f58151b = a2.get(0);
+                f56501b = a2.get(0);
             }
-            return f58151b;
+            return f56501b;
         }
-        return f58151b;
+        return f56501b;
     }
 
     public static String a(Signature signature, String str) {

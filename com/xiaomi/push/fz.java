@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class fz implements gd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,13 +26,13 @@ public class fz implements gd {
     public String[] f424a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61309b;
+    public String f59659b;
 
     /* renamed from: b  reason: collision with other field name */
     public String[] f425b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61310c;
+    public String f59660c;
 
     public fz(String str, String str2, String[] strArr, String[] strArr2) {
         Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class fz implements gd {
         this.f425b = null;
         this.f423a = null;
         this.a = str;
-        this.f61309b = str2;
+        this.f59659b = str2;
         this.f424a = strArr;
         this.f425b = strArr2;
     }
@@ -77,10 +77,10 @@ public class fz implements gd {
         this.f425b = null;
         this.f423a = null;
         this.a = str;
-        this.f61309b = str2;
+        this.f59659b = str2;
         this.f424a = strArr;
         this.f425b = strArr2;
-        this.f61310c = str3;
+        this.f59660c = str3;
         this.f423a = list;
     }
 
@@ -145,8 +145,8 @@ public class fz implements gd {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Bundle bundle = new Bundle();
             bundle.putString("ext_ele_name", this.a);
-            bundle.putString("ext_ns", this.f61309b);
-            bundle.putString("ext_text", this.f61310c);
+            bundle.putString("ext_ns", this.f59659b);
+            bundle.putString("ext_text", this.f59660c);
             Bundle bundle2 = new Bundle();
             String[] strArr = this.f424a;
             if (strArr != null && strArr.length > 0) {
@@ -229,20 +229,20 @@ public class fz implements gd {
             if (!TextUtils.isEmpty(str)) {
                 str = gn.a(str);
             }
-            this.f61310c = str;
+            this.f59660c = str;
         }
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f61309b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f59659b : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? !TextUtils.isEmpty(this.f61310c) ? gn.b(this.f61310c) : this.f61310c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? !TextUtils.isEmpty(this.f59660c) ? gn.b(this.f59660c) : this.f59660c : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.gd
@@ -253,11 +253,11 @@ public class fz implements gd {
             StringBuilder sb = new StringBuilder();
             sb.append("<");
             sb.append(this.a);
-            if (!TextUtils.isEmpty(this.f61309b)) {
+            if (!TextUtils.isEmpty(this.f59659b)) {
                 sb.append(" ");
                 sb.append("xmlns=");
                 sb.append("\"");
-                sb.append(this.f61309b);
+                sb.append(this.f59659b);
                 sb.append("\"");
             }
             String[] strArr = this.f424a;
@@ -272,7 +272,7 @@ public class fz implements gd {
                     }
                 }
             }
-            if (TextUtils.isEmpty(this.f61310c)) {
+            if (TextUtils.isEmpty(this.f59660c)) {
                 List<fz> list = this.f423a;
                 if (list == null || list.size() <= 0) {
                     sb.append("/>");
@@ -284,7 +284,7 @@ public class fz implements gd {
                 }
             } else {
                 sb.append(">");
-                sb.append(this.f61310c);
+                sb.append(this.f59660c);
             }
             sb.append("</");
             sb.append(this.a);

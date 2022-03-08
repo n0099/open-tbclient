@@ -13,8 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.CalledByNative;
 import org.webrtc.Logging;
-import org.webrtc.MediaStreamTrack;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class WebRtcAudioManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BITS_PER_SAMPLE = 16;
@@ -41,7 +40,7 @@ public class WebRtcAudioManager {
     public static AudioManager getAudioManager(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND) : (AudioManager) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? (AudioManager) context.getSystemService("audio") : (AudioManager) invokeL.objValue;
     }
 
     @CalledByNative

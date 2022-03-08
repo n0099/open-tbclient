@@ -1,7 +1,7 @@
 package com.baidu.livesdk.api.share;
 
 import android.content.Context;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public interface Share {
     public static final String BAIDUHI = "baiduhi";
     public static final String QQDENGLU = "qqdenglu";
@@ -11,7 +11,7 @@ public interface Share {
     public static final String WEIXIN_FRIEND = "weixin_friend";
     public static final String WEIXIN_TIMELINE = "weixin_timeline";
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface ShareResultListener {
         void onCancel(String str, String str2);
 

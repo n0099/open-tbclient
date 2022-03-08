@@ -5,10 +5,10 @@ import android.opengl.GLES20;
 import android.opengl.GLUtils;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b1.t.c;
-import c.a.b1.t.d;
-import c.a.b1.t.h;
-import c.a.c0.b.a.e;
+import c.a.a0.b.a.e;
+import c.a.y0.r.c;
+import c.a.y0.r.d;
+import c.a.y0.r.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ import com.baidu.ugc.editvideo.sticker.a;
 import com.baidu.wallet.paysdk.banksign.beans.BankSignFactory;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class jk extends jl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,7 +16,7 @@ public final class jk extends jl {
     public byte[] f823a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f61609b;
+    public int f59959b;
 
     public jk() {
         Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public final class jk extends jl {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f61609b - this.a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f59959b - this.a : invokeV.intValue;
     }
 
     @Override // com.xiaomi.push.jl
@@ -100,7 +100,7 @@ public final class jk extends jl {
         if (interceptable == null || interceptable.invokeLII(1048583, this, bArr, i2, i3) == null) {
             this.f823a = bArr;
             this.a = i2;
-            this.f61609b = i2 + i3;
+            this.f59959b = i2 + i3;
         }
     }
 }

@@ -14,7 +14,7 @@ import com.xiaomi.push.hs;
 import com.xiaomi.push.hx;
 import com.xiaomi.push.ie;
 import com.xiaomi.push.ip;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ad extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,11 +53,11 @@ public class ad extends ai.a {
             com.xiaomi.push.service.aq a = com.xiaomi.push.service.aq.a(this.a);
             hx hxVar = new hx();
             hxVar.a(com.xiaomi.push.service.ar.a(a, hl.a));
-            hxVar.b(com.xiaomi.push.service.ar.a(a, hl.f61408b));
+            hxVar.b(com.xiaomi.push.service.ar.a(a, hl.f59758b));
             ie ieVar = new ie("-1", false);
             ieVar.c(hp.p.f514a);
             ieVar.a(ip.a(hxVar));
-            an.a(this.a).a((an) ieVar, hf.f61378i, (hs) null);
+            an.a(this.a).a((an) ieVar, hf.f59728i, (hs) null);
         }
     }
 }

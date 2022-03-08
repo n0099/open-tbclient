@@ -31,22 +31,22 @@ public class i {
     public final LinkedList<d> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedList<k> f1812b;
+    public final LinkedList<k> f2438b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final LinkedList<b> f1813c;
+    public final LinkedList<b> f2439c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final LinkedList<c> f1814d;
+    public final LinkedList<c> f2440d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final LinkedList<j> f1815e;
+    public final LinkedList<j> f2441e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final LinkedList<a> f1816f;
+    public final LinkedList<a> f2442f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final LinkedList<e> f1817g;
+    public final LinkedList<e> f2443g;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -62,18 +62,18 @@ public class i {
             }
         }
         this.a = new LinkedList<>();
-        this.f1812b = new LinkedList<>();
-        this.f1813c = new LinkedList<>();
-        this.f1814d = new LinkedList<>();
-        this.f1815e = new LinkedList<>();
-        this.f1816f = new LinkedList<>();
-        this.f1817g = new LinkedList<>();
+        this.f2438b = new LinkedList<>();
+        this.f2439c = new LinkedList<>();
+        this.f2440d = new LinkedList<>();
+        this.f2441e = new LinkedList<>();
+        this.f2442f = new LinkedList<>();
+        this.f2443g = new LinkedList<>();
     }
 
     public void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-            this.f1817g.add(eVar);
+            this.f2443g.add(eVar);
         }
     }
 
@@ -86,9 +86,9 @@ public class i {
         if (fVar instanceof d) {
             FrameHelper.insert(this.a, (d) fVar);
         } else if (fVar instanceof k) {
-            FrameHelper.insert(this.f1812b, (k) fVar);
+            FrameHelper.insert(this.f2438b, (k) fVar);
         } else if (fVar instanceof b) {
-            FrameHelper.insert(this.f1813c, (b) fVar);
+            FrameHelper.insert(this.f2439c, (b) fVar);
         } else {
             BdLog.e("rule invalid");
         }
@@ -101,11 +101,11 @@ public class i {
         }
         n.c();
         if (gVar instanceof c) {
-            FrameHelper.insert(this.f1814d, (c) gVar);
+            FrameHelper.insert(this.f2440d, (c) gVar);
         } else if (gVar instanceof j) {
-            FrameHelper.insert(this.f1815e, (j) gVar);
+            FrameHelper.insert(this.f2441e, (j) gVar);
         } else if (gVar instanceof a) {
-            FrameHelper.insert(this.f1816f, (a) gVar);
+            FrameHelper.insert(this.f2442f, (a) gVar);
         } else {
             BdLog.e("rule invalid");
         }
@@ -114,7 +114,7 @@ public class i {
     public void d(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
-            this.f1817g.remove(eVar);
+            this.f2443g.remove(eVar);
         }
     }
 
@@ -127,9 +127,9 @@ public class i {
         if (fVar instanceof d) {
             this.a.remove(fVar);
         } else if (fVar instanceof k) {
-            this.f1812b.remove(fVar);
+            this.f2438b.remove(fVar);
         } else if (fVar instanceof b) {
-            this.f1813c.remove(fVar);
+            this.f2439c.remove(fVar);
         } else {
             BdLog.e("rule invalid");
         }
@@ -142,11 +142,11 @@ public class i {
         }
         n.c();
         if (gVar instanceof c) {
-            this.f1814d.remove(gVar);
+            this.f2440d.remove(gVar);
         } else if (gVar instanceof j) {
-            this.f1815e.remove(gVar);
+            this.f2441e.remove(gVar);
         } else if (gVar instanceof a) {
-            this.f1816f.remove(gVar);
+            this.f2442f.remove(gVar);
         } else {
             BdLog.e("rule invalid");
         }
@@ -155,13 +155,13 @@ public class i {
     public CustomMessage<?> g(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, customMessage, customMessageTask)) == null) ? (CustomMessage) k(this.f1813c, customMessage, customMessageTask) : (CustomMessage) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, customMessage, customMessageTask)) == null) ? (CustomMessage) k(this.f2439c, customMessage, customMessageTask) : (CustomMessage) invokeLL.objValue;
     }
 
     public CustomResponsedMessage<?> h(CustomResponsedMessage<?> customResponsedMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, customResponsedMessage)) == null) ? (CustomResponsedMessage) l(this.f1816f, customResponsedMessage) : (CustomResponsedMessage) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, customResponsedMessage)) == null) ? (CustomResponsedMessage) l(this.f2442f, customResponsedMessage) : (CustomResponsedMessage) invokeL.objValue;
     }
 
     public HttpMessage i(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
@@ -173,7 +173,7 @@ public class i {
     public HttpResponsedMessage j(HttpResponsedMessage httpResponsedMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, httpResponsedMessage)) == null) ? (HttpResponsedMessage) l(this.f1814d, httpResponsedMessage) : (HttpResponsedMessage) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, httpResponsedMessage)) == null) ? (HttpResponsedMessage) l(this.f2440d, httpResponsedMessage) : (HttpResponsedMessage) invokeL.objValue;
     }
 
     public final <M extends Message<?>, T extends MessageTask> M k(LinkedList<? extends f<M, T>> linkedList, M m, T t) {
@@ -219,21 +219,21 @@ public class i {
     public SocketMessage m(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, socketMessage, socketMessageTask)) == null) ? (SocketMessage) k(this.f1812b, socketMessage, socketMessageTask) : (SocketMessage) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, socketMessage, socketMessageTask)) == null) ? (SocketMessage) k(this.f2438b, socketMessage, socketMessageTask) : (SocketMessage) invokeLL.objValue;
     }
 
     public SocketResponsedMessage n(SocketResponsedMessage socketResponsedMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, socketResponsedMessage)) == null) ? (SocketResponsedMessage) l(this.f1815e, socketResponsedMessage) : (SocketResponsedMessage) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, socketResponsedMessage)) == null) ? (SocketResponsedMessage) l(this.f2441e, socketResponsedMessage) : (SocketResponsedMessage) invokeL.objValue;
     }
 
     public void o(int i2, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048590, this, i2, bdUniqueId) == null) {
-            int size = this.f1817g.size();
+            int size = this.f2443g.size();
             for (int i3 = 0; i3 < size; i3++) {
-                this.f1817g.get(i3).a(i2, bdUniqueId);
+                this.f2443g.get(i3).a(i2, bdUniqueId);
             }
         }
     }
@@ -241,9 +241,9 @@ public class i {
     public void p(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, bdUniqueId) == null) {
-            int size = this.f1817g.size();
+            int size = this.f2443g.size();
             for (int i2 = 0; i2 < size; i2++) {
-                this.f1817g.get(i2).b(bdUniqueId);
+                this.f2443g.get(i2).b(bdUniqueId);
             }
         }
     }

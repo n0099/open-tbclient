@@ -1,8 +1,8 @@
 package com.baidu.tieba.myAttentionAndFans.message;
 
 import c.a.d.f.d.l;
-import c.a.t0.s.r.i1;
-import c.a.t0.s.s.a;
+import c.a.q0.r.r.i1;
+import c.a.q0.r.s.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -12,8 +12,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
+import com.baidu.tieba.R;
+import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.kwad.sdk.KsAdSDKImpl;
-import com.kwad.sdk.R;
 import com.kwad.sdk.api.KsVideoPlayConfig;
 import com.kwad.sdk.api.core.KsAdSdkDynamicImpl;
 import com.kwad.sdk.api.loader.Wrapper;
@@ -41,7 +42,7 @@ import java.io.InputStream;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class AdWebViewLandPageActivityProxy extends com.kwad.sdk.core.e.a<com.kwad.sdk.reward.a> {
     public static final String KEY_NEED_CLOSE_REWARD = "key_close_reward";
     public static final String KEY_TEMPLATE = "key_template_json";
@@ -282,7 +283,7 @@ public class AdWebViewLandPageActivityProxy extends com.kwad.sdk.core.e.a<com.kw
             downloadProgressBar.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.AdWebViewLandPageActivityProxy.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    com.kwad.sdk.core.report.a.f(AdWebViewLandPageActivityProxy.this.mAdTemplate, 152);
+                    com.kwad.sdk.core.report.a.f(AdWebViewLandPageActivityProxy.this.mAdTemplate, (int) Cea708Decoder.COMMAND_DF0);
                     AdWebViewLandPageActivityProxy.this.mApkDownloadHelper.a(AdWebViewLandPageActivityProxy.this.mContext, true);
                 }
             });
@@ -328,10 +329,10 @@ public class AdWebViewLandPageActivityProxy extends com.kwad.sdk.core.e.a<com.kw
     @Override // com.kwad.sdk.core.e.a
     public com.kwad.sdk.reward.a onCreateCallerContext() {
         com.kwad.sdk.reward.a aVar = new com.kwad.sdk.reward.a();
-        aVar.f57420h = getActivity();
-        aVar.f57421i = this.mContext;
+        aVar.f55770h = getActivity();
+        aVar.f55771i = this.mContext;
         AdTemplate adTemplate = this.mAdTemplate;
-        aVar.f57419g = adTemplate;
+        aVar.f55769g = adTemplate;
         aVar.r = false;
         if (com.kwad.sdk.core.response.a.a.P(com.kwad.sdk.core.response.a.d.j(adTemplate))) {
             com.kwad.sdk.utils.b.a(this.mContext).a(true);

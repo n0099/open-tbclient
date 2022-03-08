@@ -2,7 +2,6 @@ package com.googlecode.mp4parser.authoring.tracks;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.rtc.record.MediaEncodeParams;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,9 +38,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import org.apache.commons.codec.digest4util.PureJavaCrc32C;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class AACTrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
     public static Map<Integer, String> audioObjectTypes;
@@ -57,7 +55,7 @@ public class AACTrackImpl extends AbstractTrack {
     public List<Sample> samples;
     public TrackMetaData trackMetaData;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class AdtsHeader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -170,7 +168,7 @@ public class AACTrackImpl extends AbstractTrack {
         hashMap2.put(96000, 0);
         samplingFrequencyIndexMap.put(88200, 1);
         samplingFrequencyIndexMap.put(64000, 2);
-        samplingFrequencyIndexMap.put(Integer.valueOf((int) MediaEncodeParams.AUDIO_SAMPLE_RATE), 3);
+        samplingFrequencyIndexMap.put(48000, 3);
         samplingFrequencyIndexMap.put(44100, 4);
         samplingFrequencyIndexMap.put(32000, 5);
         samplingFrequencyIndexMap.put(24000, 6);
@@ -182,7 +180,7 @@ public class AACTrackImpl extends AbstractTrack {
         samplingFrequencyIndexMap.put(0, 96000);
         samplingFrequencyIndexMap.put(1, 88200);
         samplingFrequencyIndexMap.put(2, 64000);
-        samplingFrequencyIndexMap.put(3, Integer.valueOf((int) MediaEncodeParams.AUDIO_SAMPLE_RATE));
+        samplingFrequencyIndexMap.put(3, 48000);
         samplingFrequencyIndexMap.put(4, 44100);
         samplingFrequencyIndexMap.put(5, 32000);
         samplingFrequencyIndexMap.put(6, 24000);
@@ -248,7 +246,7 @@ public class AACTrackImpl extends AbstractTrack {
                 }
             }
             this.avgBitRate = (int) ((j2 * 8) / size);
-            this.bufferSizeDB = PureJavaCrc32C.T8_6_start;
+            this.bufferSizeDB = 1536;
             this.sampleDescriptionBox = new SampleDescriptionBox();
             AudioSampleEntry audioSampleEntry = new AudioSampleEntry(AudioSampleEntry.TYPE3);
             int i3 = this.firstHeader.channelconfig;

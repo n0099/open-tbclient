@@ -44,7 +44,7 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class FlutterJNI {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterJNI";
@@ -77,19 +77,19 @@ public class FlutterJNI {
     @Nullable
     public PlatformViewsController platformViewsController;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface AccessibilityDelegate {
         void updateCustomAccessibilityActions(@NonNull ByteBuffer byteBuffer, @NonNull String[] strArr);
 
         void updateSemantics(@NonNull ByteBuffer byteBuffer, @NonNull String[] strArr, @NonNull ByteBuffer[] byteBufferArr);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface AsyncWaitForVsyncDelegate {
         void asyncWaitForVsync(long j2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

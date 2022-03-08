@@ -51,7 +51,7 @@ import com.kuaishou.weapon.un.s;
 import java.io.File;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class IdentityCardDetectionActivity extends CameraBaseActivity implements View.OnClickListener, IImageProcess {
     public static /* synthetic */ Interceptable $ic = null;
     public static int mSteps = 1;
@@ -175,10 +175,10 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
     private void openSysAlbum() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65555, this) == null) {
-            if (PermissionManager.checkCallingPermission(getActivity(), s.f55460i)) {
+            if (PermissionManager.checkCallingPermission(getActivity(), s.f53810i)) {
                 gotoSysAlbum();
             } else {
-                BaiduWalletUtils.requestPermissionsDialog("", this, new String[]{s.f55460i}, new BaiduWalletUtils.IRequestPermissionCallBack(this) { // from class: com.baidu.wallet.base.iddetect.IdentityCardDetectionActivity.4
+                BaiduWalletUtils.requestPermissionsDialog("", this, new String[]{s.f53810i}, new BaiduWalletUtils.IRequestPermissionCallBack(this) { // from class: com.baidu.wallet.base.iddetect.IdentityCardDetectionActivity.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ IdentityCardDetectionActivity this$0;
@@ -206,12 +206,12 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
                             if (bool.booleanValue()) {
-                                if (PermissionManager.checkCallingOrSelfPermission(this.this$0.getActivity(), new String[]{s.f55460i}, 18)) {
+                                if (PermissionManager.checkCallingOrSelfPermission(this.this$0.getActivity(), new String[]{s.f53810i}, 18)) {
                                     return;
                                 }
                                 this.this$0.handleNoStoragePermission();
                             } else if (Build.VERSION.SDK_INT >= 23) {
-                                this.this$0.onRequestPermissionsResult(1, new String[]{s.f55460i}, new int[]{-1});
+                                this.this$0.onRequestPermissionsResult(1, new String[]{s.f53810i}, new int[]{-1});
                             }
                         }
                     }
@@ -594,7 +594,7 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
             if (i2 == 18) {
                 if (strArr != null && iArr != null && strArr.length != 0 && iArr.length != 0) {
                     for (int i3 = 0; i3 < strArr.length; i3++) {
-                        if (s.f55460i.equalsIgnoreCase(strArr[i3]) && iArr != null && iArr.length > i3) {
+                        if (s.f53810i.equalsIgnoreCase(strArr[i3]) && iArr != null && iArr.length > i3) {
                             if (iArr[i3] == 0) {
                                 gotoSysAlbum();
                             } else if (-1 == iArr[i3]) {

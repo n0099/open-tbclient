@@ -40,7 +40,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class BdStatisticsManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IMG_OVER_TIME = 2000;
@@ -69,7 +69,7 @@ public class BdStatisticsManager {
     public String mWriteFileDir;
     public r permissionUtil;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,7 +114,7 @@ public class BdStatisticsManager {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class b implements a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -155,7 +155,7 @@ public class BdStatisticsManager {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class c extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -607,7 +607,7 @@ public class BdStatisticsManager {
             c.a.d.f.n.n.b.m().n(dVar, str4, str5);
             g.i().l(dVar);
             if (dVar != null) {
-                this.mAppVersion = dVar.f2079c;
+                this.mAppVersion = dVar.f2708c;
             }
             if (TextUtils.isEmpty(this.mProcessNameMd5)) {
                 String processNameMd5 = getProcessNameMd5();
@@ -771,7 +771,7 @@ public class BdStatisticsManager {
         if (!(interceptable == null || interceptable.invokeL(1048623, this, str) == null) || (dVar = this.mCommonData) == null) {
             return;
         }
-        dVar.f2083g = str;
+        dVar.f2712g = str;
     }
 
     public void setCuidGalaxy2(String str) {
@@ -780,7 +780,7 @@ public class BdStatisticsManager {
         if (!(interceptable == null || interceptable.invokeL(1048624, this, str) == null) || (dVar = this.mCommonData) == null) {
             return;
         }
-        dVar.f2084h = str;
+        dVar.f2713h = str;
     }
 
     public void setOaid(String str) {

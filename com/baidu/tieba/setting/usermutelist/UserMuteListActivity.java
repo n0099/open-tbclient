@@ -7,8 +7,8 @@ import android.widget.AbsListView;
 import android.widget.ListAdapter;
 import c.a.d.f.p.l;
 import c.a.d.f.p.m;
-import c.a.t0.s.t.a;
-import c.a.u0.o3.o.a;
+import c.a.q0.r.t.a;
+import c.a.r0.n3.f.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -19,6 +19,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.R;
 import com.baidu.tieba.setting.usermutelist.UserMuteQueryModel;
 import com.baidu.tieba.usermute.UserMuteAddAndDelCustomMessage;
 import com.baidu.tieba.usermute.response.UserMuteDelResponseMessage;
@@ -31,14 +32,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import tbclient.UserMuteQuery.MuteUser;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId MESSAGE_ID_USER_MUTE_LIST;
     public transient /* synthetic */ FieldHolder $fh;
     public String delUserId;
     public boolean isNeedRefresh;
-    public c.a.u0.o3.o.a mAdapter;
+    public c.a.r0.n3.f.a mAdapter;
     public UserMuteQueryModel.b mCallback;
     public c.a.d.a.f mCtx;
     public ArrayList<MuteUser> mData;
@@ -46,21 +47,21 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
     public CustomMessageListener mNeedRefreshListener;
     public a.e mRemoveClickHandler;
     public CustomMessageListener mRemoveItemListener;
-    public c.a.t0.s.l0.c mToastMute;
+    public c.a.q0.r.l0.c mToastMute;
     public CustomMessageListener mUserMuteDelListener;
     public UserMuteQueryModel mUserMuteQueryModel;
-    public c.a.u0.o3.o.b mView;
-    public c.a.t0.s.l0.a mWaitingDialog;
+    public c.a.r0.n3.f.b mView;
+    public c.a.q0.r.l0.a mWaitingDialog;
     public int page;
     public int rN;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserMuteListActivity f48044e;
+        public final /* synthetic */ UserMuteListActivity f46461e;
 
         public a(UserMuteListActivity userMuteListActivity) {
             Interceptable interceptable = $ic;
@@ -77,11 +78,11 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
                     return;
                 }
             }
-            this.f48044e = userMuteListActivity;
+            this.f46461e = userMuteListActivity;
         }
 
-        @Override // c.a.t0.s.t.a.e
-        public void onClick(c.a.t0.s.t.a aVar) {
+        @Override // c.a.q0.r.t.a.e
+        public void onClick(c.a.q0.r.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
@@ -89,7 +90,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class b implements UserMuteQueryModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,7 +135,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -171,18 +172,18 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
             this.a.mWaitingDialog.h(false);
             UserMuteDelResponseMessage userMuteDelResponseMessage = (UserMuteDelResponseMessage) customResponsedMessage.getData();
             if (userMuteDelResponseMessage.getMuteErrorCode() == 0) {
-                this.a.mToastMute.c(this.a.mCtx.getResources().getString(c.a.u0.o3.g.un_mute_success));
+                this.a.mToastMute.c(this.a.mCtx.getResources().getString(R.string.un_mute_success));
                 return;
             }
             String muteMessage = userMuteDelResponseMessage.getMuteMessage();
             if (m.isEmpty(muteMessage)) {
-                muteMessage = this.a.mCtx.getResources().getString(c.a.u0.o3.g.un_mute_fail);
+                muteMessage = this.a.mCtx.getResources().getString(R.string.un_mute_fail);
             }
             this.a.mToastMute.b(muteMessage);
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -219,7 +220,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -271,7 +272,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class f implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -295,12 +296,12 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
             this.a = userMuteListActivity;
         }
 
-        @Override // c.a.u0.o3.o.a.e
+        @Override // c.a.r0.n3.f.a.e
         public void a(long j2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJL(1048576, this, j2, str) == null) {
                 if (!l.z()) {
-                    this.a.showToast(c.a.u0.o3.g.neterror);
+                    this.a.showToast(R.string.neterror);
                     return;
                 }
                 TiebaStatic.log("c10047");
@@ -314,7 +315,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class g implements a.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -338,7 +339,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
             this.a = userMuteListActivity;
         }
 
-        @Override // c.a.u0.o3.o.a.d
+        @Override // c.a.r0.n3.f.a.d
         public void a(long j2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJL(1048576, this, j2, str) == null) {
@@ -349,13 +350,13 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class h implements AbsListView.OnScrollListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserMuteListActivity f48045e;
+        public final /* synthetic */ UserMuteListActivity f46462e;
 
         public h(UserMuteListActivity userMuteListActivity) {
             Interceptable interceptable = $ic;
@@ -372,7 +373,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
                     return;
                 }
             }
-            this.f48045e = userMuteListActivity;
+            this.f46462e = userMuteListActivity;
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
@@ -386,18 +387,18 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         public void onScrollStateChanged(AbsListView absListView, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i2) == null) && absListView.getLastVisiblePosition() == absListView.getCount() - 1) {
-                this.f48045e.mUserMuteQueryModel.y(c.a.d.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L), this.f48045e.page, this.f48045e.rN);
+                this.f46462e.mUserMuteQueryModel.y(c.a.d.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L), this.f46462e.page, this.f46462e.rN);
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class i implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserMuteListActivity f48046e;
+        public final /* synthetic */ UserMuteListActivity f46463e;
 
         public i(UserMuteListActivity userMuteListActivity) {
             Interceptable interceptable = $ic;
@@ -414,31 +415,31 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
                     return;
                 }
             }
-            this.f48046e = userMuteListActivity;
+            this.f46463e = userMuteListActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                if (this.f48046e.mUserMuteQueryModel != null) {
-                    this.f48046e.mUserMuteQueryModel.cancelLoadData();
+                if (this.f46463e.mUserMuteQueryModel != null) {
+                    this.f46463e.mUserMuteQueryModel.cancelLoadData();
                 }
                 MessageManager.getInstance().removeMessage(UserMuteListActivity.MESSAGE_ID_USER_MUTE_LIST);
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class j implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserMuteAddAndDelCustomMessage f48047e;
+        public final /* synthetic */ UserMuteAddAndDelCustomMessage f46464e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UserMuteListActivity f48048f;
+        public final /* synthetic */ UserMuteListActivity f46465f;
 
         public j(UserMuteListActivity userMuteListActivity, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
             Interceptable interceptable = $ic;
@@ -455,16 +456,16 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
                     return;
                 }
             }
-            this.f48048f = userMuteListActivity;
-            this.f48047e = userMuteAddAndDelCustomMessage;
+            this.f46465f = userMuteListActivity;
+            this.f46464e = userMuteAddAndDelCustomMessage;
         }
 
-        @Override // c.a.t0.s.t.a.e
-        public void onClick(c.a.t0.s.t.a aVar) {
+        @Override // c.a.q0.r.t.a.e
+        public void onClick(c.a.q0.r.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f48048f.showLoadingDialog();
-                MessageManager.getInstance().sendMessage(this.f48047e);
+                this.f46465f.showLoadingDialog();
+                MessageManager.getInstance().sendMessage(this.f46464e);
                 aVar.dismiss();
             }
         }
@@ -526,7 +527,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
                 return;
             }
             if (this.mWaitingDialog == null) {
-                c.a.t0.s.l0.a aVar = new c.a.t0.s.l0.a(getPageContext());
+                c.a.q0.r.l0.a aVar = new c.a.q0.r.l0.a(getPageContext());
                 this.mWaitingDialog = aVar;
                 aVar.e(new i(this));
             }
@@ -543,14 +544,14 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
                 MessageManager.getInstance().sendMessage(userMuteAddAndDelCustomMessage);
                 return;
             }
-            c.a.t0.s.t.a aVar = new c.a.t0.s.t.a(this.mCtx.getPageActivity());
+            c.a.q0.r.t.a aVar = new c.a.q0.r.t.a(this.mCtx.getPageActivity());
             if (m.isEmpty(str)) {
-                aVar.setMessage(this.mCtx.getResources().getString(c.a.u0.o3.g.block_mute_message_alert, str2));
+                aVar.setMessage(this.mCtx.getResources().getString(R.string.block_mute_message_alert, str2));
             } else {
                 aVar.setMessage(str);
             }
-            aVar.setPositiveButton(c.a.u0.o3.g.confirm, new j(this, userMuteAddAndDelCustomMessage));
-            aVar.setNegativeButton(c.a.u0.o3.g.cancel, new a(this));
+            aVar.setPositiveButton(R.string.confirm, new j(this, userMuteAddAndDelCustomMessage));
+            aVar.setNegativeButton(R.string.cancel, new a(this));
             aVar.create(this.mCtx).show();
         }
     }
@@ -560,9 +561,9 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
-            this.mAdapter = new c.a.u0.o3.o.a(this, this.mRemoveClickHandler, this.mHeaderClickHandler);
+            this.mAdapter = new c.a.r0.n3.f.a(this, this.mRemoveClickHandler, this.mHeaderClickHandler);
             this.mUserMuteQueryModel = new UserMuteQueryModel(this.mCallback);
-            c.a.u0.o3.o.b bVar = new c.a.u0.o3.o.b(this, this.mAdapter);
+            c.a.r0.n3.f.b bVar = new c.a.r0.n3.f.b(this, this.mAdapter);
             this.mView = bVar;
             bVar.d().setAdapter((ListAdapter) this.mAdapter);
             this.mView.d().setOnScrollListener(new h(this));
@@ -571,7 +572,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
             registerListener(this.mNeedRefreshListener);
             this.mUserMuteQueryModel.x(c.a.d.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L));
             this.mCtx = getPageContext();
-            c.a.t0.s.l0.c cVar = new c.a.t0.s.l0.c();
+            c.a.q0.r.l0.c cVar = new c.a.q0.r.l0.c();
             this.mToastMute = cVar;
             cVar.a = 1000L;
             registerListener(this.mUserMuteDelListener);

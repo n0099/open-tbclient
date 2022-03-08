@@ -17,28 +17,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class MaskView extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final RectF f31412e;
+    public final RectF f29815e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final RectF f31413f;
+    public final RectF f29816f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final RectF f31414g;
+    public final RectF f29817g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Paint f31415h;
+    public final Paint f29818h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Path f31416i;
+    public final Path f29819i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f31417j;
+    public boolean f29820j;
     public boolean k;
     public final Paint l;
     public final Paint m;
@@ -77,16 +77,16 @@ public class MaskView extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, rectF, i2) == null) {
             if (i2 == 16) {
-                float f2 = this.f31412e.left;
+                float f2 = this.f29815e.left;
                 rectF.left = f2;
                 rectF.right = f2 + view.getMeasuredWidth();
             } else if (i2 == 32) {
-                rectF.left = (this.f31412e.width() - view.getMeasuredWidth()) / 2.0f;
-                rectF.right = (this.f31412e.width() + view.getMeasuredWidth()) / 2.0f;
-                rectF.offset(this.f31412e.left, 0.0f);
+                rectF.left = (this.f29815e.width() - view.getMeasuredWidth()) / 2.0f;
+                rectF.right = (this.f29815e.width() + view.getMeasuredWidth()) / 2.0f;
+                rectF.offset(this.f29815e.left, 0.0f);
             } else if (i2 != 48) {
             } else {
-                float f3 = this.f31412e.right;
+                float f3 = this.f29815e.right;
                 rectF.right = f3;
                 rectF.left = f3 - view.getMeasuredWidth();
             }
@@ -96,16 +96,16 @@ public class MaskView extends ViewGroup {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f31416i.reset();
-            this.f31416i.addRect(this.f31412e, Path.Direction.CW);
-            this.f31416i.addRect(this.f31413f, Path.Direction.CW);
+            this.f29819i.reset();
+            this.f29819i.addRect(this.f29815e, Path.Direction.CW);
+            this.f29819i.addRect(this.f29816f, Path.Direction.CW);
         }
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f31415h.setAlpha(i2);
+            this.f29818h.setAlpha(i2);
             invalidate();
         }
     }
@@ -116,7 +116,7 @@ public class MaskView extends ViewGroup {
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
             long drawingTime = getDrawingTime();
             canvas.save();
-            canvas.drawRect(this.f31413f, this.f31415h);
+            canvas.drawRect(this.f29816f, this.f29818h);
             canvas.restore();
             for (int i2 = 0; i2 < getChildCount(); i2++) {
                 try {
@@ -131,7 +131,7 @@ public class MaskView extends ViewGroup {
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f31415h.setColor(i2);
+            this.f29818h.setColor(i2);
             invalidate();
         }
     }
@@ -139,9 +139,9 @@ public class MaskView extends ViewGroup {
     public void f(Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, rect) == null) {
-            this.f31413f.set(rect);
+            this.f29816f.set(rect);
             c();
-            this.f31417j = true;
+            this.f29820j = true;
             invalidate();
         }
     }
@@ -155,7 +155,7 @@ public class MaskView extends ViewGroup {
     public void h(Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, rect) == null) {
-            this.f31412e.set(rect);
+            this.f29815e.set(rect);
             c();
             invalidate();
         }
@@ -172,16 +172,16 @@ public class MaskView extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048587, this, view, rectF, i2) == null) {
             if (i2 == 16) {
-                float f2 = this.f31412e.top;
+                float f2 = this.f29815e.top;
                 rectF.top = f2;
                 rectF.bottom = f2 + view.getMeasuredHeight();
             } else if (i2 == 32) {
-                rectF.top = (this.f31412e.width() - view.getMeasuredHeight()) / 2.0f;
-                rectF.bottom = (this.f31412e.width() + view.getMeasuredHeight()) / 2.0f;
-                rectF.offset(0.0f, this.f31412e.top);
+                rectF.top = (this.f29815e.width() - view.getMeasuredHeight()) / 2.0f;
+                rectF.bottom = (this.f29815e.width() + view.getMeasuredHeight()) / 2.0f;
+                rectF.offset(0.0f, this.f29815e.top);
             } else if (i2 != 48) {
             } else {
-                RectF rectF2 = this.f31412e;
+                RectF rectF2 = this.f29815e;
                 rectF.bottom = rectF2.bottom;
                 rectF.top = rectF2.bottom - view.getMeasuredHeight();
             }
@@ -213,44 +213,44 @@ public class MaskView extends ViewGroup {
                 if (childAt != null && (layoutParams = (LayoutParams) childAt.getLayoutParams()) != null) {
                     int i7 = layoutParams.a;
                     if (i7 == 1) {
-                        RectF rectF = this.f31414g;
-                        float f3 = this.f31412e.left;
+                        RectF rectF = this.f29817g;
+                        float f3 = this.f29815e.left;
                         rectF.right = f3;
                         rectF.left = f3 - childAt.getMeasuredWidth();
-                        j(childAt, this.f31414g, layoutParams.f31418b);
+                        j(childAt, this.f29817g, layoutParams.f29821b);
                     } else if (i7 == 2) {
-                        RectF rectF2 = this.f31414g;
-                        float f4 = this.f31412e.top;
+                        RectF rectF2 = this.f29817g;
+                        float f4 = this.f29815e.top;
                         rectF2.bottom = f4;
                         rectF2.top = f4 - childAt.getMeasuredHeight();
-                        b(childAt, this.f31414g, layoutParams.f31418b);
+                        b(childAt, this.f29817g, layoutParams.f29821b);
                     } else if (i7 == 3) {
-                        RectF rectF3 = this.f31414g;
-                        float f5 = this.f31412e.right;
+                        RectF rectF3 = this.f29817g;
+                        float f5 = this.f29815e.right;
                         rectF3.left = f5;
                         rectF3.right = f5 + childAt.getMeasuredWidth();
-                        j(childAt, this.f31414g, layoutParams.f31418b);
+                        j(childAt, this.f29817g, layoutParams.f29821b);
                     } else if (i7 == 4) {
-                        RectF rectF4 = this.f31414g;
-                        float f6 = this.f31412e.bottom;
+                        RectF rectF4 = this.f29817g;
+                        float f6 = this.f29815e.bottom;
                         rectF4.top = f6;
                         rectF4.bottom = f6 + childAt.getMeasuredHeight();
-                        b(childAt, this.f31414g, layoutParams.f31418b);
+                        b(childAt, this.f29817g, layoutParams.f29821b);
                     } else if (i7 == 5) {
-                        this.f31414g.left = (((int) this.f31412e.width()) - childAt.getMeasuredWidth()) >> 1;
-                        this.f31414g.top = (((int) this.f31412e.height()) - childAt.getMeasuredHeight()) >> 1;
-                        this.f31414g.right = (((int) this.f31412e.width()) + childAt.getMeasuredWidth()) >> 1;
-                        this.f31414g.bottom = (((int) this.f31412e.height()) + childAt.getMeasuredHeight()) >> 1;
-                        RectF rectF5 = this.f31414g;
-                        RectF rectF6 = this.f31412e;
+                        this.f29817g.left = (((int) this.f29815e.width()) - childAt.getMeasuredWidth()) >> 1;
+                        this.f29817g.top = (((int) this.f29815e.height()) - childAt.getMeasuredHeight()) >> 1;
+                        this.f29817g.right = (((int) this.f29815e.width()) + childAt.getMeasuredWidth()) >> 1;
+                        this.f29817g.bottom = (((int) this.f29815e.height()) + childAt.getMeasuredHeight()) >> 1;
+                        RectF rectF5 = this.f29817g;
+                        RectF rectF6 = this.f29815e;
                         rectF5.offset(rectF6.left, rectF6.top);
                     }
                     if (this.k) {
-                        this.f31414g.offset(layoutParams.f31419c, layoutParams.f31420d);
+                        this.f29817g.offset(layoutParams.f29822c, layoutParams.f29823d);
                     } else {
-                        this.f31414g.offset((int) ((layoutParams.f31419c * f2) + 0.5f), (int) ((layoutParams.f31420d * f2) + 0.5f));
+                        this.f29817g.offset((int) ((layoutParams.f29822c * f2) + 0.5f), (int) ((layoutParams.f29823d * f2) + 0.5f));
                     }
-                    RectF rectF7 = this.f31414g;
+                    RectF rectF7 = this.f29817g;
                     childAt.layout((int) rectF7.left, (int) rectF7.top, (int) rectF7.right, (int) rectF7.bottom);
                 }
             }
@@ -264,8 +264,8 @@ public class MaskView extends ViewGroup {
             int i4 = i2 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK;
             int i5 = i3 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK;
             setMeasuredDimension(i4, i5);
-            if (!this.f31417j) {
-                this.f31413f.set(0.0f, 0.0f, i4, i5);
+            if (!this.f29820j) {
+                this.f29816f.set(0.0f, 0.0f, i4, i5);
                 c();
             }
             int childCount = getChildCount();
@@ -322,11 +322,11 @@ public class MaskView extends ViewGroup {
                 return;
             }
         }
-        this.f31412e = new RectF();
-        this.f31413f = new RectF();
-        this.f31414g = new RectF();
-        this.f31415h = new Paint();
-        this.f31416i = new Path();
+        this.f29815e = new RectF();
+        this.f29816f = new RectF();
+        this.f29817g = new RectF();
+        this.f29818h = new Paint();
+        this.f29819i = new Path();
         this.k = false;
         this.l = new Paint();
         Paint paint = new Paint();
@@ -338,24 +338,24 @@ public class MaskView extends ViewGroup {
         setFocusable(true);
         setFocusableInTouchMode(true);
         requestFocus();
-        this.f31416i.setFillType(Path.FillType.EVEN_ODD);
+        this.f29819i.setFillType(Path.FillType.EVEN_ODD);
         c();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class LayoutParams extends ViewGroup.LayoutParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f31418b;
+        public int f29821b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f31419c;
+        public int f29822c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f31420d;
+        public int f29823d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LayoutParams(Context context, AttributeSet attributeSet) {
@@ -377,9 +377,9 @@ public class MaskView extends ViewGroup {
                 }
             }
             this.a = 4;
-            this.f31418b = 32;
-            this.f31419c = 0;
-            this.f31420d = 0;
+            this.f29821b = 32;
+            this.f29822c = 0;
+            this.f29823d = 0;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -402,9 +402,9 @@ public class MaskView extends ViewGroup {
                 }
             }
             this.a = 4;
-            this.f31418b = 32;
-            this.f31419c = 0;
-            this.f31420d = 0;
+            this.f29821b = 32;
+            this.f29822c = 0;
+            this.f29823d = 0;
         }
     }
 }

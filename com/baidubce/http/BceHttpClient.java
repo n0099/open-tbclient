@@ -42,7 +42,7 @@ import okio.BufferedSink;
 import okio.Okio;
 import okio.Source;
 @SuppressLint({"NewApi"})
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class BceHttpClient {
     public static /* synthetic */ Interceptable $ic;
     public static final HttpClientFactory httpClientFactory;
@@ -334,7 +334,7 @@ public class BceHttpClient {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class BceServiceRequestBody<T extends AbstractBceRequest> extends RequestBody {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

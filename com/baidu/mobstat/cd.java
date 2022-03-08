@@ -3,7 +3,6 @@ package com.baidu.mobstat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobstat.by;
 import com.baidu.mobstat.cq;
-import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,38 +14,38 @@ import java.nio.ByteBuffer;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public abstract class cd {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 1000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f36820b = 64;
+    public static int f35223b = 64;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f36821c;
+    public static final byte[] f35224c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public by.b f36822d;
+    public by.b f35225d;
 
     /* renamed from: e  reason: collision with root package name */
-    public cq.a f36823e;
+    public cq.a f35226e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f36824b;
+        public static final a f35227b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f36825c;
+        public static final a f35228c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final /* synthetic */ a[] f36826d;
+        public static final /* synthetic */ a[] f35229d;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -62,11 +61,11 @@ public abstract class cd {
                     return;
                 }
             }
-            a = new a(PolyActivity.NONE_PANEL_TYPE, 0);
-            f36824b = new a("ONEWAY", 1);
+            a = new a("NONE", 0);
+            f35227b = new a("ONEWAY", 1);
             a aVar = new a("TWOWAY", 2);
-            f36825c = aVar;
-            f36826d = new a[]{a, f36824b, aVar};
+            f35228c = aVar;
+            f35229d = new a[]{a, f35227b, aVar};
         }
 
         public a(String str, int i2) {
@@ -97,21 +96,21 @@ public abstract class cd {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f36826d.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f35229d.clone() : (a[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final b f36827b;
+        public static final b f35230b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final /* synthetic */ b[] f36828c;
+        public static final /* synthetic */ b[] f35231c;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -129,8 +128,8 @@ public abstract class cd {
             }
             a = new b("MATCHED", 0);
             b bVar = new b("NOT_MATCHED", 1);
-            f36827b = bVar;
-            f36828c = new b[]{a, bVar};
+            f35230b = bVar;
+            f35231c = new b[]{a, bVar};
         }
 
         public b(String str, int i2) {
@@ -161,7 +160,7 @@ public abstract class cd {
         public static b[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f36828c.clone() : (b[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f35231c.clone() : (b[]) invokeV.objValue;
         }
     }
 
@@ -178,7 +177,7 @@ public abstract class cd {
                 return;
             }
         }
-        f36821c = dc.a("<policy-file-request/>\u0000");
+        f35224c = dc.a("<policy-file-request/>\u0000");
     }
 
     public cd() {
@@ -194,8 +193,8 @@ public abstract class cd {
                 return;
             }
         }
-        this.f36822d = null;
-        this.f36823e = null;
+        this.f35225d = null;
+        this.f35226e = null;
     }
 
     public static ByteBuffer a(ByteBuffer byteBuffer) {
@@ -252,7 +251,7 @@ public abstract class cd {
     public cx d(ByteBuffer byteBuffer) throws cj {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, byteBuffer)) == null) ? a(byteBuffer, this.f36822d) : (cx) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, byteBuffer)) == null) ? a(byteBuffer, this.f35225d) : (cx) invokeL.objValue;
     }
 
     /* JADX WARN: Multi-variable type inference failed */
@@ -358,7 +357,7 @@ public abstract class cd {
     public void a(by.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.f36822d = bVar;
+            this.f35225d = bVar;
         }
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.utils.LogUtil;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class WeiboMultiMessage implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static int NineImageType = 2;

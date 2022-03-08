@@ -9,17 +9,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class f<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "f";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Class<T> f33984b;
+    public final Class<T> f32387b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.baidu.fsg.base.restnet.a.a<?> f33985c;
+    public final com.baidu.fsg.base.restnet.a.a<?> f32388c;
 
     static {
         InterceptResult invokeClinit;
@@ -57,8 +57,8 @@ public class f<T> {
         if (aVar == null) {
             throw new IllegalArgumentException("'messageConverters' must not be empty");
         }
-        this.f33984b = cls;
-        this.f33985c = aVar;
+        this.f32387b = cls;
+        this.f32388c = aVar;
     }
 
     private boolean b(e eVar) throws Exception {
@@ -79,7 +79,7 @@ public class f<T> {
                 if (eVar.a().j() == null) {
                     Log.isLoggable(a, 3);
                 }
-                return (T) this.f33985c.a(this.f33984b, eVar);
+                return (T) this.f32388c.a(this.f32387b, eVar);
             }
             return null;
         }

@@ -15,14 +15,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class SelectNumberDialog extends BaseDialog implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdapterView.OnItemClickListener f51009b;
+    public AdapterView.OnItemClickListener f49428b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SelectNumberDialog(Context context) {
@@ -53,10 +53,10 @@ public class SelectNumberDialog extends BaseDialog implements View.OnClickListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             dismiss();
-            if (this.f51009b == null || view.getTag() == null) {
+            if (this.f49428b == null || view.getTag() == null) {
                 return;
             }
-            this.f51009b.onItemClick(null, view, ((Integer) view.getTag()).intValue(), 0L);
+            this.f49428b.onItemClick(null, view, ((Integer) view.getTag()).intValue(), 0L);
         }
     }
 
@@ -101,7 +101,7 @@ public class SelectNumberDialog extends BaseDialog implements View.OnClickListen
     public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onItemClickListener) == null) {
-            this.f51009b = onItemClickListener;
+            this.f49428b = onItemClickListener;
         }
     }
 }

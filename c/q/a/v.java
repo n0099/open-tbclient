@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class v {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static v f30728b;
+    public static v f29152b;
     public transient /* synthetic */ FieldHolder $fh;
     public ConcurrentHashMap a;
 
@@ -36,14 +36,14 @@ public class v {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f30728b == null) {
+            if (f29152b == null) {
                 synchronized (v.class) {
-                    if (f30728b == null) {
-                        f30728b = new v();
+                    if (f29152b == null) {
+                        f29152b = new v();
                     }
                 }
             }
-            return f30728b;
+            return f29152b;
         }
         return (v) invokeV.objValue;
     }

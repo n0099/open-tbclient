@@ -12,17 +12,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d0.d.d;
-import c.a.d0.d.e;
-import c.a.d0.h0.f;
-import c.a.d0.s.r;
-import c.a.d0.v.c0.g;
-import c.a.d0.v.j0.f;
+import c.a.b0.h0.f;
+import c.a.b0.s.r;
+import c.a.b0.v.c0.g;
+import c.a.b0.v.j0.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.net.util.NetUtil;
 import com.baidu.nadcore.player.tail.AdBaseTailFrameView;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.searchbox.player.event.PlayerEvent;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,16 +29,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
 import java.lang.ref.WeakReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public r f37312i;
+    public r f35715i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f37313j;
+    public boolean f35716j;
     public Handler k;
     public b l;
     public View m;
@@ -53,7 +52,7 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
     public TextView p;
     public f q;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public class a implements AdBaseTailFrameView.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,14 +85,14 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a();
 
         void b();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static class c extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +108,7 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 super.handleMessage(message);
                 AdVideoTailFrameView adVideoTailFrameView = this.a.get();
-                if (adVideoTailFrameView == null || message.what != 1 || adVideoTailFrameView.f37313j) {
+                if (adVideoTailFrameView == null || message.what != 1 || adVideoTailFrameView.f35716j) {
                     return;
                 }
                 adVideoTailFrameView.mHasPlayTime++;
@@ -171,7 +170,7 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             this.mHalfFlag = z;
-            r rVar = this.f37312i;
+            r rVar = this.f35715i;
             if (rVar != null && TextUtils.equals(rVar.n, "ad_full_video")) {
                 j(z);
             }
@@ -217,14 +216,14 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             onVPlayerNightModeChanged(false);
             setAlsHandler(new a(this));
-            this.mVideoADClose = findViewById(e.video_ad_suffix_timer_close);
-            this.mVideoADTimer = (TextView) findViewById(e.video_ad_suffix_timer);
-            this.m = findViewById(e.video_ad_suffix_timer_close_area);
-            this.n = (ImageView) findViewById(e.video_ad_suffix_close);
-            this.o = (TextView) findViewById(e.video_ad_suffix_close_divider);
-            this.p = (TextView) findViewById(e.video_ad_suffix_close_txt);
-            this.m.setBackground(getResources().getDrawable(d.nad_videoplayer_video_ad_tip_bg));
-            this.n.setImageDrawable(getResources().getDrawable(d.nad_videoplayer_video_ad_icon_close));
+            this.mVideoADClose = findViewById(R.id.video_ad_suffix_timer_close);
+            this.mVideoADTimer = (TextView) findViewById(R.id.video_ad_suffix_timer);
+            this.m = findViewById(R.id.video_ad_suffix_timer_close_area);
+            this.n = (ImageView) findViewById(R.id.video_ad_suffix_close);
+            this.o = (TextView) findViewById(R.id.video_ad_suffix_close_divider);
+            this.p = (TextView) findViewById(R.id.video_ad_suffix_close_txt);
+            this.m.setBackground(getResources().getDrawable(R.drawable.nad_videoplayer_video_ad_tip_bg));
+            this.n.setImageDrawable(getResources().getDrawable(R.drawable.nad_videoplayer_video_ad_icon_close));
             this.mVideoADClose.setOnClickListener(this);
         }
     }
@@ -233,7 +232,7 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            r rVar = this.f37312i;
+            r rVar = this.f35715i;
             return rVar != null && rVar.i();
         }
         return invokeV.booleanValue;
@@ -247,7 +246,7 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
                 if (layoutParams instanceof FrameLayout.LayoutParams) {
                     FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
                     layoutParams2.gravity = BadgeDrawable.BOTTOM_START;
-                    layoutParams2.setMargins(getResources().getDimensionPixelSize(c.a.d0.d.c.nad_dimen_15dp), 0, 0, getResources().getDimensionPixelSize(c.a.d0.d.c.nad_dimen_10dp));
+                    layoutParams2.setMargins(getResources().getDimensionPixelSize(R.dimen.nad_dimen_15dp), 0, 0, getResources().getDimensionPixelSize(R.dimen.nad_dimen_10dp));
                     this.mVideoADClose.setLayoutParams(layoutParams2);
                 }
                 this.mVideoADTimer.setGravity(8388629);
@@ -260,7 +259,7 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
             if (layoutParams3 instanceof FrameLayout.LayoutParams) {
                 FrameLayout.LayoutParams layoutParams4 = (FrameLayout.LayoutParams) layoutParams3;
                 layoutParams4.gravity = BadgeDrawable.TOP_END;
-                layoutParams4.setMargins(0, getResources().getDimensionPixelSize(c.a.d0.d.c.nad_dimen_10dp), getResources().getDimensionPixelSize(c.a.d0.d.c.nad_dimen_15dp), 0);
+                layoutParams4.setMargins(0, getResources().getDimensionPixelSize(R.dimen.nad_dimen_10dp), getResources().getDimensionPixelSize(R.dimen.nad_dimen_15dp), 0);
                 this.mVideoADClose.setLayoutParams(layoutParams3);
             }
             this.mVideoADTimer.setGravity(17);
@@ -274,10 +273,10 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
     public void onClick(View view) {
         f fVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, view) == null) && view.getId() == e.video_ad_suffix_timer_close && (fVar = this.q) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048582, this, view) == null) && view.getId() == R.id.video_ad_suffix_timer_close && (fVar = this.q) != null) {
             fVar.O(8);
             this.q.M();
-            this.q.F(c.a.d0.v.c0.f.w("layer_event_ad_finish"));
+            this.q.F(c.a.b0.v.c0.f.w("layer_event_ad_finish"));
             if (!this.q.u().a0()) {
                 this.q.F(g.w(PlayerEvent.ACTION_ON_COMPLETE));
             }
@@ -292,22 +291,22 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.mNameView.getLayoutParams();
             LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.mOperateRootView.getLayoutParams();
             if (z) {
-                layoutParams.width = (int) getResources().getDimension(c.a.d0.d.c.nad_suffix_video_tail_frame_avatar_width_half);
-                layoutParams.height = (int) getResources().getDimension(c.a.d0.d.c.nad_suffix_video_tail_frame_avatar_width_half);
-                layoutParams.bottomMargin = (int) getResources().getDimension(c.a.d0.d.c.nad_suffix_video_tail_frame_avatar_margin_bottom_half);
-                layoutParams2.bottomMargin = (int) getResources().getDimension(c.a.d0.d.c.nad_suffix_video_tail_frame_name_margin_bottom_half);
-                layoutParams3.width = (int) getResources().getDimension(c.a.d0.d.c.nad_suffix_video_tail_frame_operate_btn_width_half);
-                layoutParams3.height = (int) getResources().getDimension(c.a.d0.d.c.nad_suffix_video_tail_frame_operate_btn_height_half);
+                layoutParams.width = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_avatar_width_half);
+                layoutParams.height = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_avatar_width_half);
+                layoutParams.bottomMargin = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_avatar_margin_bottom_half);
+                layoutParams2.bottomMargin = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_name_margin_bottom_half);
+                layoutParams3.width = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_operate_btn_width_half);
+                layoutParams3.height = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_operate_btn_height_half);
                 this.mNameView.setTextSize(14.0f);
                 this.mCheckBtn.setTextSize(13.0f);
                 this.mDownloadBtn.setTextSize(f.c.a(getContext(), 13.0f));
             } else {
-                layoutParams.width = (int) getResources().getDimension(c.a.d0.d.c.nad_suffix_video_tail_frame_avatar_width_full);
-                layoutParams.height = (int) getResources().getDimension(c.a.d0.d.c.nad_suffix_video_tail_frame_avatar_width_full);
-                layoutParams.bottomMargin = (int) getResources().getDimension(c.a.d0.d.c.nad_suffix_video_tail_frame_avatar_margin_bottom_full);
-                layoutParams2.bottomMargin = (int) getResources().getDimension(c.a.d0.d.c.nad_suffix_video_tail_frame_name_margin_bottom_full);
-                layoutParams3.width = (int) getResources().getDimension(c.a.d0.d.c.nad_suffix_video_tail_frame_operate_btn_width_full);
-                layoutParams3.height = (int) getResources().getDimension(c.a.d0.d.c.nad_suffix_video_tail_frame_operate_btn_height_full);
+                layoutParams.width = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_avatar_width_full);
+                layoutParams.height = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_avatar_width_full);
+                layoutParams.bottomMargin = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_avatar_margin_bottom_full);
+                layoutParams2.bottomMargin = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_name_margin_bottom_full);
+                layoutParams3.width = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_operate_btn_width_full);
+                layoutParams3.height = (int) getResources().getDimension(R.dimen.nad_suffix_video_tail_frame_operate_btn_height_full);
                 this.mNameView.setTextSize(17.0f);
                 this.mCheckBtn.setTextSize(14.0f);
                 this.mDownloadBtn.setTextSize(14);
@@ -328,7 +327,7 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
     public void pauseCountDown() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f37313j = true;
+            this.f35716j = true;
             Handler handler = this.k;
             if (handler != null) {
                 handler.removeMessages(1);
@@ -338,18 +337,18 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
 
     public void sendALS(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048586, this, str, str2, str3) == null) && this.f37312i != null && NetUtil.a(getContext())) {
+        if ((interceptable == null || interceptable.invokeLLL(1048586, this, str, str2, str3) == null) && this.f35715i != null && NetUtil.a(getContext())) {
             ClogBuilder clogBuilder = new ClogBuilder();
             clogBuilder.t(str);
             clogBuilder.q(ClogBuilder.Page.AD_TAIL);
             if (!TextUtils.isEmpty(str2)) {
                 clogBuilder.h(str2);
             }
-            clogBuilder.n(this.f37312i.l);
+            clogBuilder.n(this.f35715i.l);
             if (!TextUtils.isEmpty(str3)) {
                 clogBuilder.k(str3);
             }
-            c.a.d0.a0.a.b(clogBuilder);
+            c.a.b0.a0.a.b(clogBuilder);
         }
     }
 
@@ -363,24 +362,24 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
     public void setData(@NonNull Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048588, this, obj) == null) && (obj instanceof r)) {
-            this.f37312i = (r) obj;
+            this.f35715i = (r) obj;
         }
     }
 
     public void showTail() {
         r rVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (rVar = this.f37312i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (rVar = this.f35715i) == null) {
             return;
         }
-        this.mDurationTime = rVar.f3113f;
+        this.mDurationTime = rVar.f1943f;
         showTailFrame(rVar);
-        if (this.f37312i.q) {
+        if (this.f35715i.q) {
             startCountDown();
         } else {
             pauseCountDown();
         }
-        if (TextUtils.equals(this.f37312i.n, "ad_full_video")) {
+        if (TextUtils.equals(this.f35715i.n, "ad_full_video")) {
             this.mVideoADClose.setVisibility(0);
             j(!this.q.u().V0());
         }
@@ -395,7 +394,7 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
             } else {
                 this.k = new c(this, null);
             }
-            this.f37313j = false;
+            this.f35716j = false;
             this.k.sendMessage(this.k.obtainMessage(1));
         }
     }

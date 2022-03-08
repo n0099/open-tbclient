@@ -1,29 +1,42 @@
 package c.f.a.c;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import c.f.a.c.b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.dxmpay.apollon.eventbus.EventBus;
-import com.dxmpay.apollon.taskmanager.TaskManager;
-/* loaded from: classes9.dex */
+import com.dxmpay.apollon.utils.Md5Utils;
+import com.dxmpay.wallet.utils.FileUtils;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+/* loaded from: classes3.dex */
 public class a implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final e f28303e;
+    public String f28226e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final b f28304f;
+    public String f28227f;
 
-    public a(b bVar) {
+    /* renamed from: g  reason: collision with root package name */
+    public String f28228g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public b.a f28229h;
+
+    public a(String str, String str2, String str3, b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
+            Object[] objArr = {str, str2, str3, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -33,30 +46,55 @@ public class a implements Runnable {
                 return;
             }
         }
-        this.f28304f = bVar;
-        this.f28303e = new e();
-    }
-
-    public void a(g gVar, EventBus.Event event) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, gVar, event) == null) {
-            this.f28303e.b(d.a(gVar, event));
-            TaskManager taskManager = TaskManager.getInstance("EBTaskManager");
-            taskManager.getClass();
-            taskManager.addTask(new TaskManager.Task(taskManager, 0L, 0L, false, "DxmAsyncPost_" + System.currentTimeMillis(), this), "AsyncPost");
-        }
+        this.f28226e = str;
+        this.f28227f = str2;
+        this.f28228g = str3;
+        this.f28229h = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            d a = this.f28303e.a();
-            if (a != null) {
-                this.f28304f.d(a);
-                return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f28226e).openConnection();
+                httpURLConnection.setConnectTimeout(50000);
+                httpURLConnection.setRequestMethod("GET");
+                httpURLConnection.connect();
+                if (httpURLConnection.getResponseCode() == 200) {
+                    InputStream inputStream = httpURLConnection.getInputStream();
+                    File file = new File(this.f28228g);
+                    FileOutputStream fileOutputStream = new FileOutputStream(file);
+                    byte[] bArr = new byte[524288];
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read == -1) {
+                            break;
+                        }
+                        fileOutputStream.write(bArr, 0, read);
+                        if (this.f28229h != null) {
+                            this.f28229h.a();
+                        }
+                    }
+                    fileOutputStream.flush();
+                    inputStream.close();
+                    if (FileUtils.existsFile(file) && TextUtils.equals(Md5Utils.getMd5FromFileV2(this.f28228g), this.f28227f)) {
+                        if (this.f28229h != null) {
+                            this.f28229h.a(this.f28228g);
+                        }
+                    } else if (this.f28229h != null) {
+                        this.f28229h.b("md5 not match");
+                    }
+                } else if (this.f28229h != null) {
+                    b.a aVar = this.f28229h;
+                    aVar.b("Server Response Code is " + httpURLConnection.getResponseCode());
+                }
+            } catch (IOException e2) {
+                b.a aVar2 = this.f28229h;
+                if (aVar2 != null) {
+                    aVar2.b(e2.getMessage());
+                }
             }
-            throw new IllegalStateException("No pending post available");
         }
     }
 }

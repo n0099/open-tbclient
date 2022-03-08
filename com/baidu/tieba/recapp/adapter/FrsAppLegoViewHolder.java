@@ -2,8 +2,8 @@ package com.baidu.tieba.recapp.adapter;
 
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.u0.b3.e;
-import c.a.u0.l3.n;
+import c.a.r0.a3.e;
+import c.a.r0.j3.n;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class FrsAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public n f47686e;
+    public n f46094e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsAppLegoViewHolder(c.a.u0.z1.o.l.e<?> eVar) {
+    public FrsAppLegoViewHolder(c.a.r0.z1.o.l.e<?> eVar) {
         super((View) eVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -39,12 +39,12 @@ public class FrsAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
         }
     }
 
-    @Override // c.a.u0.b3.e
+    @Override // c.a.r0.a3.e
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            n nVar = this.f47686e;
+            n nVar = this.f46094e;
             if (nVar == null) {
                 return 0;
             }
@@ -53,23 +53,23 @@ public class FrsAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
         return invokeV.intValue;
     }
 
-    @Override // c.a.u0.b3.e
+    @Override // c.a.r0.a3.e
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            n nVar = this.f47686e;
+            n nVar = this.f46094e;
             return nVar == null ? "" : nVar.getPlayUrl();
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // c.a.u0.b3.e
+    @Override // c.a.r0.a3.e
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            n nVar = this.f47686e;
+            n nVar = this.f46094e;
             if (nVar == null) {
                 return null;
             }
@@ -78,7 +78,7 @@ public class FrsAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
         return (View) invokeV.objValue;
     }
 
-    @Override // c.a.u0.b3.e
+    @Override // c.a.r0.a3.e
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -88,12 +88,12 @@ public class FrsAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.u0.b3.e
+    @Override // c.a.r0.a3.e
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            n nVar = this.f47686e;
+            n nVar = this.f46094e;
             if (nVar == null) {
                 return false;
             }
@@ -102,12 +102,12 @@ public class FrsAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.u0.b3.e
+    @Override // c.a.r0.a3.e
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            n nVar = this.f47686e;
+            n nVar = this.f46094e;
             if (nVar == null) {
                 return false;
             }
@@ -119,7 +119,7 @@ public class FrsAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
     public void release() {
         n nVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (nVar = this.f47686e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (nVar = this.f46094e) == null) {
             return;
         }
         nVar.release();
@@ -128,25 +128,25 @@ public class FrsAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
     public void setAdVideoView(n nVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, nVar) == null) {
-            this.f47686e = nVar;
+            this.f46094e = nVar;
         }
     }
 
-    @Override // c.a.u0.b3.e
+    @Override // c.a.r0.a3.e
     public void startPlay() {
         n nVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (nVar = this.f47686e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (nVar = this.f46094e) == null) {
             return;
         }
         nVar.startPlay();
     }
 
-    @Override // c.a.u0.b3.e
+    @Override // c.a.r0.a3.e
     public void stopPlay() {
         n nVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (nVar = this.f47686e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (nVar = this.f46094e) == null) {
             return;
         }
         nVar.stopPlay();

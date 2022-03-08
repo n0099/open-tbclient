@@ -1,6 +1,6 @@
 package com.google.common.util.concurrent;
 
-import c.i.d.a.n;
+import c.i.c.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,12 +15,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class CollectionFuture<V, C> extends AggregateFuture<V, C> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public abstract class CollectionFutureRunningState extends AggregateFuture<V, C>.RunningState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,12 +99,12 @@ public abstract class CollectionFuture<V, C> extends AggregateFuture<V, C> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class ListFuture<V> extends CollectionFuture<V, List<V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes7.dex */
         public final class ListFutureRunningState extends CollectionFuture<V, List<V>>.CollectionFutureRunningState {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

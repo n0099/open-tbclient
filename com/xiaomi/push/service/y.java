@@ -25,7 +25,7 @@ import com.xiaomi.push.iv;
 import com.xiaomi.push.service.av;
 import java.nio.ByteBuffer;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class y {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public final class y {
                 String str = lVar.f967a;
                 ibVar.f638a.f563a = str.substring(0, str.indexOf("@"));
                 ibVar.f638a.f567c = str.substring(str.indexOf("/") + 1);
-                faVar.a(ip.a(ibVar), lVar.f61669c);
+                faVar.a(ip.a(ibVar), lVar.f60019c);
                 faVar.a((short) 1);
                 com.xiaomi.channel.commonutils.logger.b.m133a("try send mi push message. packagename:" + ibVar.f643b + " action:" + ibVar.f636a);
                 return faVar;
@@ -80,7 +80,7 @@ public final class y {
             ieVar.c("package uninstalled");
             ieVar.a(gc.i());
             ieVar.a(false);
-            return a(str, str2, ieVar, hf.f61378i);
+            return a(str, str2, ieVar, hf.f59728i);
         }
         return (ib) invokeLL.objValue;
     }

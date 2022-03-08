@@ -3,8 +3,7 @@ package com.baidu.tieba.wallet;
 import android.app.Activity;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.r0.g;
-import c.a.t0.s.e;
+import c.a.q0.r.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.install.IInstallCallback;
@@ -18,8 +17,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmProxyCallback;
 import java.util.Map;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class WalletPluginManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NPS_MODE = "Wallet";
@@ -28,7 +28,7 @@ public class WalletPluginManager {
     public transient /* synthetic */ FieldHolder $fh;
     public IWalletPlugin mIWalletPlugin;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final WalletPluginManager instance;
@@ -69,6 +69,12 @@ public class WalletPluginManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? SingletonHolder.instance : (WalletPluginManager) invokeV.objValue;
+    }
+
+    private boolean isWalletPluginEnable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? this.mIWalletPlugin != null : invokeV.booleanValue;
     }
 
     public void accessWalletEntry(Context context, String str) {
@@ -463,23 +469,24 @@ public class WalletPluginManager {
         return (ITiebaPay) invokeL.objValue;
     }
 
-    public void doYYPay(g gVar) {
+    public void doYYPay(String str, IDxmProxyCallback iDxmProxyCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, iDxmProxyCallback) == null) {
             IWalletPlugin iWalletPlugin = this.mIWalletPlugin;
             if (iWalletPlugin == null) {
-                invokePlugin(new IInvokeCallback(this, gVar) { // from class: com.baidu.tieba.wallet.WalletPluginManager.11
+                invokePlugin(new IInvokeCallback(this, str, iDxmProxyCallback) { // from class: com.baidu.tieba.wallet.WalletPluginManager.11
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ WalletPluginManager this$0;
-                    public final /* synthetic */ g val$yyPayData;
+                    public final /* synthetic */ IDxmProxyCallback val$iDxmProxyCallback;
+                    public final /* synthetic */ String val$payload;
 
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, gVar};
+                            Object[] objArr = {this, str, iDxmProxyCallback};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -490,19 +497,20 @@ public class WalletPluginManager {
                             }
                         }
                         this.this$0 = this;
-                        this.val$yyPayData = gVar;
+                        this.val$payload = str;
+                        this.val$iDxmProxyCallback = iDxmProxyCallback;
                     }
 
                     @Override // com.baidu.nps.main.invoke.IInvokeCallback
-                    public void onResult(int i2, String str, Object obj) {
+                    public void onResult(int i2, String str2, Object obj) {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str, obj) == null) && i2 == 14) {
+                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str2, obj) == null) && i2 == 14) {
                             try {
                                 if (this.this$0.mIWalletPlugin == null) {
                                     this.this$0.mIWalletPlugin = (IWalletPlugin) ((Class) obj).newInstance();
                                     this.this$0.mIWalletPlugin.init();
                                 }
-                                this.this$0.mIWalletPlugin.doYYPay(this.val$yyPayData);
+                                this.this$0.mIWalletPlugin.doYYPay(this.val$payload, this.val$iDxmProxyCallback);
                             } catch (IllegalAccessException e2) {
                                 e2.printStackTrace();
                             } catch (InstantiationException e3) {
@@ -512,7 +520,7 @@ public class WalletPluginManager {
                     }
                 });
             } else {
-                iWalletPlugin.doYYPay(gVar);
+                iWalletPlugin.doYYPay(str, iDxmProxyCallback);
             }
         }
     }
@@ -641,9 +649,15 @@ public class WalletPluginManager {
         }
     }
 
+    public boolean isInvokePlugin() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? NPSPackageManager.getInstance().getBundleStatus(PLUGIN_PKG_NAME) == 43 || this.mIWalletPlugin != null : invokeV.booleanValue;
+    }
+
     public void openH5Module(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048588, this, context, str) == null) {
             IWalletPlugin iWalletPlugin = this.mIWalletPlugin;
             if (iWalletPlugin == null) {
                 invokePlugin(new IInvokeCallback(this, context, str) { // from class: com.baidu.tieba.wallet.WalletPluginManager.3
@@ -699,7 +713,7 @@ public class WalletPluginManager {
 
     public void registerIntent() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             IWalletPlugin iWalletPlugin = this.mIWalletPlugin;
             if (iWalletPlugin == null) {
                 invokePlugin(new IInvokeCallback(this) { // from class: com.baidu.tieba.wallet.WalletPluginManager.13
@@ -751,7 +765,7 @@ public class WalletPluginManager {
 
     public void startWallet(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, context) == null) {
             IWalletPlugin iWalletPlugin = this.mIWalletPlugin;
             if (iWalletPlugin == null) {
                 invokePlugin(new IInvokeCallback(this, context) { // from class: com.baidu.tieba.wallet.WalletPluginManager.1

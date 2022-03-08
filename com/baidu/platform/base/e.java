@@ -2,7 +2,6 @@ package com.baidu.platform.base;
 
 import android.text.TextUtils;
 import android.util.Base64;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapapi.model.CoordUtil;
@@ -17,17 +16,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public abstract class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public com.baidu.platform.util.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f37968b;
+    public boolean f36371b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f37969c;
+    public boolean f36372c;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -42,8 +41,8 @@ public abstract class e {
                 return;
             }
         }
-        this.f37968b = true;
-        this.f37969c = true;
+        this.f36371b = true;
+        this.f36372c = true;
         this.a = new com.baidu.platform.util.a();
     }
 
@@ -54,7 +53,7 @@ public abstract class e {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return SearchType.f37955h == searchType ? a(str) : str;
+            return SearchType.f36358h == searchType ? a(str) : str;
         }
         return (String) invokeLL.objValue;
     }
@@ -80,7 +79,7 @@ public abstract class e {
     private boolean b(SearchType searchType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, searchType)) == null) ? SearchType.f37955h == searchType : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, searchType)) == null) ? SearchType.f36358h == searchType : invokeL.booleanValue;
     }
 
     public final String a(PlanNode planNode) {
@@ -91,7 +90,7 @@ public abstract class e {
             if (planNode == null) {
                 return null;
             }
-            String str = new String(StringUtil.ARRAY_START);
+            String str = new String("{");
             LatLng location = planNode.getLocation();
             if (location != null) {
                 String str2 = str + "\"type\":1,";
@@ -130,7 +129,7 @@ public abstract class e {
                 }
                 authToken = HttpClient.getAuthToken();
             }
-            if (this.f37968b) {
+            if (this.f36371b) {
                 this.a.a("token", authToken);
             }
             String a2 = this.a.a();
@@ -138,7 +137,7 @@ public abstract class e {
                 a2 = a(searchType, a2);
             }
             String str2 = a2 + HttpClient.getPhoneInfo();
-            if (this.f37969c) {
+            if (this.f36372c) {
                 str2 = str2 + "&sign=" + AppMD5.getSignMD5String(str2);
             }
             return a + "?" + str2;
@@ -151,14 +150,14 @@ public abstract class e {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f37969c = z;
+            this.f36372c = z;
         }
     }
 
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f37968b = z;
+            this.f36371b = z;
         }
     }
 }

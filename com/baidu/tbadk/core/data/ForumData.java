@@ -3,15 +3,15 @@ package com.baidu.tbadk.core.data;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.o.e.n;
-import c.a.t0.s.r.b0;
-import c.a.t0.s.r.d0;
-import c.a.t0.s.r.f2;
-import c.a.t0.s.r.g0;
-import c.a.t0.s.r.g2;
-import c.a.t0.s.r.i2;
-import c.a.t0.s.r.l;
-import c.a.t0.s.r.m0;
-import c.a.t0.s.r.p2;
+import c.a.q0.r.r.b0;
+import c.a.q0.r.r.d0;
+import c.a.q0.r.r.f2;
+import c.a.q0.r.r.g0;
+import c.a.q0.r.r.g2;
+import c.a.q0.r.r.i2;
+import c.a.q0.r.r.l;
+import c.a.q0.r.r.m0;
+import c.a.q0.r.r.p2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -51,7 +51,7 @@ import tbclient.FrsPage.TipInfo;
 import tbclient.FrsPage.Yule;
 import tbclient.SimpleForum;
 import tbclient.ThemeColorInfo;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class ForumData implements Serializable, PreLoadImageProvider, n {
     public static /* synthetic */ Interceptable $ic = null;
     public static BdUniqueId FORUM_FLOOR_TYPE = null;

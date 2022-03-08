@@ -21,7 +21,7 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class GL2RenderJNIView extends GLSurfaceView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -44,13 +44,13 @@ public class GL2RenderJNIView extends GLSurfaceView {
     public boolean mloaded;
 
     /* renamed from: com.baidu.android.glview.GL2RenderJNIView$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class ConfigChooser implements GLSurfaceView.EGLConfigChooser {
         public static /* synthetic */ Interceptable $ic = null;
         public static int EGL_OPENGL_ES2_BIT = 4;
@@ -185,7 +185,7 @@ public class GL2RenderJNIView extends GLSurfaceView {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class ContextFactory implements GLSurfaceView.EGLContextFactory {
         public static /* synthetic */ Interceptable $ic = null;
         public static int EGL_CONTEXT_CLIENT_VERSION = 12440;
@@ -247,7 +247,7 @@ public class GL2RenderJNIView extends GLSurfaceView {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class Renderer implements GLSurfaceView.Renderer, SurfaceTexture.OnFrameAvailableListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -13,40 +13,40 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import c.g.b0.d.y;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.channel.ks.R;
 import com.fun.ad.sdk.internal.api.utils.GlideHelper;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.fun.module.ks.x;
 import com.kwad.sdk.api.KsAdVideoPlayConfig;
 import com.kwad.sdk.api.KsNativeAd;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class KSNativeAdVideoAppDownloadView extends x {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f54353b;
+    public TextView f52839b;
 
     /* renamed from: c  reason: collision with root package name */
-    public FrameLayout f54354c;
+    public FrameLayout f52840c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f54355d;
+    public ImageView f52841d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f54356e;
+    public ImageView f52842e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f54357f;
+    public TextView f52843f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Button f54358g;
+    public Button f52844g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public KSNativeAdVideoAppDownloadView(Context context) {
@@ -117,7 +117,7 @@ public class KSNativeAdVideoAppDownloadView extends x {
         if (interceptable == null || interceptable.invokeL(1048576, this, ksNativeAd) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(this);
-            arrayList.add(this.f54358g);
+            arrayList.add(this.f52844g);
             this.a.clear();
             this.a.addAll(arrayList);
             View videoView = ksNativeAd.getVideoView(getContext(), new KsAdVideoPlayConfig.Builder().videoSoundEnable(FunAdSdk.getFunAdConfig().isVideoSoundEnable).dataFlowAutoStart(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart).build());
@@ -126,20 +126,20 @@ public class KSNativeAdVideoAppDownloadView extends x {
                 ((ViewGroup) videoView.getParent()).removeView(videoView);
             }
             if (videoView != null) {
-                this.f54354c.removeAllViews();
-                this.f54354c.addView(videoView);
+                this.f52840c.removeAllViews();
+                this.f52840c.addView(videoView);
             }
-            this.f54355d.setImageBitmap(getSdkLogo());
-            this.f54353b.setText(ksNativeAd.getAdDescription());
+            this.f52841d.setImageBitmap(getSdkLogo());
+            this.f52839b.setText(ksNativeAd.getAdDescription());
             if (TextUtils.isEmpty(ksNativeAd.getAppIconUrl())) {
-                this.f54356e.setVisibility(8);
+                this.f52842e.setVisibility(8);
             } else {
-                this.f54356e.setVisibility(0);
-                GlideHelper.get().load(getContext(), ksNativeAd.getAppIconUrl(), this.f54356e);
+                this.f52842e.setVisibility(0);
+                GlideHelper.get().load(getContext(), ksNativeAd.getAppIconUrl(), this.f52842e);
             }
-            this.f54357f.setText(ksNativeAd.getAppName());
-            this.f54358g.setText(ksNativeAd.getActionDescription());
-            ksNativeAd.setDownloadListener(new y(ksNativeAd.getActionDescription(), this.f54358g));
+            this.f52843f.setText(ksNativeAd.getAppName());
+            this.f52844g.setText(ksNativeAd.getActionDescription());
+            ksNativeAd.setDownloadListener(new y(ksNativeAd.getActionDescription(), this.f52844g));
         }
     }
 
@@ -148,12 +148,12 @@ public class KSNativeAdVideoAppDownloadView extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f54353b = (TextView) findViewById(R.id.ad_description);
-            this.f54354c = (FrameLayout) findViewById(R.id.ad_video);
-            this.f54355d = (ImageView) findViewById(R.id.ad_logo);
-            this.f54356e = (ImageView) findViewById(R.id.ad_app_icon);
-            this.f54357f = (TextView) findViewById(R.id.ad_app_title);
-            this.f54358g = (Button) findViewById(R.id.ad_app_download);
+            this.f52839b = (TextView) findViewById(R.id.ad_description);
+            this.f52840c = (FrameLayout) findViewById(R.id.ad_video);
+            this.f52841d = (ImageView) findViewById(R.id.ad_logo);
+            this.f52842e = (ImageView) findViewById(R.id.ad_app_icon);
+            this.f52843f = (TextView) findViewById(R.id.ad_app_title);
+            this.f52844g = (Button) findViewById(R.id.ad_app_download);
         }
     }
 
@@ -162,11 +162,11 @@ public class KSNativeAdVideoAppDownloadView extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f54354c.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f52840c.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
             layoutParams.width = i6;
             layoutParams.height = (int) (i6 / 1.78f);
-            this.f54354c.setLayoutParams(layoutParams);
+            this.f52840c.setLayoutParams(layoutParams);
         }
     }
 }

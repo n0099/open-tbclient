@@ -26,6 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -37,7 +38,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class ASMSerializerFactory implements Opcodes {
     public static /* synthetic */ Interceptable $ic;
     public static final String JSONSerializer;
@@ -117,28 +118,28 @@ public class ASMSerializerFactory implements Opcodes {
             methodVisitor.visitVarInsn(25, Context.fieldName);
             if (cls == Byte.TYPE) {
                 methodVisitor.visitVarInsn(21, context.var("byte"));
-                methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Byte", "valueOf", "(B)Ljava/lang/Byte;");
+                methodVisitor.visitMethodInsn(184, "java/lang/Byte", "valueOf", "(B)Ljava/lang/Byte;");
             } else if (cls == Short.TYPE) {
                 methodVisitor.visitVarInsn(21, context.var("short"));
-                methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Short", "valueOf", "(S)Ljava/lang/Short;");
+                methodVisitor.visitMethodInsn(184, "java/lang/Short", "valueOf", "(S)Ljava/lang/Short;");
             } else if (cls == Integer.TYPE) {
                 methodVisitor.visitVarInsn(21, context.var("int"));
-                methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Integer", "valueOf", "(I)Ljava/lang/Integer;");
+                methodVisitor.visitMethodInsn(184, "java/lang/Integer", "valueOf", "(I)Ljava/lang/Integer;");
             } else if (cls == Character.TYPE) {
                 methodVisitor.visitVarInsn(21, context.var("char"));
-                methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Character", "valueOf", "(C)Ljava/lang/Character;");
+                methodVisitor.visitMethodInsn(184, "java/lang/Character", "valueOf", "(C)Ljava/lang/Character;");
             } else if (cls == Long.TYPE) {
                 methodVisitor.visitVarInsn(22, context.var("long", 2));
-                methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Long", "valueOf", "(J)Ljava/lang/Long;");
+                methodVisitor.visitMethodInsn(184, "java/lang/Long", "valueOf", "(J)Ljava/lang/Long;");
             } else if (cls == Float.TYPE) {
                 methodVisitor.visitVarInsn(23, context.var(ShaderParams.VALUE_TYPE_FLOAT));
-                methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Float", "valueOf", "(F)Ljava/lang/Float;");
+                methodVisitor.visitMethodInsn(184, "java/lang/Float", "valueOf", "(F)Ljava/lang/Float;");
             } else if (cls == Double.TYPE) {
                 methodVisitor.visitVarInsn(24, context.var("double", 2));
-                methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Double", "valueOf", "(D)Ljava/lang/Double;");
+                methodVisitor.visitMethodInsn(184, "java/lang/Double", "valueOf", "(D)Ljava/lang/Double;");
             } else if (cls == Boolean.TYPE) {
                 methodVisitor.visitVarInsn(21, context.var("boolean"));
-                methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Boolean", "valueOf", "(Z)Ljava/lang/Boolean;");
+                methodVisitor.visitMethodInsn(184, "java/lang/Boolean", "valueOf", "(Z)Ljava/lang/Boolean;");
             } else if (cls == BigDecimal.class) {
                 methodVisitor.visitVarInsn(25, context.var("decimal"));
             } else if (cls == String.class) {
@@ -266,7 +267,7 @@ public class ASMSerializerFactory implements Opcodes {
                 methodVisitor.visitVarInsn(25, context.var("out"));
                 methodVisitor.visitLdcInsn(Integer.valueOf(SerializerFeature.SkipTransientField.mask));
                 methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, "isEnabled", "(I)Z");
-                methodVisitor.visitJumpInsn(Opcodes.IFNE, label);
+                methodVisitor.visitJumpInsn(154, label);
             }
             _notWriteDefault(methodVisitor, fieldInfo, context, label);
             if (context.writeDirect) {
@@ -630,7 +631,7 @@ public class ASMSerializerFactory implements Opcodes {
                             methodVisitor.visitInsn(1);
                         } else {
                             methodVisitor.visitVarInsn(21, context.var("i"));
-                            methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Integer", "valueOf", "(I)Ljava/lang/Integer;");
+                            methodVisitor.visitMethodInsn(184, "java/lang/Integer", "valueOf", "(I)Ljava/lang/Integer;");
                         }
                         methodVisitor.visitLdcInsn(Type.getType(ASMUtils.desc(cls2)));
                         methodVisitor.visitLdcInsn(Integer.valueOf(fieldInfo.serialzeFeatures));
@@ -650,7 +651,7 @@ public class ASMSerializerFactory implements Opcodes {
                         methodVisitor.visitInsn(1);
                     } else {
                         methodVisitor.visitVarInsn(21, context.var("i"));
-                        methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Integer", "valueOf", "(I)Ljava/lang/Integer;");
+                        methodVisitor.visitMethodInsn(184, "java/lang/Integer", "valueOf", "(I)Ljava/lang/Integer;");
                     }
                     methodVisitor.visitLdcInsn(Type.getType(ASMUtils.desc(cls2)));
                     methodVisitor.visitLdcInsn(Integer.valueOf(fieldInfo.serialzeFeatures));
@@ -669,7 +670,7 @@ public class ASMSerializerFactory implements Opcodes {
                     methodVisitor.visitInsn(1);
                 } else {
                     methodVisitor.visitVarInsn(21, context.var("i"));
-                    methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Integer", "valueOf", "(I)Ljava/lang/Integer;");
+                    methodVisitor.visitMethodInsn(184, "java/lang/Integer", "valueOf", "(I)Ljava/lang/Integer;");
                 }
                 if (cls2 != null && Modifier.isPublic(cls2.getModifiers())) {
                     methodVisitor.visitLdcInsn(Type.getType(ASMUtils.desc((Class) collectionItemType)));
@@ -735,7 +736,7 @@ public class ASMSerializerFactory implements Opcodes {
                 methodVisitor.visitVarInsn(25, context.var("out"));
                 methodVisitor.visitLdcInsn(Integer.valueOf(SerializerFeature.IgnoreNonFieldGetter.mask));
                 methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, "isEnabled", "(I)Z");
-                methodVisitor.visitJumpInsn(Opcodes.IFNE, label);
+                methodVisitor.visitJumpInsn(154, label);
             }
         }
     }
@@ -774,7 +775,7 @@ public class ASMSerializerFactory implements Opcodes {
         } else if (cls == Double.TYPE) {
             methodVisitor.visitVarInsn(24, context.var("double"));
             methodVisitor.visitInsn(14);
-            methodVisitor.visitInsn(Opcodes.DCMPL);
+            methodVisitor.visitInsn(151);
             methodVisitor.visitJumpInsn(153, label);
         }
         methodVisitor.visitLabel(label2);
@@ -806,28 +807,28 @@ public class ASMSerializerFactory implements Opcodes {
             methodVisitor.visitVarInsn(25, Context.fieldName);
             if (cls == Byte.TYPE) {
                 methodVisitor.visitVarInsn(21, context.var("byte"));
-                methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Byte", "valueOf", "(B)Ljava/lang/Byte;");
+                methodVisitor.visitMethodInsn(184, "java/lang/Byte", "valueOf", "(B)Ljava/lang/Byte;");
             } else if (cls == Short.TYPE) {
                 methodVisitor.visitVarInsn(21, context.var("short"));
-                methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Short", "valueOf", "(S)Ljava/lang/Short;");
+                methodVisitor.visitMethodInsn(184, "java/lang/Short", "valueOf", "(S)Ljava/lang/Short;");
             } else if (cls == Integer.TYPE) {
                 methodVisitor.visitVarInsn(21, context.var("int"));
-                methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Integer", "valueOf", "(I)Ljava/lang/Integer;");
+                methodVisitor.visitMethodInsn(184, "java/lang/Integer", "valueOf", "(I)Ljava/lang/Integer;");
             } else if (cls == Character.TYPE) {
                 methodVisitor.visitVarInsn(21, context.var("char"));
-                methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Character", "valueOf", "(C)Ljava/lang/Character;");
+                methodVisitor.visitMethodInsn(184, "java/lang/Character", "valueOf", "(C)Ljava/lang/Character;");
             } else if (cls == Long.TYPE) {
                 methodVisitor.visitVarInsn(22, context.var("long", 2));
-                methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Long", "valueOf", "(J)Ljava/lang/Long;");
+                methodVisitor.visitMethodInsn(184, "java/lang/Long", "valueOf", "(J)Ljava/lang/Long;");
             } else if (cls == Float.TYPE) {
                 methodVisitor.visitVarInsn(23, context.var(ShaderParams.VALUE_TYPE_FLOAT));
-                methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Float", "valueOf", "(F)Ljava/lang/Float;");
+                methodVisitor.visitMethodInsn(184, "java/lang/Float", "valueOf", "(F)Ljava/lang/Float;");
             } else if (cls == Double.TYPE) {
                 methodVisitor.visitVarInsn(24, context.var("double", 2));
-                methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Double", "valueOf", "(D)Ljava/lang/Double;");
+                methodVisitor.visitMethodInsn(184, "java/lang/Double", "valueOf", "(D)Ljava/lang/Double;");
             } else if (cls == Boolean.TYPE) {
                 methodVisitor.visitVarInsn(21, context.var("boolean"));
-                methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Boolean", "valueOf", "(Z)Ljava/lang/Boolean;");
+                methodVisitor.visitMethodInsn(184, "java/lang/Boolean", "valueOf", "(Z)Ljava/lang/Boolean;");
             } else if (cls == BigDecimal.class) {
                 methodVisitor.visitVarInsn(25, context.var("decimal"));
             } else if (cls == String.class) {
@@ -854,7 +855,7 @@ public class ASMSerializerFactory implements Opcodes {
             if (cls.isPrimitive()) {
                 Label label3 = new Label();
                 methodVisitor.visitVarInsn(21, context.var("checkValue"));
-                methodVisitor.visitJumpInsn(Opcodes.IFNE, label3);
+                methodVisitor.visitJumpInsn(154, label3);
                 methodVisitor.visitInsn(1);
                 methodVisitor.visitInsn(89);
                 methodVisitor.visitVarInsn(58, Context.original);
@@ -872,42 +873,42 @@ public class ASMSerializerFactory implements Opcodes {
             methodVisitor.visitVarInsn(25, Context.fieldName);
             if (cls == Byte.TYPE) {
                 methodVisitor.visitVarInsn(21, context.var("byte"));
-                methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Byte", "valueOf", "(B)Ljava/lang/Byte;");
+                methodVisitor.visitMethodInsn(184, "java/lang/Byte", "valueOf", "(B)Ljava/lang/Byte;");
                 methodVisitor.visitInsn(89);
                 methodVisitor.visitVarInsn(58, Context.original);
             } else if (cls == Short.TYPE) {
                 methodVisitor.visitVarInsn(21, context.var("short"));
-                methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Short", "valueOf", "(S)Ljava/lang/Short;");
+                methodVisitor.visitMethodInsn(184, "java/lang/Short", "valueOf", "(S)Ljava/lang/Short;");
                 methodVisitor.visitInsn(89);
                 methodVisitor.visitVarInsn(58, Context.original);
             } else if (cls == Integer.TYPE) {
                 methodVisitor.visitVarInsn(21, context.var("int"));
-                methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Integer", "valueOf", "(I)Ljava/lang/Integer;");
+                methodVisitor.visitMethodInsn(184, "java/lang/Integer", "valueOf", "(I)Ljava/lang/Integer;");
                 methodVisitor.visitInsn(89);
                 methodVisitor.visitVarInsn(58, Context.original);
             } else if (cls == Character.TYPE) {
                 methodVisitor.visitVarInsn(21, context.var("char"));
-                methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Character", "valueOf", "(C)Ljava/lang/Character;");
+                methodVisitor.visitMethodInsn(184, "java/lang/Character", "valueOf", "(C)Ljava/lang/Character;");
                 methodVisitor.visitInsn(89);
                 methodVisitor.visitVarInsn(58, Context.original);
             } else if (cls == Long.TYPE) {
                 methodVisitor.visitVarInsn(22, context.var("long", 2));
-                methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Long", "valueOf", "(J)Ljava/lang/Long;");
+                methodVisitor.visitMethodInsn(184, "java/lang/Long", "valueOf", "(J)Ljava/lang/Long;");
                 methodVisitor.visitInsn(89);
                 methodVisitor.visitVarInsn(58, Context.original);
             } else if (cls == Float.TYPE) {
                 methodVisitor.visitVarInsn(23, context.var(ShaderParams.VALUE_TYPE_FLOAT));
-                methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Float", "valueOf", "(F)Ljava/lang/Float;");
+                methodVisitor.visitMethodInsn(184, "java/lang/Float", "valueOf", "(F)Ljava/lang/Float;");
                 methodVisitor.visitInsn(89);
                 methodVisitor.visitVarInsn(58, Context.original);
             } else if (cls == Double.TYPE) {
                 methodVisitor.visitVarInsn(24, context.var("double", 2));
-                methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Double", "valueOf", "(D)Ljava/lang/Double;");
+                methodVisitor.visitMethodInsn(184, "java/lang/Double", "valueOf", "(D)Ljava/lang/Double;");
                 methodVisitor.visitInsn(89);
                 methodVisitor.visitVarInsn(58, Context.original);
             } else if (cls == Boolean.TYPE) {
                 methodVisitor.visitVarInsn(21, context.var("boolean"));
-                methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Boolean", "valueOf", "(Z)Ljava/lang/Boolean;");
+                methodVisitor.visitMethodInsn(184, "java/lang/Boolean", "valueOf", "(Z)Ljava/lang/Boolean;");
                 methodVisitor.visitInsn(89);
                 methodVisitor.visitVarInsn(58, Context.original);
             } else if (cls == BigDecimal.class) {
@@ -960,7 +961,7 @@ public class ASMSerializerFactory implements Opcodes {
                 methodVisitor.visitVarInsn(25, 4);
                 methodVisitor.visitVarInsn(25, 2);
                 methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, JSONSerializer, "isWriteClassName", "(Ljava/lang/reflect/Type;Ljava/lang/Object;)Z");
-                methodVisitor.visitJumpInsn(Opcodes.IFNE, label);
+                methodVisitor.visitJumpInsn(154, label);
             }
             _nameApply(methodVisitor, fieldInfo, context, label);
             _get(methodVisitor, context, fieldInfo);
@@ -1152,7 +1153,7 @@ public class ASMSerializerFactory implements Opcodes {
             methodVisitor.visitVarInsn(25, 0);
             String str6 = JSONSerializer;
             methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, str6, "hasPropertyFilters", "(" + SerializeFilterable_desc + ")Z");
-            methodVisitor.visitJumpInsn(Opcodes.IFNE, label6);
+            methodVisitor.visitJumpInsn(154, label6);
             methodVisitor.visitVarInsn(25, 0);
             methodVisitor.visitVarInsn(25, 1);
             methodVisitor.visitVarInsn(25, 2);
@@ -1221,7 +1222,7 @@ public class ASMSerializerFactory implements Opcodes {
                     } else if (cls2 == Character.TYPE) {
                         methodVisitor.visitVarInsn(25, context.var(str9));
                         aSMSerializerFactory2._get(methodVisitor, context, fieldInfo);
-                        methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Character", "toString", "(C)Ljava/lang/String;");
+                        methodVisitor.visitMethodInsn(184, "java/lang/Character", "toString", "(C)Ljava/lang/String;");
                         methodVisitor.visitVarInsn(16, i10);
                         methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, "writeString", "(Ljava/lang/String;C)V");
                     } else if (cls2 == String.class) {
@@ -1338,7 +1339,7 @@ public class ASMSerializerFactory implements Opcodes {
                                     } else {
                                         methodVisitor.visitVarInsn(21, context.var("i"));
                                         label3 = label12;
-                                        methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Integer", "valueOf", "(I)Ljava/lang/Integer;");
+                                        methodVisitor.visitMethodInsn(184, "java/lang/Integer", "valueOf", "(I)Ljava/lang/Integer;");
                                     }
                                     methodVisitor.visitLdcInsn(Type.getType(ASMUtils.desc(cls3)));
                                     methodVisitor.visitLdcInsn(Integer.valueOf(fieldInfo.serialzeFeatures));
@@ -1364,7 +1365,7 @@ public class ASMSerializerFactory implements Opcodes {
                                     methodVisitor.visitInsn(1);
                                 } else {
                                     methodVisitor.visitVarInsn(21, context.var("i"));
-                                    methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Integer", "valueOf", "(I)Ljava/lang/Integer;");
+                                    methodVisitor.visitMethodInsn(184, "java/lang/Integer", "valueOf", "(I)Ljava/lang/Integer;");
                                 }
                                 methodVisitor.visitLdcInsn(Type.getType(ASMUtils.desc(cls3)));
                                 methodVisitor.visitLdcInsn(Integer.valueOf(fieldInfo.serialzeFeatures));
@@ -1381,7 +1382,7 @@ public class ASMSerializerFactory implements Opcodes {
                                 methodVisitor.visitInsn(1);
                             } else {
                                 methodVisitor.visitVarInsn(21, context.var("i"));
-                                methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Integer", "valueOf", "(I)Ljava/lang/Integer;");
+                                methodVisitor.visitMethodInsn(184, "java/lang/Integer", "valueOf", "(I)Ljava/lang/Integer;");
                             }
                             if (cls3 != null && Modifier.isPublic(cls3.getModifiers())) {
                                 methodVisitor.visitLdcInsn(Type.getType(ASMUtils.desc((Class) type3)));
@@ -1557,7 +1558,7 @@ public class ASMSerializerFactory implements Opcodes {
                 methodVisitor.visitVarInsn(25, context.var("out"));
                 methodVisitor.visitLdcInsn(Integer.valueOf(SerializerFeature.PrettyFormat.mask));
                 methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, "isEnabled", "(I)Z");
-                methodVisitor.visitJumpInsn(Opcodes.IFNE, label4);
+                methodVisitor.visitJumpInsn(154, label4);
                 int length2 = fieldInfoArr2.length;
                 int i3 = 0;
                 while (true) {
@@ -1835,7 +1836,7 @@ public class ASMSerializerFactory implements Opcodes {
                 Package r2 = ASMSerializerFactory.class.getPackage();
                 if (r2 != null) {
                     str = r2.getName() + "." + str7;
-                    str2 = name.replace('.', '/') + "/" + str7;
+                    str2 = name.replace('.', WebvttCueParser.CHAR_SLASH) + "/" + str7;
                 } else {
                     str = str7;
                     str2 = str;
@@ -1881,7 +1882,7 @@ public class ASMSerializerFactory implements Opcodes {
                             methodWriter.visitLdcInsn(Type.getType(ASMUtils.desc(fieldInfo4.declaringClass)));
                             methodWriter.visitLdcInsn(fieldInfo4.method.getName());
                             classWriter = classWriter2;
-                            methodWriter.visitMethodInsn(Opcodes.INVOKESTATIC, ASMUtils.type(ASMUtils.class), "getMethodType", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Type;");
+                            methodWriter.visitMethodInsn(184, ASMUtils.type(ASMUtils.class), "getMethodType", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Type;");
                         } else {
                             classWriter = classWriter2;
                             methodWriter.visitVarInsn(25, 0);
@@ -1947,7 +1948,7 @@ public class ASMSerializerFactory implements Opcodes {
                         Label label2 = new Label();
                         methodWriter2.visitVarInsn(25, context.var("out"));
                         methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, "isSortField", "()Z");
-                        methodWriter2.visitJumpInsn(Opcodes.IFNE, label2);
+                        methodWriter2.visitJumpInsn(154, label2);
                         methodWriter2.visitVarInsn(25, 0);
                         methodWriter2.visitVarInsn(25, 1);
                         methodWriter2.visitVarInsn(25, 2);
@@ -1976,7 +1977,7 @@ public class ASMSerializerFactory implements Opcodes {
                         sb2.append(";)Z");
                         fieldInfoArr = fieldInfoArr2;
                         methodWriter2.visitMethodInsn(Opcodes.INVOKEVIRTUAL, str11, "writeDirect", sb2.toString());
-                        methodWriter2.visitJumpInsn(Opcodes.IFNE, label4);
+                        methodWriter2.visitJumpInsn(154, label4);
                         methodWriter2.visitVarInsn(25, 0);
                         methodWriter2.visitVarInsn(25, 1);
                         methodWriter2.visitVarInsn(25, 2);
@@ -2071,7 +2072,7 @@ public class ASMSerializerFactory implements Opcodes {
         return (JavaBeanSerializer) invokeL.objValue;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class Context {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int features = 5;

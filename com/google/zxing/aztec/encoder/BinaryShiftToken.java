@@ -7,8 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.common.BitArray;
-import kotlin.text.Typography;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class BinaryShiftToken extends Token {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +72,7 @@ public final class BinaryShiftToken extends Token {
             sb.append((int) this.binaryShiftStart);
             sb.append("::");
             sb.append((this.binaryShiftStart + this.binaryShiftByteCount) - 1);
-            sb.append(Typography.greater);
+            sb.append('>');
             return sb.toString();
         }
         return (String) invokeV.objValue;

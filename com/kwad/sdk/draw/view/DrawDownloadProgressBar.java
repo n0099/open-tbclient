@@ -6,18 +6,18 @@ import android.view.View;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.kwad.sdk.R;
+import com.baidu.tieba.R;
 import com.kwad.sdk.a.kwai.a;
 import com.kwad.sdk.core.page.widget.TextProgressBar;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class DrawDownloadProgressBar extends FrameLayout {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextProgressBar f56956b;
+    public TextProgressBar f55306b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f56957c;
+    public View f55307c;
 
     public DrawDownloadProgressBar(@NonNull Context context) {
         super(context);
@@ -37,9 +37,9 @@ public class DrawDownloadProgressBar extends FrameLayout {
     private void a(Context context) {
         this.a = context;
         FrameLayout.inflate(context, R.layout.ksad_draw_download_bar, this);
-        this.f56956b = (TextProgressBar) findViewById(R.id.ksad_download_progress);
+        this.f55306b = (TextProgressBar) findViewById(R.id.ksad_download_progress);
         View findViewById = findViewById(R.id.ksad_download_progress_cover);
-        this.f56957c = findViewById;
+        this.f55307c = findViewById;
         findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.draw.view.DrawDownloadProgressBar.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -52,25 +52,25 @@ public class DrawDownloadProgressBar extends FrameLayout {
         View view;
         int i3;
         if (i2 == 0 || i2 == getMax()) {
-            view = this.f56957c;
+            view = this.f55307c;
             i3 = 0;
         } else {
-            view = this.f56957c;
+            view = this.f55307c;
             i3 = 8;
         }
         view.setVisibility(i3);
-        this.f56956b.a(str, i2);
+        this.f55306b.a(str, i2);
     }
 
     public int getMax() {
-        return this.f56956b.getMax();
+        return this.f55306b.getMax();
     }
 
     public void setTextColor(int i2) {
-        this.f56956b.setTextColor(i2);
+        this.f55306b.setTextColor(i2);
     }
 
     public void setTextSize(int i2) {
-        this.f56956b.setTextDimen(a.a(getContext(), i2));
+        this.f55306b.setTextDimen(a.a(getContext(), i2));
     }
 }

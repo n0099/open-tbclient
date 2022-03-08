@@ -1,0 +1,274 @@
+package c.a.r0.n3.b.a;
+
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PrivacyMarkActivityConfig;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.SimpleUser;
+/* loaded from: classes2.dex */
+public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f19388b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f19389c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f19390d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f19391e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f19392f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f19393g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f19394h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public SimpleUser f19395i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f19396j;
+    public int k;
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19393g : invokeV.intValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19394h : invokeV.intValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19388b : invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f19389c : invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f19390d : invokeV.intValue;
+    }
+
+    public SimpleUser f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f19395i : (SimpleUser) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f19392f : invokeV.intValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.k : invokeV.intValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f19391e : invokeV.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            c.a.q0.r.j0.b k = c.a.q0.r.j0.b.k();
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            this.a = k.l("post" + currentAccount, 0);
+            this.f19388b = k.l("like" + currentAccount, 0);
+            this.f19389c = k.l("group" + currentAccount, 0);
+            this.f19390d = k.l("live" + currentAccount, 0);
+            this.f19392f = k.l("reply" + currentAccount, 1);
+            this.k = k.l("reply_show_myself" + currentAccount, 0);
+            this.f19393g = k.l(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE + currentAccount, 0);
+            this.f19394h = k.l(PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE + currentAccount, 0);
+            this.f19391e = TbadkCoreApplication.getInst().getLocationShared();
+            return (this.a == 0 && this.f19388b == 0 && this.f19389c == 0 && this.f19390d == 0 && this.f19392f == 1 && this.k == 0 && this.f19393g == 0 && this.f19394h == 0) ? false : true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void l(a aVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) || aVar == null) {
+            return;
+        }
+        this.a = aVar.a;
+        this.f19388b = aVar.f19388b;
+        this.f19389c = aVar.f19389c;
+        this.f19391e = aVar.f19391e;
+        this.f19390d = aVar.f19390d;
+        this.f19396j = aVar.f19396j;
+        this.f19392f = aVar.f19392f;
+        this.k = aVar.k;
+        this.f19394h = aVar.f19394h;
+        this.f19393g = aVar.f19393g;
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            c.a.q0.r.j0.b k = c.a.q0.r.j0.b.k();
+            k.w("post" + currentAccount, this.a);
+            k.w("like" + currentAccount, this.f19388b);
+            k.w("group" + currentAccount, this.f19389c);
+            k.w("live" + currentAccount, this.f19390d);
+            k.w("reply" + currentAccount, this.f19392f);
+            k.w("reply_show_myself" + currentAccount, this.k);
+            k.w(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE + currentAccount, this.f19393g);
+            k.w(PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE + currentAccount, this.f19394h);
+            TbadkCoreApplication.getInst().setLocationShared(this.f19391e);
+        }
+    }
+
+    public void n(String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048589, this, str, i2) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            c.a.q0.r.j0.b k = c.a.q0.r.j0.b.k();
+            k.w(str + currentAccount, i2);
+        }
+    }
+
+    public void o(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
+            this.f19393g = i2;
+        }
+    }
+
+    public void p(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
+            this.f19394h = i2;
+        }
+    }
+
+    public void q(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
+            this.f19396j = i2;
+        }
+    }
+
+    public void r(int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048593, this, i2) == null) || i2 > 3 || i2 < 1) {
+            return;
+        }
+        this.f19388b = i2;
+    }
+
+    public void s(int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048594, this, i2) == null) || i2 > 3 || i2 < 1) {
+            return;
+        }
+        this.f19389c = i2;
+    }
+
+    public void t(int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048595, this, i2) == null) || i2 > 3 || i2 < 1) {
+            return;
+        }
+        this.f19390d = i2;
+    }
+
+    public void u(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
+            if (i2 != 1) {
+                this.f19391e = false;
+            } else {
+                this.f19391e = true;
+            }
+        }
+    }
+
+    public void v(SimpleUser simpleUser) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, simpleUser) == null) {
+            this.f19395i = simpleUser;
+            if (simpleUser != null) {
+                x(simpleUser.show_onlyme.intValue());
+            }
+        }
+    }
+
+    public void w(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
+            if (i2 == 0) {
+                this.f19392f = 1;
+            } else {
+                this.f19392f = i2;
+            }
+        }
+    }
+
+    public void x(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
+            this.k = i2;
+        }
+    }
+
+    public void y(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
+            this.a = i2;
+        }
+    }
+}

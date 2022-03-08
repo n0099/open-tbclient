@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import com.kwad.sdk.utils.ae;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class h {
     public Context a;
 

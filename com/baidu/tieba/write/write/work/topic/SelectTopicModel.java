@@ -1,7 +1,7 @@
 package com.baidu.tieba.write.write.work.topic;
 
 import androidx.annotation.NonNull;
-import c.a.u0.s1.f;
+import c.a.r0.r1.f;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,24 +18,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetRecommendTopic.TopicList;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.a.d.c.g.a f50198e;
+    public final c.a.d.c.g.a f48617e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f50199f;
+    public b f48618f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f50200g;
+    public boolean f48619g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<f> f50201h;
+    public List<f> f48620h;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,15 +67,15 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.f50200g = false;
-                if (responsedMessage != null && (responsedMessage instanceof c.a.u0.s4.e0.p.a0.a.a)) {
-                    this.a.z(((c.a.u0.s4.e0.p.a0.a.a) responsedMessage).getTopicList());
+                this.a.f48619g = false;
+                if (responsedMessage != null && (responsedMessage instanceof c.a.r0.q4.u.p.a0.a.a)) {
+                    this.a.z(((c.a.r0.q4.u.p.a0.a.a) responsedMessage).getTopicList());
                 }
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(@NonNull List<f> list);
     }
@@ -98,14 +98,14 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
                 return;
             }
         }
-        this.f50198e = new a(this, CmdConfigHttp.CMD_GET_RECOMMEND_TOPIC, 309719);
+        this.f48617e = new a(this, CmdConfigHttp.CMD_GET_RECOMMEND_TOPIC, 309719);
         initListener();
     }
 
     public void A(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f50199f = bVar;
+            this.f48618f = bVar;
         }
     }
 
@@ -122,7 +122,7 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
     public final void initListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            registerListener(this.f50198e);
+            registerListener(this.f48617e);
         }
     }
 
@@ -138,8 +138,8 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
 
     public void y() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !this.f50200g && ListUtils.isEmpty(this.f50201h)) {
-            this.f50200g = true;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !this.f48619g && ListUtils.isEmpty(this.f48620h)) {
+            this.f48619g = true;
             sendMessage(new GetRecommendTopicReqMessage());
         }
     }
@@ -149,13 +149,13 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f50201h = new ArrayList();
+        this.f48620h = new ArrayList();
         for (TopicList topicList : list) {
-            this.f50201h.add(new f(topicList));
+            this.f48620h.add(new f(topicList));
         }
-        b bVar = this.f50199f;
+        b bVar = this.f48618f;
         if (bVar != null) {
-            bVar.a(this.f50201h);
+            bVar.a(this.f48620h);
         }
     }
 }

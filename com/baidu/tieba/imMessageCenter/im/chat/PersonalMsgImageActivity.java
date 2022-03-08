@@ -1,13 +1,13 @@
 package com.baidu.tieba.imMessageCenter.im.chat;
 
-import c.a.u0.t1.s.a;
-import c.a.u0.t1.s.c;
+import c.a.r0.s1.s.a;
+import c.a.r0.s1.s.c;
 import com.baidu.tieba.im.chat.AbsMsgImageActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class PersonalMsgImageActivity extends AbsMsgImageActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

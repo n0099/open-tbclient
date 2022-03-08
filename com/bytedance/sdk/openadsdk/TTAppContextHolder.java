@@ -5,12 +5,12 @@ import android.app.Application;
 import android.content.Context;
 import com.bytedance.sdk.openadsdk.api.b.d;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class TTAppContextHolder {
     @SuppressLint({"StaticFieldLeak"})
     public static volatile Context a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         @SuppressLint({"StaticFieldLeak"})
         public static volatile Application a;

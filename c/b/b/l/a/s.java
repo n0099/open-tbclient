@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class s implements c.b.b.k.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final SoundPool f27289e;
+    public final SoundPool f27193e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f27290f;
+    public final int f27194f;
 
     public s(SoundPool soundPool, AudioManager audioManager, int i2) {
         Interceptable interceptable = $ic;
@@ -33,15 +33,15 @@ public final class s implements c.b.b.k.b {
             }
         }
         new c.b.b.q.l(8);
-        this.f27289e = soundPool;
-        this.f27290f = i2;
+        this.f27193e = soundPool;
+        this.f27194f = i2;
     }
 
     @Override // c.b.b.q.h
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f27289e.unload(this.f27290f);
+            this.f27193e.unload(this.f27194f);
         }
     }
 }

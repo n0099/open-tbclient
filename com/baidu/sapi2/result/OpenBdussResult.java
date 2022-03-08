@@ -13,7 +13,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class OpenBdussResult extends SapiResult implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_CODE_NOT_LOGIN = -901;

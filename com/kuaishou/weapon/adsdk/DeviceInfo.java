@@ -25,8 +25,7 @@ import com.kuaishou.weapon.un.v;
 import java.io.File;
 import java.math.BigDecimal;
 import java.util.List;
-import org.webrtc.MediaStreamTrack;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class DeviceInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -277,7 +276,7 @@ public class DeviceInfo {
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, context)) == null) {
             if (v.a(context).a(256)) {
                 try {
-                    AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+                    AudioManager audioManager = (AudioManager) context.getSystemService("audio");
                     if (audioManager != null) {
                         return audioManager.getRingerMode();
                     }

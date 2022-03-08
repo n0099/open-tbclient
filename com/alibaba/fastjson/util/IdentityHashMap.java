@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class IdentityHashMap<K, V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SIZE = 8192;
@@ -15,7 +15,7 @@ public class IdentityHashMap<K, V> {
     public final Entry<K, V>[] buckets;
     public final int indexMask;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class Entry<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

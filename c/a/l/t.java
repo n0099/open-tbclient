@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.t0.s.r.e2;
+import c.a.q0.r.r.e2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -17,15 +17,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class t extends a<c.a.t0.s.r.a> {
+public class t extends a<c.a.q0.r.r.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f4422j;
+    public View f4076j;
     public ThreadLinkView k;
     public TextView l;
-    public c.a.t0.s.r.a m;
+    public c.a.q0.r.r.a m;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t(Context context) {
@@ -46,31 +46,31 @@ public class t extends a<c.a.t0.s.r.a> {
             }
         }
         if (TbadkCoreApplication.getInst().getPersonalizeViewData().p != null && TbadkCoreApplication.getInst().getPersonalizeViewData().p.getParent() == null) {
-            this.f4422j = TbadkCoreApplication.getInst().getPersonalizeViewData().p;
+            this.f4076j = TbadkCoreApplication.getInst().getPersonalizeViewData().p;
         } else {
-            this.f4422j = LayoutInflater.from(context).inflate(R.layout.card_link_layout, (ViewGroup) null, true);
+            this.f4076j = LayoutInflater.from(context).inflate(R.layout.card_link_layout, (ViewGroup) null, true);
         }
-        this.k = (ThreadLinkView) this.f4422j.findViewById(R.id.link_thread_root);
-        this.l = (TextView) this.f4422j.findViewById(R.id.link_seg_title);
+        this.k = (ThreadLinkView) this.f4076j.findViewById(R.id.link_thread_root);
+        this.l = (TextView) this.f4076j.findViewById(R.id.link_seg_title);
     }
 
     @Override // c.a.l.a
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4422j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4076j : (View) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: n */
-    public void onBindDataToView(c.a.t0.s.r.a aVar) {
+    public void onBindDataToView(c.a.q0.r.r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             if (aVar != null && aVar.getThreadData() != null) {
                 this.m = aVar;
                 e2 threadData = aVar.getThreadData();
-                c.a.u0.g0.m.j(threadData, this.l);
+                c.a.r0.f0.m.j(threadData, this.l);
                 this.k.setData(threadData);
                 return;
             }
@@ -83,11 +83,11 @@ public class t extends a<c.a.t0.s.r.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) {
             this.k.onChangeSkinType();
-            c.a.t0.s.r.a aVar = this.m;
+            c.a.q0.r.r.a aVar = this.m;
             if (aVar == null || aVar.getThreadData() == null) {
                 return;
             }
-            c.a.u0.g0.m.l(this.l, this.m.getThreadData().h0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            c.a.r0.f0.m.l(this.l, this.m.getThreadData().h0(), R.color.CAM_X0105, R.color.CAM_X0109);
         }
     }
 }

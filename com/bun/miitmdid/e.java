@@ -15,19 +15,19 @@ import com.bun.miitmdid.core.InfoCode;
 import com.bun.miitmdid.interfaces.IIdProvider;
 import com.bun.miitmdid.interfaces.IIdentifierListener;
 import com.bun.miitmdid.interfaces.IdSupplier;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f53096b;
+    public static boolean f51515b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f53097c;
+    public static boolean f51516c;
     public transient /* synthetic */ FieldHolder $fh;
     public IIdentifierListener a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -49,7 +49,7 @@ public class e {
             int[] iArr = new int[c.values().length];
             a = iArr;
             try {
-                iArr[c.f53093i.ordinal()] = 1;
+                iArr[c.f51512i.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
@@ -57,7 +57,7 @@ public class e {
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                a[c.f53087c.ordinal()] = 3;
+                a[c.f51506c.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
@@ -65,11 +65,11 @@ public class e {
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                a[c.f53092h.ordinal()] = 5;
+                a[c.f51511h.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                a[c.f53091g.ordinal()] = 6;
+                a[c.f51510g.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
@@ -81,7 +81,7 @@ public class e {
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                a[c.f53090f.ordinal()] = 9;
+                a[c.f51509f.ordinal()] = 9;
             } catch (NoSuchFieldError unused9) {
             }
             try {
@@ -93,15 +93,15 @@ public class e {
             } catch (NoSuchFieldError unused11) {
             }
             try {
-                a[c.f53094j.ordinal()] = 12;
+                a[c.f51513j.ordinal()] = 12;
             } catch (NoSuchFieldError unused12) {
             }
             try {
-                a[c.f53089e.ordinal()] = 13;
+                a[c.f51508e.ordinal()] = 13;
             } catch (NoSuchFieldError unused13) {
             }
             try {
-                a[c.f53088d.ordinal()] = 14;
+                a[c.f51507d.ordinal()] = 14;
             } catch (NoSuchFieldError unused14) {
             }
             try {
@@ -172,8 +172,8 @@ public class e {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
             synchronized (e.class) {
                 verifyCert = CertChecker.a().verifyCert(context, str);
-                f53096b = verifyCert;
-                f53097c = true;
+                f51515b = verifyCert;
+                f51516c = true;
             }
             return verifyCert;
         }
@@ -198,7 +198,7 @@ public class e {
         IIdProvider iVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, iIdentifierListener)) == null) {
-            if (f53097c && f53096b) {
+            if (f51516c && f51515b) {
                 this.a = iIdentifierListener;
                 Context applicationContext = context.getApplicationContext();
                 com.bun.miitmdid.a.a(applicationContext);
@@ -208,7 +208,7 @@ public class e {
                 sb.append(str);
                 e0.c("MainMdidSdk", sb.toString());
                 c a2 = c.a(str);
-                c cVar = c.f53086b;
+                c cVar = c.f51505b;
                 if (a2 == cVar && (a2 = d.a(applicationContext)) == cVar) {
                     e0.d("MainMdidSdk", "OnInit: manufacturer not support");
                     return a(InfoCode.INIT_ERROR_MANUFACTURER_NOSUPPORT, (IdSupplier) null);

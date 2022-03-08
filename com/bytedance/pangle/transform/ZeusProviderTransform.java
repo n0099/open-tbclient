@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.provider.ContentProviderManager;
 import com.bytedance.pangle.util.MethodUtils;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ZeusProviderTransform {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

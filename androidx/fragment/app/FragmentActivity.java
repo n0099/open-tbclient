@@ -265,11 +265,11 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, fragment)) == null) {
             if (this.mPendingFragmentActivityResults.size() < 65534) {
                 while (this.mPendingFragmentActivityResults.indexOfKey(this.mNextCandidateRequestIndex) >= 0) {
-                    this.mNextCandidateRequestIndex = (this.mNextCandidateRequestIndex + 1) % MAX_NUM_PENDING_FRAGMENT_ACTIVITY_RESULTS;
+                    this.mNextCandidateRequestIndex = (this.mNextCandidateRequestIndex + 1) % 65534;
                 }
                 int i2 = this.mNextCandidateRequestIndex;
                 this.mPendingFragmentActivityResults.put(i2, fragment.mWho);
-                this.mNextCandidateRequestIndex = (this.mNextCandidateRequestIndex + 1) % MAX_NUM_PENDING_FRAGMENT_ACTIVITY_RESULTS;
+                this.mNextCandidateRequestIndex = (this.mNextCandidateRequestIndex + 1) % 65534;
                 return i2;
             }
             throw new IllegalStateException("Too many pending Fragment activity results.");

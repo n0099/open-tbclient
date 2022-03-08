@@ -11,7 +11,7 @@ import com.baidu.wallet.api.ILoginBackListener;
 import com.dxmpay.wallet.api.WalletLoginHelper;
 import com.dxmpay.wallet.core.NoProguard;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class LoginBackListenerProxy implements ILoginBackListener, NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

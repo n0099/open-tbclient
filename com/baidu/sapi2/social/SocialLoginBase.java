@@ -2,16 +2,15 @@ package com.baidu.sapi2.social;
 
 import android.os.Bundle;
 import android.widget.RelativeLayout;
-import c.a.f0.a.e;
-import c.a.f0.a.f;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class SocialLoginBase extends BaseActivity implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public static WXInvokeCallback t;
@@ -51,10 +50,10 @@ public class SocialLoginBase extends BaseActivity implements NoProguard {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(f.layout_sapi_sdk_webview_with_title_bar);
+                setContentView(R.layout.layout_sapi_sdk_webview_with_title_bar);
             } catch (Throwable unused) {
             }
-            this.rootView = (RelativeLayout) findViewById(e.root_view);
+            this.rootView = (RelativeLayout) findViewById(R.id.root_view);
         }
     }
 }

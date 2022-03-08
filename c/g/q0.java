@@ -18,26 +18,26 @@ import com.fun.ad.sdk.FunSplashAd;
 import com.fun.ad.sdk.internal.api.PidLoader;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class q0 implements PidLoader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final PidLoader a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f28681b;
+    public final long f28519b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f28682c;
+    public long f28520c;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class a implements i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final i a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ q0 f28683b;
+        public final /* synthetic */ q0 f28521b;
 
         public a(q0 q0Var, i iVar) {
             Interceptable interceptable = $ic;
@@ -54,7 +54,7 @@ public class q0 implements PidLoader {
                     return;
                 }
             }
-            this.f28683b = q0Var;
+            this.f28521b = q0Var;
             this.a = iVar;
         }
 
@@ -110,7 +110,7 @@ public class q0 implements PidLoader {
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                this.f28683b.f28682c = System.currentTimeMillis();
+                this.f28521b.f28520c = System.currentTimeMillis();
                 this.a.d();
             }
         }
@@ -140,7 +140,7 @@ public class q0 implements PidLoader {
             }
         }
         this.a = pidLoader;
-        this.f28681b = pidLoader.getPid().tmout * 60 * 1000;
+        this.f28519b = pidLoader.getPid().tmout * 60 * 1000;
     }
 
     @Override // com.fun.ad.sdk.internal.api.PidLoader
@@ -191,7 +191,7 @@ public class q0 implements PidLoader {
     public boolean isLoaded() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a.isLoaded() && System.currentTimeMillis() - this.f28682c < this.f28681b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a.isLoaded() && System.currentTimeMillis() - this.f28520c < this.f28519b : invokeV.booleanValue;
     }
 
     @Override // com.fun.ad.sdk.internal.api.PidLoader

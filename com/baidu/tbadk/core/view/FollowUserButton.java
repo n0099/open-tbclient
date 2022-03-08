@@ -5,20 +5,18 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.s.l0.t.b;
-import c.a.u0.a4.d;
-import c.a.u0.a4.e;
-import c.a.u0.a4.j;
+import c.a.q0.r.l0.t.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class FollowUserButton extends TBSpecificationBtn implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +24,7 @@ public class FollowUserButton extends TBSpecificationBtn implements b {
     public int s;
     public boolean t;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void onClick(View view);
     }
@@ -52,7 +50,7 @@ public class FollowUserButton extends TBSpecificationBtn implements b {
         }
     }
 
-    @Override // c.a.t0.s.l0.t.b
+    @Override // c.a.q0.r.l0.t.b
     public void bindOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
@@ -67,7 +65,7 @@ public class FollowUserButton extends TBSpecificationBtn implements b {
         }
     }
 
-    @Override // c.a.t0.s.l0.t.b
+    @Override // c.a.q0.r.l0.t.b
     public void onClickEvent(View view) {
         a aVar;
         Interceptable interceptable = $ic;
@@ -99,7 +97,7 @@ public class FollowUserButton extends TBSpecificationBtn implements b {
         }
     }
 
-    @Override // c.a.t0.s.l0.t.b
+    @Override // c.a.q0.r.l0.t.b
     public void updateFansNum(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
@@ -112,20 +110,20 @@ public class FollowUserButton extends TBSpecificationBtn implements b {
             if (z) {
                 setVisibility(0);
                 setClickable(this.t);
-                c.a.t0.s.l0.n.b bVar = new c.a.t0.s.l0.n.b();
-                bVar.t(d.CAM_X0109);
+                c.a.q0.r.l0.n.b bVar = new c.a.q0.r.l0.n.b();
+                bVar.t(R.color.CAM_X0109);
                 bVar.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
                 setConfig(bVar);
-                setText(TbadkCoreApplication.getInst().getString(j.relate_forum_is_followed));
+                setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             } else {
                 setVisibility(0);
-                c.a.t0.s.l0.n.b bVar2 = new c.a.t0.s.l0.n.b();
-                bVar2.g(UtilHelper.getDimenPixelSize(e.tbds30));
+                c.a.q0.r.l0.n.b bVar2 = new c.a.q0.r.l0.n.b();
+                bVar2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds30));
                 bVar2.i(this.s, 0, TBSpecificationButtonConfig.IconType.SVG);
-                bVar2.r(d.CAM_X0304);
+                bVar2.r(R.color.CAM_X0304);
                 setConfig(bVar2);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(j.attention));
+                setText(TbadkCoreApplication.getInst().getString(R.string.attention));
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -173,15 +171,15 @@ public class FollowUserButton extends TBSpecificationBtn implements b {
         }
         this.s = 0;
         this.t = true;
-        c.a.t0.s.l0.n.b bVar = new c.a.t0.s.l0.n.b();
-        bVar.g(UtilHelper.getDimenPixelSize(e.tbds30));
+        c.a.q0.r.l0.n.b bVar = new c.a.q0.r.l0.n.b();
+        bVar.g(UtilHelper.getDimenPixelSize(R.dimen.tbds30));
         bVar.i(this.s, 0, TBSpecificationButtonConfig.IconType.SVG);
-        bVar.r(d.CAM_X0304);
+        bVar.r(R.color.CAM_X0304);
         setConfig(bVar);
-        setText(TbadkCoreApplication.getInst().getString(j.attention));
+        setText(TbadkCoreApplication.getInst().getString(R.string.attention));
     }
 
-    @Override // c.a.t0.s.l0.t.b
+    @Override // c.a.q0.r.l0.t.b
     public void updateLikeStatus(boolean z, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
@@ -193,7 +191,7 @@ public class FollowUserButton extends TBSpecificationBtn implements b {
         }
     }
 
-    @Override // c.a.t0.s.l0.t.b
+    @Override // c.a.q0.r.l0.t.b
     public void updateLikeStatus(boolean z, int i2, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {

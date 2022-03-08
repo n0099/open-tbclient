@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import c.a.d.f.p.l;
 import c.a.d.o.e.n;
-import c.a.t0.s.l0.f;
-import c.a.u0.e1.r0;
+import c.a.q0.r.l0.f;
+import c.a.r0.d1.r0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -24,32 +24,32 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FrsGameRecommendFragment extends BaseFragment implements r0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.u0.e1.g2.e.a f43659e;
+    public c.a.r0.d1.w1.e.a f42062e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AlaGameRecommendModel f43660f;
+    public AlaGameRecommendModel f42063f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f43661g;
+    public String f42064g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f43662h;
+    public String f42065h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f43663i;
+    public CustomMessageListener f42066i;
 
     /* renamed from: j  reason: collision with root package name */
-    public AlaGameRecommendModel.b f43664j;
+    public AlaGameRecommendModel.b f42067j;
     public f.g k;
     public BdListView.p l;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +90,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements r0 {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class b implements AlaGameRecommendModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,12 +118,12 @@ public class FrsGameRecommendFragment extends BaseFragment implements r0 {
         public void a(boolean z, List<n> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
-                this.a.f43659e.b();
+                this.a.f42062e.b();
                 FrsGameRecommendFragment frsGameRecommendFragment = this.a;
-                frsGameRecommendFragment.hideNetRefreshView(frsGameRecommendFragment.f43659e.d());
+                frsGameRecommendFragment.hideNetRefreshView(frsGameRecommendFragment.f42062e.d());
                 FrsGameRecommendFragment frsGameRecommendFragment2 = this.a;
-                frsGameRecommendFragment2.hideLoadingView(frsGameRecommendFragment2.f43659e.d());
-                this.a.f43659e.k(list, z);
+                frsGameRecommendFragment2.hideLoadingView(frsGameRecommendFragment2.f42062e.d());
+                this.a.f42062e.k(list, z);
             }
         }
 
@@ -131,25 +131,25 @@ public class FrsGameRecommendFragment extends BaseFragment implements r0 {
         public void b(int i2, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) {
-                this.a.f43659e.b();
+                this.a.f42062e.b();
                 if (z) {
                     this.a.showToast(R.string.card_vr_video_load_failed);
                 } else {
                     FrsGameRecommendFragment frsGameRecommendFragment = this.a;
-                    frsGameRecommendFragment.showNetRefreshView(frsGameRecommendFragment.f43659e.d(), str, false);
+                    frsGameRecommendFragment.showNetRefreshView(frsGameRecommendFragment.f42062e.d(), str, false);
                 }
-                this.a.f43659e.m();
+                this.a.f42062e.m();
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class c implements f.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsGameRecommendFragment f43665e;
+        public final /* synthetic */ FrsGameRecommendFragment f42068e;
 
         public c(FrsGameRecommendFragment frsGameRecommendFragment) {
             Interceptable interceptable = $ic;
@@ -166,33 +166,33 @@ public class FrsGameRecommendFragment extends BaseFragment implements r0 {
                     return;
                 }
             }
-            this.f43665e = frsGameRecommendFragment;
+            this.f42068e = frsGameRecommendFragment;
         }
 
-        @Override // c.a.t0.s.l0.f.g
+        @Override // c.a.q0.r.l0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (l.z()) {
-                    if (this.f43665e.f43660f != null) {
-                        this.f43665e.f43660f.loadData();
+                    if (this.f42068e.f42063f != null) {
+                        this.f42068e.f42063f.loadData();
                         return;
                     }
                     return;
                 }
-                this.f43665e.showToast(R.string.neterror);
-                this.f43665e.f43659e.b();
+                this.f42068e.showToast(R.string.neterror);
+                this.f42068e.f42062e.b();
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class d implements BdListView.p {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsGameRecommendFragment f43666e;
+        public final /* synthetic */ FrsGameRecommendFragment f42069e;
 
         public d(FrsGameRecommendFragment frsGameRecommendFragment) {
             Interceptable interceptable = $ic;
@@ -209,16 +209,16 @@ public class FrsGameRecommendFragment extends BaseFragment implements r0 {
                     return;
                 }
             }
-            this.f43666e = frsGameRecommendFragment;
+            this.f42069e = frsGameRecommendFragment;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f43666e.f43660f == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f42069e.f42063f == null) {
                 return;
             }
-            this.f43666e.f43660f.loadMore();
+            this.f42069e.f42063f.loadMore();
         }
     }
 
@@ -235,8 +235,8 @@ public class FrsGameRecommendFragment extends BaseFragment implements r0 {
                 return;
             }
         }
-        this.f43663i = new a(this, 0);
-        this.f43664j = new b(this);
+        this.f42066i = new a(this, 0);
+        this.f42067j = new b(this);
         this.k = new c(this);
         this.l = new d(this);
     }
@@ -258,22 +258,22 @@ public class FrsGameRecommendFragment extends BaseFragment implements r0 {
     public final void forceRefresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f43659e.c();
+            this.f42062e.c();
         }
     }
 
-    @Override // c.a.u0.e1.r0
+    @Override // c.a.r0.d1.r0
     public NavigationBar getNavigationBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43659e.e() : (NavigationBar) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42062e.e() : (NavigationBar) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
-        c.a.u0.e1.g2.e.a aVar;
+        c.a.r0.d1.w1.e.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (aVar = this.f43659e) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (aVar = this.f42062e) == null) {
             return;
         }
         aVar.i(i2);
@@ -288,14 +288,14 @@ public class FrsGameRecommendFragment extends BaseFragment implements r0 {
             if (arguments == null) {
                 return;
             }
-            this.f43661g = arguments.getString("forum_id");
-            this.f43662h = arguments.getString("forum_name");
-            c.a.u0.e1.g2.e.a aVar = new c.a.u0.e1.g2.e.a(getPageContext(), this.f43661g, this.f43662h);
-            this.f43659e = aVar;
+            this.f42064g = arguments.getString("forum_id");
+            this.f42065h = arguments.getString("forum_name");
+            c.a.r0.d1.w1.e.a aVar = new c.a.r0.d1.w1.e.a(getPageContext(), this.f42064g, this.f42065h);
+            this.f42062e = aVar;
             aVar.l(this.k);
-            this.f43659e.n(this.l);
-            MessageManager.getInstance().registerListener(2001446, this.f43663i);
-            this.f43660f = new AlaGameRecommendModel(this.f43661g, this.f43664j);
+            this.f42062e.n(this.l);
+            MessageManager.getInstance().registerListener(2001446, this.f42066i);
+            this.f42063f = new AlaGameRecommendModel(this.f42064g, this.f42067j);
         }
     }
 
@@ -303,7 +303,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements r0 {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) ? this.f43659e.f() : (View) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) ? this.f42062e.f() : (View) invokeLLL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -311,16 +311,16 @@ public class FrsGameRecommendFragment extends BaseFragment implements r0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            c.a.u0.e1.g2.e.a aVar = this.f43659e;
+            c.a.r0.d1.w1.e.a aVar = this.f42062e;
             if (aVar != null) {
                 aVar.j();
             }
-            AlaGameRecommendModel alaGameRecommendModel = this.f43660f;
+            AlaGameRecommendModel alaGameRecommendModel = this.f42063f;
             if (alaGameRecommendModel != null) {
                 alaGameRecommendModel.onDestroy();
             }
-            if (this.f43663i != null) {
-                MessageManager.getInstance().unRegisterListener(this.f43663i);
+            if (this.f42066i != null) {
+                MessageManager.getInstance().unRegisterListener(this.f42066i);
             }
         }
     }
@@ -329,7 +329,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements r0 {
     public void onNetRefreshButtonClicked() {
         AlaGameRecommendModel alaGameRecommendModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (alaGameRecommendModel = this.f43660f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (alaGameRecommendModel = this.f42063f) == null) {
             return;
         }
         alaGameRecommendModel.loadData();
@@ -341,13 +341,13 @@ public class FrsGameRecommendFragment extends BaseFragment implements r0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onPrimary();
-            if (isAdded() && isPrimary() && (alaGameRecommendModel = this.f43660f) != null) {
+            if (isAdded() && isPrimary() && (alaGameRecommendModel = this.f42063f) != null) {
                 if (alaGameRecommendModel.a()) {
                     forceRefresh();
                     return;
                 }
-                this.f43660f.loadData();
-                showLoadingView(this.f43659e.d());
+                this.f42063f.loadData();
+                showLoadingView(this.f42062e.d());
             }
         }
     }

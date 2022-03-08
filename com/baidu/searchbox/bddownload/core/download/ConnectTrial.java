@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class ConnectTrial {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern CONTENT_DISPOSITION_NON_QUOTED_PATTERN;

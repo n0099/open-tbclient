@@ -1,40 +1,39 @@
 package com.meizu.cloud.pushsdk.handler.a.b;
 
 import android.text.TextUtils;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.handler.MzPushMessage;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class e {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f58992b = String.valueOf(-1);
+    public String f57342b = String.valueOf(-1);
 
     /* renamed from: c  reason: collision with root package name */
-    public String f58993c = "";
+    public String f57343c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public String f58994d = "";
+    public String f57344d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public int f58995e = -1;
+    public int f57345e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f58996f = "";
+    public String f57346f = "";
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f58997b;
+        public String f57347b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f58998c;
+        public String f57348c;
 
         public a(String str) {
             if (TextUtils.isEmpty(str)) {
@@ -58,7 +57,7 @@ public class e {
         }
 
         public String a() {
-            return this.f58998c;
+            return this.f57348c;
         }
 
         public void a(String str) {
@@ -66,15 +65,15 @@ public class e {
         }
 
         public void b(String str) {
-            this.f58997b = str;
+            this.f57347b = str;
         }
 
         public void c(String str) {
-            this.f58998c = str;
+            this.f57348c = str;
         }
 
         public String toString() {
-            return "PublicKeyStatus{code='" + this.a + ExtendedMessageFormat.QUOTE + ", message='" + this.f58997b + ExtendedMessageFormat.QUOTE + ", publicKey='" + this.f58998c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "PublicKeyStatus{code='" + this.a + ExtendedMessageFormat.QUOTE + ", message='" + this.f57347b + ExtendedMessageFormat.QUOTE + ", publicKey='" + this.f57348c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
     }
 
@@ -161,8 +160,8 @@ public class e {
         e eVar = new e();
         try {
             JSONObject jSONObject = new JSONObject(str);
-            if (!jSONObject.isNull(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP)) {
-                eVar.a(jSONObject.getInt(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP));
+            if (!jSONObject.isNull("tt")) {
+                eVar.a(jSONObject.getInt("tt"));
             }
             if (!jSONObject.isNull("ti")) {
                 eVar.a(jSONObject.getString("ti"));
@@ -194,46 +193,46 @@ public class e {
     }
 
     public void a(String str) {
-        this.f58992b = str;
+        this.f57342b = str;
     }
 
     public String b() {
-        return this.f58992b;
+        return this.f57342b;
     }
 
     public void b(int i2) {
-        this.f58995e = i2;
+        this.f57345e = i2;
     }
 
     public void b(String str) {
-        this.f58993c = str;
+        this.f57343c = str;
     }
 
     public String c() {
-        return this.f58993c;
+        return this.f57343c;
     }
 
     public void c(String str) {
-        this.f58994d = str;
+        this.f57344d = str;
     }
 
     public String d() {
-        return this.f58994d;
+        return this.f57344d;
     }
 
     public void d(String str) {
-        this.f58996f = str;
+        this.f57346f = str;
     }
 
     public int e() {
-        return this.f58995e;
+        return this.f57345e;
     }
 
     public String f() {
-        return this.f58996f;
+        return this.f57346f;
     }
 
     public String toString() {
-        return "SecurityMessage{timestamp=" + this.a + ", taskId='" + this.f58992b + ExtendedMessageFormat.QUOTE + ", title='" + this.f58993c + ExtendedMessageFormat.QUOTE + ", content='" + this.f58994d + ExtendedMessageFormat.QUOTE + ", clickType=" + this.f58995e + ", params='" + this.f58996f + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return "SecurityMessage{timestamp=" + this.a + ", taskId='" + this.f57342b + ExtendedMessageFormat.QUOTE + ", title='" + this.f57343c + ExtendedMessageFormat.QUOTE + ", content='" + this.f57344d + ExtendedMessageFormat.QUOTE + ", clickType=" + this.f57345e + ", params='" + this.f57346f + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
     }
 }

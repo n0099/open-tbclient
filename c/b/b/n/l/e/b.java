@@ -10,15 +10,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class b extends c.b.b.n.l.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final long f27431i;
+    public static final long f27335i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final long f27432j;
+    public static final long f27336j;
     public static final long k;
     public static final long l;
     public static final long m;
@@ -28,7 +28,7 @@ public class b extends c.b.b.n.l.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.b.b.n.a f27433h;
+    public final c.b.b.n.a f27337h;
 
     static {
         InterceptResult invokeClinit;
@@ -43,15 +43,15 @@ public class b extends c.b.b.n.l.a {
                 return;
             }
         }
-        f27431i = c.b.b.n.l.a.d("diffuseColor");
-        f27432j = c.b.b.n.l.a.d("specularColor");
+        f27335i = c.b.b.n.l.a.d("diffuseColor");
+        f27336j = c.b.b.n.l.a.d("specularColor");
         k = c.b.b.n.l.a.d("ambientColor");
         l = c.b.b.n.l.a.d("emissiveColor");
         m = c.b.b.n.l.a.d("reflectionColor");
         n = c.b.b.n.l.a.d("ambientLightColor");
         long d2 = c.b.b.n.l.a.d("fogColor");
         o = d2;
-        p = d2 | k | f27431i | f27432j | l | m | n;
+        p = d2 | k | f27335i | f27336j | l | m | n;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -72,7 +72,7 @@ public class b extends c.b.b.n.l.a {
                 return;
             }
         }
-        this.f27433h = new c.b.b.n.a();
+        this.f27337h = new c.b.b.n.a();
         if (!f(j2)) {
             throw new GdxRuntimeException("Invalid type specified");
         }
@@ -91,9 +91,9 @@ public class b extends c.b.b.n.l.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            long j2 = this.f27415e;
-            long j3 = aVar.f27415e;
-            return j2 != j3 ? (int) (j2 - j3) : ((b) aVar).f27433h.g() - this.f27433h.g();
+            long j2 = this.f27319e;
+            long j3 = aVar.f27319e;
+            return j2 != j3 ? (int) (j2 - j3) : ((b) aVar).f27337h.g() - this.f27337h.g();
         }
         return invokeL.intValue;
     }
@@ -102,7 +102,7 @@ public class b extends c.b.b.n.l.a {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (super.hashCode() * CyberPlayerManager.DP_MSG_INFO_CACHE_DURATION) + this.f27433h.g() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (super.hashCode() * CyberPlayerManager.DP_MSG_INFO_CACHE_DURATION) + this.f27337h.g() : invokeV.intValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -124,7 +124,7 @@ public class b extends c.b.b.n.l.a {
             }
         }
         if (aVar != null) {
-            this.f27433h.e(aVar);
+            this.f27337h.e(aVar);
         }
     }
 }

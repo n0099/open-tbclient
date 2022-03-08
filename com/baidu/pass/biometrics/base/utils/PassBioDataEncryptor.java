@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Random;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class PassBioDataEncryptor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "PassBioDataEncryptor";

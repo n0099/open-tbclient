@@ -28,7 +28,7 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import javax.security.auth.x500.X500Principal;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class AESUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALGORITHM_NAME = "AES";
@@ -46,13 +46,13 @@ public class AESUtil {
     public String nameSpace;
 
     /* renamed from: com.baidu.searchbox.retrieve.file.util.AESUtil$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public class AESUtil {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class CryptResult {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FAIL = -1;
@@ -146,7 +146,7 @@ public class AESUtil {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class ModeNotMatchException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -350,7 +350,7 @@ public class AESUtil {
         return (SecretKey) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x0013 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x0011 */
     /* JADX DEBUG: Multi-variable search result rejected for r3v6, resolved type: java.lang.StringBuilder */
     /* JADX DEBUG: Multi-variable search result rejected for r4v4, resolved type: java.lang.StringBuilder */
     /* JADX WARN: Multi-variable type inference failed */

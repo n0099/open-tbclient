@@ -17,7 +17,7 @@ import io.flutter.Log;
 import io.flutter.embedding.engine.renderer.FlutterRenderer;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
 import io.flutter.embedding.engine.renderer.RenderSurface;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class FlutterSurfaceView extends SurfaceView implements RenderSurface {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterSurfaceView";

@@ -8,35 +8,35 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.biometrics.liveness.R;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class CustomProgressBar extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f34627b;
+    public int f33030b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f34628c;
+    public Paint f33031c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Paint f34629d;
+    public Paint f33032d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f34630e;
+    public float f33033e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f34631f;
+    public boolean f33034f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final RectF f34632g;
+    public final RectF f33035g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomProgressBar(Context context) {
@@ -56,7 +56,7 @@ public class CustomProgressBar extends View {
                 return;
             }
         }
-        this.f34632g = new RectF();
+        this.f33035g = new RectF();
         a(context, null);
     }
 
@@ -67,19 +67,19 @@ public class CustomProgressBar extends View {
         }
         TypedArray typedArray = null;
         try {
-            typedArray = context.obtainStyledAttributes(attributeSet, R.styleable.CustomProgressBar);
-            this.f34630e = typedArray.getFloat(R.styleable.CustomProgressBar_mpb_percent, 0.0f);
-            this.a = typedArray.getColor(R.styleable.CustomProgressBar_mpb_fill_color, 0);
-            this.f34627b = typedArray.getColor(R.styleable.CustomProgressBar_mpb_background_color, 0);
-            this.f34631f = typedArray.getBoolean(R.styleable.CustomProgressBar_mpb_flat, false);
+            typedArray = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.mpb_background_color, R.attr.mpb_fill_color, R.attr.mpb_flat, R.attr.mpb_percent});
+            this.f33033e = typedArray.getFloat(3, 0.0f);
+            this.a = typedArray.getColor(1, 0);
+            this.f33030b = typedArray.getColor(0, 0);
+            this.f33034f = typedArray.getBoolean(2, false);
             Paint paint = new Paint();
-            this.f34628c = paint;
+            this.f33031c = paint;
             paint.setColor(this.a);
-            this.f34628c.setAntiAlias(true);
+            this.f33031c.setAntiAlias(true);
             Paint paint2 = new Paint();
-            this.f34629d = paint2;
-            paint2.setColor(this.f34627b);
-            this.f34629d.setAntiAlias(true);
+            this.f33032d = paint2;
+            paint2.setColor(this.f33030b);
+            this.f33032d.setAntiAlias(true);
         } finally {
             if (typedArray != null) {
                 typedArray.recycle();
@@ -90,7 +90,7 @@ public class CustomProgressBar extends View {
     public int getBackgroundColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34627b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33030b : invokeV.intValue;
     }
 
     public int getFillColor() {
@@ -102,7 +102,7 @@ public class CustomProgressBar extends View {
     public float getPercent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34630e : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33033e : invokeV.floatValue;
     }
 
     @Override // android.view.View
@@ -110,59 +110,59 @@ public class CustomProgressBar extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             super.onDraw(canvas);
-            float f2 = this.f34630e;
+            float f2 = this.f33033e;
             canvas.save();
             int measuredHeight = (getMeasuredHeight() - getPaddingTop()) - getPaddingBottom();
             float measuredWidth = (getMeasuredWidth() - getPaddingLeft()) - getPaddingRight();
             float f3 = f2 * measuredWidth;
             float f4 = measuredHeight;
             float f5 = f4 / 2.0f;
-            RectF rectF = this.f34632g;
+            RectF rectF = this.f33035g;
             rectF.left = 0.0f;
             rectF.top = 0.0f;
             rectF.right = measuredWidth;
             rectF.bottom = f4;
-            if (this.f34627b != 0) {
-                canvas.drawRoundRect(rectF, f5, f5, this.f34629d);
+            if (this.f33030b != 0) {
+                canvas.drawRoundRect(rectF, f5, f5, this.f33032d);
             }
             try {
                 if (this.a != 0 && f3 > 0.0f) {
                     if (f3 == measuredWidth) {
-                        this.f34632g.right = f3;
-                        canvas.drawRoundRect(this.f34632g, f5, f5, this.f34628c);
-                    } else if (this.f34631f) {
+                        this.f33035g.right = f3;
+                        canvas.drawRoundRect(this.f33035g, f5, f5, this.f33031c);
+                    } else if (this.f33034f) {
                         canvas.save();
-                        this.f34632g.right = f3 > f5 ? f5 : f3;
-                        canvas.clipRect(this.f34632g);
-                        this.f34632g.right = 2.0f * f5;
-                        canvas.drawRoundRect(this.f34632g, f5, f5, this.f34628c);
+                        this.f33035g.right = f3 > f5 ? f5 : f3;
+                        canvas.clipRect(this.f33035g);
+                        this.f33035g.right = 2.0f * f5;
+                        canvas.drawRoundRect(this.f33035g, f5, f5, this.f33031c);
                         canvas.restore();
                         if (f3 <= f5) {
                             return;
                         }
                         float f6 = measuredWidth - f5;
                         float f7 = f3 > f6 ? f6 : f3;
-                        this.f34632g.left = f5;
-                        this.f34632g.right = f7;
-                        canvas.drawRect(this.f34632g, this.f34628c);
+                        this.f33035g.left = f5;
+                        this.f33035g.right = f7;
+                        canvas.drawRect(this.f33035g, this.f33031c);
                         if (f3 <= f6) {
                             return;
                         }
-                        this.f34632g.left = f6 - f5;
-                        this.f34632g.right = f3;
-                        canvas.clipRect(this.f34632g);
-                        this.f34632g.right = measuredWidth;
-                        canvas.drawArc(this.f34632g, -90.0f, 180.0f, true, this.f34628c);
+                        this.f33035g.left = f6 - f5;
+                        this.f33035g.right = f3;
+                        canvas.clipRect(this.f33035g);
+                        this.f33035g.right = measuredWidth;
+                        canvas.drawArc(this.f33035g, -90.0f, 180.0f, true, this.f33031c);
                     } else {
                         float f8 = 2.0f * f5;
                         if (f3 <= f8) {
-                            this.f34632g.right = f3;
-                            canvas.clipRect(this.f34632g);
-                            this.f34632g.right = f8;
-                            canvas.drawRoundRect(this.f34632g, f5, f5, this.f34628c);
+                            this.f33035g.right = f3;
+                            canvas.clipRect(this.f33035g);
+                            this.f33035g.right = f8;
+                            canvas.drawRoundRect(this.f33035g, f5, f5, this.f33031c);
                         } else {
-                            this.f34632g.right = f3;
-                            canvas.drawRoundRect(this.f34632g, f5, f5, this.f34628c);
+                            this.f33035g.right = f3;
+                            canvas.drawRoundRect(this.f33035g, f5, f5, this.f33031c);
                         }
                     }
                 }
@@ -175,11 +175,11 @@ public class CustomProgressBar extends View {
     @Override // android.view.View
     public void setBackgroundColor(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || this.f34627b == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || this.f33030b == i2) {
             return;
         }
-        this.f34627b = i2;
-        this.f34629d.setColor(i2);
+        this.f33030b = i2;
+        this.f33032d.setColor(i2);
         invalidate();
     }
 
@@ -189,16 +189,16 @@ public class CustomProgressBar extends View {
             return;
         }
         this.a = i2;
-        this.f34628c.setColor(i2);
+        this.f33031c.setColor(i2);
         invalidate();
     }
 
     public void setFlat(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || this.f34631f == z) {
+        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || this.f33034f == z) {
             return;
         }
-        this.f34631f = z;
+        this.f33034f = z;
         invalidate();
     }
 
@@ -206,8 +206,8 @@ public class CustomProgressBar extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048583, this, f2) == null) {
             float max = Math.max(0.0f, Math.min(1.0f, f2));
-            if (this.f34630e != max) {
-                this.f34630e = max;
+            if (this.f33033e != max) {
+                this.f33033e = max;
                 postInvalidate();
             }
         }
@@ -232,7 +232,7 @@ public class CustomProgressBar extends View {
                 return;
             }
         }
-        this.f34632g = new RectF();
+        this.f33035g = new RectF();
         a(context, attributeSet);
     }
 
@@ -255,7 +255,7 @@ public class CustomProgressBar extends View {
                 return;
             }
         }
-        this.f34632g = new RectF();
+        this.f33035g = new RectF();
         a(context, attributeSet);
     }
 }

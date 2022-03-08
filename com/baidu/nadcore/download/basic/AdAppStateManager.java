@@ -7,7 +7,7 @@ import android.content.IntentFilter;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import c.a.d0.x.c;
+import c.a.b0.x.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadAction;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
@@ -20,20 +20,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class AdAppStateManager extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AdAppStateManager";
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, c.a.d0.j.d.a> mDatas;
+    public HashMap<String, c.a.b0.j.d.a> mDatas;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final AdAppStateManager a;
@@ -67,7 +67,7 @@ public class AdAppStateManager extends BroadcastReceiver {
             intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
             intentFilter.addAction(PackageChangedReceiver.ACTION_UNINSTALL);
             intentFilter.addDataScheme("package");
-            c.a.d0.h.a.b().registerReceiver(this, intentFilter);
+            c.a.b0.h.a.b().registerReceiver(this, intentFilter);
         }
     }
 
@@ -84,26 +84,26 @@ public class AdAppStateManager extends BroadcastReceiver {
             return;
         }
         Uri data = intent.getData();
-        c.a.d0.j.d.a aVar = (c.a.d0.j.d.a) c.b(this.mDatas, data != null ? data.getEncodedSchemeSpecificPart() : "");
+        c.a.b0.j.d.a aVar = (c.a.b0.j.d.a) c.b(this.mDatas, data != null ? data.getEncodedSchemeSpecificPart() : "");
         if (aVar == null) {
             return;
         }
         if (TextUtils.equals(PackageChangedReceiver.ACTION_INSTALL, intent.getAction())) {
-            aVar.f2798c = AdDownloadStatus.INSTALLED;
-            c.a.d0.j.a.a.b().d(AdDownloadAction.INSTALL_FINISH, aVar);
-            c.a.d0.j.i.a.e(aVar);
+            aVar.f1613c = AdDownloadStatus.INSTALLED;
+            c.a.b0.j.a.a.b().d(AdDownloadAction.INSTALL_FINISH, aVar);
+            c.a.b0.j.i.a.e(aVar);
         } else if (PackageChangedReceiver.ACTION_UNINSTALL.equals(intent.getAction())) {
-            c.a.d0.j.a.a.b().d(AdDownloadAction.REMOVE, aVar);
+            c.a.b0.j.a.a.b().d(AdDownloadAction.REMOVE, aVar);
         }
-        c.a.d0.j.b.a.a().b();
+        c.a.b0.j.b.a.a().b();
     }
 
-    public void register(@NonNull c.a.d0.j.d.a aVar) {
+    public void register(@NonNull c.a.b0.j.d.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || TextUtils.isEmpty(aVar.f2799d)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || TextUtils.isEmpty(aVar.f1614d)) {
             return;
         }
-        c.e(this.mDatas, aVar.f2799d, aVar);
+        c.e(this.mDatas, aVar.f1614d, aVar);
     }
 
     public AdAppStateManager() {

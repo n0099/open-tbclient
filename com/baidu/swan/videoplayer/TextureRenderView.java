@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.y.a;
+import c.a.p0.y.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,22 +22,22 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @TargetApi(14)
-/* loaded from: classes11.dex */
-public class TextureRenderView extends TextureView implements c.a.s0.y.a {
+/* loaded from: classes5.dex */
+public class TextureRenderView extends TextureView implements c.a.p0.y.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.s0.y.b f40230e;
+    public c.a.p0.y.b f38634e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f40231f;
+    public int f38635f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SurfaceTexture f40232g;
+    public SurfaceTexture f38636g;
     public b mSurfaceCallback;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static final class a implements a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class TextureRenderView extends TextureView implements c.a.s0.y.a {
             this.a = textureRenderView;
         }
 
-        @Override // c.a.s0.y.a.b
+        @Override // c.a.p0.y.a.b
         @TargetApi(16)
         public void a(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
@@ -77,11 +77,11 @@ public class TextureRenderView extends TextureView implements c.a.s0.y.a {
             this.a.setCurrentMediaPlayerCode(mediaPlayer.hashCode());
         }
 
-        @Override // c.a.s0.y.a.b
-        public c.a.s0.y.a b() {
+        @Override // c.a.p0.y.a.b
+        public c.a.p0.y.a b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (c.a.s0.y.a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (c.a.p0.y.a) invokeV.objValue;
         }
 
         public Surface c() {
@@ -91,29 +91,29 @@ public class TextureRenderView extends TextureView implements c.a.s0.y.a {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static final class b implements TextureView.SurfaceTextureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public SurfaceTexture f40233e;
+        public SurfaceTexture f38637e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f40234f;
+        public boolean f38638f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f40235g;
+        public int f38639g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f40236h;
+        public int f38640h;
 
         /* renamed from: i  reason: collision with root package name */
-        public volatile boolean f40237i;
+        public volatile boolean f38641i;
 
         /* renamed from: j  reason: collision with root package name */
-        public WeakReference<TextureRenderView> f40238j;
-        public Map<a.InterfaceC0828a, Object> k;
+        public WeakReference<TextureRenderView> f38642j;
+        public Map<a.InterfaceC0774a, Object> k;
 
         public b(TextureRenderView textureRenderView) {
             Interceptable interceptable = $ic;
@@ -130,42 +130,42 @@ public class TextureRenderView extends TextureView implements c.a.s0.y.a {
                     return;
                 }
             }
-            this.f40237i = false;
+            this.f38641i = false;
             this.k = new ConcurrentHashMap();
-            this.f40238j = new WeakReference<>(textureRenderView);
+            this.f38642j = new WeakReference<>(textureRenderView);
         }
 
-        public void a(a.InterfaceC0828a interfaceC0828a) {
+        public void a(a.InterfaceC0774a interfaceC0774a) {
             a aVar;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0828a) == null) {
-                this.k.put(interfaceC0828a, interfaceC0828a);
-                if (this.f40233e != null) {
-                    aVar = new a(this.f40238j.get());
-                    interfaceC0828a.b(aVar, this.f40235g, this.f40236h);
+            if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0774a) == null) {
+                this.k.put(interfaceC0774a, interfaceC0774a);
+                if (this.f38637e != null) {
+                    aVar = new a(this.f38642j.get());
+                    interfaceC0774a.b(aVar, this.f38639g, this.f38640h);
                 } else {
                     aVar = null;
                 }
-                if (this.f40234f) {
+                if (this.f38638f) {
                     if (aVar == null) {
-                        aVar = new a(this.f40238j.get());
+                        aVar = new a(this.f38642j.get());
                     }
-                    interfaceC0828a.c(aVar, 0, this.f40235g, this.f40236h);
+                    interfaceC0774a.c(aVar, 0, this.f38639g, this.f38640h);
                 }
             }
         }
 
-        public void b(a.InterfaceC0828a interfaceC0828a) {
+        public void b(a.InterfaceC0774a interfaceC0774a) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0828a) == null) {
-                this.k.remove(interfaceC0828a);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0774a) == null) {
+                this.k.remove(interfaceC0774a);
             }
         }
 
         public void c(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                this.f40237i = z;
+                this.f38641i = z;
             }
         }
 
@@ -174,16 +174,16 @@ public class TextureRenderView extends TextureView implements c.a.s0.y.a {
         public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048579, this, surfaceTexture, i2, i3) == null) {
-                this.f40233e = surfaceTexture;
-                if (this.f40238j.get() != null && this.f40238j.get().getLastSurfaceTexture() == null) {
-                    this.f40238j.get().setLastSurfaceTexture(surfaceTexture);
+                this.f38637e = surfaceTexture;
+                if (this.f38642j.get() != null && this.f38642j.get().getLastSurfaceTexture() == null) {
+                    this.f38642j.get().setLastSurfaceTexture(surfaceTexture);
                 }
-                this.f40234f = false;
-                this.f40235g = 0;
-                this.f40236h = 0;
-                a aVar = new a(this.f40238j.get());
-                for (a.InterfaceC0828a interfaceC0828a : this.k.keySet()) {
-                    interfaceC0828a.b(aVar, 0, 0);
+                this.f38638f = false;
+                this.f38639g = 0;
+                this.f38640h = 0;
+                a aVar = new a(this.f38642j.get());
+                for (a.InterfaceC0774a interfaceC0774a : this.k.keySet()) {
+                    interfaceC0774a.b(aVar, 0, 0);
                 }
             }
         }
@@ -193,15 +193,15 @@ public class TextureRenderView extends TextureView implements c.a.s0.y.a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, surfaceTexture)) == null) {
-                this.f40233e = surfaceTexture;
-                this.f40234f = false;
-                this.f40235g = 0;
-                this.f40236h = 0;
-                a aVar = new a(this.f40238j.get());
-                for (a.InterfaceC0828a interfaceC0828a : this.k.keySet()) {
-                    interfaceC0828a.a(aVar);
+                this.f38637e = surfaceTexture;
+                this.f38638f = false;
+                this.f38639g = 0;
+                this.f38640h = 0;
+                a aVar = new a(this.f38642j.get());
+                for (a.InterfaceC0774a interfaceC0774a : this.k.keySet()) {
+                    interfaceC0774a.a(aVar);
                 }
-                return this.f40237i;
+                return this.f38641i;
             }
             return invokeL.booleanValue;
         }
@@ -210,13 +210,13 @@ public class TextureRenderView extends TextureView implements c.a.s0.y.a {
         public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048581, this, surfaceTexture, i2, i3) == null) {
-                this.f40233e = surfaceTexture;
-                this.f40234f = true;
-                this.f40235g = i2;
-                this.f40236h = i3;
-                a aVar = new a(this.f40238j.get());
-                for (a.InterfaceC0828a interfaceC0828a : this.k.keySet()) {
-                    interfaceC0828a.c(aVar, 0, i2, i3);
+                this.f38637e = surfaceTexture;
+                this.f38638f = true;
+                this.f38639g = i2;
+                this.f38640h = i3;
+                a aVar = new a(this.f38642j.get());
+                for (a.InterfaceC0774a interfaceC0774a : this.k.keySet()) {
+                    interfaceC0774a.c(aVar, 0, i2, i3);
                 }
             }
         }
@@ -247,38 +247,38 @@ public class TextureRenderView extends TextureView implements c.a.s0.y.a {
                 return;
             }
         }
-        this.f40231f = 0;
+        this.f38635f = 0;
         a(context);
     }
 
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f40230e = new c.a.s0.y.b(this);
+            this.f38634e = new c.a.p0.y.b(this);
             b bVar = new b(this);
             this.mSurfaceCallback = bVar;
             setSurfaceTextureListener(bVar);
         }
     }
 
-    @Override // c.a.s0.y.a
-    public void addRenderCallback(a.InterfaceC0828a interfaceC0828a) {
+    @Override // c.a.p0.y.a
+    public void addRenderCallback(a.InterfaceC0774a interfaceC0774a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0828a) == null) {
-            this.mSurfaceCallback.a(interfaceC0828a);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0774a) == null) {
+            this.mSurfaceCallback.a(interfaceC0774a);
         }
     }
 
     public int getCurrentMediaPlayerCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40231f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38635f : invokeV.intValue;
     }
 
     public SurfaceTexture getLastSurfaceTexture() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f40232g : (SurfaceTexture) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38636g : (SurfaceTexture) invokeV.objValue;
     }
 
     public a.b getSurfaceHolder() {
@@ -287,7 +287,7 @@ public class TextureRenderView extends TextureView implements c.a.s0.y.a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new a(this) : (a.b) invokeV.objValue;
     }
 
-    @Override // c.a.s0.y.a
+    @Override // c.a.p0.y.a
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -324,39 +324,39 @@ public class TextureRenderView extends TextureView implements c.a.s0.y.a {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048585, this, i2, i3) == null) {
-            this.f40230e.a(i2, i3);
-            setMeasuredDimension(this.f40230e.c(), this.f40230e.b());
+            this.f38634e.a(i2, i3);
+            setMeasuredDimension(this.f38634e.c(), this.f38634e.b());
         }
     }
 
-    @Override // c.a.s0.y.a
+    @Override // c.a.p0.y.a
     @TargetApi(16)
     public void release() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f40232g == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f38636g == null) {
             return;
         }
         if (isAvailable()) {
             this.mSurfaceCallback.c(true);
             return;
         }
-        this.f40232g.release();
-        this.f40232g = null;
+        this.f38636g.release();
+        this.f38636g = null;
     }
 
-    @Override // c.a.s0.y.a
-    public void removeRenderCallback(a.InterfaceC0828a interfaceC0828a) {
+    @Override // c.a.p0.y.a
+    public void removeRenderCallback(a.InterfaceC0774a interfaceC0774a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, interfaceC0828a) == null) {
-            this.mSurfaceCallback.b(interfaceC0828a);
+        if (interceptable == null || interceptable.invokeL(1048587, this, interfaceC0774a) == null) {
+            this.mSurfaceCallback.b(interfaceC0774a);
         }
     }
 
-    @Override // c.a.s0.y.a
+    @Override // c.a.p0.y.a
     public void setAspectRatio(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f40230e.d(i2);
+            this.f38634e.d(i2);
             requestLayout();
         }
     }
@@ -364,21 +364,21 @@ public class TextureRenderView extends TextureView implements c.a.s0.y.a {
     public void setCurrentMediaPlayerCode(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f40231f = i2;
+            this.f38635f = i2;
         }
     }
 
     public void setLastSurfaceTexture(SurfaceTexture surfaceTexture) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, surfaceTexture) == null) {
-            this.f40232g = surfaceTexture;
+            this.f38636g = surfaceTexture;
         }
     }
 
     public void setVideoRotation(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.f40230e.e(i2);
+            this.f38634e.e(i2);
             setRotation(i2);
         }
     }
@@ -388,17 +388,17 @@ public class TextureRenderView extends TextureView implements c.a.s0.y.a {
         if (!(interceptable == null || interceptable.invokeII(1048592, this, i2, i3) == null) || i2 <= 0 || i3 <= 0) {
             return;
         }
-        this.f40230e.f(i2, i3);
+        this.f38634e.f(i2, i3);
         requestLayout();
     }
 
-    @Override // c.a.s0.y.a
+    @Override // c.a.p0.y.a
     public void setVideoSize(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeII(1048593, this, i2, i3) == null) || i2 <= 0 || i3 <= 0) {
             return;
         }
-        this.f40230e.g(i2, i3);
+        this.f38634e.g(i2, i3);
         requestLayout();
     }
 
@@ -430,7 +430,7 @@ public class TextureRenderView extends TextureView implements c.a.s0.y.a {
                 return;
             }
         }
-        this.f40231f = 0;
+        this.f38635f = 0;
         a(context);
     }
 
@@ -453,7 +453,7 @@ public class TextureRenderView extends TextureView implements c.a.s0.y.a {
                 return;
             }
         }
-        this.f40231f = 0;
+        this.f38635f = 0;
         a(context);
     }
 
@@ -477,7 +477,7 @@ public class TextureRenderView extends TextureView implements c.a.s0.y.a {
                 return;
             }
         }
-        this.f40231f = 0;
+        this.f38635f = 0;
         a(context);
     }
 }

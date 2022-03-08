@@ -1,7 +1,7 @@
 package com.google.common.hash;
 
-import c.i.d.a.r;
-import c.i.d.d.i;
+import c.i.c.a.r;
+import c.i.c.d.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class LongAddables {
     public static /* synthetic */ Interceptable $ic;
     public static final r<i> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class PureJavaLongAddable extends AtomicLong implements i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public final class LongAddables {
             }
         }
 
-        @Override // c.i.d.d.i
+        @Override // c.i.c.d.i
         public void add(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
@@ -44,7 +44,7 @@ public final class LongAddables {
             }
         }
 
-        @Override // c.i.d.d.i
+        @Override // c.i.c.d.i
         public void increment() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -52,7 +52,7 @@ public final class LongAddables {
             }
         }
 
-        @Override // c.i.d.d.i
+        @Override // c.i.c.d.i
         public long sum() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public final class LongAddables {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class a implements r<i> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +84,7 @@ public final class LongAddables {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.i.d.a.r
+        @Override // c.i.c.a.r
         /* renamed from: a */
         public i get() {
             InterceptResult invokeV;
@@ -93,7 +93,7 @@ public final class LongAddables {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class b implements r<i> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,7 +113,7 @@ public final class LongAddables {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.i.d.a.r
+        @Override // c.i.c.a.r
         /* renamed from: a */
         public i get() {
             InterceptResult invokeV;

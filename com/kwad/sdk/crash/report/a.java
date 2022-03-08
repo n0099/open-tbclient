@@ -3,21 +3,21 @@ package com.kwad.sdk.crash.report;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class a implements c {
-    public ArrayList<C2138a> a = new ArrayList<>();
+    public ArrayList<C2117a> a = new ArrayList<>();
 
     /* renamed from: com.kwad.sdk.crash.report.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C2138a {
+    /* loaded from: classes8.dex */
+    public static class C2117a {
         public ExceptionMessage a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f56761b;
+        public int f55111b;
 
-        public C2138a(ExceptionMessage exceptionMessage, int i2) {
+        public C2117a(ExceptionMessage exceptionMessage, int i2) {
             this.a = exceptionMessage;
-            this.f56761b = i2;
+            this.f55111b = i2;
         }
     }
 
@@ -26,10 +26,10 @@ public abstract class a implements c {
             return;
         }
         try {
-            Iterator<C2138a> it = this.a.iterator();
+            Iterator<C2117a> it = this.a.iterator();
             while (it.hasNext()) {
-                C2138a next = it.next();
-                b(next.a, next.f56761b);
+                C2117a next = it.next();
+                b(next.a, next.f55111b);
                 it.remove();
             }
         } catch (Throwable th) {
@@ -50,7 +50,7 @@ public abstract class a implements c {
             b(exceptionMessage, i2);
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.b(th);
-            this.a.add(new C2138a(exceptionMessage, i2));
+            this.a.add(new C2117a(exceptionMessage, i2));
         }
     }
 

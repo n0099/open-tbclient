@@ -14,8 +14,8 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
 import c.a.d.f.p.n;
-import c.a.t0.r0.e;
-import c.a.u0.h2.f.f;
+import c.a.q0.q0.e;
+import c.a.r0.h2.f.f;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class MemberPayView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,22 +53,22 @@ public class MemberPayView extends LinearLayout {
     public Boolean N;
 
     /* renamed from: e  reason: collision with root package name */
-    public MemberPayActivity f46109e;
+    public MemberPayActivity f44517e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NavigationBar f46110f;
+    public NavigationBar f44518f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NoNetworkView f46111g;
+    public NoNetworkView f44519g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f46112h;
+    public View f44520h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RadioGroup f46113i;
+    public RadioGroup f44521i;
 
     /* renamed from: j  reason: collision with root package name */
-    public RadioButton f46114j;
+    public RadioButton f44522j;
     public RadioButton k;
     public LinearLayout l;
     public LinearLayout m;
@@ -86,35 +86,35 @@ public class MemberPayView extends LinearLayout {
     public f.g y;
     public f.b z;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public RelativeLayout a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f46115b;
+        public TextView f44523b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f46116c;
+        public TextView f44524c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TbImageView f46117d;
+        public TbImageView f44525d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f46118e;
+        public TextView f44526e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f46119f;
+        public TextView f44527f;
 
         /* renamed from: g  reason: collision with root package name */
-        public View f46120g;
+        public View f44528g;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -135,16 +135,16 @@ public class MemberPayView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public List<f.d> f46121e;
+        public List<f.d> f44529e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MemberPayView f46122f;
+        public final /* synthetic */ MemberPayView f44530f;
 
         public c(MemberPayView memberPayView, List<f.d> list) {
             Interceptable interceptable = $ic;
@@ -161,44 +161,44 @@ public class MemberPayView extends LinearLayout {
                     return;
                 }
             }
-            this.f46122f = memberPayView;
-            this.f46121e = list;
+            this.f44530f = memberPayView;
+            this.f44529e = list;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             TextView textView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f46122f.l == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f44530f.l == null) {
                 return;
             }
             f.d dVar = null;
-            for (int i2 = 0; i2 < this.f46122f.l.getChildCount(); i2++) {
-                View childAt = this.f46122f.l.getChildAt(i2);
+            for (int i2 = 0; i2 < this.f44530f.l.getChildCount(); i2++) {
+                View childAt = this.f44530f.l.getChildAt(i2);
                 if (childAt != null && childAt.getTag() != null && (childAt.getTag() instanceof b) && (textView = (TextView) childAt.findViewById(R.id.cb)) != null && textView.getTag() != null) {
                     if (textView.getTag() instanceof f.d) {
                         f.d dVar2 = (f.d) textView.getTag();
                         if (view == childAt) {
                             dVar2.m = true;
                             SkinManager.setBackgroundResource(textView, R.drawable.btn_non_orange_s);
-                            SkinManager.setViewTextColor(textView, R.color.CAM_X0101);
+                            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
                             dVar = dVar2;
                         } else {
                             dVar2.m = false;
                             SkinManager.setBackgroundResource(textView, R.drawable.btn_non_orange_n);
-                            SkinManager.setViewTextColor(textView, R.color.CAM_X0305);
+                            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0305);
                         }
                     }
-                    this.f46122f.g(this.f46121e, i2, (b) childAt.getTag());
+                    this.f44530f.g(this.f44529e, i2, (b) childAt.getTag());
                 }
             }
             if (dVar == null) {
                 return;
             }
             if (dVar.n != 1 || !dVar.o) {
-                this.f46122f.h(dVar.f18513i, dVar.f18514j / 100, dVar.l, dVar.n);
+                this.f44530f.h(dVar.f17973i, dVar.f17974j / 100, dVar.l, dVar.n);
             } else {
-                n.M(this.f46122f.getContext(), R.string.tips_auto_pay_succ);
+                n.M(this.f44530f.getContext(), R.string.tips_auto_pay_succ);
             }
         }
     }
@@ -225,7 +225,7 @@ public class MemberPayView extends LinearLayout {
         this.J = 2;
         this.M = false;
         this.N = Boolean.FALSE;
-        this.f46109e = memberPayActivity;
+        this.f44517e = memberPayActivity;
         this.L = i2;
         this.N = Boolean.valueOf(z);
         e();
@@ -238,60 +238,60 @@ public class MemberPayView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (fVar = this.x) == null) {
             return;
         }
-        f.b bVar = fVar.f18496b;
+        f.b bVar = fVar.f17956b;
         this.z = bVar;
         f.g gVar = fVar.a;
         this.y = gVar;
-        if (bVar == null || gVar == null || (eVar = gVar.f18517c) == null) {
+        if (bVar == null || gVar == null || (eVar = gVar.f17977c) == null) {
             return;
         }
         long j2 = eVar.a;
         this.K = j2;
         this.M = j2 == 2 || this.L == 2;
         f.b bVar2 = this.z;
-        f.a aVar = bVar2.f18501b;
+        f.a aVar = bVar2.f17961b;
         this.B = aVar;
         if (aVar == null) {
             return;
         }
-        this.C = aVar.f18498c;
-        this.G = aVar.f18499d;
-        String str = aVar.f18500e;
+        this.C = aVar.f17958c;
+        this.G = aVar.f17959d;
+        String str = aVar.f17960e;
         f.c cVar = bVar2.a;
         this.A = cVar;
         if (cVar == null) {
             return;
         }
-        this.D = cVar.f18503c;
-        this.H = cVar.f18504d;
-        String str2 = cVar.f18505e;
+        this.D = cVar.f17963c;
+        this.H = cVar.f17964d;
+        String str2 = cVar.f17965e;
     }
 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f46109e.setContentView(R.layout.member_pay_activity);
-            this.f46112h = this.f46109e.findViewById(R.id.root);
-            NavigationBar navigationBar = (NavigationBar) this.f46109e.findViewById(R.id.navigationbar);
-            this.f46110f = navigationBar;
+            this.f44517e.setContentView(R.layout.member_pay_activity);
+            this.f44520h = this.f44517e.findViewById(R.id.root);
+            NavigationBar navigationBar = (NavigationBar) this.f44517e.findViewById(R.id.navigationbar);
+            this.f44518f = navigationBar;
             navigationBar.setTitleText("");
-            this.f46110f.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.f46111g = (NoNetworkView) this.f46109e.findViewById(R.id.view_no_network);
-            this.l = (LinearLayout) this.f46109e.findViewById(R.id.container);
-            RadioGroup radioGroup = (RadioGroup) this.f46109e.findViewById(R.id.btns_mem_select);
-            this.f46113i = radioGroup;
-            radioGroup.setOnCheckedChangeListener(this.f46109e);
-            this.f46114j = (RadioButton) this.f46109e.findViewById(R.id.btn_mem1);
-            this.k = (RadioButton) this.f46109e.findViewById(R.id.btn_mem2);
-            this.q = this.f46109e.findViewById(R.id.v_blank);
-            this.s = (TextView) this.f46109e.findViewById(R.id.goods_des);
-            this.t = (TbImageView) this.f46109e.findViewById(R.id.bdimg_adv);
-            this.u = (TbImageView) this.f46109e.findViewById(R.id.bdimg_comm);
-            this.v = (ImageView) this.f46109e.findViewById(R.id.crumb_adv);
-            this.w = (ImageView) this.f46109e.findViewById(R.id.crumb_comm);
-            TextView textView = (TextView) this.f46109e.findViewById(R.id.aotu_pay_law);
+            this.f44518f.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.f44519g = (NoNetworkView) this.f44517e.findViewById(R.id.view_no_network);
+            this.l = (LinearLayout) this.f44517e.findViewById(R.id.container);
+            RadioGroup radioGroup = (RadioGroup) this.f44517e.findViewById(R.id.btns_mem_select);
+            this.f44521i = radioGroup;
+            radioGroup.setOnCheckedChangeListener(this.f44517e);
+            this.f44522j = (RadioButton) this.f44517e.findViewById(R.id.btn_mem1);
+            this.k = (RadioButton) this.f44517e.findViewById(R.id.btn_mem2);
+            this.q = this.f44517e.findViewById(R.id.v_blank);
+            this.s = (TextView) this.f44517e.findViewById(R.id.goods_des);
+            this.t = (TbImageView) this.f44517e.findViewById(R.id.bdimg_adv);
+            this.u = (TbImageView) this.f44517e.findViewById(R.id.bdimg_comm);
+            this.v = (ImageView) this.f44517e.findViewById(R.id.crumb_adv);
+            this.w = (ImageView) this.f44517e.findViewById(R.id.crumb_comm);
+            TextView textView = (TextView) this.f44517e.findViewById(R.id.aotu_pay_law);
             this.r = textView;
-            textView.setOnClickListener(this.f46109e);
+            textView.setOnClickListener(this.f44517e);
         }
     }
 
@@ -300,23 +300,23 @@ public class MemberPayView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.x == null) {
-                this.f46112h.setVisibility(8);
+                this.f44520h.setVisibility(8);
             } else if (this.z != null && (gVar = this.y) != null) {
-                if (gVar.f18517c == null) {
-                    this.f46112h.setVisibility(8);
+                if (gVar.f17977c == null) {
+                    this.f44520h.setVisibility(8);
                 } else if (this.B == null && this.A == null) {
-                    this.f46112h.setVisibility(8);
+                    this.f44520h.setVisibility(8);
                 } else if (this.M && ListUtils.isEmpty(this.B.a)) {
-                    this.f46112h.setVisibility(8);
+                    this.f44520h.setVisibility(8);
                 } else {
-                    this.f46112h.setVisibility(0);
+                    this.f44520h.setVisibility(0);
                     j();
                     k();
                     l();
                     i();
                 }
             } else {
-                this.f46112h.setVisibility(8);
+                this.f44520h.setVisibility(8);
             }
         }
     }
@@ -333,21 +333,21 @@ public class MemberPayView extends LinearLayout {
             } else {
                 SkinManager.setBackgroundResource(bVar.a, R.drawable.bg_pay_list_up_n);
             }
-            bVar.f46120g.setVisibility(0);
+            bVar.f44528g.setVisibility(0);
         } else if (i2 == list.size() - 1) {
             if (dVar.m) {
                 SkinManager.setBackgroundResource(bVar.a, R.drawable.bg_pay_list_down_s);
             } else {
                 SkinManager.setBackgroundResource(bVar.a, R.drawable.bg_pay_list_down_n);
             }
-            bVar.f46120g.setVisibility(8);
+            bVar.f44528g.setVisibility(8);
         } else {
             if (dVar.m) {
                 SkinManager.setBackgroundResource(bVar.a, R.drawable.bg_pay_list_center_s);
             } else {
                 SkinManager.setBackgroundResource(bVar.a, R.drawable.bg_pay_list_center_n);
             }
-            bVar.f46120g.setVisibility(0);
+            bVar.f44528g.setVisibility(0);
         }
     }
 
@@ -366,7 +366,7 @@ public class MemberPayView extends LinearLayout {
     public NoNetworkView getNoNetworkView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f46111g : (NoNetworkView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f44519g : (NoNetworkView) invokeV.objValue;
     }
 
     public String getTitle() {
@@ -378,16 +378,16 @@ public class MemberPayView extends LinearLayout {
     public final void h(long j2, long j3, long j4, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i2)}) == null) {
-            PayConfig payConfig = new PayConfig(1, "0", String.valueOf(j2), String.valueOf(j3), String.valueOf(j4), true, this.N.booleanValue(), PageDialogHelper.PayForm.NOT_SET, this.f46109e.getReferPage(), this.f46109e.getClickZone());
+            PayConfig payConfig = new PayConfig(1, "0", String.valueOf(j2), String.valueOf(j3), String.valueOf(j4), true, this.N.booleanValue(), PageDialogHelper.PayForm.NOT_SET, this.f44517e.getReferPage(), this.f44517e.getClickZone());
             payConfig.setTitle(getTitle());
-            payConfig.setOrderName(getCurrentContent() + this.f46109e.getPageContext().getPageActivity().getString(R.string.member_month, new Object[]{String.valueOf(j4)}));
+            payConfig.setOrderName(getCurrentContent() + this.f44517e.getPageContext().getPageActivity().getString(R.string.member_month, new Object[]{String.valueOf(j4)}));
             payConfig.setAutoPay(i2);
-            if (this.f46109e.getFrom() == 23) {
+            if (this.f44517e.getFrom() == 23) {
                 payConfig.paymentPosKey = PayConfig.PAYMENT_POS_KEY_MANGA;
-            } else if (this.f46109e.getFrom() == 25) {
+            } else if (this.f44517e.getFrom() == 25) {
                 payConfig.paymentPosKey = PayConfig.PAYMENT_POS_KEY_DUIBA;
             }
-            e.c().a(payConfig, this.f46109e.getPageContext().getPageActivity());
+            e.c().a(payConfig, this.f44517e.getPageContext().getPageActivity());
         }
     }
 
@@ -435,68 +435,68 @@ public class MemberPayView extends LinearLayout {
             layoutParams.setMargins(0, 0, 0, 0);
             for (int i2 = 0; i2 < list.size(); i2++) {
                 f.d dVar = list.get(i2);
-                if (dVar != null && dVar.f18514j >= 0) {
+                if (dVar != null && dVar.f17974j >= 0) {
                     if (dVar.n == 1) {
                         bool = Boolean.TRUE;
                     }
                     b bVar = new b(null);
-                    View inflate = LayoutInflater.from(this.f46109e.getPageContext().getPageActivity()).inflate(R.layout.memberpaylist_item, (ViewGroup) null);
-                    bVar.f46115b = (TextView) inflate.findViewById(R.id.cb);
-                    bVar.f46116c = (TextView) inflate.findViewById(R.id.tv_month);
-                    bVar.f46117d = (TbImageView) inflate.findViewById(R.id.member_price_item_sicon);
-                    bVar.f46118e = (TextView) inflate.findViewById(R.id.tv_discount);
-                    bVar.f46119f = (TextView) inflate.findViewById(R.id.tv_money);
+                    View inflate = LayoutInflater.from(this.f44517e.getPageContext().getPageActivity()).inflate(R.layout.memberpaylist_item, (ViewGroup) null);
+                    bVar.f44523b = (TextView) inflate.findViewById(R.id.cb);
+                    bVar.f44524c = (TextView) inflate.findViewById(R.id.tv_month);
+                    bVar.f44525d = (TbImageView) inflate.findViewById(R.id.member_price_item_sicon);
+                    bVar.f44526e = (TextView) inflate.findViewById(R.id.tv_discount);
+                    bVar.f44527f = (TextView) inflate.findViewById(R.id.tv_money);
                     bVar.a = (RelativeLayout) inflate.findViewById(R.id.root);
-                    bVar.f46120g = inflate.findViewById(R.id.v_line);
-                    bVar.f46116c.setText(truncateStr(dVar.f18506b, 7));
-                    if (!TextUtils.isEmpty(dVar.f18509e)) {
-                        bVar.f46117d.setVisibility(0);
-                        bVar.f46117d.startLoad(dVar.f18509e, 10, false);
+                    bVar.f44528g = inflate.findViewById(R.id.v_line);
+                    bVar.f44524c.setText(truncateStr(dVar.f17966b, 7));
+                    if (!TextUtils.isEmpty(dVar.f17969e)) {
+                        bVar.f44525d.setVisibility(0);
+                        bVar.f44525d.startLoad(dVar.f17969e, 10, false);
                     }
-                    if (TextUtils.isEmpty(dVar.f18507c)) {
-                        bVar.f46118e.setVisibility(8);
+                    if (TextUtils.isEmpty(dVar.f17967c)) {
+                        bVar.f44526e.setVisibility(8);
                     } else {
-                        bVar.f46118e.setVisibility(0);
-                        bVar.f46118e.setText(truncateStr(dVar.f18507c, 10));
+                        bVar.f44526e.setVisibility(0);
+                        bVar.f44526e.setText(truncateStr(dVar.f17967c, 10));
                     }
-                    bVar.f46119f.setText("¥" + (dVar.f18514j / 100));
+                    bVar.f44527f.setText("¥" + (dVar.f17974j / 100));
                     if (dVar.m) {
-                        SkinManager.setBackgroundResource(bVar.f46115b, R.drawable.btn_non_orange_s);
-                        SkinManager.setViewTextColor(bVar.f46115b, R.color.CAM_X0101);
+                        SkinManager.setBackgroundResource(bVar.f44523b, R.drawable.btn_non_orange_s);
+                        SkinManager.setViewTextColor(bVar.f44523b, (int) R.color.CAM_X0101);
                     } else {
-                        SkinManager.setBackgroundResource(bVar.f46115b, R.drawable.btn_non_orange_n);
-                        SkinManager.setViewTextColor(bVar.f46115b, R.color.CAM_X0305);
+                        SkinManager.setBackgroundResource(bVar.f44523b, R.drawable.btn_non_orange_n);
+                        SkinManager.setViewTextColor(bVar.f44523b, (int) R.color.CAM_X0305);
                     }
-                    bVar.f46115b.setTag(dVar);
-                    bVar.f46115b.setText(R.string.click_open);
-                    inflate.setContentDescription(truncateStr(dVar.f18506b, 7));
+                    bVar.f44523b.setTag(dVar);
+                    bVar.f44523b.setText(R.string.click_open);
+                    inflate.setContentDescription(truncateStr(dVar.f17966b, 7));
                     inflate.setOnClickListener(new c(this, list));
                     inflate.setTag(bVar);
                     inflate.setLayoutParams(layoutParams);
-                    c.a.t0.x0.a.a(this.f46109e.getPageContext(), inflate);
+                    c.a.q0.w0.a.a(this.f44517e.getPageContext(), inflate);
                     g(list, i2, bVar);
                     this.l.addView(inflate);
                 }
             }
             if (bool.booleanValue()) {
-                LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f46109e.getPageContext().getPageActivity()).inflate(R.layout.memberpaylist_auto_pay_agreement_item, (ViewGroup) null);
+                LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f44517e.getPageContext().getPageActivity()).inflate(R.layout.memberpaylist_auto_pay_agreement_item, (ViewGroup) null);
                 this.m = linearLayout;
                 this.n = (TextView) linearLayout.findViewById(R.id.tv_member_agreement_auto_pay);
                 this.o = this.m.findViewById(R.id.view_agreement_divider_auto_pay);
                 this.p = (TextView) this.m.findViewById(R.id.tv_auto_pay_agreement_auto_pay);
-                this.n.setOnClickListener(this.f46109e);
+                this.n.setOnClickListener(this.f44517e);
                 if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                     SkinManager.setBackgroundColor(this.o, R.color.CAM_X0204_1);
                 }
-                this.p.setOnClickListener(this.f46109e);
+                this.p.setOnClickListener(this.f44517e);
                 this.l.addView(this.m);
                 return;
             }
-            LinearLayout linearLayout2 = (LinearLayout) LayoutInflater.from(this.f46109e.getPageContext().getPageActivity()).inflate(R.layout.memberpaylist_normal_agreement_item, (ViewGroup) null);
+            LinearLayout linearLayout2 = (LinearLayout) LayoutInflater.from(this.f44517e.getPageContext().getPageActivity()).inflate(R.layout.memberpaylist_normal_agreement_item, (ViewGroup) null);
             this.m = linearLayout2;
             TextView textView = (TextView) linearLayout2.findViewById(R.id.tv_member_agreement_normal);
             this.n = textView;
-            textView.setOnClickListener(this.f46109e);
+            textView.setOnClickListener(this.f44517e);
             this.l.addView(this.m);
         }
     }
@@ -505,7 +505,7 @@ public class MemberPayView extends LinearLayout {
         f.c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f46114j.setText(truncateStr(this.C, this.I));
+            this.f44522j.setText(truncateStr(this.C, this.I));
             if (2 == this.J) {
                 if (m.isEmpty(this.G)) {
                     this.s.setVisibility(8);
@@ -527,19 +527,19 @@ public class MemberPayView extends LinearLayout {
             this.u.setDefaultBgResource(0);
             this.t.setAutoChangeStyle(false);
             this.u.setAutoChangeStyle(false);
-            if (m.isEmpty(this.B.f18500e)) {
+            if (m.isEmpty(this.B.f17960e)) {
                 SkinManager.setImageResource(this.t, R.drawable.icon_vip_advanced, 0);
             } else {
-                this.t.startLoad(this.B.f18500e, 10, false);
+                this.t.startLoad(this.B.f17960e, 10, false);
             }
             if (!this.M && (cVar = this.A) != null && !ListUtils.isEmpty(cVar.a)) {
                 this.k.setVisibility(0);
                 this.k.setText(truncateStr(this.D, this.I));
                 this.u.setVisibility(0);
-                if (m.isEmpty(this.A.f18505e)) {
+                if (m.isEmpty(this.A.f17965e)) {
                     SkinManager.setImageResource(this.u, R.drawable.icon_vip_member, 0);
                 } else {
-                    this.u.startLoad(this.A.f18505e, 21, false);
+                    this.u.startLoad(this.A.f17965e, 21, false);
                 }
             } else {
                 this.k.setVisibility(8);
@@ -561,38 +561,38 @@ public class MemberPayView extends LinearLayout {
             int i2 = this.J;
             if (2 == i2) {
                 if (this.K == 2) {
-                    string = this.f46109e.getPageContext().getPageActivity().getString(R.string.continue_dredge, new Object[]{this.C});
+                    string = this.f44517e.getPageContext().getPageActivity().getString(R.string.continue_dredge, new Object[]{this.C});
                 } else {
-                    string = this.f46109e.getPageContext().getPageActivity().getString(R.string.dredge, new Object[]{this.C});
+                    string = this.f44517e.getPageContext().getPageActivity().getString(R.string.dredge, new Object[]{this.C});
                 }
                 this.F = this.C;
             } else if (1 == i2) {
                 long j2 = this.K;
                 if (j2 == 1) {
-                    string = this.f46109e.getPageContext().getPageActivity().getString(R.string.continue_dredge, new Object[]{this.D});
+                    string = this.f44517e.getPageContext().getPageActivity().getString(R.string.continue_dredge, new Object[]{this.D});
                 } else {
-                    string = j2 == 0 ? this.f46109e.getPageContext().getPageActivity().getString(R.string.dredge, new Object[]{this.D}) : null;
+                    string = j2 == 0 ? this.f44517e.getPageContext().getPageActivity().getString(R.string.dredge, new Object[]{this.D}) : null;
                 }
                 this.F = this.D;
             } else {
-                string = this.f46109e.getPageContext().getPageActivity().getString(R.string.dredge, new Object[]{this.D});
+                string = this.f44517e.getPageContext().getPageActivity().getString(R.string.dredge, new Object[]{this.D});
                 this.F = this.D;
             }
             this.E = string;
             if (StringUtils.isNULL(string)) {
                 return;
             }
-            this.f46110f.setTitleText(truncateStr(string, 10));
+            this.f44518f.setTitleText(truncateStr(string, 10));
         }
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f46109e.getLayoutMode().k(i2 == 1);
-            this.f46109e.getLayoutMode().j(this.f46112h);
-            this.f46110f.onChangeSkinType(this.f46109e.getPageContext(), i2);
-            this.f46111g.onChangeSkinType(this.f46109e.getPageContext(), i2);
+            this.f44517e.getLayoutMode().k(i2 == 1);
+            this.f44517e.getLayoutMode().j(this.f44520h);
+            this.f44518f.onChangeSkinType(this.f44517e.getPageContext(), i2);
+            this.f44519g.onChangeSkinType(this.f44517e.getPageContext(), i2);
         }
     }
 
@@ -613,7 +613,7 @@ public class MemberPayView extends LinearLayout {
         }
         for (int i2 = 0; i2 < list2.size(); i2++) {
             f.d dVar = list2.get(i2);
-            if (dVar != null && dVar.f18514j >= 0 && dVar.n == 1) {
+            if (dVar != null && dVar.f17974j >= 0 && dVar.n == 1) {
                 dVar.o = z;
                 return;
             }
@@ -624,7 +624,7 @@ public class MemberPayView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, fVar) == null) {
             if (fVar == null) {
-                this.f46112h.setVisibility(8);
+                this.f44520h.setVisibility(8);
                 return;
             }
             this.x = fVar;

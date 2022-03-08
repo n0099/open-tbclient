@@ -1,126 +1,69 @@
 package c.q.a;
 
 import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.net.Uri;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONStringer;
-/* loaded from: classes9.dex */
-public class c3 {
+import org.json.JSONException;
+/* loaded from: classes3.dex */
+public class c3 extends Handler {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String[] f30532b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final String[] f30533c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final String[] f30534d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ j3 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1646433337, "Lc/q/a/c3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1646433337, "Lc/q/a/c3;");
-                return;
-            }
-        }
-        a = new String[]{"as", "ac", "ao", "scb", "wdin", "asr", "wbas", "wbao"};
-        f30532b = new String[]{"ins", "bd", "wdtr", "witr"};
-        f30533c = new String[]{"be", "bce", "bpe", "ps", "scbe", "wdst", "wde", "wie", "dplop", "wbe", "hte"};
-        f30534d = new String[]{"Ld", "wdin", "wiin", "wdre", "wiop", "wii", "rle"};
-    }
-
-    public c3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c3(j3 j3Var, Looper looper) {
+        super(looper);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {j3Var, looper};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = j3Var;
     }
 
-    public static y2 a(Context context) {
-        InterceptResult invokeL;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        String str;
+        Context context;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? new y2(new c3(), context) : (y2) invokeL.objValue;
-    }
-
-    public static /* synthetic */ String b(String str) {
-        try {
-            return r0.g(str);
-        } catch (Exception unused) {
-            return str;
-        }
-    }
-
-    public static /* synthetic */ JSONStringer d(String str, g3 g3Var) {
-        JSONStringer g2 = g();
-        g2.key("e").value(str).key("timeis").value(f());
-        if (g3Var != null) {
-            g2.key("pid").value(g3Var.a);
-            if (g3Var.f30561b != null) {
-                JSONStringer key = g2.key("traceid");
-                String traceid = g3Var.f30561b.getTraceid();
-                try {
-                    traceid = r0.g(traceid);
-                } catch (Exception unused) {
-                }
-                JSONStringer key2 = key.value(traceid).key("cid");
-                String id = g3Var.f30561b.getId();
-                try {
-                    id = r0.g(id);
-                } catch (Exception unused2) {
-                }
-                key2.value(id).key("type").value(g3Var.f30561b.getType());
-            }
-        }
-        return g2;
-    }
-
-    public static /* synthetic */ String e() {
-        String valueOf = String.valueOf(System.currentTimeMillis());
-        try {
-            return r0.g(valueOf);
-        } catch (Exception unused) {
-            return valueOf;
-        }
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            String valueOf = String.valueOf(System.currentTimeMillis());
+        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+            int i2 = message.what;
             try {
-                return r0.g(valueOf);
-            } catch (Exception unused) {
-                return valueOf;
+                if (i2 != 11) {
+                    if (i2 == 12) {
+                        str = (String) message.obj;
+                        context = this.a.a;
+                    }
+                }
+                str = (String) message.obj;
+                t2 a = x2.a(this.a.a);
+                try {
+                    a.f29126b = x2.d("ps", new b3(this.a.f29003b));
+                    a.k("co", 2002);
+                    a.l("msg", str);
+                } catch (JSONException unused) {
+                }
+                a.m();
+                context = this.a.a;
+                y2.a(context, Uri.parse(str));
+            } catch (Exception unused2) {
             }
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static JSONStringer g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? new JSONStringer().object() : (JSONStringer) invokeV.objValue;
     }
 }

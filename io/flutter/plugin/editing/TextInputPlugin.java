@@ -28,14 +28,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.w0;
 import io.flutter.Log;
 import io.flutter.embedding.android.KeyboardManager;
 import io.flutter.embedding.engine.systemchannels.TextInputChannel;
 import io.flutter.plugin.editing.ListenableEditingState;
 import io.flutter.plugin.platform.PlatformViewsController;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class TextInputPlugin implements ListenableEditingState.EditingStateWatcher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "TextInputPlugin";
@@ -67,7 +66,7 @@ public class TextInputPlugin implements ListenableEditingState.EditingStateWatch
     @NonNull
     public final TextInputChannel textInputChannel;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class InputTarget {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +75,7 @@ public class TextInputPlugin implements ListenableEditingState.EditingStateWatch
         public Type type;
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes4.dex */
+        /* loaded from: classes8.dex */
         public static final class Type {
             public static final /* synthetic */ Type[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -159,7 +158,7 @@ public class TextInputPlugin implements ListenableEditingState.EditingStateWatch
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface MinMax {
         void inspect(double d2, double d3);
     }
@@ -378,7 +377,7 @@ public class TextInputPlugin implements ListenableEditingState.EditingStateWatch
                 } else if (textInputType == TextInputChannel.TextInputType.URL) {
                     i3 = 17;
                 } else if (textInputType == TextInputChannel.TextInputType.VISIBLE_PASSWORD) {
-                    i3 = w0.n;
+                    i3 = 145;
                 } else if (textInputType == TextInputChannel.TextInputType.NAME) {
                     i3 = 97;
                 } else if (textInputType == TextInputChannel.TextInputType.POSTAL_ADDRESS) {

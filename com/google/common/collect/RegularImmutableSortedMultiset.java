@@ -1,9 +1,9 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.a.n;
-import c.i.d.c.h1;
-import c.i.d.c.s0;
+import c.i.c.a.n;
+import c.i.c.c.h1;
+import c.i.c.c.s0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.primitives.Ints;
 import java.util.Comparator;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class RegularImmutableSortedMultiset<E> extends ImmutableSortedMultiset<E> {
     public static /* synthetic */ Interceptable $ic;
     public static final ImmutableSortedMultiset<Comparable> NATURAL_EMPTY_MULTISET;
@@ -74,7 +74,7 @@ public final class RegularImmutableSortedMultiset<E> extends ImmutableSortedMult
         return invokeI.intValue;
     }
 
-    @Override // com.google.common.collect.ImmutableSortedMultiset, com.google.common.collect.ImmutableSortedMultisetFauxverideShim, com.google.common.collect.ImmutableMultiset, c.i.d.c.s0
+    @Override // com.google.common.collect.ImmutableSortedMultiset, com.google.common.collect.ImmutableSortedMultisetFauxverideShim, com.google.common.collect.ImmutableMultiset, c.i.c.c.s0
     public int count(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public final class RegularImmutableSortedMultiset<E> extends ImmutableSortedMult
         return invokeL.intValue;
     }
 
-    @Override // com.google.common.collect.ImmutableSortedMultiset, c.i.d.c.h1
+    @Override // com.google.common.collect.ImmutableSortedMultiset, c.i.c.c.h1
     public s0.a<E> firstEntry() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -123,7 +123,7 @@ public final class RegularImmutableSortedMultiset<E> extends ImmutableSortedMult
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.ImmutableSortedMultiset, c.i.d.c.h1
+    @Override // com.google.common.collect.ImmutableSortedMultiset, c.i.c.c.h1
     public /* bridge */ /* synthetic */ h1 headMultiset(Object obj, BoundType boundType) {
         return headMultiset((RegularImmutableSortedMultiset<E>) obj, boundType);
     }
@@ -135,7 +135,7 @@ public final class RegularImmutableSortedMultiset<E> extends ImmutableSortedMult
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.offset > 0 || this.length < this.cumulativeCounts.length - 1 : invokeV.booleanValue;
     }
 
-    @Override // com.google.common.collect.ImmutableSortedMultiset, c.i.d.c.h1
+    @Override // com.google.common.collect.ImmutableSortedMultiset, c.i.c.c.h1
     public s0.a<E> lastEntry() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -148,7 +148,7 @@ public final class RegularImmutableSortedMultiset<E> extends ImmutableSortedMult
         return (s0.a) invokeV.objValue;
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection, c.i.d.c.s0
+    @Override // java.util.AbstractCollection, java.util.Collection, c.i.c.c.s0
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -162,12 +162,12 @@ public final class RegularImmutableSortedMultiset<E> extends ImmutableSortedMult
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.ImmutableSortedMultiset, c.i.d.c.h1
+    @Override // com.google.common.collect.ImmutableSortedMultiset, c.i.c.c.h1
     public /* bridge */ /* synthetic */ h1 tailMultiset(Object obj, BoundType boundType) {
         return tailMultiset((RegularImmutableSortedMultiset<E>) obj, boundType);
     }
 
-    @Override // com.google.common.collect.ImmutableSortedMultiset, c.i.d.c.h1
+    @Override // com.google.common.collect.ImmutableSortedMultiset, c.i.c.c.h1
     public ImmutableSortedMultiset<E> headMultiset(E e2, BoundType boundType) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -179,7 +179,7 @@ public final class RegularImmutableSortedMultiset<E> extends ImmutableSortedMult
         return (ImmutableSortedMultiset) invokeLL.objValue;
     }
 
-    @Override // com.google.common.collect.ImmutableSortedMultiset, c.i.d.c.h1
+    @Override // com.google.common.collect.ImmutableSortedMultiset, c.i.c.c.h1
     public ImmutableSortedMultiset<E> tailMultiset(E e2, BoundType boundType) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -192,7 +192,7 @@ public final class RegularImmutableSortedMultiset<E> extends ImmutableSortedMult
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.ImmutableSortedMultiset, com.google.common.collect.ImmutableMultiset, c.i.d.c.s0
+    @Override // com.google.common.collect.ImmutableSortedMultiset, com.google.common.collect.ImmutableMultiset, c.i.c.c.s0
     public ImmutableSortedSet<E> elementSet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

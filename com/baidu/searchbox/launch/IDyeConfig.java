@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public interface IDyeConfig {
     public static final IDyeConfig EMPTY = new IDyeConfig() { // from class: com.baidu.searchbox.launch.IDyeConfig.1
         public static /* synthetic */ Interceptable $ic;
@@ -40,7 +40,7 @@ public interface IDyeConfig {
     };
     public static final String LOG_TAG = "IDyeConfig";
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static final class Impl {
         public static /* synthetic */ Interceptable $ic;
         public static IDyeConfig sHomeSearch;

@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class ReportUserInfoModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long TIME_INTERVAL = 300000;
@@ -28,13 +28,13 @@ public class ReportUserInfoModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f46157e;
+    public b f44565e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f46158f;
+    public final HttpMessageListener f44566f;
     public long timeInterval;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,18 +65,18 @@ public class ReportUserInfoModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001522 && this.a.f46157e != null && (httpResponsedMessage instanceof ResponseReportUserInfoMessage)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001522 && this.a.f44565e != null && (httpResponsedMessage instanceof ResponseReportUserInfoMessage)) {
                 ResponseReportUserInfoMessage responseReportUserInfoMessage = (ResponseReportUserInfoMessage) httpResponsedMessage;
                 if (responseReportUserInfoMessage.getErrorCode() == 0) {
-                    this.a.f46157e.b(responseReportUserInfoMessage.getTimeInterval());
+                    this.a.f44565e.b(responseReportUserInfoMessage.getTimeInterval());
                 } else {
-                    this.a.f46157e.onError(responseReportUserInfoMessage.getErrorCode(), responseReportUserInfoMessage.getErrorMsg());
+                    this.a.f44565e.onError(responseReportUserInfoMessage.getErrorCode(), responseReportUserInfoMessage.getErrorMsg());
                 }
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void b(int i2);
 
@@ -102,7 +102,7 @@ public class ReportUserInfoModel extends BdBaseModel {
             }
         }
         this.timeInterval = 300000L;
-        this.f46158f = new a(this, CmdConfigHttp.REPORT_USER_INFO);
+        this.f44566f = new a(this, CmdConfigHttp.REPORT_USER_INFO);
     }
 
     public void A() {
@@ -122,7 +122,7 @@ public class ReportUserInfoModel extends BdBaseModel {
     public void C(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f46157e = bVar;
+            this.f44565e = bVar;
         }
     }
 
@@ -149,7 +149,7 @@ public class ReportUserInfoModel extends BdBaseModel {
     public void unRegisterListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f46158f);
+            MessageManager.getInstance().unRegisterListener(this.f44566f);
         }
     }
 
@@ -166,7 +166,7 @@ public class ReportUserInfoModel extends BdBaseModel {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.REPORT_USER_INFO, TbConfig.SERVER_ADDRESS + "c/c/user/report");
             tbHttpMessageTask.setResponsedClass(ResponseReportUserInfoMessage.class);
             messageManager.registerTask(tbHttpMessageTask);
-            messageManager.registerListener(this.f46158f);
+            messageManager.registerListener(this.f44566f);
         }
     }
 

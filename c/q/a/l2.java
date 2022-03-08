@@ -1,25 +1,24 @@
 package c.q.a;
 
-import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-/* loaded from: classes9.dex */
-public final class l2 implements Runnable {
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicInteger;
+/* loaded from: classes3.dex */
+public final class l2 implements ThreadFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ Context f30603e;
+    public final AtomicInteger f29018e;
 
-    public l2(Context context) {
+    public l2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -29,21 +28,16 @@ public final class l2 implements Runnable {
                 return;
             }
         }
-        this.f30603e = context;
+        this.f29018e = new AtomicInteger(1);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    @Override // java.util.concurrent.ThreadFactory
+    public Thread newThread(Runnable runnable) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                File file = new File(r0.I(this.f30603e));
-                if (file.exists() && file.isDirectory() && r0.v(file) > 104857600) {
-                    r0.q(file);
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+            return new Thread(runnable, "T#" + this.f29018e.getAndIncrement());
         }
+        return (Thread) invokeL.objValue;
     }
 }

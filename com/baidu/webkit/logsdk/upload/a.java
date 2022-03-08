@@ -6,35 +6,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.logsdk.d.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f53055b;
+    public int f51474b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f53056c;
+    public boolean f51475c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f53057d;
+    public long f51476d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.baidu.webkit.logsdk.b.a f53058e;
+    public com.baidu.webkit.logsdk.b.a f51477e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f53059f;
+    public String f51478f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f53060g;
+    public String f51479g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f53061h;
+    public String f51480h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f53062i;
+    public String f51481i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(com.baidu.webkit.logsdk.b.a aVar, String str) {
@@ -73,15 +73,15 @@ public final class a {
             }
         }
         this.a = str;
-        this.f53055b = 0;
-        this.f53056c = false;
-        this.f53058e = aVar;
+        this.f51474b = 0;
+        this.f51475c = false;
+        this.f51477e = aVar;
         int a = !TextUtils.isEmpty(str2) ? c.a(str2) : -1;
         if (a <= 1 && a >= 0) {
-            this.f53059f = str2;
+            this.f51478f = str2;
             return;
         }
-        this.f53059f = aVar.f53035c;
-        this.f53060g = aVar.f53036d;
+        this.f51478f = aVar.f51454c;
+        this.f51479g = aVar.f51455d;
     }
 }

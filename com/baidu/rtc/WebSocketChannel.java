@@ -24,6 +24,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.newbindcard.NewBindCardEntry;
 import com.baidubce.services.vod.VodClient;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import com.google.android.exoplayer2.upstream.DefaultDataSource;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -53,9 +55,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.webrtc.IceCandidate;
-import org.webrtc.MediaStreamTrack;
 import org.webrtc.SessionDescription;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class WebSocketChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NO_SET_VALID_ROOM_ID = -1160725808;
@@ -382,7 +383,7 @@ public class WebSocketChannel {
             try {
                 jSONObject.putOpt("request", "leave");
                 jSONObject2.putOpt("janus", "message");
-                jSONObject2.putOpt("body", jSONObject);
+                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
                 jSONObject2.putOpt("transaction", randomString(12));
                 jSONObject2.putOpt("session_id", this.mSessionId);
                 jSONObject2.putOpt("handle_id", janusHandle.handleId);
@@ -600,7 +601,7 @@ public class WebSocketChannel {
                                 optLong = optJSONObject4.optLong("id");
                             }
                             Boolean valueOf = Boolean.valueOf(optJSONObject4.optBoolean("video"));
-                            Boolean valueOf2 = Boolean.valueOf(optJSONObject4.optBoolean(MediaStreamTrack.AUDIO_TRACK_KIND));
+                            Boolean valueOf2 = Boolean.valueOf(optJSONObject4.optBoolean("audio"));
                             if (valueOf.booleanValue() && valueOf2.booleanValue()) {
                                 this.delegate.onUserDisShutUp(optLong);
                             } else if (!valueOf.booleanValue() && !valueOf2.booleanValue()) {
@@ -615,8 +616,8 @@ public class WebSocketChannel {
                             } else {
                                 rtcLiveTransferMode = BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION;
                             }
-                            if (optJSONObject5.has("rtmp")) {
-                                JSONObject optJSONObject6 = optJSONObject5.optJSONObject("rtmp");
+                            if (optJSONObject5.has(DefaultDataSource.SCHEME_RTMP)) {
+                                JSONObject optJSONObject6 = optJSONObject5.optJSONObject(DefaultDataSource.SCHEME_RTMP);
                                 if (optJSONObject6.has("url")) {
                                     str3 = optJSONObject6.optString("url");
                                 }
@@ -919,21 +920,21 @@ public class WebSocketChannel {
                         jSONObject3.putOpt("mixTemplate", this.mLiveStreamingMixTemplate);
                     }
                     jSONObject3.putOpt("mix", Boolean.valueOf(this.mLiveStreamingMix));
-                    jSONObject2.putOpt("rtmp", jSONObject3);
+                    jSONObject2.putOpt(DefaultDataSource.SCHEME_RTMP, jSONObject3);
                 } else if (!this.mLiveStreamingServerURLSecond.isEmpty() && this.mLiveStreamingTransferModeSecond == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION) {
                     jSONObject3.putOpt("url", this.mLiveStreamingServerURLSecond);
                     if (!this.mLiveStreamingMixTemplateSecond.isEmpty()) {
                         jSONObject3.putOpt("mixTemplate", this.mLiveStreamingMixTemplateSecond);
                     }
                     jSONObject3.putOpt("mix", Boolean.valueOf(this.mLiveStreamingMixSecond));
-                    jSONObject2.putOpt("rtmp", jSONObject3);
+                    jSONObject2.putOpt(DefaultDataSource.SCHEME_RTMP, jSONObject3);
                 }
                 if (this.mLiveStreamingRecording) {
                     jSONObject4.putOpt("rec", Boolean.valueOf(this.mLiveStreamingRecording));
                     jSONObject2.putOpt("recording", jSONObject4);
                 }
                 jSONObject.putOpt("janus", "message");
-                jSONObject.putOpt("body", jSONObject2);
+                jSONObject.putOpt(TtmlNode.TAG_BODY, jSONObject2);
                 jSONObject.putOpt("transaction", randomString(12));
                 jSONObject.putOpt("session_id", this.mSessionId);
                 jSONObject.putOpt("handle_id", janusHandle.handleId);
@@ -991,7 +992,7 @@ public class WebSocketChannel {
                     jSONObject2.putOpt("window_id_in_bypass", this.mMixLayoutPosition);
                 }
                 jSONObject.putOpt("janus", "message");
-                jSONObject.putOpt("body", jSONObject2);
+                jSONObject.putOpt(TtmlNode.TAG_BODY, jSONObject2);
                 jSONObject.putOpt("transaction", randomString(12));
                 jSONObject.putOpt("session_id", this.mSessionId);
                 jSONObject.putOpt("handle_id", janusHandle.handleId);
@@ -1072,7 +1073,7 @@ public class WebSocketChannel {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.putOpt("janus", "message");
-                jSONObject2.putOpt("body", jSONObject);
+                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
                 jSONObject2.putOpt("transaction", randomString);
                 jSONObject2.putOpt("session_id", this.mSessionId);
             } catch (JSONException e2) {
@@ -1195,7 +1196,7 @@ public class WebSocketChannel {
                 jSONObject.putOpt("request", "listparticipants");
                 jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
                 jSONObject2.putOpt("janus", "message");
-                jSONObject2.putOpt("body", jSONObject);
+                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
                 jSONObject2.putOpt("transaction", randomString);
                 jSONObject2.putOpt("session_id", this.mSessionId);
                 jSONObject2.putOpt("handle_id", ((JanusHandle) this.handles.values().toArray()[0]).handleId);
@@ -1304,20 +1305,20 @@ public class WebSocketChannel {
                     if (!this.mLiveStreamingMixTemplate.isEmpty()) {
                         jSONObject3.putOpt("mixTemplate", this.mLiveStreamingMixTemplate);
                     }
-                    jSONObject.putOpt("rtmp", jSONObject3);
+                    jSONObject.putOpt(DefaultDataSource.SCHEME_RTMP, jSONObject3);
                 } else if (!this.mLiveStreamingServerURLSecond.isEmpty() && this.mLiveStreamingTransferModeSecond == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION) {
                     jSONObject3.putOpt("url", this.mLiveStreamingServerURLSecond);
                     if (!this.mLiveStreamingMixTemplateSecond.isEmpty()) {
                         jSONObject3.putOpt("mixTemplate", this.mLiveStreamingMixTemplateSecond);
                     }
-                    jSONObject.putOpt("rtmp", jSONObject3);
+                    jSONObject.putOpt(DefaultDataSource.SCHEME_RTMP, jSONObject3);
                 }
                 if (this.mLiveStreamingRecording) {
                     jSONObject4.putOpt("rec", Boolean.valueOf(this.mLiveStreamingRecording));
                     jSONObject.putOpt("recording", jSONObject4);
                 }
                 jSONObject2.putOpt("janus", "message");
-                jSONObject2.putOpt("body", jSONObject);
+                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
                 jSONObject2.putOpt("transaction", randomString);
                 jSONObject2.putOpt("session_id", this.mSessionId);
                 jSONObject2.putOpt("handle_id", janusHandle.handleId);
@@ -1421,20 +1422,20 @@ public class WebSocketChannel {
                 if (!this.mLiveStreamingServerURL.isEmpty() && this.mLiveStreamingTransferMode == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION) {
                     jSONObject3.putOpt("url", this.mLiveStreamingServerURL);
                     jSONObject3.putOpt("mixTemplate", this.mLiveStreamingMixTemplate);
-                    jSONObject.putOpt("rtmp", jSONObject3);
+                    jSONObject.putOpt(DefaultDataSource.SCHEME_RTMP, jSONObject3);
                 } else if (!this.mLiveStreamingServerURLSecond.isEmpty() && this.mLiveStreamingTransferModeSecond == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION) {
                     jSONObject3.putOpt("url", this.mLiveStreamingServerURLSecond);
                     if (!this.mLiveStreamingMixTemplateSecond.isEmpty()) {
                         jSONObject3.putOpt("mixTemplate", this.mLiveStreamingMixTemplateSecond);
                     }
-                    jSONObject.putOpt("rtmp", jSONObject3);
+                    jSONObject.putOpt(DefaultDataSource.SCHEME_RTMP, jSONObject3);
                 }
                 if (this.mLiveStreamingRecording) {
                     jSONObject4.putOpt("rec", Boolean.valueOf(this.mLiveStreamingRecording));
                     jSONObject.putOpt("recording", jSONObject4);
                 }
                 jSONObject2.putOpt("janus", "message");
-                jSONObject2.putOpt("body", jSONObject);
+                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
                 jSONObject2.putOpt("transaction", randomString);
                 jSONObject2.putOpt("session_id", this.mSessionId);
                 jSONObject2.putOpt("handle_id", janusHandle.handleId);
@@ -1583,7 +1584,7 @@ public class WebSocketChannel {
                 jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
                 jSONObject.putOpt("id", Long.valueOf(j2));
                 jSONObject2.putOpt("janus", "message");
-                jSONObject2.putOpt("body", jSONObject);
+                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
                 jSONObject2.putOpt("transaction", randomString);
                 jSONObject2.putOpt("session_id", this.mSessionId);
             } catch (JSONException e2) {
@@ -1853,7 +1854,7 @@ public class WebSocketChannel {
             JSONObject jSONObject3 = new JSONObject();
             try {
                 jSONObject.putOpt("request", "configure");
-                jSONObject.putOpt(MediaStreamTrack.AUDIO_TRACK_KIND, Boolean.valueOf(this.mHasAudio));
+                jSONObject.putOpt("audio", Boolean.valueOf(this.mHasAudio));
                 jSONObject.putOpt("video", Boolean.valueOf(this.mHasVideo));
                 if (this.mHasData) {
                     jSONObject.putOpt("data", Boolean.valueOf(this.mHasData));
@@ -1861,7 +1862,7 @@ public class WebSocketChannel {
                 jSONObject2.putOpt("type", sessionDescription.type);
                 jSONObject2.putOpt("sdp", sessionDescription.description);
                 jSONObject3.putOpt("janus", "message");
-                jSONObject3.putOpt("body", jSONObject);
+                jSONObject3.putOpt(TtmlNode.TAG_BODY, jSONObject);
                 jSONObject3.putOpt("jsep", jSONObject2);
                 jSONObject3.putOpt("transaction", randomString(12));
                 jSONObject3.putOpt("session_id", this.mSessionId);
@@ -2112,11 +2113,11 @@ public class WebSocketChannel {
         JSONObject jSONObject2 = new JSONObject();
         try {
             jSONObject.putOpt("request", "configure");
-            jSONObject.putOpt(MediaStreamTrack.AUDIO_TRACK_KIND, bool2);
+            jSONObject.putOpt("audio", bool2);
             jSONObject.putOpt("video", bool);
             jSONObject.putOpt("data", Boolean.TRUE);
             jSONObject2.putOpt("janus", "message");
-            jSONObject2.putOpt("body", jSONObject);
+            jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
             jSONObject2.putOpt("transaction", randomString);
             jSONObject2.putOpt("session_id", this.mSessionId);
             jSONObject2.putOpt("handle_id", janusHandle.handleId);
@@ -2232,7 +2233,7 @@ public class WebSocketChannel {
                 jSONObject.putOpt("id", Long.valueOf(this.mUserId));
                 jSONObject.putOpt("userattribute", str);
                 jSONObject2.putOpt("janus", "message");
-                jSONObject2.putOpt("body", jSONObject);
+                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
                 jSONObject2.putOpt("transaction", randomString);
                 jSONObject2.putOpt("session_id", this.mSessionId);
             } catch (JSONException e2) {
@@ -2265,7 +2266,7 @@ public class WebSocketChannel {
                 jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
                 jSONObject.putOpt("target", Long.valueOf(j2));
                 boolean z2 = true;
-                jSONObject.putOpt(MediaStreamTrack.AUDIO_TRACK_KIND, Boolean.valueOf(!z));
+                jSONObject.putOpt("audio", Boolean.valueOf(!z));
                 jSONObject.putOpt("video", Boolean.valueOf(!z));
                 if (z) {
                     z2 = false;
@@ -2292,7 +2293,7 @@ public class WebSocketChannel {
                 jSONObject3.putOpt("url", str);
                 jSONObject3.putOpt("mix", Boolean.valueOf(z));
                 jSONObject3.putOpt("mixTemplate", str2);
-                jSONObject.putOpt("rtmp", jSONObject3);
+                jSONObject.putOpt(DefaultDataSource.SCHEME_RTMP, jSONObject3);
                 if (z2) {
                     jSONObject2.putOpt("rec", Boolean.valueOf(z2));
                     jSONObject.putOpt("recording", jSONObject2);
@@ -2332,7 +2333,7 @@ public class WebSocketChannel {
                 jSONObject2.putOpt("type", sessionDescription.type);
                 jSONObject2.putOpt("sdp", sessionDescription.description);
                 jSONObject3.putOpt("janus", "message");
-                jSONObject3.putOpt("body", jSONObject);
+                jSONObject3.putOpt(TtmlNode.TAG_BODY, jSONObject);
                 jSONObject3.putOpt("jsep", jSONObject2);
                 jSONObject3.putOpt("transaction", randomString(12));
                 jSONObject3.putOpt("session_id", this.mSessionId);
@@ -2632,7 +2633,7 @@ public class WebSocketChannel {
             try {
                 jSONObject.putOpt("request", "unpublish");
                 jSONObject2.putOpt("janus", "message");
-                jSONObject2.putOpt("body", jSONObject);
+                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
                 jSONObject2.putOpt("transaction", randomString(12));
                 jSONObject2.putOpt("session_id", this.mSessionId);
                 jSONObject2.putOpt("handle_id", bigInteger);
@@ -2720,7 +2721,7 @@ public class WebSocketChannel {
                 jSONObject.putOpt("data", str);
                 jSONObject.putOpt("internal", Boolean.valueOf(z));
                 jSONObject2.putOpt("janus", "message");
-                jSONObject2.putOpt("body", jSONObject);
+                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
                 jSONObject2.putOpt("transaction", randomString);
                 jSONObject2.putOpt("session_id", this.mSessionId);
             } catch (JSONException e2) {

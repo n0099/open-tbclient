@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class k extends l implements IConnect {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public Context f53118j;
+    public Context f51537j;
     public String k;
     public FreemeIdsSupplier l;
 
@@ -34,7 +34,7 @@ public class k extends l implements IConnect {
                 return;
             }
         }
-        this.f53118j = context;
+        this.f51537j = context;
     }
 
     @Override // com.android.msasdk.IConnect
@@ -48,9 +48,9 @@ public class k extends l implements IConnect {
         try {
             try {
                 if (z) {
-                    this.f53122f = this.l.isSupported();
+                    this.f51541f = this.l.isSupported();
                     String str3 = null;
-                    if (this.f53122f) {
+                    if (this.f51541f) {
                         String aaid = this.l.getAAID(this.k);
                         String oaid = this.l.getOAID();
                         str2 = this.l.getVAID(this.k);
@@ -63,15 +63,15 @@ public class k extends l implements IConnect {
                     if (str3 == null) {
                         str3 = "";
                     }
-                    this.f53119c = str3;
+                    this.f51538c = str3;
                     if (str2 == null) {
                         str2 = "";
                     }
-                    this.f53120d = str2;
+                    this.f51539d = str2;
                     if (str == null) {
                         str = "";
                     }
-                    this.f53121e = str;
+                    this.f51540e = str;
                 } else {
                     e0.b("FreemeProvider", "connectSuccess: false");
                     a();
@@ -81,10 +81,10 @@ public class k extends l implements IConnect {
                 a();
             }
             shutDown();
-            a(this.f53119c, this.f53120d, this.f53121e, this.f53122f, this.f53123g);
+            a(this.f51538c, this.f51539d, this.f51540e, this.f51541f, this.f51542g);
         } catch (Throwable th) {
             shutDown();
-            a(this.f53119c, this.f53120d, this.f53121e, this.f53122f, this.f53123g);
+            a(this.f51538c, this.f51539d, this.f51540e, this.f51541f, this.f51542g);
             throw th;
         }
     }
@@ -93,10 +93,10 @@ public class k extends l implements IConnect {
     public void doStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Context a = a(this.f53118j);
-            this.f53118j = a;
+            Context a = a(this.f51537j);
+            this.f51537j = a;
             this.k = a.getPackageName();
-            this.l = new FreemeIds(this.f53118j);
+            this.l = new FreemeIds(this.f51537j);
             try {
                 c();
                 this.l.connect(this);
@@ -104,7 +104,7 @@ public class k extends l implements IConnect {
             } catch (Exception e2) {
                 e0.b("FreemeProvider", "doStart: Exception: " + e2.getMessage());
                 a();
-                a(this.f53119c, this.f53120d, this.f53121e, this.f53122f, this.f53123g);
+                a(this.f51538c, this.f51539d, this.f51540e, this.f51541f, this.f51542g);
             }
         }
     }

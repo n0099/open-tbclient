@@ -12,36 +12,35 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.t0.s.v.c;
-import c.a.u0.a4.d;
-import c.a.u0.a4.e;
+import c.a.q0.r.v.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
 import com.baidu.tieba.stampmission.view.SingleStampView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class SingleStampView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BACKLASH = "/";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f48274e;
+    public TbImageView f46690e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EMTextView f48275f;
+    public EMTextView f46691f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f48276g;
+    public a f46692g;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface a {
-        void a(c.a.u0.w3.c.a aVar);
+        void a(c.a.r0.v3.c.a aVar);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -65,13 +64,13 @@ public class SingleStampView extends LinearLayout {
         }
     }
 
-    private void setClickListener(final c.a.u0.w3.c.a aVar) {
+    private void setClickListener(final c.a.r0.v3.c.a aVar) {
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, this, aVar) == null) || (tbImageView = this.f48274e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65539, this, aVar) == null) || (tbImageView = this.f46690e) == null) {
             return;
         }
-        tbImageView.setOnClickListener(new View.OnClickListener() { // from class: c.a.u0.w3.f.a
+        tbImageView.setOnClickListener(new View.OnClickListener() { // from class: c.a.r0.v3.f.a
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -85,57 +84,57 @@ public class SingleStampView extends LinearLayout {
         });
     }
 
-    private void setStampDescData(c.a.u0.w3.c.a aVar) {
+    private void setStampDescData(c.a.r0.v3.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, aVar) == null) {
             String str = aVar.c() + aVar.a() + "/" + aVar.b();
             if (aVar.a() > 0) {
                 SpannableString spannableString = new SpannableString(str);
-                spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(d.CAM_X0302)), aVar.c().length(), aVar.c().length() + String.valueOf(aVar.a()).length(), 33);
-                this.f48275f.setText(spannableString);
+                spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0302)), aVar.c().length(), aVar.c().length() + String.valueOf(aVar.a()).length(), 33);
+                this.f46691f.setText(spannableString);
                 return;
             }
-            this.f48275f.setText(str);
+            this.f46691f.setText(str);
         }
     }
 
-    private void setStampImgData(c.a.u0.w3.c.a aVar) {
+    private void setStampImgData(c.a.r0.v3.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, aVar) == null) {
             String d2 = aVar.d();
             if (TextUtils.isEmpty(d2)) {
                 return;
             }
-            this.f48274e.startLoad(d2, 10, false);
+            this.f46690e.startLoad(d2, 10, false);
         }
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f48275f == null) {
-                this.f48275f = new EMTextView(getContext());
+            if (this.f46691f == null) {
+                this.f46691f = new EMTextView(getContext());
             }
-            this.f48275f.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            c d2 = c.d(this.f48275f);
-            d2.v(d.CAM_X0105);
-            d2.z(e.T_X08);
-            addView(this.f48275f);
+            this.f46691f.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+            c d2 = c.d(this.f46691f);
+            d2.v(R.color.CAM_X0105);
+            d2.z(R.dimen.T_X08);
+            addView(this.f46691f);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f48274e == null) {
-                this.f48274e = new TbImageView(getContext());
+            if (this.f46690e == null) {
+                this.f46690e = new TbImageView(getContext());
             }
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(n.f(getContext(), e.tbds146), n.f(getContext(), e.tbds146));
-            layoutParams.setMargins(0, 0, 0, n.f(getContext(), e.M_H_X004));
-            this.f48274e.setLayoutParams(layoutParams);
-            this.f48274e.setPlaceHolder(1);
-            this.f48274e.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            addView(this.f48274e);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(n.f(getContext(), R.dimen.tbds146), n.f(getContext(), R.dimen.tbds146));
+            layoutParams.setMargins(0, 0, 0, n.f(getContext(), R.dimen.M_H_X004));
+            this.f46690e.setLayoutParams(layoutParams);
+            this.f46690e.setPlaceHolder(1);
+            this.f46690e.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            addView(this.f46690e);
         }
     }
 
@@ -157,19 +156,19 @@ public class SingleStampView extends LinearLayout {
         }
     }
 
-    public /* synthetic */ void e(c.a.u0.w3.c.a aVar, View view) {
-        a aVar2 = this.f48276g;
+    public /* synthetic */ void e(c.a.r0.v3.c.a aVar, View view) {
+        a aVar2 = this.f46692g;
         if (aVar2 != null) {
             aVar2.a(aVar);
         }
     }
 
-    public void setData(c.a.u0.w3.c.a aVar, a aVar2) {
+    public void setData(c.a.r0.v3.c.a aVar, a aVar2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048581, this, aVar, aVar2) == null) || aVar == null) {
             return;
         }
-        this.f48276g = aVar2;
+        this.f46692g = aVar2;
         setStampImgData(aVar);
         setStampDescData(aVar);
         setClickListener(aVar);

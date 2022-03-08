@@ -54,7 +54,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @TK_EXPORT_CLASS
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class TKSpan extends TKBase<View> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DP;
@@ -66,7 +66,7 @@ public class TKSpan extends TKBase<View> {
     public final List<SpanItem> mSpanItems;
     public List<SpanItemData> mSpans;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class SpanItemData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -382,7 +382,7 @@ public class TKSpan extends TKBase<View> {
     private void setStyleSpan(SpannableString spannableString, SpanItem spanItem) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65549, this, spannableString, spanItem) == null) {
-            StyleSpan styleSpan = new StyleSpan(SpanItem.STYLE_BOLD.equals(spanItem.textStyle) ? 1 : SpanItem.STYLE_BOLD_ITALIC.equals(spanItem.textStyle) ? 3 : SpanItem.STYLE_ITALIC.equals(spanItem.textStyle) ? 2 : 0);
+            StyleSpan styleSpan = new StyleSpan("bold".equals(spanItem.textStyle) ? 1 : SpanItem.STYLE_BOLD_ITALIC.equals(spanItem.textStyle) ? 3 : "italic".equals(spanItem.textStyle) ? 2 : 0);
             spannableString.setSpan(styleSpan, spanItem.start, spanItem.end, 17);
             this.mSpans.add(new SpanItemData(styleSpan, spanItem.start, spanItem.end));
         }
@@ -419,7 +419,7 @@ public class TKSpan extends TKBase<View> {
                 char c2 = 65535;
                 switch (str2.hashCode()) {
                     case -1224696685:
-                        if (str2.equals(SpanItem.TYPE_FONT_FAMILY)) {
+                        if (str2.equals("fontFamily")) {
                             c2 = '\b';
                             break;
                         }

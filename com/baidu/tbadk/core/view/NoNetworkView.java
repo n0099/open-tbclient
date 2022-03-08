@@ -13,15 +13,13 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.f;
 import c.a.d.f.p.l;
-import c.a.u0.a4.g;
-import c.a.u0.a4.h;
-import c.a.u0.a4.j;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.NoNetworkMoreActivity;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,31 +29,31 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class NoNetworkView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static ArrayList<NoNetworkView> f40678j;
+    public static ArrayList<NoNetworkView> f39084j;
     public static boolean k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f40679e;
+    public TextView f39085e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f40680f;
+    public Context f39086f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f40681g;
+    public boolean f39087g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f40682h;
+    public int f39088h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final ArrayList<b> f40683i;
+    public final ArrayList<b> f39089i;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class a implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,7 +100,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void onNetworkChange(boolean z);
     }
@@ -120,7 +118,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                 return;
             }
         }
-        f40678j = new ArrayList<>();
+        f39084j = new ArrayList<>();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -142,8 +140,8 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                 return;
             }
         }
-        this.f40682h = 0;
-        this.f40683i = new ArrayList<>();
+        this.f39088h = 0;
+        this.f39089i = new ArrayList<>();
         init(context, attributeSet);
     }
 
@@ -152,13 +150,13 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
             k = z;
             if (z) {
-                Iterator<NoNetworkView> it = f40678j.iterator();
+                Iterator<NoNetworkView> it = f39084j.iterator();
                 while (it.hasNext()) {
                     it.next().update(false);
                 }
                 return;
             }
-            Iterator<NoNetworkView> it2 = f40678j.iterator();
+            Iterator<NoNetworkView> it2 = f39084j.iterator();
             while (it2.hasNext()) {
                 it2.next().update(true);
             }
@@ -178,28 +176,28 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
 
     public void addNetworkChangeListener(b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null || this.f40683i.contains(bVar)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null || this.f39089i.contains(bVar)) {
             return;
         }
-        this.f40683i.add(bVar);
+        this.f39089i.add(bVar);
     }
 
     public int getLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? h.no_network_view : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.no_network_view : invokeV.intValue;
     }
 
     public void init(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
-            this.f40680f = context;
+            this.f39086f = context;
             LayoutInflater.from(context).inflate(getLayout(), this);
-            this.f40679e = (TextView) findViewById(g.no_network_guide);
+            this.f39085e = (TextView) findViewById(R.id.no_network_guide);
             setOnClickListener(this);
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, c.a.u0.a4.l.noNetworkView);
-                this.f40681g = obtainStyledAttributes.getBoolean(c.a.u0.a4.l.noNetworkView_is_support_offline, false);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.is_support_offline});
+                this.f39087g = obtainStyledAttributes.getBoolean(0, false);
                 obtainStyledAttributes.recycle();
             }
             try {
@@ -221,7 +219,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onAttachedToWindow();
-            f40678j.add(this);
+            f39084j.add(this);
         }
     }
 
@@ -233,7 +231,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                 tbPageContext.getLayoutMode().k(i2 == 1);
                 tbPageContext.getLayoutMode().j(this);
             }
-            SkinManager.setBackgroundResource(this, c.a.u0.a4.f.nonetworkview_bg_selector, i2);
+            SkinManager.setBackgroundResource(this, R.drawable.nonetworkview_bg_selector, i2);
         }
     }
 
@@ -241,9 +239,9 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, view) == null) && view == this && getVisibility() == 0) {
-            Intent intent = new Intent(this.f40680f, NoNetworkMoreActivity.class);
+            Intent intent = new Intent(this.f39086f, NoNetworkMoreActivity.class);
             intent.addFlags(268435456);
-            this.f40680f.startActivity(intent);
+            this.f39086f.startActivity(intent);
         }
     }
 
@@ -252,15 +250,15 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDetachedFromWindow();
-            f40678j.remove(this);
-            this.f40683i.clear();
+            f39084j.remove(this);
+            this.f39089i.clear();
         }
     }
 
     public void removeNetworkChangeListener(b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) && bVar != null && this.f40683i.contains(bVar)) {
-            this.f40683i.remove(bVar);
+        if ((interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) && bVar != null && this.f39089i.contains(bVar)) {
+            this.f39089i.remove(bVar);
         }
     }
 
@@ -277,43 +275,43 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             if (z) {
-                if (1 == this.f40682h) {
+                if (1 == this.f39088h) {
                     return;
                 }
-                this.f40682h = 1;
-                this.f40679e.setText(j.no_network_guide);
+                this.f39088h = 1;
+                this.f39085e.setText(R.string.no_network_guide);
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
                 alphaAnimation.setDuration(500L);
                 setVisibility(0);
                 startAnimation(alphaAnimation);
-                for (int i2 = 0; i2 < this.f40683i.size(); i2++) {
-                    this.f40683i.get(i2).onNetworkChange(false);
+                for (int i2 = 0; i2 < this.f39089i.size(); i2++) {
+                    this.f39089i.get(i2).onNetworkChange(false);
                 }
-            } else if (this.f40681g && !BdSocketLinkService.isAvailable()) {
-                if (2 == this.f40682h) {
+            } else if (this.f39087g && !BdSocketLinkService.isAvailable()) {
+                if (2 == this.f39088h) {
                     return;
                 }
-                this.f40682h = 2;
-                this.f40679e.setText(j.offline_guide);
+                this.f39088h = 2;
+                this.f39085e.setText(R.string.offline_guide);
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation2.setFillAfter(true);
                 alphaAnimation2.setDuration(500L);
                 setVisibility(0);
                 startAnimation(alphaAnimation2);
-                for (int i3 = 0; i3 < this.f40683i.size(); i3++) {
-                    this.f40683i.get(i3).onNetworkChange(false);
+                for (int i3 = 0; i3 < this.f39089i.size(); i3++) {
+                    this.f39089i.get(i3).onNetworkChange(false);
                 }
-            } else if (this.f40682h != 0) {
-                this.f40682h = 0;
+            } else if (this.f39088h != 0) {
+                this.f39088h = 0;
                 if (getVisibility() != 8) {
                     AlphaAnimation alphaAnimation3 = new AlphaAnimation(1.0f, 0.8f);
                     alphaAnimation3.setFillAfter(true);
                     alphaAnimation3.setDuration(500L);
                     alphaAnimation3.setAnimationListener(new a(this));
                     startAnimation(alphaAnimation3);
-                    for (int i4 = 0; i4 < this.f40683i.size(); i4++) {
-                        this.f40683i.get(i4).onNetworkChange(true);
+                    for (int i4 = 0; i4 < this.f39089i.size(); i4++) {
+                        this.f39089i.get(i4).onNetworkChange(true);
                     }
                 }
             }
@@ -339,8 +337,8 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                 return;
             }
         }
-        this.f40682h = 0;
-        this.f40683i = new ArrayList<>();
+        this.f39088h = 0;
+        this.f39089i = new ArrayList<>();
         init(context, attributeSet);
     }
 
@@ -362,8 +360,8 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                 return;
             }
         }
-        this.f40682h = 0;
-        this.f40683i = new ArrayList<>();
+        this.f39088h = 0;
+        this.f39089i = new ArrayList<>();
         init(context, null);
     }
 }

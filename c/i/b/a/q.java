@@ -1,171 +1,68 @@
 package c.i.b.a;
 
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.RemoteException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.ExoPlaybackException;
-/* loaded from: classes9.dex */
-public interface q {
+import com.google.ar.core.x;
+import java.util.Collections;
+import java.util.concurrent.atomic.AtomicBoolean;
+/* loaded from: classes3.dex */
+public final class q implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
-    public static abstract class a implements b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    /* renamed from: e  reason: collision with root package name */
+    public final /* synthetic */ Activity f28644e;
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    /* renamed from: f  reason: collision with root package name */
+    public final /* synthetic */ m f28645f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final /* synthetic */ l f28646g;
+
+    public q(l lVar, Activity activity, m mVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {lVar, activity, mVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f28646g = lVar;
+        this.f28644e = activity;
+        this.f28645f = mVar;
+    }
 
-        @Override // c.i.b.a.q.b
-        public void a(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            }
-        }
-
-        @Override // c.i.b.a.q.b
-        public void b(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            }
-        }
-
-        @Override // c.i.b.a.q.b
-        public void c(w wVar, Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, wVar, obj) == null) {
-            }
-        }
-
-        @Override // c.i.b.a.q.b
-        public void d(ExoPlaybackException exoPlaybackException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, exoPlaybackException) == null) {
-            }
-        }
-
-        @Override // c.i.b.a.q.b
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-
-        @Override // c.i.b.a.q.b
-        public void i(c.i.b.a.d0.t tVar, c.i.b.a.f0.g gVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048581, this, tVar, gVar) == null) {
-            }
-        }
-
-        @Override // c.i.b.a.q.b
-        public void j(p pVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, pVar) == null) {
-            }
-        }
-
-        @Override // c.i.b.a.q.b
-        public void k(int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            }
-        }
-
-        @Override // c.i.b.a.q.b
-        public void onRepeatModeChanged(int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+    @Override // java.lang.Runnable
+    public final void run() {
+        com.google.a.b.a.a.a.a aVar;
+        Bundle l;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                AtomicBoolean atomicBoolean = new AtomicBoolean(false);
+                aVar = this.f28646g.f28633d;
+                String str = this.f28644e.getApplicationInfo().packageName;
+                l lVar = this.f28646g;
+                l = l.l();
+                aVar.a(str, Collections.singletonList(l), new Bundle(), new x(this, atomicBoolean));
+                new Handler().postDelayed(new r(this, atomicBoolean), 3000L);
+            } catch (RemoteException unused) {
+                l lVar2 = this.f28646g;
+                l.n(this.f28644e, this.f28645f);
             }
         }
     }
-
-    /* loaded from: classes9.dex */
-    public interface b {
-        void a(boolean z);
-
-        void b(boolean z);
-
-        void c(w wVar, Object obj);
-
-        void d(ExoPlaybackException exoPlaybackException);
-
-        void e();
-
-        void i(c.i.b.a.d0.t tVar, c.i.b.a.f0.g gVar);
-
-        void j(p pVar);
-
-        void k(int i2);
-
-        void l(boolean z, int i2);
-
-        void onRepeatModeChanged(int i2);
-    }
-
-    void c(@Nullable p pVar);
-
-    p d();
-
-    boolean e();
-
-    void f(b bVar);
-
-    boolean g();
-
-    long getCurrentPosition();
-
-    long getDuration();
-
-    int getPlaybackState();
-
-    int getRepeatMode();
-
-    void h(boolean z);
-
-    void i(b bVar);
-
-    int j();
-
-    int k();
-
-    void l(boolean z);
-
-    w m();
-
-    c.i.b.a.f0.g n();
-
-    int o(int i2);
-
-    void p(int i2, long j2);
-
-    long q();
-
-    int r();
-
-    void release();
-
-    void setRepeatMode(int i2);
-
-    void stop();
-
-    long t();
-
-    int u();
-
-    boolean v();
 }

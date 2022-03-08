@@ -1,19 +1,19 @@
 package com.google.android.exoplayer2.extractor.flv;
 
-import c.i.b.a.a0.m;
-import c.i.b.a.i0.l;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.ParserException;
-/* loaded from: classes3.dex */
+import com.google.android.exoplayer2.extractor.TrackOutput;
+import com.google.android.exoplayer2.util.ParsableByteArray;
+/* loaded from: classes7.dex */
 public abstract class TagPayloadReader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final m a;
+    public final TrackOutput output;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class UnsupportedFormatException extends ParserException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,12 +39,12 @@ public abstract class TagPayloadReader {
         }
     }
 
-    public TagPayloadReader(m mVar) {
+    public TagPayloadReader(TrackOutput trackOutput) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mVar};
+            Object[] objArr = {trackOutput};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -54,17 +54,19 @@ public abstract class TagPayloadReader {
                 return;
             }
         }
-        this.a = mVar;
+        this.output = trackOutput;
     }
 
-    public final void a(l lVar, long j2) throws ParserException {
+    public final void consume(ParsableByteArray parsableByteArray, long j2) throws ParserException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(1048576, this, lVar, j2) == null) && b(lVar)) {
-            c(lVar, j2);
+        if ((interceptable == null || interceptable.invokeLJ(1048576, this, parsableByteArray, j2) == null) && parseHeader(parsableByteArray)) {
+            parsePayload(parsableByteArray, j2);
         }
     }
 
-    public abstract boolean b(l lVar) throws ParserException;
+    public abstract boolean parseHeader(ParsableByteArray parsableByteArray) throws ParserException;
 
-    public abstract void c(l lVar, long j2) throws ParserException;
+    public abstract void parsePayload(ParsableByteArray parsableByteArray, long j2) throws ParserException;
+
+    public abstract void seek();
 }

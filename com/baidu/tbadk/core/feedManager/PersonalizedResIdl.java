@@ -9,7 +9,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import tbclient.Error;
 import tbclient.Personalized.DataRes;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public final class PersonalizedResIdl extends Message {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,7 +18,7 @@ public final class PersonalizedResIdl extends Message {
     @ProtoField(tag = 1)
     public final Error error;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static final class Builder extends Message.Builder<PersonalizedResIdl> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,7 @@ public final class PersonalizedResIdl extends Message {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

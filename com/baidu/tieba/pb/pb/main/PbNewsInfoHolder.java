@@ -2,13 +2,13 @@ package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
 import android.widget.TextView;
-import c.a.u0.u2.i;
 import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class PbNewsInfoHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class PbNewsInfoHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.pb_u9_text_view = (TextView) view.findViewById(i.pb_u9_text_view);
-        this.divide_line_up_pb_u9 = view.findViewById(i.divide_line_up_pb_u9);
+        this.pb_u9_text_view = (TextView) view.findViewById(R.id.pb_u9_text_view);
+        this.divide_line_up_pb_u9 = view.findViewById(R.id.divide_line_up_pb_u9);
     }
 }

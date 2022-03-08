@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLPeerUnverifiedException;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public abstract class b extends HttpsURLConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

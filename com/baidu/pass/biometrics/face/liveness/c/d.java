@@ -1,13 +1,13 @@
 package com.baidu.pass.biometrics.face.liveness.c;
 
-import com.baidu.pass.biometrics.R;
 import com.baidu.pass.face.platform.FaceEnvironment;
 import com.baidu.pass.face.platform.FaceStatusNewEnum;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

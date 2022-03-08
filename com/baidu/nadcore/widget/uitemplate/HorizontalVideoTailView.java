@@ -5,41 +5,39 @@ import android.content.res.Resources;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import androidx.annotation.Nullable;
-import c.a.d0.d.c;
-import c.a.d0.d.e;
-import c.a.d0.d.g;
-import c.a.d0.s.p;
-import c.a.d0.s.r;
-import c.a.d0.s.t;
+import c.a.b0.s.p;
+import c.a.b0.s.r;
+import c.a.b0.s.t;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.player.tail.AdBaseTailFrameView;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class HorizontalVideoTailView extends AdBaseTailFrameView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public t f37612i;
+    public t f36015i;
 
     /* renamed from: j  reason: collision with root package name */
-    public SimpleAdInfoView f37613j;
+    public SimpleAdInfoView f36016j;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public class a implements SimpleAdInfoView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ r a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ HorizontalVideoTailView f37614b;
+        public final /* synthetic */ HorizontalVideoTailView f36017b;
 
         public a(HorizontalVideoTailView horizontalVideoTailView, r rVar) {
             Interceptable interceptable = $ic;
@@ -56,7 +54,7 @@ public class HorizontalVideoTailView extends AdBaseTailFrameView {
                     return;
                 }
             }
-            this.f37614b = horizontalVideoTailView;
+            this.f36017b = horizontalVideoTailView;
             this.a = rVar;
         }
 
@@ -64,7 +62,7 @@ public class HorizontalVideoTailView extends AdBaseTailFrameView {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f37614b.h(ClogBuilder.LogType.FREE_CLICK, str, this.a);
+                this.f36017b.h(ClogBuilder.LogType.FREE_CLICK, str, this.a);
             }
         }
     }
@@ -99,7 +97,7 @@ public class HorizontalVideoTailView extends AdBaseTailFrameView {
         clogBuilder.s(logType);
         clogBuilder.h(str);
         clogBuilder.n(rVar.l);
-        c.a.d0.a0.a.b(clogBuilder);
+        c.a.b0.a0.a.b(clogBuilder);
     }
 
     @Override // com.baidu.nadcore.player.tail.AdBaseTailFrameView
@@ -107,7 +105,7 @@ public class HorizontalVideoTailView extends AdBaseTailFrameView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             super.init(context);
-            this.f37613j = (SimpleAdInfoView) findViewById(e.ad_app_info_view);
+            this.f36016j = (SimpleAdInfoView) findViewById(R.id.ad_app_info_view);
         }
     }
 
@@ -115,13 +113,13 @@ public class HorizontalVideoTailView extends AdBaseTailFrameView {
     public int layoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? g.nad_horizontal_video_tail_view : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.nad_horizontal_video_tail_view : invokeV.intValue;
     }
 
     public void setAdInfo(t tVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, tVar) == null) {
-            this.f37612i = tVar;
+            this.f36015i = tVar;
         }
     }
 
@@ -130,10 +128,10 @@ public class HorizontalVideoTailView extends AdBaseTailFrameView {
         p pVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, adBaseModel)) == null) {
-            if (adBaseModel == null || (pVar = adBaseModel.f37262j) == null) {
+            if (adBaseModel == null || (pVar = adBaseModel.f35665j) == null) {
                 return false;
             }
-            return showTailFrame(pVar.f3106f);
+            return showTailFrame(pVar.f1936f);
         }
         return invokeL.booleanValue;
     }
@@ -187,18 +185,18 @@ public class HorizontalVideoTailView extends AdBaseTailFrameView {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, rVar)) == null) {
             rVar.o = false;
             boolean showTailFrame = super.showTailFrame(rVar);
-            t tVar = this.f37612i;
+            t tVar = this.f36015i;
             if (tVar != null && tVar.k) {
                 Resources resources = getContext().getResources();
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f37613j.getLayoutParams();
-                layoutParams.leftMargin = resources.getDimensionPixelOffset(c.nad_dimen_15dp);
-                layoutParams.rightMargin = resources.getDimensionPixelOffset(c.nad_dimen_15dp);
-                this.f37613j.setLayoutParams(layoutParams);
-                this.f37613j.setAdInfo(this.f37612i);
-                this.f37613j.setVisibility(0);
-                this.f37613j.setAfterListener(new a(this, rVar));
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f36016j.getLayoutParams();
+                layoutParams.leftMargin = resources.getDimensionPixelOffset(R.dimen.nad_dimen_15dp);
+                layoutParams.rightMargin = resources.getDimensionPixelOffset(R.dimen.nad_dimen_15dp);
+                this.f36016j.setLayoutParams(layoutParams);
+                this.f36016j.setAdInfo(this.f36015i);
+                this.f36016j.setVisibility(0);
+                this.f36016j.setAfterListener(new a(this, rVar));
             } else {
-                this.f37613j.setVisibility(8);
+                this.f36016j.setVisibility(8);
             }
             return showTailFrame;
         }

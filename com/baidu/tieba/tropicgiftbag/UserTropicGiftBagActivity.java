@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class UserTropicGiftBagActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,13 +39,13 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     public TextView mTropicGreetings;
     public TbImageView mVipPic;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserTropicGiftBagActivity f48672e;
+        public final /* synthetic */ UserTropicGiftBagActivity f47091e;
 
         public a(UserTropicGiftBagActivity userTropicGiftBagActivity) {
             Interceptable interceptable = $ic;
@@ -62,21 +62,21 @@ public class UserTropicGiftBagActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f48672e = userTropicGiftBagActivity;
+            this.f47091e = userTropicGiftBagActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TbPageContext<?> pageContext = this.f48672e.getPageContext();
-                if (view.getId() == this.f48672e.mKnow.getId()) {
+                TbPageContext<?> pageContext = this.f47091e.getPageContext();
+                if (view.getId() == this.f47091e.mKnow.getId()) {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
-                    this.f48672e.sendStatisticLog(2);
-                    this.f48672e.finish();
+                    this.f47091e.sendStatisticLog(2);
+                    this.f47091e.finish();
                 }
-                if (view.getId() == this.f48672e.mClose.getId()) {
-                    this.f48672e.finish();
+                if (view.getId() == this.f47091e.mClose.getId()) {
+                    this.f47091e.finish();
                 }
             }
         }
@@ -163,9 +163,9 @@ public class UserTropicGiftBagActivity extends BaseActivity {
             SkinManager.setImageResource(this.mLineTropicRight, R.drawable.icon_tropic_right);
             this.mLineTropicRight.setSkinType(i2);
             SkinManager.setBackgroundColor(this.mRoundCornerLayout, R.color.CAM_X0205);
-            SkinManager.setViewTextColor(this.mTropicGreetings, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.mSevenDayVip, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.mSevenDayVipDec, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.mTropicGreetings, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.mSevenDayVip, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.mSevenDayVipDec, (int) R.color.CAM_X0109);
             SkinManager.setViewTextColorSelector(this.mKnow, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50);
             SkinManager.setImageResource(this.mClose, R.drawable.icon_popup_close);
             this.mClose.setSkinType(i2);

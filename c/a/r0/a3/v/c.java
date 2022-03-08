@@ -1,0 +1,177 @@
+package c.a.r0.a3.v;
+
+import android.content.Context;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import c.a.d.f.p.l;
+import c.a.d.f.p.n;
+import c.a.q0.r.r.e2;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.R;
+import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
+import com.baidu.tieba.video.VideoItemData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes2.dex */
+public class c extends d {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public VideoItemData N0;
+    public VideoSerializeVideoThreadInfo O0;
+    public e2 P0;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c(Context context, View view) {
+        super(context, view);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, view};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (View) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        j0(false);
+        setStageType(null);
+    }
+
+    @Override // c.a.r0.a3.v.d
+    public void L() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            int i2 = this.s;
+            if (i2 == this.f14964i || i2 == this.r) {
+                v0();
+            }
+        }
+    }
+
+    @Override // c.a.r0.a3.v.d
+    public void M() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f14965j = 32;
+        }
+    }
+
+    @Override // c.a.r0.a3.v.d
+    public void N() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // c.a.r0.a3.v.d
+    public void a0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.a0();
+            this.T.setOnTouchListener(null);
+            this.T.setOnClickListener(this);
+        }
+    }
+
+    @Override // c.a.r0.a3.v.d, c.a.r0.a3.v.a
+    public boolean onBackPress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // c.a.r0.a3.v.d, android.view.View.OnClickListener
+    public void onClick(View view) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, view) == null) || view == null) {
+            return;
+        }
+        if (view.getId() == R.id.video_mute) {
+            T();
+        } else if (!l.z()) {
+            n.M(this.R, R.string.no_network_guide);
+        } else if (this.W) {
+            VideoItemData videoItemData = this.N0;
+            if (videoItemData != null) {
+                u0(videoItemData.forum_id, videoItemData.thread_id);
+            }
+        } else {
+            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = this.O0;
+            if (videoSerializeVideoThreadInfo != null) {
+                u0(videoSerializeVideoThreadInfo.forumId, videoSerializeVideoThreadInfo.threadId);
+            }
+        }
+    }
+
+    @Override // c.a.r0.a3.v.d, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
+    public void onCompletion() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            startPlay();
+        }
+    }
+
+    @Override // c.a.r0.a3.v.d, c.a.r0.a3.v.a
+    public void setData(e2 e2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, e2Var) == null) {
+            super.setData(e2Var);
+            this.P0 = e2Var;
+            if (this.W) {
+                VideoItemData videoItemData = new VideoItemData();
+                this.N0 = videoItemData;
+                videoItemData.buildWithThreadData(e2Var);
+                return;
+            }
+            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = new VideoSerializeVideoThreadInfo();
+            this.O0 = videoSerializeVideoThreadInfo;
+            videoSerializeVideoThreadInfo.copyFromThreadInfo(e2Var);
+            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo2 = this.O0;
+            videoSerializeVideoThreadInfo2.source = e2Var.Z0;
+            videoSerializeVideoThreadInfo2.extra = e2Var.c1;
+            videoSerializeVideoThreadInfo2.ab_tag = e2Var.b1;
+            videoSerializeVideoThreadInfo2.weight = e2Var.a1;
+        }
+    }
+
+    public final void u0(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
+            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.R);
+            pbActivityConfig.createNormalCfg(str2, null, null);
+            pbActivityConfig.setForumId(String.valueOf(str));
+            pbActivityConfig.setThreadData(this.P0);
+            pbActivityConfig.setVideoOriginArea(ThreadCardUtils.computeViewArea(this.T));
+            pbActivityConfig.setNeedPreLoad(true);
+            c.a.r0.d1.l.update(this.P0);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
+            View.OnClickListener onClickListener = this.B0;
+            if (onClickListener != null) {
+                onClickListener.onClick(getMainView());
+            }
+        }
+    }
+
+    public void v0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            l0(this.f14965j);
+        }
+    }
+}

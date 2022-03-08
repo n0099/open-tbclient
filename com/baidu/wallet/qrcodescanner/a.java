@@ -8,21 +8,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class a implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f52884b;
+    public int f51303b;
 
     /* renamed from: c  reason: collision with root package name */
-    public InterfaceC2043a f52885c;
+    public InterfaceC2019a f51304c;
 
     /* renamed from: com.baidu.wallet.qrcodescanner.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC2043a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC2019a {
         void a();
 
         void a(boolean z);
@@ -41,7 +41,7 @@ public class a implements View.OnTouchListener {
                 return;
             }
         }
-        this.f52884b = 0;
+        this.f51303b = 0;
     }
 
     private float a(MotionEvent motionEvent) {
@@ -56,12 +56,12 @@ public class a implements View.OnTouchListener {
     }
 
     private void b() {
-        InterfaceC2043a interfaceC2043a;
+        InterfaceC2019a interfaceC2019a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (interfaceC2043a = this.f52885c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (interfaceC2019a = this.f51304c) == null) {
             return;
         }
-        interfaceC2043a.a(false);
+        interfaceC2019a.a(false);
     }
 
     @Override // android.view.View.OnTouchListener
@@ -69,23 +69,23 @@ public class a implements View.OnTouchListener {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, motionEvent)) == null) {
-            InterfaceC2043a interfaceC2043a = this.f52885c;
-            if (interfaceC2043a != null) {
-                interfaceC2043a.a();
+            InterfaceC2019a interfaceC2019a = this.f51304c;
+            if (interfaceC2019a != null) {
+                interfaceC2019a.a();
             }
             int action = motionEvent.getAction() & 255;
             if (action == 0) {
-                this.f52884b = 1;
+                this.f51303b = 1;
             } else if (action == 1) {
-                this.f52884b = 0;
+                this.f51303b = 0;
             } else if (action != 2) {
                 if (action == 5) {
                     this.a = a(motionEvent);
-                    this.f52884b++;
+                    this.f51303b++;
                 } else if (action == 6) {
-                    this.f52884b--;
+                    this.f51303b--;
                 }
-            } else if (this.f52884b >= 2) {
+            } else if (this.f51303b >= 2) {
                 float a = a(motionEvent);
                 if (a > this.a) {
                     a();
@@ -100,18 +100,18 @@ public class a implements View.OnTouchListener {
     }
 
     private void a() {
-        InterfaceC2043a interfaceC2043a;
+        InterfaceC2019a interfaceC2019a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (interfaceC2043a = this.f52885c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (interfaceC2019a = this.f51304c) == null) {
             return;
         }
-        interfaceC2043a.a(true);
+        interfaceC2019a.a(true);
     }
 
-    public void a(InterfaceC2043a interfaceC2043a) {
+    public void a(InterfaceC2019a interfaceC2019a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC2043a) == null) {
-            this.f52885c = interfaceC2043a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC2019a) == null) {
+            this.f51304c = interfaceC2019a;
         }
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class hf {
     public static /* synthetic */ Interceptable $ic;
     public static final hf A;
@@ -29,31 +29,31 @@ public final class hf {
     public static final /* synthetic */ hf[] f476a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hf f61371b;
+    public static final hf f59721b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final hf f61372c;
+    public static final hf f59722c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final hf f61373d;
+    public static final hf f59723d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final hf f61374e;
+    public static final hf f59724e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final hf f61375f;
+    public static final hf f59725f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final hf f61376g;
+    public static final hf f59726g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final hf f61377h;
+    public static final hf f59727h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final hf f61378i;
+    public static final hf f59728i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final hf f61379j;
+    public static final hf f59729j;
     public static final hf k;
     public static final hf l;
     public static final hf m;
@@ -89,15 +89,15 @@ public final class hf {
             }
         }
         a = new hf("Registration", 0, 1);
-        f61371b = new hf("UnRegistration", 1, 2);
-        f61372c = new hf("Subscription", 2, 3);
-        f61373d = new hf("UnSubscription", 3, 4);
-        f61374e = new hf("SendMessage", 4, 5);
-        f61375f = new hf("AckMessage", 5, 6);
-        f61376g = new hf("SetConfig", 6, 7);
-        f61377h = new hf("ReportFeedback", 7, 8);
-        f61378i = new hf("Notification", 8, 9);
-        f61379j = new hf("Command", 9, 10);
+        f59721b = new hf("UnRegistration", 1, 2);
+        f59722c = new hf("Subscription", 2, 3);
+        f59723d = new hf("UnSubscription", 3, 4);
+        f59724e = new hf("SendMessage", 4, 5);
+        f59725f = new hf("AckMessage", 5, 6);
+        f59726g = new hf("SetConfig", 6, 7);
+        f59727h = new hf("ReportFeedback", 7, 8);
+        f59728i = new hf("Notification", 8, 9);
+        f59729j = new hf("Command", 9, 10);
         k = new hf("MultiConnectionBroadcast", 10, 11);
         l = new hf("MultiConnectionResult", 11, 12);
         m = new hf("ConnectionKick", 12, 13);
@@ -126,7 +126,7 @@ public final class hf {
         J = new hf("RevokeMessage", 35, 114);
         hf hfVar = new hf("SimulatorJob", 36, 200);
         K = hfVar;
-        f476a = new hf[]{a, f61371b, f61372c, f61373d, f61374e, f61375f, f61376g, f61377h, f61378i, f61379j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, hfVar};
+        f476a = new hf[]{a, f59721b, f59722c, f59723d, f59724e, f59725f, f59726g, f59727h, f59728i, f59729j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, hfVar};
     }
 
     public hf(String str, int i2, int i3) {
@@ -159,23 +159,23 @@ public final class hf {
                     case 1:
                         return a;
                     case 2:
-                        return f61371b;
+                        return f59721b;
                     case 3:
-                        return f61372c;
+                        return f59722c;
                     case 4:
-                        return f61373d;
+                        return f59723d;
                     case 5:
-                        return f61374e;
+                        return f59724e;
                     case 6:
-                        return f61375f;
+                        return f59725f;
                     case 7:
-                        return f61376g;
+                        return f59726g;
                     case 8:
-                        return f61377h;
+                        return f59727h;
                     case 9:
-                        return f61378i;
+                        return f59728i;
                     case 10:
-                        return f61379j;
+                        return f59729j;
                     case 11:
                         return k;
                     case 12:

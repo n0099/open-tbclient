@@ -9,7 +9,7 @@ import com.fun.ad.sdk.FunAdType;
 import com.fun.ad.sdk.internal.api.PidLoader;
 import com.fun.ad.sdk.internal.api.PidLoaderCreator;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class b implements PidLoaderCreator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

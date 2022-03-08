@@ -2,9 +2,9 @@ package com.baidu.ugc.api.ffmpeg;
 
 import android.content.Context;
 import android.text.TextUtils;
-import c.a.b0.a.c;
-import c.a.b1.b;
-import c.a.b1.s.a;
+import c.a.y0.b;
+import c.a.y0.q.a;
+import c.a.z.a.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.media.transcoder.FFmpegCmdExecutor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,26 +13,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes13.dex */
-public class MFFmpegCmdExecutor implements c.a.b1.s.a {
+/* loaded from: classes6.dex */
+public class MFFmpegCmdExecutor implements c.a.y0.q.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MFFmpegCmdExecutor_tag";
     public transient /* synthetic */ FieldHolder $fh;
     public FFmpegCmdExecutor mFFmpegCmdExecutor;
-    public a.InterfaceC0031a mFFmpegCmdListener;
+    public a.InterfaceC1628a mFFmpegCmdListener;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements FFmpegCmdExecutor.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a.InterfaceC0031a a;
+        public final /* synthetic */ a.InterfaceC1628a a;
 
-        public a(MFFmpegCmdExecutor mFFmpegCmdExecutor, a.InterfaceC0031a interfaceC0031a) {
+        public a(MFFmpegCmdExecutor mFFmpegCmdExecutor, a.InterfaceC1628a interfaceC1628a) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mFFmpegCmdExecutor, interfaceC0031a};
+                Object[] objArr = {mFFmpegCmdExecutor, interfaceC1628a};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -42,17 +42,17 @@ public class MFFmpegCmdExecutor implements c.a.b1.s.a {
                     return;
                 }
             }
-            this.a = interfaceC0031a;
+            this.a = interfaceC1628a;
         }
 
         @Override // com.baidu.media.transcoder.FFmpegCmdExecutor.b
         public void onCompletion() {
-            a.InterfaceC0031a interfaceC0031a;
+            a.InterfaceC1628a interfaceC1628a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (interfaceC0031a = this.a) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (interfaceC1628a = this.a) == null) {
                 return;
             }
-            interfaceC0031a.onCompletion();
+            interfaceC1628a.onCompletion();
         }
 
         @Override // com.baidu.media.transcoder.FFmpegCmdExecutor.b
@@ -60,9 +60,9 @@ public class MFFmpegCmdExecutor implements c.a.b1.s.a {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, obj)) == null) {
-                a.InterfaceC0031a interfaceC0031a = this.a;
-                if (interfaceC0031a != null) {
-                    return interfaceC0031a.onError(i2, i3, obj);
+                a.InterfaceC1628a interfaceC1628a = this.a;
+                if (interfaceC1628a != null) {
+                    return interfaceC1628a.onError(i2, i3, obj);
                 }
                 return false;
             }
@@ -74,9 +74,9 @@ public class MFFmpegCmdExecutor implements c.a.b1.s.a {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, obj)) == null) {
-                a.InterfaceC0031a interfaceC0031a = this.a;
-                if (interfaceC0031a != null) {
-                    return interfaceC0031a.onInfo(i2, i3, obj);
+                a.InterfaceC1628a interfaceC1628a = this.a;
+                if (interfaceC1628a != null) {
+                    return interfaceC1628a.onInfo(i2, i3, obj);
                 }
                 return false;
             }
@@ -110,7 +110,7 @@ public class MFFmpegCmdExecutor implements c.a.b1.s.a {
         this.mFFmpegCmdExecutor = new FFmpegCmdExecutor();
     }
 
-    @Override // c.a.b1.s.a
+    @Override // c.a.y0.q.a
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -118,18 +118,18 @@ public class MFFmpegCmdExecutor implements c.a.b1.s.a {
         }
     }
 
-    @Override // c.a.b1.s.a
-    public synchronized void setListener(a.InterfaceC0031a interfaceC0031a) {
+    @Override // c.a.y0.q.a
+    public synchronized void setListener(a.InterfaceC1628a interfaceC1628a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0031a) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC1628a) == null) {
             synchronized (this) {
-                this.mFFmpegCmdListener = interfaceC0031a;
-                this.mFFmpegCmdExecutor.h(new a(this, interfaceC0031a));
+                this.mFFmpegCmdListener = interfaceC1628a;
+                this.mFFmpegCmdExecutor.h(new a(this, interfaceC1628a));
             }
         }
     }
 
-    @Override // c.a.b1.s.a
+    @Override // c.a.y0.q.a
     public void setSource(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
@@ -137,7 +137,7 @@ public class MFFmpegCmdExecutor implements c.a.b1.s.a {
         }
     }
 
-    @Override // c.a.b1.s.a
+    @Override // c.a.y0.q.a
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -145,9 +145,9 @@ public class MFFmpegCmdExecutor implements c.a.b1.s.a {
                 this.mFFmpegCmdExecutor.j();
                 return;
             }
-            a.InterfaceC0031a interfaceC0031a = this.mFFmpegCmdListener;
-            if (interfaceC0031a != null) {
-                interfaceC0031a.onError(-9527, -9527, "TranscoderManager install error");
+            a.InterfaceC1628a interfaceC1628a = this.mFFmpegCmdListener;
+            if (interfaceC1628a != null) {
+                interfaceC1628a.onError(-9527, -9527, "TranscoderManager install error");
             }
         }
     }

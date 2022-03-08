@@ -1,8 +1,8 @@
 package com.baidu.tieba.barselect.data;
 
-import c.a.u0.c0.b.d;
-import c.a.u0.c0.b.e;
-import c.a.u0.c0.b.f;
+import c.a.r0.c0.b.d;
+import c.a.r0.c0.b.e;
+import c.a.r0.c0.b.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
@@ -18,7 +18,7 @@ import tbclient.ElectionInfo.ElectionInfoResIdl;
 import tbclient.ElectionList;
 import tbclient.ManagerElection;
 import tbclient.Myrecord;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class VoteElectionHttpResMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -1,5 +1,5 @@
 package org.apache.commons.lang3.concurrent;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface CircuitBreaker<T> {
     boolean checkState();
 

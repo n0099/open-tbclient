@@ -7,35 +7,33 @@ import android.view.Window;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.u0.a4.e;
-import c.a.u0.a4.g;
-import c.a.u0.a4.h;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class BdProgressDialog1080 extends AlertDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f40410e;
+    public String f38814e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f40411f;
+    public TextView f38815f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f40412g;
+    public TextView f38816g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CircleView1080 f40413h;
+    public CircleView1080 f38817h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f40414i;
+    public int f38818i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdProgressDialog1080(Context context) {
@@ -60,14 +58,14 @@ public class BdProgressDialog1080 extends AlertDialog {
     public int getPercent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40414i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38818i : invokeV.intValue;
     }
 
     public void setMessage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f40410e = str;
-            TextView textView = this.f40412g;
+            this.f38814e = str;
+            TextView textView = this.f38816g;
             if (textView != null) {
                 textView.setText(str);
             }
@@ -76,15 +74,15 @@ public class BdProgressDialog1080 extends AlertDialog {
 
     public void setPercent(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || i2 == this.f40414i) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || i2 == this.f38818i) {
             return;
         }
-        this.f40414i = i2;
-        TextView textView = this.f40411f;
+        this.f38818i = i2;
+        TextView textView = this.f38815f;
         if (textView != null) {
             textView.setText(i2 + "%");
         }
-        CircleView1080 circleView1080 = this.f40413h;
+        CircleView1080 circleView1080 = this.f38817h;
         if (circleView1080 != null) {
             circleView1080.setProgress(i2);
         }
@@ -97,25 +95,25 @@ public class BdProgressDialog1080 extends AlertDialog {
             super.show();
             Window window = getWindow();
             if (window != null) {
-                window.setContentView(h.progress_dialog_1080);
-                View findViewById = findViewById(g.frame_progress_dialog);
+                window.setContentView(R.layout.progress_dialog_1080);
+                View findViewById = findViewById(R.id.frame_progress_dialog);
                 if (findViewById.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
                     RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) findViewById.getLayoutParams();
-                    layoutParams.topMargin = n.f(getContext(), e.tbds50);
+                    layoutParams.topMargin = n.f(getContext(), R.dimen.tbds50);
                     findViewById.setLayoutParams(layoutParams);
                 }
-                TextView textView = (TextView) window.findViewById(g.text_progress_dialog_message);
-                this.f40412g = textView;
+                TextView textView = (TextView) window.findViewById(R.id.text_progress_dialog_message);
+                this.f38816g = textView;
                 if (textView.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                    RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f40412g.getLayoutParams();
-                    layoutParams2.topMargin = n.f(getContext(), e.tbds35);
-                    this.f40412g.setLayoutParams(layoutParams2);
+                    RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f38816g.getLayoutParams();
+                    layoutParams2.topMargin = n.f(getContext(), R.dimen.tbds35);
+                    this.f38816g.setLayoutParams(layoutParams2);
                 }
-                if (!StringUtils.isNull(this.f40410e)) {
-                    this.f40412g.setText(this.f40410e);
+                if (!StringUtils.isNull(this.f38814e)) {
+                    this.f38816g.setText(this.f38814e);
                 }
-                this.f40411f = (TextView) window.findViewById(g.text_progress_dialog_percent);
-                this.f40413h = (CircleView1080) window.findViewById(g.circle_progress_dialog);
+                this.f38815f = (TextView) window.findViewById(R.id.text_progress_dialog_percent);
+                this.f38817h = (CircleView1080) window.findViewById(R.id.circle_progress_dialog);
             }
         }
     }

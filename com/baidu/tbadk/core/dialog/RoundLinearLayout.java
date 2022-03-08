@@ -10,29 +10,29 @@ import android.graphics.drawable.shapes.RoundRectShape;
 import android.graphics.drawable.shapes.Shape;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import c.a.u0.a4.e;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class RoundLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f40444e;
+    public float f38848e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Shape f40445f;
+    public Shape f38849f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f40446g;
+    public Paint f38850g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f40447h;
+    public int f38851h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RoundLinearLayout(Context context) {
@@ -62,9 +62,9 @@ public class RoundLinearLayout extends LinearLayout {
             int saveCount = canvas.getSaveCount();
             canvas.save();
             super.dispatchDraw(canvas);
-            Shape shape = this.f40445f;
+            Shape shape = this.f38849f;
             if (shape != null) {
-                shape.draw(canvas, this.f40446g);
+                shape.draw(canvas, this.f38850g);
             }
             if (saveCount < 1 || saveCount > canvas.getSaveCount()) {
                 return;
@@ -79,16 +79,16 @@ public class RoundLinearLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
             if (z) {
-                if (this.f40445f == null) {
+                if (this.f38849f == null) {
                     float[] fArr = new float[8];
                     Arrays.fill(fArr, 0.0f);
                     RectF rectF = new RectF(getPaddingLeft(), getPaddingTop() > 0 ? getPaddingTop() : 1.0f, getPaddingRight() <= 0 ? 1.0f : getPaddingRight(), getPaddingBottom());
                     float[] fArr2 = new float[8];
                     Arrays.fill(fArr, 0.0f);
-                    Arrays.fill(fArr2, 0, this.f40447h, this.f40444e);
-                    this.f40445f = new RoundRectShape(fArr, rectF, fArr2);
+                    Arrays.fill(fArr2, 0, this.f38851h, this.f38848e);
+                    this.f38849f = new RoundRectShape(fArr, rectF, fArr2);
                 }
-                this.f40445f.resize(getWidth(), getHeight());
+                this.f38849f.resize(getWidth(), getHeight());
             }
         }
     }
@@ -96,14 +96,14 @@ public class RoundLinearLayout extends LinearLayout {
     public void setRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
-            this.f40444e = f2;
+            this.f38848e = f2;
         }
     }
 
     public void setRoundCount(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f40447h = i2;
+            this.f38851h = i2;
         }
     }
 
@@ -147,15 +147,15 @@ public class RoundLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f40444e = 0.0f;
-        this.f40447h = 4;
+        this.f38848e = 0.0f;
+        this.f38851h = 4;
         setLayerType(1, null);
-        this.f40444e = getResources().getDimension(e.tbds32);
+        this.f38848e = getResources().getDimension(R.dimen.tbds32);
         Paint paint = new Paint();
-        this.f40446g = paint;
+        this.f38850g = paint;
         paint.setAntiAlias(true);
-        this.f40446g.setColor(-7829368);
-        this.f40446g.setStyle(Paint.Style.FILL);
-        this.f40446g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.f38850g.setColor(-7829368);
+        this.f38850g.setStyle(Paint.Style.FILL);
+        this.f38850g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
     }
 }

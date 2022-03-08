@@ -5,15 +5,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import androidx.core.app.NotificationCompat;
-import c.a.u0.a4.f;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class ALaKeepAliveService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_CONTENT_TEXT = "content_text";
@@ -83,7 +83,7 @@ public class ALaKeepAliveService extends BdBaseService {
                 String stringExtra3 = intent.getStringExtra(KEY_TICKER);
                 int intExtra = intent.getIntExtra(KEY_NOTIFICATION_ID, Integer.MAX_VALUE);
                 NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext());
-                builder.setContentTitle(stringExtra).setContentText(stringExtra2).setSmallIcon(f.ic_icon_foreground).setTicker(stringExtra3);
+                builder.setContentTitle(stringExtra).setContentText(stringExtra2).setSmallIcon(R.drawable.ic_icon_foreground).setTicker(stringExtra3);
                 startForeground(intExtra, builder.build());
             }
             return super.onStartCommand(intent, i2, i3);

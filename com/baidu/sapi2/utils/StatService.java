@@ -5,7 +5,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pass.http.ReqPriority;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.httpwrap.HttpClientWrap;
@@ -25,7 +24,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class StatService implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTO_STATISTIC = "auto_statistic";
@@ -239,7 +238,7 @@ public final class StatService implements NoProguard {
                 map = new HashMap<>();
             }
             StringBuilder sb = new StringBuilder();
-            sb.append(StringUtil.ARRAY_START);
+            sb.append("{");
             for (String str : linkedHashMap.keySet()) {
                 sb.append(str);
                 sb.append(":");

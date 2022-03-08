@@ -20,20 +20,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import org.webrtc.MediaStreamTrack;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class x implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final SoundPool f27296e;
+    public final SoundPool f27200e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final AudioManager f27297f;
+    public final AudioManager f27201f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final List<p> f27298g;
+    public final List<p> f27202g;
 
     public x(Context context, b bVar) {
         Interceptable interceptable = $ic;
@@ -50,22 +49,22 @@ public class x implements d {
                 return;
             }
         }
-        this.f27298g = new ArrayList();
+        this.f27202g = new ArrayList();
         if (!bVar.p) {
             if (Build.VERSION.SDK_INT >= 21) {
-                this.f27296e = new SoundPool.Builder().setAudioAttributes(new AudioAttributes.Builder().setUsage(14).setContentType(4).build()).setMaxStreams(bVar.q).build();
+                this.f27200e = new SoundPool.Builder().setAudioAttributes(new AudioAttributes.Builder().setUsage(14).setContentType(4).build()).setMaxStreams(bVar.q).build();
             } else {
-                this.f27296e = new SoundPool(bVar.q, 3, 0);
+                this.f27200e = new SoundPool(bVar.q, 3, 0);
             }
-            this.f27297f = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+            this.f27201f = (AudioManager) context.getSystemService("audio");
             if (context instanceof Activity) {
                 ((Activity) context).setVolumeControlStream(3);
                 return;
             }
             return;
         }
-        this.f27296e = null;
-        this.f27297f = null;
+        this.f27200e = null;
+        this.f27201f = null;
     }
 
     @Override // c.b.b.e
@@ -73,12 +72,12 @@ public class x implements d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            if (this.f27296e != null) {
+            if (this.f27200e != null) {
                 g gVar = (g) aVar;
                 if (gVar.t() == Files.FileType.Internal) {
                     try {
                         AssetFileDescriptor u = gVar.u();
-                        s sVar = new s(this.f27296e, this.f27297f, this.f27296e.load(u, 1));
+                        s sVar = new s(this.f27200e, this.f27201f, this.f27200e.load(u, 1));
                         u.close();
                         return sVar;
                     } catch (IOException e2) {
@@ -86,7 +85,7 @@ public class x implements d {
                     }
                 }
                 try {
-                    return new s(this.f27296e, this.f27297f, this.f27296e.load(gVar.e().getPath(), 1));
+                    return new s(this.f27200e, this.f27201f, this.f27200e.load(gVar.e().getPath(), 1));
                 } catch (Exception e3) {
                     throw new GdxRuntimeException("Error loading audio file: " + aVar, e3);
                 }
@@ -100,8 +99,8 @@ public class x implements d {
     public void d(p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pVar) == null) {
-            synchronized (this.f27298g) {
-                this.f27298g.remove(this);
+            synchronized (this.f27202g) {
+                this.f27202g.remove(this);
             }
         }
     }
@@ -109,16 +108,16 @@ public class x implements d {
     @Override // c.b.b.q.h
     public void dispose() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f27296e == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f27200e == null) {
             return;
         }
-        synchronized (this.f27298g) {
-            Iterator it = new ArrayList(this.f27298g).iterator();
+        synchronized (this.f27202g) {
+            Iterator it = new ArrayList(this.f27202g).iterator();
             while (it.hasNext()) {
                 ((p) it.next()).dispose();
             }
         }
-        this.f27296e.release();
+        this.f27200e.release();
     }
 
     @Override // c.b.b.e
@@ -126,7 +125,7 @@ public class x implements d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) {
-            if (this.f27296e != null) {
+            if (this.f27200e != null) {
                 g gVar = (g) aVar;
                 MediaPlayer mediaPlayer = new MediaPlayer();
                 if (gVar.t() == Files.FileType.Internal) {
@@ -136,8 +135,8 @@ public class x implements d {
                         u.close();
                         mediaPlayer.prepare();
                         p pVar = new p(this, mediaPlayer);
-                        synchronized (this.f27298g) {
-                            this.f27298g.add(pVar);
+                        synchronized (this.f27202g) {
+                            this.f27202g.add(pVar);
                         }
                         return pVar;
                     } catch (Exception e2) {
@@ -148,8 +147,8 @@ public class x implements d {
                     mediaPlayer.setDataSource(gVar.e().getPath());
                     mediaPlayer.prepare();
                     p pVar2 = new p(this, mediaPlayer);
-                    synchronized (this.f27298g) {
-                        this.f27298g.add(pVar2);
+                    synchronized (this.f27202g) {
+                        this.f27202g.add(pVar2);
                     }
                     return pVar2;
                 } catch (Exception e3) {
@@ -164,35 +163,35 @@ public class x implements d {
     @Override // c.b.b.l.a.d
     public void pause() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f27296e == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f27200e == null) {
             return;
         }
-        synchronized (this.f27298g) {
-            for (p pVar : this.f27298g) {
+        synchronized (this.f27202g) {
+            for (p pVar : this.f27202g) {
                 if (pVar.a()) {
                     pVar.pause();
-                    pVar.f27286h = true;
+                    pVar.f27190h = true;
                 } else {
-                    pVar.f27286h = false;
+                    pVar.f27190h = false;
                 }
             }
         }
-        this.f27296e.autoPause();
+        this.f27200e.autoPause();
     }
 
     @Override // c.b.b.l.a.d
     public void resume() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f27296e == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f27200e == null) {
             return;
         }
-        synchronized (this.f27298g) {
-            for (int i2 = 0; i2 < this.f27298g.size(); i2++) {
-                if (this.f27298g.get(i2).f27286h) {
-                    this.f27298g.get(i2).f();
+        synchronized (this.f27202g) {
+            for (int i2 = 0; i2 < this.f27202g.size(); i2++) {
+                if (this.f27202g.get(i2).f27190h) {
+                    this.f27202g.get(i2).f();
                 }
             }
         }
-        this.f27296e.autoResume();
+        this.f27200e.autoResume();
     }
 }

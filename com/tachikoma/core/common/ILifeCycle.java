@@ -1,5 +1,5 @@
 package com.tachikoma.core.common;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface ILifeCycle {
     void onCreate();
 

@@ -1,0 +1,115 @@
+package com.google.android.exoplayer2.source.chunk;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.Format;
+import com.google.android.exoplayer2.extractor.DefaultExtractorInput;
+import com.google.android.exoplayer2.extractor.Extractor;
+import com.google.android.exoplayer2.upstream.DataSource;
+import com.google.android.exoplayer2.upstream.DataSpec;
+import com.google.android.exoplayer2.util.Assertions;
+import com.google.android.exoplayer2.util.Util;
+import java.io.IOException;
+/* loaded from: classes7.dex */
+public class ContainerMediaChunk extends BaseMediaChunk {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public volatile int bytesLoaded;
+    public final int chunkCount;
+    public final ChunkExtractorWrapper extractorWrapper;
+    public volatile boolean loadCanceled;
+    public volatile boolean loadCompleted;
+    public final long sampleOffsetUs;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ContainerMediaChunk(DataSource dataSource, DataSpec dataSpec, Format format, int i2, Object obj, long j2, long j3, int i3, int i4, long j4, ChunkExtractorWrapper chunkExtractorWrapper) {
+        super(dataSource, dataSpec, format, i2, obj, j2, j3, i3);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r5;
+            Object[] objArr = {dataSource, dataSpec, format, Integer.valueOf(i2), obj, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j4), chunkExtractorWrapper};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((DataSource) objArr2[0], (DataSpec) objArr2[1], (Format) objArr2[2], ((Integer) objArr2[3]).intValue(), objArr2[4], ((Long) objArr2[5]).longValue(), ((Long) objArr2[6]).longValue(), ((Integer) objArr2[7]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.chunkCount = i4;
+        this.sampleOffsetUs = j4;
+        this.extractorWrapper = chunkExtractorWrapper;
+    }
+
+    @Override // com.google.android.exoplayer2.source.chunk.Chunk
+    public final long bytesLoaded() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bytesLoaded : invokeV.longValue;
+    }
+
+    @Override // com.google.android.exoplayer2.upstream.Loader.Loadable
+    public final void cancelLoad() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.loadCanceled = true;
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.source.chunk.MediaChunk
+    public int getNextChunkIndex() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.chunkIndex + this.chunkCount : invokeV.intValue;
+    }
+
+    @Override // com.google.android.exoplayer2.upstream.Loader.Loadable
+    public final boolean isLoadCanceled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.loadCanceled : invokeV.booleanValue;
+    }
+
+    @Override // com.google.android.exoplayer2.source.chunk.MediaChunk
+    public boolean isLoadCompleted() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.loadCompleted : invokeV.booleanValue;
+    }
+
+    @Override // com.google.android.exoplayer2.upstream.Loader.Loadable
+    public final void load() throws IOException, InterruptedException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            DataSpec subrange = this.dataSpec.subrange(this.bytesLoaded);
+            try {
+                DefaultExtractorInput defaultExtractorInput = new DefaultExtractorInput(this.dataSource, subrange.absoluteStreamPosition, this.dataSource.open(subrange));
+                if (this.bytesLoaded == 0) {
+                    BaseMediaChunkOutput output = getOutput();
+                    output.setSampleOffsetUs(this.sampleOffsetUs);
+                    this.extractorWrapper.init(output);
+                }
+                Extractor extractor = this.extractorWrapper.extractor;
+                int i2 = 0;
+                while (i2 == 0 && !this.loadCanceled) {
+                    i2 = extractor.read(defaultExtractorInput, null);
+                }
+                Assertions.checkState(i2 != 1);
+                this.bytesLoaded = (int) (defaultExtractorInput.getPosition() - this.dataSpec.absoluteStreamPosition);
+                Util.closeQuietly(this.dataSource);
+                this.loadCompleted = true;
+            } catch (Throwable th) {
+                Util.closeQuietly(this.dataSource);
+                throw th;
+            }
+        }
+    }
+}

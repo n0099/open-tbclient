@@ -3,7 +3,7 @@ package com.kwad.sdk.utils;
 import android.content.Context;
 import android.content.res.Resources;
 import com.kwad.sdk.api.core.ResContext;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class am {
     public static int a(Context context, String str) {
         Resources a = a(context);

@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class i implements g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ aa a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ h f30887b;
+    public final /* synthetic */ h f29291b;
 
     public i(h hVar, aa aaVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class i implements g {
                 return;
             }
         }
-        this.f30887b = hVar;
+        this.f29291b = hVar;
         this.a = aaVar;
     }
 
@@ -48,7 +48,7 @@ public final class i implements g {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            context = this.f30887b.a;
+            context = this.f29291b.a;
             return l.a(context.getApplicationContext());
         }
         return (ab) invokeV.objValue;

@@ -16,20 +16,20 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArraySet;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f53315d;
+    public static c f51734d;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<PluginBroadcastReceiver, BroadcastReceiver> f53316b;
+    public final Map<PluginBroadcastReceiver, BroadcastReceiver> f51735b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Set<Integer> f53317c;
+    public final Set<Integer> f51736c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -45,34 +45,34 @@ public final class c {
             }
         }
         this.a = new ConcurrentHashMap();
-        this.f53316b = new ConcurrentHashMap();
-        this.f53317c = new CopyOnWriteArraySet();
+        this.f51735b = new ConcurrentHashMap();
+        this.f51736c = new CopyOnWriteArraySet();
     }
 
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f53315d == null) {
+            if (f51734d == null) {
                 synchronized (com.bytedance.pangle.service.a.a.class) {
-                    if (f53315d == null) {
-                        f53315d = new c();
+                    if (f51734d == null) {
+                        f51734d = new c();
                     }
                 }
             }
-            return f53315d;
+            return f51734d;
         }
         return (c) invokeV.objValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Set<PluginBroadcastReceiver> f53318b;
+        public final Set<PluginBroadcastReceiver> f51737b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -87,7 +87,7 @@ public final class c {
                     return;
                 }
             }
-            this.f53318b = new CopyOnWriteArraySet();
+            this.f51737b = new CopyOnWriteArraySet();
         }
 
         public final void a(PluginBroadcastReceiver pluginBroadcastReceiver) {
@@ -96,16 +96,16 @@ public final class c {
                 return;
             }
             ZeusLogger.i(ZeusLogger.TAG_RECEIVER, "plugin-receiver:" + pluginBroadcastReceiver.getClass().getSimpleName() + ",action=" + this.a + "[注册完成]");
-            this.f53318b.add(pluginBroadcastReceiver);
+            this.f51737b.add(pluginBroadcastReceiver);
         }
 
         public final void a(Context context, Intent intent) {
             Set<PluginBroadcastReceiver> set;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || (set = this.f53318b) == null || set.size() <= 0) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || (set = this.f51737b) == null || set.size() <= 0) {
                 return;
             }
-            for (PluginBroadcastReceiver pluginBroadcastReceiver : this.f53318b) {
+            for (PluginBroadcastReceiver pluginBroadcastReceiver : this.f51737b) {
                 if (pluginBroadcastReceiver != null) {
                     try {
                         pluginBroadcastReceiver.onReceive(context, intent);

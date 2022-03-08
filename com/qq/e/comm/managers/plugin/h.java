@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.qq.e.comm.util.SystemUtil;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f59299b;
+    public static String f57649b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,13 +32,13 @@ public class h {
             }
         }
         a = SystemUtil.buildNewPathByProcessName("e_qq_com_plugin");
-        f59299b = SystemUtil.buildNewPathByProcessName("e_qq_com_dex");
+        f57649b = SystemUtil.buildNewPathByProcessName("e_qq_com_dex");
     }
 
     public static File a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? context.getDir(f59299b, 0) : (File) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? context.getDir(f57649b, 0) : (File) invokeL.objValue;
     }
 
     public static File b(Context context) {

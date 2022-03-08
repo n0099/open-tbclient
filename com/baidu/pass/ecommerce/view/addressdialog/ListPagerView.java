@@ -14,9 +14,9 @@ import com.baidu.pass.ecommerce.common.mvp.BaseMvpView;
 import com.baidu.pass.ecommerce.common.mvp.IBaseView;
 import com.baidu.pass.ecommerce.presenter.AddrListPagerPresenter;
 import com.baidu.pass.ecommerce.view.addressdialog.ElementNode;
-import com.baidu.sapi2.ecommerce.R;
 import com.baidu.sapi2.ecommerce.result.AddrSelectorRequestParam;
 import com.baidu.sapi2.ecommerce.result.AddressBean;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class ListPagerView extends BaseMvpView implements IBaseView, AddrPagerListAdapter.OnAddressSelectedListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REQUEST_ACTION = 101;
@@ -47,7 +47,7 @@ public class ListPagerView extends BaseMvpView implements IBaseView, AddrPagerLi
     public String mSelectedAddressId;
 
     /* renamed from: com.baidu.pass.ecommerce.view.addressdialog.ListPagerView$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$pass$ecommerce$view$addressdialog$ViewStatus;
         public static /* synthetic */ Interceptable $ic;
@@ -87,7 +87,7 @@ public class ListPagerView extends BaseMvpView implements IBaseView, AddrPagerLi
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface OnEntitySelectedListener {
         void onEntitySelected(int i2, AddressBean addressBean);
     }

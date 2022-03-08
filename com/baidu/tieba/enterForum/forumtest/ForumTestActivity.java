@@ -12,9 +12,8 @@ import android.webkit.JsPromptResult;
 import android.webkit.WebView;
 import android.widget.RelativeLayout;
 import c.a.d.f.p.n;
-import c.a.t0.d1.v;
-import c.a.t0.s.t.g;
-import c.a.t0.s.t.j;
+import c.a.q0.r.t.g;
+import c.a.q0.r.t.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -33,6 +32,7 @@ import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.switchs.ShareSwitch;
+import com.baidu.tbadk.util.InsertGalleryAsyncTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.forumtest.js.ForumTestWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,8 +44,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
-public class ForumTestActivity extends BaseActivity implements c.a.u0.v0.e.a.b {
+/* loaded from: classes5.dex */
+public class ForumTestActivity extends BaseActivity implements c.a.r0.u0.e.a.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public j.d mDialogSaveToDiskListener;
@@ -60,13 +60,13 @@ public class ForumTestActivity extends BaseActivity implements c.a.u0.v0.e.a.b {
     public String mUrl;
     public ForumTestWebView mWebView;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnLongClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumTestActivity f42794e;
+        public final /* synthetic */ ForumTestActivity f41197e;
 
         public a(ForumTestActivity forumTestActivity) {
             Interceptable interceptable = $ic;
@@ -83,27 +83,27 @@ public class ForumTestActivity extends BaseActivity implements c.a.u0.v0.e.a.b {
                     return;
                 }
             }
-            this.f42794e = forumTestActivity;
+            this.f41197e = forumTestActivity;
         }
 
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) ? this.f42794e.handleLongClick() : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) ? this.f41197e.handleLongClick() : invokeL.booleanValue;
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f42795e;
+        public final /* synthetic */ ShareItem f41198e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ForumTestActivity f42796f;
+        public final /* synthetic */ ForumTestActivity f41199f;
 
         public b(ForumTestActivity forumTestActivity, ShareItem shareItem) {
             Interceptable interceptable = $ic;
@@ -120,21 +120,21 @@ public class ForumTestActivity extends BaseActivity implements c.a.u0.v0.e.a.b {
                     return;
                 }
             }
-            this.f42796f = forumTestActivity;
-            this.f42795e = shareItem;
+            this.f41199f = forumTestActivity;
+            this.f41198e = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.d.f.p.c.a(this.f42795e.t);
-                n.N(this.f42796f, view.getResources().getString(R.string.copy_pb_url_success));
+                c.a.d.f.p.c.a(this.f41198e.t);
+                n.N(this.f41199f, view.getResources().getString(R.string.copy_pb_url_success));
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class c implements j.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -158,7 +158,7 @@ public class ForumTestActivity extends BaseActivity implements c.a.u0.v0.e.a.b {
             this.a = forumTestActivity;
         }
 
-        @Override // c.a.t0.s.t.j.c
+        @Override // c.a.q0.r.t.j.c
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -167,7 +167,7 @@ public class ForumTestActivity extends BaseActivity implements c.a.u0.v0.e.a.b {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class d implements j.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -191,7 +191,7 @@ public class ForumTestActivity extends BaseActivity implements c.a.u0.v0.e.a.b {
             this.a = forumTestActivity;
         }
 
-        @Override // c.a.t0.s.t.j.d
+        @Override // c.a.q0.r.t.j.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -202,8 +202,8 @@ public class ForumTestActivity extends BaseActivity implements c.a.u0.v0.e.a.b {
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class e extends v.a {
+    /* loaded from: classes5.dex */
+    public class e extends InsertGalleryAsyncTask.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumTestActivity a;
@@ -226,7 +226,7 @@ public class ForumTestActivity extends BaseActivity implements c.a.u0.v0.e.a.b {
             this.a = forumTestActivity;
         }
 
-        @Override // c.a.t0.d1.v.a
+        @Override // com.baidu.tbadk.util.InsertGalleryAsyncTask.a
         public void onError(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
@@ -234,7 +234,7 @@ public class ForumTestActivity extends BaseActivity implements c.a.u0.v0.e.a.b {
             }
         }
 
-        @Override // c.a.t0.d1.v.a
+        @Override // com.baidu.tbadk.util.InsertGalleryAsyncTask.a
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -336,9 +336,7 @@ public class ForumTestActivity extends BaseActivity implements c.a.u0.v0.e.a.b {
             if (this.mPermissionJudgement.startRequestPermission(pageActivity)) {
                 return;
             }
-            v vVar = new v(getActivity(), str, new e(this));
-            vVar.h(true);
-            vVar.execute(new String[0]);
+            new InsertGalleryAsyncTask(getActivity(), str, new e(this)).isBase64Type(true).execute(new String[0]);
         }
     }
 
@@ -363,7 +361,7 @@ public class ForumTestActivity extends BaseActivity implements c.a.u0.v0.e.a.b {
         this.mMoreDialog.showDialog();
     }
 
-    @Override // c.a.u0.v0.e.a.b
+    @Override // c.a.r0.u0.e.a.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

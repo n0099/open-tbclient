@@ -15,7 +15,7 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class AppInfoManager implements AppInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -23,7 +23,7 @@ import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.CoroutineScope;
 @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u000b\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 5, 1}, xi = 48)
 @DebugMetadata(c = "com.baidu.tun2tornadolite.booster.sclient.SClient$prepare$ok$1", f = "SClient.kt", i = {1}, l = {63, 66}, m = "invokeSuspend", n = {NewBindCardEntry.BING_CARD_SUCCESS_MSG}, s = {"I$0"})
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public final class SClient$prepare$ok$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Boolean>, Object> {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ SClientConfig $config;

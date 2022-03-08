@@ -6,17 +6,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f33832b;
+    public String f32235b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f33833c;
+    public String f32236c;
 
     public e(int i2, String str, long j2) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public class e {
             }
         }
         this.a = i2;
-        this.f33832b = str;
-        this.f33833c = Long.toString(j2);
+        this.f32235b = str;
+        this.f32236c = Long.toString(j2);
     }
 
     public e(int i2, String str, String str2) {
@@ -54,19 +54,19 @@ public class e {
             }
         }
         this.a = i2;
-        this.f33832b = str;
-        this.f33833c = str2;
+        this.f32235b = str;
+        this.f32236c = str2;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33832b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32235b : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33833c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32236c : (String) invokeV.objValue;
     }
 }

@@ -7,52 +7,48 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.f0.a.c;
-import c.a.f0.a.d;
-import c.a.f0.a.e;
-import c.a.f0.a.f;
-import c.a.f0.a.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.touchid.FingerprintDialogInterface;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class FingerprintDialog extends Dialog implements FingerprintDialogInterface, NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f38386b;
+    public TextView f36790b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f38387c;
+    public TextView f36791c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f38388d;
+    public TextView f36792d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f38389e;
+    public TextView f36793e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f38390f;
+    public ImageView f36794f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f38391g;
+    public Context f36795g;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ View.OnClickListener a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FingerprintDialog f38392b;
+        public final /* synthetic */ FingerprintDialog f36796b;
 
         public a(FingerprintDialog fingerprintDialog, View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
@@ -69,7 +65,7 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
                     return;
                 }
             }
-            this.f38392b = fingerprintDialog;
+            this.f36796b = fingerprintDialog;
             this.a = onClickListener;
         }
 
@@ -78,7 +74,7 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 try {
-                    ViewUtility.dismissDialog((Activity) this.f38392b.f38391g, this.f38392b);
+                    ViewUtility.dismissDialog((Activity) this.f36796b.f36795g, this.f36796b);
                     this.a.onClick(view);
                 } catch (Exception unused) {
                 }
@@ -86,14 +82,14 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ View.OnClickListener a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FingerprintDialog f38393b;
+        public final /* synthetic */ FingerprintDialog f36797b;
 
         public b(FingerprintDialog fingerprintDialog, View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
@@ -110,7 +106,7 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
                     return;
                 }
             }
-            this.f38393b = fingerprintDialog;
+            this.f36797b = fingerprintDialog;
             this.a = onClickListener;
         }
 
@@ -119,7 +115,7 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 try {
-                    ViewUtility.dismissDialog((Activity) this.f38393b.f38391g, this.f38393b);
+                    ViewUtility.dismissDialog((Activity) this.f36797b.f36795g, this.f36797b);
                     this.a.onClick(view);
                 } catch (Exception unused) {
                 }
@@ -129,7 +125,7 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FingerprintDialog(Context context) {
-        super(context, h.SapiSdkBeautyDialog);
+        super(context, R.style.SapiSdkBeautyDialog);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -146,17 +142,17 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
                 return;
             }
         }
-        this.f38391g = context;
-        setContentView(f.layout_sapi_sdk_fingerprint_dialog);
-        this.a = (LinearLayout) findViewById(e.bg_layout);
-        this.f38386b = (TextView) findViewById(e.sapi_sdk_fingerprint_title);
-        this.f38387c = (TextView) findViewById(e.sapi_sdk_fingerprint_sub_title);
-        this.f38388d = (TextView) findViewById(e.sapi_sdk_fingerprint_negative_btn);
-        this.f38389e = (TextView) findViewById(e.sapi_sdk_fingerprint_positive_btn);
-        this.f38390f = (ImageView) findViewById(e.sapi_sdk_fingerprint_icon);
+        this.f36795g = context;
+        setContentView(R.layout.layout_sapi_sdk_fingerprint_dialog);
+        this.a = (LinearLayout) findViewById(R.id.bg_layout);
+        this.f36790b = (TextView) findViewById(R.id.sapi_sdk_fingerprint_title);
+        this.f36791c = (TextView) findViewById(R.id.sapi_sdk_fingerprint_sub_title);
+        this.f36792d = (TextView) findViewById(R.id.sapi_sdk_fingerprint_negative_btn);
+        this.f36793e = (TextView) findViewById(R.id.sapi_sdk_fingerprint_positive_btn);
+        this.f36794f = (ImageView) findViewById(R.id.sapi_sdk_fingerprint_icon);
         a();
-        ViewUtility.setViewClickAlpha(this.f38388d, 0.2f);
-        ViewUtility.setViewClickAlpha(this.f38389e, 0.2f);
+        ViewUtility.setViewClickAlpha(this.f36792d, 0.2f);
+        ViewUtility.setViewClickAlpha(this.f36793e, 0.2f);
         setCancelable(false);
         setCanceledOnTouchOutside(false);
     }
@@ -167,15 +163,15 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             if ((i2 <= 2 ? Math.max(i2, 1) : 2) == 1) {
-                this.f38388d.setVisibility(8);
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f38389e.getLayoutParams();
-                layoutParams.leftMargin = (int) this.f38391g.getResources().getDimension(c.sapi_sdk_finger_print_btn_margin);
-                layoutParams.rightMargin = (int) this.f38391g.getResources().getDimension(c.sapi_sdk_finger_print_btn_margin);
+                this.f36792d.setVisibility(8);
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f36793e.getLayoutParams();
+                layoutParams.leftMargin = (int) this.f36795g.getResources().getDimension(R.dimen.sapi_sdk_finger_print_btn_margin);
+                layoutParams.rightMargin = (int) this.f36795g.getResources().getDimension(R.dimen.sapi_sdk_finger_print_btn_margin);
             } else {
-                this.f38388d.setVisibility(0);
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f38389e.getLayoutParams();
-                layoutParams2.leftMargin = (int) this.f38391g.getResources().getDimension(c.sapi_sdk_finger_print_btn_left_margin);
-                layoutParams2.rightMargin = (int) this.f38391g.getResources().getDimension(c.sapi_sdk_finger_print_btn_right_margin);
+                this.f36792d.setVisibility(0);
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f36793e.getLayoutParams();
+                layoutParams2.leftMargin = (int) this.f36795g.getResources().getDimension(R.dimen.sapi_sdk_finger_print_btn_left_margin);
+                layoutParams2.rightMargin = (int) this.f36795g.getResources().getDimension(R.dimen.sapi_sdk_finger_print_btn_right_margin);
             }
             return this;
         }
@@ -187,7 +183,7 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            findViewById(e.icon).setVisibility(8);
+            findViewById(R.id.icon).setVisibility(8);
             return this;
         }
         return (FingerprintDialogInterface) invokeV.objValue;
@@ -198,8 +194,8 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, onClickListener)) == null) {
-            this.f38388d.setText(str);
-            this.f38388d.setOnClickListener(new a(this, onClickListener));
+            this.f36792d.setText(str);
+            this.f36792d.setOnClickListener(new a(this, onClickListener));
             return this;
         }
         return (FingerprintDialogInterface) invokeLL.objValue;
@@ -210,8 +206,8 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, onClickListener)) == null) {
-            this.f38389e.setText(str);
-            this.f38389e.setOnClickListener(new b(this, onClickListener));
+            this.f36793e.setText(str);
+            this.f36793e.setOnClickListener(new b(this, onClickListener));
             return this;
         }
         return (FingerprintDialogInterface) invokeLL.objValue;
@@ -222,8 +218,8 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            this.f38386b.setText(str);
-            this.f38387c.setText(str2);
+            this.f36790b.setText(str);
+            this.f36791c.setText(str2);
             return this;
         }
         return (FingerprintDialogInterface) invokeLL.objValue;
@@ -241,14 +237,14 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             if (SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode) {
-                this.a.setBackgroundResource(d.sapi_sdk_fingerprint_dialog_dark_mode);
-                this.f38390f.setImageResource(d.sapi_sdk_fingerprint_dark_mode);
-                this.f38386b.setTextColor(this.f38391g.getResources().getColor(c.a.f0.a.b.sapi_sdk_dark_mode_edit_text_color));
-                this.f38387c.setTextColor(this.f38391g.getResources().getColor(c.a.f0.a.b.sapi_sdk_fingerprint_dialog_sub_tv_color));
-                this.f38388d.setTextColor(this.f38391g.getResources().getColor(c.a.f0.a.b.sapi_sdk_dark_mode_edit_text_color));
-                this.f38388d.setBackground(this.f38391g.getResources().getDrawable(d.sapi_sdk_fingerprint_dialog_negative_btn_bg_daynight));
-                this.f38389e.setTextColor(this.f38391g.getResources().getColor(c.a.f0.a.b.sapi_sdk_dark_mode_edit_text_color));
-                this.f38389e.setBackground(this.f38391g.getResources().getDrawable(d.sapi_sdk_fingerprint_dialog_positive_btn_bg_daynight));
+                this.a.setBackgroundResource(R.drawable.sapi_sdk_fingerprint_dialog_dark_mode);
+                this.f36794f.setImageResource(R.drawable.sapi_sdk_fingerprint_dark_mode);
+                this.f36790b.setTextColor(this.f36795g.getResources().getColor(R.color.sapi_sdk_dark_mode_edit_text_color));
+                this.f36791c.setTextColor(this.f36795g.getResources().getColor(R.color.sapi_sdk_fingerprint_dialog_sub_tv_color));
+                this.f36792d.setTextColor(this.f36795g.getResources().getColor(R.color.sapi_sdk_dark_mode_edit_text_color));
+                this.f36792d.setBackground(this.f36795g.getResources().getDrawable(R.drawable.sapi_sdk_fingerprint_dialog_negative_btn_bg_daynight));
+                this.f36793e.setTextColor(this.f36795g.getResources().getColor(R.color.sapi_sdk_dark_mode_edit_text_color));
+                this.f36793e.setBackground(this.f36795g.getResources().getDrawable(R.drawable.sapi_sdk_fingerprint_dialog_positive_btn_bg_daynight));
             }
         }
     }

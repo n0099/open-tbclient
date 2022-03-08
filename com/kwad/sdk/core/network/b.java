@@ -12,11 +12,11 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class b implements g {
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, String> f56102b = new HashMap();
+    public final Map<String, String> f54452b = new HashMap();
     public final JSONObject a = new JSONObject();
 
     public b() {
@@ -53,7 +53,7 @@ public abstract class b implements g {
     }
 
     public void a(String str, String str2) {
-        this.f56102b.put(str, str2);
+        this.f54452b.put(str, str2);
     }
 
     public void a(String str, List<? extends com.kwad.sdk.core.b> list) {
@@ -84,7 +84,7 @@ public abstract class b implements g {
 
     @Override // com.kwad.sdk.core.network.g
     public Map<String, String> c() {
-        return this.f56102b;
+        return this.f54452b;
     }
 
     @Override // com.kwad.sdk.core.network.g

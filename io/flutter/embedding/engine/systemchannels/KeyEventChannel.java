@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class KeyEventChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "KeyEventChannel";
@@ -27,12 +27,12 @@ public class KeyEventChannel {
     @NonNull
     public final BasicMessageChannel<Object> channel;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface EventResponseHandler {
         void onFrameworkResponse(boolean z);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class FlutterKeyEvent {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

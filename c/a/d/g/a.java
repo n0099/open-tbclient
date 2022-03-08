@@ -1,7 +1,7 @@
 package c.a.d.g;
 
 import android.content.Context;
-import c.a.s.a.a.b;
+import c.a.r.a.a.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
@@ -29,15 +29,15 @@ public class a implements IOutbackContext {
     public HashMap<String, CallFactory.CallFactoryProducer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CallFactory.CallFactoryProducer f2290b;
+    public CallFactory.CallFactoryProducer f2919b;
 
     /* renamed from: c.a.d.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0053a implements HostnameVerifier {
+    public class C0113a implements HostnameVerifier {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0053a(a aVar) {
+        public C0113a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -167,19 +167,19 @@ public class a implements IOutbackContext {
             }
         }
         this.a = new HashMap<>();
-        OkHttpClient build = new OkHttpClient.Builder().hostnameVerifier(new C0053a(this)).build();
-        b.C0277b c0277b = new b.C0277b();
-        c0277b.p(build);
-        c.a.s.a.a.b n = c0277b.n();
-        this.f2290b = n;
-        this.a.put(n.getEngineName(), this.f2290b);
+        OkHttpClient build = new OkHttpClient.Builder().hostnameVerifier(new C0113a(this)).build();
+        b.C0908b c0908b = new b.C0908b();
+        c0908b.p(build);
+        c.a.r.a.a.b n = c0908b.n();
+        this.f2919b = n;
+        this.a.put(n.getEngineName(), this.f2919b);
     }
 
     @Override // com.baidu.searchbox.network.outback.IOutbackContext
     public CallFactory.CallFactoryProducer getBackupCallFactoryProducer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2290b : (CallFactory.CallFactoryProducer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2919b : (CallFactory.CallFactoryProducer) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.network.outback.IOutbackContext
@@ -203,7 +203,7 @@ public class a implements IOutbackContext {
     public CallFactory.CallFactoryProducer getDefaultCallFactoryProducer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2290b : (CallFactory.CallFactoryProducer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2919b : (CallFactory.CallFactoryProducer) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.network.outback.IOutbackContext

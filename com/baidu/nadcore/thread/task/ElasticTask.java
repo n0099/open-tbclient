@@ -11,33 +11,33 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class ElasticTask implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Runnable f37372e;
+    public Runnable f35775e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f37373f;
+    public a f35776f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f37374g;
+    public String f35777g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f37375h;
+    public int f35778h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f37376i;
+    public long f35779i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f37377j;
+    public long f35780j;
     public long k;
     public Status l;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class Status {
         public static final /* synthetic */ Status[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -98,7 +98,7 @@ public class ElasticTask implements Runnable {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void afterExecuteTask();
 
@@ -121,21 +121,21 @@ public class ElasticTask implements Runnable {
             }
         }
         this.l = Status.WAITING;
-        this.f37372e = runnable;
-        this.f37374g = str;
-        this.f37375h = i2;
+        this.f35775e = runnable;
+        this.f35777g = str;
+        this.f35778h = i2;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f37374g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35777g : (String) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37375h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35778h : invokeV.intValue;
     }
 
     public synchronized long c() {
@@ -146,7 +146,7 @@ public class ElasticTask implements Runnable {
                 if (this.l == Status.WAITING) {
                     return 0L;
                 }
-                return Math.max(0L, (this.l == Status.RUNNING ? SystemClock.elapsedRealtime() : this.k) - this.f37377j);
+                return Math.max(0L, (this.l == Status.RUNNING ? SystemClock.elapsedRealtime() : this.k) - this.f35780j);
             }
         }
         return invokeV.longValue;
@@ -157,10 +157,10 @@ public class ElasticTask implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (this) {
-                if (this.f37376i == 0) {
+                if (this.f35779i == 0) {
                     return 0L;
                 }
-                return Math.max(0L, (this.l == Status.WAITING ? SystemClock.elapsedRealtime() : this.f37377j) - this.f37376i);
+                return Math.max(0L, (this.l == Status.WAITING ? SystemClock.elapsedRealtime() : this.f35780j) - this.f35779i);
             }
         }
         return invokeV.longValue;
@@ -181,7 +181,7 @@ public class ElasticTask implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             synchronized (this) {
                 this.l = Status.WAITING;
-                this.f37376i = SystemClock.elapsedRealtime();
+                this.f35779i = SystemClock.elapsedRealtime();
             }
         }
     }
@@ -191,7 +191,7 @@ public class ElasticTask implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             synchronized (this) {
                 this.l = Status.RUNNING;
-                this.f37377j = SystemClock.elapsedRealtime();
+                this.f35780j = SystemClock.elapsedRealtime();
             }
         }
     }
@@ -199,7 +199,7 @@ public class ElasticTask implements Runnable {
     public void h(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.f37373f = aVar;
+            this.f35776f = aVar;
         }
     }
 
@@ -208,15 +208,15 @@ public class ElasticTask implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             try {
-                if (this.f37373f != null) {
-                    this.f37373f.beforeExecuteTask();
+                if (this.f35776f != null) {
+                    this.f35776f.beforeExecuteTask();
                 }
             } catch (Exception unused) {
             }
-            this.f37372e.run();
+            this.f35775e.run();
             try {
-                if (this.f37373f != null) {
-                    this.f37373f.afterExecuteTask();
+                if (this.f35776f != null) {
+                    this.f35776f.afterExecuteTask();
                 }
             } catch (Exception unused2) {
             }

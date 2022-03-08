@@ -10,12 +10,12 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
-import c.a.s0.a.f;
-import c.a.s0.a.k;
-import c.a.s0.a.z2.n0;
+import c.a.p0.a.a;
+import c.a.p0.a.p2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.FullScreenFloatView;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,12 +24,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class FloatButton extends FullScreenFloatView {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f39347f;
+    public static final boolean f37751f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,7 +45,7 @@ public class FloatButton extends FullScreenFloatView {
                 return;
             }
         }
-        f39347f = k.a;
+        f37751f = a.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -74,7 +74,7 @@ public class FloatButton extends FullScreenFloatView {
         if (!(interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || this.mFloatImgView == null) {
             return;
         }
-        if (f39347f) {
+        if (f37751f) {
             String str = "move--> x = " + f2 + ", y = " + f3;
         }
         int i2 = this.mFloatViewWidth;
@@ -95,7 +95,7 @@ public class FloatButton extends FullScreenFloatView {
         if (i5 <= i7) {
             i7 = i5;
         }
-        if (f39347f) {
+        if (f37751f) {
             String str2 = "move--> left = 0, top = 288, mStatusBarHeight = " + this.mStatusBarHeight;
         }
         this.mFloatImgView.setX(i6);
@@ -133,7 +133,7 @@ public class FloatButton extends FullScreenFloatView {
                 } else if (this.mIsTouchDrag && (cVar = this.mDragImageListener) != null) {
                     cVar.a();
                 }
-                if (f39347f) {
+                if (f37751f) {
                     r0 = "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.mIsClickDrag;
                 }
                 if (this.mIsAutoAttachEnable && !this.mIsClickDrag && x >= 0.0f) {
@@ -165,7 +165,7 @@ public class FloatButton extends FullScreenFloatView {
     public void setFloatButtonDefaultPosition() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            findViewById(f.float_imgview).setBottom(n0.P(191.0f));
+            findViewById(R.id.float_imgview).setBottom(n0.P(191.0f));
         }
     }
 
@@ -174,7 +174,7 @@ public class FloatButton extends FullScreenFloatView {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drawable) == null) || drawable == null) {
             return;
         }
-        View findViewById = findViewById(f.float_imgview);
+        View findViewById = findViewById(R.id.float_imgview);
         if (findViewById instanceof Button) {
             findViewById.setBackground(drawable);
         }
@@ -183,7 +183,7 @@ public class FloatButton extends FullScreenFloatView {
     public void setFloatButtonStyle(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            View findViewById = findViewById(f.float_imgview);
+            View findViewById = findViewById(R.id.float_imgview);
             String optString = jSONObject != null ? jSONObject.optString("backgroundColor", "#4E4E4E") : "#4E4E4E";
             if (findViewById instanceof Button) {
                 ((GradientDrawable) findViewById.getBackground()).setColor(SwanAppConfigData.t(optString));

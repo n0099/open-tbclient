@@ -13,7 +13,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class StandardMethodCodec implements MethodCodec {
     public static /* synthetic */ Interceptable $ic;
     public static final StandardMethodCodec INSTANCE;

@@ -3,13 +3,13 @@ package com.qq.e.comm.managers.plugin;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static Method a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f59290b;
+    public static boolean f57640b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(Throwable th, String str) {
@@ -17,7 +17,7 @@ public class a {
         if (interceptable == null || interceptable.invokeLL(65536, null, th, str) == null) {
             try {
                 Exception exc = new Exception("插件错误：" + str, th);
-                if (f59290b) {
+                if (f57640b) {
                     return;
                 }
                 if (a == null) {
@@ -27,7 +27,7 @@ public class a {
                 }
                 a.invoke(null, exc);
             } catch (Throwable unused) {
-                f59290b = true;
+                f57640b = true;
             }
         }
     }

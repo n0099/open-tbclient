@@ -18,7 +18,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class DESUtil {
     public static /* synthetic */ Interceptable $ic;
     public static byte[] iv;

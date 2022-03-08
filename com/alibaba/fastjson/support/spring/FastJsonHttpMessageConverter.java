@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.util.MimeTypes;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.lang.reflect.ParameterizedType;
@@ -32,7 +33,7 @@ import org.springframework.http.converter.GenericHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.converter.HttpMessageNotWritableException;
 import org.springframework.util.StringUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class FastJsonHttpMessageConverter extends AbstractHttpMessageConverter<Object> implements GenericHttpMessageConverter<Object> {
     public static /* synthetic */ Interceptable $ic;
     public static final MediaType APPLICATION_JAVASCRIPT;
@@ -45,7 +46,7 @@ public class FastJsonHttpMessageConverter extends AbstractHttpMessageConverter<O
     @Deprecated
     public SerializeFilter[] filters;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class Spring4TypeResolvableHelper {
         public static /* synthetic */ Interceptable $ic;
         public static boolean hasClazzResolvableType;
@@ -170,7 +171,7 @@ public class FastJsonHttpMessageConverter extends AbstractHttpMessageConverter<O
                 return;
             }
         }
-        APPLICATION_JAVASCRIPT = new MediaType("application", "javascript");
+        APPLICATION_JAVASCRIPT = new MediaType(MimeTypes.BASE_TYPE_APPLICATION, "javascript");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

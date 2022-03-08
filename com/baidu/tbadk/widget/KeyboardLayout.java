@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class KeyboardLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte KEYBOARD_STATE_HIDE = -2;
@@ -17,18 +17,18 @@ public class KeyboardLayout extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f41418e;
+    public boolean f39824e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f41419f;
+    public boolean f39825f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f41420g;
+    public int f39826g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f41421h;
+    public a f39827h;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(int i2);
     }
@@ -52,7 +52,7 @@ public class KeyboardLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f41418e = false;
+        this.f39824e = false;
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
@@ -60,30 +60,30 @@ public class KeyboardLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            if (!this.f41418e) {
-                this.f41418e = true;
-                this.f41420g = i5;
-                a aVar = this.f41421h;
+            if (!this.f39824e) {
+                this.f39824e = true;
+                this.f39826g = i5;
+                a aVar = this.f39827h;
                 if (aVar != null) {
                     aVar.a(-1);
                 }
             } else {
-                int i6 = this.f41420g;
+                int i6 = this.f39826g;
                 if (i6 < i5) {
                     i6 = i5;
                 }
-                this.f41420g = i6;
+                this.f39826g = i6;
             }
-            if (this.f41418e && this.f41420g > i5) {
-                this.f41419f = true;
-                a aVar2 = this.f41421h;
+            if (this.f39824e && this.f39826g > i5) {
+                this.f39825f = true;
+                a aVar2 = this.f39827h;
                 if (aVar2 != null) {
                     aVar2.a(-3);
                 }
             }
-            if (this.f41418e && this.f41419f && this.f41420g == i5) {
-                this.f41419f = false;
-                a aVar3 = this.f41421h;
+            if (this.f39824e && this.f39825f && this.f39826g == i5) {
+                this.f39825f = false;
+                a aVar3 = this.f39827h;
                 if (aVar3 != null) {
                     aVar3.a(-2);
                 }
@@ -94,7 +94,7 @@ public class KeyboardLayout extends RelativeLayout {
     public void setOnkbdStateListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f41421h = aVar;
+            this.f39827h = aVar;
         }
     }
 
@@ -117,7 +117,7 @@ public class KeyboardLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f41418e = false;
+        this.f39824e = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -138,6 +138,6 @@ public class KeyboardLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f41418e = false;
+        this.f39824e = false;
     }
 }

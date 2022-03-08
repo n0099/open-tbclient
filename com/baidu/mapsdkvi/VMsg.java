@@ -11,22 +11,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class VMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "VMsg";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f36351b;
+    public static Handler f34754b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HandlerThread f36352c;
+    public static HandlerThread f34755c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static VMsg f36353d;
+    public static VMsg f34756d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,7 @@ public class VMsg {
                 return;
             }
         }
-        f36353d = new VMsg();
+        f34756d = new VMsg();
     }
 
     public VMsg() {
@@ -98,33 +98,33 @@ public class VMsg {
     public static void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            f36352c.quit();
-            f36352c = null;
-            f36351b.removeCallbacksAndMessages(null);
-            f36351b = null;
+            f34755c.quit();
+            f34755c = null;
+            f34754b.removeCallbacksAndMessages(null);
+            f34754b = null;
         }
     }
 
     public static VMsg getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f36353d : (VMsg) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f34756d : (VMsg) invokeV.objValue;
     }
 
     public static void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
             HandlerThread handlerThread = new HandlerThread("VIMsgThread");
-            f36352c = handlerThread;
+            f34755c = handlerThread;
             handlerThread.start();
-            f36351b = new a(f36352c.getLooper());
+            f34754b = new a(f34755c.getLooper());
         }
     }
 
     public static void postMessage(int i2, int i3, int i4, long j2) {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2)}) == null) || (handler = f36351b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2)}) == null) || (handler = f34754b) == null) {
             return;
         }
         Message.obtain(handler, i2, i3, i4, j2 == 0 ? null : Long.valueOf(j2)).sendToTarget();

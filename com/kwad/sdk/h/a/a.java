@@ -4,49 +4,49 @@ import android.app.Activity;
 import android.os.SystemClock;
 import com.kwad.sdk.core.report.d;
 import com.kwad.sdk.utils.ax;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f57170b;
+    public long f55520b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f57171c;
+    public long f55521c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f57172d;
+    public long f55522d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f57173e;
+    public boolean f55523e;
 
     public void a() {
         b bVar = new b();
         bVar.a = this.a;
-        long j2 = this.f57170b;
-        bVar.f57175c = j2 != 0 ? this.f57171c - j2 : 0L;
-        long j3 = this.f57171c;
-        bVar.f57176d = j3 != 0 ? this.f57172d - j3 : 0L;
-        long j4 = this.f57170b;
-        bVar.f57174b = j4 != 0 ? this.f57172d - j4 : 0L;
+        long j2 = this.f55520b;
+        bVar.f55525c = j2 != 0 ? this.f55521c - j2 : 0L;
+        long j3 = this.f55521c;
+        bVar.f55526d = j3 != 0 ? this.f55522d - j3 : 0L;
+        long j4 = this.f55520b;
+        bVar.f55524b = j4 != 0 ? this.f55522d - j4 : 0L;
         d.a(bVar);
         com.kwad.sdk.core.d.a.a("PageMonitor", bVar.toString());
     }
 
     public void a(long j2) {
-        this.f57170b = j2;
-        this.f57171c = SystemClock.uptimeMillis();
+        this.f55520b = j2;
+        this.f55521c = SystemClock.uptimeMillis();
     }
 
     public void a(Activity activity) {
-        if (this.f57173e) {
+        if (this.f55523e) {
             return;
         }
-        this.f57173e = true;
+        this.f55523e = true;
         ax.a(new Runnable() { // from class: com.kwad.sdk.h.a.a.1
             @Override // java.lang.Runnable
             public void run() {
-                a.this.f57172d = SystemClock.uptimeMillis();
+                a.this.f55522d = SystemClock.uptimeMillis();
                 a.this.a();
             }
         });

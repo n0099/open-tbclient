@@ -26,7 +26,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class ImageFileInfo extends MediaFileInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IMAGE_TYPE_EMOTION = 1;
@@ -523,7 +523,7 @@ public class ImageFileInfo extends MediaFileInfo {
                             if (next != null) {
                                 sb.append(':');
                                 sb.append(next.actionName);
-                                sb.append(a.f31099h);
+                                sb.append(a.f29503h);
                                 sb.append(next.actionParam);
                             }
                         }
@@ -535,7 +535,7 @@ public class ImageFileInfo extends MediaFileInfo {
                             if (next2 != null) {
                                 sb.append(':');
                                 sb.append(next2.actionName);
-                                sb.append(a.f31099h);
+                                sb.append(a.f29503h);
                                 sb.append(next2.actionParam);
                             }
                         }
@@ -553,7 +553,7 @@ public class ImageFileInfo extends MediaFileInfo {
                         ImageOperation imageOperation = this.pageActionsList.get(i2);
                         sb2.append(':');
                         sb2.append(imageOperation.actionName);
-                        sb2.append(a.f31099h);
+                        sb2.append(a.f29503h);
                         sb2.append(imageOperation.actionParam);
                     }
                 }

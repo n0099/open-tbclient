@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.Arrays;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class TextSampleEntry extends AbstractSampleEntry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE1 = "tx3g";
@@ -29,7 +29,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
     public StyleRecord styleRecord;
     public int verticalJustification;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class BoxRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -218,7 +218,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
     public boolean isFillTextRegion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (this.displayFlags & PlaybackStateCompat.ACTION_SET_REPEAT_MODE) == PlaybackStateCompat.ACTION_SET_REPEAT_MODE : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (this.displayFlags & 262144) == 262144 : invokeV.booleanValue;
     }
 
     public boolean isScrollDirection() {
@@ -301,7 +301,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
             if (z) {
-                this.displayFlags |= PlaybackStateCompat.ACTION_SET_REPEAT_MODE;
+                this.displayFlags |= 262144;
             } else {
                 this.displayFlags &= -262145;
             }
@@ -387,7 +387,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? "TextSampleEntry" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class StyleRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

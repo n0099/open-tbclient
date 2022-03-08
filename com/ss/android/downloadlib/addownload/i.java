@@ -1,7 +1,7 @@
 package com.ss.android.downloadlib.addownload;
 
 import com.ss.android.download.api.model.DownloadShortInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class i {
     public static int a(int i2, int i3) {
         return (i3 <= 0 || i3 >= 100 || !a(i2)) ? i3 : (int) (Math.sqrt(i3) * 10.0d);

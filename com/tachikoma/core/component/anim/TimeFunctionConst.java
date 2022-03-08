@@ -4,12 +4,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class TimeFunctionConst {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface Time {
         public static final String EASE_IN = "EaseIn";
         public static final String EASE_IN_OUT = "EaseInEaseOut";
@@ -17,7 +17,7 @@ public class TimeFunctionConst {
         public static final String LINEAR = "Linear";
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface Timing {
         public static final String EASE_IN = "ease-in";
         public static final String EASE_IN_OUT = "ease-in-out";

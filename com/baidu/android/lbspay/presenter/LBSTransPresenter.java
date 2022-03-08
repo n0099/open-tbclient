@@ -1,7 +1,7 @@
 package com.baidu.android.lbspay.presenter;
 
 import android.os.Bundle;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public interface LBSTransPresenter {
     void SaveInstanceState(Bundle bundle);
 

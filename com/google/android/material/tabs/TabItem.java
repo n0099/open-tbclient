@@ -9,8 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class TabItem extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,10 +57,10 @@ public class TabItem extends View {
                 return;
             }
         }
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.TabItem);
-        this.text = obtainStyledAttributes.getText(R.styleable.TabItem_android_text);
-        this.icon = obtainStyledAttributes.getDrawable(R.styleable.TabItem_android_icon);
-        this.customLayout = obtainStyledAttributes.getResourceId(R.styleable.TabItem_android_layout, 0);
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, new int[]{16842754, 16842994, 16843087});
+        this.text = obtainStyledAttributes.getText(2);
+        this.icon = obtainStyledAttributes.getDrawable(0);
+        this.customLayout = obtainStyledAttributes.getResourceId(1, 0);
         obtainStyledAttributes.recycle();
     }
 }

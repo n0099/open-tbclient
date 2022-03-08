@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,43 +31,43 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class d1 {
     public static /* synthetic */ Interceptable $ic;
     public static boolean x;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
-    /* renamed from: b */
-    public o f30535b;
+    /* renamed from: b  reason: collision with root package name */
+    public o f28933b;
 
-    /* renamed from: c */
-    public Bitmap f30536c;
+    /* renamed from: c  reason: collision with root package name */
+    public Bitmap f28934c;
 
-    /* renamed from: d */
-    public CircleProgressbar f30537d;
+    /* renamed from: d  reason: collision with root package name */
+    public CircleProgressbar f28935d;
 
-    /* renamed from: e */
-    public e1 f30538e;
+    /* renamed from: e  reason: collision with root package name */
+    public e1 f28936e;
 
-    /* renamed from: f */
-    public boolean f30539f;
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f28937f;
 
-    /* renamed from: g */
-    public int f30540g;
+    /* renamed from: g  reason: collision with root package name */
+    public int f28938g;
 
-    /* renamed from: h */
-    public int f30541h;
+    /* renamed from: h  reason: collision with root package name */
+    public int f28939h;
 
-    /* renamed from: i */
-    public boolean f30542i;
+    /* renamed from: i  reason: collision with root package name */
+    public boolean f28940i;
 
-    /* renamed from: j */
-    public boolean f30543j;
+    /* renamed from: j  reason: collision with root package name */
+    public boolean f28941j;
     public boolean k;
     public File l;
     public byte[] m;
-    public n5 n;
+    public i5 n;
     public File o;
     public File p;
     public File q;
@@ -74,7 +75,7 @@ public class d1 {
     public View s;
     public float t;
     public float u;
-    public d6 v;
+    public y5 v;
     public Handler w;
 
     public d1(Context context, String str) {
@@ -92,31 +93,32 @@ public class d1 {
                 return;
             }
         }
-        this.f30539f = false;
-        this.f30540g = 5000;
-        this.f30541h = 6;
-        this.f30542i = false;
-        this.f30543j = false;
+        this.f28937f = false;
+        this.f28938g = 5000;
+        this.f28939h = 6;
+        this.f28940i = false;
+        this.f28941j = false;
         this.k = false;
         this.o = null;
         this.q = null;
         this.t = 0.0f;
         this.u = 0.0f;
-        this.v = new d6(this);
-        this.w = new h6(this, Looper.getMainLooper());
+        this.v = new y5(this);
+        this.w = new c6(this, Looper.getMainLooper());
         this.a = context;
         try {
-            m2.k(context, 0.0f);
-            m2.o(context, 0.0f);
+            h2.k(context, 0.0f);
+            h2.o(context, 0.0f);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        this.f30535b = new o(context, str);
+        this.f28933b = new o(context, str);
     }
 
-    /* JADX DEBUG: Method not inlined, still used in: [c.q.a.v5.a(android.graphics.Bitmap):void, c.q.a.v5.a(com.win.opensdk.k0):void] */
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [c.q.a.q5.a(android.graphics.Bitmap):void, c.q.a.q5.a(com.win.opensdk.k0):void] */
     public static /* synthetic */ boolean i(d1 d1Var, boolean z) {
-        d1Var.f30542i = z;
+        d1Var.f28940i = z;
         return z;
     }
 
@@ -127,12 +129,12 @@ public class d1 {
             return;
         }
         try {
-            RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(k1.win_splash_logo);
+            RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.win_splash_logo);
             relativeLayout.removeAllViews();
             if (this.s != null) {
                 relativeLayout.addView(this.s);
             }
-            View findViewById = view.findViewById(k1.win_splash_view);
+            View findViewById = view.findViewById(R.id.win_splash_view);
             float a = r0.a(this.a, this.t);
             float C = r0.C(this.a) / 2.0f;
             if (a < C) {
@@ -159,10 +161,10 @@ public class d1 {
                     if (this.n != null && this.n.getStatus() == AsyncTask.Status.RUNNING) {
                         this.n.cancel(true);
                     }
-                    n5 n5Var = new n5(this, str);
-                    this.n = n5Var;
-                    n5Var.execute(str);
-                } else if (this.f30538e == null || this.f30543j || this.f30538e == null) {
+                    i5 i5Var = new i5(this, str);
+                    this.n = i5Var;
+                    i5Var.execute(str);
+                } else if (this.f28936e == null || this.f28941j || this.f28936e == null) {
                 } else {
                     File file2 = this.p;
                     byte[] bArr = null;
@@ -190,8 +192,8 @@ public class d1 {
                     }
                     this.m = bArr;
                     if (bArr != null) {
-                        this.f30538e.onLoaded();
-                        this.f30542i = true;
+                        this.f28936e.onLoaded();
+                        this.f28940i = true;
                     }
                 }
             } catch (Exception e4) {
@@ -203,24 +205,24 @@ public class d1 {
     public final void e(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            u uVar = this.f30535b.a;
-            long countdown = (uVar == null || !uVar.f()) ? 0L : uVar.f30703c.getCountdown();
-            CircleProgressbar circleProgressbar = (CircleProgressbar) view.findViewById(k1.win_splash_skip);
-            this.f30537d = circleProgressbar;
+            u uVar = this.f28933b.a;
+            long countdown = (uVar == null || !uVar.f()) ? 0L : uVar.f29133c.getCountdown();
+            CircleProgressbar circleProgressbar = (CircleProgressbar) view.findViewById(R.id.win_splash_skip);
+            this.f28935d = circleProgressbar;
             circleProgressbar.setOutLineColor(0);
-            this.f30537d.setInCircleColor(Color.parseColor(this.a.getString(m1.win_cyclecolor)));
-            this.f30537d.setProgressColor(Color.parseColor(this.a.getString(m1.win_cyc_process_color)));
-            this.f30537d.setProgressLineWidth(this.f30541h);
-            this.f30537d.setProgressType(com.win.opensdk.s2.f61059b);
-            CircleProgressbar circleProgressbar2 = this.f30537d;
+            this.f28935d.setInCircleColor(Color.parseColor(this.a.getString(R.string.win_cyclecolor)));
+            this.f28935d.setProgressColor(Color.parseColor(this.a.getString(R.string.win_cyc_process_color)));
+            this.f28935d.setProgressLineWidth(this.f28939h);
+            this.f28935d.setProgressType(com.win.opensdk.s2.f59409b);
+            CircleProgressbar circleProgressbar2 = this.f28935d;
             if (countdown <= 0) {
-                countdown = this.f30540g;
+                countdown = this.f28938g;
             }
             circleProgressbar2.setTimeMillis(countdown);
-            this.f30537d.a();
-            this.f30537d.a(1, this.v);
-            this.f30539f = false;
-            this.f30537d.setOnClickListener(new z5(this));
+            this.f28935d.a();
+            this.f28935d.a(1, this.v);
+            this.f28937f = false;
+            this.f28935d.setOnClickListener(new u5(this));
         }
     }
 
@@ -231,13 +233,13 @@ public class d1 {
             File file = new File(r0.e(this.a) + File.separator + "win" + File.separator + r0.D(str) + "." + compressFormat.name().toLowerCase());
             this.l = file;
             if (!file.exists()) {
-                new f4(new v5(this, compressFormat)).a(str, false);
-            } else if (this.f30538e == null || this.f30543j) {
+                new a4(new q5(this, compressFormat)).a(str, false);
+            } else if (this.f28936e == null || this.f28941j) {
             } else {
                 File file2 = this.l;
-                this.f30536c = (!file2.exists() || file2.isDirectory()) ? null : BitmapFactory.decodeFile(file2.getAbsolutePath());
-                this.f30538e.onLoaded();
-                this.f30542i = true;
+                this.f28934c = (!file2.exists() || file2.isDirectory()) ? null : BitmapFactory.decodeFile(file2.getAbsolutePath());
+                this.f28936e.onLoaded();
+                this.f28940i = true;
             }
         }
     }
@@ -248,9 +250,9 @@ public class d1 {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             try {
                 Info info = null;
-                if (this.f30536c != null) {
-                    this.f30536c.recycle();
-                    this.f30536c = null;
+                if (this.f28934c != null) {
+                    this.f28934c.recycle();
+                    this.f28934c = null;
                     File file2 = this.o;
                     if (file2 != null) {
                         try {
@@ -281,17 +283,17 @@ public class d1 {
                     this.n.cancel(false);
                     this.n = null;
                 }
-                if (this.f30535b != null) {
-                    u uVar = this.f30535b.a;
+                if (this.f28933b != null) {
+                    u uVar = this.f28933b.a;
                     if (uVar != null && uVar.f()) {
-                        info = uVar.f30703c;
+                        info = uVar.f29133c;
                     }
                     if (info != null) {
-                        y2 a = c3.a(this.a);
-                        a.b(new g3(info));
+                        t2 a = x2.a(this.a);
+                        a.b(new b3(info));
                         a.m();
                     }
-                    this.f30535b.a();
+                    this.f28933b.a();
                 }
             } catch (Exception e4) {
                 e4.printStackTrace();
@@ -303,9 +305,9 @@ public class d1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            o oVar = this.f30535b;
-            if (oVar == null || this.f30536c == null) {
-                o oVar2 = this.f30535b;
+            o oVar = this.f28933b;
+            if (oVar == null || this.f28934c == null) {
+                o oVar2 = this.f28933b;
                 if (oVar2 == null || this.m == null) {
                     return false;
                 }
@@ -318,33 +320,33 @@ public class d1 {
 
     public void l() {
         long j2;
-        a5 a5Var;
+        v4 v4Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             if (!r0.H(this.a)) {
-                e1 e1Var = this.f30538e;
+                e1 e1Var = this.f28936e;
                 if (e1Var != null) {
                     e1Var.onFail(PBError.NO_NETWORK);
                 }
-            } else if (this.f30535b != null) {
-                this.f30542i = false;
-                this.f30543j = false;
+            } else if (this.f28933b != null) {
+                this.f28940i = false;
+                this.f28941j = false;
                 this.k = false;
                 x = false;
                 Handler handler = this.w;
                 Message obtain = Message.obtain();
                 try {
-                    j2 = m2.K(this.a) >= m2.r(this.a) ? m2.K(this.a) : m2.r(this.a);
+                    j2 = h2.K(this.a) >= h2.r(this.a) ? h2.K(this.a) : h2.r(this.a);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     j2 = 2000;
                 }
                 handler.sendMessageDelayed(obtain, j2);
-                u uVar = this.f30535b.a;
-                if (uVar == null || (a5Var = uVar.f30702b) == null) {
+                u uVar = this.f28933b.a;
+                if (uVar == null || (v4Var = uVar.f29132b) == null) {
                     return;
                 }
-                a5Var.g();
+                v4Var.g();
             }
         }
     }
@@ -352,15 +354,15 @@ public class d1 {
     public void m(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            m2.d(this.a, j2);
+            h2.d(this.a, j2);
         }
     }
 
     public void n(e1 e1Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, e1Var) == null) {
-            this.f30538e = e1Var;
-            this.f30535b.f30630b = new j5(this);
+            this.f28936e = e1Var;
+            this.f28933b.f29050b = new e5(this);
         }
     }
 
@@ -369,30 +371,30 @@ public class d1 {
         if (interceptable == null || interceptable.invokeL(1048585, this, viewGroup) == null) {
             this.r = viewGroup;
             if (!r0.H(this.a)) {
-                e1 e1Var = this.f30538e;
+                e1 e1Var = this.f28936e;
                 if (e1Var != null) {
                     e1Var.b(PBError.NO_NETWORK);
                 }
             } else if (!k()) {
-                e1 e1Var2 = this.f30538e;
+                e1 e1Var2 = this.f28936e;
                 if (e1Var2 != null) {
                     e1Var2.b(PBError.NO_LOAD);
                 }
-            } else if (this.f30535b.c().equals("image")) {
+            } else if (this.f28933b.c().equals("image")) {
                 viewGroup.removeAllViews();
-                View inflate = LayoutInflater.from(this.a).inflate(l1.win_layout_win_splash, viewGroup);
-                ImageView imageView = (ImageView) inflate.findViewById(k1.win_splash_iv);
+                View inflate = LayoutInflater.from(this.a).inflate(R.layout.win_layout_win_splash, viewGroup);
+                ImageView imageView = (ImageView) inflate.findViewById(R.id.win_splash_iv);
                 b(inflate);
                 imageView.setVisibility(0);
                 e(inflate);
-                imageView.setImageBitmap(this.f30536c);
+                imageView.setImageBitmap(this.f28934c);
                 this.o = this.l;
-                this.f30535b.b(viewGroup, null);
+                this.f28933b.b(viewGroup, null);
             } else {
                 viewGroup.removeAllViews();
-                View inflate2 = LayoutInflater.from(this.a).inflate(l1.win_layout_win_splash, viewGroup);
+                View inflate2 = LayoutInflater.from(this.a).inflate(R.layout.win_layout_win_splash, viewGroup);
                 b(inflate2);
-                GifImageView gifImageView = (GifImageView) inflate2.findViewById(k1.win_gifImageView);
+                GifImageView gifImageView = (GifImageView) inflate2.findViewById(R.id.win_gifImageView);
                 gifImageView.setVisibility(0);
                 byte[] bArr = this.m;
                 if (bArr != null) {
@@ -401,7 +403,7 @@ public class d1 {
                     this.q = this.p;
                 }
                 e(inflate2);
-                this.f30535b.b(viewGroup, null);
+                this.f28933b.b(viewGroup, null);
             }
         }
     }

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.lollipop.json.JSONException;
 import com.baidu.wallet.core.lollipop.json.JSONObject;
 import java.util.regex.Pattern;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class c implements a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String M = "https://bi-sensors.duxiaoman.com";
@@ -431,7 +431,7 @@ public class c implements a {
             } else {
                 this.A = "https://www.baifubao.com";
             }
-            String optString2 = jSONObject.optString(a.f51145b);
+            String optString2 = jSONObject.optString(a.f49564b);
             if (!TextUtils.isEmpty(optString2) && P.matcher(optString2).matches()) {
                 this.C = optString2;
             } else {
@@ -451,7 +451,7 @@ public class c implements a {
                 this.D = "https://www.baifubao.com";
                 com.baidu.apollon.heartbeat.a.c().b(this.D);
             }
-            String optString5 = jSONObject.optString(a.f51148e);
+            String optString5 = jSONObject.optString(a.f49567e);
             if (!TextUtils.isEmpty(optString5) && P.matcher(optString5).matches()) {
                 this.F = optString5;
                 this.H = optString5;
@@ -463,7 +463,7 @@ public class c implements a {
                 this.J = "https://co.baifubao.com";
                 this.I = "https://qianbao.baidu.com";
             }
-            String optString6 = jSONObject.optString(a.f51149f);
+            String optString6 = jSONObject.optString(a.f49568f);
             if (!TextUtils.isEmpty(optString6) && P.matcher(optString6).matches()) {
                 this.L = optString6;
             } else {
@@ -481,13 +481,13 @@ public class c implements a {
             } else {
                 this.B = "https://www.baifubao.com";
             }
-            String optString9 = jSONObject.optString(a.f51152i);
+            String optString9 = jSONObject.optString(a.f49571i);
             if (!TextUtils.isEmpty(optString9) && P.matcher(optString9).matches()) {
                 this.ad = optString9;
             } else {
                 this.ad = "https://www.baifubao.com";
             }
-            String optString10 = jSONObject.optString(a.f51153j);
+            String optString10 = jSONObject.optString(a.f49572j);
             if (TextUtils.isEmpty(optString10) && P.matcher(optString10).matches()) {
                 this.ae = optString10;
             } else {

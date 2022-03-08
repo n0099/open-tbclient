@@ -1,8 +1,8 @@
 package com.baidu.tieba.hottopicselect;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.s.s.a;
-import c.a.u0.s1.c;
+import c.a.q0.r.s.a;
+import c.a.r0.r1.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
@@ -15,7 +15,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetSugTopic.DataRes;
 import tbclient.GetSugTopic.GetSugTopicResIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class HotSelectHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

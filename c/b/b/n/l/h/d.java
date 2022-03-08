@@ -10,21 +10,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class d extends c.b.b.j.f.b<c, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.b.b.q.a<w.b<String, e<c>>> f27500b;
+    public c.b.b.q.a<w.b<String, e<c>>> f27404b;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class a extends c.b.b.j.c<c> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public c.b.b.q.a<c.b.b.n.l.h.f.a<?>> f27501b;
+        public c.b.b.q.a<c.b.b.n.l.h.f.a<?>> f27405b;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -45,7 +45,7 @@ public class d extends c.b.b.j.f.b<c, a> {
                 return;
             }
         }
-        this.f27500b = new c.b.b.q.a<>();
+        this.f27404b = new c.b.b.q.a<>();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -60,25 +60,25 @@ public class d extends c.b.b.j.f.b<c, a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, aVar, aVar2)) == null) {
             ?? r0 = (e) new o().d(e.class, aVar);
-            synchronized (this.f27500b) {
+            synchronized (this.f27404b) {
                 w.b<String, e<c>> bVar = new w.b<>();
                 bVar.a = str;
-                bVar.f27758b = r0;
-                this.f27500b.a(bVar);
+                bVar.f27662b = r0;
+                this.f27404b.a(bVar);
                 b2 = r0.b();
             }
             c.b.b.q.a<c.b.b.j.a> aVar3 = new c.b.b.q.a<>();
             a.b<e.a> it = b2.iterator();
             while (it.hasNext()) {
                 e.a next = it.next();
-                if (!b(next.f27506e).c()) {
-                    next.f27506e = aVar.i().a(f.f27172d.a(next.f27506e).g()).j();
+                if (!b(next.f27410e).c()) {
+                    next.f27410e = aVar.i().a(f.f27076d.a(next.f27410e).g()).j();
                 }
-                Class<T> cls = next.f27507f;
+                Class<T> cls = next.f27411f;
                 if (cls == c.class) {
-                    aVar3.a(new c.b.b.j.a(next.f27506e, cls, aVar2));
+                    aVar3.a(new c.b.b.j.a(next.f27410e, cls, aVar2));
                 } else {
-                    aVar3.a(new c.b.b.j.a(next.f27506e, cls));
+                    aVar3.a(new c.b.b.j.a(next.f27410e, cls));
                 }
             }
             return aVar3;
@@ -103,34 +103,34 @@ public class d extends c.b.b.j.f.b<c, a> {
         e<c> eVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, eVar, str, aVar, aVar2)) == null) {
-            synchronized (this.f27500b) {
+            synchronized (this.f27404b) {
                 int i2 = 0;
                 while (true) {
-                    if (i2 >= this.f27500b.f27595f) {
+                    if (i2 >= this.f27404b.f27499f) {
                         eVar2 = null;
                         break;
                     }
-                    w.b<String, e<c>> bVar = this.f27500b.get(i2);
+                    w.b<String, e<c>> bVar = this.f27404b.get(i2);
                     if (bVar.a.equals(str)) {
-                        eVar2 = bVar.f27758b;
-                        this.f27500b.h(i2);
+                        eVar2 = bVar.f27662b;
+                        this.f27404b.h(i2);
                         break;
                     }
                     i2++;
                 }
             }
-            eVar2.f27505h.a(eVar, eVar2);
+            eVar2.f27409h.a(eVar, eVar2);
             if (aVar2 != null) {
-                c.b.b.q.a<c.b.b.n.l.h.f.a<?>> aVar3 = aVar2.f27501b;
+                c.b.b.q.a<c.b.b.n.l.h.f.a<?>> aVar3 = aVar2.f27405b;
                 if (aVar3 != null) {
                     a.b<c.b.b.n.l.h.f.a<?>> it = aVar3.iterator();
                     while (it.hasNext()) {
                         it.next().b(eVar, eVar2);
                     }
                 }
-                eVar2.f27505h.f(aVar2.f27501b);
+                eVar2.f27409h.f(aVar2.f27405b);
             }
-            return eVar2.f27505h;
+            return eVar2.f27409h;
         }
         return (c) invokeLLLL.objValue;
     }

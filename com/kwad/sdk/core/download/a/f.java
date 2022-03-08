@@ -4,7 +4,7 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.export.proxy.AdDownloadProxy;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class f {
     public static AdDownloadProxy a(Context context, @NonNull File file, @NonNull com.ksad.download.a aVar, boolean z) {
         com.ksad.download.d.a(context, file, new com.kwad.sdk.core.download.b.a(context));

@@ -10,7 +10,7 @@ import io.reactivex.SingleSource;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.BiPredicate;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class SingleContains<T> extends io.reactivex.Single<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,7 +18,7 @@ public final class SingleContains<T> extends io.reactivex.Single<Boolean> {
     public final SingleSource<T> source;
     public final Object value;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public final class Single implements SingleObserver<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

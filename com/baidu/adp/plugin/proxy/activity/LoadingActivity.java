@@ -20,28 +20,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class a implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoadingActivity a;
 
         /* renamed from: com.baidu.adp.plugin.proxy.activity.LoadingActivity$a$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
-        public class C1721a implements c {
+        /* loaded from: classes3.dex */
+        public class C1697a implements c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Plugin a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f31480b;
+            public final /* synthetic */ a f29883b;
 
-            public C1721a(a aVar, Plugin plugin2) {
+            public C1697a(a aVar, Plugin plugin2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,7 +56,7 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
                         return;
                     }
                 }
-                this.f31480b = aVar;
+                this.f29883b = aVar;
                 this.a = plugin2;
             }
 
@@ -64,10 +64,10 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
             public void a(Plugin.c cVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(1048576, this, cVar, str) == null) {
-                    Intent intent = new Intent(this.f31480b.a.getIntent());
-                    intent.setComponent(new ComponentName(str, this.f31480b.a.getIntent().getStringExtra(Plugin.INTENT_EXTRA_REDIRECT_ACTIVITY)));
-                    this.a.launchIntent(this.f31480b.a.getPageContext().getContext(), intent);
-                    this.f31480b.a.finish();
+                    Intent intent = new Intent(this.f29883b.a.getIntent());
+                    intent.setComponent(new ComponentName(str, this.f29883b.a.getIntent().getStringExtra(Plugin.INTENT_EXTRA_REDIRECT_ACTIVITY)));
+                    this.a.launchIntent(this.f29883b.a.getPageContext().getContext(), intent);
+                    this.f29883b.a.finish();
                 }
             }
         }
@@ -97,7 +97,7 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (plugin2 = PluginCenter.getInstance().getPlugin(str)) == null) {
                 return;
             }
-            plugin2.asyncInit(str, new C1721a(this, plugin2));
+            plugin2.asyncInit(str, new C1697a(this, plugin2));
         }
 
         @Override // c.a.d.j.g.b

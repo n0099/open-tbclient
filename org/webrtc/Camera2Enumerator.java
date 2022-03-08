@@ -19,13 +19,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.ssa.SsaDecoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class Camera2Enumerator implements CameraEnumerator {
     public static /* synthetic */ Interceptable $ic = null;
     public static final double NANO_SECONDS_PER_SECOND = 1.0E9d;
@@ -257,7 +258,7 @@ public class Camera2Enumerator implements CameraEnumerator {
                         }
                         int round = j2 == 0 ? i2 : ((int) Math.round(1.0E9d / j2)) * 1000;
                         arrayList.add(new CameraEnumerationAndroid.CaptureFormat(size.width, size.height, 0, round));
-                        Logging.d(TAG, "Format: " + size.width + "x" + size.height + "@" + round);
+                        Logging.d(TAG, SsaDecoder.FORMAT_LINE_PREFIX + size.width + "x" + size.height + "@" + round);
                     }
                     cachedSupportedFormats.put(str, arrayList);
                     long elapsedRealtime2 = SystemClock.elapsedRealtime();

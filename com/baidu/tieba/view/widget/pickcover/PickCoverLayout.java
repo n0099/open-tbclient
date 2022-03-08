@@ -27,28 +27,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class PickCoverLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public RecyclerView f49657e;
+    public RecyclerView f48076e;
 
     /* renamed from: f  reason: collision with root package name */
-    public VideoClipAdapter f49658f;
+    public VideoClipAdapter f48077f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomLinearLayoutManager f49659g;
+    public CustomLinearLayoutManager f48078g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f49660h;
+    public int f48079h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SlideBarView f49661i;
+    public SlideBarView f48080i;
 
     /* renamed from: j  reason: collision with root package name */
-    public GestureDetector f49662j;
+    public GestureDetector f48081j;
     public View k;
     public EMTextView l;
     public i m;
@@ -60,7 +60,7 @@ public class PickCoverLayout extends FrameLayout {
     public int s;
     public boolean t;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements SlideBarView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,13 +101,13 @@ public class PickCoverLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class b extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PickCoverLayout f49663e;
+        public final /* synthetic */ PickCoverLayout f48082e;
 
         public b(PickCoverLayout pickCoverLayout) {
             Interceptable interceptable = $ic;
@@ -124,7 +124,7 @@ public class PickCoverLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f49663e = pickCoverLayout;
+            this.f48082e = pickCoverLayout;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -132,21 +132,21 @@ public class PickCoverLayout extends FrameLayout {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-                this.f49663e.f49661i.moveToPosition(motionEvent);
-                this.f49663e.updateVideoCover(this.f49663e.f49661i.getCurrentPercent());
+                this.f48082e.f48080i.moveToPosition(motionEvent);
+                this.f48082e.updateVideoCover(this.f48082e.f48080i.getCurrentPercent());
                 return true;
             }
             return invokeL.booleanValue;
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class c implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PickCoverLayout f49664e;
+        public final /* synthetic */ PickCoverLayout f48083e;
 
         public c(PickCoverLayout pickCoverLayout) {
             Interceptable interceptable = $ic;
@@ -163,27 +163,27 @@ public class PickCoverLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f49664e = pickCoverLayout;
+            this.f48083e = pickCoverLayout;
         }
 
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) ? this.f49664e.f49662j.onTouchEvent(motionEvent) : invokeLL.booleanValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) ? this.f48083e.f48081j.onTouchEvent(motionEvent) : invokeLL.booleanValue;
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ float f49665e;
+        public final /* synthetic */ float f48084e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PickCoverLayout f49666f;
+        public final /* synthetic */ PickCoverLayout f48085f;
 
         public d(PickCoverLayout pickCoverLayout, float f2) {
             Interceptable interceptable = $ic;
@@ -200,30 +200,30 @@ public class PickCoverLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f49666f = pickCoverLayout;
-            this.f49665e = f2;
+            this.f48085f = pickCoverLayout;
+            this.f48084e = f2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f49666f.f49661i == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f48085f.f48080i == null) {
                 return;
             }
-            this.f49666f.j();
-            this.f49666f.updateVideoCover(this.f49665e);
-            this.f49666f.f49661i.setProgress(this.f49665e);
-            this.f49666f.l.setVisibility(8);
+            this.f48085f.j();
+            this.f48085f.updateVideoCover(this.f48084e);
+            this.f48085f.f48080i.setProgress(this.f48084e);
+            this.f48085f.l.setVisibility(8);
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PickCoverLayout f49667e;
+        public final /* synthetic */ PickCoverLayout f48086e;
 
         public e(PickCoverLayout pickCoverLayout) {
             Interceptable interceptable = $ic;
@@ -240,29 +240,29 @@ public class PickCoverLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f49667e = pickCoverLayout;
+            this.f48086e = pickCoverLayout;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f49667e.f49661i == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f48086e.f48080i == null) {
                 return;
             }
-            this.f49667e.updateVideoCover(0.0f);
-            this.f49667e.f49661i.setProgress(0.0f);
-            this.f49667e.f49661i.setSlideRange(0.0f, -UtilHelper.getDimenPixelSize(R.dimen.L_X04));
-            this.f49667e.l.setVisibility(0);
+            this.f48086e.updateVideoCover(0.0f);
+            this.f48086e.f48080i.setProgress(0.0f);
+            this.f48086e.f48080i.setSlideRange(0.0f, -UtilHelper.getDimenPixelSize(R.dimen.L_X04));
+            this.f48086e.l.setVisibility(0);
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PickCoverLayout f49668e;
+        public final /* synthetic */ PickCoverLayout f48087e;
 
         public f(PickCoverLayout pickCoverLayout) {
             Interceptable interceptable = $ic;
@@ -279,27 +279,27 @@ public class PickCoverLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f49668e = pickCoverLayout;
+            this.f48087e = pickCoverLayout;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ViewGroup.LayoutParams layoutParams = this.f49668e.f49661i.getLayoutParams();
-                layoutParams.width = this.f49668e.o + (UtilHelper.getDimenPixelSize(R.dimen.L_X04) * 2);
-                this.f49668e.f49661i.setLayoutParams(layoutParams);
+                ViewGroup.LayoutParams layoutParams = this.f48087e.f48080i.getLayoutParams();
+                layoutParams.width = this.f48087e.o + (UtilHelper.getDimenPixelSize(R.dimen.L_X04) * 2);
+                this.f48087e.f48080i.setLayoutParams(layoutParams);
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class g implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PickCoverLayout f49669e;
+        public final /* synthetic */ PickCoverLayout f48088e;
 
         public g(PickCoverLayout pickCoverLayout) {
             Interceptable interceptable = $ic;
@@ -316,28 +316,28 @@ public class PickCoverLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f49669e = pickCoverLayout;
+            this.f48088e = pickCoverLayout;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f49669e.j();
-                float lasterPersent = this.f49669e.getLasterPersent();
-                this.f49669e.updateVideoCover(lasterPersent);
-                this.f49669e.f49661i.setProgress(lasterPersent);
+                this.f48088e.j();
+                float lasterPersent = this.f48088e.getLasterPersent();
+                this.f48088e.updateVideoCover(lasterPersent);
+                this.f48088e.f48080i.setProgress(lasterPersent);
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class h implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PickCoverLayout f49670e;
+        public final /* synthetic */ PickCoverLayout f48089e;
 
         public h(PickCoverLayout pickCoverLayout) {
             Interceptable interceptable = $ic;
@@ -354,22 +354,22 @@ public class PickCoverLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f49670e = pickCoverLayout;
+            this.f48089e = pickCoverLayout;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f49670e.j();
-                float lasterPersent = this.f49670e.getLasterPersent();
-                this.f49670e.updateVideoCover(lasterPersent);
-                this.f49670e.f49661i.setProgress(lasterPersent);
+                this.f48089e.j();
+                float lasterPersent = this.f48089e.getLasterPersent();
+                this.f48089e.updateVideoCover(lasterPersent);
+                this.f48089e.f48080i.setProgress(lasterPersent);
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface i {
         void updateVideoCover(long j2);
 
@@ -401,17 +401,17 @@ public class PickCoverLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             VideoClipAdapter videoClipAdapter = new VideoClipAdapter(getContext());
-            this.f49658f = videoClipAdapter;
-            this.f49657e.setAdapter(videoClipAdapter);
+            this.f48077f = videoClipAdapter;
+            this.f48076e.setAdapter(videoClipAdapter);
         }
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f49661i.setOnProgressListener(new a(this));
-            this.f49662j = new GestureDetector(new b(this));
-            this.f49657e.setOnTouchListener(new c(this));
+            this.f48080i.setOnProgressListener(new a(this));
+            this.f48081j = new GestureDetector(new b(this));
+            this.f48076e.setOnTouchListener(new c(this));
         }
     }
 
@@ -451,9 +451,9 @@ public class PickCoverLayout extends FrameLayout {
                 this.n = 5;
             }
             this.o = (int) (k / this.n);
-            ViewGroup.LayoutParams layoutParams = this.f49657e.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f48076e.getLayoutParams();
             layoutParams.width = (this.o * this.n) - (UtilHelper.getDimenPixelSize(R.dimen.L_X04) * 2);
-            this.f49657e.setLayoutParams(layoutParams);
+            this.f48076e.setLayoutParams(layoutParams);
             c.a.d.f.m.e.a().postDelayed(new f(this), 50L);
         }
     }
@@ -461,8 +461,8 @@ public class PickCoverLayout extends FrameLayout {
     public void hideCoverImage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f49661i.setCoverStyle(true);
-            this.f49661i.setImageBitmap(null);
+            this.f48080i.setCoverStyle(true);
+            this.f48080i.setImageBitmap(null);
         }
     }
 
@@ -470,27 +470,27 @@ public class PickCoverLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.ugc_capture_pick_cover_view, (ViewGroup) null);
-            this.f49657e = (RecyclerView) inflate.findViewById(R.id.ugc_video_recycler);
-            this.f49661i = (SlideBarView) inflate.findViewById(R.id.ugc_pick_cover_slideBar);
+            this.f48076e = (RecyclerView) inflate.findViewById(R.id.ugc_video_recycler);
+            this.f48080i = (SlideBarView) inflate.findViewById(R.id.ugc_pick_cover_slideBar);
             this.k = inflate.findViewById(R.id.ugc_pick_cover_bg);
             EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.change_image_cover);
             this.l = eMTextView;
-            c.a.t0.s.v.c.d(eMTextView).y(R.array.S_O_X001);
+            c.a.q0.r.v.c.d(eMTextView).y(R.array.S_O_X001);
             addView(inflate);
             CustomLinearLayoutManager customLinearLayoutManager = new CustomLinearLayoutManager(getContext(), 0, false);
-            this.f49659g = customLinearLayoutManager;
+            this.f48078g = customLinearLayoutManager;
             customLinearLayoutManager.setScrollEnabled(true);
-            this.f49657e.setLayoutManager(this.f49659g);
+            this.f48076e.setLayoutManager(this.f48078g);
         }
     }
 
     public final void j() {
         SlideBarView slideBarView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (slideBarView = this.f49661i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (slideBarView = this.f48080i) == null) {
             return;
         }
-        slideBarView.setSlideRange(this.f49657e.getLeft(), (this.f49657e.getRight() - this.f49661i.getWidth()) - UtilHelper.getDimenPixelSize(R.dimen.L_X04));
+        slideBarView.setSlideRange(this.f48076e.getLeft(), (this.f48076e.getRight() - this.f48080i.getWidth()) - UtilHelper.getDimenPixelSize(R.dimen.L_X04));
     }
 
     public void makeSlideRangeStable() {
@@ -519,7 +519,7 @@ public class PickCoverLayout extends FrameLayout {
     public void release() {
         VideoClipAdapter videoClipAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (videoClipAdapter = this.f49658f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (videoClipAdapter = this.f48077f) == null) {
             return;
         }
         videoClipAdapter.release();
@@ -529,22 +529,22 @@ public class PickCoverLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{multiMediaData, Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
             int i3 = (int) j2;
-            this.f49660h = i3;
+            this.f48079h = i3;
             this.s = i2;
             this.t = true;
             if (i3 > 0) {
                 h();
             }
-            VideoClipAdapter videoClipAdapter = this.f49658f;
+            VideoClipAdapter videoClipAdapter = this.f48077f;
             if (videoClipAdapter != null) {
                 int i4 = this.o;
                 videoClipAdapter.setImageConfig(1, 0.0d, i4, this.p, i4, UtilHelper.getDimenPixelSize(R.dimen.tbds144));
             }
-            VideoClipAdapter videoClipAdapter2 = this.f49658f;
+            VideoClipAdapter videoClipAdapter2 = this.f48077f;
             if (videoClipAdapter2 != null) {
                 videoClipAdapter2.setData(multiMediaData, this.n);
             }
-            if (this.f49661i != null) {
+            if (this.f48080i != null) {
                 postDelayed(new h(this), 350L);
             }
         }
@@ -563,20 +563,20 @@ public class PickCoverLayout extends FrameLayout {
             return;
         }
         int duration = (int) multiMediaData.getDuration();
-        this.f49660h = duration;
+        this.f48079h = duration;
         if (duration > 0) {
             h();
         }
-        VideoClipAdapter videoClipAdapter = this.f49658f;
+        VideoClipAdapter videoClipAdapter = this.f48077f;
         if (videoClipAdapter != null) {
             int i2 = this.o;
             videoClipAdapter.setImageConfig(1, 0.0d, i2, this.p, i2, UtilHelper.getDimenPixelSize(R.dimen.tbds144));
         }
-        VideoClipAdapter videoClipAdapter2 = this.f49658f;
+        VideoClipAdapter videoClipAdapter2 = this.f48077f;
         if (videoClipAdapter2 != null) {
             videoClipAdapter2.setData(multiMediaData, this.n);
         }
-        if (this.f49661i != null) {
+        if (this.f48080i != null) {
             postDelayed(new g(this), 350L);
         }
     }
@@ -598,15 +598,15 @@ public class PickCoverLayout extends FrameLayout {
     public void setSlideBarMask(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.f49661i.setPickDrawable(z ? R.drawable.pick_image_cover_slide : R.drawable.pick_cover_slide);
+            this.f48080i.setPickDrawable(z ? R.drawable.pick_image_cover_slide : R.drawable.pick_cover_slide);
         }
     }
 
     public void updateCoverImage(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, bitmap) == null) {
-            this.f49661i.setCoverStyle(true);
-            this.f49661i.setImageBitmap(bitmap);
+            this.f48080i.setCoverStyle(true);
+            this.f48080i.setImageBitmap(bitmap);
         }
     }
 
@@ -620,11 +620,11 @@ public class PickCoverLayout extends FrameLayout {
     public void updateVideoCover(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048599, this, f2) == null) {
-            long j2 = this.f49660h * f2;
+            long j2 = this.f48079h * f2;
             this.q = f2;
             setLastPercent();
             if (this.t && this.s == 1) {
-                j2 = j2 + this.f49660h + 1;
+                j2 = j2 + this.f48079h + 1;
             }
             this.m.updateVideoCover(j2);
             this.m.updateVideoCoverPercent(f2);

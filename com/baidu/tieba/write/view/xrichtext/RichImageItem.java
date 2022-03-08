@@ -9,9 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
 import c.a.d.f.p.n;
-import c.a.u0.s4.g;
-import c.a.u0.s4.h;
-import c.a.u0.s4.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -20,39 +17,40 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class RichImageItem extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f49929e;
+    public TbImageView f48348e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f49930f;
+    public ImageView f48349f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f49931g;
+    public f f48350g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageFileInfo f49932h;
+    public ImageFileInfo f48351h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f49933i;
+    public int f48352i;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RichImageItem f49934e;
+        public final /* synthetic */ RichImageItem f48353e;
 
         public a(RichImageItem richImageItem) {
             Interceptable interceptable = $ic;
@@ -69,14 +67,14 @@ public class RichImageItem extends FrameLayout {
                     return;
                 }
             }
-            this.f49934e = richImageItem;
+            this.f48353e = richImageItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ImageFileInfo imageFileInfo = this.f49934e.f49932h;
+                ImageFileInfo imageFileInfo = this.f48353e.f48351h;
                 if (imageFileInfo.isFromMoreForum) {
                     return;
                 }
@@ -85,24 +83,24 @@ public class RichImageItem extends FrameLayout {
                     z = true;
                 }
                 if (z) {
-                    if (this.f49934e.f49931g != null) {
-                        this.f49934e.f49931g.b(imageFileInfo, this.f49934e);
+                    if (this.f48353e.f48350g != null) {
+                        this.f48353e.f48350g.b(imageFileInfo, this.f48353e);
                         return;
                     }
                     return;
                 }
-                n.J(this.f49934e.getContext(), j.editor_mutiiamge_image_error);
+                n.J(this.f48353e.getContext(), R.string.editor_mutiiamge_image_error);
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RichImageItem f49935e;
+        public final /* synthetic */ RichImageItem f48354e;
 
         public b(RichImageItem richImageItem) {
             Interceptable interceptable = $ic;
@@ -119,26 +117,26 @@ public class RichImageItem extends FrameLayout {
                     return;
                 }
             }
-            this.f49935e = richImageItem;
+            this.f48354e = richImageItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f49935e.f49931g == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f48354e.f48350g == null) {
                 return;
             }
-            this.f49935e.f49931g.a(this.f49935e.f49932h, this.f49935e);
+            this.f48354e.f48350g.a(this.f48354e.f48351h, this.f48354e);
         }
     }
 
-    /* loaded from: classes13.dex */
-    public class c implements c.a.t0.c0.b {
+    /* loaded from: classes6.dex */
+    public class c implements c.a.q0.b0.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RichImageItem f49936e;
+        public final /* synthetic */ RichImageItem f48355e;
 
         public c(RichImageItem richImageItem) {
             Interceptable interceptable = $ic;
@@ -155,30 +153,30 @@ public class RichImageItem extends FrameLayout {
                     return;
                 }
             }
-            this.f49936e = richImageItem;
+            this.f48355e = richImageItem;
         }
 
-        @Override // c.a.t0.c0.b
+        @Override // c.a.q0.b0.b
         public void imageLoaded(c.a.d.o.d.a aVar, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, aVar, str, z) == null) || aVar == null) {
                 return;
             }
-            this.f49936e.h(aVar);
-            this.f49936e.f49929e.invalidate();
+            this.f48355e.h(aVar);
+            this.f48355e.f48348e.invalidate();
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.d.o.d.a f49937e;
+        public final /* synthetic */ c.a.d.o.d.a f48356e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ RichImageItem f49938f;
+        public final /* synthetic */ RichImageItem f48357f;
 
         public d(RichImageItem richImageItem, c.a.d.o.d.a aVar) {
             Interceptable interceptable = $ic;
@@ -195,21 +193,21 @@ public class RichImageItem extends FrameLayout {
                     return;
                 }
             }
-            this.f49938f = richImageItem;
-            this.f49937e = aVar;
+            this.f48357f = richImageItem;
+            this.f48356e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f49938f.h(this.f49937e);
-                this.f49938f.f49929e.invalidate();
+                this.f48357f.h(this.f48356e);
+                this.f48357f.f48348e.invalidate();
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class e extends c.a.d.f.l.c<c.a.d.o.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -241,11 +239,11 @@ public class RichImageItem extends FrameLayout {
                 return;
             }
             this.a.h(aVar);
-            this.a.f49929e.invalidate();
+            this.a.f48348e.invalidate();
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface f {
         void a(ImageFileInfo imageFileInfo, View view);
 
@@ -276,51 +274,51 @@ public class RichImageItem extends FrameLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            FrameLayout.inflate(getContext(), h.rich_text_editor_image_item, this);
-            TbImageView tbImageView = (TbImageView) findViewById(g.iv);
-            this.f49929e = tbImageView;
-            tbImageView.setTagTextSize(n.f(getContext(), c.a.u0.s4.e.T_X10));
-            this.f49929e.setDrawBorder(true);
-            this.f49929e.setDrawCorner(true);
-            this.f49929e.setAutoChangeStyle(true);
-            this.f49929e.setConrers(15);
-            this.f49929e.setRadiusById(j.J_X05);
-            View findViewById = findViewById(g.delete_info);
-            this.f49930f = (ImageView) findViewById(g.delete);
-            this.f49929e.setVisibility(0);
+            FrameLayout.inflate(getContext(), R.layout.rich_text_editor_image_item, this);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.iv);
+            this.f48348e = tbImageView;
+            tbImageView.setTagTextSize(n.f(getContext(), R.dimen.T_X10));
+            this.f48348e.setDrawBorder(true);
+            this.f48348e.setDrawCorner(true);
+            this.f48348e.setAutoChangeStyle(true);
+            this.f48348e.setConrers(15);
+            this.f48348e.setRadiusById(R.string.J_X05);
+            View findViewById = findViewById(R.id.delete_info);
+            this.f48349f = (ImageView) findViewById(R.id.delete);
+            this.f48348e.setVisibility(0);
             findViewById.setVisibility(0);
-            this.f49929e.setGifIconSupport(true);
-            this.f49929e.setLongIconSupport(true);
-            this.f49929e.setTagStr(getContext().getString(j.edit));
+            this.f48348e.setGifIconSupport(true);
+            this.f48348e.setLongIconSupport(true);
+            this.f48348e.setTagStr(getContext().getString(R.string.edit));
             setOnClickListener(new a(this));
             findViewById.setOnClickListener(new b(this));
             onSkinChange();
-            this.f49933i = n.k(getContext()) - (UtilHelper.getDimenPixelSize(c.a.u0.s4.e.M_W_X007) * 2);
+            this.f48352i = n.k(getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2);
         }
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f49929e.setIsLongPic(this.f49932h.isLong());
-            int i2 = this.f49933i;
-            ImageOperation g2 = c.a.t0.d0.i.d.g(i2, i2 * 2);
-            this.f49932h.clearPageActions();
-            this.f49932h.addPageAction(g2);
-            if (this.f49932h.getImageType() == 0) {
-                this.f49929e.setTag(this.f49932h.toCachedKey(true));
-                c.a.d.o.d.a d2 = new c.a.t0.d0.b().d(this.f49932h, new c(this), true);
+            this.f48348e.setIsLongPic(this.f48351h.isLong());
+            int i2 = this.f48352i;
+            ImageOperation g2 = c.a.q0.c0.i.d.g(i2, i2 * 2);
+            this.f48351h.clearPageActions();
+            this.f48351h.addPageAction(g2);
+            if (this.f48351h.getImageType() == 0) {
+                this.f48348e.setTag(this.f48351h.toCachedKey(true));
+                c.a.d.o.d.a d2 = new c.a.q0.c0.b().d(this.f48351h, new c(this), true);
                 if (d2 != null && d2.r() > 0 && d2.m() > 0) {
                     post(new d(this, d2));
                 }
-                this.f49929e.setTagStr(getContext().getString(j.edit));
-            } else if (this.f49932h.getImageType() == 1) {
-                String filePath = this.f49932h.getFilePath();
+                this.f48348e.setTagStr(getContext().getString(R.string.edit));
+            } else if (this.f48351h.getImageType() == 1) {
+                String filePath = this.f48351h.getFilePath();
                 if (!m.isEmpty(filePath) && filePath.startsWith(SmallTailInfo.EMOTION_PREFIX)) {
-                    this.f49929e.setTag(c.a.d.f.l.d.h().g(filePath, 20));
+                    this.f48348e.setTag(c.a.d.f.l.d.h().g(filePath, 20));
                     c.a.d.f.l.d.h().k(filePath, 20, new e(this), 0, 0, null, null, filePath, Boolean.FALSE, null);
                 }
-                this.f49929e.setTagStr("");
+                this.f48348e.setTagStr("");
             }
         }
     }
@@ -328,19 +326,19 @@ public class RichImageItem extends FrameLayout {
     public final void g(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            float width = getWidth() != 0 ? getWidth() : this.f49933i;
+            float width = getWidth() != 0 ? getWidth() : this.f48352i;
             float f2 = i3 > i2 * 2 ? width * 2.0f : (width / i2) * i3;
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f49929e.getLayoutParams();
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f48348e.getLayoutParams();
             layoutParams.width = -1;
             layoutParams.height = f2 > 0.0f ? (int) f2 : -2;
-            this.f49929e.setLayoutParams(layoutParams);
+            this.f48348e.setLayoutParams(layoutParams);
         }
     }
 
     public ImageFileInfo getImageFileInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f49932h : (ImageFileInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f48351h : (ImageFileInfo) invokeV.objValue;
     }
 
     public final void h(c.a.d.o.d.a aVar) {
@@ -366,11 +364,11 @@ public class RichImageItem extends FrameLayout {
     public void onSkinChange() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f49930f.setImageDrawable(WebPManager.getMaskDrawable(c.a.u0.s4.f.icon_mask_post_image_delete16, WebPManager.ResourceStateType.NORMAL));
+            this.f48349f.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.icon_mask_post_image_delete16, WebPManager.ResourceStateType.NORMAL));
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                this.f49929e.setTagColor(getContext().getResources().getColor(c.a.u0.s4.d.CAM_X0101));
+                this.f48348e.setTagColor(getContext().getResources().getColor(R.color.CAM_X0101));
             } else {
-                this.f49929e.setTagColor(getContext().getResources().getColor(c.a.u0.s4.d.CAM_X0101));
+                this.f48348e.setTagColor(getContext().getResources().getColor(R.color.CAM_X0101));
             }
         }
     }
@@ -378,7 +376,7 @@ public class RichImageItem extends FrameLayout {
     public void setImageFileInfo(@NonNull ImageFileInfo imageFileInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, imageFileInfo) == null) {
-            this.f49932h = imageFileInfo;
+            this.f48351h = imageFileInfo;
             f();
         }
     }
@@ -386,7 +384,7 @@ public class RichImageItem extends FrameLayout {
     public void setItemOperateListener(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar) == null) {
-            this.f49931g = fVar;
+            this.f48350g = fVar;
         }
     }
 

@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public abstract class CyberVRRenderProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Keep
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface INotSupportCallback {
         void onNotSupport(int i2);
     }
 
     @Keep
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface IOnSurfaceReadyCallback {
         void onSurfaceReady(Surface surface);
     }

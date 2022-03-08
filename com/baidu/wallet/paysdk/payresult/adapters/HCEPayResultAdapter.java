@@ -12,7 +12,7 @@ import com.dxmpay.wallet.base.statistics.StatServiceEvent;
 import com.dxmpay.wallet.core.BaseActivity;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class HCEPayResultAdapter extends BasePayResultAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,16 +43,16 @@ public class HCEPayResultAdapter extends BasePayResultAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             this.contents.clear();
-            PayResultContent payResultContent = this.f52259c;
-            if (payResultContent == null || this.f52258b == null) {
+            PayResultContent payResultContent = this.f50678c;
+            if (payResultContent == null || this.f50677b == null) {
                 return null;
             }
             if (!payResultContent.isPaySuccess) {
                 this.contents.put("statusDrawableName", "wallet_hce_icon_nfc_fail");
                 this.contents.put("mainTip", "wallet_hce_pay_failed");
-                this.contents.put("errorMsg", this.f52259c.mErrorMsg);
+                this.contents.put("errorMsg", this.f50678c.mErrorMsg);
             }
-            StatisticManager.onEventWithValue(StatServiceEvent.EVENT_QUICK_PASS_PAY_RET_SHOW, this.f52259c.isPaySuccess ? "1" : "0");
+            StatisticManager.onEventWithValue(StatServiceEvent.EVENT_QUICK_PASS_PAY_RET_SHOW, this.f50678c.isPaySuccess ? "1" : "0");
             return this.contents;
         }
         return (HashMap) invokeV.objValue;
@@ -62,7 +62,7 @@ public class HCEPayResultAdapter extends BasePayResultAdapter {
     public void handleOKBtnOnclick() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            StatisticManager.onEventWithValue(StatServiceEvent.EVENT_QUICK_PASS_PAY_DONE_CLICK, this.f52259c.isPaySuccess ? "1" : "0");
+            StatisticManager.onEventWithValue(StatServiceEvent.EVENT_QUICK_PASS_PAY_DONE_CLICK, this.f50678c.isPaySuccess ? "1" : "0");
         }
     }
 
@@ -72,7 +72,7 @@ public class HCEPayResultAdapter extends BasePayResultAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) {
             boolean onCreateCheckInvalide = super.onCreateCheckInvalide(bundle);
-            PayResultContent payResultContent = this.f52259c;
+            PayResultContent payResultContent = this.f50678c;
             if (payResultContent != null) {
                 StatisticManager.onEventWithValue(StatServiceEvent.EVENT_QUICK_PASS_CLICK_OPEN, payResultContent.isPaySuccess ? "1" : "0");
             }

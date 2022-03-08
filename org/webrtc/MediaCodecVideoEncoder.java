@@ -39,7 +39,7 @@ import org.webrtc.EglBase14;
 import org.webrtc.VideoFrame;
 @TargetApi(19)
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class MediaCodecVideoEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final MediaCodecProperties AllwinnerH264HwProperties;
@@ -130,13 +130,13 @@ public class MediaCodecVideoEncoder {
     public int width;
 
     /* renamed from: org.webrtc.MediaCodecVideoEncoder$1CaughtException  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public class C1CaughtException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Exception f62659e;
+        public Exception f61009e;
         public final /* synthetic */ MediaCodecVideoEncoder this$0;
 
         public C1CaughtException(MediaCodecVideoEncoder mediaCodecVideoEncoder) {
@@ -159,7 +159,7 @@ public class MediaCodecVideoEncoder {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class BitrateAdjustmentType {
         public static final /* synthetic */ BitrateAdjustmentType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -220,7 +220,7 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class EncoderProperties {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -250,7 +250,7 @@ public class MediaCodecVideoEncoder {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class H264Profile {
         public static final /* synthetic */ H264Profile[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -324,7 +324,7 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class HwEncoderFactory implements VideoEncoderFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -466,7 +466,7 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class MediaCodecProperties {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -495,12 +495,12 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface MediaCodecVideoEncoderErrorCallback {
         void onMediaCodecVideoEncoderCriticalError(int i2);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class OutputBufferInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -560,7 +560,7 @@ public class MediaCodecVideoEncoder {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class VideoCodecType {
         public static final /* synthetic */ VideoCodecType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -1552,7 +1552,7 @@ public class MediaCodecVideoEncoder {
                                 this.this$0.mediaCodec.release();
                             } catch (Exception e3) {
                                 Logging.e(MediaCodecVideoEncoder.TAG, "Media encoder release failed", e3);
-                                this.val$caughtException.f62659e = e3;
+                                this.val$caughtException.f61009e = e3;
                             }
                             Logging.d(MediaCodecVideoEncoder.TAG, "Java releaseEncoder on release thread done");
                             this.val$releaseDone.countDown();
@@ -1589,11 +1589,11 @@ public class MediaCodecVideoEncoder {
                     errorCallback.onMediaCodecVideoEncoderCriticalError(codecErrors);
                 }
                 throw new RuntimeException("Media encoder release timeout.");
-            } else if (c1CaughtException.f62659e == null) {
+            } else if (c1CaughtException.f61009e == null) {
                 Logging.d(TAG, "Java releaseEncoder done");
             } else {
-                RuntimeException runtimeException = new RuntimeException(c1CaughtException.f62659e);
-                runtimeException.setStackTrace(ThreadUtils.concatStackTraces(c1CaughtException.f62659e.getStackTrace(), runtimeException.getStackTrace()));
+                RuntimeException runtimeException = new RuntimeException(c1CaughtException.f61009e);
+                runtimeException.setStackTrace(ThreadUtils.concatStackTraces(c1CaughtException.f61009e.getStackTrace(), runtimeException.getStackTrace()));
                 throw runtimeException;
             }
         }

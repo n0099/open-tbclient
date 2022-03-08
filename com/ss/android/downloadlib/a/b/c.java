@@ -10,19 +10,19 @@ import android.text.TextUtils;
 import com.ss.android.downloadlib.a.b.d;
 import com.ss.android.downloadlib.addownload.j;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface c extends IInterface {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static abstract class a extends Binder implements c {
         public static String a = "";
 
         /* renamed from: com.ss.android.downloadlib.a.b.c$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public static class C2198a implements c {
+        /* loaded from: classes8.dex */
+        public static class C2177a implements c {
             public IBinder a;
 
-            public C2198a(IBinder iBinder) {
+            public C2177a(IBinder iBinder) {
                 if (TextUtils.isEmpty(a.a)) {
                     JSONObject i2 = j.i();
                     String unused = a.a = com.ss.android.socialbase.appdownloader.f.c.a(i2.optString("r"), i2.optString("s"));
@@ -81,7 +81,7 @@ public interface c extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof c)) {
                 return (c) queryLocalInterface;
             }
-            return new C2198a(iBinder);
+            return new C2177a(iBinder);
         }
     }
 

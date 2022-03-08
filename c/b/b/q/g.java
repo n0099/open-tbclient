@@ -8,29 +8,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Object[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27640b;
+    public int f27544b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Object[] f27641c;
+    public Object[] f27545c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f27642d;
+    public int f27546d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f27643e;
+    public int f27547e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int[] f27644f;
+    public final int[] f27548f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int[] f27645g;
+    public final int[] f27549g;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -45,11 +45,11 @@ public class g {
                 return;
             }
         }
-        this.f27640b = 7;
-        this.f27643e = 0;
-        this.f27641c = new Object[256];
-        this.f27644f = new int[40];
-        this.f27645g = new int[40];
+        this.f27544b = 7;
+        this.f27547e = 0;
+        this.f27545c = new Object[256];
+        this.f27548f = new int[40];
+        this.f27549g = new int[40];
     }
 
     /* JADX DEBUG: Duplicate block to fix multi-entry loop: BACK_EDGE: B:21:0x003f -> B:5:0x0006 */
@@ -286,7 +286,7 @@ public class g {
     public void c(Object[] objArr, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048576, this, objArr, i2, i3) == null) {
-            this.f27643e = 0;
+            this.f27547e = 0;
             n(objArr.length, i2, i3);
             int i4 = i3 - i2;
             if (i4 < 2) {
@@ -297,7 +297,7 @@ public class g {
                 return;
             }
             this.a = objArr;
-            this.f27642d = 0;
+            this.f27546d = 0;
             int l = l(i4);
             do {
                 int b2 = b(objArr, i2, i3);
@@ -313,8 +313,8 @@ public class g {
             } while (i4 != 0);
             i();
             this.a = null;
-            Object[] objArr2 = this.f27641c;
-            int i6 = this.f27642d;
+            Object[] objArr2 = this.f27545c;
+            int i6 = this.f27546d;
             for (int i7 = 0; i7 < i6; i7++) {
                 objArr2[i7] = null;
             }
@@ -325,8 +325,8 @@ public class g {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            this.f27642d = Math.max(this.f27642d, i2);
-            if (this.f27641c.length < i2) {
+            this.f27546d = Math.max(this.f27546d, i2);
+            if (this.f27545c.length < i2) {
                 int i3 = (i2 >> 1) | i2;
                 int i4 = i3 | (i3 >> 2);
                 int i5 = i4 | (i4 >> 4);
@@ -335,9 +335,9 @@ public class g {
                 if (i7 >= 0) {
                     i2 = Math.min(i7, this.a.length >>> 1);
                 }
-                this.f27641c = new Object[i2];
+                this.f27545c = new Object[i2];
             }
-            return this.f27641c;
+            return this.f27545c;
         }
         return (Object[]) invokeI.objValue;
     }
@@ -345,20 +345,20 @@ public class g {
     public final void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            int[] iArr = this.f27644f;
+            int[] iArr = this.f27548f;
             int i3 = iArr[i2];
-            int[] iArr2 = this.f27645g;
+            int[] iArr2 = this.f27549g;
             int i4 = iArr2[i2];
             int i5 = i2 + 1;
             int i6 = iArr[i5];
             int i7 = iArr2[i5];
             iArr2[i2] = i4 + i7;
-            if (i2 == this.f27643e - 3) {
+            if (i2 == this.f27547e - 3) {
                 int i8 = i2 + 2;
                 iArr[i5] = iArr[i8];
                 iArr2[i5] = iArr2[i8];
             }
-            this.f27643e--;
+            this.f27547e--;
             Object[] objArr = this.a;
             int f2 = f((Comparable) objArr[i6], objArr, i3, i4, 0);
             int i9 = i3 + f2;
@@ -385,13 +385,13 @@ public class g {
             return;
         }
         while (true) {
-            int i2 = this.f27643e;
+            int i2 = this.f27547e;
             if (i2 <= 1) {
                 return;
             }
             int i3 = i2 - 2;
             if (i3 > 0) {
-                int[] iArr = this.f27645g;
+                int[] iArr = this.f27549g;
                 int i4 = i3 - 1;
                 int i5 = i3 + 1;
                 if (iArr[i4] <= iArr[i3] + iArr[i5]) {
@@ -401,7 +401,7 @@ public class g {
                     g(i3);
                 }
             }
-            int[] iArr2 = this.f27645g;
+            int[] iArr2 = this.f27549g;
             if (iArr2[i3] > iArr2[i3 + 1]) {
                 return;
             }
@@ -415,13 +415,13 @@ public class g {
             return;
         }
         while (true) {
-            int i2 = this.f27643e;
+            int i2 = this.f27547e;
             if (i2 <= 1) {
                 return;
             }
             int i3 = i2 - 2;
             if (i3 > 0) {
-                int[] iArr = this.f27645g;
+                int[] iArr = this.f27549g;
                 if (iArr[i3 - 1] < iArr[i3 + 1]) {
                     i3--;
                 }
@@ -560,7 +560,7 @@ public class g {
                 System.arraycopy(objArr, (i14 - i15) + 1, objArr, i16 + 1, i15);
                 objArr[i16] = d2[i11];
             } else {
-                int i17 = this.f27640b;
+                int i17 = this.f27544b;
                 loop0: while (true) {
                     int i18 = 0;
                     int i19 = 0;
@@ -603,7 +603,7 @@ public class g {
                 if (i17 < 1) {
                     i17 = 1;
                 }
-                this.f27640b = i17;
+                this.f27544b = i17;
                 if (i5 == 1) {
                     int i23 = i6 - i15;
                     System.arraycopy(objArr, (i14 - i15) + 1, objArr, i23 + 1, i15);
@@ -745,7 +745,7 @@ public class g {
                 System.arraycopy(objArr, i10, objArr, i9, i11);
                 objArr[i9 + i11] = d2[0];
             } else {
-                int i12 = this.f27640b;
+                int i12 = this.f27544b;
                 int i13 = 0;
                 loop0: while (true) {
                     int i14 = 0;
@@ -789,7 +789,7 @@ public class g {
                 if (i12 < 1) {
                     i12 = 1;
                 }
-                this.f27640b = i12;
+                this.f27544b = i12;
                 if (i3 == 1) {
                     System.arraycopy(objArr, i10, objArr, i6, i11);
                     objArr[i6 + i11] = d2[i13];
@@ -805,11 +805,11 @@ public class g {
     public final void m(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
-            int[] iArr = this.f27644f;
-            int i4 = this.f27643e;
+            int[] iArr = this.f27548f;
+            int i4 = this.f27547e;
             iArr[i4] = i2;
-            this.f27645g[i4] = i3;
-            this.f27643e = i4 + 1;
+            this.f27549g[i4] = i3;
+            this.f27547e = i4 + 1;
         }
     }
 }

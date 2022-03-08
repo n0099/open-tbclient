@@ -15,13 +15,12 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.R$styleable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class ImageProblemItemView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COMMON = 1;
@@ -114,11 +113,11 @@ public class ImageProblemItemView extends FrameLayout {
     public void initializeStyle(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, R$styleable.TbSettingView);
-            String string = obtainStyledAttributes.getString(R$styleable.TbSettingView_settingText);
-            int color = obtainStyledAttributes.getColor(R$styleable.TbSettingView_settingTextColor, -1);
-            String string2 = obtainStyledAttributes.getString(R$styleable.TbSettingView_settingTip);
-            int color2 = obtainStyledAttributes.getColor(R$styleable.TbSettingView_settingTipColor, -1);
+            TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, new int[]{R.attr.settingShowArraw, R.attr.settingText, R.attr.settingTextColor, R.attr.settingTextSize, R.attr.settingTip, R.attr.settingTipColor});
+            String string = obtainStyledAttributes.getString(1);
+            int color = obtainStyledAttributes.getColor(2, -1);
+            String string2 = obtainStyledAttributes.getString(4);
+            int color2 = obtainStyledAttributes.getColor(5, -1);
             if (string != null) {
                 this.textView.setText(string);
             }

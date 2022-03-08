@@ -8,12 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.util.MimeTypes;
 import java.nio.charset.Charset;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageHeaders;
 import org.springframework.messaging.converter.AbstractMessageConverter;
 import org.springframework.util.MimeType;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class MappingFastJsonMessageConverter extends AbstractMessageConverter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,7 +22,7 @@ public class MappingFastJsonMessageConverter extends AbstractMessageConverter {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MappingFastJsonMessageConverter() {
-        super(new MimeType("application", "json", Charset.forName("UTF-8")));
+        super(new MimeType(MimeTypes.BASE_TYPE_APPLICATION, "json", Charset.forName("UTF-8")));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

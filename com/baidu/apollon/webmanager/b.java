@@ -25,38 +25,38 @@ import java.util.Map;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f33029b = "JsJavaBridge";
+    public static final String f31432b = "JsJavaBridge";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f33030c = "BdWallet:";
+    public static final String f31433c = "BdWallet:";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f33031d;
+    public static final String f31434d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f33032e = 0;
+    public static final int f31435e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f33033f = 101;
+    public static final int f31436f = 101;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f33034g = 102;
+    public static final int f31437g = 102;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f33035h = 100;
+    public static final int f31438h = 100;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f33036i = "Local";
+    public static final String f31439i = "Local";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public final HashMap<String, Object> f33037j;
+    public final HashMap<String, Object> f31440j;
     public final HashMap<String, Set<String>> k;
     public boolean l;
     public String m;
@@ -76,7 +76,7 @@ public class b {
             }
         }
         a = ApollonConstants.DEBUG & false;
-        f33031d = f33030c.toLowerCase();
+        f31434d = f31433c.toLowerCase();
     }
 
     public b() {
@@ -92,7 +92,7 @@ public class b {
                 return;
             }
         }
-        this.f33037j = new HashMap<>();
+        this.f31440j = new HashMap<>();
         this.k = new HashMap<>();
         this.l = false;
         this.n = new HashMap();
@@ -107,7 +107,7 @@ public class b {
             if (obj == null || TextUtils.isEmpty(str)) {
                 return;
             }
-            this.f33037j.put(str, obj);
+            this.f31440j.put(str, obj);
             this.m = null;
         }
     }
@@ -123,7 +123,7 @@ public class b {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f33037j.clear();
+            this.f31440j.clear();
             this.m = null;
         }
     }
@@ -155,9 +155,9 @@ public class b {
             StringBuilder sb = new StringBuilder();
             sb.append("javascript:");
             sb.append("(function JsAddJavascriptInterface_(){");
-            for (String str : this.f33037j.keySet()) {
+            for (String str : this.f31440j.keySet()) {
                 try {
-                    a(sb, this.f33037j.get(str), str);
+                    a(sb, this.f31440j.get(str), str);
                 } catch (JSONException unused) {
                     boolean z = a;
                 }
@@ -185,7 +185,7 @@ public class b {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f33037j.remove(str);
+            this.f31440j.remove(str);
             this.m = null;
             if (a) {
                 String str2 = "removeJavascriptInterface from map: " + str;
@@ -222,10 +222,10 @@ public class b {
             if (TextUtils.isEmpty(str2)) {
                 return false;
             }
-            if (str2.startsWith(f33030c)) {
+            if (str2.startsWith(f31433c)) {
                 substring = str2.substring(9);
                 z = true;
-            } else if (!str2.startsWith(f33030c.toLowerCase())) {
+            } else if (!str2.startsWith(f31433c.toLowerCase())) {
                 return false;
             } else {
                 substring = str2.substring(9);
@@ -250,7 +250,7 @@ public class b {
                         }
                     }
                     sb.append(SmallTailInfo.EMOTION_SUFFIX);
-                    LogUtil.i(f33029b, "call: " + sb.toString());
+                    LogUtil.i(f31432b, "call: " + sb.toString());
                 }
                 if (javaBridgeObject != null) {
                     return a(jsPromptResult, z, javaBridgeObject);
@@ -300,7 +300,7 @@ public class b {
                 HashSet hashSet = new HashSet();
                 for (Method method : methods) {
                     String name = method.getName();
-                    if (!name.endsWith(f33036i) && !c(name) && !hashSet.contains(name)) {
+                    if (!name.endsWith(f31439i) && !c(name) && !hashSet.contains(name)) {
                         hashSet.add(name);
                         sb.append(name);
                         sb.append(":function(){");
@@ -308,7 +308,7 @@ public class b {
                             sb.append("return ");
                         }
                         sb.append("prompt('");
-                        sb.append(f33031d);
+                        sb.append(f31434d);
                         sb.append("'+");
                         sb.append("JSON.stringify({");
                         sb.append("obj");
@@ -357,7 +357,7 @@ public class b {
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{jsPromptResult, Boolean.valueOf(z), javaBridgeObject})) == null) {
-            Object obj = this.f33037j.get(javaBridgeObject.obj);
+            Object obj = this.f31440j.get(javaBridgeObject.obj);
             if (obj == null) {
                 if (a) {
                     String str = "not exist js interface:" + javaBridgeObject.obj;

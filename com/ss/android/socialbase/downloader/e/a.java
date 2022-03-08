@@ -7,30 +7,30 @@ import com.ss.android.socialbase.downloader.i.f;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import java.io.InputStream;
 import java.util.concurrent.Future;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a implements b {
     public final InputStream a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f60200b;
+    public final int f58550b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f60201c;
+    public final int f58551c;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.f.a f60204f;
+    public com.ss.android.socialbase.downloader.f.a f58554f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.f.a f60205g;
+    public com.ss.android.socialbase.downloader.f.a f58555g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.f.a f60206h;
+    public com.ss.android.socialbase.downloader.f.a f58556h;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.f.a f60207i;
+    public com.ss.android.socialbase.downloader.f.a f58557i;
 
     /* renamed from: j  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.f.a f60208j;
+    public com.ss.android.socialbase.downloader.f.a f58558j;
     public com.ss.android.socialbase.downloader.f.a k;
     public volatile boolean l;
     public volatile boolean m;
@@ -39,10 +39,10 @@ public class a implements b {
     public int p;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f60202d = new Object();
+    public final Object f58552d = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f60203e = new Object();
+    public final Object f58553e = new Object();
     public final Runnable q = new Runnable() { // from class: com.ss.android.socialbase.downloader.e.a.1
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
         /* JADX DEBUG: Finally have unexpected throw blocks count: 3, expect 1 */
@@ -53,31 +53,31 @@ public class a implements b {
             do {
                 try {
                     d2 = a.this.d();
-                    d2.f60214c = a.this.a.read(d2.a);
+                    d2.f58564c = a.this.a.read(d2.a);
                     a.this.c(d2);
                 } catch (Throwable th) {
                     try {
                         a.this.n = th;
                         th.printStackTrace();
-                        synchronized (a.this.f60203e) {
+                        synchronized (a.this.f58553e) {
                             a.this.m = true;
-                            a.this.f60203e.notify();
+                            a.this.f58553e.notify();
                             f.a(a.this.a);
                             return;
                         }
                     } catch (Throwable th2) {
-                        synchronized (a.this.f60203e) {
+                        synchronized (a.this.f58553e) {
                             a.this.m = true;
-                            a.this.f60203e.notify();
+                            a.this.f58553e.notify();
                             f.a(a.this.a);
                             throw th2;
                         }
                     }
                 }
-            } while (d2.f60214c != -1);
-            synchronized (a.this.f60203e) {
+            } while (d2.f58564c != -1);
+            synchronized (a.this.f58553e) {
                 a.this.m = true;
-                a.this.f60203e.notify();
+                a.this.f58553e.notify();
             }
             f.a(a.this.a);
         }
@@ -85,46 +85,46 @@ public class a implements b {
 
     public a(InputStream inputStream, int i2, int i3) throws Throwable {
         this.a = inputStream;
-        this.f60200b = i2;
+        this.f58550b = i2;
         if (i3 < 1) {
             i3 = 1;
         } else if (i3 > 64) {
             i3 = 64;
         }
-        this.f60201c = i3;
+        this.f58551c = i3;
         c();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public com.ss.android.socialbase.downloader.f.a d() throws p, InterruptedException {
-        com.ss.android.socialbase.downloader.f.a aVar = this.f60206h;
+        com.ss.android.socialbase.downloader.f.a aVar = this.f58556h;
         if (aVar != null) {
             if (!this.l) {
-                this.f60206h = aVar.f60215d;
-                aVar.f60215d = null;
+                this.f58556h = aVar.f58565d;
+                aVar.f58565d = null;
                 return aVar;
             }
             throw new p("");
         }
-        synchronized (this.f60202d) {
+        synchronized (this.f58552d) {
             if (!this.l) {
-                com.ss.android.socialbase.downloader.f.a aVar2 = this.f60204f;
-                if (aVar2 == null && this.p < this.f60201c) {
+                com.ss.android.socialbase.downloader.f.a aVar2 = this.f58554f;
+                if (aVar2 == null && this.p < this.f58551c) {
                     this.p++;
-                    return new com.ss.android.socialbase.downloader.f.a(this.f60200b);
+                    return new com.ss.android.socialbase.downloader.f.a(this.f58550b);
                 }
                 while (aVar2 == null) {
-                    this.f60202d.wait();
+                    this.f58552d.wait();
                     if (!this.l) {
-                        aVar2 = this.f60204f;
+                        aVar2 = this.f58554f;
                     } else {
                         throw new p("");
                     }
                 }
-                this.f60206h = aVar2.f60215d;
-                this.f60205g = null;
-                this.f60204f = null;
-                aVar2.f60215d = null;
+                this.f58556h = aVar2.f58565d;
+                this.f58555g = null;
+                this.f58554f = null;
+                aVar2.f58565d = null;
                 return aVar2;
             }
             throw new p("");
@@ -135,29 +135,29 @@ public class a implements b {
         com.ss.android.socialbase.downloader.f.a aVar;
         com.ss.android.socialbase.downloader.f.a aVar2 = this.k;
         if (aVar2 != null) {
-            this.k = aVar2.f60215d;
-            aVar2.f60215d = null;
+            this.k = aVar2.f58565d;
+            aVar2.f58565d = null;
             return aVar2;
         }
-        synchronized (this.f60203e) {
-            aVar = this.f60207i;
+        synchronized (this.f58553e) {
+            aVar = this.f58557i;
             if (aVar == null) {
                 do {
                     if (this.m) {
                         f();
                     }
-                    this.f60203e.wait();
-                    aVar = this.f60207i;
+                    this.f58553e.wait();
+                    aVar = this.f58557i;
                 } while (aVar == null);
-                this.k = aVar.f60215d;
-                this.f60208j = null;
-                this.f60207i = null;
-                aVar.f60215d = null;
+                this.k = aVar.f58565d;
+                this.f58558j = null;
+                this.f58557i = null;
+                aVar.f58565d = null;
             } else {
-                this.k = aVar.f60215d;
-                this.f60208j = null;
-                this.f60207i = null;
-                aVar.f60215d = null;
+                this.k = aVar.f58565d;
+                this.f58558j = null;
+                this.f58557i = null;
+                aVar.f58565d = null;
             }
         }
         return aVar;
@@ -180,9 +180,9 @@ public class a implements b {
 
     @Override // com.ss.android.socialbase.downloader.e.b
     public void b() {
-        synchronized (this.f60202d) {
+        synchronized (this.f58552d) {
             this.l = true;
-            this.f60202d.notify();
+            this.f58552d.notify();
         }
         Future future = this.o;
         if (future != null) {
@@ -196,15 +196,15 @@ public class a implements b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(com.ss.android.socialbase.downloader.f.a aVar) {
-        synchronized (this.f60203e) {
-            com.ss.android.socialbase.downloader.f.a aVar2 = this.f60208j;
+        synchronized (this.f58553e) {
+            com.ss.android.socialbase.downloader.f.a aVar2 = this.f58558j;
             if (aVar2 == null) {
-                this.f60208j = aVar;
-                this.f60207i = aVar;
-                this.f60203e.notify();
+                this.f58558j = aVar;
+                this.f58557i = aVar;
+                this.f58553e.notify();
             } else {
-                aVar2.f60215d = aVar;
-                this.f60208j = aVar;
+                aVar2.f58565d = aVar;
+                this.f58558j = aVar;
             }
         }
     }
@@ -220,15 +220,15 @@ public class a implements b {
     }
 
     private void b(com.ss.android.socialbase.downloader.f.a aVar) {
-        synchronized (this.f60202d) {
-            com.ss.android.socialbase.downloader.f.a aVar2 = this.f60205g;
+        synchronized (this.f58552d) {
+            com.ss.android.socialbase.downloader.f.a aVar2 = this.f58555g;
             if (aVar2 == null) {
-                this.f60205g = aVar;
-                this.f60204f = aVar;
-                this.f60202d.notify();
+                this.f58555g = aVar;
+                this.f58554f = aVar;
+                this.f58552d.notify();
             } else {
-                aVar2.f60215d = aVar;
-                this.f60205g = aVar;
+                aVar2.f58565d = aVar;
+                this.f58555g = aVar;
             }
         }
     }

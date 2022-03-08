@@ -14,18 +14,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class UEGCancelModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f48673e;
+    public b f47092e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.a.d.c.g.a f48674f;
+    public final c.a.d.c.g.a f47093f;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,20 +61,20 @@ public class UEGCancelModel extends BdBaseModel {
                 return;
             }
             boolean z = responsedMessage instanceof UEGCancelSocketResponseMessage;
-            if ((z || (responsedMessage instanceof UEGCancelResponsedMessage)) && this.a.f48673e != null) {
+            if ((z || (responsedMessage instanceof UEGCancelResponsedMessage)) && this.a.f47092e != null) {
                 if (z) {
                     UEGCancelSocketResponseMessage uEGCancelSocketResponseMessage = (UEGCancelSocketResponseMessage) responsedMessage;
                     if (uEGCancelSocketResponseMessage != null && uEGCancelSocketResponseMessage.getError() == 0) {
-                        this.a.f48673e.a(uEGCancelSocketResponseMessage.getData());
+                        this.a.f47092e.a(uEGCancelSocketResponseMessage.getData());
                     }
                 } else if ((responsedMessage instanceof UEGCancelResponsedMessage) && (uEGCancelResponsedMessage = (UEGCancelResponsedMessage) responsedMessage) != null && uEGCancelResponsedMessage.getError() == 0) {
-                    this.a.f48673e.a(uEGCancelResponsedMessage.getData());
+                    this.a.f47092e.a(uEGCancelResponsedMessage.getData());
                 }
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(BlockPopInfoData blockPopInfoData);
     }
@@ -92,10 +92,10 @@ public class UEGCancelModel extends BdBaseModel {
                 return;
             }
         }
-        this.f48674f = new a(this, CmdConfigHttp.CMD_UEG_CANCEL, 309615);
-        c.a.u0.z3.g0.a.h(309615, UEGCancelSocketResponseMessage.class, false, false);
-        c.a.u0.z3.g0.a.c(309615, CmdConfigHttp.CMD_UEG_CANCEL, "c/f/forum/queryBlockAndAppealInfo", UEGCancelResponsedMessage.class, false, false, true, false);
-        registerListener(this.f48674f);
+        this.f47093f = new a(this, CmdConfigHttp.CMD_UEG_CANCEL, 309615);
+        c.a.r0.y3.g0.a.h(309615, UEGCancelSocketResponseMessage.class, false, false);
+        c.a.r0.y3.g0.a.c(309615, CmdConfigHttp.CMD_UEG_CANCEL, "c/f/forum/queryBlockAndAppealInfo", UEGCancelResponsedMessage.class, false, false, true, false);
+        registerListener(this.f47093f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -121,7 +121,7 @@ public class UEGCancelModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f48674f);
+            MessageManager.getInstance().unRegisterListener(this.f47093f);
         }
     }
 
@@ -137,7 +137,7 @@ public class UEGCancelModel extends BdBaseModel {
     public void y(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f48673e = bVar;
+            this.f47092e = bVar;
         }
     }
 }

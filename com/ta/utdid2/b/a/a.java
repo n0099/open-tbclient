@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
@@ -20,9 +21,8 @@ import java.nio.charset.CharsetEncoder;
 import java.nio.charset.CoderResult;
 import java.nio.charset.IllegalCharsetNameException;
 import java.nio.charset.UnsupportedCharsetException;
-import kotlin.text.Typography;
 import org.xmlpull.v1.XmlSerializer;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a implements XmlSerializer {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "xmlpull.org/v1/doc/features.html#indent-output";
@@ -47,7 +47,7 @@ public class a implements XmlSerializer {
     public final char[] f15a;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f60533e;
+    public boolean f58883e;
     public int mPos;
 
     static {
@@ -132,7 +132,7 @@ public class a implements XmlSerializer {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
-            append(' ');
+            append(WebvttCueParser.CHAR_SPACE);
             if (str != null) {
                 append(str);
                 append(':');
@@ -183,7 +183,7 @@ public class a implements XmlSerializer {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (this.f60533e) {
+            if (this.f58883e) {
                 append(" />\n");
             } else {
                 append("</");
@@ -194,7 +194,7 @@ public class a implements XmlSerializer {
                 append(str2);
                 append(">\n");
             }
-            this.f60533e = false;
+            this.f58883e = false;
             return this;
         }
         return (XmlSerializer) invokeLL.objValue;
@@ -370,16 +370,16 @@ public class a implements XmlSerializer {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, str, str2)) == null) {
-            if (this.f60533e) {
+            if (this.f58883e) {
                 append(">\n");
             }
-            append(Typography.less);
+            append('<');
             if (str != null) {
                 append(str);
                 append(':');
             }
             append(str2);
-            this.f60533e = true;
+            this.f58883e = true;
             return this;
         }
         return (XmlSerializer) invokeLL.objValue;
@@ -390,9 +390,9 @@ public class a implements XmlSerializer {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048600, this, cArr, i2, i3)) == null) {
-            if (this.f60533e) {
+            if (this.f58883e) {
                 append(">");
-                this.f60533e = false;
+                this.f58883e = false;
             }
             a(cArr, i2, i3);
             return this;
@@ -405,9 +405,9 @@ public class a implements XmlSerializer {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
-            if (this.f60533e) {
+            if (this.f58883e) {
                 append(">");
-                this.f60533e = false;
+                this.f58883e = false;
             }
             a(str);
             return this;

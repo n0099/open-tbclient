@@ -11,14 +11,14 @@ import com.dxmpay.apollon.beans.IBeanResponse;
 import com.dxmpay.wallet.core.NoProguard;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class WalletInterfaceResponse implements IBeanResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public JSONObject login_data;
     public JSONObject unlogin_data;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class WalletModuleData implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String NO_ANIM = "0";

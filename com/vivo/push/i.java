@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class i implements IPushActionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,14 +36,14 @@ public final class i implements IPushActionListener {
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             if (i2 == 0) {
                 this.a.k = "";
-                bVar2 = this.a.f60911j;
+                bVar2 = this.a.f59261j;
                 bVar2.a("APP_TOKEN", "");
                 this.a.m();
-                this.a.f60911j.b("APP_TAGS");
+                this.a.f59261j.b("APP_TAGS");
                 return;
             }
             this.a.k = null;
-            bVar = this.a.f60911j;
+            bVar = this.a.f59261j;
             bVar.b("APP_TOKEN");
         }
     }

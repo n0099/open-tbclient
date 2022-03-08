@@ -14,17 +14,17 @@ import com.fun.ad.sdk.ExpressInflater;
 import com.fun.ad.sdk.FunAdInteractionListener;
 import com.fun.ad.sdk.internal.api.BaseNativeAd2;
 import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class t implements FunNativeAd2Bridger<d, View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public s.b f28544b;
+    public s.b f28382b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ s f28545c;
+    public final /* synthetic */ s f28383c;
 
     public t(s sVar, String str, d dVar) {
         Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public class t implements FunNativeAd2Bridger<d, View> {
                 return;
             }
         }
-        this.f28545c = sVar;
-        this.f28544b = new s.b(sVar, str, dVar);
+        this.f28383c = sVar;
+        this.f28382b = new s.b(sVar, str, dVar);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -66,8 +66,8 @@ public class t implements FunNativeAd2Bridger<d, View> {
     public void showExpress(Activity activity, ExpressInflater expressInflater, String str, d dVar, BaseNativeAd2<d, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, dVar, baseNativeAd2, funAdInteractionListener}) == null) {
-            this.f28545c.onShowStart(this.a);
-            s.b bVar = this.f28544b;
+            this.f28383c.onShowStart(this.a);
+            s.b bVar = this.f28382b;
             bVar.a = funAdInteractionListener;
             dVar.c(bVar);
             this.a = true;

@@ -20,9 +20,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.x;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class AccountToolsActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_ACCOUNT_TOOLS_TYPE = "ACCOUNT_TOOLS_TYPE";
@@ -31,7 +30,7 @@ public class AccountToolsActivity extends Activity {
     public AccountToolsResult a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AccountToolsCallback f38235b;
+    public AccountToolsCallback f36639b;
 
     public AccountToolsActivity() {
         Interceptable interceptable = $ic;
@@ -55,7 +54,7 @@ public class AccountToolsActivity extends Activity {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             int intExtra = getIntent().getIntExtra(EXTRA_ACCOUNT_TOOLS_TYPE, -1);
-            this.f38235b = CoreViewRouter.getInstance().getAccountToolsCallback();
+            this.f36639b = CoreViewRouter.getInstance().getAccountToolsCallback();
             AccountCenterDTO accountCenterDTO = new AccountCenterDTO();
             accountCenterDTO.accountToolsUrl = a(intExtra);
             accountCenterDTO.sweepLightLoading = getIntent().getBooleanExtra(EXTRA_SWEEP_LIGHT_LOADING, false);
@@ -107,7 +106,7 @@ public class AccountToolsActivity extends Activity {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            AccountToolsCallback accountToolsCallback = this.f38235b;
+            AccountToolsCallback accountToolsCallback = this.f36639b;
             if (accountToolsCallback != null) {
                 accountToolsCallback.onFinish(this.a);
             }
@@ -130,7 +129,7 @@ public class AccountToolsActivity extends Activity {
             } else if (i2 == 4) {
                 str = "/v4/appeal/";
             } else if (i2 == 5) {
-                hashMap.put(x.o, SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?__wp-action=modify-pwd");
+                hashMap.put("u", SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?__wp-action=modify-pwd");
                 hashMap.put(SpeedStatsUtils.UBC_VALUE_BANNER, "1");
                 str = "/wp/wappassword";
             } else {

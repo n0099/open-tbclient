@@ -1,26 +1,33 @@
 package c.q.a;
 
-import android.graphics.Bitmap;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.Toast;
+import android.os.AsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
-public class z3 extends WebViewClient {
+import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
+import com.win.opensdk.PBError;
+import java.io.File;
+/* loaded from: classes3.dex */
+public class z3 extends AsyncTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ h4 a;
+    public final /* synthetic */ long a;
 
-    public z3(h4 h4Var) {
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ String f29178b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ b1 f29179c;
+
+    public z3(b1 b1Var, long j2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {h4Var};
+            Object[] objArr = {b1Var, Long.valueOf(j2), str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -30,43 +37,57 @@ public class z3 extends WebViewClient {
                 return;
             }
         }
-        this.a = h4Var;
+        this.f29179c = b1Var;
+        this.a = j2;
+        this.f29178b = str;
     }
 
-    @Override // android.webkit.WebViewClient
-    public void onPageFinished(WebView webView, String str) {
+    @Override // android.os.AsyncTask
+    public Object doInBackground(Object[] objArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-            super.onPageFinished(webView, str);
-        }
-    }
-
-    @Override // android.webkit.WebViewClient
-    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
-            super.onPageStarted(webView, str, bitmap);
-        }
-    }
-
-    @Override // android.webkit.WebViewClient
-    public void onReceivedError(WebView webView, int i2, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i2, str, str2) == null) {
-            super.onReceivedError(webView, i2, str, str2);
-            WebView webView2 = this.a.f30569b;
-            if (webView2 != null) {
-                webView2.setVisibility(8);
-            }
-            if (str.contains("TIMED_OUT")) {
-                h4 h4Var = this.a;
-                if (h4Var.f30570c != null) {
-                    y2 a = c3.a(h4Var.a);
-                    a.q(new g3(this.a.f30570c), 4);
-                    a.l("desc", str + "&errcode:" + i2 + "&fileurl:" + str2);
-                    a.m();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+            String str = ((String[]) objArr)[0];
+            if (str != null) {
+                try {
+                    return r0.F(str);
+                } catch (OutOfMemoryError unused) {
+                    return null;
                 }
-                Toast.makeText(this.a.a, m1.win_toast_network_error, 0).show();
+            }
+            return null;
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // android.os.AsyncTask
+    public void onPostExecute(Object obj) {
+        File file;
+        File file2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            byte[] bArr = (byte[]) obj;
+            if (bArr == null) {
+                b1 b1Var = this.f29179c;
+                c1 c1Var = b1Var.f28915c;
+                if (c1Var != null && !b1Var.f28917e) {
+                    c1Var.onFail(PBError.NO_RESUOURCE);
+                    this.f29179c.f28916d = true;
+                }
+            } else {
+                b1 b1Var2 = this.f29179c;
+                if (b1Var2.f28915c != null && !b1Var2.f28917e) {
+                    file = b1Var2.f28919g;
+                    r0.t(bArr, file.getPath(), new v3(this));
+                }
+            }
+            if (bArr != null) {
+                b1 b1Var3 = this.f29179c;
+                if (b1Var3.f28917e) {
+                    b1Var3.f28919g = new File(r0.e(this.f29179c.a) + File.separator + "win" + File.separator + r0.D(this.f29178b) + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION);
+                    file2 = this.f29179c.f28919g;
+                    r0.t(bArr, file2.getPath(), null);
+                }
             }
         }
     }

@@ -14,14 +14,14 @@ import com.dxmpay.wallet.core.beans.BaseBean;
 import com.dxmpay.wallet.core.domain.DomainConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class z extends BaseBean<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FeedbackDialog.c f52165b;
+    public FeedbackDialog.c f50584b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public z(Context context) {
@@ -47,7 +47,7 @@ public class z extends BaseBean<Object> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
             this.a = str;
-            this.f52165b = cVar;
+            this.f50584b = cVar;
         }
     }
 
@@ -66,9 +66,9 @@ public class z extends BaseBean<Object> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new RestNameValuePair("trans_no", this.a));
-            arrayList.add(new RestNameValuePair("score", "" + this.f52165b.a));
-            FeedbackDialog.c cVar = this.f52165b;
-            arrayList.add(new RestNameValuePair("tag_list", a(cVar != null ? cVar.f52646b : null)));
+            arrayList.add(new RestNameValuePair("score", "" + this.f50584b.a));
+            FeedbackDialog.c cVar = this.f50584b;
+            arrayList.add(new RestNameValuePair("tag_list", a(cVar != null ? cVar.f51065b : null)));
             return arrayList;
         }
         return (List) invokeV.objValue;

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.UnknownHostException;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public abstract class g {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 2;

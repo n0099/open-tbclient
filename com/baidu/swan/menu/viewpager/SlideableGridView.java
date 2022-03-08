@@ -8,41 +8,40 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.ViewPager;
-import c.a.s0.n.g;
-import c.a.s0.n.h;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class SlideableGridView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f40196e;
+    public b f38600e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f40197f;
+    public a f38601f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f40198g;
+    public int f38602g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f40199h;
+    public int f38603h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f40200i;
+    public int f38604i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f40201j;
+    public int f38605j;
     public ViewPager k;
     public PointPageIndicator mIndicator;
     public int[] mIndicatorHeight;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,16 +59,16 @@ public class SlideableGridView extends LinearLayout {
         public abstract void f(SlideableGridView slideableGridView);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class b extends PagerAdapterImpl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public Context f40202c;
+        public Context f38606c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ SlideableGridView f40203d;
+        public final /* synthetic */ SlideableGridView f38607d;
 
         public b(SlideableGridView slideableGridView, Context context) {
             Interceptable interceptable = $ic;
@@ -86,8 +85,8 @@ public class SlideableGridView extends LinearLayout {
                     return;
                 }
             }
-            this.f40203d = slideableGridView;
-            this.f40202c = context;
+            this.f38607d = slideableGridView;
+            this.f38606c = context;
         }
 
         @Override // com.baidu.swan.menu.viewpager.PagerAdapterImpl, androidx.viewpager.widget.PagerAdapter
@@ -95,7 +94,7 @@ public class SlideableGridView extends LinearLayout {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                a aVar = this.f40203d.f40197f;
+                a aVar = this.f38607d.f38601f;
                 if (aVar != null) {
                     return aVar.c();
                 }
@@ -118,7 +117,7 @@ public class SlideableGridView extends LinearLayout {
         public void onConfigItem(View view, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view, i2) == null) {
-                ((GridPageView) view).configItem(this.f40203d.f40197f.a(i2), i2);
+                ((GridPageView) view).configItem(this.f38607d.f38601f.a(i2), i2);
             }
         }
 
@@ -127,23 +126,23 @@ public class SlideableGridView extends LinearLayout {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i2)) == null) {
-                GridPageView gridPageView = new GridPageView(this.f40202c);
-                gridPageView.setGridItemAdapter(this.f40203d.f40197f);
-                SlideableGridView slideableGridView = this.f40203d;
-                gridPageView.setPadding(slideableGridView.f40198g, slideableGridView.f40200i, slideableGridView.f40199h, slideableGridView.f40201j);
+                GridPageView gridPageView = new GridPageView(this.f38606c);
+                gridPageView.setGridItemAdapter(this.f38607d.f38601f);
+                SlideableGridView slideableGridView = this.f38607d;
+                gridPageView.setPadding(slideableGridView.f38602g, slideableGridView.f38604i, slideableGridView.f38603h, slideableGridView.f38605j);
                 return gridPageView;
             }
             return (View) invokeLI.objValue;
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class c extends ViewPager.SimpleOnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SlideableGridView f40204e;
+        public final /* synthetic */ SlideableGridView f38608e;
 
         public c(SlideableGridView slideableGridView) {
             Interceptable interceptable = $ic;
@@ -160,14 +159,14 @@ public class SlideableGridView extends LinearLayout {
                     return;
                 }
             }
-            this.f40204e = slideableGridView;
+            this.f38608e = slideableGridView;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.SimpleOnPageChangeListener, androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f40204e.mIndicator.setCurrentPosition(i2);
+                this.f38608e.mIndicator.setCurrentPosition(i2);
             }
         }
     }
@@ -196,9 +195,9 @@ public class SlideableGridView extends LinearLayout {
     public void addIndicator(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.mIndicator = new PointPageIndicator(context).setPointDrawableResId(h.aiapp_menu_slide_indicator_normal, h.aiapp_menu_slide_indicator_selected).setPointMargin((int) getResources().getDimension(g.common_grid_indicator_margin));
-            this.mIndicatorHeight[0] = (int) getResources().getDimension(g.common_grid_indicator_height);
-            this.mIndicatorHeight[1] = (int) getResources().getDimension(g.common_grid_indicator_height2);
+            this.mIndicator = new PointPageIndicator(context).setPointDrawableResId(R.drawable.aiapp_menu_slide_indicator_normal, R.drawable.aiapp_menu_slide_indicator_selected).setPointMargin((int) getResources().getDimension(R.dimen.common_grid_indicator_margin));
+            this.mIndicatorHeight[0] = (int) getResources().getDimension(R.dimen.common_grid_indicator_height);
+            this.mIndicatorHeight[1] = (int) getResources().getDimension(R.dimen.common_grid_indicator_height2);
             addView(this.mIndicator, createIndicatorParams());
         }
     }
@@ -218,7 +217,7 @@ public class SlideableGridView extends LinearLayout {
     public void adjustLayout() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a aVar = this.f40197f;
+            a aVar = this.f38601f;
             int c2 = aVar == null ? 0 : aVar.c();
             boolean z = c2 > 1;
             int i2 = !z ? this.mIndicatorHeight[0] : this.mIndicatorHeight[1];
@@ -231,7 +230,7 @@ public class SlideableGridView extends LinearLayout {
     public int createIndicatorHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (int) getResources().getDimension(g.common_grid_indicator_height) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (int) getResources().getDimension(R.dimen.common_grid_indicator_height) : invokeV.intValue;
     }
 
     public LinearLayout.LayoutParams createIndicatorParams() {
@@ -282,7 +281,7 @@ public class SlideableGridView extends LinearLayout {
     public a getGridItemAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f40197f : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f38601f : (a) invokeV.objValue;
     }
 
     public PointPageIndicator getPageindicator() {
@@ -313,20 +312,20 @@ public class SlideableGridView extends LinearLayout {
     public void setGridItemAdapter(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, aVar) == null) {
-            this.f40197f = aVar;
+            this.f38601f = aVar;
             if (aVar != null) {
                 aVar.f(this);
-                b bVar = this.f40196e;
+                b bVar = this.f38600e;
                 if (bVar == null) {
                     b bVar2 = new b(this, getContext());
-                    this.f40196e = bVar2;
+                    this.f38600e = bVar2;
                     this.k.setAdapter(bVar2);
                 } else {
                     bVar.notifyDataSetChanged();
                 }
                 this.mIndicator.setPointCount(aVar.c());
             } else {
-                b bVar3 = this.f40196e;
+                b bVar3 = this.f38600e;
                 if (bVar3 != null) {
                     bVar3.notifyDataSetChanged();
                 }
@@ -338,10 +337,10 @@ public class SlideableGridView extends LinearLayout {
     public void setGridViewPading(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048591, this, i2, i3, i4, i5) == null) {
-            this.f40198g = i2;
-            this.f40199h = i4;
-            this.f40200i = i3;
-            this.f40201j = i5;
+            this.f38602g = i2;
+            this.f38603h = i4;
+            this.f38604i = i3;
+            this.f38605j = i5;
         }
     }
 

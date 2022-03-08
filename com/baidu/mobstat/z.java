@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.searchbox.logsystem.basic.upload.CrashPadUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class z {
     public static /* synthetic */ Interceptable $ic;
     public static final z a;
@@ -77,7 +76,7 @@ public class z {
             bb.c().a("collectAPPListWithStretegy 1");
             long currentTimeMillis = System.currentTimeMillis();
             y a2 = y.a(context);
-            long a3 = a2.a(g.f37116b);
+            long a3 = a2.a(g.f35519b);
             long f2 = a2.f();
             bb c2 = bb.c();
             c2.a("now time: " + currentTimeMillis + ": last time: " + a3 + "; userInterval : " + f2);
@@ -85,7 +84,7 @@ public class z {
                 bb.c().a("collectUserAPPListWithStretegy 2");
                 c.a(context, false);
             }
-            long a4 = a2.a(g.f37117c);
+            long a4 = a2.a(g.f35520c);
             long g2 = a2.g();
             bb c3 = bb.c();
             c3.a("now time: " + currentTimeMillis + ": last time: " + a4 + "; sysInterval : " + g2);
@@ -102,7 +101,7 @@ public class z {
             bb.c().a("collectAPPTraceWithStretegy 1");
             long currentTimeMillis = System.currentTimeMillis();
             y a2 = y.a(context);
-            long a3 = a2.a(g.f37119e);
+            long a3 = a2.a(g.f35522e);
             long i2 = a2.i();
             bb c2 = bb.c();
             c2.a("now time: " + currentTimeMillis + ": last time: " + a3 + "; time interval: " + i2);
@@ -119,7 +118,7 @@ public class z {
             bb.c().a("collectAPKWithStretegy 1");
             long currentTimeMillis = System.currentTimeMillis();
             y a2 = y.a(context);
-            long a3 = a2.a(g.f37121g);
+            long a3 = a2.a(g.f35524g);
             long h2 = a2.h();
             bb c2 = bb.c();
             c2.a("now time: " + currentTimeMillis + ": last time: " + a3 + "; interval : " + h2);
@@ -133,7 +132,7 @@ public class z {
     private void g(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, context) == null) {
-            y.a(context).a(g.f37122h, System.currentTimeMillis());
+            y.a(context).a(g.f35525h, System.currentTimeMillis());
             JSONObject a2 = h.a(context);
             bb c2 = bb.c();
             c2.a("header: " + a2);
@@ -168,13 +167,13 @@ public class z {
                 if (!TextUtils.isEmpty(str) && RomUtils.MANUFACTURER_HUAWEI.equals(str.trim().toLowerCase()) && i2 >= 28) {
                     z = true;
                 }
-                if (!k.f37127b.b(10000) && !z) {
+                if (!k.f35530b.b(10000) && !z) {
                     d(context);
                 }
-                if (!k.f37128c.b(10000) && !z) {
+                if (!k.f35531c.b(10000) && !z) {
                     e(context);
                 }
-                if (ab.f36601e && !k.f37130e.b(10000) && !z) {
+                if (ab.f35004e && !k.f35533e.b(10000) && !z) {
                     f(context);
                 }
                 boolean q = bw.q(context);
@@ -225,7 +224,7 @@ public class z {
                 }
             }
             bb.c().a("APP_APK");
-            List<String> a2 = k.f37130e.a(CrashPadUtil.MAX_READ_EXTRA);
+            List<String> a2 = k.f35533e.a(20480);
             JSONArray jSONArray2 = new JSONArray();
             for (String str : a2) {
                 bb.c().a(str);
@@ -240,7 +239,7 @@ public class z {
                 }
             }
             bb.c().a("APP_CHANGE");
-            List<String> a3 = k.f37129d.a(10240);
+            List<String> a3 = k.f35532d.a(10240);
             JSONArray jSONArray3 = new JSONArray();
             for (String str2 : a3) {
                 bb.c().a(str2);
@@ -255,7 +254,7 @@ public class z {
                 }
             }
             bb.c().a("APP_TRACE");
-            List<String> a4 = k.f37128c.a(15360);
+            List<String> a4 = k.f35531c.a(15360);
             JSONArray jSONArray4 = new JSONArray();
             for (String str3 : a4) {
                 bb.c().a(str3);
@@ -270,7 +269,7 @@ public class z {
                 }
             }
             bb.c().a("APP_LIST");
-            List<String> a5 = k.f37127b.a(46080);
+            List<String> a5 = k.f35530b.a(46080);
             JSONArray jSONArray5 = new JSONArray();
             for (String str4 : a5) {
                 bb.c().a(str4);
@@ -317,9 +316,9 @@ public class z {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, jSONObject) == null) {
             ac acVar = new ac(jSONObject);
-            ab.f36598b = acVar.a;
-            ab.f36599c = acVar.f36602b;
-            ab.f36600d = acVar.f36603c;
+            ab.f35001b = acVar.a;
+            ab.f35002c = acVar.f35005b;
+            ab.f35003d = acVar.f35006c;
         }
     }
 
@@ -333,14 +332,14 @@ public class z {
     public void a(Context context, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048576, this, context, j2) == null) {
-            y.a(context).a(g.f37123i, j2);
+            y.a(context).a(g.f35526i, j2);
         }
     }
 
     private boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? (k.a.b() && k.f37127b.b() && k.f37128c.b() && k.f37129d.b() && k.f37130e.b()) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? (k.a.b() && k.f35530b.b() && k.f35531c.b() && k.f35532d.b() && k.f35533e.b()) ? false : true : invokeV.booleanValue;
     }
 
     public boolean a(Context context) {
@@ -349,7 +348,7 @@ public class z {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             if (bw.c().booleanValue()) {
                 y a2 = y.a(context);
-                long a3 = a2.a(g.f37123i);
+                long a3 = a2.a(g.f35526i);
                 long c2 = a2.c();
                 long currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - a3 > c2) {

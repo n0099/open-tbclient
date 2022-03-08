@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
-import c.a.f0.a.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccountManager;
@@ -25,6 +24,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.QrLoginAction;
 import com.baidu.sapi2.views.LoadingDialog;
 import com.baidu.sapi2.views.ViewUtility;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class OauthActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String E = "extra_calling_app_id";
@@ -124,7 +124,7 @@ public class OauthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(f.layout_sapi_sdk_webview_with_title_bar);
+                setContentView(R.layout.layout_sapi_sdk_webview_with_title_bar);
                 if (b()) {
                     this.configuration = SapiAccountManager.getInstance().getConfignation();
                     init();
@@ -536,7 +536,7 @@ public class OauthActivity extends BaseActivity {
                 public final /* synthetic */ boolean a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ OauthActivity f38284b;
+                public final /* synthetic */ OauthActivity f36688b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -553,7 +553,7 @@ public class OauthActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f38284b = this;
+                    this.f36688b = this;
                     this.a = z;
                 }
 
@@ -563,13 +563,13 @@ public class OauthActivity extends BaseActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
                         if (webAuthResult.getResultCode() == -301) {
-                            OauthActivity oauthActivity = this.f38284b;
+                            OauthActivity oauthActivity = this.f36688b;
                             oauthActivity.setResult(0, oauthActivity.a(-205));
-                            this.f38284b.finish();
+                            this.f36688b.finish();
                         } else {
-                            OauthActivity oauthActivity2 = this.f38284b;
+                            OauthActivity oauthActivity2 = this.f36688b;
                             oauthActivity2.setResult(0, oauthActivity2.a(-201));
-                            this.f38284b.finish();
+                            this.f36688b.finish();
                         }
                         LoginActivity.supportShareLogin = true;
                         SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.a;
@@ -581,7 +581,7 @@ public class OauthActivity extends BaseActivity {
                 public void onSuccess(WebAuthResult webAuthResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, webAuthResult) == null) {
-                        this.f38284b.c();
+                        this.f36688b.c();
                         SapiAccountManager.getGlobalCallback().onLoginStatusChange();
                         LoginActivity.supportShareLogin = true;
                         SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.a;
@@ -612,7 +612,7 @@ public class OauthActivity extends BaseActivity {
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    SapiUtils.hideSoftInput(this.a.f38284b);
+                                    SapiUtils.hideSoftInput(this.a.f36688b);
                                 }
                             }
                         }, 300L);

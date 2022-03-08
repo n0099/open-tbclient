@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class i implements ThreadFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ThreadFactory a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f33594b;
+    public final String f31997b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AtomicInteger f33595c;
+    public final AtomicInteger f31998c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public i(String str) {
@@ -56,15 +56,15 @@ public class i implements ThreadFactory {
                 return;
             }
         }
-        this.f33595c = new AtomicInteger(0);
-        this.f33594b = str;
+        this.f31998c = new AtomicInteger(0);
+        this.f31997b = str;
         this.a = threadFactory;
     }
 
     private String a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) ? String.format("%s-%d", this.f33594b, Integer.valueOf(i2)) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) ? String.format("%s-%d", this.f31997b, Integer.valueOf(i2)) : (String) invokeI.objValue;
     }
 
     @Override // java.util.concurrent.ThreadFactory
@@ -73,7 +73,7 @@ public class i implements ThreadFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
             Thread newThread = this.a.newThread(runnable);
-            newThread.setName(a(this.f33595c.getAndIncrement()));
+            newThread.setName(a(this.f31998c.getAndIncrement()));
             return newThread;
         }
         return (Thread) invokeL.objValue;

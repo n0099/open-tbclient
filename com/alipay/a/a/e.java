@@ -1,6 +1,5 @@
 package com.alipay.a.a;
 
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public static List<i> a;
@@ -67,7 +66,7 @@ public final class e {
             String trim = str.trim();
             if (trim.startsWith(PreferencesUtil.LEFT_MOUNT) && trim.endsWith(PreferencesUtil.RIGHT_MOUNT)) {
                 bVar = new org.json.alipay.a(trim);
-            } else if (!trim.startsWith(StringUtil.ARRAY_START) || !trim.endsWith("}")) {
+            } else if (!trim.startsWith("{") || !trim.endsWith("}")) {
                 return a((Object) trim, type);
             } else {
                 bVar = new org.json.alipay.b(trim);

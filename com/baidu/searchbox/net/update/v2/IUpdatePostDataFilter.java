@@ -1,5 +1,5 @@
 package com.baidu.searchbox.net.update.v2;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public interface IUpdatePostDataFilter {
     boolean isNeedFilter(String str, String str2);
 }

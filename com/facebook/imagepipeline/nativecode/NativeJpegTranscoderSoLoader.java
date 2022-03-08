@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.soloader.SoLoaderProxy;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class NativeJpegTranscoderSoLoader {
     public static /* synthetic */ Interceptable $ic;
     public static boolean sInitialized;

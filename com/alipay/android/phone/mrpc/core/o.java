@@ -11,28 +11,28 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.Header;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class o extends t {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30901b;
+    public String f29305b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f30902c;
+    public byte[] f29306c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30903d;
+    public String f29307d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<Header> f30904e;
+    public ArrayList<Header> f29308e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Map<String, String> f30905f;
+    public Map<String, String> f29309f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f30906g;
+    public boolean f29310g;
 
     public o(String str) {
         Interceptable interceptable = $ic;
@@ -49,53 +49,53 @@ public final class o extends t {
                 return;
             }
         }
-        this.f30901b = str;
-        this.f30904e = new ArrayList<>();
-        this.f30905f = new HashMap();
-        this.f30903d = "application/x-www-form-urlencoded";
+        this.f29305b = str;
+        this.f29308e = new ArrayList<>();
+        this.f29309f = new HashMap();
+        this.f29307d = "application/x-www-form-urlencoded";
     }
 
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30901b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29305b : (String) invokeV.objValue;
     }
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f30903d = str;
+            this.f29307d = str;
         }
     }
 
     public final void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            if (this.f30905f == null) {
-                this.f30905f = new HashMap();
+            if (this.f29309f == null) {
+                this.f29309f = new HashMap();
             }
-            this.f30905f.put(str, str2);
+            this.f29309f.put(str, str2);
         }
     }
 
     public final void a(Header header) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, header) == null) {
-            this.f30904e.add(header);
+            this.f29308e.add(header);
         }
     }
 
     public final void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f30906g = z;
+            this.f29310g = z;
         }
     }
 
     public final void a(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bArr) == null) {
-            this.f30902c = bArr;
+            this.f29306c = bArr;
         }
     }
 
@@ -103,7 +103,7 @@ public final class o extends t {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            Map<String, String> map = this.f30905f;
+            Map<String, String> map = this.f29309f;
             if (map == null) {
                 return null;
             }
@@ -115,25 +115,25 @@ public final class o extends t {
     public final byte[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f30902c : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f29306c : (byte[]) invokeV.objValue;
     }
 
     public final String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f30903d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f29307d : (String) invokeV.objValue;
     }
 
     public final ArrayList<Header> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f30904e : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f29308e : (ArrayList) invokeV.objValue;
     }
 
     public final boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f30906g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f29310g : invokeV.booleanValue;
     }
 
     public final boolean equals(Object obj) {
@@ -145,16 +145,16 @@ public final class o extends t {
             }
             if (obj != null && o.class == obj.getClass()) {
                 o oVar = (o) obj;
-                byte[] bArr = this.f30902c;
+                byte[] bArr = this.f29306c;
                 if (bArr == null) {
-                    if (oVar.f30902c != null) {
+                    if (oVar.f29306c != null) {
                         return false;
                     }
-                } else if (!bArr.equals(oVar.f30902c)) {
+                } else if (!bArr.equals(oVar.f29306c)) {
                     return false;
                 }
-                String str = this.f30901b;
-                String str2 = oVar.f30901b;
+                String str = this.f29305b;
+                String str2 = oVar.f29305b;
                 if (str == null) {
                     if (str2 != null) {
                         return false;
@@ -173,9 +173,9 @@ public final class o extends t {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            Map<String, String> map = this.f30905f;
-            int hashCode = ((map == null || !map.containsKey("id")) ? 1 : this.f30905f.get("id").hashCode() + 31) * 31;
-            String str = this.f30901b;
+            Map<String, String> map = this.f29309f;
+            int hashCode = ((map == null || !map.containsKey("id")) ? 1 : this.f29309f.get("id").hashCode() + 31) * 31;
+            String str = this.f29305b;
             return hashCode + (str == null ? 0 : str.hashCode());
         }
         return invokeV.intValue;
@@ -184,6 +184,6 @@ public final class o extends t {
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? String.format("Url : %s,HttpHeader: %s", this.f30901b, this.f30904e) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? String.format("Url : %s,HttpHeader: %s", this.f29305b, this.f29308e) : (String) invokeV.objValue;
     }
 }

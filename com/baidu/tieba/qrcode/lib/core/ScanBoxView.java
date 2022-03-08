@@ -21,17 +21,16 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.u0.i3.b.a.a;
+import c.a.r0.g3.b.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.R$styleable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class ScanBoxView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,27 +63,27 @@ public class ScanBoxView extends View {
     public Bitmap d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public Bitmap f47658e;
+    public Bitmap f46066e;
     public Bitmap e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public Bitmap f47659f;
+    public Bitmap f46067f;
     public float f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public Bitmap f47660g;
+    public Bitmap f46068g;
     public StaticLayout g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public Bitmap f47661h;
+    public Bitmap f46069h;
     public int h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f47662i;
+    public int f46070i;
     public boolean i0;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f47663j;
+    public int f46071j;
     public Rect k;
     public Context k0;
     public float l;
@@ -144,7 +143,7 @@ public class ScanBoxView extends View {
         this.F = false;
         this.G = 0;
         this.H = false;
-        this.f47662i = a.b(context, 2.0f);
+        this.f46070i = a.b(context, 2.0f);
         this.K = null;
         this.L = a.f(context, 14.0f);
         this.M = -1;
@@ -272,10 +271,10 @@ public class ScanBoxView extends View {
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             this.n.reset();
             this.n.setAntiAlias(false);
-            canvas.drawBitmap(this.f47658e, getMainFrameLeft(), getMainFrameTop(), this.n);
-            canvas.drawBitmap(this.f47659f, getMainFrameRight() - this.f47658e.getWidth(), getMainFrameTop(), this.n);
-            canvas.drawBitmap(this.f47660g, getMainFrameLeft(), getMainFrameBottom() - this.f47658e.getHeight(), this.n);
-            canvas.drawBitmap(this.f47661h, getMainFrameRight() - this.f47658e.getWidth(), getMainFrameBottom() - this.f47658e.getHeight(), this.n);
+            canvas.drawBitmap(this.f46066e, getMainFrameLeft(), getMainFrameTop(), this.n);
+            canvas.drawBitmap(this.f46067f, getMainFrameRight() - this.f46066e.getWidth(), getMainFrameTop(), this.n);
+            canvas.drawBitmap(this.f46068g, getMainFrameLeft(), getMainFrameBottom() - this.f46066e.getHeight(), this.n);
+            canvas.drawBitmap(this.f46069h, getMainFrameRight() - this.f46066e.getWidth(), getMainFrameBottom() - this.f46066e.getHeight(), this.n);
         }
     }
 
@@ -615,82 +614,82 @@ public class ScanBoxView extends View {
             int i2 = this.q;
             options.outWidth = i2;
             options.outHeight = i2;
-            this.f47658e = BitmapHelper.getResBitmap(this.k0, R.drawable.icon_scan_upperleft, options);
+            this.f46066e = BitmapHelper.getResBitmap(this.k0, R.drawable.icon_scan_upperleft, options);
             Matrix matrix = new Matrix();
             matrix.postRotate(90.0f);
-            Bitmap bitmap = this.f47658e;
-            this.f47659f = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), this.f47658e.getHeight(), matrix, false);
+            Bitmap bitmap = this.f46066e;
+            this.f46067f = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), this.f46066e.getHeight(), matrix, false);
             matrix.postRotate(180.0f);
-            Bitmap bitmap2 = this.f47658e;
-            this.f47660g = Bitmap.createBitmap(bitmap2, 0, 0, bitmap2.getWidth(), this.f47658e.getHeight(), matrix, false);
+            Bitmap bitmap2 = this.f46066e;
+            this.f46068g = Bitmap.createBitmap(bitmap2, 0, 0, bitmap2.getWidth(), this.f46066e.getHeight(), matrix, false);
             matrix.postRotate(270.0f);
-            Bitmap bitmap3 = this.f47658e;
-            this.f47661h = Bitmap.createBitmap(bitmap3, 0, 0, bitmap3.getWidth(), this.f47658e.getHeight(), matrix, false);
+            Bitmap bitmap3 = this.f46066e;
+            this.f46069h = Bitmap.createBitmap(bitmap3, 0, 0, bitmap3.getWidth(), this.f46066e.getHeight(), matrix, false);
         }
     }
 
     public final void i(int i2, TypedArray typedArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048612, this, i2, typedArray) == null) {
-            if (i2 == R$styleable.QRCodeView_qrcv_topOffset) {
+            if (i2 == 29) {
                 this.v = typedArray.getDimensionPixelSize(i2, this.v);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_cornerSize) {
+            } else if (i2 == 6) {
                 this.r = typedArray.getDimensionPixelSize(i2, this.r);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_cornerLength) {
+            } else if (i2 == 5) {
                 this.q = typedArray.getDimensionPixelSize(i2, this.q);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_scanLineSize) {
+            } else if (i2 == 23) {
                 this.w = typedArray.getDimensionPixelSize(i2, this.w);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_rectWidth) {
+            } else if (i2 == 20) {
                 this.s = typedArray.getDimensionPixelSize(i2, this.s);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_maskColor) {
+            } else if (i2 == 18) {
                 this.p = typedArray.getColor(i2, this.p);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_scanLineColor) {
+            } else if (i2 == 21) {
                 this.x = typedArray.getColor(i2, this.x);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_scanLineMargin) {
+            } else if (i2 == 22) {
                 this.y = typedArray.getDimensionPixelSize(i2, this.y);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_isShowDefaultScanLineDrawable) {
+            } else if (i2 == 14) {
                 this.z = typedArray.getBoolean(i2, this.z);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_customScanLineDrawable) {
+            } else if (i2 == 8) {
                 this.A = typedArray.getDrawable(i2);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_borderSize) {
+            } else if (i2 == 4) {
                 this.C = typedArray.getDimensionPixelSize(i2, this.C);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_borderColor) {
+            } else if (i2 == 3) {
                 this.D = typedArray.getColor(i2, this.D);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_animTime) {
+            } else if (i2 == 0) {
                 this.E = typedArray.getInteger(i2, this.E);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_isCenterVertical) {
+            } else if (i2 == 10) {
                 this.F = typedArray.getBoolean(i2, this.F);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_toolbarHeight) {
+            } else if (i2 == 28) {
                 this.G = typedArray.getDimensionPixelSize(i2, this.G);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_barcodeRectHeight) {
+            } else if (i2 == 2) {
                 this.u = typedArray.getDimensionPixelSize(i2, this.u);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_isBarcode) {
+            } else if (i2 == 9) {
                 this.H = typedArray.getBoolean(i2, this.H);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_barCodeTipText) {
+            } else if (i2 == 1) {
                 this.J = typedArray.getString(i2);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_qrCodeTipText) {
+            } else if (i2 == 19) {
                 this.I = typedArray.getString(i2);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_tipTextSize) {
+            } else if (i2 == 27) {
                 this.L = typedArray.getDimensionPixelSize(i2, this.L);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_tipTextColor) {
+            } else if (i2 == 25) {
                 this.M = typedArray.getColor(i2, this.M);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_isTipTextBelowRect) {
+            } else if (i2 == 17) {
                 this.N = typedArray.getBoolean(i2, this.N);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_tipTextMargin) {
+            } else if (i2 == 26) {
                 this.O = typedArray.getDimensionPixelSize(i2, this.O);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_isShowTipTextAsSingleLine) {
+            } else if (i2 == 16) {
                 this.P = typedArray.getBoolean(i2, this.P);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_isShowTipBackground) {
+            } else if (i2 == 15) {
                 this.R = typedArray.getBoolean(i2, this.R);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_tipBackgroundColor) {
+            } else if (i2 == 24) {
                 this.Q = typedArray.getColor(i2, this.Q);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_isScanLineReverse) {
+            } else if (i2 == 12) {
                 this.S = typedArray.getBoolean(i2, this.S);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_isShowDefaultGridScanLineDrawable) {
+            } else if (i2 == 13) {
                 this.T = typedArray.getBoolean(i2, this.T);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_customGridScanLineDrawable) {
+            } else if (i2 == 7) {
                 this.U = typedArray.getDrawable(i2);
-            } else if (i2 == R$styleable.QRCodeView_qrcv_isOnlyDecodeScanBoxArea) {
+            } else if (i2 == 11) {
                 this.i0 = typedArray.getBoolean(i2, this.i0);
             }
         }
@@ -699,7 +698,7 @@ public class ScanBoxView extends View {
     public void initCustomAttrs(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048613, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.QRCodeView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.qrcv_animTime, R.attr.qrcv_barCodeTipText, R.attr.qrcv_barcodeRectHeight, R.attr.qrcv_borderColor, R.attr.qrcv_borderSize, R.attr.qrcv_cornerLength, R.attr.qrcv_cornerSize, R.attr.qrcv_customGridScanLineDrawable, R.attr.qrcv_customScanLineDrawable, R.attr.qrcv_isBarcode, R.attr.qrcv_isCenterVertical, R.attr.qrcv_isOnlyDecodeScanBoxArea, R.attr.qrcv_isScanLineReverse, R.attr.qrcv_isShowDefaultGridScanLineDrawable, R.attr.qrcv_isShowDefaultScanLineDrawable, R.attr.qrcv_isShowTipBackground, R.attr.qrcv_isShowTipTextAsSingleLine, R.attr.qrcv_isTipTextBelowRect, R.attr.qrcv_maskColor, R.attr.qrcv_qrCodeTipText, R.attr.qrcv_rectWidth, R.attr.qrcv_scanLineColor, R.attr.qrcv_scanLineMargin, R.attr.qrcv_scanLineSize, R.attr.qrcv_tipBackgroundColor, R.attr.qrcv_tipTextColor, R.attr.qrcv_tipTextMargin, R.attr.qrcv_tipTextSize, R.attr.qrcv_toolbarHeight, R.attr.qrcv_topOffset});
             int indexCount = obtainStyledAttributes.getIndexCount();
             for (int i2 = 0; i2 < indexCount; i2++) {
                 i(obtainStyledAttributes.getIndex(i2), obtainStyledAttributes);
@@ -763,7 +762,7 @@ public class ScanBoxView extends View {
         if (interceptable == null || interceptable.invokeV(1048622, this) == null) {
             if (this.H) {
                 if (this.V == null) {
-                    this.m += this.f47662i;
+                    this.m += this.f46070i;
                     int i2 = this.w;
                     Bitmap bitmap = this.B;
                     if (bitmap != null) {
@@ -774,7 +773,7 @@ public class ScanBoxView extends View {
                         Rect rect = this.k;
                         float f3 = this.f0;
                         if (i2 + f2 > rect.right - f3 || f2 < rect.left + f3) {
-                            this.f47662i = -this.f47662i;
+                            this.f46070i = -this.f46070i;
                         }
                     } else {
                         float f4 = this.m + i2;
@@ -785,7 +784,7 @@ public class ScanBoxView extends View {
                         }
                     }
                 } else {
-                    float f6 = this.a0 + this.f47662i;
+                    float f6 = this.a0 + this.f46070i;
                     this.a0 = f6;
                     Rect rect3 = this.k;
                     float f7 = this.f0;
@@ -794,7 +793,7 @@ public class ScanBoxView extends View {
                     }
                 }
             } else if (this.V == null) {
-                this.l += this.f47662i;
+                this.l += this.f46070i;
                 int i3 = this.w;
                 Bitmap bitmap2 = this.B;
                 if (bitmap2 != null) {
@@ -805,7 +804,7 @@ public class ScanBoxView extends View {
                     Rect rect4 = this.k;
                     float f9 = this.f0;
                     if (i3 + f8 > rect4.bottom - f9 || f8 < rect4.top + f9) {
-                        this.f47662i = -this.f47662i;
+                        this.f46070i = -this.f46070i;
                     }
                 } else {
                     float f10 = this.l + i3;
@@ -816,7 +815,7 @@ public class ScanBoxView extends View {
                     }
                 }
             } else {
-                float f12 = this.W + this.f47662i;
+                float f12 = this.W + this.f46070i;
                 this.W = f12;
                 Rect rect6 = this.k;
                 float f13 = this.f0;
@@ -824,7 +823,7 @@ public class ScanBoxView extends View {
                     this.W = rect6.top + f13 + 0.5f;
                 }
             }
-            long j2 = this.f47663j;
+            long j2 = this.f46071j;
             Rect rect7 = this.k;
             postInvalidateDelayed(j2, rect7.left, rect7.top, rect7.right, rect7.bottom);
         }
@@ -952,12 +951,12 @@ public class ScanBoxView extends View {
             if (this.H) {
                 this.K = this.J;
                 this.t = this.u;
-                this.f47663j = (int) (((this.E * 1.0f) * this.f47662i) / this.s);
+                this.f46071j = (int) (((this.E * 1.0f) * this.f46070i) / this.s);
             } else {
                 this.K = this.I;
                 int i2 = this.s;
                 this.t = i2;
-                this.f47663j = (int) (((this.E * 1.0f) * this.f47662i) / i2);
+                this.f46071j = (int) (((this.E * 1.0f) * this.f46070i) / i2);
             }
             if (!TextUtils.isEmpty(this.K)) {
                 if (this.P) {

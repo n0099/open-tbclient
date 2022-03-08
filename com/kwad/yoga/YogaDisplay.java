@@ -1,7 +1,6 @@
 package com.kwad.yoga;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.proguard.annotations.DoNotStrip;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 @DoNotStrip
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class YogaDisplay {
     public static final /* synthetic */ YogaDisplay[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -35,7 +34,7 @@ public final class YogaDisplay {
             }
         }
         FLEX = new YogaDisplay("FLEX", 0, 0);
-        YogaDisplay yogaDisplay = new YogaDisplay(PolyActivity.NONE_PANEL_TYPE, 1, 1);
+        YogaDisplay yogaDisplay = new YogaDisplay("NONE", 1, 1);
         NONE = yogaDisplay;
         $VALUES = new YogaDisplay[]{FLEX, yogaDisplay};
     }

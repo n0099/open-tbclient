@@ -1,5 +1,5 @@
 package com.baidu.ar.vo.c;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public interface c {
     boolean q(float[] fArr);
 }

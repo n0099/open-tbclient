@@ -1,7 +1,7 @@
 package com.tachikoma.core.api;
 
 import android.net.Uri;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface IRouterInner {
     void navigateTo(Uri uri);
 }

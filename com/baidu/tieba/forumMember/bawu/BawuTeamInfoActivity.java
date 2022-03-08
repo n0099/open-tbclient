@@ -1,11 +1,11 @@
 package com.baidu.tieba.forumMember.bawu;
 
 import android.os.Bundle;
-import c.a.u0.c1.a.e;
-import c.a.u0.c1.a.f;
-import c.a.u0.c1.a.g;
-import c.a.u0.c1.a.i;
-import c.a.u0.c1.c.l;
+import c.a.r0.b1.a.e;
+import c.a.r0.b1.a.f;
+import c.a.r0.b1.a.g;
+import c.a.r0.b1.a.i;
+import c.a.r0.b1.c.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
     public NoNetworkView.b mNetworkChangedListener;
     public g mView;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a implements e.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
             this.a = bawuTeamInfoActivity;
         }
 
-        @Override // c.a.u0.c1.a.e.c
+        @Override // c.a.r0.b1.a.e.c
         public void a(ArrayList<i> arrayList, l lVar, boolean z, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{arrayList, lVar, Boolean.valueOf(z), Integer.valueOf(i2), str}) == null) {
@@ -60,7 +60,7 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
                         bawuTeamInfoActivity.hideLoadingView(bawuTeamInfoActivity.mView.d());
                         this.a.mView.k(arrayList, lVar, false);
                     }
-                    this.a.mModel.m(this.a.forumId);
+                    this.a.mModel.i(this.a.forumId);
                     return;
                 }
                 BawuTeamInfoActivity bawuTeamInfoActivity2 = this.a;
@@ -77,13 +77,13 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class b implements NoNetworkView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BawuTeamInfoActivity f43273e;
+        public final /* synthetic */ BawuTeamInfoActivity f41676e;
 
         public b(BawuTeamInfoActivity bawuTeamInfoActivity) {
             Interceptable interceptable = $ic;
@@ -100,14 +100,14 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
                     return;
                 }
             }
-            this.f43273e = bawuTeamInfoActivity;
+            this.f41676e = bawuTeamInfoActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
-                this.f43273e.refreshData();
+                this.f41676e.refreshData();
             }
         }
     }
@@ -133,7 +133,7 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             showLoadingView(this.mView.d(), true);
-            this.mModel.m(this.forumId);
+            this.mModel.i(this.forumId);
         }
     }
 
@@ -143,8 +143,8 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
             this.mModel = new e();
             a aVar = new a(this);
             this.mDataCallback = aVar;
-            this.mModel.o(aVar);
-            this.mModel.l(this.forumId);
+            this.mModel.k(aVar);
+            this.mModel.h(this.forumId);
             showLoadingView(this.mView.d(), true);
         }
     }
@@ -152,7 +152,7 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
     public void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            g gVar = new g(this, this.forumId);
+            g gVar = new g(this);
             this.mView = gVar;
             gVar.h(this.mNetworkChangedListener);
         }
@@ -188,7 +188,7 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
             super.onDestroy();
             e eVar = this.mModel;
             if (eVar != null) {
-                eVar.h();
+                eVar.g();
             }
             g gVar = this.mView;
             if (gVar != null) {
@@ -208,9 +208,9 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
     public void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            c.a.u0.z3.g0.a.h(301007, BawuTeamSocketResponseMessage.class, false, false);
-            c.a.u0.z3.g0.a.c(301007, CmdConfigHttp.BAWU_TEAM_INFO_CMD, TbConfig.GET_BAWU_INFO, BawuTeamHttpResponseMessage.class, false, false, false, false);
-            c.a.u0.z3.g0.a.b(2003005, f.class);
+            c.a.r0.y3.g0.a.h(301007, BawuTeamSocketResponseMessage.class, false, false);
+            c.a.r0.y3.g0.a.c(301007, CmdConfigHttp.BAWU_TEAM_INFO_CMD, TbConfig.GET_BAWU_INFO, BawuTeamHttpResponseMessage.class, false, false, false, false);
+            c.a.r0.y3.g0.a.b(2003005, f.class);
         }
     }
 }

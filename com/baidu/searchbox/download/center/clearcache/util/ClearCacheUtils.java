@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class ClearCacheUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_LAST_CLEAR_TIME = 0;

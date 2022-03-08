@@ -2,7 +2,6 @@ package com.cmic.sso.sdk.b;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,14 +15,14 @@ import com.cmic.sso.sdk.d.q;
 import com.cmic.sso.sdk.d.s;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f53594b;
+    public String f52013b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -55,7 +54,7 @@ public class a {
             }
             if (list2 != null && list2.size() > 0) {
                 String str = list2.get(0);
-                this.f53594b = str;
+                this.f52013b = str;
                 if (!TextUtils.isEmpty(str)) {
                     String b3 = aVar.b("operatortype", "0");
                     if ("2".equals(b3)) {
@@ -63,11 +62,11 @@ public class a {
                     } else if ("3".equals(b3)) {
                         s.a(aVar, "getTelecomMobile");
                     } else {
-                        s.a(aVar, PolyActivity.NONE_PANEL_TYPE);
+                        s.a(aVar, "NONE");
                     }
                 }
             }
-            c a = a(this.f53594b, cVar.f(), "GET", new com.cmic.sso.sdk.b.b.c(cVar.k().a()));
+            c a = a(this.f52013b, cVar.f(), "GET", new com.cmic.sso.sdk.b.b.c(cVar.k().a()));
             a.a(cVar.h());
             return a;
         }
@@ -84,7 +83,7 @@ public class a {
             } else if ("3".equals(b2)) {
                 s.a(aVar, "getNewTelecomPhoneNumberNotify");
             } else {
-                s.a(aVar, PolyActivity.NONE_PANEL_TYPE);
+                s.a(aVar, "NONE");
             }
             s.b(aVar, String.valueOf(bVar.a()));
             d dVar = new d(cVar.k().a(), "1.0", bVar.c());

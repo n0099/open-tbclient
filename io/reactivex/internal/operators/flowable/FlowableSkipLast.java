@@ -11,13 +11,13 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import java.util.ArrayDeque;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class FlowableSkipLast<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int skip;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class SkipLastSubscriber<T> extends ArrayDeque<T> implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3807491841935125653L;

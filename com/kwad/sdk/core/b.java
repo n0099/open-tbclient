@@ -2,7 +2,7 @@ package com.kwad.sdk.core;
 
 import androidx.annotation.Nullable;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface b {
     void parseJson(@Nullable JSONObject jSONObject);
 

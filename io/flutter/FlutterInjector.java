@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.embedding.engine.FlutterJNI;
 import io.flutter.embedding.engine.deferredcomponents.DeferredComponentManager;
 import io.flutter.embedding.engine.loader.FlutterLoader;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class FlutterInjector {
     public static /* synthetic */ Interceptable $ic;
     public static boolean accessed;
@@ -24,13 +24,13 @@ public final class FlutterInjector {
     public FlutterLoader flutterLoader;
 
     /* renamed from: io.flutter.FlutterInjector$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

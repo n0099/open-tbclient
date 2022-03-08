@@ -17,7 +17,7 @@ import io.flutter.plugin.common.BasicMessageChannel;
 import io.flutter.plugin.common.JSONMessageCodec;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class SettingsChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALWAYS_USE_24_HOUR_FORMAT = "alwaysUse24HourFormat";
@@ -29,7 +29,7 @@ public class SettingsChannel {
     @NonNull
     public final BasicMessageChannel<Object> channel;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class MessageBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +100,7 @@ public class SettingsChannel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class PlatformBrightness {
         public static final /* synthetic */ PlatformBrightness[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

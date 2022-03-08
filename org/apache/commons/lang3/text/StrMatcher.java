@@ -9,9 +9,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.util.Arrays;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class StrMatcher {
     public static /* synthetic */ Interceptable $ic;
     public static final StrMatcher COMMA_MATCHER;
@@ -25,7 +26,7 @@ public abstract class StrMatcher {
     public static final StrMatcher TRIM_MATCHER;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class CharMatcher extends StrMatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -57,7 +58,7 @@ public abstract class StrMatcher {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class CharSetMatcher extends StrMatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +92,7 @@ public abstract class StrMatcher {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class NoMatcher extends StrMatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,7 +122,7 @@ public abstract class StrMatcher {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class StringMatcher extends StrMatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -174,13 +175,13 @@ public abstract class StrMatcher {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return super.toString() + ' ' + Arrays.toString(this.chars);
+                return super.toString() + WebvttCueParser.CHAR_SPACE + Arrays.toString(this.chars);
             }
             return (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class TrimMatcher extends StrMatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -222,7 +223,7 @@ public abstract class StrMatcher {
         }
         COMMA_MATCHER = new CharMatcher(',');
         TAB_MATCHER = new CharMatcher('\t');
-        SPACE_MATCHER = new CharMatcher(' ');
+        SPACE_MATCHER = new CharMatcher(WebvttCueParser.CHAR_SPACE);
         SPLIT_MATCHER = new CharSetMatcher(" \t\n\r\f".toCharArray());
         TRIM_MATCHER = new TrimMatcher();
         SINGLE_QUOTE_MATCHER = new CharMatcher(ExtendedMessageFormat.QUOTE);

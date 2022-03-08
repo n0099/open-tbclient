@@ -20,7 +20,7 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class JsUploadTask implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CONN_TIMEOUT = 5000;
@@ -81,7 +81,7 @@ public class JsUploadTask implements INoProGuard {
     public boolean responded;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class JumpType {
         public static final /* synthetic */ JumpType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -360,9 +360,9 @@ public class JsUploadTask implements INoProGuard {
                             CloudSettings.a aVar = CloudSettings.NetRecordList.get(0);
                             CloudSettings.NetRecordList.remove(0);
                             Log.w(TAG, "NetRecordList size1 " + CloudSettings.NetRecordList.size());
-                            jSONObject.put(ETAG.KEY_CRONET_ENABLE, aVar.f52984c);
+                            jSONObject.put(ETAG.KEY_CRONET_ENABLE, aVar.f51403c);
                             jSONObject.put(ETAG.KEY_CRONET_NET_TIME, aVar.a);
-                            jSONObject.put(ETAG.KEY_CRONET_NET_RES, aVar.f52983b);
+                            jSONObject.put(ETAG.KEY_CRONET_NET_RES, aVar.f51402b);
                         }
                         if (WebSettingsGlobalBlink.isFeedProxyAdUrl(mCurrentUrl)) {
                             jSONObject.put(ETAG.KEY_FEED_PROXY_AD, 1);

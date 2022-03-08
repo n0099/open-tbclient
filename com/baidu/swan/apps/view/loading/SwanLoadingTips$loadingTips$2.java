@@ -2,9 +2,9 @@ package com.baidu.swan.apps.view.loading;
 
 import android.app.Application;
 import android.content.res.Resources;
-import c.a.s0.a.b;
-import c.a.s0.a.c1.a;
+import c.a.p0.a.s0.a;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0011\n\u0002\u0010\u000e\n\u0002\b\u0003\u0010\u0000\u001a*\u0012\f\u0012\n \u0003*\u0004\u0018\u00010\u00020\u0002\u0018\u0001 \u0003*\u0014\u0012\u000e\b\u0001\u0012\n \u0003*\u0004\u0018\u00010\u00020\u0002\u0018\u00010\u00010\u0001H\n¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", "", "kotlin.jvm.PlatformType", "invoke", "()[Ljava/lang/String;"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public final class SwanLoadingTips$loadingTips$2 extends Lambda implements Function0<String[]> {
     public static /* synthetic */ Interceptable $ic;
     public static final SwanLoadingTips$loadingTips$2 INSTANCE;
@@ -69,13 +69,13 @@ public final class SwanLoadingTips$loadingTips$2 extends Lambda implements Funct
                 if (c2 == null || (resources2 = c2.getResources()) == null) {
                     return null;
                 }
-                return resources2.getStringArray(b.aiapps_loading_tips_prepare);
+                return resources2.getStringArray(R.array.aiapps_loading_tips_prepare);
             }
             Application c3 = a.c();
             if (c3 == null || (resources = c3.getResources()) == null) {
                 return null;
             }
-            return resources.getStringArray(b.aiapps_loading_tips_skill);
+            return resources.getStringArray(R.array.aiapps_loading_tips_skill);
         }
         return (String[]) invokeV.objValue;
     }

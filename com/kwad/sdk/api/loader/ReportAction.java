@@ -2,7 +2,7 @@ package com.kwad.sdk.api.loader;
 
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ReportAction {
     @Keep
     public static final int ACT_DYNAMIC_DOWNLOAD_FAIL = 62;

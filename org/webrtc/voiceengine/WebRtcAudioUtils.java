@@ -18,8 +18,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.webrtc.ContextUtils;
 import org.webrtc.Logging;
-import org.webrtc.MediaStreamTrack;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class WebRtcAudioUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] BLACKLISTED_AEC_MODELS;
@@ -253,7 +252,7 @@ public final class WebRtcAudioUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65551, null, str) == null) {
             logDeviceInfo(str);
-            AudioManager audioManager = (AudioManager) ContextUtils.getApplicationContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+            AudioManager audioManager = (AudioManager) ContextUtils.getApplicationContext().getSystemService("audio");
             logAudioStateBasic(str, audioManager);
             logAudioStateVolume(str, audioManager);
             logAudioDeviceInfo(str, audioManager);

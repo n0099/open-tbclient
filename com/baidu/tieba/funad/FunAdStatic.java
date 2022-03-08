@@ -1,9 +1,9 @@
 package com.baidu.tieba.funad;
 
-import c.a.u0.f1.a;
-import c.a.u0.f1.b;
-import c.a.u0.g1.c;
-import c.a.u0.g1.d;
+import c.a.r0.e1.a;
+import c.a.r0.e1.b;
+import c.a.r0.f1.c;
+import c.a.r0.f1.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -21,12 +21,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.managers.setting.GlobalSetting;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FunAdStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class a implements CustomMessageTask.CustomRunnable<a.f> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

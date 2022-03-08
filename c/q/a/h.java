@@ -12,28 +12,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.PBNativeListener;
 import com.win.opensdk.core.Info;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class h implements View.OnClickListener, View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f30562e;
+    public int f28967e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30563f;
+    public int f28968f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f30564g;
+    public long f28969g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f30565h;
+    public int f28970h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f30566i;
+    public int f28971i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f30567j;
+    public long f28972j;
     public final /* synthetic */ l k;
 
     public h(l lVar) {
@@ -59,12 +59,12 @@ public class h implements View.OnClickListener, View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put("dx", Integer.valueOf(this.f30562e));
-            hashMap.put("dy", Integer.valueOf(this.f30563f));
-            hashMap.put("dts", Long.valueOf(this.f30564g));
-            hashMap.put("ux", Integer.valueOf(this.f30565h));
-            hashMap.put("uy", Integer.valueOf(this.f30566i));
-            hashMap.put("uts", Long.valueOf(this.f30567j));
+            hashMap.put("dx", Integer.valueOf(this.f28967e));
+            hashMap.put("dy", Integer.valueOf(this.f28968f));
+            hashMap.put("dts", Long.valueOf(this.f28969g));
+            hashMap.put("ux", Integer.valueOf(this.f28970h));
+            hashMap.put("uy", Integer.valueOf(this.f28971i));
+            hashMap.put("uts", Long.valueOf(this.f28972j));
             l lVar = this.k;
             r0.j(hashMap, lVar.p, lVar.q, lVar.r, lVar.s, lVar.t, lVar.u);
             return hashMap;
@@ -86,9 +86,9 @@ public class h implements View.OnClickListener, View.OnTouchListener {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f30562e = (int) motionEvent.getRawX();
-                this.f30563f = (int) motionEvent.getRawY();
-                this.f30564g = System.currentTimeMillis();
+                this.f28967e = (int) motionEvent.getRawX();
+                this.f28968f = (int) motionEvent.getRawY();
+                this.f28969g = System.currentTimeMillis();
                 this.k.p = (int) motionEvent.getX();
                 this.k.q = (int) motionEvent.getY();
                 l.e(this.k, view);
@@ -96,28 +96,28 @@ public class h implements View.OnClickListener, View.OnTouchListener {
             } else if (action != 1) {
                 return false;
             } else {
-                this.f30565h = (int) motionEvent.getRawX();
-                this.f30566i = (int) motionEvent.getRawY();
-                this.f30567j = System.currentTimeMillis();
+                this.f28970h = (int) motionEvent.getRawX();
+                this.f28971i = (int) motionEvent.getRawY();
+                this.f28972j = System.currentTimeMillis();
                 this.k.r = (int) motionEvent.getX();
                 this.k.s = (int) motionEvent.getY();
                 l lVar = this.k;
-                Info info = lVar.f30594c;
-                if (info == null || !a2.d(info, lVar.f30599h)) {
+                Info info = lVar.f29009c;
+                if (info == null || !v1.d(info, lVar.f29014h)) {
                     return false;
                 }
-                this.k.f30599h = System.currentTimeMillis();
+                this.k.f29014h = System.currentTimeMillis();
                 l lVar2 = this.k;
                 Context context = lVar2.a;
-                String open = lVar2.f30594c.getOpen();
+                String open = lVar2.f29009c.getOpen();
                 l lVar3 = this.k;
-                a2.a(context, open, lVar3.f30594c, lVar3.f30598g, a().toString());
-                y2 a = c3.a(this.k.a);
-                a.h(new g3(this.k.f30594c), null);
+                v1.a(context, open, lVar3.f29009c, lVar3.f29013g, a().toString());
+                t2 a = x2.a(this.k.a);
+                a.h(new b3(this.k.f29009c), null);
                 a.l("desc", a().toString());
                 a.m();
-                r0.p(this.k.f30594c, a().toString());
-                PBNativeListener pBNativeListener = this.k.f30597f;
+                r0.p(this.k.f29009c, a().toString());
+                PBNativeListener pBNativeListener = this.k.f29012f;
                 if (pBNativeListener != null) {
                     pBNativeListener.onClicked();
                     return false;

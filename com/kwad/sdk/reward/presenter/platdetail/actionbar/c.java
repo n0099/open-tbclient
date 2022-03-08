@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import com.kwad.sdk.R;
+import com.baidu.tieba.R;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.reward.d.e;
@@ -15,29 +15,29 @@ import com.kwad.sdk.utils.af;
 import com.kwad.sdk.utils.w;
 import com.kwad.sdk.widget.KsAuthorIconView;
 import com.kwad.sdk.widget.KsLogoView;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class c extends g implements View.OnClickListener, RewardActionBarControl.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public KsAuthorIconView f57765b;
+    public KsAuthorIconView f56115b;
 
     /* renamed from: c  reason: collision with root package name */
-    public KsLogoView f57766c;
+    public KsLogoView f56116c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f57767d;
+    public ViewGroup f56117d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.reward.d.d f57768e;
+    public com.kwad.sdk.reward.d.d f56118e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f57769f;
+    public int f56119f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout.LayoutParams f57770g;
+    public FrameLayout.LayoutParams f56120g;
 
     public c(ViewGroup viewGroup) {
-        this.f57767d = viewGroup;
+        this.f56117d = viewGroup;
     }
 
     public static FrameLayout.LayoutParams a(Context context, AdInfo adInfo, KsLogoView ksLogoView, int i2) {
@@ -70,59 +70,59 @@ public class c extends g implements View.OnClickListener, RewardActionBarControl
     }
 
     private void a(AdTemplate adTemplate, com.kwad.sdk.widget.c cVar) {
-        this.f57765b.setVisibility(0);
-        this.f57765b.a(adTemplate);
-        this.f57765b.a(com.kwad.sdk.core.config.b.aK(), cVar);
+        this.f56115b.setVisibility(0);
+        this.f56115b.a(adTemplate);
+        this.f56115b.a(com.kwad.sdk.core.config.b.aK(), cVar);
     }
 
     @Override // com.kwad.sdk.reward.g, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        AdInfo j2 = com.kwad.sdk.core.response.a.d.j(((g) this).a.f57419g);
+        AdInfo j2 = com.kwad.sdk.core.response.a.d.j(((g) this).a.f55769g);
         com.kwad.sdk.widget.c cVar = new com.kwad.sdk.widget.c(com.kwad.sdk.core.config.b.aJ());
         boolean z = com.kwad.sdk.core.config.b.aH() == 2;
-        this.f57769f = this.f57766c.getVisibility();
-        this.f57770g = a(q(), j2, this.f57766c, R.dimen.ksad_reward_follow_logo_margin_bottom);
+        this.f56119f = this.f56116c.getVisibility();
+        this.f56120g = a(q(), j2, this.f56116c, R.dimen.ksad_reward_follow_logo_margin_bottom);
         if (z) {
-            a(((g) this).a.f57419g, cVar);
+            a(((g) this).a.f55769g, cVar);
         }
         ((g) this).a.n.a(this);
         boolean aA = com.kwad.sdk.core.response.a.a.aA(j2);
         com.kwad.sdk.reward.d.a aVar = new com.kwad.sdk.reward.d.a(q(), ((g) this).a);
-        this.f57768e = aA ? new f(this.f57767d, aVar) : new e(this.f57767d, z, aVar);
-        w.a(cVar, this.f57768e.a());
-        this.f57768e.a(((g) this).a.f57419g);
+        this.f56118e = aA ? new f(this.f56117d, aVar) : new e(this.f56117d, z, aVar);
+        w.a(cVar, this.f56118e.a());
+        this.f56118e.a(((g) this).a.f55769g);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
         ((g) this).a.n.a((RewardActionBarControl.a) null);
-        this.f57766c.setVisibility(this.f57769f);
-        FrameLayout.LayoutParams layoutParams = this.f57770g;
+        this.f56116c.setVisibility(this.f56119f);
+        FrameLayout.LayoutParams layoutParams = this.f56120g;
         if (layoutParams != null) {
-            this.f57766c.setLayoutParams(layoutParams);
+            this.f56116c.setLayoutParams(layoutParams);
         }
-        this.f57765b.setVisibility(8);
+        this.f56115b.setVisibility(8);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.f57766c = (KsLogoView) a(R.id.ksad_ad_label_play_bar);
+        this.f56116c = (KsLogoView) a(R.id.ksad_ad_label_play_bar);
         KsAuthorIconView ksAuthorIconView = (KsAuthorIconView) a(R.id.ksad_reward_author_view);
-        this.f57765b = ksAuthorIconView;
+        this.f56115b = ksAuthorIconView;
         ksAuthorIconView.setOnClickListener(this);
     }
 
     @Override // com.kwad.sdk.reward.presenter.platdetail.actionbar.RewardActionBarControl.a
     public void d() {
-        this.f57767d.setVisibility(0);
+        this.f56117d.setVisibility(0);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.equals(this.f57765b)) {
+        if (view.equals(this.f56115b)) {
             ((g) this).a.a(q(), 1, 1);
         }
     }

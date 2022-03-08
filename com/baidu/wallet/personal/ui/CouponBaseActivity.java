@@ -12,23 +12,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.beans.BeanActivity;
 import com.baidu.wallet.core.utils.LogUtil;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class CouponBaseActivity extends BeanActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Resources mResources;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class a extends Resources {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float f52777b;
+        public float f51196b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f52778c;
+        public int f51197c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Resources resources) {
@@ -58,8 +58,8 @@ public class CouponBaseActivity extends BeanActivity {
                 float f3 = displayMetrics.scaledDensity;
                 float f4 = displayMetrics.widthPixels / 360.0f;
                 this.a = f4;
-                this.f52777b = (f3 / f2) * f4;
-                this.f52778c = (int) (f4 * 160.0f);
+                this.f51196b = (f3 / f2) * f4;
+                this.f51197c = (int) (f4 * 160.0f);
             }
         }
 
@@ -67,7 +67,7 @@ public class CouponBaseActivity extends BeanActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65538, this, displayMetrics) == null) {
                 displayMetrics.density = this.a;
-                displayMetrics.densityDpi = this.f52778c;
+                displayMetrics.densityDpi = this.f51197c;
             }
         }
 

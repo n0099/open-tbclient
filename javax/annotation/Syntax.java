@@ -8,7 +8,7 @@ import javax.annotation.meta.When;
 @TypeQualifier(applicableTo = CharSequence.class)
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public @interface Syntax {
     String value();
 

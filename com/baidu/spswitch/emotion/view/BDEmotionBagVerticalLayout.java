@@ -30,7 +30,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.spswitch.R;
 import com.baidu.spswitch.emotion.EmotionType;
 import com.baidu.spswitch.emotion.EmotionUtils;
 import com.baidu.spswitch.emotion.GlobalOnItemClickListenerManager;
@@ -38,6 +37,7 @@ import com.baidu.spswitch.emotion.view.PopupEmotionManager;
 import com.baidu.spswitch.utils.BDEmotionPanelManager;
 import com.baidu.spswitch.utils.UIUtils;
 import com.baidu.spswitch.view.SPSwitchPanelLinearLayout;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,7 +49,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.WeakHashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class BDEmotionBagVerticalLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COLOR_EMOTION_BAG = -460552;
@@ -91,7 +91,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
     public RectF mValidLongPressedRect;
     public ViewPager mViewPager;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static abstract class BaseViewHolder<DATA> extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -152,7 +152,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         public abstract void onBindViewHolder(int i2, DATA data);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class EmotionGridViewAdapter extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -167,12 +167,12 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         public StatisticData mStatisticData;
         public BDEmotionBagVerticalLayout mVerticalLayout;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes4.dex */
         public interface LongClickCallback {
             void onLongClick(View view);
         }
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes4.dex */
         public static class StatisticData {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -450,7 +450,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class EmotionListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -542,7 +542,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public class EmotionPagerAdapter extends PagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -602,7 +602,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class EmotionTemplateData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -626,7 +626,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class EmotionViewHolder extends BaseViewHolder<EmotionTemplateData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -882,7 +882,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class ListMetaData<DATA> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -909,7 +909,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class OffsetLinearLayoutManager extends LinearLayoutManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -971,7 +971,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class PaddingTemplateData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -991,7 +991,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class PaddingViewHolder extends BaseViewHolder<PaddingTemplateData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1026,7 +1026,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class TitleTemplateData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1048,7 +1048,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class TitleViewHolder extends BaseViewHolder<TitleTemplateData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

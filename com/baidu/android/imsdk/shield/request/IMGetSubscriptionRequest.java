@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMGetSubscriptionRequest";

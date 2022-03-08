@@ -10,16 +10,16 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "resultStatus";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f31181b = "memo";
+    public static final String f29585b = "memo";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f31182c = "result";
+    public static final String f29586c = "result";
     public transient /* synthetic */ FieldHolder $fh;
 
     public j() {
@@ -65,7 +65,7 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            com.alipay.sdk.app.c b2 = com.alipay.sdk.app.c.b(com.alipay.sdk.app.c.f31025e.b());
+            com.alipay.sdk.app.c b2 = com.alipay.sdk.app.c.b(com.alipay.sdk.app.c.f29429e.b());
             HashMap hashMap = new HashMap();
             hashMap.put("resultStatus", Integer.toString(b2.b()));
             hashMap.put("memo", b2.a());

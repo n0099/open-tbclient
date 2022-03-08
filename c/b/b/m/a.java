@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.tachikoma.core.utility.FileUtil;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -24,18 +25,18 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public File a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Files.FileType f27314b;
+    public Files.FileType f27218b;
 
     /* renamed from: c.b.b.m.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class C1624a {
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class C1635a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +92,7 @@ public class a {
     public a a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.a.getPath().length() == 0 ? new a(new File(str), this.f27314b) : new a(new File(this.a, str), this.f27314b) : (a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.a.getPath().length() == 0 ? new a(new File(str), this.f27218b) : new a(new File(this.a, str), this.f27218b) : (a) invokeL.objValue;
     }
 
     public final int b() {
@@ -111,7 +112,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i2 = C1624a.a[this.f27314b.ordinal()];
+            int i2 = C1635a.a[this.f27218b.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     return e().exists();
@@ -121,7 +122,7 @@ public class a {
             }
             StringBuilder sb = new StringBuilder();
             sb.append("/");
-            sb.append(this.a.getPath().replace(FileUtil.WINDOWS_SEPARATOR, '/'));
+            sb.append(this.a.getPath().replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH));
             return a.class.getResource(sb.toString()) != null;
         }
         return invokeV.booleanValue;
@@ -142,7 +143,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Files.FileType fileType = this.f27314b;
+            Files.FileType fileType = this.f27218b;
             if (fileType != Files.FileType.Classpath) {
                 if (fileType != Files.FileType.Internal) {
                     return e().delete();
@@ -157,7 +158,7 @@ public class a {
     public File e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27314b == Files.FileType.External ? new File(f.f27172d.e(), this.a.getPath()) : this.a : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27218b == Files.FileType.External ? new File(f.f27076d.e(), this.a.getPath()) : this.a : (File) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -166,7 +167,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return this.f27314b == aVar.f27314b && j().equals(aVar.j());
+                return this.f27218b == aVar.f27218b && j().equals(aVar.j());
             }
             return false;
         }
@@ -177,7 +178,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            Files.FileType fileType = this.f27314b;
+            Files.FileType fileType = this.f27218b;
             if (fileType != Files.FileType.Classpath && (fileType != Files.FileType.Internal || this.a.exists())) {
                 return e().length();
             }
@@ -217,7 +218,7 @@ public class a {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? ((37 + this.f27314b.hashCode()) * 67) + j().hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? ((37 + this.f27218b.hashCode()) * 67) + j().hashCode() : invokeV.intValue;
     }
 
     public a i() {
@@ -226,13 +227,13 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             File parentFile = this.a.getParentFile();
             if (parentFile == null) {
-                if (this.f27314b == Files.FileType.Absolute) {
+                if (this.f27218b == Files.FileType.Absolute) {
                     parentFile = new File("/");
                 } else {
                     parentFile = new File("");
                 }
             }
-            return new a(parentFile, this.f27314b);
+            return new a(parentFile, this.f27218b);
         }
         return (a) invokeV.objValue;
     }
@@ -240,14 +241,14 @@ public class a {
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.a.getPath().replace(FileUtil.WINDOWS_SEPARATOR, '/') : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.a.getPath().replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH) : (String) invokeV.objValue;
     }
 
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            String replace = this.a.getPath().replace(FileUtil.WINDOWS_SEPARATOR, '/');
+            String replace = this.a.getPath().replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH);
             int lastIndexOf = replace.lastIndexOf(46);
             return lastIndexOf == -1 ? replace : replace.substring(0, lastIndexOf);
         }
@@ -264,22 +265,22 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            Files.FileType fileType = this.f27314b;
-            if (fileType != Files.FileType.Classpath && ((fileType != Files.FileType.Internal || e().exists()) && (this.f27314b != Files.FileType.Local || e().exists()))) {
+            Files.FileType fileType = this.f27218b;
+            if (fileType != Files.FileType.Classpath && ((fileType != Files.FileType.Internal || e().exists()) && (this.f27218b != Files.FileType.Local || e().exists()))) {
                 try {
                     return new FileInputStream(e());
                 } catch (Exception e2) {
                     if (e().isDirectory()) {
-                        throw new GdxRuntimeException("Cannot open a stream to a directory: " + this.a + " (" + this.f27314b + SmallTailInfo.EMOTION_SUFFIX, e2);
+                        throw new GdxRuntimeException("Cannot open a stream to a directory: " + this.a + " (" + this.f27218b + SmallTailInfo.EMOTION_SUFFIX, e2);
                     }
-                    throw new GdxRuntimeException("Error reading file: " + this.a + " (" + this.f27314b + SmallTailInfo.EMOTION_SUFFIX, e2);
+                    throw new GdxRuntimeException("Error reading file: " + this.a + " (" + this.f27218b + SmallTailInfo.EMOTION_SUFFIX, e2);
                 }
             }
-            InputStream resourceAsStream = a.class.getResourceAsStream("/" + this.a.getPath().replace(FileUtil.WINDOWS_SEPARATOR, '/'));
+            InputStream resourceAsStream = a.class.getResourceAsStream("/" + this.a.getPath().replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH));
             if (resourceAsStream != null) {
                 return resourceAsStream;
             }
-            throw new GdxRuntimeException("File not found: " + this.a + " (" + this.f27314b + SmallTailInfo.EMOTION_SUFFIX);
+            throw new GdxRuntimeException("File not found: " + this.a + " (" + this.f27218b + SmallTailInfo.EMOTION_SUFFIX);
         }
         return (InputStream) invokeV.objValue;
     }
@@ -367,7 +368,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
             if (this.a.getPath().length() != 0) {
-                return new a(new File(this.a.getParent(), str), this.f27314b);
+                return new a(new File(this.a.getParent(), str), this.f27218b);
             }
             throw new GdxRuntimeException("Cannot get the sibling of the root.");
         }
@@ -377,13 +378,13 @@ public class a {
     public Files.FileType t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f27314b : (Files.FileType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f27218b : (Files.FileType) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.a.getPath().replace(FileUtil.WINDOWS_SEPARATOR, '/') : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.a.getPath().replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH) : (String) invokeV.objValue;
     }
 
     public a(String str, Files.FileType fileType) {
@@ -401,7 +402,7 @@ public class a {
                 return;
             }
         }
-        this.f27314b = fileType;
+        this.f27218b = fileType;
         this.a = new File(str);
     }
 
@@ -421,6 +422,6 @@ public class a {
             }
         }
         this.a = file;
-        this.f27314b = fileType;
+        this.f27218b = fileType;
     }
 }

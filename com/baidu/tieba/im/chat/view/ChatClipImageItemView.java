@@ -13,10 +13,10 @@ import c.a.d.f.p.n;
 import c.a.d.h.a.g;
 import c.a.d.h.a.j;
 import c.a.d.h.a.m;
-import c.a.u0.a4.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class ChatClipImageItemView extends TbImageView implements j.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
     public j pathClipDrawer;
     public int position;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(Canvas canvas);
     }
@@ -135,7 +135,7 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
             a aVar = this.S;
             if (aVar == null) {
-                SkinManager.setBackgroundColor(this, d.CAM_X0204);
+                SkinManager.setBackgroundColor(this, R.color.CAM_X0204);
             } else {
                 aVar.a(canvas);
             }

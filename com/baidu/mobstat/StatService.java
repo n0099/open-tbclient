@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class StatService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EXCEPTION_LOG = 1;
@@ -34,10 +34,10 @@ public class StatService {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f36595b;
+    public static boolean f34998b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface WearListener {
         boolean onSendLogData(String str);
     }
@@ -316,7 +316,7 @@ public class StatService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65581, null, feedTrackStrategy) == null) {
             av.a(feedTrackStrategy);
-            f36595b = true;
+            f34998b = true;
         }
     }
 
@@ -463,7 +463,7 @@ public class StatService {
             }
             af.a(appKey);
             af.a(z2);
-            if (!f36595b) {
+            if (!f34998b) {
                 setFeedTrack(MtjConfig.FeedTrackStrategy.TRACK_ALL);
             }
             BDStatCore.instance().init(context);

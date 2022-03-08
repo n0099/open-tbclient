@@ -1,6 +1,5 @@
 package com.dxmpay.apollon.restnet;
 
-import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,31 +15,31 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Random;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class RestMultipartEntity {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final char[] f53791g;
+    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ByteArrayOutputStream a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f53792b;
+    public ByteArrayOutputStream f52251b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f53793c;
+    public String f52252c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f53794d;
+    public boolean f52253d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f53795e;
+    public boolean f52254e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ProgressListener f53796f;
+    public byte[] f52255f;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: g  reason: collision with root package name */
+    public ProgressListener f52256g;
+
+    /* loaded from: classes7.dex */
     public interface ProgressListener {
         void transferred(long j2, long j3);
     }
@@ -58,7 +57,7 @@ public class RestMultipartEntity {
                 return;
             }
         }
-        f53791g = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+        a = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
     }
 
     public RestMultipartEntity() {
@@ -74,63 +73,73 @@ public class RestMultipartEntity {
                 return;
             }
         }
-        this.a = new ByteArrayOutputStream();
-        this.f53793c = false;
-        this.f53794d = false;
+        this.f52251b = new ByteArrayOutputStream();
+        this.f52253d = false;
+        this.f52254e = false;
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
         for (int i4 = 0; i4 < 30; i4++) {
-            char[] cArr = f53791g;
+            char[] cArr = a;
             sb.append(cArr[random.nextInt(cArr.length)]);
         }
-        this.f53792b = sb.toString();
-        this.f53795e = ("\r\n--" + this.f53792b + "\r\n").getBytes();
+        this.f52252c = sb.toString();
+        this.f52255f = ("\r\n--" + this.f52252c + "\r\n").getBytes();
+    }
+
+    private void c() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            if (!this.f52253d) {
+                this.f52253d = true;
+                ByteArrayOutputStream byteArrayOutputStream = this.f52251b;
+                byteArrayOutputStream.write(("--" + this.f52252c + "\r\n").getBytes());
+                return;
+            }
+            this.f52251b.write(this.f52255f);
+        }
+    }
+
+    private void d() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || this.f52254e) {
+            return;
+        }
+        try {
+            ByteArrayOutputStream byteArrayOutputStream = this.f52251b;
+            byteArrayOutputStream.write(("\r\n--" + this.f52252c + "--\r\n").getBytes());
+        } catch (IOException e2) {
+            e2.printStackTrace();
+        }
+        this.f52254e = true;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53792b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52252c : (String) invokeV.objValue;
     }
 
     public void addPart(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            c(str, str2, false);
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            a(str, str2, false);
         }
     }
 
-    public void b(OutputStream outputStream) throws IOException {
+    public long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, outputStream) == null) {
-            f();
-            a aVar = new a(d(), outputStream, this.f53796f);
-            aVar.write(this.a.toByteArray());
-            aVar.close();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            d();
+            return this.f52251b.toByteArray().length;
         }
-    }
-
-    public void c(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048580, this, str, str2, z) == null) {
-            try {
-                e();
-                ByteArrayOutputStream byteArrayOutputStream = this.a;
-                byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + str + "\"\r\n\r\n").getBytes());
-                this.a.write(str2.getBytes());
-                if (z) {
-                    f();
-                }
-            } catch (IOException e2) {
-                e2.printStackTrace();
-            }
-        }
+        return invokeV.longValue;
     }
 
     public void closeOutStream() {
         ByteArrayOutputStream byteArrayOutputStream;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (byteArrayOutputStream = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (byteArrayOutputStream = this.f52251b) == null) {
             return;
         }
         try {
@@ -139,64 +148,44 @@ public class RestMultipartEntity {
         }
     }
 
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            f();
-            return this.a.toByteArray().length;
-        }
-        return invokeV.longValue;
-    }
-
-    public final void e() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (!this.f53793c) {
-                this.f53793c = true;
-                ByteArrayOutputStream byteArrayOutputStream = this.a;
-                byteArrayOutputStream.write(("--" + this.f53792b + "\r\n").getBytes());
-                return;
-            }
-            this.a.write(this.f53795e);
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f53794d) {
-            return;
-        }
-        try {
-            ByteArrayOutputStream byteArrayOutputStream = this.a;
-            byteArrayOutputStream.write(("\r\n--" + this.f53792b + "--\r\n").getBytes());
-        } catch (IOException e2) {
-            e2.printStackTrace();
-        }
-        this.f53794d = true;
-    }
-
     public void setProgressListener(ProgressListener progressListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, progressListener) == null) {
-            this.f53796f = progressListener;
+        if (interceptable == null || interceptable.invokeL(1048583, this, progressListener) == null) {
+            this.f52256g = progressListener;
+        }
+    }
+
+    public void a(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, str2, z) == null) {
+            try {
+                c();
+                ByteArrayOutputStream byteArrayOutputStream = this.f52251b;
+                byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + str + "\"\r\n\r\n").getBytes());
+                this.f52251b.write(str2.getBytes());
+                if (z) {
+                    d();
+                }
+            } catch (IOException e2) {
+                e2.printStackTrace();
+            }
         }
     }
 
     public void addPart(String str, String str2, InputStream inputStream, String str3, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, inputStream, str3, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, inputStream, str3, Boolean.valueOf(z)}) == null) {
             try {
                 try {
                     try {
-                        e();
-                        ByteArrayOutputStream byteArrayOutputStream = this.a;
+                        c();
+                        ByteArrayOutputStream byteArrayOutputStream = this.f52251b;
                         byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + str + "\"; filename=\"" + str2 + "\"\r\n").getBytes());
                         if (str3 != null) {
-                            ByteArrayOutputStream byteArrayOutputStream2 = this.a;
+                            ByteArrayOutputStream byteArrayOutputStream2 = this.f52251b;
                             byteArrayOutputStream2.write((Part.CONTENT_TYPE + str3 + "\r\n\r\n").getBytes());
                         } else {
-                            this.a.write("Content-Type: application/octet-stream\r\n\r\n".getBytes());
+                            this.f52251b.write("Content-Type: application/octet-stream\r\n\r\n".getBytes());
                         }
                         byte[] bArr = new byte[4096];
                         while (true) {
@@ -204,12 +193,12 @@ public class RestMultipartEntity {
                             if (read == -1) {
                                 break;
                             }
-                            this.a.write(bArr, 0, read);
+                            this.f52251b.write(bArr, 0, read);
                         }
                         if (z) {
-                            f();
+                            d();
                         }
-                        this.a.flush();
+                        this.f52251b.flush();
                         inputStream.close();
                     } catch (IOException e2) {
                         e2.printStackTrace();
@@ -229,19 +218,17 @@ public class RestMultipartEntity {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class a extends FilterOutputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final ProgressListener a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final ProgressListener f53797e;
+        /* renamed from: b  reason: collision with root package name */
+        public final long f52257b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final long f53798f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public long f53799g;
+        /* renamed from: c  reason: collision with root package name */
+        public long f52258c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(long j2, OutputStream outputStream, ProgressListener progressListener) {
@@ -261,9 +248,9 @@ public class RestMultipartEntity {
                     return;
                 }
             }
-            this.f53798f = j2;
-            this.f53799g = 0L;
-            this.f53797e = progressListener;
+            this.f52257b = j2;
+            this.f52258c = 0L;
+            this.a = progressListener;
         }
 
         @Override // java.io.FilterOutputStream, java.io.OutputStream
@@ -271,11 +258,11 @@ public class RestMultipartEntity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i2, i3) == null) {
                 ((FilterOutputStream) this).out.write(bArr, i2, i3);
-                long j2 = this.f53799g + i3;
-                this.f53799g = j2;
-                ProgressListener progressListener = this.f53797e;
+                long j2 = this.f52258c + i3;
+                this.f52258c = j2;
+                ProgressListener progressListener = this.a;
                 if (progressListener != null) {
-                    progressListener.transferred(j2, this.f53798f);
+                    progressListener.transferred(j2, this.f52257b);
                 }
             }
         }
@@ -285,13 +272,23 @@ public class RestMultipartEntity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 ((FilterOutputStream) this).out.write(i2);
-                long j2 = this.f53799g + 1;
-                this.f53799g = j2;
-                ProgressListener progressListener = this.f53797e;
+                long j2 = this.f52258c + 1;
+                this.f52258c = j2;
+                ProgressListener progressListener = this.a;
                 if (progressListener != null) {
-                    progressListener.transferred(j2, this.f53798f);
+                    progressListener.transferred(j2, this.f52257b);
                 }
             }
+        }
+    }
+
+    public void a(OutputStream outputStream) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, outputStream) == null) {
+            d();
+            a aVar = new a(b(), outputStream, this.f52256g);
+            aVar.write(this.f52251b.toByteArray());
+            aVar.close();
         }
     }
 }

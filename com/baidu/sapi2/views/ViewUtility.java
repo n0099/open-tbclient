@@ -12,10 +12,10 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.f0.a.b;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.Log;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,12 +24,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class ViewUtility implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -157,10 +157,10 @@ public class ViewUtility implements NoProguard {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:19:0x0033 A[Catch: Exception -> 0x0080, TryCatch #0 {Exception -> 0x0080, blocks: (B:7:0x000b, B:17:0x002f, B:19:0x0033, B:20:0x003e, B:21:0x0044, B:23:0x004a, B:24:0x004d, B:27:0x0064, B:28:0x006e), top: B:36:0x000b }] */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x003e A[Catch: Exception -> 0x0080, TryCatch #0 {Exception -> 0x0080, blocks: (B:7:0x000b, B:17:0x002f, B:19:0x0033, B:20:0x003e, B:21:0x0044, B:23:0x004a, B:24:0x004d, B:27:0x0064, B:28:0x006e), top: B:36:0x000b }] */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x004a A[Catch: Exception -> 0x0080, TryCatch #0 {Exception -> 0x0080, blocks: (B:7:0x000b, B:17:0x002f, B:19:0x0033, B:20:0x003e, B:21:0x0044, B:23:0x004a, B:24:0x004d, B:27:0x0064, B:28:0x006e), top: B:36:0x000b }] */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0062  */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0036 A[Catch: Exception -> 0x007f, TryCatch #0 {Exception -> 0x007f, blocks: (B:7:0x000b, B:17:0x002f, B:19:0x0036, B:20:0x003f, B:21:0x0043, B:23:0x0049, B:24:0x004c, B:27:0x0063, B:28:0x006d), top: B:36:0x000b }] */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x003f A[Catch: Exception -> 0x007f, TryCatch #0 {Exception -> 0x007f, blocks: (B:7:0x000b, B:17:0x002f, B:19:0x0036, B:20:0x003f, B:21:0x0043, B:23:0x0049, B:24:0x004c, B:27:0x0063, B:28:0x006d), top: B:36:0x000b }] */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0049 A[Catch: Exception -> 0x007f, TryCatch #0 {Exception -> 0x007f, blocks: (B:7:0x000b, B:17:0x002f, B:19:0x0036, B:20:0x003f, B:21:0x0043, B:23:0x0049, B:24:0x004c, B:27:0x0063, B:28:0x006d), top: B:36:0x000b }] */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0061  */
     /* JADX WARN: Removed duplicated region for block: B:37:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -178,9 +178,9 @@ public class ViewUtility implements NoProguard {
                 z = false;
                 if (z && -1 == i2) {
                     if (Build.VERSION.SDK_INT >= 23) {
-                        i2 = activity.getResources().getColor(b.sapi_sdk_dark_mode_title_color);
+                        i2 = activity.getResources().getColor(R.color.sapi_sdk_dark_mode_title_color);
                     } else {
-                        i2 = activity.getColor(b.sapi_sdk_dark_mode_title_color);
+                        i2 = activity.getColor(R.color.sapi_sdk_dark_mode_title_color);
                     }
                 }
                 if (!b(activity, true)) {

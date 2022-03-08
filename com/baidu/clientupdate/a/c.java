@@ -10,17 +10,17 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class c extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final CharSequence f33569b;
+    public final CharSequence f31972b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f33570c;
+    public byte[] f31973c;
 
     public c(b bVar, CharSequence charSequence, byte[] bArr) {
         Interceptable interceptable = $ic;
@@ -38,9 +38,9 @@ public class c extends Thread {
             }
         }
         this.a = bVar;
-        this.f33570c = null;
-        this.f33569b = charSequence;
-        this.f33570c = bArr;
+        this.f31973c = null;
+        this.f31972b = charSequence;
+        this.f31973c = bArr;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:35:0x00f2  */
@@ -60,16 +60,16 @@ public class c extends Thread {
             HttpURLConnection httpURLConnection2 = null;
             try {
                 try {
-                    httpURLConnection = (HttpURLConnection) new URL(this.f33569b.toString()).openConnection();
+                    httpURLConnection = (HttpURLConnection) new URL(this.f31972b.toString()).openConnection();
                     try {
                         httpURLConnection.setConnectTimeout(5000);
                         httpURLConnection.setRequestMethod("POST");
                         httpURLConnection.setDoInput(true);
                         httpURLConnection.setDoOutput(true);
                         httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-                        httpURLConnection.setRequestProperty("Content-Length", String.valueOf(this.f33570c.length));
+                        httpURLConnection.setRequestProperty("Content-Length", String.valueOf(this.f31973c.length));
                         OutputStream outputStream = httpURLConnection.getOutputStream();
-                        outputStream.write(this.f33570c, 0, this.f33570c.length);
+                        outputStream.write(this.f31973c, 0, this.f31973c.length);
                         outputStream.close();
                     } catch (Exception e3) {
                         e2 = e3;
@@ -109,17 +109,17 @@ public class c extends Thread {
                 inputStream.close();
                 LogUtil.logE("LogRequest", "**********strResult:" + sb.toString());
                 if (new JSONObject(sb.toString()).getString("retcode").equals("1")) {
-                    aVar2 = this.a.f33568c;
+                    aVar2 = this.a.f31971c;
                     aVar2.c();
                     if (httpURLConnection == null) {
                         return;
                     }
                     httpURLConnection.disconnect();
                 }
-                aVar = this.a.f33568c;
+                aVar = this.a.f31971c;
             } else {
                 LogUtil.logE("LogRequest", "request failed  " + httpURLConnection.getResponseCode());
-                aVar = this.a.f33568c;
+                aVar = this.a.f31971c;
             }
             aVar.e();
             if (httpURLConnection == null) {

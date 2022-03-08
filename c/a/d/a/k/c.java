@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class c extends SQLiteOpenHelper implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a.InterfaceC0040a callback;
+    public a.InterfaceC0099a callback;
     public final String databaseName;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -41,12 +41,12 @@ public abstract class c extends SQLiteOpenHelper implements a {
     }
 
     private void exeCallback(SQLiteDatabase sQLiteDatabase) {
-        a.InterfaceC0040a interfaceC0040a;
+        a.InterfaceC0099a interfaceC0099a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, sQLiteDatabase) == null) || (interfaceC0040a = this.callback) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65537, this, sQLiteDatabase) == null) || (interfaceC0099a = this.callback) == null) {
             return;
         }
-        interfaceC0040a.onDatabaseCreated(sQLiteDatabase);
+        interfaceC0099a.onDatabaseCreated(sQLiteDatabase);
     }
 
     public abstract void clearAllTables(SQLiteDatabase sQLiteDatabase);
@@ -94,10 +94,10 @@ public abstract class c extends SQLiteOpenHelper implements a {
     }
 
     @Override // c.a.d.a.k.a
-    public void setOnCreateCallback(a.InterfaceC0040a interfaceC0040a) {
+    public void setOnCreateCallback(a.InterfaceC0099a interfaceC0099a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0040a) == null) {
-            this.callback = interfaceC0040a;
+        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0099a) == null) {
+            this.callback = interfaceC0099a;
         }
     }
 }

@@ -13,13 +13,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean A = false;
@@ -68,31 +69,31 @@ public final class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f31071b;
+    public boolean f29475b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f31072c;
+    public String f29476c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f31073d;
+    public int f29477d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f31074e;
+    public boolean f29478e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f31075f;
+    public boolean f29479f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f31076g;
+    public boolean f29480g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f31077h;
+    public boolean f29481h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f31078i;
+    public boolean f29482i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f31079j;
+    public boolean f29483j;
     public String k;
     public boolean l;
     public boolean m;
@@ -105,19 +106,19 @@ public final class a {
     public int t;
 
     /* renamed from: com.alipay.sdk.data.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public class RunnableC1710a implements Runnable {
+    /* loaded from: classes3.dex */
+    public class RunnableC1686a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ com.alipay.sdk.sys.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f31080b;
+        public final /* synthetic */ Context f29484b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f31081c;
+        public final /* synthetic */ a f29485c;
 
-        public RunnableC1710a(a aVar, com.alipay.sdk.sys.a aVar2, Context context) {
+        public RunnableC1686a(a aVar, com.alipay.sdk.sys.a aVar2, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,9 +133,9 @@ public final class a {
                     return;
                 }
             }
-            this.f31081c = aVar;
+            this.f29485c = aVar;
             this.a = aVar2;
-            this.f31080b = context;
+            this.f29484b = context;
         }
 
         @Override // java.lang.Runnable
@@ -142,10 +143,10 @@ public final class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    com.alipay.sdk.packet.b a = new com.alipay.sdk.packet.impl.b().a(this.a, this.f31080b);
+                    com.alipay.sdk.packet.b a = new com.alipay.sdk.packet.impl.b().a(this.a, this.f29484b);
                     if (a != null) {
-                        this.f31081c.d(a.a());
-                        this.f31081c.a(com.alipay.sdk.sys.a.e());
+                        this.f29485c.d(a.a());
+                        this.f29485c.a(com.alipay.sdk.sys.a.e());
                     }
                 } catch (Throwable th) {
                     c.a(th);
@@ -167,7 +168,7 @@ public final class a {
                 return;
             }
         }
-        j0 = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '+', '/'};
+        j0 = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '+', WebvttCueParser.CHAR_SLASH};
     }
 
     public a() {
@@ -184,15 +185,15 @@ public final class a {
             }
         }
         this.a = 10000;
-        this.f31071b = false;
-        this.f31072c = w;
-        this.f31073d = 10;
-        this.f31074e = true;
-        this.f31075f = true;
-        this.f31076g = false;
-        this.f31077h = false;
-        this.f31078i = true;
-        this.f31079j = true;
+        this.f29475b = false;
+        this.f29476c = w;
+        this.f29477d = 10;
+        this.f29478e = true;
+        this.f29479f = true;
+        this.f29480g = false;
+        this.f29481h = false;
+        this.f29482i = true;
+        this.f29483j = true;
         this.k = "";
         this.l = false;
         this.m = false;
@@ -274,19 +275,19 @@ public final class a {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f31073d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f29477d : invokeV.intValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f31077h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f29481h : invokeV.booleanValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f31078i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f29482i : invokeV.booleanValue;
     }
 
     public String f() {
@@ -298,13 +299,13 @@ public final class a {
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f31075f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f29479f : invokeV.booleanValue;
     }
 
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f31074e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f29478e : invokeV.booleanValue;
     }
 
     public String i() {
@@ -337,7 +338,7 @@ public final class a {
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f31079j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f29483j : invokeV.booleanValue;
     }
 
     public boolean m() {
@@ -361,7 +362,7 @@ public final class a {
     public String p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f31072c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f29476c : (String) invokeV.objValue;
     }
 
     public boolean q() {
@@ -386,7 +387,7 @@ public final class a {
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f31071b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f29475b : invokeV.booleanValue;
     }
 
     public static int b(String str) {
@@ -433,17 +434,17 @@ public final class a {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f31082b;
+        public final int f29486b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f31083c;
+        public final String f29487c;
 
         public b(String str, int i2, String str2) {
             Interceptable interceptable = $ic;
@@ -461,8 +462,8 @@ public final class a {
                 }
             }
             this.a = str;
-            this.f31082b = i2;
-            this.f31083c = str2;
+            this.f29486b = i2;
+            this.f29487c = str2;
         }
 
         public static b a(JSONObject jSONObject) {
@@ -511,7 +512,7 @@ public final class a {
                     return null;
                 }
                 try {
-                    return new JSONObject().put("pn", bVar.a).put("v", bVar.f31082b).put(PushConstants.URI_PACKAGE_NAME, bVar.f31083c);
+                    return new JSONObject().put("pn", bVar.a).put("v", bVar.f29486b).put(PushConstants.URI_PACKAGE_NAME, bVar.f29487c);
                 } catch (JSONException e2) {
                     c.a(e2);
                     return null;
@@ -546,7 +547,7 @@ public final class a {
     public void a(boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z2) == null) {
-            this.f31076g = z2;
+            this.f29480g = z2;
         }
     }
 
@@ -567,15 +568,15 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, jSONObject) == null) {
             this.a = jSONObject.optInt(O, 10000);
-            this.f31071b = jSONObject.optBoolean(P, false);
-            this.f31072c = jSONObject.optString(R, w).trim();
-            this.f31073d = jSONObject.optInt(T, 10);
+            this.f29475b = jSONObject.optBoolean(P, false);
+            this.f29476c = jSONObject.optString(R, w).trim();
+            this.f29477d = jSONObject.optInt(T, 10);
             this.s = b.a(jSONObject.optJSONArray(S));
-            this.f31074e = jSONObject.optBoolean(f0, true);
-            this.f31075f = jSONObject.optBoolean(g0, true);
-            this.f31077h = jSONObject.optBoolean(U, false);
-            this.f31078i = jSONObject.optBoolean(V, true);
-            this.f31079j = jSONObject.optBoolean(W, true);
+            this.f29478e = jSONObject.optBoolean(f0, true);
+            this.f29479f = jSONObject.optBoolean(g0, true);
+            this.f29481h = jSONObject.optBoolean(U, false);
+            this.f29482i = jSONObject.optBoolean(V, true);
+            this.f29483j = jSONObject.optBoolean(W, true);
             this.k = jSONObject.optString(X, "");
             this.l = jSONObject.optBoolean(Y, false);
             this.m = jSONObject.optBoolean(Z, false);
@@ -590,7 +591,7 @@ public final class a {
     public void a(com.alipay.sdk.sys.a aVar, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, aVar, context) == null) {
-            new Thread(new RunnableC1710a(this, aVar, context)).start();
+            new Thread(new RunnableC1686a(this, aVar, context)).start();
         }
     }
 

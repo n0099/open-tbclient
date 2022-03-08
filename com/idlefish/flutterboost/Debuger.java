@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.idlefish.flutterboost.log.AndroidLog;
 import com.idlefish.flutterboost.log.ILog;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class Debuger {
     public static /* synthetic */ Interceptable $ic;
     public static final Debuger DEBUG;

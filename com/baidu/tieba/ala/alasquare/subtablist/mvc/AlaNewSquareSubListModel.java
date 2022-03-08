@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.f;
 import c.a.d.o.e.n;
-import c.a.t0.s.r.e2;
-import c.a.u0.a0.f.a.e;
+import c.a.q0.r.r.e2;
+import c.a.r0.a0.f.a.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -25,29 +25,29 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class AlaNewSquareSubListModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public static final int FIRST_PN = 0;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42271e;
+    public int f40674e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42272f;
+    public int f40675f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f42273g;
+    public String f40676g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f42274h;
+    public String f40677h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f42275i;
+    public String f40678i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f42276j;
+    public int f40679j;
     public String k;
     public String l;
     public boolean m;
@@ -63,7 +63,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
     public int w;
     public HttpMessageListener x;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,8 +107,8 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
                     }
                     List<e2> liveList = alaNewSquareSubListResponseMessage.getLiveList();
                     this.a.n = alaNewSquareSubListResponseMessage.hasMore();
-                    this.a.f42271e = alaNewSquareSubListRequestMessage.getPn();
-                    if (this.a.f42271e != 0 && ListUtils.getCount(this.a.q) != 0) {
+                    this.a.f40674e = alaNewSquareSubListRequestMessage.getPn();
+                    if (this.a.f40674e != 0 && ListUtils.getCount(this.a.q) != 0) {
                         if (ListUtils.getCount(liveList) > 0) {
                             this.a.O(liveList);
                         }
@@ -131,7 +131,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(boolean z);
 
@@ -156,9 +156,9 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
                 return;
             }
         }
-        this.f42271e = 0;
-        this.f42272f = 20;
-        this.f42276j = 0;
+        this.f40674e = 0;
+        this.f40675f = 20;
+        this.f40679j = 0;
         this.k = "";
         this.l = "";
         this.m = false;
@@ -174,8 +174,8 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
     }
 
     public static /* synthetic */ int B(AlaNewSquareSubListModel alaNewSquareSubListModel) {
-        int i2 = alaNewSquareSubListModel.f42271e;
-        alaNewSquareSubListModel.f42271e = i2 + 1;
+        int i2 = alaNewSquareSubListModel.f40674e;
+        alaNewSquareSubListModel.f40674e = i2 + 1;
         return i2;
     }
 
@@ -188,39 +188,39 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         int size = list.size();
         for (int i2 = 0; i2 < size; i2 += 2) {
             if (this.s) {
-                c.a.u0.a0.f.h.b.a aVar = new c.a.u0.a0.f.h.b.a();
+                c.a.r0.a0.f.h.b.a aVar = new c.a.r0.a0.f.h.b.a();
                 e eVar = new e();
-                eVar.f14760j = this.m;
-                eVar.f14756f = this.f42275i;
-                eVar.f14757g = this.f42274h;
-                eVar.f14758h = list.get(i2);
-                aVar.f15077e = eVar;
+                eVar.f14175j = this.m;
+                eVar.f14171f = this.f40678i;
+                eVar.f14172g = this.f40677h;
+                eVar.f14173h = list.get(i2);
+                aVar.f14492e = eVar;
                 int i3 = i2 + 1;
                 if (i3 < size) {
                     e eVar2 = new e();
-                    eVar2.f14760j = this.m;
-                    eVar2.f14756f = this.f42275i;
-                    eVar2.f14757g = this.f42274h;
-                    eVar2.f14758h = list.get(i3);
-                    aVar.f15078f = eVar2;
+                    eVar2.f14175j = this.m;
+                    eVar2.f14171f = this.f40678i;
+                    eVar2.f14172g = this.f40677h;
+                    eVar2.f14173h = list.get(i3);
+                    aVar.f14493f = eVar2;
                 }
                 this.r.add(aVar);
             } else {
-                c.a.u0.a0.f.h.b.b bVar = new c.a.u0.a0.f.h.b.b();
+                c.a.r0.a0.f.h.b.b bVar = new c.a.r0.a0.f.h.b.b();
                 e eVar3 = new e();
-                eVar3.f14760j = this.m;
-                eVar3.f14756f = this.f42275i;
-                eVar3.f14757g = this.f42274h;
-                eVar3.f14758h = list.get(i2);
-                bVar.f15080e = eVar3;
+                eVar3.f14175j = this.m;
+                eVar3.f14171f = this.f40678i;
+                eVar3.f14172g = this.f40677h;
+                eVar3.f14173h = list.get(i2);
+                bVar.f14495e = eVar3;
                 int i4 = i2 + 1;
                 if (i4 < size) {
                     e eVar4 = new e();
-                    eVar4.f14760j = this.m;
-                    eVar4.f14756f = this.f42275i;
-                    eVar4.f14757g = this.f42274h;
-                    eVar4.f14758h = list.get(i4);
-                    bVar.f15081f = eVar4;
+                    eVar4.f14175j = this.m;
+                    eVar4.f14171f = this.f40678i;
+                    eVar4.f14172g = this.f40677h;
+                    eVar4.f14173h = list.get(i4);
+                    bVar.f14496f = eVar4;
                 }
                 this.r.add(bVar);
             }
@@ -293,14 +293,14 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
                     this.v = currentTimeMillis;
                 }
                 AlaNewSquareSubListRequestMessage alaNewSquareSubListRequestMessage = new AlaNewSquareSubListRequestMessage();
-                alaNewSquareSubListRequestMessage.setPn(this.f42271e);
-                alaNewSquareSubListRequestMessage.setPs(this.f42272f);
-                alaNewSquareSubListRequestMessage.setSortType(this.f42273g);
-                alaNewSquareSubListRequestMessage.setEntryName(this.f42275i);
-                alaNewSquareSubListRequestMessage.setLableName(this.f42274h);
+                alaNewSquareSubListRequestMessage.setPn(this.f40674e);
+                alaNewSquareSubListRequestMessage.setPs(this.f40675f);
+                alaNewSquareSubListRequestMessage.setSortType(this.f40676g);
+                alaNewSquareSubListRequestMessage.setEntryName(this.f40678i);
+                alaNewSquareSubListRequestMessage.setLableName(this.f40677h);
                 alaNewSquareSubListRequestMessage.setLat(this.l);
                 alaNewSquareSubListRequestMessage.setLng(this.k);
-                int i2 = this.f42276j;
+                int i2 = this.f40679j;
                 alaNewSquareSubListRequestMessage.tabId = i2;
                 alaNewSquareSubListRequestMessage.sessionId = this.v;
                 alaNewSquareSubListRequestMessage.refreshType = 1;
@@ -317,17 +317,17 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
     public void Q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f42271e = 0;
+            this.f40674e = 0;
             this.v = System.currentTimeMillis();
             AlaNewSquareSubListRequestMessage alaNewSquareSubListRequestMessage = new AlaNewSquareSubListRequestMessage();
-            alaNewSquareSubListRequestMessage.setPn(this.f42271e);
-            alaNewSquareSubListRequestMessage.setPs(this.f42272f);
-            alaNewSquareSubListRequestMessage.setSortType(this.f42273g);
-            alaNewSquareSubListRequestMessage.setEntryName(this.f42275i);
-            alaNewSquareSubListRequestMessage.setLableName(this.f42274h);
+            alaNewSquareSubListRequestMessage.setPn(this.f40674e);
+            alaNewSquareSubListRequestMessage.setPs(this.f40675f);
+            alaNewSquareSubListRequestMessage.setSortType(this.f40676g);
+            alaNewSquareSubListRequestMessage.setEntryName(this.f40678i);
+            alaNewSquareSubListRequestMessage.setLableName(this.f40677h);
             alaNewSquareSubListRequestMessage.setLat(this.l);
             alaNewSquareSubListRequestMessage.setLng(this.k);
-            int i2 = this.f42276j;
+            int i2 = this.f40679j;
             alaNewSquareSubListRequestMessage.tabId = i2;
             alaNewSquareSubListRequestMessage.sessionId = this.v;
             alaNewSquareSubListRequestMessage.refreshType = 0;
@@ -371,7 +371,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
     public int getPn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f42271e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f40674e : invokeV.intValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -394,14 +394,14 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
     public void setEntryName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.f42275i = str;
+            this.f40678i = str;
         }
     }
 
     public void setLabelName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.f42274h = str;
+            this.f40677h = str;
         }
     }
 
@@ -422,14 +422,14 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
     public void setSortType(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.f42273g = str;
+            this.f40676g = str;
         }
     }
 
     public void setTabId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.f42276j = i2;
+            this.f40679j = i2;
         }
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.chosen.net;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.d.l;
-import c.a.u0.u2.q.c.a;
+import c.a.r0.u2.g.c.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.pb.chosen.PbChosenActivity;
@@ -21,7 +21,7 @@ import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 import tbclient.ExcPbPage.UserInfo;
 import tbclient.Post;
 import tbclient.User;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class ChosenPbSocketResponse extends SocketResponsedMessage implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,49 +48,49 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements a 
         }
     }
 
-    @Override // c.a.u0.u2.q.c.a
+    @Override // c.a.r0.u2.g.c.a
     public int getErroCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getError() : invokeV.intValue;
     }
 
-    @Override // c.a.u0.u2.q.c.a
+    @Override // c.a.r0.u2.g.c.a
     public String getErrorText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getErrorString() : (String) invokeV.objValue;
     }
 
-    @Override // c.a.u0.u2.q.c.a
+    @Override // c.a.r0.u2.g.c.a
     public List<Post> getPostList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.postList : (List) invokeV.objValue;
     }
 
-    @Override // c.a.u0.u2.q.c.a
+    @Override // c.a.r0.u2.g.c.a
     public ExcellentPbThreadInfo getThreadInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.threadInfo : (ExcellentPbThreadInfo) invokeV.objValue;
     }
 
-    @Override // c.a.u0.u2.q.c.a
+    @Override // c.a.r0.u2.g.c.a
     public UserInfo getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.userInfo : (UserInfo) invokeV.objValue;
     }
 
-    @Override // c.a.u0.u2.q.c.a
+    @Override // c.a.r0.u2.g.c.a
     public List<User> getUserList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.userList : (List) invokeV.objValue;
     }
 
-    @Override // c.a.u0.u2.q.c.a
+    @Override // c.a.r0.u2.g.c.a
     public boolean isEmpty() {
         InterceptResult invokeV;
         List<ExcContent> list;
@@ -111,8 +111,8 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements a 
             if (bArr == null || bArr.length <= 0) {
                 return;
             }
-            c.a.t0.s.s.a.f();
-            l<byte[]> d2 = c.a.t0.s.s.a.d("tb.pb_normal");
+            c.a.q0.r.s.a.f();
+            l<byte[]> d2 = c.a.q0.r.s.a.d("tb.pb_normal");
             d2.remove(PbChosenActivity.CHOSEN_PB_TABLE_NAME);
             d2.g(PbChosenActivity.CHOSEN_PB_TABLE_NAME, bArr);
         }

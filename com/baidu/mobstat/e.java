@@ -20,7 +20,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public static final e a;
@@ -98,7 +98,7 @@ public class e {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        k.f37127b.a(System.currentTimeMillis(), str);
+        k.f35530b.a(System.currentTimeMillis(), str);
     }
 
     public synchronized void a(Context context, boolean z) {

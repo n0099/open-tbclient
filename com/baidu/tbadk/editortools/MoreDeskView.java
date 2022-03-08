@@ -4,9 +4,8 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.SparseIntArray;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.x.h;
-import c.a.t0.x.i;
-import c.a.u0.a4.d;
+import c.a.q0.w.h;
+import c.a.q0.w.i;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -15,12 +14,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.editortools.view.CommonTabHost;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class MoreDeskView extends CommonTabHost {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class MoreDeskView extends CommonTabHost {
     public CustomMessageListener s;
     public CustomMessageListener t;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public class MoreDeskView extends CommonTabHost {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -125,7 +125,7 @@ public class MoreDeskView extends CommonTabHost {
         this.r = new SparseIntArray();
         this.s = new a(this, 2001344);
         this.t = new b(this, 2001353);
-        setBackgroundColorId(d.CAM_X0206);
+        setBackgroundColorId(R.color.CAM_X0206);
         setToolId(2);
     }
 
@@ -136,7 +136,7 @@ public class MoreDeskView extends CommonTabHost {
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tbadk.editortools.view.ICommonTabHost, c.a.t0.x.n
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tbadk.editortools.view.ICommonTabHost, c.a.q0.w.n
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -144,7 +144,7 @@ public class MoreDeskView extends CommonTabHost {
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tbadk.editortools.view.ICommonTabHost, c.a.t0.x.n
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tbadk.editortools.view.ICommonTabHost, c.a.q0.w.n
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -164,9 +164,9 @@ public class MoreDeskView extends CommonTabHost {
                 i2 += this.r.valueAt(i3);
             }
             if (i2 > 0) {
-                sendAction(new c.a.t0.x.a(2, 2, " "));
+                sendAction(new c.a.q0.w.a(2, 2, " "));
             } else {
-                sendAction(new c.a.t0.x.a(2, 2, null));
+                sendAction(new c.a.q0.w.a(2, 2, null));
             }
         }
     }
@@ -184,12 +184,12 @@ public class MoreDeskView extends CommonTabHost {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void n(c.a.t0.x.a aVar) {
+    public final void n(c.a.q0.w.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            Integer valueOf = Integer.valueOf(this.r.get(aVar.f14593b));
+            Integer valueOf = Integer.valueOf(this.r.get(aVar.f13988b));
             int intValue = valueOf != null ? valueOf.intValue() : 0;
-            Object obj = aVar.f14594c;
+            Object obj = aVar.f13989c;
             if (obj != null) {
                 if (obj instanceof String) {
                     String str = (String) obj;
@@ -197,10 +197,10 @@ public class MoreDeskView extends CommonTabHost {
                         intValue = TextUtils.isEmpty(str.trim()) ? 1 : c.a.d.f.m.b.e(str, 1);
                     }
                 }
-                this.r.put(aVar.f14593b, intValue >= 0 ? intValue : 0);
+                this.r.put(aVar.f13988b, intValue >= 0 ? intValue : 0);
             }
             intValue = 0;
-            this.r.put(aVar.f14593b, intValue >= 0 ? intValue : 0);
+            this.r.put(aVar.f13988b, intValue >= 0 ? intValue : 0);
         }
     }
 
@@ -215,14 +215,14 @@ public class MoreDeskView extends CommonTabHost {
             }
             if (currentAccountObj.getIsSelectTail()) {
                 z = true;
-                sendAction(new c.a.t0.x.a(2, 2, " "));
-                sendAction(new c.a.t0.x.a(2, 16, " "));
+                sendAction(new c.a.q0.w.a(2, 2, " "));
+                sendAction(new c.a.q0.w.a(2, 16, " "));
             } else {
                 if (!StringUtils.isNull(defaultBubble)) {
-                    sendAction(new c.a.t0.x.a(2, 12, " "));
-                    sendAction(new c.a.t0.x.a(2, 2, " "));
+                    sendAction(new c.a.q0.w.a(2, 12, " "));
+                    sendAction(new c.a.q0.w.a(2, 2, " "));
                 } else {
-                    sendAction(new c.a.t0.x.a(2, 2, null));
+                    sendAction(new c.a.q0.w.a(2, 2, null));
                 }
                 z = false;
             }
@@ -230,12 +230,12 @@ public class MoreDeskView extends CommonTabHost {
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tbadk.editortools.view.ICommonTabHost, c.a.t0.x.b
-    public void onAction(c.a.t0.x.a aVar) {
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tbadk.editortools.view.ICommonTabHost, c.a.q0.w.b
+    public void onAction(c.a.q0.w.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
             super.onAction(aVar);
-            if (aVar == null || aVar.a != 2 || aVar.f14593b == 5) {
+            if (aVar == null || aVar.a != 2 || aVar.f13988b == 5) {
                 return;
             }
             n(aVar);
@@ -285,7 +285,7 @@ public class MoreDeskView extends CommonTabHost {
         this.r = new SparseIntArray();
         this.s = new a(this, 2001344);
         this.t = new b(this, 2001353);
-        setBackgroundColorId(d.CAM_X0206);
+        setBackgroundColorId(R.color.CAM_X0206);
         setToolId(2);
     }
 }

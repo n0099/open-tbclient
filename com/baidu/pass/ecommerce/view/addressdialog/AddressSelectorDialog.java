@@ -16,16 +16,16 @@ import com.baidu.pass.ecommerce.view.SlidingTabLayout;
 import com.baidu.pass.ecommerce.view.addressdialog.ListPagerView;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.ecommerce.R;
 import com.baidu.sapi2.ecommerce.result.AddressBean;
 import com.baidu.sapi2.ecommerce.result.AddressSelectedBean;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class AddressSelectorDialog extends Dialog implements NoProguard, ListPagerView.OnEntitySelectedListener, OnTabSelectListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
     public ResultHelpBean provinceBean;
     public ResultHelpBean townBean;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class ResultHelpBean {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,7 +103,7 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AddressSelectorDialog(@NonNull Context context) {
-        this(context, R.style.sapi_sdk_address_selector_dialog);
+        this(context, (int) R.style.sapi_sdk_address_selector_dialog);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -557,7 +557,7 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AddressSelectorDialog(@NonNull Context context, AddressSelectedBean addressSelectedBean) {
-        this(context, R.style.sapi_sdk_address_selector_dialog);
+        this(context, (int) R.style.sapi_sdk_address_selector_dialog);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -579,7 +579,7 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AddressSelectorDialog(@NonNull Context context, AddressSelectedBean addressSelectedBean, boolean z) {
-        this(context, R.style.sapi_sdk_address_selector_dialog);
+        this(context, (int) R.style.sapi_sdk_address_selector_dialog);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

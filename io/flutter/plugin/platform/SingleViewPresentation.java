@@ -34,7 +34,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 @Keep
 @TargetApi(17)
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class SingleViewPresentation extends Presentation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class SingleViewPresentation extends Presentation {
     public final PlatformViewFactory viewFactory;
     public int viewId;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class AccessibilityDelegatingFrameLayout extends FrameLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public class SingleViewPresentation extends Presentation {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class FakeWindowViewGroup extends ViewGroup {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -148,7 +148,7 @@ public class SingleViewPresentation extends Presentation {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class ImmContext extends ContextWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -218,7 +218,7 @@ public class SingleViewPresentation extends Presentation {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class PresentationContext extends ContextWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -294,7 +294,7 @@ public class SingleViewPresentation extends Presentation {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class PresentationState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -317,7 +317,7 @@ public class SingleViewPresentation extends Presentation {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class WindowManagerHandler implements InvocationHandler {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "PlatformViewsController";

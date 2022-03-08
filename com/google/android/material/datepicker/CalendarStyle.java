@@ -5,14 +5,14 @@ import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Paint;
 import androidx.annotation.NonNull;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 import com.google.android.material.resources.MaterialAttributes;
 import com.google.android.material.resources.MaterialResources;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class CalendarStyle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,15 +48,15 @@ public final class CalendarStyle {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(MaterialAttributes.resolveOrThrow(context, R.attr.materialCalendarStyle, MaterialCalendar.class.getCanonicalName()), R.styleable.MaterialCalendar);
-        this.day = CalendarItemStyle.create(context, obtainStyledAttributes.getResourceId(R.styleable.MaterialCalendar_dayStyle, 0));
-        this.invalidDay = CalendarItemStyle.create(context, obtainStyledAttributes.getResourceId(R.styleable.MaterialCalendar_dayInvalidStyle, 0));
-        this.selectedDay = CalendarItemStyle.create(context, obtainStyledAttributes.getResourceId(R.styleable.MaterialCalendar_daySelectedStyle, 0));
-        this.todayDay = CalendarItemStyle.create(context, obtainStyledAttributes.getResourceId(R.styleable.MaterialCalendar_dayTodayStyle, 0));
-        ColorStateList colorStateList = MaterialResources.getColorStateList(context, obtainStyledAttributes, R.styleable.MaterialCalendar_rangeFillColor);
-        this.year = CalendarItemStyle.create(context, obtainStyledAttributes.getResourceId(R.styleable.MaterialCalendar_yearStyle, 0));
-        this.selectedYear = CalendarItemStyle.create(context, obtainStyledAttributes.getResourceId(R.styleable.MaterialCalendar_yearSelectedStyle, 0));
-        this.todayYear = CalendarItemStyle.create(context, obtainStyledAttributes.getResourceId(R.styleable.MaterialCalendar_yearTodayStyle, 0));
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(MaterialAttributes.resolveOrThrow(context, R.attr.materialCalendarStyle, MaterialCalendar.class.getCanonicalName()), new int[]{16843277, R.attr.dayInvalidStyle, R.attr.daySelectedStyle, R.attr.dayStyle, R.attr.dayTodayStyle, R.attr.rangeFillColor, R.attr.yearSelectedStyle, R.attr.yearStyle, R.attr.yearTodayStyle});
+        this.day = CalendarItemStyle.create(context, obtainStyledAttributes.getResourceId(3, 0));
+        this.invalidDay = CalendarItemStyle.create(context, obtainStyledAttributes.getResourceId(1, 0));
+        this.selectedDay = CalendarItemStyle.create(context, obtainStyledAttributes.getResourceId(2, 0));
+        this.todayDay = CalendarItemStyle.create(context, obtainStyledAttributes.getResourceId(4, 0));
+        ColorStateList colorStateList = MaterialResources.getColorStateList(context, obtainStyledAttributes, 5);
+        this.year = CalendarItemStyle.create(context, obtainStyledAttributes.getResourceId(7, 0));
+        this.selectedYear = CalendarItemStyle.create(context, obtainStyledAttributes.getResourceId(6, 0));
+        this.todayYear = CalendarItemStyle.create(context, obtainStyledAttributes.getResourceId(8, 0));
         Paint paint = new Paint();
         this.rangeFill = paint;
         paint.setColor(colorStateList.getDefaultColor());

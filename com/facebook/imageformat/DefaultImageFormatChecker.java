@@ -14,7 +14,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.webp.WebpSupportStatus;
 import com.facebook.imageformat.ImageFormat;
 import javax.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class DefaultImageFormatChecker implements ImageFormat.FormatChecker {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte[] BMP_HEADER;

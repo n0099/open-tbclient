@@ -19,7 +19,7 @@ import com.tachikoma.core.bridge.JSContext;
 import com.tachikoma.core.bridge.TKJSContext;
 import com.tachikoma.core.component.timer.KTTimer;
 import com.tachikoma.core.utility.Console;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class W3CMoudleManager implements IComponentRegister {
     public static /* synthetic */ Interceptable $ic;
     public static W3CMoudleManager moudleManager;

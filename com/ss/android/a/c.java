@@ -3,25 +3,25 @@ package com.ss.android.a;
 import java.io.File;
 import java.io.IOException;
 import java.security.MessageDigest;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static final char[] a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f59506b;
+        public int f57856b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f59507c;
+        public int f57857c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f59508d;
+        public long f57858d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f59509e;
+        public String f57859e;
 
         public a() {
         }
@@ -82,8 +82,8 @@ public class c {
                     if (a2.a > 1) {
                         return 3;
                     }
-                    i2 = a2.f59507c;
-                    j2 = a2.f59508d;
+                    i2 = a2.f57857c;
+                    j2 = a2.f57858d;
                 }
                 a aVar = null;
                 if (bVar != null) {
@@ -92,13 +92,13 @@ public class c {
                     b2 = b(file, i2, j2);
                 }
                 if (b2 != null && b2.length() != 0) {
-                    if (a2 != null && (a2.a != 1 || a2.f59506b != 1)) {
-                        if (a2.f59509e != null) {
+                    if (a2 != null && (a2.a != 1 || a2.f57856b != 1)) {
+                        if (a2.f57859e != null) {
                             try {
                                 aVar = a(b2);
                             } catch (Throwable unused2) {
                             }
-                            if (aVar != null && a2.f59507c == aVar.f59507c && a2.f59508d == aVar.f59508d && a2.f59509e.equals(aVar.f59509e)) {
+                            if (aVar != null && a2.f57857c == aVar.f57857c && a2.f57858d == aVar.f57858d && a2.f57859e.equals(aVar.f57859e)) {
                                 return 0;
                             }
                         }
@@ -227,11 +227,11 @@ public class c {
             if (aVar.a > 1) {
                 return aVar;
             }
-            aVar.f59506b = Integer.parseInt(split2[2]);
+            aVar.f57856b = Integer.parseInt(split2[2]);
             String[] split3 = split2[3].split("g");
-            aVar.f59507c = (int) b(split3[0]);
-            aVar.f59508d = b(split3[1]);
-            aVar.f59509e = split[1];
+            aVar.f57857c = (int) b(split3[0]);
+            aVar.f57858d = b(split3[1]);
+            aVar.f57859e = split[1];
             return aVar;
         }
         return null;

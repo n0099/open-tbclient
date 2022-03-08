@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class PmsConstant {
     public static /* synthetic */ Interceptable $ic;
     public static boolean DEBUG;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static final class DynamicDBVersion {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DB_VERSION_10_6_0 = 1;
@@ -37,12 +37,12 @@ public final class PmsConstant {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static final class EnvParam {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes4.dex */
         public static final class Key {
             public static /* synthetic */ Interceptable $ic = null;
             public static final String CPU_ABI = "cpu_abi";
@@ -81,7 +81,7 @@ public final class PmsConstant {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static final class Statistic {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String STATISTIC_CHANNELID = "channel_id";
@@ -97,7 +97,7 @@ public final class PmsConstant {
         public static final String STATISTIC_VERSION = "version";
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes4.dex */
         public static final class Key {
             public static /* synthetic */ Interceptable $ic = null;
             public static final String REV_DETAIL = "detail";
@@ -128,7 +128,7 @@ public final class PmsConstant {
             }
         }
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes4.dex */
         public static final class UBC {
             public static /* synthetic */ Interceptable $ic = null;
             public static final String UBC_REV_ID = "645";
@@ -149,7 +149,7 @@ public final class PmsConstant {
             }
         }
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes4.dex */
         public static final class Value {
             public static /* synthetic */ Interceptable $ic = null;
             public static final String REV_FROM = "research";

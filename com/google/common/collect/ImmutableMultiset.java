@@ -1,10 +1,10 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.a.n;
-import c.i.d.c.o1;
-import c.i.d.c.s0;
-import c.i.d.c.v0;
+import c.i.c.a.n;
+import c.i.c.c.o1;
+import c.i.c.c.s0;
+import c.i.c.c.v0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,14 +17,14 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializationDependencies<E> implements s0<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public transient ImmutableList<E> asList;
     public transient ImmutableSet<s0.a<E>> entrySet;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public final class EntrySet extends IndexedImmutableSet<s0.a<E>> {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -104,7 +104,7 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class EntrySetSerializedForm<E> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -135,19 +135,19 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class a extends o1<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f54844e;
+        public int f53194e;
 
         /* renamed from: f  reason: collision with root package name */
-        public E f54845f;
+        public E f53195f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Iterator f54846g;
+        public final /* synthetic */ Iterator f53196g;
 
         public a(ImmutableMultiset immutableMultiset, Iterator it) {
             Interceptable interceptable = $ic;
@@ -164,14 +164,14 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
                     return;
                 }
             }
-            this.f54846g = it;
+            this.f53196g = it;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54844e > 0 || this.f54846g.hasNext() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53194e > 0 || this.f53196g.hasNext() : invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
@@ -179,29 +179,29 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.f54844e <= 0) {
-                    s0.a aVar = (s0.a) this.f54846g.next();
-                    this.f54845f = (E) aVar.getElement();
-                    this.f54844e = aVar.getCount();
+                if (this.f53194e <= 0) {
+                    s0.a aVar = (s0.a) this.f53196g.next();
+                    this.f53195f = (E) aVar.getElement();
+                    this.f53194e = aVar.getCount();
                 }
-                this.f54844e--;
-                return this.f54845f;
+                this.f53194e--;
+                return this.f53195f;
             }
             return (E) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class b<E> extends ImmutableCollection.b<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public v0<E> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f54847b;
+        public boolean f53197b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f54848c;
+        public boolean f53198c;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public b() {
@@ -221,8 +221,8 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
             }
         }
 
-        /* JADX DEBUG: Type inference failed for r4v3. Raw type applied. Possible types: c.i.d.c.v0<E>, c.i.d.c.v0<T> */
-        /* JADX DEBUG: Type inference failed for r4v5. Raw type applied. Possible types: c.i.d.c.v0<E>, c.i.d.c.v0<T> */
+        /* JADX DEBUG: Type inference failed for r4v3. Raw type applied. Possible types: c.i.c.c.v0<E>, c.i.c.c.v0<T> */
+        /* JADX DEBUG: Type inference failed for r4v5. Raw type applied. Possible types: c.i.c.c.v0<E>, c.i.c.c.v0<T> */
         public static <T> v0<T> l(Iterable<T> iterable) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -305,11 +305,11 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
                 if (i2 == 0) {
                     return this;
                 }
-                if (this.f54847b) {
+                if (this.f53197b) {
                     this.a = new v0<>((v0<? extends E>) this.a);
-                    this.f54848c = false;
+                    this.f53198c = false;
                 }
-                this.f54847b = false;
+                this.f53197b = false;
                 n.p(e2);
                 v0<E> v0Var = this.a;
                 v0Var.u(e2, i2 + v0Var.f(e2));
@@ -325,11 +325,11 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
                 if (this.a.C() == 0) {
                     return ImmutableMultiset.of();
                 }
-                if (this.f54848c) {
+                if (this.f53198c) {
                     this.a = new v0<>((v0<? extends E>) this.a);
-                    this.f54848c = false;
+                    this.f53198c = false;
                 }
-                this.f54847b = true;
+                this.f53197b = true;
                 return new RegularImmutableMultiset(this.a);
             }
             return (ImmutableMultiset) invokeV.objValue;
@@ -350,8 +350,8 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
                     return;
                 }
             }
-            this.f54847b = false;
-            this.f54848c = false;
+            this.f53197b = false;
+            this.f53198c = false;
             this.a = v0.c(i2);
         }
 
@@ -370,8 +370,8 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
                     return;
                 }
             }
-            this.f54847b = false;
-            this.f54848c = false;
+            this.f53197b = false;
+            this.f53198c = false;
             this.a = null;
         }
     }
@@ -438,7 +438,7 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
         return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? RegularImmutableMultiset.EMPTY : (ImmutableMultiset) invokeV.objValue;
     }
 
-    @Override // c.i.d.c.s0
+    @Override // c.i.c.c.s0
     @Deprecated
     public final int add(E e2, int i2) {
         InterceptResult invokeLI;
@@ -491,10 +491,10 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
     public abstract /* synthetic */ int count(Object obj);
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.i.d.c.s0
+    @Override // c.i.c.c.s0
     public abstract ImmutableSet<E> elementSet();
 
-    @Override // java.util.Collection, c.i.d.c.s0
+    @Override // java.util.Collection, c.i.c.c.s0
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -503,14 +503,14 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
 
     public abstract s0.a<E> getEntry(int i2);
 
-    @Override // java.util.Collection, c.i.d.c.s0
+    @Override // java.util.Collection, c.i.c.c.s0
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? Sets.d(entrySet()) : invokeV.intValue;
     }
 
-    @Override // c.i.d.c.s0
+    @Override // c.i.c.c.s0
     @Deprecated
     public final int remove(Object obj, int i2) {
         InterceptResult invokeLI;
@@ -521,7 +521,7 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
         return invokeLI.intValue;
     }
 
-    @Override // c.i.d.c.s0
+    @Override // c.i.c.c.s0
     @Deprecated
     public final int setCount(E e2, int i2) {
         InterceptResult invokeLI;
@@ -566,7 +566,7 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.i.d.c.s0
+    @Override // c.i.c.c.s0
     public ImmutableSet<s0.a<E>> entrySet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -590,7 +590,7 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? new a(this, entrySet().iterator()) : (o1) invokeV.objValue;
     }
 
-    @Override // c.i.d.c.s0
+    @Override // c.i.c.c.s0
     @Deprecated
     public final boolean setCount(E e2, int i2, int i3) {
         InterceptResult invokeLII;

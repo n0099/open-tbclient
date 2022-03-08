@@ -19,28 +19,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class TbPreViewFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49589e;
+    public int f48008e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49590f;
+    public int f48009f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f49591g;
+    public float f48010g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f49592h;
+    public float f48011h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f49593i;
+    public float f48012i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f49594j;
+    public float f48013j;
     public float k;
     public f l;
     public g m;
@@ -54,30 +54,30 @@ public class TbPreViewFrameLayout extends FrameLayout {
     public float u;
     public float v;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f49595e;
+        public final /* synthetic */ View f48014e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f49596f;
+        public final /* synthetic */ f f48015f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ TbPreViewFrameLayout f49597g;
+        public final /* synthetic */ TbPreViewFrameLayout f48016g;
 
         /* renamed from: com.baidu.tieba.view.widget.TbPreViewFrameLayout$a$a  reason: collision with other inner class name */
-        /* loaded from: classes13.dex */
-        public class C1978a implements ValueAnimator.AnimatorUpdateListener {
+        /* loaded from: classes6.dex */
+        public class C1954a implements ValueAnimator.AnimatorUpdateListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f49598e;
+            public final /* synthetic */ a f48017e;
 
-            public C1978a(a aVar) {
+            public C1954a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,7 +92,7 @@ public class TbPreViewFrameLayout extends FrameLayout {
                         return;
                     }
                 }
-                this.f49598e = aVar;
+                this.f48017e = aVar;
             }
 
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -100,42 +100,42 @@ public class TbPreViewFrameLayout extends FrameLayout {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                     float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                    if (floatValue < this.f49598e.f49597g.f49591g) {
-                        floatValue = this.f49598e.f49597g.f49591g;
+                    if (floatValue < this.f48017e.f48016g.f48010g) {
+                        floatValue = this.f48017e.f48016g.f48010g;
                     }
                     if (floatValue > 1.0f) {
                         floatValue = 1.0f;
                     }
                     float f2 = (1.0f - floatValue) + 0.04f;
-                    if (this.f49598e.f49597g.f49589e / this.f49598e.f49597g.f49590f > 1.0f || (n.i(this.f49598e.f49597g.getContext()) - this.f49598e.f49597g.getFullRect()[1]) / 2 > this.f49598e.f49595e.getHeight() / 2) {
-                        this.f49598e.f49597g.setTranslationY((-this.f49598e.f49597g.f49592h) * f2);
+                    if (this.f48017e.f48016g.f48008e / this.f48017e.f48016g.f48009f > 1.0f || (n.i(this.f48017e.f48016g.getContext()) - this.f48017e.f48016g.getFullRect()[1]) / 2 > this.f48017e.f48014e.getHeight() / 2) {
+                        this.f48017e.f48016g.setTranslationY((-this.f48017e.f48016g.f48011h) * f2);
                         f2 = 0.0f;
-                        this.f49598e.f49597g.n();
+                        this.f48017e.f48016g.n();
                         floatValue = 1.0f;
                     } else {
-                        this.f49598e.f49597g.m(floatValue, f2);
+                        this.f48017e.f48016g.m(floatValue, f2);
                     }
-                    this.f49598e.f49597g.u = floatValue;
-                    this.f49598e.f49597g.v = f2;
-                    if (this.f49598e.f49597g.l != null) {
-                        this.f49598e.f49597g.l.b(this.f49598e.f49595e, floatValue, floatValue, 0.0f, f2);
+                    this.f48017e.f48016g.u = floatValue;
+                    this.f48017e.f48016g.v = f2;
+                    if (this.f48017e.f48016g.l != null) {
+                        this.f48017e.f48016g.l.b(this.f48017e.f48014e, floatValue, floatValue, 0.0f, f2);
                     }
-                    a aVar = this.f49598e;
-                    f fVar = aVar.f49596f;
+                    a aVar = this.f48017e;
+                    f fVar = aVar.f48015f;
                     if (fVar != null) {
-                        fVar.b(aVar.f49595e, floatValue, floatValue, 0.0f, f2);
+                        fVar.b(aVar.f48014e, floatValue, floatValue, 0.0f, f2);
                     }
                 }
             }
         }
 
-        /* loaded from: classes13.dex */
+        /* loaded from: classes6.dex */
         public class b extends AnimatorListenerAdapter {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f49599e;
+            public final /* synthetic */ a f48018e;
 
             public b(a aVar) {
                 Interceptable interceptable = $ic;
@@ -152,20 +152,20 @@ public class TbPreViewFrameLayout extends FrameLayout {
                         return;
                     }
                 }
-                this.f49599e = aVar;
+                this.f48018e = aVar;
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                    if (this.f49599e.f49597g.l != null) {
-                        this.f49599e.f49597g.l.a(this.f49599e.f49595e, true);
+                    if (this.f48018e.f48016g.l != null) {
+                        this.f48018e.f48016g.l.a(this.f48018e.f48014e, true);
                     }
-                    a aVar = this.f49599e;
-                    f fVar = aVar.f49596f;
+                    a aVar = this.f48018e;
+                    f fVar = aVar.f48015f;
                     if (fVar != null) {
-                        fVar.a(aVar.f49595e, true);
+                        fVar.a(aVar.f48014e, true);
                     }
                 }
             }
@@ -174,10 +174,10 @@ public class TbPreViewFrameLayout extends FrameLayout {
             public void onAnimationStart(Animator animator) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                    if (this.f49599e.f49597g.l != null) {
-                        this.f49599e.f49597g.l.c(true);
+                    if (this.f48018e.f48016g.l != null) {
+                        this.f48018e.f48016g.l.c(true);
                     }
-                    f fVar = this.f49599e.f49596f;
+                    f fVar = this.f48018e.f48015f;
                     if (fVar != null) {
                         fVar.c(true);
                     }
@@ -200,35 +200,35 @@ public class TbPreViewFrameLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f49597g = tbPreViewFrameLayout;
-            this.f49595e = view;
-            this.f49596f = fVar;
+            this.f48016g = tbPreViewFrameLayout;
+            this.f48014e = view;
+            this.f48015f = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int[] fullRect = this.f49597g.getFullRect();
-                this.f49597g.f49591g = (((fullRect[1] - this.f49595e.getHeight()) + 0.0f) * 1.0f) / fullRect[1];
-                TbPreViewFrameLayout tbPreViewFrameLayout = this.f49597g;
-                tbPreViewFrameLayout.f49591g = Math.abs(Math.round(tbPreViewFrameLayout.f49591g * 100.0f) / 100.0f);
-                ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, this.f49597g.f49591g);
+                int[] fullRect = this.f48016g.getFullRect();
+                this.f48016g.f48010g = (((fullRect[1] - this.f48014e.getHeight()) + 0.0f) * 1.0f) / fullRect[1];
+                TbPreViewFrameLayout tbPreViewFrameLayout = this.f48016g;
+                tbPreViewFrameLayout.f48010g = Math.abs(Math.round(tbPreViewFrameLayout.f48010g * 100.0f) / 100.0f);
+                ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, this.f48016g.f48010g);
                 ofFloat.setDuration(250L);
-                ofFloat.addUpdateListener(new C1978a(this));
+                ofFloat.addUpdateListener(new C1954a(this));
                 ofFloat.addListener(new b(this));
                 ofFloat.start();
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class b implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPreViewFrameLayout f49600e;
+        public final /* synthetic */ TbPreViewFrameLayout f48019e;
 
         public b(TbPreViewFrameLayout tbPreViewFrameLayout) {
             Interceptable interceptable = $ic;
@@ -245,34 +245,34 @@ public class TbPreViewFrameLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f49600e = tbPreViewFrameLayout;
+            this.f48019e = tbPreViewFrameLayout;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue() + this.f49600e.v;
-                if (this.f49600e.l != null) {
-                    this.f49600e.l.b(null, this.f49600e.u, this.f49600e.u, 0.0f, floatValue);
+                float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue() + this.f48019e.v;
+                if (this.f48019e.l != null) {
+                    this.f48019e.l.b(null, this.f48019e.u, this.f48019e.u, 0.0f, floatValue);
                 }
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class c implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f49601e;
+        public final /* synthetic */ View f48020e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f49602f;
+        public final /* synthetic */ f f48021f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ TbPreViewFrameLayout f49603g;
+        public final /* synthetic */ TbPreViewFrameLayout f48022g;
 
         public c(TbPreViewFrameLayout tbPreViewFrameLayout, View view, f fVar) {
             Interceptable interceptable = $ic;
@@ -289,9 +289,9 @@ public class TbPreViewFrameLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f49603g = tbPreViewFrameLayout;
-            this.f49601e = view;
-            this.f49602f = fVar;
+            this.f48022g = tbPreViewFrameLayout;
+            this.f48020e = view;
+            this.f48021f = fVar;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -299,45 +299,45 @@ public class TbPreViewFrameLayout extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                if (floatValue < this.f49603g.f49591g) {
-                    floatValue = this.f49603g.f49591g;
+                if (floatValue < this.f48022g.f48010g) {
+                    floatValue = this.f48022g.f48010g;
                 }
                 if (floatValue > 1.0f) {
                     floatValue = 1.0f;
                 }
                 float f2 = 1.0f - floatValue;
-                if (this.f49603g.f49589e / this.f49603g.f49590f > 1.0f || (n.i(this.f49603g.getContext()) - this.f49603g.getFullRect()[1]) / 2 > this.f49601e.getHeight() / 2) {
-                    this.f49603g.setTranslationY((-this.f49603g.f49592h) * f2);
+                if (this.f48022g.f48008e / this.f48022g.f48009f > 1.0f || (n.i(this.f48022g.getContext()) - this.f48022g.getFullRect()[1]) / 2 > this.f48020e.getHeight() / 2) {
+                    this.f48022g.setTranslationY((-this.f48022g.f48011h) * f2);
                     f2 = 0.0f;
-                    this.f49603g.n();
+                    this.f48022g.n();
                     floatValue = 1.0f;
                 } else {
-                    this.f49603g.m(floatValue, f2);
+                    this.f48022g.m(floatValue, f2);
                 }
-                if (this.f49603g.l != null) {
-                    this.f49603g.l.d(this.f49601e, floatValue, floatValue, 0.0f, f2);
+                if (this.f48022g.l != null) {
+                    this.f48022g.l.d(this.f48020e, floatValue, floatValue, 0.0f, f2);
                 }
-                f fVar = this.f49602f;
+                f fVar = this.f48021f;
                 if (fVar != null) {
-                    fVar.d(this.f49601e, floatValue, floatValue, 0.0f, f2);
+                    fVar.d(this.f48020e, floatValue, floatValue, 0.0f, f2);
                 }
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class d extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f49604e;
+        public final /* synthetic */ View f48023e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f49605f;
+        public final /* synthetic */ f f48024f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ TbPreViewFrameLayout f49606g;
+        public final /* synthetic */ TbPreViewFrameLayout f48025g;
 
         public d(TbPreViewFrameLayout tbPreViewFrameLayout, View view, f fVar) {
             Interceptable interceptable = $ic;
@@ -354,21 +354,21 @@ public class TbPreViewFrameLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f49606g = tbPreViewFrameLayout;
-            this.f49604e = view;
-            this.f49605f = fVar;
+            this.f48025g = tbPreViewFrameLayout;
+            this.f48023e = view;
+            this.f48024f = fVar;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                if (this.f49606g.l != null) {
-                    this.f49606g.l.a(this.f49604e, false);
+                if (this.f48025g.l != null) {
+                    this.f48025g.l.a(this.f48023e, false);
                 }
-                f fVar = this.f49605f;
+                f fVar = this.f48024f;
                 if (fVar != null) {
-                    fVar.a(this.f49604e, false);
+                    fVar.a(this.f48023e, false);
                 }
             }
         }
@@ -377,10 +377,10 @@ public class TbPreViewFrameLayout extends FrameLayout {
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                if (this.f49606g.l != null) {
-                    this.f49606g.l.c(false);
+                if (this.f48025g.l != null) {
+                    this.f48025g.l.c(false);
                 }
-                f fVar = this.f49605f;
+                f fVar = this.f48024f;
                 if (fVar != null) {
                     fVar.c(false);
                 }
@@ -388,12 +388,12 @@ public class TbPreViewFrameLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface e {
         int[] a();
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface f {
         void a(View view, boolean z);
 
@@ -404,7 +404,7 @@ public class TbPreViewFrameLayout extends FrameLayout {
         void d(View view, float f2, float f3, float f4, float f5);
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface g {
         void a(MotionEvent motionEvent);
 
@@ -490,13 +490,13 @@ public class TbPreViewFrameLayout extends FrameLayout {
     public float getScale() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f49591g : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f48010g : invokeV.floatValue;
     }
 
     public float getTranslate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f49592h : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f48011h : invokeV.floatValue;
     }
 
     public void hideToolsView(View view) {
@@ -562,22 +562,22 @@ public class TbPreViewFrameLayout extends FrameLayout {
             }
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f49593i = motionEvent.getX();
-                this.f49594j = motionEvent.getY();
+                this.f48012i = motionEvent.getX();
+                this.f48013j = motionEvent.getY();
                 g gVar3 = this.m;
                 if (gVar3 != null) {
                     gVar3.d(motionEvent);
                 }
             } else if (action == 1 || action == 3) {
-                if (Math.abs(this.f49593i - motionEvent.getX()) > this.k && (this.f49593i - motionEvent.getX()) - 50.0f > Math.abs(this.f49594j - motionEvent.getY()) && this.p) {
+                if (Math.abs(this.f48012i - motionEvent.getX()) > this.k && (this.f48012i - motionEvent.getX()) - 50.0f > Math.abs(this.f48013j - motionEvent.getY()) && this.p) {
                     g gVar4 = this.m;
                     if (gVar4 != null) {
                         gVar4.b(motionEvent);
                     }
-                } else if (Math.abs(this.f49593i - motionEvent.getX()) > this.k && (motionEvent.getX() - this.f49593i) - 50.0f > Math.abs(this.f49594j - motionEvent.getY()) && this.p && (gVar = this.m) != null) {
+                } else if (Math.abs(this.f48012i - motionEvent.getX()) > this.k && (motionEvent.getX() - this.f48012i) - 50.0f > Math.abs(this.f48013j - motionEvent.getY()) && this.p && (gVar = this.m) != null) {
                     gVar.a(motionEvent);
                 }
-                if (Math.abs(this.f49593i - motionEvent.getX()) < 30.0f && Math.abs(this.f49594j - motionEvent.getY()) < 30.0f && motionEvent.getY() <= n.i(getContext()) * 0.6d && (gVar2 = this.m) != null) {
+                if (Math.abs(this.f48012i - motionEvent.getX()) < 30.0f && Math.abs(this.f48013j - motionEvent.getY()) < 30.0f && motionEvent.getY() <= n.i(getContext()) * 0.6d && (gVar2 = this.m) != null) {
                     gVar2.c(motionEvent);
                 }
             }
@@ -589,8 +589,8 @@ public class TbPreViewFrameLayout extends FrameLayout {
     public void onVideoSizeChanged(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048593, this, i2, i3) == null) {
-            this.f49589e = i2;
-            this.f49590f = i3;
+            this.f48008e = i2;
+            this.f48009f = i3;
         }
     }
 
@@ -632,14 +632,14 @@ public class TbPreViewFrameLayout extends FrameLayout {
     public void setScale(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048599, this, f2) == null) {
-            this.f49591g = f2;
+            this.f48010g = f2;
         }
     }
 
     public void setTranslate(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048600, this, f2) == null) {
-            this.f49592h = f2;
+            this.f48011h = f2;
         }
     }
 
@@ -674,7 +674,7 @@ public class TbPreViewFrameLayout extends FrameLayout {
     public void hideToolsView(View view, f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, view, fVar) == null) {
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(this.f49591g, 1.0f);
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(this.f48010g, 1.0f);
             ofFloat.setDuration(250L);
             ofFloat.addUpdateListener(new c(this, view, fVar));
             ofFloat.addListener(new d(this, view, fVar));
@@ -709,10 +709,10 @@ public class TbPreViewFrameLayout extends FrameLayout {
                 return;
             }
         }
-        this.f49591g = 0.7f;
-        this.f49592h = 300.0f;
-        this.f49593i = 0.0f;
-        this.f49594j = 0.0f;
+        this.f48010g = 0.7f;
+        this.f48011h = 300.0f;
+        this.f48012i = 0.0f;
+        this.f48013j = 0.0f;
         this.o = true;
         this.p = true;
         this.u = 1.0f;

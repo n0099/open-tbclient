@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class FaceItem implements Jsonable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DIR_STICKER = "sticker";

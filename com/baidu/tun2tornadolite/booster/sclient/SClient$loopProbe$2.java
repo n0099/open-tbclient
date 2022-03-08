@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.tun2tornadolite.AndroidOperationInterface;
 import com.baidu.tun2tornadolite.booster.LogTo;
 import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
 import kotlin.Metadata;
@@ -30,7 +31,7 @@ import kotlinx.coroutines.CoroutineScope;
 import kotlinx.coroutines.DelayKt;
 @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u0004\u0018\u00010\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 5, 1}, xi = 48)
 @DebugMetadata(c = "com.baidu.tun2tornadolite.booster.sclient.SClient$loopProbe$2", f = "SClient.kt", i = {0, 0, 0, 0}, l = {409}, m = "invokeSuspend", n = {"cache", "handleData", "size", "index"}, s = {"L$0", "L$1", "I$0", "J$0"})
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public final class SClient$loopProbe$2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -216,7 +217,7 @@ public final class SClient$loopProbe$2 extends SuspendLambda implements Function
                     TornadoLiteRuntime.INSTANCE.setLossRateFromMClientToSClient$tun2tornadolite_release((int) (((1000 - (sumOfInt * 100)) / 1000.0d) * 100));
                     TornadoLiteRuntime.INSTANCE.setLatencyFromMClientToSClient$tun2tornadolite_release((int) (((float) j4) / sumOfInt));
                 }
-                LogTo.INSTANCE.d("*****", "[Probe " + j2 + "] packets:" + sumOfInt + '/' + i2 + " loss:" + TornadoLiteRuntime.INSTANCE.getLossRateFromMClientToSClient() + " latency:" + TornadoLiteRuntime.INSTANCE.getLatencyFromMClientToSClient());
+                LogTo.INSTANCE.d("*****", "[Probe " + j2 + "] packets:" + sumOfInt + WebvttCueParser.CHAR_SLASH + i2 + " loss:" + TornadoLiteRuntime.INSTANCE.getLossRateFromMClientToSClient() + " latency:" + TornadoLiteRuntime.INSTANCE.getLatencyFromMClientToSClient());
                 sClient$loopProbe$2.L$0 = numArr;
                 sClient$loopProbe$2.L$1 = sClient$loopProbe$2$handleData$1;
                 sClient$loopProbe$2.I$0 = i2;

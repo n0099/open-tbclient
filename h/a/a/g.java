@@ -4,17 +4,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int[] f61881b;
+    public int[] f60231b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int[] f61882c;
+    public int[] f60232c;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -33,11 +33,11 @@ public final class g {
     public static void a(g gVar, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, gVar, aVar) == null) {
-            int length = gVar.f61882c.length;
+            int length = gVar.f60232c.length;
             int i2 = 0;
             for (int i3 = 0; i3 < length; i3++) {
-                gVar.f61882c[i3] = i2;
-                d.n(gVar.a, gVar.f61881b, i2, aVar);
+                gVar.f60232c[i3] = i2;
+                d.n(gVar.a, gVar.f60231b, i2, aVar);
                 i2 += 1080;
             }
         }
@@ -47,8 +47,8 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65538, null, gVar, i2, i3) == null) {
             gVar.a = i2;
-            gVar.f61881b = new int[i3 * 1080];
-            gVar.f61882c = new int[i3];
+            gVar.f60231b = new int[i3 * 1080];
+            gVar.f60232c = new int[i3];
         }
     }
 }

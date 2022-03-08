@@ -5,32 +5,32 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, c> f60447b;
+    public final Map<String, c> f58797b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, d> f60448c;
+    public final Map<String, d> f58798c;
 
     /* renamed from: com.ss.android.socialbase.downloader.network.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static final class C2239a {
+    /* loaded from: classes8.dex */
+    public static final class C2218a {
         public static final a a = new a();
     }
 
     public void a(String str, c cVar) {
-        synchronized (this.f60447b) {
-            this.f60447b.put(str, cVar);
+        synchronized (this.f58797b) {
+            this.f58797b.put(str, cVar);
         }
     }
 
     public d b(String str, List<com.ss.android.socialbase.downloader.model.c> list) {
         d remove;
-        synchronized (this.f60448c) {
-            remove = this.f60448c.remove(str);
+        synchronized (this.f58798c) {
+            remove = this.f58798c.remove(str);
         }
         if (remove != null) {
             if (f.a(remove.f(), list)) {
@@ -54,8 +54,8 @@ public class a {
     }
 
     public a() {
-        this.f60447b = new HashMap();
-        this.f60448c = new LinkedHashMap(3);
+        this.f58797b = new HashMap();
+        this.f58798c = new LinkedHashMap(3);
         this.a = 3;
     }
 
@@ -65,8 +65,8 @@ public class a {
 
     public c a(String str, List<com.ss.android.socialbase.downloader.model.c> list) {
         c remove;
-        synchronized (this.f60447b) {
-            remove = this.f60447b.remove(str);
+        synchronized (this.f58797b) {
+            remove = this.f58797b.remove(str);
         }
         if (remove != null) {
             if (f.a(remove.h(), list)) {
@@ -90,7 +90,7 @@ public class a {
     }
 
     public boolean a(String str) {
-        c cVar = this.f60447b.get(str);
+        c cVar = this.f58797b.get(str);
         if (cVar != null) {
             if (cVar.g()) {
                 return true;
@@ -101,6 +101,6 @@ public class a {
     }
 
     public static a a() {
-        return C2239a.a;
+        return C2218a.a;
     }
 }

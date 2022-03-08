@@ -10,13 +10,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import com.kwad.sdk.R;
+import com.baidu.tieba.R;
 import com.kwad.sdk.api.loader.Wrapper;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class b extends Dialog {
     public a a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(DialogInterface dialogInterface);
 

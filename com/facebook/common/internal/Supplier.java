@@ -1,5 +1,5 @@
 package com.facebook.common.internal;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface Supplier<T> {
     T get();
 }

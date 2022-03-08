@@ -6,32 +6,32 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.SystemClock;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static volatile boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f60467b = "b";
+    public static final String f58817b = "b";
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f60468g = -1;
+    public static long f58818g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile b f60469h;
+    public static volatile b f58819h;
 
     /* renamed from: c  reason: collision with root package name */
-    public final k f60470c = k.a();
+    public final k f58820c = k.a();
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicInteger f60471d = new AtomicInteger();
+    public final AtomicInteger f58821d = new AtomicInteger();
 
     /* renamed from: e  reason: collision with root package name */
-    public final a f60472e = new a(com.ss.android.socialbase.downloader.h.e.a());
+    public final a f58822e = new a(com.ss.android.socialbase.downloader.h.e.a());
 
     /* renamed from: f  reason: collision with root package name */
-    public long f60473f;
+    public long f58823f;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);
@@ -56,14 +56,14 @@ public class b {
     }
 
     public static b a() {
-        if (f60469h == null) {
+        if (f58819h == null) {
             synchronized (b.class) {
-                if (f60469h == null) {
-                    f60469h = new b();
+                if (f58819h == null) {
+                    f58819h = new b();
                 }
             }
         }
-        return f60469h;
+        return f58819h;
     }
 
     public static long d() {
@@ -76,11 +76,11 @@ public class b {
 
     public void b() {
         try {
-            String str = f60467b;
-            com.ss.android.socialbase.downloader.c.a.c(str, "startSampling: mSamplingCounter = " + this.f60471d);
-            if (this.f60471d.getAndIncrement() == 0) {
-                this.f60472e.a();
-                this.f60473f = SystemClock.uptimeMillis();
+            String str = f58817b;
+            com.ss.android.socialbase.downloader.c.a.c(str, "startSampling: mSamplingCounter = " + this.f58821d);
+            if (this.f58821d.getAndIncrement() == 0) {
+                this.f58822e.a();
+                this.f58823f = SystemClock.uptimeMillis();
             }
         } catch (Throwable unused) {
         }
@@ -88,10 +88,10 @@ public class b {
 
     public void c() {
         try {
-            String str = f60467b;
-            com.ss.android.socialbase.downloader.c.a.c(str, "stopSampling: mSamplingCounter = " + this.f60471d);
-            if (this.f60471d.decrementAndGet() == 0) {
-                this.f60472e.b();
+            String str = f58817b;
+            com.ss.android.socialbase.downloader.c.a.c(str, "stopSampling: mSamplingCounter = " + this.f58821d);
+            if (this.f58821d.decrementAndGet() == 0) {
+                this.f58822e.b();
                 g();
             }
         } catch (Throwable unused) {
@@ -107,15 +107,15 @@ public class b {
             } else {
                 mobileRxBytes = TrafficStats.getMobileRxBytes();
             }
-            long j2 = mobileRxBytes - f60468g;
-            if (f60468g >= 0) {
+            long j2 = mobileRxBytes - f58818g;
+            if (f58818g >= 0) {
                 synchronized (this) {
                     long uptimeMillis = SystemClock.uptimeMillis();
-                    this.f60470c.a(j2, uptimeMillis - this.f60473f);
-                    this.f60473f = uptimeMillis;
+                    this.f58820c.a(j2, uptimeMillis - this.f58823f);
+                    this.f58823f = uptimeMillis;
                 }
             }
-            f60468g = mobileRxBytes;
+            f58818g = mobileRxBytes;
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -123,6 +123,6 @@ public class b {
 
     public void g() {
         f();
-        f60468g = -1L;
+        f58818g = -1L;
     }
 }

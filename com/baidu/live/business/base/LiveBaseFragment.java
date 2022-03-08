@@ -6,9 +6,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-import c.a.y.b.d.a;
-import c.a.y.b.d.c.b;
-import c.a.y.g.c.d;
+import c.a.w.b.d.a;
+import c.a.w.b.d.c.b;
+import c.a.w.f.c.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.business.model.data.LiveFeedWrapData;
 import com.baidu.live.business.model.data.LiveTabEntity;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public abstract class LiveBaseFragment extends Fragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCHEME_DEF_SUB_TAB_TYPE = "scheme_def_tab_type";
@@ -107,10 +107,10 @@ public abstract class LiveBaseFragment extends Fragment {
             }
             this.requestKey = this.tab + "_" + this.subTab + "_" + this.refreshType;
             this.refreshIndex = this.refreshIndex + 1;
-            c.a.y.b.d.b.b(8);
+            c.a.w.b.d.b.b(8);
             a aVar = this.mModel;
             if (aVar != null) {
-                aVar.h(c.a.y.b.d.b.a(), this.sessionId, this.refreshType, this.tab, this.channelId, this.subTab, this.refreshIndex);
+                aVar.h(c.a.w.b.d.b.a(), this.sessionId, this.refreshType, this.tab, this.channelId, this.subTab, this.refreshIndex);
             }
         }
     }
@@ -160,10 +160,10 @@ public abstract class LiveBaseFragment extends Fragment {
             this.requestKey = this.tab + "_" + this.subTab + "_" + this.refreshType;
             this.sessionId = "";
             this.refreshIndex = 1;
-            c.a.y.b.d.b.b(8);
+            c.a.w.b.d.b.b(8);
             a aVar = this.mModel;
             if (aVar != null) {
-                aVar.h(c.a.y.b.d.b.a(), this.sessionId, this.refreshType, this.tab, this.channelId, this.subTab, this.refreshIndex);
+                aVar.h(c.a.w.b.d.b.a(), this.sessionId, this.refreshType, this.tab, this.channelId, this.subTab, this.refreshIndex);
             }
             return true;
         }
@@ -182,10 +182,10 @@ public abstract class LiveBaseFragment extends Fragment {
             this.requestKey = this.tab + "_" + this.subTab + "_" + this.refreshType;
             this.sessionId = "";
             this.refreshIndex = 1;
-            c.a.y.b.d.b.b(10);
+            c.a.w.b.d.b.b(10);
             a aVar = this.mModel;
             if (aVar != null) {
-                aVar.h(c.a.y.b.d.b.a(), this.sessionId, this.refreshType, this.tab, this.channelId, this.subTab, this.refreshIndex);
+                aVar.h(c.a.w.b.d.b.a(), this.sessionId, this.refreshType, this.tab, this.channelId, this.subTab, this.refreshIndex);
             }
             return true;
         }
@@ -204,10 +204,10 @@ public abstract class LiveBaseFragment extends Fragment {
             this.requestKey = this.tab + "_" + this.subTab + "_" + this.refreshType;
             this.sessionId = "";
             this.refreshIndex = 1;
-            c.a.y.b.d.b.b(11);
+            c.a.w.b.d.b.b(11);
             a aVar = this.mModel;
             if (aVar != null) {
-                aVar.h(c.a.y.b.d.b.a(), this.sessionId, this.refreshType, this.tab, this.channelId, this.subTab, this.refreshIndex);
+                aVar.h(c.a.w.b.d.b.a(), this.sessionId, this.refreshType, this.tab, this.channelId, this.subTab, this.refreshIndex);
             }
             return true;
         }

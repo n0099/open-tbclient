@@ -6,7 +6,6 @@ import c.a.d.f.p.l;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.constants.HttpConstants;
-import com.baidu.poly.widget.PolyActivity;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,28 +25,28 @@ public class h {
     public d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2099b;
+    public String f2728b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f2100c;
+    public String f2729c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f2101d;
+    public String f2730d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f2102e;
+    public String f2731e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f2103f;
+    public String f2732f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f2104g;
+    public String f2733g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f2105h;
+    public String f2734h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Map<String, String> f2106i;
+    public Map<String, String> f2735i;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -66,15 +65,15 @@ public class h {
     public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? l.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : l.t() ? "2G" : l.u() ? "3G" : (l.v() || l.z()) ? "4G" : PolyActivity.NONE_PANEL_TYPE : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? l.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : l.t() ? "2G" : l.u() ? "3G" : (l.v() || l.z()) ? "4G" : "NONE" : (String) invokeV.objValue;
     }
 
     public void a(String str) {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (this.f2106i == null) {
-                this.f2106i = new HashMap();
+            if (this.f2735i == null) {
+                this.f2735i = new HashMap();
             }
             String[] split2 = str.split("&");
             if (split2 == null || split2.length == 0) {
@@ -83,7 +82,7 @@ public class h {
             for (String str2 : split2) {
                 if (!TextUtils.isEmpty(str2) && (split = str2.split("=")) != null && split.length == 2) {
                     try {
-                        this.f2106i.put(split[0], URLDecoder.decode(split[1], "utf-8"));
+                        this.f2735i.put(split[0], URLDecoder.decode(split[1], "utf-8"));
                     } catch (UnsupportedEncodingException e2) {
                         BdLog.e(e2);
                     }
@@ -95,10 +94,10 @@ public class h {
     public void b(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            if (this.f2106i == null) {
-                this.f2106i = new HashMap();
+            if (this.f2735i == null) {
+                this.f2735i = new HashMap();
             }
-            this.f2106i.put(str, str2);
+            this.f2735i.put(str, str2);
         }
     }
 
@@ -110,11 +109,11 @@ public class h {
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 if (this.a != null) {
-                    jSONObject2.put("app_version", this.a.f2079c);
+                    jSONObject2.put("app_version", this.a.f2708c);
                     jSONObject2.put("client_timestamp", Long.toString(System.currentTimeMillis()));
-                    jSONObject2.put("cuid", this.a.f2083g);
-                    jSONObject2.put("shoubai_cuid", this.a.f2084h);
-                    jSONObject2.put("from", this.a.f2080d);
+                    jSONObject2.put("cuid", this.a.f2712g);
+                    jSONObject2.put("shoubai_cuid", this.a.f2713h);
+                    jSONObject2.put("from", this.a.f2709d);
                     jSONObject2.put("uid", this.a.l);
                 }
                 jSONObject2.put("client_ip", g.b());
@@ -127,21 +126,21 @@ public class h {
                 jSONObject2.put("mission_id", g.c());
                 jSONObject.put("base_info", jSONObject2);
                 JSONObject jSONObject3 = new JSONObject();
-                if (this.f2099b != null) {
-                    jSONObject3.put("module", this.f2099b);
+                if (this.f2728b != null) {
+                    jSONObject3.put("module", this.f2728b);
                 }
-                if (this.f2100c != null) {
-                    jSONObject3.put("action", this.f2100c);
+                if (this.f2729c != null) {
+                    jSONObject3.put("action", this.f2729c);
                 }
-                if (this.f2101d != null) {
-                    jSONObject3.put("error_code", this.f2101d);
+                if (this.f2730d != null) {
+                    jSONObject3.put("error_code", this.f2730d);
                 }
-                if (this.f2102e != null) {
-                    jSONObject3.put("error_message", this.f2102e);
+                if (this.f2731e != null) {
+                    jSONObject3.put("error_message", this.f2731e);
                 }
-                if (this.f2106i != null) {
+                if (this.f2735i != null) {
                     StringBuilder sb = new StringBuilder();
-                    for (Map.Entry<String, String> entry : this.f2106i.entrySet()) {
+                    for (Map.Entry<String, String> entry : this.f2735i.entrySet()) {
                         sb.append(entry.getKey());
                         sb.append(":");
                         sb.append(entry.getValue());
@@ -152,14 +151,14 @@ public class h {
                     }
                     jSONObject3.put("ext1", sb);
                 }
-                if (this.f2103f != null) {
-                    jSONObject3.put("id", this.f2103f);
+                if (this.f2732f != null) {
+                    jSONObject3.put("id", this.f2732f);
                 }
-                if (this.f2104g != null) {
-                    jSONObject3.put("title", this.f2104g);
+                if (this.f2733g != null) {
+                    jSONObject3.put("title", this.f2733g);
                 }
-                if (this.f2105h != null) {
-                    jSONObject3.put("abstract", this.f2105h);
+                if (this.f2734h != null) {
+                    jSONObject3.put("abstract", this.f2734h);
                 }
                 jSONObject.put("debug_info", jSONObject3);
                 jSONObject.put("kpi", new JSONObject());
@@ -174,7 +173,7 @@ public class h {
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f2100c = str;
+            this.f2729c = str;
         }
     }
 
@@ -188,21 +187,21 @@ public class h {
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f2101d = str;
+            this.f2730d = str;
         }
     }
 
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f2102e = str;
+            this.f2731e = str;
         }
     }
 
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f2099b = str;
+            this.f2728b = str;
         }
     }
 }

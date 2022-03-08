@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class FTOSPushHelper {
     public static /* synthetic */ Interceptable $ic;
     public static long a;
@@ -53,7 +53,7 @@ public class FTOSPushHelper {
     public static void a(Context context) {
         AbstractPushManager a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, context) == null) || (a2 = f.a(context).a(e.f61112d)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65538, null, context) == null) || (a2 = f.a(context).a(e.f59462d)) == null) {
             return;
         }
         com.xiaomi.channel.commonutils.logger.b.m133a("ASSEMBLE_PUSH :  register fun touch os when network change!");
@@ -112,7 +112,7 @@ public class FTOSPushHelper {
     public static void uploadToken(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, context, str) == null) {
-            i.a(context, e.f61112d, str);
+            i.a(context, e.f59462d, str);
         }
     }
 }

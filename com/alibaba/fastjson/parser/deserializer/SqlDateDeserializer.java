@@ -18,7 +18,7 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.util.Date;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class SqlDateDeserializer extends AbstractDateDeserializer implements ObjectDeserializer {
     public static /* synthetic */ Interceptable $ic;
     public static final SqlDateDeserializer instance;

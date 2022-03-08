@@ -1,5 +1,5 @@
 package com.bun.miitmdid.interfaces;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface IIdentifierListener {
     void onSupport(IdSupplier idSupplier);
 }

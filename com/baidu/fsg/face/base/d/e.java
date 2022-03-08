@@ -18,28 +18,28 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int a = 480;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f34277b = 480;
+    public static final int f32680b = 480;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f34278c = 192;
+    public static final int f32681c = 192;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f34279d = 728;
+    public static final int f32682d = 728;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f34280e = 750;
+    public static final int f32683e = 750;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f34281f = 1335;
+    public static final int f32684f = 1335;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f34282g = "LivenessFaceUtil";
+    public static final String f32685g = "LivenessFaceUtil";
     public transient /* synthetic */ FieldHolder $fh;
 
     public e() {
@@ -97,7 +97,7 @@ public class e {
     public static boolean b(b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bVar)) == null) ? (bVar == null || bVar.a == null || bVar.f34272b == null) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bVar)) == null) ? (bVar == null || bVar.a == null || bVar.f32675b == null) ? false : true : invokeL.booleanValue;
     }
 
     public static boolean c(int[] iArr, b bVar) {
@@ -143,36 +143,36 @@ public class e {
             Rect rect = new Rect();
             if (b(bVar)) {
                 int i2 = bVar.a.left;
-                Rect rect2 = bVar.f34272b;
+                Rect rect2 = bVar.f32675b;
                 int i3 = rect2.left;
                 if (i2 - i3 < 0) {
                     rect.left = 0;
                 } else {
-                    rect.left = (int) (((i2 - i3) / rect2.width()) * bVar.f34274d);
+                    rect.left = (int) (((i2 - i3) / rect2.width()) * bVar.f32677d);
                 }
                 int i4 = bVar.a.top;
-                Rect rect3 = bVar.f34272b;
+                Rect rect3 = bVar.f32675b;
                 int i5 = rect3.top;
                 if (i4 > i5) {
                     rect.top = 0;
                 } else {
-                    rect.top = (int) (((i5 - i4) / rect3.height()) * bVar.f34273c);
+                    rect.top = (int) (((i5 - i4) / rect3.height()) * bVar.f32676c);
                 }
                 int i6 = bVar.a.right;
-                Rect rect4 = bVar.f34272b;
+                Rect rect4 = bVar.f32675b;
                 int i7 = rect4.right;
                 if (i6 > i7) {
-                    rect.right = bVar.f34274d;
+                    rect.right = bVar.f32677d;
                 } else {
-                    rect.right = bVar.f34274d - ((int) (((i7 - i6) / rect4.width()) * bVar.f34274d));
+                    rect.right = bVar.f32677d - ((int) (((i7 - i6) / rect4.width()) * bVar.f32677d));
                 }
                 int i8 = bVar.a.bottom;
-                Rect rect5 = bVar.f34272b;
+                Rect rect5 = bVar.f32675b;
                 int i9 = rect5.bottom;
                 if (i8 > i9) {
-                    rect.bottom = bVar.f34273c;
+                    rect.bottom = bVar.f32676c;
                 } else {
-                    rect.bottom = bVar.f34273c - ((int) (((i9 - i8) / rect5.height()) * bVar.f34273c));
+                    rect.bottom = bVar.f32676c - ((int) (((i9 - i8) / rect5.height()) * bVar.f32676c));
                 }
                 return rect;
             }

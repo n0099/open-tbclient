@@ -12,7 +12,7 @@ import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.qq.e.ads.nativ.NativeUnifiedADDataAdapter;
 import java.lang.reflect.Field;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class b extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

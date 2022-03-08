@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
-import com.kwad.sdk.R;
+import com.baidu.tieba.R;
 import com.kwad.sdk.contentalliance.detail.video.e;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
@@ -19,38 +19,38 @@ import com.kwad.sdk.reward.widget.actionbar.ActionBarAppPortrait;
 import com.kwad.sdk.reward.widget.actionbar.ActionBarH5;
 import com.kwad.sdk.utils.az;
 import com.kwad.sdk.widget.KsLogoView;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a extends g {
 
     /* renamed from: b  reason: collision with root package name */
-    public KsLogoView f57745b;
+    public KsLogoView f56095b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ActionBarAppLandscape f57746c;
+    public ActionBarAppLandscape f56096c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ActionBarAppPortrait f57747d;
+    public ActionBarAppPortrait f56097d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ActionBarH5 f57748e;
+    public ActionBarH5 f56098e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdTemplate f57749f;
+    public AdTemplate f56099f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AdInfo f57750g;
+    public AdInfo f56100g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.b f57751h;
+    public com.kwad.sdk.core.download.a.b f56101h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RewardActionBarControl f57752i;
+    public RewardActionBarControl f56102i;
     public boolean k;
     @Nullable
     public ValueAnimator l;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f57753j = false;
+    public boolean f56103j = false;
     public RewardActionBarControl.b m = new RewardActionBarControl.b() { // from class: com.kwad.sdk.reward.presenter.platdetail.actionbar.a.1
         @Override // com.kwad.sdk.reward.presenter.platdetail.actionbar.RewardActionBarControl.b
         public void a(boolean z) {
@@ -62,7 +62,7 @@ public class a extends g {
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void c() {
             super.c();
-            a.this.f57752i.a(((g) a.this).a.k.f(), ((g) a.this).a.k.g());
+            a.this.f56102i.a(((g) a.this).a.k.f(), ((g) a.this).a.k.g());
         }
     };
     public f o = new f() { // from class: com.kwad.sdk.reward.presenter.platdetail.actionbar.a.3
@@ -109,14 +109,14 @@ public class a extends g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z) {
-        if (this.f57753j) {
+        if (this.f56103j) {
             return;
         }
-        this.f57753j = true;
-        this.f57745b.setVisibility(0);
-        if (!com.kwad.sdk.core.response.a.a.B(this.f57750g)) {
+        this.f56103j = true;
+        this.f56095b.setVisibility(0);
+        if (!com.kwad.sdk.core.response.a.a.B(this.f56100g)) {
             f(z);
-        } else if (((g) this).a.f57418f == 1) {
+        } else if (((g) this).a.f55768f == 1) {
             d(z);
         } else {
             e(z);
@@ -127,45 +127,45 @@ public class a extends g {
     public void c(boolean z) {
         View view;
         LinearLayout linearLayout;
-        if (this.f57753j) {
-            this.f57753j = false;
-            this.f57745b.setVisibility(8);
-            if (com.kwad.sdk.core.response.a.a.B(this.f57750g)) {
-                if (((g) this).a.f57418f == 1) {
+        if (this.f56103j) {
+            this.f56103j = false;
+            this.f56095b.setVisibility(8);
+            if (com.kwad.sdk.core.response.a.a.B(this.f56100g)) {
+                if (((g) this).a.f55768f == 1) {
                     if (!z) {
-                        linearLayout = this.f57746c;
+                        linearLayout = this.f56096c;
                         linearLayout.setVisibility(8);
                         return;
                     }
-                    view = this.f57746c;
+                    view = this.f56096c;
                 } else if (!z) {
-                    linearLayout = this.f57747d;
+                    linearLayout = this.f56097d;
                     linearLayout.setVisibility(8);
                     return;
                 } else {
-                    view = this.f57747d;
+                    view = this.f56097d;
                 }
             } else if (!z) {
-                this.f57748e.setVisibility(8);
+                this.f56098e.setVisibility(8);
                 return;
             } else {
-                view = this.f57748e;
+                view = this.f56098e;
             }
             b(view, com.kwad.sdk.a.kwai.a.a(q(), 90.0f));
         }
     }
 
     private void d(boolean z) {
-        this.f57746c.a(this.f57749f, this.f57751h, new ActionBarAppLandscape.a() { // from class: com.kwad.sdk.reward.presenter.platdetail.actionbar.a.4
+        this.f56096c.a(this.f56099f, this.f56101h, new ActionBarAppLandscape.a() { // from class: com.kwad.sdk.reward.presenter.platdetail.actionbar.a.4
             @Override // com.kwad.sdk.reward.widget.actionbar.ActionBarAppLandscape.a
             public void a(boolean z2) {
                 a.this.a(z2);
             }
         });
         if (z) {
-            a(this.f57746c, com.kwad.sdk.a.kwai.a.a(q(), 90.0f));
+            a(this.f56096c, com.kwad.sdk.a.kwai.a.a(q(), 90.0f));
         } else {
-            this.f57746c.setVisibility(0);
+            this.f56096c.setVisibility(0);
         }
     }
 
@@ -178,44 +178,44 @@ public class a extends g {
     }
 
     private void e(boolean z) {
-        this.f57747d.a(this.f57749f, this.f57751h, new ActionBarAppPortrait.a() { // from class: com.kwad.sdk.reward.presenter.platdetail.actionbar.a.5
+        this.f56097d.a(this.f56099f, this.f56101h, new ActionBarAppPortrait.a() { // from class: com.kwad.sdk.reward.presenter.platdetail.actionbar.a.5
             @Override // com.kwad.sdk.reward.widget.actionbar.ActionBarAppPortrait.a
             public void a(boolean z2) {
                 a.this.a(z2);
             }
         });
         if (z) {
-            a(this.f57747d, com.kwad.sdk.a.kwai.a.a(q(), 90.0f));
+            a(this.f56097d, com.kwad.sdk.a.kwai.a.a(q(), 90.0f));
         } else {
-            this.f57747d.setVisibility(0);
+            this.f56097d.setVisibility(0);
         }
     }
 
     private void f(boolean z) {
-        this.f57748e.a(this.f57749f, new ActionBarH5.a() { // from class: com.kwad.sdk.reward.presenter.platdetail.actionbar.a.6
+        this.f56098e.a(this.f56099f, new ActionBarH5.a() { // from class: com.kwad.sdk.reward.presenter.platdetail.actionbar.a.6
             @Override // com.kwad.sdk.reward.widget.actionbar.ActionBarH5.a
             public void a(boolean z2) {
                 a.this.a(z2);
             }
         });
         if (z) {
-            a(this.f57748e, com.kwad.sdk.a.kwai.a.a(q(), 90.0f));
+            a(this.f56098e, com.kwad.sdk.a.kwai.a.a(q(), 90.0f));
         } else {
-            this.f57748e.setVisibility(0);
+            this.f56098e.setVisibility(0);
         }
     }
 
     @Override // com.kwad.sdk.reward.g, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        AdTemplate adTemplate = ((g) this).a.f57419g;
-        this.f57749f = adTemplate;
-        this.f57750g = com.kwad.sdk.core.response.a.d.j(adTemplate);
-        this.f57745b.a(this.f57749f);
+        AdTemplate adTemplate = ((g) this).a.f55769g;
+        this.f56099f = adTemplate;
+        this.f56100g = com.kwad.sdk.core.response.a.d.j(adTemplate);
+        this.f56095b.a(this.f56099f);
         com.kwad.sdk.reward.a aVar = ((g) this).a;
-        this.f57751h = aVar.l;
+        this.f56101h = aVar.l;
         RewardActionBarControl rewardActionBarControl = aVar.n;
-        this.f57752i = rewardActionBarControl;
+        this.f56102i = rewardActionBarControl;
         rewardActionBarControl.a(this.m);
         ((g) this).a.k.a(this.n);
         ((g) this).a.a(this.o);
@@ -224,7 +224,7 @@ public class a extends g {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f57752i.a((RewardActionBarControl.b) null);
+        this.f56102i.a((RewardActionBarControl.b) null);
         ((g) this).a.k.b(this.n);
         ((g) this).a.b(this.o);
         e();
@@ -233,9 +233,9 @@ public class a extends g {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.f57745b = (KsLogoView) a(R.id.ksad_ad_label_play_bar);
-        this.f57746c = (ActionBarAppLandscape) a(R.id.ksad_video_play_bar_app_landscape);
-        this.f57747d = (ActionBarAppPortrait) a(R.id.ksad_video_play_bar_app_portrait);
-        this.f57748e = (ActionBarH5) a(R.id.ksad_video_play_bar_h5);
+        this.f56095b = (KsLogoView) a(R.id.ksad_ad_label_play_bar);
+        this.f56096c = (ActionBarAppLandscape) a(R.id.ksad_video_play_bar_app_landscape);
+        this.f56097d = (ActionBarAppPortrait) a(R.id.ksad_video_play_bar_app_portrait);
+        this.f56098e = (ActionBarH5) a(R.id.ksad_video_play_bar_h5);
     }
 }

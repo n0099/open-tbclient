@@ -15,7 +15,7 @@ import org.apache.http.client.methods.HttpOptions;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpTrace;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class RequestMethod {
     public static final /* synthetic */ RequestMethod[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -31,7 +31,7 @@ public final class RequestMethod {
     public final String value;
 
     /* renamed from: com.baidu.searchbox.network.outback.core.RequestMethod$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$network$outback$core$RequestMethod;
         public static /* synthetic */ Interceptable $ic;

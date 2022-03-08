@@ -22,19 +22,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.R;
 import com.bumptech.glide.request.Request;
 import com.bumptech.glide.util.Preconditions;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CustomViewTarget";
     @IdRes
-    public static final int VIEW_TAG_ID;
+
+    /* renamed from: VIEW_TAG_ID */
+    public static final int glide_custom_view_target_tag = 2131299986;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public View.OnAttachStateChangeListener attachStateListener;
@@ -46,7 +47,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
     public final T view;
 
     @VisibleForTesting
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class SizeDeterminer {
         public static /* synthetic */ Interceptable $ic;
         public static final int PENDING_SIZE = 0;
@@ -60,7 +61,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
         public final View view;
         public boolean waitForLayout;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes7.dex */
         public static final class SizeDeterminerLayoutListener implements ViewTreeObserver.OnPreDrawListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -262,17 +263,16 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1272928265, "Lcom/bumptech/glide/request/target/CustomViewTarget;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1272928265, "Lcom/bumptech/glide/request/target/CustomViewTarget;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1272928265, "Lcom/bumptech/glide/request/target/CustomViewTarget;")) == null) {
+            return;
         }
-        VIEW_TAG_ID = R.id.glide_custom_view_target_tag;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1272928265, "Lcom/bumptech/glide/request/target/CustomViewTarget;");
+        }
     }
 
     public CustomViewTarget(@NonNull T t) {
@@ -302,7 +302,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
             T t = this.view;
             int i2 = this.overrideTag;
             if (i2 == 0) {
-                i2 = VIEW_TAG_ID;
+                i2 = glide_custom_view_target_tag;
             }
             return t.getTag(i2);
         }
@@ -334,7 +334,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
             T t = this.view;
             int i2 = this.overrideTag;
             if (i2 == 0) {
-                i2 = VIEW_TAG_ID;
+                i2 = glide_custom_view_target_tag;
             }
             t.setTag(i2, obj);
         }

@@ -8,11 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.googlecode.mp4parser.h264.BTree;
 import com.googlecode.mp4parser.h264.Debug;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class CAVLCReader extends BitstreamReader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,12 +62,12 @@ public class CAVLCReader extends BitstreamReader {
             int length = 8 - valueOf.length();
             sb.append("@" + valueOf);
             for (int i2 = 0; i2 < length; i2++) {
-                sb.append(' ');
+                sb.append(WebvttCueParser.CHAR_SPACE);
             }
             sb.append(str);
             int length2 = (100 - sb.length()) - this.debugBits.length();
             for (int i3 = 0; i3 < length2; i3++) {
-                sb.append(' ');
+                sb.append(WebvttCueParser.CHAR_SPACE);
             }
             sb.append(this.debugBits);
             sb.append(" (" + str2 + SmallTailInfo.EMOTION_SUFFIX);

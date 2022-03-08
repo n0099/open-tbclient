@@ -17,14 +17,14 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class LivenessManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
     public String mPassProductId;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public interface IvoiceListener {
         public static final int RESULT_FAIL = 1;
         public static final int RESULT_SUCC = 0;
@@ -72,7 +72,7 @@ public class LivenessManager {
                 public final /* synthetic */ IvoiceListener a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessManager f52948b;
+                public final /* synthetic */ LivenessManager f51367b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -89,7 +89,7 @@ public class LivenessManager {
                             return;
                         }
                     }
-                    this.f52948b = this;
+                    this.f51367b = this;
                     this.a = ivoiceListener;
                 }
 
@@ -101,7 +101,7 @@ public class LivenessManager {
                         if (i2 == 0) {
                             IvoiceListener ivoiceListener3 = this.a;
                             if (ivoiceListener3 != null) {
-                                ivoiceListener3.onResult(0, 0, NewBindCardEntry.BING_CARD_SUCCESS_MSG, this.f52948b.toJSONObject(map2));
+                                ivoiceListener3.onResult(0, 0, NewBindCardEntry.BING_CARD_SUCCESS_MSG, this.f51367b.toJSONObject(map2));
                             }
                         } else if (map2 == null || (ivoiceListener2 = this.a) == null) {
                         } else {
@@ -115,7 +115,7 @@ public class LivenessManager {
                 public final /* synthetic */ IvoiceListener a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessManager f52949b;
+                public final /* synthetic */ LivenessManager f51368b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -132,7 +132,7 @@ public class LivenessManager {
                             return;
                         }
                     }
-                    this.f52949b = this;
+                    this.f51368b = this;
                     this.a = ivoiceListener;
                 }
 

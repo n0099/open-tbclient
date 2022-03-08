@@ -34,7 +34,7 @@ import com.bumptech.glide.util.pool.FactoryPools;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedListener, EngineResource.ResourceListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int JOB_POOL_SIZE = 150;
@@ -51,7 +51,7 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
     public final ResourceRecycler resourceRecycler;
 
     @VisibleForTesting
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class DecodeJobFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -127,7 +127,7 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
     }
 
     @VisibleForTesting
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class EngineJobFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -233,7 +233,7 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class LazyDiskCacheProvider implements DecodeJob.DiskCacheProvider {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -292,7 +292,7 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class LoadStatus {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

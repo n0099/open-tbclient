@@ -7,23 +7,23 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.datamodel.GetCardInfoResponse;
-import com.baidu.walletsdk.pay.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class b extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GetCardInfoResponse.ProtocolPlatformItem[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f52689b;
+    public Context f51108b;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public class b extends BaseAdapter {
             }
         }
         this.a = protocolPlatformItemArr;
-        this.f52689b = context.getApplicationContext();
+        this.f51108b = context.getApplicationContext();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -95,7 +95,7 @@ public class b extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, view, viewGroup)) == null) {
             if (view == null) {
                 aVar = new a();
-                view2 = LayoutInflater.from(this.f52689b).inflate(R.layout.wallet_cashdesk_bind_card_protocol_list_item_view, viewGroup, false);
+                view2 = LayoutInflater.from(this.f51108b).inflate(R.layout.wallet_cashdesk_bind_card_protocol_list_item_view, viewGroup, false);
                 aVar.a = (TextView) view2.findViewById(R.id.tv_protocol_name);
                 view2.setTag(aVar);
             } else {

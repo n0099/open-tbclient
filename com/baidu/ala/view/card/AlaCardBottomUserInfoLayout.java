@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.d1.p0;
-import c.a.t0.s.r.e2;
+import c.a.q0.c1.o0;
+import c.a.q0.r.r.e2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class AlaCardBottomUserInfoLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_USERNAME_LENGTH = 10;
@@ -97,8 +97,8 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
         } else {
             str = alaUserInfoData != null ? alaUserInfoData.user_name : "";
         }
-        if (p0.d(str) > 10) {
-            str = p0.n(str, 10) + "...";
+        if (o0.d(str) > 10) {
+            str = o0.n(str, 10) + "...";
         }
         if (alaUserInfoData != null) {
             this.alaCardUserHeadImg.startLoad(alaUserInfoData.portrait, 28, false);

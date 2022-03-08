@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class MultiDexHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTO_SUFFIX = "UrlCollectorImpl";
@@ -37,7 +37,7 @@ public class MultiDexHelper {
     public static StaticLoadAsyncTask task;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class StaticLoadAsyncTask extends BdAsyncTask<List<String>, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

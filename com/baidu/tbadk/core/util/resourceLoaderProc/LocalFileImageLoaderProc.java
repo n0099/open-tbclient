@@ -4,8 +4,8 @@ import c.a.d.f.l.b;
 import c.a.d.f.l.e;
 import c.a.d.f.p.n;
 import c.a.d.o.d.a;
-import c.a.t0.c0.c;
-import c.a.t0.d0.i.d;
+import c.a.q0.b0.c;
+import c.a.q0.c0.i.d;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class LocalFileImageLoaderProc implements e<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -130,7 +130,7 @@ public class LocalFileImageLoaderProc implements e<a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
             ImageOperation g2 = d.g(this.width, this.height);
-            return "image_" + str + ':' + g2.actionName + com.alipay.sdk.encrypt.a.f31099h + g2.actionParam;
+            return "image_" + str + ':' + g2.actionName + com.alipay.sdk.encrypt.a.f29503h + g2.actionParam;
         }
         return (String) invokeL.objValue;
     }

@@ -13,7 +13,7 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public final class DoubleBtnDialog$initExtraView$2 extends Lambda implements Function0<Unit> {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ TaskDialogViewData $data;
@@ -59,7 +59,7 @@ public final class DoubleBtnDialog$initExtraView$2 extends Lambda implements Fun
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             c.a.j.j.d.a v2 = BDPTask.m.v();
             if (v2 != null && (d2 = v2.d()) != null) {
-                d2.b(this.$data.getTaskInfoSingleKey(), c.a.j.g.f.a.f4051c.a());
+                d2.b(this.$data.getTaskInfoSingleKey(), c.a.j.g.f.a.f3668c.a());
             }
             if (!TextUtils.isEmpty(this.$data.getCancelBtnSchema()) && (v = BDPTask.m.v()) != null && (b2 = v.b()) != null) {
                 b2.a(this.$data.getCancelBtnSchema(), 1);

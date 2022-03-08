@@ -20,45 +20,44 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class RoundRelativeLayout extends RelativeLayout {
-    public static /* synthetic */ Interceptable $ic;
-    public static final int l;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int l = 2131100810;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f48446e;
+    public float f46862e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Shape f48447f;
+    public Shape f46863f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f48448g;
+    public Paint f46864g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f48449h;
+    public Paint f46865h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RectF f48450i;
+    public RectF f46866i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Paint f48451j;
+    public Paint f46867j;
     public int k;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1360331784, "Lcom/baidu/tieba/tbean/view/RoundRelativeLayout;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1360331784, "Lcom/baidu/tieba/tbean/view/RoundRelativeLayout;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1360331784, "Lcom/baidu/tieba/tbean/view/RoundRelativeLayout;")) == null) {
+            return;
         }
-        l = R.color.black_alpha4;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1360331784, "Lcom/baidu/tieba/tbean/view/RoundRelativeLayout;");
+        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -88,17 +87,17 @@ public class RoundRelativeLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             int saveCount = canvas.getSaveCount();
             canvas.save();
-            RectF rectF = this.f48450i;
-            float f2 = this.f48446e;
-            canvas.drawRoundRect(rectF, f2, f2, this.f48451j);
+            RectF rectF = this.f46866i;
+            float f2 = this.f46862e;
+            canvas.drawRoundRect(rectF, f2, f2, this.f46867j);
             super.dispatchDraw(canvas);
-            Shape shape = this.f48447f;
+            Shape shape = this.f46863f;
             if (shape != null) {
-                shape.draw(canvas, this.f48448g);
+                shape.draw(canvas, this.f46864g);
             }
-            RectF rectF2 = this.f48450i;
-            float f3 = this.f48446e;
-            canvas.drawRoundRect(rectF2, f3, f3, this.f48449h);
+            RectF rectF2 = this.f46866i;
+            float f3 = this.f46862e;
+            canvas.drawRoundRect(rectF2, f3, f3, this.f46865h);
             if (saveCount < 1 || saveCount > canvas.getSaveCount()) {
                 return;
             }
@@ -112,7 +111,7 @@ public class RoundRelativeLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
             if (z) {
-                if (this.f48447f == null) {
+                if (this.f46863f == null) {
                     float[] fArr = new float[8];
                     Arrays.fill(fArr, 0.0f);
                     float dimension = ((float) getPaddingLeft()) <= getResources().getDimension(R.dimen.tbds8) ? getResources().getDimension(R.dimen.tbds8) : getPaddingLeft();
@@ -121,11 +120,11 @@ public class RoundRelativeLayout extends RelativeLayout {
                     float dimension3 = ((float) getPaddingBottom()) <= getResources().getDimension(R.dimen.tbds8) ? getResources().getDimension(R.dimen.tbds8) : getPaddingBottom();
                     RectF rectF = new RectF(dimension, paddingTop, dimension2, dimension3);
                     float[] fArr2 = new float[8];
-                    Arrays.fill(fArr2, this.f48446e);
-                    this.f48447f = new RoundRectShape(fArr, rectF, fArr2);
-                    this.f48450i.set(dimension, paddingTop, getWidth() - dimension2, getHeight() - dimension3);
+                    Arrays.fill(fArr2, this.f46862e);
+                    this.f46863f = new RoundRectShape(fArr, rectF, fArr2);
+                    this.f46866i.set(dimension, paddingTop, getWidth() - dimension2, getHeight() - dimension3);
                 }
-                this.f48447f.resize(getWidth(), getHeight());
+                this.f46863f.resize(getWidth(), getHeight());
             }
         }
     }
@@ -135,7 +134,7 @@ public class RoundRelativeLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             this.k = i2;
             if (i2 != 0) {
-                this.f48451j.setColor(getContext().getResources().getColor(this.k));
+                this.f46867j.setColor(getContext().getResources().getColor(this.k));
                 invalidate();
             }
         }
@@ -144,7 +143,7 @@ public class RoundRelativeLayout extends RelativeLayout {
     public void setRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048579, this, f2) == null) {
-            this.f48446e = f2;
+            this.f46862e = f2;
         }
     }
 
@@ -188,26 +187,26 @@ public class RoundRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f48446e = 0.0f;
+        this.f46862e = 0.0f;
         setLayerType(1, null);
         Paint paint = new Paint();
-        this.f48448g = paint;
+        this.f46864g = paint;
         paint.setAntiAlias(true);
-        this.f48448g.setColor(-1);
-        this.f48448g.setStyle(Paint.Style.FILL);
-        this.f48448g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.f46864g.setColor(-1);
+        this.f46864g.setStyle(Paint.Style.FILL);
+        this.f46864g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         Paint paint2 = new Paint();
-        this.f48449h = paint2;
+        this.f46865h = paint2;
         paint2.setAntiAlias(true);
-        this.f48449h.setColor(0);
-        this.f48449h.setStyle(Paint.Style.FILL);
-        this.f48449h.setShadowLayer(getResources().getDimension(R.dimen.tbds5), 0.0f, getResources().getDimension(R.dimen.tbds8), getResources().getColor(l));
-        this.f48449h.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OVER));
-        this.f48450i = new RectF();
+        this.f46865h.setColor(0);
+        this.f46865h.setStyle(Paint.Style.FILL);
+        this.f46865h.setShadowLayer(getResources().getDimension(R.dimen.tbds5), 0.0f, getResources().getDimension(R.dimen.tbds8), getResources().getColor(l));
+        this.f46865h.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OVER));
+        this.f46866i = new RectF();
         Paint paint3 = new Paint();
-        this.f48451j = paint3;
+        this.f46867j = paint3;
         paint3.setAntiAlias(true);
-        this.f48451j.setColor(-1);
-        this.f48448g.setStyle(Paint.Style.FILL);
+        this.f46867j.setColor(-1);
+        this.f46864g.setStyle(Paint.Style.FILL);
     }
 }

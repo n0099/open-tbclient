@@ -13,7 +13,7 @@ import android.widget.AbsListView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import androidx.annotation.NonNull;
-import androidx.appcompat.R;
+import androidx.appcompat.R$attr;
 import androidx.appcompat.graphics.drawable.DrawableWrapper;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -185,7 +185,7 @@ public class DropDownListView extends ListView {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DropDownListView(@NonNull Context context, boolean z) {
-        super(context, null, R.attr.dropDownListViewStyle);
+        super(context, null, R$attr.dropDownListViewStyle);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

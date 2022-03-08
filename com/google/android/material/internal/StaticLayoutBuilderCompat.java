@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Constructor;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class StaticLayoutBuilderCompat {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TEXT_DIRS_CLASS = "android.text.TextDirectionHeuristics";
@@ -45,7 +45,7 @@ public final class StaticLayoutBuilderCompat {
     public int start;
     public final int width;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class StaticLayoutBuilderCompatException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

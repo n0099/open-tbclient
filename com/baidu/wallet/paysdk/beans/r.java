@@ -26,29 +26,29 @@ import com.dxmpay.wallet.core.domain.DomainConfig;
 import com.dxmpay.wallet.paysdk.PayUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class r extends BaseBean<GetCardInfoResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BindFastRequest f52148b;
+    public BindFastRequest f50567b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PayRequest f52149c;
+    public PayRequest f50568c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f52150d;
+    public String f50569d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f52151e;
+    public String f50570e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f52152f;
+    public String f50571f;
 
     /* renamed from: g  reason: collision with root package name */
-    public DirectPayContentResponse f52153g;
+    public DirectPayContentResponse f50572g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> r(Context context) {
@@ -68,21 +68,21 @@ public class r extends BaseBean<GetCardInfoResponse> {
                 return;
             }
         }
-        this.f52148b = null;
-        this.f52149c = null;
-        this.f52150d = "";
-        this.f52151e = "";
-        this.f52152f = "";
+        this.f50567b = null;
+        this.f50568c = null;
+        this.f50569d = "";
+        this.f50570e = "";
+        this.f50571f = "";
         this.a = true;
-        this.f52153g = PayDataCache.getInstance().getPayResponse();
-        this.f52149c = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
+        this.f50572g = PayDataCache.getInstance().getPayResponse();
+        this.f50568c = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
     }
 
     private boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            BindFastRequest bindFastRequest = this.f52148b;
+            BindFastRequest bindFastRequest = this.f50567b;
             if (bindFastRequest != null) {
                 return "13".equals(bindFastRequest.getCardRequestType());
             }
@@ -97,12 +97,12 @@ public class r extends BaseBean<GetCardInfoResponse> {
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new RestNameValuePair("request_type", "13"));
-            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f52150d)));
-            if (!TextUtils.isEmpty(this.f52148b.getSubBankCode())) {
-                arrayList.add(new RestNameValuePair("front_bank_code", this.f52148b.getSubBankCode()));
+            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f50569d)));
+            if (!TextUtils.isEmpty(this.f50567b.getSubBankCode())) {
+                arrayList.add(new RestNameValuePair("front_bank_code", this.f50567b.getSubBankCode()));
             }
-            if (!TextUtils.isEmpty(this.f52151e)) {
-                arrayList.add(new RestNameValuePair("card_no_bind", this.f52151e));
+            if (!TextUtils.isEmpty(this.f50570e)) {
+                arrayList.add(new RestNameValuePair("card_no_bind", this.f50570e));
             }
             arrayList.addAll(PayDataCache.getInstance().getSessionData());
             return arrayList;
@@ -113,8 +113,8 @@ public class r extends BaseBean<GetCardInfoResponse> {
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            this.f52150d = str;
-            this.f52151e = str2;
+            this.f50569d = str;
+            this.f50570e = str2;
         }
     }
 
@@ -135,18 +135,18 @@ public class r extends BaseBean<GetCardInfoResponse> {
             if (b()) {
                 return c();
             }
-            if (this.f52148b != null) {
+            if (this.f50567b != null) {
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(new RestNameValuePair("request_type", this.f52148b.getCardRequestType()));
-                arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f52148b.getServiceType()));
-                arrayList.add(new RestNameValuePair("service", this.f52152f));
-                if (!TextUtils.isEmpty(this.f52150d)) {
-                    arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f52150d)));
+                arrayList.add(new RestNameValuePair("request_type", this.f50567b.getCardRequestType()));
+                arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f50567b.getServiceType()));
+                arrayList.add(new RestNameValuePair("service", this.f50571f));
+                if (!TextUtils.isEmpty(this.f50569d)) {
+                    arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f50569d)));
                 }
-                if (this.f52148b.getmBondCard() != null) {
-                    arrayList.add(new RestNameValuePair("card_no_bind", this.f52148b.getmBondCard().account_no));
+                if (this.f50567b.getmBondCard() != null) {
+                    arrayList.add(new RestNameValuePair("card_no_bind", this.f50567b.getmBondCard().account_no));
                 }
-                PayRequest payRequest = this.f52149c;
+                PayRequest payRequest = this.f50568c;
                 if (payRequest != null && this.a) {
                     arrayList.add(new RestNameValuePair("is_transfer", payRequest.isTransfer()));
                 } else {
@@ -156,30 +156,30 @@ public class r extends BaseBean<GetCardInfoResponse> {
                     arrayList.add(new RestNameValuePair("is_transfer", "0"));
                 }
                 arrayList.add(new RestNameValuePair("source_flag", "3"));
-                if (this.f52148b.getmBindFrom() != 0 && this.f52148b.getmBindFrom() != 2 && !a()) {
-                    if (this.f52148b.getmBindFrom() == 1) {
-                        PayRequest payRequest2 = this.f52149c;
+                if (this.f50567b.getmBindFrom() != 0 && this.f50567b.getmBindFrom() != 2 && !a()) {
+                    if (this.f50567b.getmBindFrom() == 1) {
+                        PayRequest payRequest2 = this.f50568c;
                         if (payRequest2 != null && BaiduPay.PAY_FROM_BIND_CARD.equals(payRequest2.getPayFrom())) {
-                            arrayList.add(new RestNameValuePair("sp_no", this.f52149c.mSpNO));
-                            if (!TextUtils.isEmpty(this.f52149c.mOrderNo)) {
-                                arrayList.add(new RestNameValuePair("order_no", this.f52149c.mOrderNo));
+                            arrayList.add(new RestNameValuePair("sp_no", this.f50568c.mSpNO));
+                            if (!TextUtils.isEmpty(this.f50568c.mOrderNo)) {
+                                arrayList.add(new RestNameValuePair("order_no", this.f50568c.mOrderNo));
                             }
-                        } else if (!TextUtils.isEmpty(this.f52148b.getSp_no())) {
-                            arrayList.add(new RestNameValuePair("sp_no", this.f52148b.getSp_no()));
+                        } else if (!TextUtils.isEmpty(this.f50567b.getSp_no())) {
+                            arrayList.add(new RestNameValuePair("sp_no", this.f50567b.getSp_no()));
                         }
                     }
                 } else {
                     if (a()) {
                         com.baidu.wallet.paysdk.a.b.a(arrayList);
                     }
-                    PayRequest payRequest3 = this.f52149c;
+                    PayRequest payRequest3 = this.f50568c;
                     if (payRequest3 != null && !TextUtils.isEmpty(payRequest3.mSpNO)) {
-                        arrayList.add(new RestNameValuePair("first_sp_id_tpl", this.f52149c.mSpNO));
-                        arrayList.add(new RestNameValuePair("sp_no", this.f52149c.mSpNO));
+                        arrayList.add(new RestNameValuePair("first_sp_id_tpl", this.f50568c.mSpNO));
+                        arrayList.add(new RestNameValuePair("sp_no", this.f50568c.mSpNO));
                     }
-                    PayRequest payRequest4 = this.f52149c;
+                    PayRequest payRequest4 = this.f50568c;
                     if (payRequest4 != null && !TextUtils.isEmpty(payRequest4.mOrderNo)) {
-                        arrayList.add(new RestNameValuePair("order_no", this.f52149c.mOrderNo));
+                        arrayList.add(new RestNameValuePair("order_no", this.f50568c.mOrderNo));
                     }
                     if (!TextUtils.isEmpty(PayDataCache.getInstance().getInsideTransOrder())) {
                         arrayList.add(new RestNameValuePair("trans_need_to_pay", PayDataCache.getInstance().getInsideTransOrder()));
@@ -187,15 +187,15 @@ public class r extends BaseBean<GetCardInfoResponse> {
                     if (!TextUtils.isEmpty(PayDataCache.getInstance().getSellerUserId())) {
                         arrayList.add(new RestNameValuePair("seller_user_id", PayDataCache.getInstance().getSellerUserId()));
                     }
-                    PayRequest payRequest5 = this.f52149c;
+                    PayRequest payRequest5 = this.f50568c;
                     if (payRequest5 != null) {
                         arrayList.add(new RestNameValuePair("total_amount", payRequest5.getOrderPrice()));
-                        arrayList.add(new RestNameValuePair("pay_amount", this.f52149c.getEasyPayAmount()));
-                        if (this.f52148b.getmBindFrom() == 0) {
+                        arrayList.add(new RestNameValuePair("pay_amount", this.f50568c.getEasyPayAmount()));
+                        if (this.f50567b.getmBindFrom() == 0) {
                             arrayList.add(new RestNameValuePair("need_calc_balance", "0"));
-                            UserData.UserModel userModel = this.f52153g.user;
+                            UserData.UserModel userModel = this.f50572g.user;
                             if (userModel != null && userModel.isSupportBalance()) {
-                                PayData.DirectPayPay directPayPay = this.f52153g.pay;
+                                PayData.DirectPayPay directPayPay = this.f50572g.pay;
                                 if (directPayPay != null && (directPayBalance = directPayPay.balance) != null) {
                                     arrayList.add(new RestNameValuePair("balance_amount", directPayBalance.balance_trans_amount));
                                 }
@@ -203,10 +203,10 @@ public class r extends BaseBean<GetCardInfoResponse> {
                                 arrayList.add(new RestNameValuePair("balance_amount", "0"));
                             }
                             arrayList.add(new RestNameValuePair("need_calc_umoney", "0"));
-                            arrayList.add(new RestNameValuePair("umoney_amount", this.f52149c.getCreditTotalAmount()));
-                            if (this.f52149c.hasDiscountOrCoupon()) {
-                                String activitiesJsonParams = this.f52149c.getCalcPayment().getActivitiesJsonParams();
-                                String couponJsonParams = this.f52149c.getCalcPayment().getCouponJsonParams();
+                            arrayList.add(new RestNameValuePair("umoney_amount", this.f50568c.getCreditTotalAmount()));
+                            if (this.f50568c.hasDiscountOrCoupon()) {
+                                String activitiesJsonParams = this.f50568c.getCalcPayment().getActivitiesJsonParams();
+                                String couponJsonParams = this.f50568c.getCalcPayment().getCouponJsonParams();
                                 if (!TextUtils.isEmpty(couponJsonParams)) {
                                     arrayList.add(new RestNameValuePair("coupon_list", couponJsonParams));
                                 }
@@ -216,15 +216,15 @@ public class r extends BaseBean<GetCardInfoResponse> {
                             }
                         }
                     }
-                    CardData.BondCard bondCard = this.f52148b.mBondCard;
+                    CardData.BondCard bondCard = this.f50567b.mBondCard;
                     if (bondCard != null) {
                         arrayList.add(new RestNameValuePair("easypay_channel", bondCard.bank_code));
                     }
                 }
-                if (!TextUtils.isEmpty(this.f52148b.getSubBankCode())) {
-                    arrayList.add(new RestNameValuePair("sub_bank_code", this.f52148b.getSubBankCode()));
+                if (!TextUtils.isEmpty(this.f50567b.getSubBankCode())) {
+                    arrayList.add(new RestNameValuePair("sub_bank_code", this.f50567b.getSubBankCode()));
                 }
-                arrayList.add(new RestNameValuePair("session_id", this.f52148b.getSessionId()));
+                arrayList.add(new RestNameValuePair("session_id", this.f50567b.getSessionId()));
                 return arrayList;
             }
             throw new IllegalStateException("not call setBindRequest(req) method or param(req) null");
@@ -261,7 +261,7 @@ public class r extends BaseBean<GetCardInfoResponse> {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f52152f = str;
+            this.f50571f = str;
         }
     }
 
@@ -270,7 +270,7 @@ public class r extends BaseBean<GetCardInfoResponse> {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            BindFastRequest bindFastRequest = this.f52148b;
+            BindFastRequest bindFastRequest = this.f50567b;
             return com.baidu.wallet.paysdk.a.b.a() && (bindFastRequest != null && (6 == (i2 = bindFastRequest.mBindFrom) || 7 == i2 || 8 == i2));
         }
         return invokeV.booleanValue;
@@ -279,7 +279,7 @@ public class r extends BaseBean<GetCardInfoResponse> {
     public void a(BindFastRequest bindFastRequest) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bindFastRequest) == null) {
-            this.f52148b = bindFastRequest;
+            this.f50567b = bindFastRequest;
         }
     }
 }

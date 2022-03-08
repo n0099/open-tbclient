@@ -23,7 +23,6 @@ import androidx.core.os.TraceCompat;
 import androidx.core.util.ObjectsCompat;
 import androidx.core.util.Preconditions;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -629,7 +628,7 @@ public class PrecomputedTextCompat implements Spannable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                StringBuilder sb = new StringBuilder(StringUtil.ARRAY_START);
+                StringBuilder sb = new StringBuilder("{");
                 sb.append("textSize=" + this.mPaint.getTextSize());
                 sb.append(", textScaleX=" + this.mPaint.getTextScaleX());
                 sb.append(", textSkewX=" + this.mPaint.getTextSkewX());

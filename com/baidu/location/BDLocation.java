@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Locale;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public final class BDLocation implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BDLOCATION_BD09LL_TO_GCJ02 = "bd09ll2gcj";
@@ -100,31 +100,31 @@ public final class BDLocation implements Parcelable {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35140b;
+    public String f33543b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f35141c;
+    public double f33544c;
 
     /* renamed from: d  reason: collision with root package name */
-    public double f35142d;
+    public double f33545d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f35143e;
+    public boolean f33546e;
 
     /* renamed from: f  reason: collision with root package name */
-    public double f35144f;
+    public double f33547f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f35145g;
+    public boolean f33548g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f35146h;
+    public float f33549h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f35147i;
+    public boolean f33550i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f35148j;
+    public float f33551j;
     public boolean k;
     public int l;
     public float m;
@@ -172,15 +172,15 @@ public final class BDLocation implements Parcelable {
             }
         }
         this.a = 0;
-        this.f35140b = null;
-        this.f35141c = Double.MIN_VALUE;
-        this.f35142d = Double.MIN_VALUE;
-        this.f35143e = false;
-        this.f35144f = Double.MIN_VALUE;
-        this.f35145g = false;
-        this.f35146h = 0.0f;
-        this.f35147i = false;
-        this.f35148j = 0.0f;
+        this.f33543b = null;
+        this.f33544c = Double.MIN_VALUE;
+        this.f33545d = Double.MIN_VALUE;
+        this.f33546e = false;
+        this.f33547f = Double.MIN_VALUE;
+        this.f33548g = false;
+        this.f33549h = 0.0f;
+        this.f33550i = false;
+        this.f33551j = 0.0f;
         this.k = false;
         this.l = -1;
         this.m = -1.0f;
@@ -237,15 +237,15 @@ public final class BDLocation implements Parcelable {
             }
         }
         this.a = 0;
-        this.f35140b = null;
-        this.f35141c = Double.MIN_VALUE;
-        this.f35142d = Double.MIN_VALUE;
-        this.f35143e = false;
-        this.f35144f = Double.MIN_VALUE;
-        this.f35145g = false;
-        this.f35146h = 0.0f;
-        this.f35147i = false;
-        this.f35148j = 0.0f;
+        this.f33543b = null;
+        this.f33544c = Double.MIN_VALUE;
+        this.f33545d = Double.MIN_VALUE;
+        this.f33546e = false;
+        this.f33547f = Double.MIN_VALUE;
+        this.f33548g = false;
+        this.f33549h = 0.0f;
+        this.f33550i = false;
+        this.f33551j = 0.0f;
         this.k = false;
         this.l = -1;
         this.m = -1.0f;
@@ -285,12 +285,12 @@ public final class BDLocation implements Parcelable {
         this.V = Double.MIN_VALUE;
         this.W = false;
         this.a = parcel.readInt();
-        this.f35140b = parcel.readString();
-        this.f35141c = parcel.readDouble();
-        this.f35142d = parcel.readDouble();
-        this.f35144f = parcel.readDouble();
-        this.f35146h = parcel.readFloat();
-        this.f35148j = parcel.readFloat();
+        this.f33543b = parcel.readString();
+        this.f33544c = parcel.readDouble();
+        this.f33545d = parcel.readDouble();
+        this.f33547f = parcel.readDouble();
+        this.f33549h = parcel.readFloat();
+        this.f33551j = parcel.readFloat();
         this.l = parcel.readInt();
         this.m = parcel.readFloat();
         this.v = parcel.readString();
@@ -332,9 +332,9 @@ public final class BDLocation implements Parcelable {
         this.V = parcel.readDouble();
         try {
             parcel.readBooleanArray(zArr);
-            this.f35143e = zArr[0];
-            this.f35145g = zArr[1];
-            this.f35147i = zArr[2];
+            this.f33546e = zArr[0];
+            this.f33548g = zArr[1];
+            this.f33550i = zArr[2];
             this.k = zArr[3];
             this.o = zArr[4];
             this.t = zArr[5];
@@ -378,15 +378,15 @@ public final class BDLocation implements Parcelable {
         }
         this.a = 0;
         ArrayList arrayList = null;
-        this.f35140b = null;
-        this.f35141c = Double.MIN_VALUE;
-        this.f35142d = Double.MIN_VALUE;
-        this.f35143e = false;
-        this.f35144f = Double.MIN_VALUE;
-        this.f35145g = false;
-        this.f35146h = 0.0f;
-        this.f35147i = false;
-        this.f35148j = 0.0f;
+        this.f33543b = null;
+        this.f33544c = Double.MIN_VALUE;
+        this.f33545d = Double.MIN_VALUE;
+        this.f33546e = false;
+        this.f33547f = Double.MIN_VALUE;
+        this.f33548g = false;
+        this.f33549h = 0.0f;
+        this.f33550i = false;
+        this.f33551j = 0.0f;
         this.k = false;
         this.l = -1;
         this.m = -1.0f;
@@ -426,15 +426,15 @@ public final class BDLocation implements Parcelable {
         this.V = Double.MIN_VALUE;
         this.W = false;
         this.a = bDLocation.a;
-        this.f35140b = bDLocation.f35140b;
-        this.f35141c = bDLocation.f35141c;
-        this.f35142d = bDLocation.f35142d;
-        this.f35143e = bDLocation.f35143e;
-        this.f35144f = bDLocation.f35144f;
-        this.f35145g = bDLocation.f35145g;
-        this.f35146h = bDLocation.f35146h;
-        this.f35147i = bDLocation.f35147i;
-        this.f35148j = bDLocation.f35148j;
+        this.f33543b = bDLocation.f33543b;
+        this.f33544c = bDLocation.f33544c;
+        this.f33545d = bDLocation.f33545d;
+        this.f33546e = bDLocation.f33546e;
+        this.f33547f = bDLocation.f33547f;
+        this.f33548g = bDLocation.f33548g;
+        this.f33549h = bDLocation.f33549h;
+        this.f33550i = bDLocation.f33550i;
+        this.f33551j = bDLocation.f33551j;
         this.k = bDLocation.k;
         this.l = bDLocation.l;
         this.m = bDLocation.m;
@@ -554,15 +554,15 @@ public final class BDLocation implements Parcelable {
             }
         }
         this.a = 0;
-        this.f35140b = null;
-        this.f35141c = Double.MIN_VALUE;
-        this.f35142d = Double.MIN_VALUE;
-        this.f35143e = false;
-        this.f35144f = Double.MIN_VALUE;
-        this.f35145g = false;
-        this.f35146h = 0.0f;
-        this.f35147i = false;
-        this.f35148j = 0.0f;
+        this.f33543b = null;
+        this.f33544c = Double.MIN_VALUE;
+        this.f33545d = Double.MIN_VALUE;
+        this.f33546e = false;
+        this.f33547f = Double.MIN_VALUE;
+        this.f33548g = false;
+        this.f33549h = 0.0f;
+        this.f33550i = false;
+        this.f33551j = 0.0f;
         this.k = false;
         this.l = -1;
         this.m = -1.0f;
@@ -1387,7 +1387,7 @@ public final class BDLocation implements Parcelable {
     public double getAltitude() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f35144f : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f33547f : invokeV.doubleValue;
     }
 
     public String getBuildingID() {
@@ -1537,7 +1537,7 @@ public final class BDLocation implements Parcelable {
     public double getLatitude() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f35141c : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f33544c : invokeV.doubleValue;
     }
 
     public int getLocType() {
@@ -1573,7 +1573,7 @@ public final class BDLocation implements Parcelable {
     public double getLongitude() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.f35142d : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.f33545d : invokeV.doubleValue;
     }
 
     public String getNetworkLocationType() {
@@ -1621,7 +1621,7 @@ public final class BDLocation implements Parcelable {
     public float getRadius() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.f35148j : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.f33551j : invokeV.floatValue;
     }
 
     public String getRetFields(String str) {
@@ -1656,7 +1656,7 @@ public final class BDLocation implements Parcelable {
     public float getSpeed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.f35146h : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.f33549h : invokeV.floatValue;
     }
 
     public String getStreet() {
@@ -1674,7 +1674,7 @@ public final class BDLocation implements Parcelable {
     public String getTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.f35140b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.f33543b : (String) invokeV.objValue;
     }
 
     public int getUserIndoorState() {
@@ -1705,13 +1705,13 @@ public final class BDLocation implements Parcelable {
     public boolean hasAltitude() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this.f35143e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this.f33546e : invokeV.booleanValue;
     }
 
     public boolean hasRadius() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.f35147i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.f33550i : invokeV.booleanValue;
     }
 
     public boolean hasSateNumber() {
@@ -1723,7 +1723,7 @@ public final class BDLocation implements Parcelable {
     public boolean hasSpeed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? this.f35145g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? this.f33548g : invokeV.booleanValue;
     }
 
     public boolean isCellChangeFlag() {
@@ -1778,8 +1778,8 @@ public final class BDLocation implements Parcelable {
         if (!(interceptable == null || interceptable.invokeCommon(1048640, this, new Object[]{Double.valueOf(d2)}) == null) || d2 >= 9999.0d) {
             return;
         }
-        this.f35144f = d2;
-        this.f35143e = true;
+        this.f33547f = d2;
+        this.f33546e = true;
     }
 
     public void setBuildingID(String str) {
@@ -1896,7 +1896,7 @@ public final class BDLocation implements Parcelable {
     public void setLatitude(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048656, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f35141c = d2;
+            this.f33544c = d2;
         }
     }
 
@@ -1971,7 +1971,7 @@ public final class BDLocation implements Parcelable {
     public void setLongitude(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048662, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f35142d = d2;
+            this.f33545d = d2;
         }
     }
 
@@ -2013,8 +2013,8 @@ public final class BDLocation implements Parcelable {
     public void setRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048668, this, f2) == null) {
-            this.f35148j = f2;
-            this.f35147i = true;
+            this.f33551j = f2;
+            this.f33550i = true;
         }
     }
 
@@ -2050,15 +2050,15 @@ public final class BDLocation implements Parcelable {
     public void setSpeed(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048672, this, f2) == null) {
-            this.f35146h = f2;
-            this.f35145g = true;
+            this.f33549h = f2;
+            this.f33548g = true;
         }
     }
 
     public void setTime(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048673, this, str) == null) {
-            this.f35140b = str;
+            this.f33543b = str;
             setLocationID(k.a(str));
         }
     }
@@ -2085,12 +2085,12 @@ public final class BDLocation implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048676, this, parcel, i2) == null) {
             parcel.writeInt(this.a);
-            parcel.writeString(this.f35140b);
-            parcel.writeDouble(this.f35141c);
-            parcel.writeDouble(this.f35142d);
-            parcel.writeDouble(this.f35144f);
-            parcel.writeFloat(this.f35146h);
-            parcel.writeFloat(this.f35148j);
+            parcel.writeString(this.f33543b);
+            parcel.writeDouble(this.f33544c);
+            parcel.writeDouble(this.f33545d);
+            parcel.writeDouble(this.f33547f);
+            parcel.writeFloat(this.f33549h);
+            parcel.writeFloat(this.f33551j);
             parcel.writeInt(this.l);
             parcel.writeFloat(this.m);
             parcel.writeString(this.v);
@@ -2130,7 +2130,7 @@ public final class BDLocation implements Parcelable {
             parcel.writeLong(this.S);
             parcel.writeDouble(this.U);
             parcel.writeDouble(this.V);
-            parcel.writeBooleanArray(new boolean[]{this.f35143e, this.f35145g, this.f35147i, this.k, this.o, this.t, this.y, this.W});
+            parcel.writeBooleanArray(new boolean[]{this.f33546e, this.f33548g, this.f33550i, this.k, this.o, this.t, this.y, this.W});
             parcel.writeList(this.L);
             parcel.writeBundle(this.P);
         }

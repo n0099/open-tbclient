@@ -11,13 +11,13 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.utils.BdPlayerUtils;
-import com.baidu.searchbox.videoplayer.framework.R;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class BdPlayerProgressView extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CENTER = 0;
@@ -252,11 +252,11 @@ public class BdPlayerProgressView extends View {
         this.DEFAULT_HEIGHT = BdPlayerUtils.dp2px(this, 15.0f);
         TypedArray typedArray = null;
         try {
-            typedArray = context.obtainStyledAttributes(attributeSet, R.styleable.bdvideoplayer_bdPlayerProgressView);
-            this.mTextSize = typedArray.getDimension(R.styleable.bdvideoplayer_bdPlayerProgressView_bdvideoplayer_progressTextSize, 15.0f);
-            this.mTextColor = typedArray.getColor(R.styleable.bdvideoplayer_bdPlayerProgressView_bdvideoplayer_progressTextColor, -1);
-            this.mGravity = typedArray.getInt(R.styleable.bdvideoplayer_bdPlayerProgressView_bdvideoplayer_progressGravity, 1);
-            this.mProgressMode = typedArray.getInt(R.styleable.bdvideoplayer_bdPlayerProgressView_bdvideoplayer_progressTextMode, 1);
+            typedArray = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.bdvideoplayer_progressGravity, R.attr.bdvideoplayer_progressTextColor, R.attr.bdvideoplayer_progressTextMode, R.attr.bdvideoplayer_progressTextSize});
+            this.mTextSize = typedArray.getDimension(3, 15.0f);
+            this.mTextColor = typedArray.getColor(1, -1);
+            this.mGravity = typedArray.getInt(0, 1);
+            this.mProgressMode = typedArray.getInt(2, 1);
             Paint paint = new Paint();
             this.mPaint = paint;
             paint.setAntiAlias(true);

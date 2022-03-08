@@ -1,6 +1,6 @@
 package com.baidu.tieba.lego.card.model;
 
-import c.a.u0.z1.o.k.b;
+import c.a.r0.z1.o.k.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public class FocusListCard extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MIN_FOCUS_ITEMS = 3;
@@ -23,29 +23,29 @@ public class FocusListCard extends BaseCardInfo {
     public final int titleColor;
     public final int titleColorNight;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f45666b;
+        public String f44074b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f45667c;
+        public String f44075c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f45668d;
+        public int f44076d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f45669e;
+        public int f44077e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f45670f;
+        public String f44078f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f45671g;
+        public long f44079g;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -97,15 +97,15 @@ public class FocusListCard extends BaseCardInfo {
                         aVar.a = optJSONArray.getString(0);
                     }
                     if (optJSONArray.length() > 1) {
-                        aVar.f45666b = optJSONArray.getString(1);
+                        aVar.f44074b = optJSONArray.getString(1);
                     }
                     if (optJSONArray.length() > 2) {
-                        aVar.f45667c = optJSONArray.getString(2);
+                        aVar.f44075c = optJSONArray.getString(2);
                     }
-                    aVar.f45668d = b.b(optJSONObject.optString("focusColor", ""));
-                    aVar.f45669e = b.b(optJSONObject.optString("focusColorNight", ""));
-                    aVar.f45670f = optJSONObject.optString("scheme");
-                    aVar.f45671g = optJSONObject.optLong("resourceId");
+                    aVar.f44076d = b.b(optJSONObject.optString("focusColor", ""));
+                    aVar.f44077e = b.b(optJSONObject.optString("focusColorNight", ""));
+                    aVar.f44078f = optJSONObject.optString("scheme");
+                    aVar.f44079g = optJSONObject.optLong("resourceId");
                     this.focusItemList.add(aVar);
                 } catch (Exception unused) {
                 }

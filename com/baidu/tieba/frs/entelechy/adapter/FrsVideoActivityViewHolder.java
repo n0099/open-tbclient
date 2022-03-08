@@ -3,13 +3,13 @@ package com.baidu.tieba.frs.entelechy.adapter;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import c.a.u0.e1.f1;
 import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FrsVideoActivityViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,12 +39,12 @@ public class FrsVideoActivityViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         if (view != null) {
-            this.mTitleTv = (TextView) view.findViewById(f1.video_activity_item_title);
-            this.mTipImageView = (ImageView) view.findViewById(f1.video_activity_item_tip);
-            this.mTypeTv = (TextView) view.findViewById(f1.video_activity_item_type);
-            this.mMoreImageView = (ImageView) view.findViewById(f1.video_activity_item_more);
-            this.topDivider = view.findViewById(f1.top_divider_line);
-            this.bottomDivider = view.findViewById(f1.bottom_divider_line);
+            this.mTitleTv = (TextView) view.findViewById(R.id.video_activity_item_title);
+            this.mTipImageView = (ImageView) view.findViewById(R.id.video_activity_item_tip);
+            this.mTypeTv = (TextView) view.findViewById(R.id.video_activity_item_type);
+            this.mMoreImageView = (ImageView) view.findViewById(R.id.video_activity_item_more);
+            this.topDivider = view.findViewById(R.id.top_divider_line);
+            this.bottomDivider = view.findViewById(R.id.bottom_divider_line);
         }
     }
 }

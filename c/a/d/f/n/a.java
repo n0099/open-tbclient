@@ -17,7 +17,6 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Iterator;
-import kotlin.text.Typography;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,16 +27,16 @@ public class a {
     public ArrayList<BasicNameValuePair> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2074b;
+    public String f2703b;
 
     /* renamed from: c  reason: collision with root package name */
-    public StringBuilder f2075c;
+    public StringBuilder f2704c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f2076d;
+    public long f2705d;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f2077e;
+    public h f2706e;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -54,9 +53,9 @@ public class a {
                 return;
             }
         }
-        this.f2074b = null;
-        this.f2075c = new StringBuilder(100);
-        this.f2074b = str;
+        this.f2703b = null;
+        this.f2704c = new StringBuilder(100);
+        this.f2703b = str;
     }
 
     public static String i(String str) {
@@ -84,16 +83,16 @@ public class a {
         if (TextUtils.isEmpty(str2)) {
             str2 = "";
         }
-        if (this.f2075c.length() > 0) {
-            this.f2075c.append(Typography.amp);
+        if (this.f2704c.length() > 0) {
+            this.f2704c.append('&');
         }
-        this.f2075c.append(str);
-        this.f2075c.append("=");
+        this.f2704c.append(str);
+        this.f2704c.append("=");
         try {
-            this.f2075c.append(URLEncoder.encode(i(str2), "utf-8"));
+            this.f2704c.append(URLEncoder.encode(i(str2), "utf-8"));
         } catch (Throwable th) {
             BdLog.e(th);
-            this.f2075c.append(i(str2));
+            this.f2704c.append(i(str2));
         }
     }
 
@@ -114,31 +113,31 @@ public class a {
     public void d(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
-            if (this.f2077e == null) {
-                this.f2077e = new h();
+            if (this.f2706e == null) {
+                this.f2706e = new h();
             }
-            this.f2077e.f(dVar);
+            this.f2706e.f(dVar);
             ArrayList<BasicNameValuePair> arrayList = this.a;
             if (arrayList != null && arrayList.size() > 0) {
                 Iterator<BasicNameValuePair> it = this.a.iterator();
                 while (it.hasNext()) {
                     BasicNameValuePair next = it.next();
                     if ("module".equals(next.getName())) {
-                        this.f2077e.i(next.getValue());
+                        this.f2706e.i(next.getValue());
                     } else if ("st".equals(next.getName())) {
-                        this.f2077e.e(next.getValue());
+                        this.f2706e.e(next.getValue());
                     } else if ("errNo".equals(next.getName())) {
-                        this.f2077e.g(next.getValue());
+                        this.f2706e.g(next.getValue());
                     } else if (StatConstants.KEY_EXT_ERR_MSG.equals(next.getName())) {
-                        this.f2077e.h(next.getValue());
+                        this.f2706e.h(next.getValue());
                     } else {
-                        this.f2077e.b(next.getName(), next.getValue());
+                        this.f2706e.b(next.getName(), next.getValue());
                     }
                 }
             }
-            StringBuilder sb = this.f2075c;
+            StringBuilder sb = this.f2704c;
             if (sb != null) {
-                this.f2077e.a(sb.toString());
+                this.f2706e.a(sb.toString());
             }
         }
     }
@@ -146,26 +145,26 @@ public class a {
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? System.currentTimeMillis() - this.f2076d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? System.currentTimeMillis() - this.f2705d : invokeV.longValue;
     }
 
     public h f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2077e : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2706e : (h) invokeV.objValue;
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f2076d = System.currentTimeMillis();
+            this.f2705d = System.currentTimeMillis();
         }
     }
 
     public String getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f2074b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f2703b : (String) invokeV.objValue;
     }
 
     public JSONObject h() {
@@ -175,7 +174,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (this.f2075c.length() > 0 && (split = this.f2075c.toString().split("&")) != null && split.length > 0) {
+            if (this.f2704c.length() > 0 && (split = this.f2704c.toString().split("&")) != null && split.length > 0) {
                 for (String str : split) {
                     if (!TextUtils.isEmpty(str) && (split2 = str.split("=")) != null && split2.length == 2) {
                         try {
@@ -210,8 +209,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             StringBuilder sb = new StringBuilder(200);
-            if (this.f2075c.length() > 0) {
-                sb.append((CharSequence) this.f2075c);
+            if (this.f2704c.length() > 0) {
+                sb.append((CharSequence) this.f2704c);
             }
             ArrayList<BasicNameValuePair> arrayList = this.a;
             if (arrayList != null) {
@@ -220,10 +219,10 @@ public class a {
                     BasicNameValuePair next = it.next();
                     if (!TextUtils.isEmpty(next.getName()) && !TextUtils.isEmpty(next.getValue())) {
                         if (sb.length() > 0) {
-                            sb.append(Typography.amp);
+                            sb.append('&');
                         }
                         sb.append(next.getName());
-                        sb.append(com.alipay.sdk.encrypt.a.f31099h);
+                        sb.append(com.alipay.sdk.encrypt.a.f29503h);
                         try {
                             sb.append(URLEncoder.encode(i(next.getValue()), "utf-8"));
                         } catch (UnsupportedEncodingException e2) {
@@ -251,7 +250,7 @@ public class a {
                 return;
             }
         }
-        this.f2074b = null;
-        this.f2075c = new StringBuilder(100);
+        this.f2703b = null;
+        this.f2704c = new StringBuilder(100);
     }
 }

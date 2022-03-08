@@ -5,13 +5,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import c.a.t0.s.r.e2;
-import c.a.t0.s.v.c;
-import c.a.u0.a4.d;
-import c.a.u0.a4.f;
-import c.a.u0.a4.g;
-import c.a.u0.a4.h;
-import c.a.u0.a4.j;
+import c.a.q0.r.r.e2;
+import c.a.q0.r.v.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.dialog.BdToast;
@@ -20,26 +15,27 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class FakeVideoContainer extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f47516e;
+    public TbImageView f45924e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f47517f;
+    public View f45925f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f47518g;
+    public ImageView f45926g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EMTextView f47519h;
+    public EMTextView f45927h;
     public View.OnClickListener mAfterClickListener;
     public Context mContext;
     public View.OnClickListener mJumpToPbListener;
@@ -71,18 +67,18 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RelativeLayout.inflate(getContext(), h.fake_video_container, this);
-            this.f47516e = (TbImageView) findViewById(g.video_thumbnail);
-            this.f47517f = findViewById(g.black_mask);
-            this.f47518g = (ImageView) findViewById(g.video_play);
-            this.f47519h = (EMTextView) findViewById(g.fake_video_info);
-            this.f47518g.setImageDrawable(WebPManager.getPureDrawable(f.icon_pure_video_play44, SkinManager.getColor(d.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
-            c d2 = c.d(this.f47519h);
-            d2.v(d.CAM_X0101);
-            d2.A(j.F_X01);
-            this.f47516e.clearCornerFlag();
-            this.f47516e.setDrawCorner(false);
-            this.f47516e.setPlaceHolder(3);
+            RelativeLayout.inflate(getContext(), R.layout.fake_video_container, this);
+            this.f45924e = (TbImageView) findViewById(R.id.video_thumbnail);
+            this.f45925f = findViewById(R.id.black_mask);
+            this.f45926g = (ImageView) findViewById(R.id.video_play);
+            this.f45927h = (EMTextView) findViewById(R.id.fake_video_info);
+            this.f45926g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
+            c d2 = c.d(this.f45927h);
+            d2.v(R.color.CAM_X0101);
+            d2.A(R.string.F_X01);
+            this.f45924e.clearCornerFlag();
+            this.f45924e.setDrawCorner(false);
+            this.f45924e.setPlaceHolder(3);
             setOnClickListener(this);
         }
     }
@@ -91,7 +87,7 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            BdToast.i(getContext(), getContext().getString(j.video_is_checking), f.icon_pure_toast_mistake40_svg, true).q();
+            BdToast.i(getContext(), getContext().getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).q();
         }
     }
 
@@ -101,11 +97,11 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
             return;
         }
         e2Var.u1().is_vertical.intValue();
-        this.f47516e.setPlaceHolder(3);
+        this.f45924e.setPlaceHolder(3);
         if (!e2Var.u1().thumbnail_url.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !e2Var.u1().thumbnail_url.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
-            this.f47516e.startLoad(e2Var.u1().thumbnail_url, 32, false);
+            this.f45924e.startLoad(e2Var.u1().thumbnail_url, 32, false);
         } else {
-            this.f47516e.startLoad(e2Var.u1().thumbnail_url, 10, false);
+            this.f45924e.startLoad(e2Var.u1().thumbnail_url, 10, false);
         }
     }
 

@@ -8,32 +8,32 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public interface cq {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f36835b;
+        public static final a f35238b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f36836c;
+        public static final a f35239c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f36837d;
+        public static final a f35240d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f36838e;
+        public static final a f35241e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final a f36839f;
+        public static final a f35242f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final /* synthetic */ a[] f36840g;
+        public static final /* synthetic */ a[] f35243g;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -50,13 +50,13 @@ public interface cq {
                 }
             }
             a = new a("CONTINUOUS", 0);
-            f36835b = new a("TEXT", 1);
-            f36836c = new a("BINARY", 2);
-            f36837d = new a("PING", 3);
-            f36838e = new a("PONG", 4);
+            f35238b = new a("TEXT", 1);
+            f35239c = new a("BINARY", 2);
+            f35240d = new a("PING", 3);
+            f35241e = new a("PONG", 4);
             a aVar = new a("CLOSING", 5);
-            f36839f = aVar;
-            f36840g = new a[]{a, f36835b, f36836c, f36837d, f36838e, aVar};
+            f35242f = aVar;
+            f35243g = new a[]{a, f35238b, f35239c, f35240d, f35241e, aVar};
         }
 
         public a(String str, int i2) {
@@ -87,7 +87,7 @@ public interface cq {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f36840g.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f35243g.clone() : (a[]) invokeV.objValue;
         }
     }
 

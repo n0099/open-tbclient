@@ -1,58 +1,242 @@
 package c.i.c.a;
 
-import android.animation.ValueAnimator;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.InstallActivity;
-/* loaded from: classes9.dex */
-public final class j implements ValueAnimator.AnimatorUpdateListener {
+import java.util.Arrays;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes3.dex */
+public final class j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ int f30222e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ int f30223f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ int f30224g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public final /* synthetic */ InstallActivity f30225h;
-
-    public j(InstallActivity installActivity, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {installActivity, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f30225h = installActivity;
-        this.f30222e = i2;
-        this.f30223f = i3;
-        this.f30224g = i4;
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-    public final void onAnimationUpdate(ValueAnimator valueAnimator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-            float animatedFraction = 1.0f - valueAnimator.getAnimatedFraction();
-            float animatedFraction2 = valueAnimator.getAnimatedFraction();
-            int i2 = this.f30223f;
-            this.f30225h.getWindow().setLayout((int) ((this.f30222e * animatedFraction) + (i2 * animatedFraction2)), (int) ((this.f30224g * animatedFraction) + (i2 * animatedFraction2)));
-            this.f30225h.getWindow().getDecorView().refreshDrawableState();
+    /* loaded from: classes3.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final a f28656b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public a f28657c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public boolean f28658d;
+
+        /* loaded from: classes3.dex */
+        public static final class a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public String a;
+
+            /* renamed from: b  reason: collision with root package name */
+            public Object f28659b;
+
+            /* renamed from: c  reason: collision with root package name */
+            public a f28660c;
+
+            public a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            public /* synthetic */ a(a aVar) {
+                this();
+            }
         }
+
+        public /* synthetic */ b(String str, a aVar) {
+            this(str);
+        }
+
+        public b a(String str, double d2) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Double.valueOf(d2)})) == null) {
+                g(str, String.valueOf(d2));
+                return this;
+            }
+            return (b) invokeCommon.objValue;
+        }
+
+        public b b(String str, int i2) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2)) == null) {
+                g(str, String.valueOf(i2));
+                return this;
+            }
+            return (b) invokeLI.objValue;
+        }
+
+        public b c(String str, long j2) {
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j2)) == null) {
+                g(str, String.valueOf(j2));
+                return this;
+            }
+            return (b) invokeLJ.objValue;
+        }
+
+        public b d(String str, Object obj) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, obj)) == null) {
+                g(str, obj);
+                return this;
+            }
+            return (b) invokeLL.objValue;
+        }
+
+        public final a e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                a aVar = new a(null);
+                this.f28657c.f28660c = aVar;
+                this.f28657c = aVar;
+                return aVar;
+            }
+            return (a) invokeV.objValue;
+        }
+
+        public final b f(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+                e().f28659b = obj;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public final b g(String str, Object obj) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, obj)) == null) {
+                a e2 = e();
+                e2.f28659b = obj;
+                n.p(str);
+                e2.a = str;
+                return this;
+            }
+            return (b) invokeLL.objValue;
+        }
+
+        public b h(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
+                f(obj);
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                boolean z = this.f28658d;
+                StringBuilder sb = new StringBuilder(32);
+                sb.append(this.a);
+                sb.append(ExtendedMessageFormat.START_FE);
+                String str = "";
+                for (a aVar = this.f28656b.f28660c; aVar != null; aVar = aVar.f28660c) {
+                    Object obj = aVar.f28659b;
+                    if (!z || obj != null) {
+                        sb.append(str);
+                        String str2 = aVar.a;
+                        if (str2 != null) {
+                            sb.append(str2);
+                            sb.append(com.alipay.sdk.encrypt.a.f29503h);
+                        }
+                        if (obj != null && obj.getClass().isArray()) {
+                            String deepToString = Arrays.deepToString(new Object[]{obj});
+                            sb.append((CharSequence) deepToString, 1, deepToString.length() - 1);
+                        } else {
+                            sb.append(obj);
+                        }
+                        str = StringUtil.ARRAY_ELEMENT_SEPARATOR;
+                    }
+                }
+                sb.append(ExtendedMessageFormat.END_FE);
+                return sb.toString();
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public b(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            a aVar = new a(null);
+            this.f28656b = aVar;
+            this.f28657c = aVar;
+            this.f28658d = false;
+            n.p(str);
+            this.a = str;
+        }
+    }
+
+    public static <T> T a(T t, T t2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, t, t2)) == null) {
+            if (t != null) {
+                return t;
+            }
+            if (t2 != null) {
+                return t2;
+            }
+            throw new NullPointerException("Both parameters are null");
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    public static b b(Class<?> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) ? new b(cls.getSimpleName(), null) : (b) invokeL.objValue;
+    }
+
+    public static b c(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, obj)) == null) ? new b(obj.getClass().getSimpleName(), null) : (b) invokeL.objValue;
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.accelerator;
 
-import c.a.u0.e1.b3.c;
+import c.a.r0.d1.r2.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class AcceleratorData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final int AVAILABLE_NODES_NUM_DEFAULT_TAG = 0;

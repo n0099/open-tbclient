@@ -2,10 +2,10 @@ package com.baidu.tieba.signall;
 
 import c.a.d.a.f;
 import c.a.d.f.p.l;
-import c.a.u0.s3.c;
-import c.a.u0.s3.d;
-import c.a.u0.s3.e;
-import c.a.u0.s3.h;
+import c.a.r0.r3.c;
+import c.a.r0.r3.d;
+import c.a.r0.r3.e;
+import c.a.r0.r3.h;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,45 +17,45 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f48086e;
+    public b f46503e;
 
     /* renamed from: f  reason: collision with root package name */
-    public h f48087f;
+    public h f46504f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f48088g;
+    public a f46505g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f48089h;
+    public c f46506h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f48090i;
+    public String f46507i;
     public boolean isRunning;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(h hVar);
 
         void onNetError(String str);
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class b extends BdAsyncTask<String, Integer, h> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public e a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f48091b;
+        public boolean f46508b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SignAllForumModel f48092c;
+        public final /* synthetic */ SignAllForumModel f46509c;
 
         public b(SignAllForumModel signAllForumModel) {
             Interceptable interceptable = $ic;
@@ -72,9 +72,9 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
                     return;
                 }
             }
-            this.f48092c = signAllForumModel;
+            this.f46509c = signAllForumModel;
             this.a = null;
-            this.f48091b = false;
+            this.f46508b = false;
             setPriority(3);
         }
 
@@ -90,7 +90,7 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
                     if (c()) {
                         e eVar = new e();
                         this.a = eVar;
-                        eVar.d(this.f48092c.f48090i);
+                        eVar.d(this.f46509c.f46507i);
                         if (l.z()) {
                             e();
                         }
@@ -109,13 +109,13 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
                             }
                             e eVar2 = new e();
                             this.a = eVar2;
-                            eVar2.d(this.f48092c.f48090i);
+                            eVar2.d(this.f46509c.f46507i);
                             if (l.z()) {
                                 d(sb.toString());
                             }
                         }
                     }
-                    return this.f48092c.f48087f;
+                    return this.f46509c.f46504f;
                 }
                 return null;
             }
@@ -125,7 +125,7 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48091b : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46508b : invokeV.booleanValue;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -135,8 +135,8 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
                 super.cancel();
                 this.a.a();
                 this.a = null;
-                this.f48092c.f48086e = null;
-                this.f48092c.isRunning = false;
+                this.f46509c.f46503e = null;
+                this.f46509c.isRunning = false;
             }
         }
 
@@ -146,10 +146,10 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
                 String e2 = this.a.e(str);
                 if (this.a.c()) {
-                    this.f48092c.f48087f.i(e2);
-                    return this.f48092c.f48087f;
+                    this.f46509c.f46504f.i(e2);
+                    return this.f46509c.f46504f;
                 }
-                this.f48092c.f48087f = null;
+                this.f46509c.f46504f = null;
                 AuthTokenData.parse(e2);
                 return null;
             }
@@ -162,10 +162,10 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 String f2 = this.a.f();
                 if (this.a.c()) {
-                    this.f48092c.f48087f.i(f2);
-                    return this.f48092c.f48087f;
+                    this.f46509c.f46504f.i(f2);
+                    return this.f46509c.f46504f;
                 }
-                this.f48092c.f48087f = null;
+                this.f46509c.f46504f = null;
                 AuthTokenData.parse(f2);
                 return null;
             }
@@ -178,16 +178,16 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
         public void onPostExecute(h hVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, hVar) == null) {
-                SignAllForumModel signAllForumModel = this.f48092c;
+                SignAllForumModel signAllForumModel = this.f46509c;
                 signAllForumModel.isRunning = false;
-                signAllForumModel.f48086e = null;
-                if (this.f48092c.f48088g != null) {
-                    if (this.f48092c.f48087f != null) {
-                        this.f48092c.f48088g.a(this.f48092c.f48087f);
+                signAllForumModel.f46503e = null;
+                if (this.f46509c.f46505g != null) {
+                    if (this.f46509c.f46504f != null) {
+                        this.f46509c.f46505g.a(this.f46509c.f46504f);
                         return;
                     }
                     e eVar = this.a;
-                    this.f48092c.f48088g.onNetError(eVar != null ? eVar.b() : null);
+                    this.f46509c.f46505g.onNetError(eVar != null ? eVar.b() : null);
                 }
             }
         }
@@ -195,7 +195,7 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
         public void g(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-                this.f48091b = z;
+                this.f46508b = z;
             }
         }
 
@@ -204,7 +204,7 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
                 super.onPreExecute();
-                this.f48092c.isRunning = true;
+                this.f46509c.isRunning = true;
             }
         }
     }
@@ -227,26 +227,26 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
                 return;
             }
         }
-        this.f48086e = null;
-        this.f48087f = null;
-        this.f48088g = null;
-        this.f48087f = new h();
+        this.f46503e = null;
+        this.f46504f = null;
+        this.f46505g = null;
+        this.f46504f = new h();
     }
 
     public final String B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList<d> x = this.f48089h.x();
+            ArrayList<d> x = this.f46506h.x();
             if (x == null) {
                 return "";
             }
-            if (!this.f48089h.B()) {
+            if (!this.f46506h.B()) {
                 ArrayList arrayList = new ArrayList();
                 Iterator<d> it = x.iterator();
                 while (it.hasNext()) {
                     d next = it.next();
-                    if (next.i() < this.f48089h.l()) {
+                    if (next.i() < this.f46506h.l()) {
                         arrayList.add(next);
                     }
                 }
@@ -274,20 +274,20 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
     public c C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48089h : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46506h : (c) invokeV.objValue;
     }
 
     public void D(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.f48089h = cVar;
+            this.f46506h = cVar;
         }
     }
 
     public void E(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f48088g = aVar;
+            this.f46505g = aVar;
         }
     }
 
@@ -296,7 +296,7 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            b bVar = this.f48086e;
+            b bVar = this.f46503e;
             if (bVar != null) {
                 bVar.cancel();
                 return true;
@@ -311,14 +311,14 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f48086e != null) {
+            if (this.f46503e != null) {
                 return false;
             }
-            this.f48086e = new b(this);
-            boolean n = this.f48089h.n();
+            this.f46503e = new b(this);
+            boolean n = this.f46506h.n();
             String B = n ? null : B();
-            this.f48086e.g(n);
-            this.f48086e.execute(B);
+            this.f46503e.g(n);
+            this.f46503e.execute(B);
             return true;
         }
         return invokeV.booleanValue;

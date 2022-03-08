@@ -2,19 +2,19 @@ package com.baidu.tbadk.message.http;
 
 import android.text.TextUtils;
 import c.a.d.f.j.b.f;
-import c.a.u0.a4.j;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,39 +56,37 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
 
     public JSONObject parseServerResponsedData(String str) {
         InterceptResult invokeL;
-        ErrorData errorData;
-        JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            JSONObject jSONObject2 = null;
-            if (str != null) {
-                try {
-                    errorData = new ErrorData();
-                    jSONObject = new JSONObject(str);
-                } catch (Exception e2) {
-                    e = e2;
-                }
-                try {
-                    errorData.parserJson(str);
-                    setError(errorData.getError_code());
-                    if (getError() == -1) {
-                        setErrorString(TbadkCoreApplication.getInst().getApp().getString(j.error_unkown_try_again));
-                    } else {
-                        setErrorString(errorData.getError_msg());
-                    }
-                    return jSONObject;
-                } catch (Exception e3) {
-                    e = e3;
-                    jSONObject2 = jSONObject;
-                    BdLog.e(e.getMessage());
-                    setError(-1);
-                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(j.error_unkown_try_again));
-                    return jSONObject2;
-                }
-            }
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, str)) != null) {
+            return (JSONObject) invokeL.objValue;
+        }
+        JSONObject jSONObject = null;
+        if (str == null) {
             return null;
         }
-        return (JSONObject) invokeL.objValue;
+        try {
+            ErrorData errorData = new ErrorData();
+            JSONObject jSONObject2 = new JSONObject(str);
+            try {
+                errorData.parserJson(str);
+                setError(errorData.getError_code());
+                if (getError() == -1) {
+                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.error_unkown_try_again));
+                } else {
+                    setErrorString(errorData.getError_msg());
+                }
+                return jSONObject2;
+            } catch (Exception e2) {
+                e = e2;
+                jSONObject = jSONObject2;
+                BdLog.e(e.getMessage());
+                setError(-1);
+                setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.error_unkown_try_again));
+                return jSONObject;
+            }
+        } catch (Exception e3) {
+            e = e3;
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -8,12 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.baidu.sapi2.ecommerce.R;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class TextFormView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -81,9 +81,9 @@ public class TextFormView extends FrameLayout {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.SapiSdkTextFormView, i2, 0);
-        this.mTextStr = obtainStyledAttributes.getString(R.styleable.SapiSdkTextFormView_SapiSdkActionText);
-        this.mIsShowBottomLine = obtainStyledAttributes.getBoolean(R.styleable.SapiSdkTextFormView_SapiSdkShowTextBottomLine, true);
+        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.SapiSdkActionText, R.attr.SapiSdkShowTextBottomLine}, i2, 0);
+        this.mTextStr = obtainStyledAttributes.getString(0);
+        this.mIsShowBottomLine = obtainStyledAttributes.getBoolean(1, true);
         obtainStyledAttributes.recycle();
         init();
     }

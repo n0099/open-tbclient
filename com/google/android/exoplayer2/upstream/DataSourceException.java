@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class DataSourceException extends IOException {
     public static /* synthetic */ Interceptable $ic;
     public static final int POSITION_OUT_OF_RANGE = 0;

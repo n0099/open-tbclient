@@ -6,21 +6,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.tachikoma.core.utility.FileUtil;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Class<T> f27176b;
+    public final Class<T> f27080b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c f27177c;
+    public final c f27081c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.b.b.m.a f27178d;
+    public c.b.b.m.a f27082d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(String str, Class<T> cls) {
@@ -47,7 +48,7 @@ public class a<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f27176b.getName();
+            return this.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f27080b.getName();
         }
         return (String) invokeV.objValue;
     }
@@ -88,9 +89,9 @@ public class a<T> {
                 return;
             }
         }
-        this.a = str.replace(FileUtil.WINDOWS_SEPARATOR, '/');
-        this.f27176b = cls;
-        this.f27177c = cVar;
+        this.a = str.replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH);
+        this.f27080b = cls;
+        this.f27081c = cVar;
     }
 
     public a(c.b.b.m.a aVar, Class<T> cls, c<T> cVar) {
@@ -108,9 +109,9 @@ public class a<T> {
                 return;
             }
         }
-        this.a = aVar.j().replace(FileUtil.WINDOWS_SEPARATOR, '/');
-        this.f27178d = aVar;
-        this.f27176b = cls;
-        this.f27177c = cVar;
+        this.a = aVar.j().replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH);
+        this.f27082d = aVar;
+        this.f27080b = cls;
+        this.f27081c = cVar;
     }
 }

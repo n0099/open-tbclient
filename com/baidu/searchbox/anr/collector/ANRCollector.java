@@ -17,7 +17,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class ANRCollector {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_TRACE_PATH = "/data/anr/traces.txt";

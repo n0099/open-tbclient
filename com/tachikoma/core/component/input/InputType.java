@@ -3,7 +3,7 @@ package com.tachikoma.core.component.input;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @Retention(RetentionPolicy.SOURCE)
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public @interface InputType {
     public static final String DEFAULT = "default";
     public static final String EMAIL = "email";

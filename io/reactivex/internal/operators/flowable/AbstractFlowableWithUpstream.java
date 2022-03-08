@@ -9,7 +9,7 @@ import io.reactivex.Flowable;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.fuseable.HasUpstreamPublisher;
 import org.reactivestreams.Publisher;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class AbstractFlowableWithUpstream<T, R> extends Flowable<R> implements HasUpstreamPublisher<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

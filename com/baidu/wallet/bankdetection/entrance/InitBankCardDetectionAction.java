@@ -9,7 +9,7 @@ import com.baidu.wallet.bankdetection.BankcardDetectionController;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
 import java.util.HashMap;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class InitBankCardDetectionAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

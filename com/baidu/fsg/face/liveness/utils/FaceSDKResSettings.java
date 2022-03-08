@@ -2,12 +2,12 @@ package com.baidu.fsg.face.liveness.utils;
 
 import com.baidu.pass.face.platform.FaceEnvironment;
 import com.baidu.pass.face.platform.FaceStatusNewEnum;
-import com.baidu.sapi2.biometrics.liveness.R;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class FaceSDKResSettings {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

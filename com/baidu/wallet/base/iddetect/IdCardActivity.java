@@ -57,7 +57,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class IdCardActivity extends BeanActivity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CAMERA_REQUEST_CODE = 3;
@@ -113,7 +113,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
     public String mToastInfo;
     public View mTopView;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class MyHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

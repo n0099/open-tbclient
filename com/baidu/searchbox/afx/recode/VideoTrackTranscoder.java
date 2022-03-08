@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import org.webrtc.HardwareVideoEncoder;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class VideoTrackTranscoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DRAIN_STATE_CONSUMED = 2;

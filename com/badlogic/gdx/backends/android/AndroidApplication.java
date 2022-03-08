@@ -43,7 +43,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class AndroidApplication extends Activity implements c.b.b.l.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public class AndroidApplication extends Activity implements c.b.b.l.a.a {
     public boolean useImmersiveMode;
     public int wasFocusChanged;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class a implements c.b.b.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,13 +115,13 @@ public class AndroidApplication extends Activity implements c.b.b.l.a.a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AndroidApplication f31277e;
+        public final /* synthetic */ AndroidApplication f29681e;
 
         public b(AndroidApplication androidApplication) {
             Interceptable interceptable = $ic;
@@ -138,14 +138,14 @@ public class AndroidApplication extends Activity implements c.b.b.l.a.a {
                     return;
                 }
             }
-            this.f31277e = androidApplication;
+            this.f29681e = androidApplication;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f31277e.finish();
+                this.f29681e.finish();
             }
         }
     }
@@ -202,7 +202,7 @@ public class AndroidApplication extends Activity implements c.b.b.l.a.a {
                 }
                 k kVar = new k(this, bVar, cVar2);
                 this.graphics = kVar;
-                this.input = createInput(this, this, kVar.f27268e, bVar);
+                this.input = createInput(this, this, kVar.f27172e, bVar);
                 this.audio = createAudio(this, bVar);
                 this.files = createFiles();
                 this.net = new q(this, bVar);
@@ -214,9 +214,9 @@ public class AndroidApplication extends Activity implements c.b.b.l.a.a {
                 addLifecycleListener(new a(this));
                 c.b.b.f.a = this;
                 getInput();
-                c.b.b.f.f27171c = getAudio();
-                c.b.b.f.f27172d = getFiles();
-                c.b.b.f.f27170b = getGraphics();
+                c.b.b.f.f27075c = getAudio();
+                c.b.b.f.f27076d = getFiles();
+                c.b.b.f.f27074b = getGraphics();
                 getNet();
                 if (!z) {
                     try {
@@ -281,7 +281,7 @@ public class AndroidApplication extends Activity implements c.b.b.l.a.a {
     public m createInput(Application application, Context context, Object obj, c.b.b.l.a.b bVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, application, context, obj, bVar)) == null) ? new z(this, this, this.graphics.f27268e, bVar) : (m) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, application, context, obj, bVar)) == null) ? new z(this, this, this.graphics.f27172e, bVar) : (m) invokeLLLL.objValue;
     }
 
     public FrameLayout.LayoutParams createLayoutParams() {
@@ -485,7 +485,7 @@ public class AndroidApplication extends Activity implements c.b.b.l.a.a {
         if (interceptable == null || interceptable.invokeIIL(1048616, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
             synchronized (this.androidEventListeners) {
-                for (int i4 = 0; i4 < this.androidEventListeners.f27595f; i4++) {
+                for (int i4 = 0; i4 < this.androidEventListeners.f27499f; i4++) {
                     this.androidEventListeners.get(i4).onActivityResult(i2, i3, intent);
                 }
             }
@@ -545,9 +545,9 @@ public class AndroidApplication extends Activity implements c.b.b.l.a.a {
         if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
             c.b.b.f.a = this;
             getInput();
-            c.b.b.f.f27171c = getAudio();
-            c.b.b.f.f27172d = getFiles();
-            c.b.b.f.f27170b = getGraphics();
+            c.b.b.f.f27075c = getAudio();
+            c.b.b.f.f27076d = getFiles();
+            c.b.b.f.f27074b = getGraphics();
             getNet();
             this.input.onResume();
             k kVar = this.graphics;
@@ -595,7 +595,7 @@ public class AndroidApplication extends Activity implements c.b.b.l.a.a {
         if (interceptable == null || interceptable.invokeL(1048623, this, runnable) == null) {
             synchronized (this.runnables) {
                 this.runnables.a(runnable);
-                c.b.b.f.f27170b.c();
+                c.b.b.f.f27074b.c();
             }
         }
     }

@@ -11,39 +11,35 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.s0.y.d;
-import c.a.s0.y.e;
-import c.a.s0.y.f;
-import c.a.s0.y.g;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.webrtc.MediaStreamTrack;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public final class MediaVolume extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f40264e;
+    public View f38668e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f40265f;
+    public ImageView f38669f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f40266g;
+    public TextView f38670g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AudioManager f40267h;
+    public AudioManager f38671h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f40268i;
+    public int f38672i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f40269j;
+    public int f38673j;
     public int k;
     public float l;
 
@@ -72,7 +68,7 @@ public final class MediaVolume extends FrameLayout {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) {
-            int i2 = this.f40268i;
+            int i2 = this.f38672i;
             if (i2 == 0) {
                 return 100;
             }
@@ -91,45 +87,45 @@ public final class MediaVolume extends FrameLayout {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40269j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38673j : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40268i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38672i : invokeV.intValue;
     }
 
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(g.swanapp_video_slide_vertical, (ViewGroup) this, true);
-            this.f40264e = inflate;
-            this.f40265f = (ImageView) inflate.findViewById(f.icon_video_slide_vertical);
-            this.f40266g = (TextView) this.f40264e.findViewById(f.label_video_slide_vertical);
-            int dimensionPixelSize = getResources().getDimensionPixelSize(d.swanapp_video_brightness_width);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.swanapp_video_slide_vertical, (ViewGroup) this, true);
+            this.f38668e = inflate;
+            this.f38669f = (ImageView) inflate.findViewById(R.id.icon_video_slide_vertical);
+            this.f38670g = (TextView) this.f38668e.findViewById(R.id.label_video_slide_vertical);
+            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.swanapp_video_brightness_width);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
             layoutParams.gravity = 17;
-            this.f40264e.setBackgroundResource(e.swanapp_video_icon_background);
-            this.f40264e.setLayoutParams(layoutParams);
-            AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
-            this.f40267h = audioManager;
-            this.f40268i = audioManager.getStreamMaxVolume(3);
+            this.f38668e.setBackgroundResource(R.drawable.swanapp_video_icon_background);
+            this.f38668e.setLayoutParams(layoutParams);
+            AudioManager audioManager = (AudioManager) context.getSystemService("audio");
+            this.f38671h = audioManager;
+            this.f38672i = audioManager.getStreamMaxVolume(3);
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f40269j = this.f40267h.getStreamVolume(3);
+            this.f38673j = this.f38671h.getStreamVolume(3);
         }
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f40265f.setImageResource(this.k);
-            this.f40266g.setText(String.format("%d%%", Integer.valueOf(a(this.l))));
+            this.f38669f.setImageResource(this.k);
+            this.f38670g.setText(String.format("%d%%", Integer.valueOf(a(this.l))));
             setVisibility(0);
         }
     }
@@ -147,13 +143,13 @@ public final class MediaVolume extends FrameLayout {
             if (f2 < 0.0f) {
                 f2 = 0.0f;
             } else {
-                int i2 = this.f40268i;
+                int i2 = this.f38672i;
                 if (f2 >= i2) {
                     f2 = i2;
                 }
             }
             this.l = f2;
-            this.f40267h.setStreamVolume(3, (int) f2, 0);
+            this.f38671h.setStreamVolume(3, (int) f2, 0);
         }
     }
 

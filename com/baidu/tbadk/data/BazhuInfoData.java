@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class BazhuInfoData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<BaInfo> bazhu_info;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class BaInfo extends OrmObject implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<BaInfo> CREATOR;
@@ -28,7 +28,7 @@ public class BazhuInfoData extends OrmObject {
         public String forum_name;
         public boolean isChecked;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes5.dex */
         public static class a implements Parcelable.Creator<BaInfo> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

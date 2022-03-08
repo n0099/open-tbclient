@@ -17,8 +17,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import kotlin.text.Typography;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class HttpUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -99,10 +98,10 @@ public class HttpUtils {
                     }
                     StringBuilder sb = new StringBuilder();
                     sb.append(name);
-                    sb.append(a.f31099h);
+                    sb.append(a.f29503h);
                     sb.append(value);
                     if (i2 != arrayList.size() - 1) {
-                        sb.append(Typography.amp);
+                        sb.append('&');
                     }
                     if (!TextUtils.isEmpty(sb)) {
                         messageDigest.update(sb.toString().getBytes(Charset.forName("UTF-8")));

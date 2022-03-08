@@ -31,7 +31,7 @@ import com.baidu.wallet.base.iddetect.utils.BitmapUtil;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.utils.AccessibilityUtils;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class IdCardDetectionH5Activity extends CameraBaseActivity implements View.OnClickListener, IImageProcess {
     public static /* synthetic */ Interceptable $ic = null;
     public static int mSteps = 1;

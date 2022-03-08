@@ -16,8 +16,8 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.g;
 import c.a.d.a.j;
 import c.a.d.f.m.f;
-import c.a.t0.k0.h;
-import c.a.t0.o0.c;
+import c.a.q0.j0.h;
+import c.a.q0.n0.c;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -27,6 +27,7 @@ import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.pluginBase.PluginBaseActivity;
 import com.baidu.adp.plugin.pluginBase.PluginBaseService;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
@@ -40,7 +41,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class IntentConfig extends OrmObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AB_TAG = "ab_tag";
@@ -152,13 +153,13 @@ public class IntentConfig extends OrmObject {
     public ServiceConnection mServiceConnection;
     public int mServiceConnectionFlags;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IntentConfig f40504e;
+        public final /* synthetic */ IntentConfig f38908e;
 
         public a(IntentConfig intentConfig) {
             Interceptable interceptable = $ic;
@@ -175,7 +176,7 @@ public class IntentConfig extends OrmObject {
                     return;
                 }
             }
-            this.f40504e = intentConfig;
+            this.f38908e = intentConfig;
         }
 
         @Override // android.content.ServiceConnection
@@ -184,17 +185,17 @@ public class IntentConfig extends OrmObject {
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) || iBinder == null) {
                 return;
             }
-            this.f40504e.mReplyMessenger = new Messenger(iBinder);
-            if (this.f40504e.mReplyMessenger != null) {
+            this.f38908e.mReplyMessenger = new Messenger(iBinder);
+            if (this.f38908e.mReplyMessenger != null) {
                 Message obtain = Message.obtain();
                 Bundle bundle = new Bundle();
-                if (this.f40504e.mComponentClass != null) {
-                    bundle.putString(DealIntentService.KEY_CLASS, this.f40504e.mComponentClass.getName());
+                if (this.f38908e.mComponentClass != null) {
+                    bundle.putString(DealIntentService.KEY_CLASS, this.f38908e.mComponentClass.getName());
                 }
                 obtain.setData(bundle);
-                obtain.replyTo = this.f40504e.mClientMessenger;
+                obtain.replyTo = this.f38908e.mClientMessenger;
                 try {
-                    this.f40504e.mReplyMessenger.send(obtain);
+                    this.f38908e.mReplyMessenger.send(obtain);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -209,7 +210,7 @@ public class IntentConfig extends OrmObject {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -308,7 +309,7 @@ public class IntentConfig extends OrmObject {
             return;
         }
         g<?> b2 = j.b(context);
-        c.a.t0.p0.b tbPageInfo = b2 instanceof c.a.t0.p0.a ? ((c.a.t0.p0.a) b2).getTbPageInfo() : null;
+        c.a.q0.o0.b tbPageInfo = b2 instanceof c.a.q0.o0.a ? ((c.a.q0.o0.a) b2).getTbPageInfo() : null;
         if (tbPageInfo != null) {
             this.mIntent.putExtra("tb_page_tag_source_trace", tbPageInfo.a());
         }
@@ -335,14 +336,14 @@ public class IntentConfig extends OrmObject {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.mIntent == null || (context = this.mContext) == null) {
             return;
         }
-        c k = TbPageExtraHelper.k(context);
-        ArrayList<String> c2 = k == null ? null : k.c();
+        c currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
+        ArrayList<String> c2 = currentVisiblePageExtra == null ? null : currentVisiblePageExtra.c();
         if (ListUtils.isEmpty(c2)) {
             return;
         }
-        if (k != null) {
-            TbPageExtraHelper.v(k.a());
-            h.i(new PrePageKeyEvent(TbPageExtraHelper.m()));
+        if (currentVisiblePageExtra != null) {
+            TbPageExtraHelper.setPrePageKey(currentVisiblePageExtra.a());
+            h.i(new PrePageKeyEvent(TbPageExtraHelper.getPrePageKey()));
         }
         this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", c2);
     }
@@ -353,7 +354,7 @@ public class IntentConfig extends OrmObject {
             return;
         }
         g<?> b2 = j.b(this.mContext);
-        ArrayList<String> arrayList = b2 instanceof c.a.t0.q0.a ? (ArrayList) ((c.a.t0.q0.a) b2).getNextPageSourceKeyList() : null;
+        ArrayList<String> arrayList = b2 instanceof c.a.q0.p0.a ? (ArrayList) ((c.a.q0.p0.a) b2).getNextPageSourceKeyList() : null;
         if (ListUtils.isEmpty(arrayList)) {
             return;
         }
@@ -578,6 +579,9 @@ public class IntentConfig extends OrmObject {
                 if (this.mIntent != null && !(this.mContext instanceof Activity)) {
                     this.mIntent.addFlags(268435456);
                 }
+                if (this.mIntent != null && SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(this.mComponentClass.getName())) {
+                    this.mIntent.addFlags(603979776);
+                }
                 this.mContext.startActivity(this.mIntent);
                 return true;
             } catch (Throwable th) {
@@ -602,6 +606,9 @@ public class IntentConfig extends OrmObject {
     public void startActivityForResult(int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048599, this, i2) == null) && checkStartActivityInterval(this.mComponentClass)) {
+            if (this.mIntent != null && SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(this.mComponentClass.getName())) {
+                this.mIntent.addFlags(603979776);
+            }
             Context context = this.mContext;
             if (context instanceof Activity) {
                 ((Activity) context).startActivityForResult(this.mIntent, i2);
@@ -722,12 +729,12 @@ public class IntentConfig extends OrmObject {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.mIntent == null || (context = this.mContext) == null) {
             return;
         }
-        c k = TbPageExtraHelper.k(context);
-        ArrayList<String> c2 = TbPageExtraHelper.c(k == null ? null : k.d(), str);
-        if (ListUtils.isEmpty(c2)) {
+        c currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
+        ArrayList<String> buildNextPageSourceKeyList = TbPageExtraHelper.buildNextPageSourceKeyList(currentVisiblePageExtra == null ? null : currentVisiblePageExtra.d(), str);
+        if (ListUtils.isEmpty(buildNextPageSourceKeyList)) {
             return;
         }
-        this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", c2);
+        this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", buildNextPageSourceKeyList);
     }
 
     public IntentConfig(Context context) {

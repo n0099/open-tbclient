@@ -1,10 +1,10 @@
 package com.ta.utdid2.b.a;
 
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface b {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         a a(String str);
 
@@ -24,8 +24,8 @@ public interface b {
     }
 
     /* renamed from: com.ta.utdid2.b.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC2243b {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC2222b {
         void a(b bVar, String str);
     }
 

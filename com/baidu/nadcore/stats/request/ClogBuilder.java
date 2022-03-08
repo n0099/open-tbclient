@@ -3,9 +3,9 @@ package com.baidu.nadcore.stats.request;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d0.a0.c.c;
-import c.a.d0.a0.c.d;
-import c.a.d0.x.b;
+import c.a.b0.a0.c.c;
+import c.a.b0.a0.c.d;
+import c.a.b0.x.b;
 import com.alipay.sdk.encrypt.a;
 import com.baidu.adp.ApsConstants;
 import com.baidu.android.imsdk.internal.Constants;
@@ -20,19 +20,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import java.net.URLEncoder;
-import kotlin.text.Typography;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class ClogBuilder extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final JSONObject f37368c;
+    public final JSONObject f35771c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class Area {
         public static final /* synthetic */ Area[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -137,7 +136,7 @@ public class ClogBuilder extends c {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class LogType {
         public static final /* synthetic */ LogType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -328,7 +327,7 @@ public class ClogBuilder extends c {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class Page {
         public static final /* synthetic */ Page[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -441,11 +440,11 @@ public class ClogBuilder extends c {
                 return;
             }
         }
-        this.f37368c = b.b(null);
+        this.f35771c = b.b(null);
         c("origin_time", String.valueOf(System.currentTimeMillis()));
     }
 
-    @Override // c.a.d0.a0.c.a, c.a.d0.a0.c.d
+    @Override // c.a.b0.a0.c.a, c.a.b0.a0.c.d
     public <T extends d> T a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -456,7 +455,7 @@ public class ClogBuilder extends c {
         return (T) invokeLL.objValue;
     }
 
-    @Override // c.a.d0.a0.c.a
+    @Override // c.a.b0.a0.c.a
     public <T extends d> T c(String str, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -464,7 +463,7 @@ public class ClogBuilder extends c {
             if (TextUtils.isEmpty(str)) {
                 return this;
             }
-            b.e(this.f37368c, str, obj);
+            b.e(this.f35771c, str, obj);
             return this;
         }
         return (T) invokeLL.objValue;
@@ -474,7 +473,7 @@ public class ClogBuilder extends c {
     public JSONObject f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37368c : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35771c : (JSONObject) invokeV.objValue;
     }
 
     public ClogBuilder g(Area area) {
@@ -507,12 +506,12 @@ public class ClogBuilder extends c {
         return (ClogBuilder) invokeL.objValue;
     }
 
-    @Override // c.a.d0.a0.c.c, c.a.d0.a0.c.d
+    @Override // c.a.b0.a0.c.c, c.a.b0.a0.c.d
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (TextUtils.isEmpty(this.f37368c.optString("da_type"))) {
+            if (TextUtils.isEmpty(this.f35771c.optString("da_type"))) {
                 return false;
             }
             return super.isValid();
@@ -630,7 +629,7 @@ public class ClogBuilder extends c {
         return (ClogBuilder) invokeL.objValue;
     }
 
-    @Override // c.a.d0.a0.c.c, c.a.d0.a0.c.a, c.a.d0.a0.c.d
+    @Override // c.a.b0.a0.c.c, c.a.b0.a0.c.a, c.a.b0.a0.c.d
     @NonNull
     public String toString() {
         InterceptResult invokeV;
@@ -642,14 +641,14 @@ public class ClogBuilder extends c {
             }
             try {
                 JSONArray jSONArray = new JSONArray();
-                jSONArray.put(this.f37368c);
+                jSONArray.put(this.f35771c);
                 String encode = URLEncoder.encode(jSONArray.toString(), "utf-8");
                 if (this.a.length() > 0) {
-                    this.a.append(Typography.amp);
+                    this.a.append('&');
                 }
                 StringBuilder sb = this.a;
                 sb.append("ad");
-                sb.append(a.f31099h);
+                sb.append(a.f29503h);
                 sb.append(encode);
                 return sb.toString();
             } catch (Exception unused) {

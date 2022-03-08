@@ -7,26 +7,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.u0.u2.f;
-import c.a.u0.u2.i;
-import c.a.u0.u2.j;
+import c.a.r0.u2.h.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class PbThreadPostView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f46875e;
+    public Context f45283e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f46876f;
+    public View.OnClickListener f45284f;
     public View mThreadPostContainer;
     public TextView mVoteThreadPostButton;
     public TextView mVoteThreadPostContent;
@@ -55,21 +54,21 @@ public class PbThreadPostView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mThreadPostContainer = findViewById(i.pb_thread_post_container);
-            this.mVoteThreadPostContent = (TextView) findViewById(i.pb_thread_post_content);
-            this.mVoteThreadPostButton = (TextView) findViewById(i.pb_thread_post_button);
+            this.mThreadPostContainer = findViewById(R.id.pb_thread_post_container);
+            this.mVoteThreadPostContent = (TextView) findViewById(R.id.pb_thread_post_content);
+            this.mVoteThreadPostButton = (TextView) findViewById(R.id.pb_thread_post_button);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f46875e = getContext();
+            this.f45283e = getContext();
             setClipChildren(false);
             setClipToPadding(false);
             setOrientation(1);
             setGravity(17);
-            LayoutInflater.from(getContext()).inflate(j.pb_thread_post_view, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.pb_thread_post_view, (ViewGroup) this, true);
             a();
         }
     }
@@ -77,21 +76,21 @@ public class PbThreadPostView extends LinearLayout {
     public void onSkinChange(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            SkinManager.setBackgroundColor(this.mThreadPostContainer, f.CAM_X0205, i2);
-            SkinManager.setViewTextColor(this.mVoteThreadPostContent, f.CAM_X0107);
-            SkinManager.setViewTextColor(this.mVoteThreadPostButton, f.CAM_X0302);
+            SkinManager.setBackgroundColor(this.mThreadPostContainer, R.color.CAM_X0205, i2);
+            SkinManager.setViewTextColor(this.mVoteThreadPostContent, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.mVoteThreadPostButton, (int) R.color.CAM_X0302);
         }
     }
 
     public void setChildOnClickLinstener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) && this.f46876f == null) {
-            this.f46876f = onClickListener;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) && this.f45284f == null) {
+            this.f45284f = onClickListener;
             this.mVoteThreadPostButton.setOnClickListener(onClickListener);
         }
     }
 
-    public void setData(c.a.u0.u2.r.f fVar) {
+    public void setData(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
             onSkinChange(TbadkCoreApplication.getInst().getSkinType());

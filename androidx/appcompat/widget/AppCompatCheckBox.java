@@ -10,7 +10,7 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.R;
+import androidx.appcompat.R$attr;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.TintableBackgroundView;
@@ -224,7 +224,7 @@ public class AppCompatCheckBox extends CheckBox implements TintableCompoundButto
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AppCompatCheckBox(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.checkboxStyle);
+        this(context, attributeSet, R$attr.checkboxStyle);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

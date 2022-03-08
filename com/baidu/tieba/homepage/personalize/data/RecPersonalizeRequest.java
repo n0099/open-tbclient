@@ -3,11 +3,11 @@ package com.baidu.tieba.homepage.personalize.data;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
-import c.a.t0.d1.c0;
-import c.a.t0.d1.i;
-import c.a.t0.s.r.g1;
-import c.a.u0.l3.j0.a;
-import c.a.u0.l3.l0.b;
+import c.a.q0.c1.b0;
+import c.a.q0.c1.i;
+import c.a.q0.r.r.g1;
+import c.a.r0.j3.k0.a;
+import c.a.r0.j3.m0.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Personalized.DataReq;
 import tbclient.Personalized.PersonalizedReqIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class RecPersonalizeRequest extends NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOAD_TYPE_LOAD_MORE = 2;
@@ -66,7 +66,7 @@ public class RecPersonalizeRequest extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            c0.c(builder, true, false, true);
+            b0.c(builder, true, false, true);
             builder.need_tags = 0;
             builder.load_type = Integer.valueOf(this.loadType);
             builder.page_thread_count = Integer.valueOf(this.threadCount);
@@ -88,9 +88,9 @@ public class RecPersonalizeRequest extends NetMessage {
             if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
                 g1 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
                 builder.from_tid = Long.valueOf(c.a.d.f.m.b.g(pbToHomeUpdateData.a, 0L));
-                builder.query_eqid = pbToHomeUpdateData.f13866b;
-                builder.first_dir = pbToHomeUpdateData.f13867c;
-                builder.second_dir = pbToHomeUpdateData.f13868d;
+                builder.query_eqid = pbToHomeUpdateData.f13282b;
+                builder.first_dir = pbToHomeUpdateData.f13283c;
+                builder.second_dir = pbToHomeUpdateData.f13284d;
                 TbSingleton.getInstance().setPbToHomeUpdateData(null);
             }
             AdExtParam.a b2 = AdExtParam.a.b();

@@ -1,46 +1,35 @@
 package c.q.a;
 
-import android.location.Location;
-import android.location.LocationListener;
-import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes9.dex */
-public class r1 implements LocationListener {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+/* loaded from: classes3.dex */
+public class r1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    public /* synthetic */ r1(p1 p1Var) {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public byte[] f29096b;
 
-    @Override // android.location.LocationListener
-    public void onLocationChanged(Location location) {
+    public r1(int i2, byte[] bArr, Map map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, location) == null) {
-            u1.f30714c.a = location.getLatitude();
-            u1.f30714c.f30715b = location.getLongitude();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), bArr, map};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-    }
-
-    @Override // android.location.LocationListener
-    public void onProviderDisabled(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-        }
-    }
-
-    @Override // android.location.LocationListener
-    public void onProviderEnabled(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-        }
-    }
-
-    @Override // android.location.LocationListener
-    public void onStatusChanged(String str, int i2, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048579, this, str, i2, bundle) == null) {
-        }
+        this.a = i2;
+        this.f29096b = bArr;
     }
 }

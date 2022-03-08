@@ -14,13 +14,13 @@ import com.tachikoma.core.bridge.TKJSContext;
 import com.tachikoma.core.log.Logger;
 import com.tachikoma.core.module.TKBuilder;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class TKModuleManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final HashMap<Class<?>, Object> handlerMap;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final TKModuleManager INSTANCE;

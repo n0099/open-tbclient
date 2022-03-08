@@ -27,13 +27,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
@@ -42,10 +42,10 @@ public class g {
         public static final /* synthetic */ a[] f426a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f61311b;
+        public static final a f59661b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f61312c;
+        public static final a f59662c;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
@@ -65,10 +65,10 @@ public class g {
                 }
             }
             a = new a(RomUtils.UNKNOWN, 0, 0);
-            f61311b = new a("ALLOWED", 1, 1);
+            f59661b = new a("ALLOWED", 1, 1);
             a aVar = new a("NOT_ALLOWED", 2, 2);
-            f61312c = aVar;
-            f426a = new a[]{a, f61311b, aVar};
+            f59662c = aVar;
+            f426a = new a[]{a, f59661b, aVar};
         }
 
         public a(String str, int i2, int i3) {
@@ -189,7 +189,7 @@ public class g {
                     }
                 }
                 if (bool != null) {
-                    return bool.booleanValue() ? a.f61311b : a.f61312c;
+                    return bool.booleanValue() ? a.f59661b : a.f59662c;
                 }
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.m133a("are notifications enabled error " + e2);
@@ -233,7 +233,7 @@ public class g {
                 i3 = 1;
             }
             if (num2 != null) {
-                return z ? !num2.equals(i3) ? a.f61311b : a.f61312c : num2.equals(i2) ? a.f61311b : a.f61312c;
+                return z ? !num2.equals(i3) ? a.f59661b : a.f59662c : num2.equals(i2) ? a.f59661b : a.f59662c;
             }
             return a.a;
         }

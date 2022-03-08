@@ -2,7 +2,6 @@ package com.googlecode.mp4parser.authoring.tracks;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.rtc.record.MediaEncodeParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +30,7 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class EC3TrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long MAX_FRAMES_PER_MMAP = 20;
@@ -45,7 +44,7 @@ public class EC3TrackImpl extends AbstractTrack {
     public List<Sample> samples;
     public TrackMetaData trackMetaData;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class BitStreamInfo extends EC3SpecificBox.Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -387,7 +386,7 @@ public class EC3TrackImpl extends AbstractTrack {
             }
             int i7 = bitStreamInfo.fscod;
             if (i7 == 0) {
-                bitStreamInfo.samplerate = MediaEncodeParams.AUDIO_SAMPLE_RATE;
+                bitStreamInfo.samplerate = 48000;
             } else if (i7 == 1) {
                 bitStreamInfo.samplerate = 44100;
             } else if (i7 == 2) {

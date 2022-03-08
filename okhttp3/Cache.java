@@ -45,7 +45,7 @@ import okio.ForwardingSource;
 import okio.Okio;
 import okio.Sink;
 import okio.Source;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class Cache implements Closeable, Flushable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ENTRY_BODY = 1;
@@ -61,7 +61,7 @@ public final class Cache implements Closeable, Flushable {
     public int writeAbortCount;
     public int writeSuccessCount;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public final class CacheRequestImpl implements CacheRequest {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -165,7 +165,7 @@ public final class Cache implements Closeable, Flushable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class CacheResponseBody extends ResponseBody {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -744,7 +744,7 @@ public final class Cache implements Closeable, Flushable {
         this.cache = DiskLruCache.create(fileSystem, file, VERSION, 2, j2);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class Entry {
         public static /* synthetic */ Interceptable $ic;
         public static final String RECEIVED_MILLIS;

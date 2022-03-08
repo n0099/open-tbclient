@@ -1,5 +1,5 @@
 package com.baidu.titan.sdk.runtime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public abstract class InterceptableDelegate implements Interceptable {
     public Interceptable delegate;
 

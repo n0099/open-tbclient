@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class NewUserGuidePagerAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BaseFragment[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f48532b;
+    public final int f46951b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NewUserGuidePagerAdapter(FragmentManager fragmentManager) {
@@ -39,14 +39,14 @@ public class NewUserGuidePagerAdapter extends FragmentPagerAdapter {
         }
         BaseFragment[] baseFragmentArr = {new NewUserGuideIntroduceFragment(), new NewUserGuideMainFragment()};
         this.a = baseFragmentArr;
-        this.f48532b = baseFragmentArr.length;
+        this.f46951b = baseFragmentArr.length;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48532b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f46951b : invokeV.intValue;
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
@@ -54,7 +54,7 @@ public class NewUserGuidePagerAdapter extends FragmentPagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (i2 < 0 || i2 >= this.f48532b) {
+            if (i2 < 0 || i2 >= this.f46951b) {
                 return null;
             }
             return this.a[i2];

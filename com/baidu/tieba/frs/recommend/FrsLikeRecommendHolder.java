@@ -6,42 +6,39 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.t0.s.l0.n.b;
-import c.a.u0.e1.c1;
-import c.a.u0.e1.d1;
-import c.a.u0.e1.f1;
-import c.a.u0.e1.i1;
-import c.a.u0.z3.c;
-import c.a.u0.z3.m;
+import c.a.q0.r.l0.n.b;
+import c.a.r0.y3.c;
+import c.a.r0.y3.m;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tieba.R;
 import com.baidu.tieba.view.SymbolEMTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FrsLikeRecommendHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final LinearLayout a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BarImageView f43936b;
+    public final BarImageView f42339b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final SymbolEMTextView f43937c;
+    public final SymbolEMTextView f42340c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final TextView f43938d;
+    public final TextView f42341d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final TBSpecificationBtn f43939e;
+    public final TBSpecificationBtn f42342e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f43940f;
+    public final String f42343f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsLikeRecommendHolder(View view, String str) {
@@ -61,27 +58,27 @@ public class FrsLikeRecommendHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f43940f = str;
-        LinearLayout linearLayout = (LinearLayout) view.findViewById(f1.frs_like_recommend_item_root);
+        this.f42343f = str;
+        LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.frs_like_recommend_item_root);
         this.a = linearLayout;
-        this.f43936b = (BarImageView) linearLayout.findViewById(f1.forum_head_image);
-        this.f43937c = (SymbolEMTextView) this.a.findViewById(f1.forum_name_tv);
-        this.f43938d = (TextView) this.a.findViewById(f1.forum_member_like_des_tv);
-        this.f43939e = (TBSpecificationBtn) this.a.findViewById(f1.forum_like_btn);
-        BarImageView barImageView = this.f43936b;
+        this.f42339b = (BarImageView) linearLayout.findViewById(R.id.forum_head_image);
+        this.f42340c = (SymbolEMTextView) this.a.findViewById(R.id.forum_name_tv);
+        this.f42341d = (TextView) this.a.findViewById(R.id.forum_member_like_des_tv);
+        this.f42342e = (TBSpecificationBtn) this.a.findViewById(R.id.forum_like_btn);
+        BarImageView barImageView = this.f42339b;
         if (barImageView != null) {
             barImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-            BarImageView barImageView2 = this.f43936b;
-            barImageView2.setContentDescription(barImageView2.getResources().getString(i1.bar_header));
-            this.f43936b.setStrokeColorResId(c1.CAM_X0401);
-            BarImageView barImageView3 = this.f43936b;
-            barImageView3.setStrokeWith(n.f(barImageView3.getContext(), d1.tbds3));
-            this.f43936b.setShowOval(true);
-            this.f43936b.setPlaceHolder(1);
+            BarImageView barImageView2 = this.f42339b;
+            barImageView2.setContentDescription(barImageView2.getResources().getString(R.string.bar_header));
+            this.f42339b.setStrokeColorResId(R.color.CAM_X0401);
+            BarImageView barImageView3 = this.f42339b;
+            barImageView3.setStrokeWith(n.f(barImageView3.getContext(), R.dimen.tbds3));
+            this.f42339b.setShowOval(true);
+            this.f42339b.setPlaceHolder(1);
         }
-        TBSpecificationBtn tBSpecificationBtn = this.f43939e;
+        TBSpecificationBtn tBSpecificationBtn = this.f42342e;
         if (tBSpecificationBtn != null) {
-            tBSpecificationBtn.setTextSize(d1.T_X08);
+            tBSpecificationBtn.setTextSize(R.dimen.T_X08);
         }
     }
 
@@ -89,32 +86,32 @@ public class FrsLikeRecommendHolder extends TypeAdapter.ViewHolder {
     public void bind(m mVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, mVar) == null) {
-            BarImageView barImageView = this.f43936b;
+            BarImageView barImageView = this.f42339b;
             if (barImageView != null) {
-                barImageView.startLoad(mVar.f26262f, 10, false);
+                barImageView.startLoad(mVar.f25082f, 10, false);
             }
-            SymbolEMTextView symbolEMTextView = this.f43937c;
+            SymbolEMTextView symbolEMTextView = this.f42340c;
             if (symbolEMTextView != null) {
-                symbolEMTextView.setText(mVar.f26263g + this.f43937c.getContext().getString(i1.forum));
+                symbolEMTextView.setText(mVar.f25083g + this.f42340c.getContext().getString(R.string.forum));
             }
-            TextView textView = this.f43938d;
+            TextView textView = this.f42341d;
             if (textView != null) {
-                textView.setText(mVar.f26264h);
+                textView.setText(mVar.f25084h);
             }
-            if (this.f43939e != null) {
-                if (mVar.f26265i) {
+            if (this.f42342e != null) {
+                if (mVar.f25085i) {
                     b bVar = new b();
-                    bVar.p(c1.CAM_X0903, c1.CAM_X0109);
-                    this.f43939e.setConfig(bVar);
-                    TBSpecificationBtn tBSpecificationBtn = this.f43939e;
-                    tBSpecificationBtn.setText(tBSpecificationBtn.getContext().getString(i1.followed));
+                    bVar.p(R.color.CAM_X0903, R.color.CAM_X0109);
+                    this.f42342e.setConfig(bVar);
+                    TBSpecificationBtn tBSpecificationBtn = this.f42342e;
+                    tBSpecificationBtn.setText(tBSpecificationBtn.getContext().getString(R.string.followed));
                     return;
                 }
                 b bVar2 = new b();
-                bVar2.s(c.e(this.f43940f));
-                this.f43939e.setConfig(bVar2);
-                TBSpecificationBtn tBSpecificationBtn2 = this.f43939e;
-                tBSpecificationBtn2.setText(tBSpecificationBtn2.getContext().getString(i1.frs_like_forum));
+                bVar2.s(c.e(this.f42343f));
+                this.f42342e.setConfig(bVar2);
+                TBSpecificationBtn tBSpecificationBtn2 = this.f42342e;
+                tBSpecificationBtn2.setText(tBSpecificationBtn2.getContext().getString(R.string.frs_like_forum));
             }
         }
     }
@@ -124,21 +121,21 @@ public class FrsLikeRecommendHolder extends TypeAdapter.ViewHolder {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LinearLayout linearLayout = this.a;
             if (linearLayout != null) {
-                c.a.t0.s.v.c d2 = c.a.t0.s.v.c.d(linearLayout);
-                d2.n(i1.J_X05);
-                d2.f(c1.CAM_X0201);
+                c.a.q0.r.v.c d2 = c.a.q0.r.v.c.d(linearLayout);
+                d2.n(R.string.J_X05);
+                d2.f(R.color.CAM_X0201);
             }
-            SymbolEMTextView symbolEMTextView = this.f43937c;
+            SymbolEMTextView symbolEMTextView = this.f42340c;
             if (symbolEMTextView != null) {
-                c.a.t0.s.v.c d3 = c.a.t0.s.v.c.d(symbolEMTextView);
-                d3.A(i1.F_X01);
-                d3.v(c1.CAM_X0105);
+                c.a.q0.r.v.c d3 = c.a.q0.r.v.c.d(symbolEMTextView);
+                d3.A(R.string.F_X01);
+                d3.v(R.color.CAM_X0105);
             }
-            TextView textView = this.f43938d;
+            TextView textView = this.f42341d;
             if (textView != null) {
-                c.a.t0.s.v.c.d(textView).v(c1.CAM_X0109);
+                c.a.q0.r.v.c.d(textView).v(R.color.CAM_X0109);
             }
-            TBSpecificationBtn tBSpecificationBtn = this.f43939e;
+            TBSpecificationBtn tBSpecificationBtn = this.f42342e;
             if (tBSpecificationBtn != null) {
                 tBSpecificationBtn.changeSkinType();
             }
@@ -148,7 +145,7 @@ public class FrsLikeRecommendHolder extends TypeAdapter.ViewHolder {
     public void setLikeClickListener(View.OnClickListener onClickListener) {
         TBSpecificationBtn tBSpecificationBtn;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) || (tBSpecificationBtn = this.f43939e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) || (tBSpecificationBtn = this.f42342e) == null) {
             return;
         }
         tBSpecificationBtn.setOnClickListener(onClickListener);

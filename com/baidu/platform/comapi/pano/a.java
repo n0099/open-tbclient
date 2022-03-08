@@ -14,15 +14,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AsyncHttpClient a;
 
     /* renamed from: com.baidu.platform.comapi.pano.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC1850a<T> {
+    /* loaded from: classes4.dex */
+    public interface InterfaceC1826a<T> {
         void a(HttpClient.HttpStateError httpStateError);
 
         void a(T t);
@@ -50,18 +50,18 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
             if (str == null || str.equals("")) {
-                return new c(PanoStateError.f37971c);
+                return new c(PanoStateError.f36374c);
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 JSONObject optJSONObject = jSONObject.optJSONObject("result");
                 if (optJSONObject == null) {
-                    return new c(PanoStateError.f37971c);
+                    return new c(PanoStateError.f36374c);
                 }
                 if (optJSONObject.optInt("error") == 0) {
                     JSONArray optJSONArray = jSONObject.optJSONArray("content");
                     if (optJSONArray == null) {
-                        return new c(PanoStateError.f37971c);
+                        return new c(PanoStateError.f36374c);
                     }
                     c cVar = null;
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
@@ -74,10 +74,10 @@ public class a {
                     }
                     return cVar;
                 }
-                return new c(PanoStateError.f37970b);
+                return new c(PanoStateError.f36373b);
             } catch (JSONException e2) {
                 e2.printStackTrace();
-                return new c(PanoStateError.f37971c);
+                return new c(PanoStateError.f36374c);
             }
         }
         return (c) invokeL.objValue;
@@ -103,9 +103,9 @@ public class a {
         builder.appendQueryParameter(str, str2);
     }
 
-    public void a(String str, InterfaceC1850a<c> interfaceC1850a) {
+    public void a(String str, InterfaceC1826a<c> interfaceC1826a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, interfaceC1850a) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, interfaceC1826a) == null) {
             Uri.Builder builder = new Uri.Builder();
             builder.scheme(HttpClient.isHttpsEnable ? "https" : "http");
             builder.encodedAuthority("api.map.baidu.com");
@@ -115,11 +115,11 @@ public class a {
             a(builder, "action", "0");
             String authToken = HttpClient.getAuthToken();
             if (authToken == null) {
-                interfaceC1850a.a((InterfaceC1850a<c>) new c(PanoStateError.f37972d));
+                interfaceC1826a.a((InterfaceC1826a<c>) new c(PanoStateError.f36375d));
                 return;
             }
             a(builder, "token", authToken);
-            this.a.get(a(builder), new b(this, interfaceC1850a));
+            this.a.get(a(builder), new b(this, interfaceC1826a));
         }
     }
 }

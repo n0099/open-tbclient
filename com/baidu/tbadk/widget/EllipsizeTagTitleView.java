@@ -20,7 +20,6 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.R$styleable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,11 +27,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class EllipsizeTagTitleView extends View implements q {
-    public static /* synthetic */ Interceptable $ic;
-    public static final int D;
-    public static final int E;
+    public static /* synthetic */ Interceptable $ic = null;
+
+    /* renamed from: D */
+    public static final int CAM_X0105 = 2131099660;
+
+    /* renamed from: E */
+    public static final int CAM_X0301 = 2131099742;
     public static final int F;
     public static final int G;
     public static final int H;
@@ -46,22 +49,22 @@ public class EllipsizeTagTitleView extends View implements q {
     public RectF C;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f41406e;
+    public int f39812e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f41407f;
+    public int f39813f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f41408g;
+    public int f39814g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f41409h;
+    public int f39815h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f41410i;
+    public int f39816i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f41411j;
+    public int f39817j;
     public int k;
     public int l;
     public int m;
@@ -92,8 +95,6 @@ public class EllipsizeTagTitleView extends View implements q {
                 return;
             }
         }
-        D = R.color.CAM_X0105;
-        E = R.color.CAM_X0301;
         F = n.f(TbadkCoreApplication.getInst(), R.dimen.T_X06);
         G = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds16);
         H = n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
@@ -149,9 +150,9 @@ public class EllipsizeTagTitleView extends View implements q {
             int i3 = 0;
             int i4 = 0;
             while (i3 < length) {
-                int a = a(i3, i4 == this.f41410i + (-1) ? i2 - this.v : i2);
+                int a = a(i3, i4 == this.f39816i + (-1) ? i2 - this.v : i2);
                 i4++;
-                int i5 = this.f41410i;
+                int i5 = this.f39816i;
                 if (i4 >= i5) {
                     return i5;
                 }
@@ -185,7 +186,7 @@ public class EllipsizeTagTitleView extends View implements q {
             if (TextUtils.isEmpty(this.y)) {
                 return 0;
             }
-            return this.m + ((int) this.A.measureText(this.y)) + 0 + (this.l * 2) + this.f41411j;
+            return this.m + ((int) this.A.measureText(this.y)) + 0 + (this.l * 2) + this.f39817j;
         }
         return invokeV.intValue;
     }
@@ -219,7 +220,7 @@ public class EllipsizeTagTitleView extends View implements q {
         rectF.left = f4;
         int i3 = this.w;
         rectF.top = f2 - ((i3 * 1.0f) / 2.0f);
-        rectF.right = ((f4 + this.v) - this.f41411j) + ((i2 * 1.0f) / 2.0f);
+        rectF.right = ((f4 + this.v) - this.f39817j) + ((i2 * 1.0f) / 2.0f);
         rectF.bottom = f2 + ((i3 * 1.0f) / 2.0f);
         this.A.setStyle(Paint.Style.STROKE);
         this.A.setStrokeWidth(this.m);
@@ -246,18 +247,18 @@ public class EllipsizeTagTitleView extends View implements q {
             while (i2 < length) {
                 Paint.FontMetrics fontMetrics = this.B;
                 float f2 = ((fontMetrics.ascent + singleOffset) + (fontMetrics.descent + singleOffset)) / 2.0f;
-                if (i3 == this.f41410i - 1) {
+                if (i3 == this.f39816i - 1) {
                     float width = getWidth() - this.v;
                     int a = i2 + a(i2, width);
                     if (a == length && this.q[0] < width) {
                         h(canvas, i2, a, 0.0f, singleOffset);
-                        g(canvas, f2, this.q[0] + this.f41411j);
+                        g(canvas, f2, this.q[0] + this.f39817j);
                         f(canvas, f2);
                         return;
                     }
                     h(canvas, i2, i2 + a(i2, (int) (width - this.r)), 0.0f, singleOffset);
                     e(canvas, this.q[0], singleOffset);
-                    g(canvas, f2, this.q[0] + this.r + this.f41411j);
+                    g(canvas, f2, this.q[0] + this.r + this.f39817j);
                     f(canvas, f2);
                     return;
                 }
@@ -267,18 +268,18 @@ public class EllipsizeTagTitleView extends View implements q {
                 if (a2 == length) {
                     float[] fArr = this.q;
                     if (fArr[0] + this.v < width2) {
-                        g(canvas, f2, fArr[0] + this.f41411j);
+                        g(canvas, f2, fArr[0] + this.f39817j);
                         f(canvas, f2);
                         return;
                     }
-                    float singleOffset2 = singleOffset + getSingleOffset() + this.f41409h;
+                    float singleOffset2 = singleOffset + getSingleOffset() + this.f39815h;
                     Paint.FontMetrics fontMetrics2 = this.B;
                     float f3 = ((fontMetrics2.ascent + singleOffset2) + (singleOffset2 + fontMetrics2.descent)) / 2.0f;
                     g(canvas, f3, 0.0f);
                     f(canvas, f3);
                     return;
                 }
-                singleOffset += getSingleOffset() + this.f41409h;
+                singleOffset += getSingleOffset() + this.f39815h;
                 i3++;
                 i2 = a2;
             }
@@ -294,7 +295,7 @@ public class EllipsizeTagTitleView extends View implements q {
             int i3 = 0;
             while (i3 < length) {
                 int width = getWidth();
-                if (i2 == this.f41410i - 1) {
+                if (i2 == this.f39816i - 1) {
                     float f2 = width;
                     int breakText = i3 + this.z.breakText(this.x, i3, length, true, f2, this.q);
                     if (breakText == length && this.q[0] < f2) {
@@ -307,7 +308,7 @@ public class EllipsizeTagTitleView extends View implements q {
                 }
                 int a = i3 + a(i3, width);
                 h(canvas, i3, a, 0.0f, singleOffset);
-                singleOffset += getSingleOffset() + this.f41409h;
+                singleOffset += getSingleOffset() + this.f39815h;
                 i2++;
                 i3 = a;
             }
@@ -317,29 +318,29 @@ public class EllipsizeTagTitleView extends View implements q {
     public final void k(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.EllipsizeTagTitleView);
-            this.f41408g = obtainStyledAttributes.getInt(R$styleable.EllipsizeTagTitleView_tag_title_text_color, D);
-            this.f41407f = obtainStyledAttributes.getInt(R$styleable.EllipsizeTagTitleView_tag_title_text_style, 0);
-            this.f41406e = obtainStyledAttributes.getDimensionPixelSize(R$styleable.EllipsizeTagTitleView_tag_title_text_size, F);
-            this.f41409h = obtainStyledAttributes.getDimensionPixelSize(R$styleable.EllipsizeTagTitleView_tag_title_line_space, G);
-            this.f41410i = obtainStyledAttributes.getInt(R$styleable.EllipsizeTagTitleView_tag_title_max_line, 2);
-            this.p = obtainStyledAttributes.getString(R$styleable.EllipsizeTagTitleView_tag_title_ellipsize_text);
-            this.f41411j = obtainStyledAttributes.getInt(R$styleable.EllipsizeTagTitleView_tag_title_tag_margin, H);
-            this.k = obtainStyledAttributes.getInt(R$styleable.EllipsizeTagTitleView_tag_title_tag_padding_vertical, K);
-            this.l = obtainStyledAttributes.getInt(R$styleable.EllipsizeTagTitleView_tag_title_tag_padding_horizontal, L);
-            this.m = obtainStyledAttributes.getInt(R$styleable.EllipsizeTagTitleView_tag_title_tag_stroke_width, I);
-            this.n = obtainStyledAttributes.getInt(R$styleable.EllipsizeTagTitleView_tag_title_tag_corner_radius, J);
-            this.o = obtainStyledAttributes.getInt(R$styleable.EllipsizeTagTitleView_tag_title_text_color, E);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.tag_title_ellipsize_text, R.attr.tag_title_line_space, R.attr.tag_title_max_line, R.attr.tag_title_tag_color, R.attr.tag_title_tag_corner_radius, R.attr.tag_title_tag_margin, R.attr.tag_title_tag_padding_horizontal, R.attr.tag_title_tag_padding_vertical, R.attr.tag_title_tag_stroke_width, R.attr.tag_title_text_color, R.attr.tag_title_text_size, R.attr.tag_title_text_style});
+            this.f39814g = obtainStyledAttributes.getInt(9, CAM_X0105);
+            this.f39813f = obtainStyledAttributes.getInt(11, 0);
+            this.f39812e = obtainStyledAttributes.getDimensionPixelSize(10, F);
+            this.f39815h = obtainStyledAttributes.getDimensionPixelSize(1, G);
+            this.f39816i = obtainStyledAttributes.getInt(2, 2);
+            this.p = obtainStyledAttributes.getString(0);
+            this.f39817j = obtainStyledAttributes.getInt(5, H);
+            this.k = obtainStyledAttributes.getInt(7, K);
+            this.l = obtainStyledAttributes.getInt(6, L);
+            this.m = obtainStyledAttributes.getInt(8, I);
+            this.n = obtainStyledAttributes.getInt(4, J);
+            this.o = obtainStyledAttributes.getInt(9, CAM_X0301);
             obtainStyledAttributes.recycle();
             TextPaint textPaint = new TextPaint(1);
             this.z = textPaint;
-            textPaint.setTextSize(this.f41406e);
-            if (this.f41407f == 1) {
+            textPaint.setTextSize(this.f39812e);
+            if (this.f39813f == 1) {
                 this.z.setTypeface(Typeface.DEFAULT_BOLD);
             } else {
                 this.z.setTypeface(Typeface.DEFAULT);
             }
-            this.z.setColor(SkinManager.getColor(this.f41408g));
+            this.z.setColor(SkinManager.getColor(this.f39814g));
             this.z.getFontMetrics(this.B);
             if (TextUtils.isEmpty(this.p)) {
                 this.p = "...#";
@@ -360,7 +361,7 @@ public class EllipsizeTagTitleView extends View implements q {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048587, this, tbPageContext, i2) == null) {
-            this.z.setColor(SkinManager.getColor(this.f41408g));
+            this.z.setColor(SkinManager.getColor(this.f39814g));
             this.A.setColor(SkinManager.getColor(this.o));
             invalidate();
         }
@@ -404,7 +405,7 @@ public class EllipsizeTagTitleView extends View implements q {
                     }
                 }
                 int b2 = b(size);
-                size2 = (int) (0 + (this.s * b2) + (this.f41409h * (b2 - 1)));
+                size2 = (int) (0 + (this.s * b2) + (this.f39815h * (b2 - 1)));
             }
             setMeasuredDimension(size, size2);
         }
@@ -460,17 +461,17 @@ public class EllipsizeTagTitleView extends View implements q {
                 return;
             }
         }
-        this.f41406e = F;
-        this.f41407f = 1;
-        this.f41408g = D;
-        this.f41409h = G;
-        this.f41410i = 2;
-        this.f41411j = H;
+        this.f39812e = F;
+        this.f39813f = 1;
+        this.f39814g = CAM_X0105;
+        this.f39815h = G;
+        this.f39816i = 2;
+        this.f39817j = H;
         this.k = K;
         this.l = L;
         this.m = I;
         this.n = J;
-        this.o = E;
+        this.o = CAM_X0301;
         this.p = "...#";
         this.q = new float[1];
         this.x = "";

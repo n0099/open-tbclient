@@ -2,10 +2,10 @@ package com.baidu.ugc.editvideo.muxer;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b1.i.c;
-import c.a.b1.l.a;
-import c.a.b1.t.h;
-import c.a.b1.t.n;
+import c.a.y0.i.c;
+import c.a.y0.l.a;
+import c.a.y0.r.h;
+import c.a.y0.r.n;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,7 +26,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class CheckUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

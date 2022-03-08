@@ -16,7 +16,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class CmdRouter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ROUTE_ROOT_PAKCAGE = "com.baidu.tieba.route";
@@ -104,17 +104,15 @@ public class CmdRouter {
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            String str = "" + tiebaCmdClassesArray.cmdClassesArray.length;
             if (tiebaCmdClassesArray.loadCmdClasses().size() == 0) {
                 loadCmdClasses = ClassUtils.getFileNameByPackageName(mContext, ROUTE_ROOT_PAKCAGE);
             } else {
                 loadCmdClasses = tiebaCmdClassesArray.loadCmdClasses();
             }
-            loadCmdClasses.toString();
-            for (String str2 : loadCmdClasses) {
-                if (str2.startsWith("com.baidu.tieba.route.")) {
-                    cmdMaps.addAll(((ICmdRouter) Class.forName(str2).getConstructor(new Class[0]).newInstance(new Object[0])).getCmdRouterMap());
-                    configMaps.addAll(((ICmdRouter) Class.forName(str2).getConstructor(new Class[0]).newInstance(new Object[0])).getConfigRouterMap());
+            for (String str : loadCmdClasses) {
+                if (str.startsWith("com.baidu.tieba.route.")) {
+                    cmdMaps.addAll(((ICmdRouter) Class.forName(str).getConstructor(new Class[0]).newInstance(new Object[0])).getCmdRouterMap());
+                    configMaps.addAll(((ICmdRouter) Class.forName(str).getConstructor(new Class[0]).newInstance(new Object[0])).getConfigRouterMap());
                 }
             }
         }

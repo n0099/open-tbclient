@@ -18,7 +18,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class ChannelManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DEBUG = false;
@@ -214,7 +214,7 @@ public class ChannelManager {
         }
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:11:0x003a -> B:16:0x0048). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:11:0x0039 -> B:16:0x0047). Please submit an issue!!! */
     private String readLastChannelFromRaw() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

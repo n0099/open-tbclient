@@ -15,7 +15,7 @@ import java.security.cert.X509Certificate;
 import java.util.HashSet;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class SignatureVerifier {
     public static final String TAG = "SigVerifier";
     public Context mContext;
@@ -24,7 +24,7 @@ public class SignatureVerifier {
     public final HashSet<String> mAllowedSigs = new HashSet<>();
 
     /* renamed from: com.baidu.titan.sdk.verifier.SignatureVerifier$1  reason: invalid class name */
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$titan$sdk$verifier$SignaturePolicy;
 

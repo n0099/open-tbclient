@@ -14,13 +14,13 @@ import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.spswitch.R;
 import com.baidu.spswitch.emotion.EmotionType;
 import com.baidu.spswitch.emotion.EmotionUtils;
 import com.baidu.spswitch.emotion.GlobalOnItemClickListenerManager;
 import com.baidu.spswitch.emotion.adapter.NoHorizontalScrollerVPAdapter;
 import com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout;
 import com.baidu.spswitch.view.SPSwitchPanelLinearLayout;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class BDEmotionPanelManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COLOR_EMOTION_TYPE_LAYOUT = -657931;
@@ -46,12 +46,12 @@ public class BDEmotionPanelManager {
     public boolean isNightMode;
     public String mLastStackInfo;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface OnEmotionClickListener {
         void onEmotionClick(EmotionType emotionType, int i2, String str, String str2);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface OnVerticalEmotionListener {
         public static final int SECTION_TYPE_ALL = 1;
         public static final int SECTION_TYPE_OFTEN = 0;

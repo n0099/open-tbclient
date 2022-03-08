@@ -2,7 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.kwad.sdk.core.request.model.g;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ab implements com.kwad.sdk.core.d<g.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
@@ -11,9 +11,9 @@ public class ab implements com.kwad.sdk.core.d<g.a> {
             return;
         }
         aVar.a = jSONObject.optInt("streamType");
-        aVar.f56385b = jSONObject.optInt("maxVolume");
-        aVar.f56386c = jSONObject.optInt("minVolume");
-        aVar.f56387d = jSONObject.optInt("currentVolume");
+        aVar.f54735b = jSONObject.optInt("maxVolume");
+        aVar.f54736c = jSONObject.optInt("minVolume");
+        aVar.f54737d = jSONObject.optInt("currentVolume");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,9 +23,9 @@ public class ab implements com.kwad.sdk.core.d<g.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "streamType", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "maxVolume", aVar.f56385b);
-        com.kwad.sdk.utils.t.a(jSONObject, "minVolume", aVar.f56386c);
-        com.kwad.sdk.utils.t.a(jSONObject, "currentVolume", aVar.f56387d);
+        com.kwad.sdk.utils.t.a(jSONObject, "maxVolume", aVar.f54735b);
+        com.kwad.sdk.utils.t.a(jSONObject, "minVolume", aVar.f54736c);
+        com.kwad.sdk.utils.t.a(jSONObject, "currentVolume", aVar.f54737d);
         return jSONObject;
     }
 }

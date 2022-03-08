@@ -1,10 +1,12 @@
 package com.baidu.tbadk.core.util;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class UrlSchemaHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTO_PAY_MEMBER_SUCC_PARAM = "from=autopay";
@@ -148,6 +150,7 @@ public class UrlSchemaHelper {
     public static final String SCHEMA_TYPE_START_GAME = "tieba://gameinvoke?";
     public static final String SCHEMA_TYPE_SUB_PB = "tieba.baidu.com/subp";
     public static final String SCHEMA_TYPE_SWAN = "tiebaclient://swan";
+    public static final String SCHEMA_TYPE_SWAN_BAIDUBOXAPP = "baiduboxapp://swan";
     public static final String SCHEMA_TYPE_TBOWNEREMOJI = "/n/interact/tbowneremoji";
     public static final String SCHEMA_TYPE_TB_CLIENT = "tbclient://";
     public static final String SCHEMA_TYPE_TB_CLIENT_GAME_FRS_TAB = "tblaunch://tieba.baidu.com/f?";
@@ -178,5 +181,18 @@ public class UrlSchemaHelper {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public static boolean checkBaiduboxappSwan(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? str.startsWith(SCHEMA_TYPE_SWAN_BAIDUBOXAPP) : invokeL.booleanValue;
+    }
+
+    @NonNull
+    public static String replaceSwanBaiduboxapp2Tiebaclient(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? str.replace(SCHEMA_TYPE_SWAN_BAIDUBOXAPP, SCHEMA_TYPE_SWAN) : (String) invokeL.objValue;
     }
 }

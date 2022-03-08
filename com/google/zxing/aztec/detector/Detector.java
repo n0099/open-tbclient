@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.aztec.AztecDetectorResult;
@@ -20,8 +21,7 @@ import com.google.zxing.common.reedsolomon.GenericGF;
 import com.google.zxing.common.reedsolomon.ReedSolomonDecoder;
 import com.google.zxing.common.reedsolomon.ReedSolomonException;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
-import kotlin.text.Typography;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class Detector {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] EXPECTED_CORNER_BITS;
@@ -33,7 +33,7 @@ public final class Detector {
     public int nbLayers;
     public int shift;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class Point {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public final class Detector {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return "<" + this.x + ' ' + this.y + Typography.greater;
+                return "<" + this.x + WebvttCueParser.CHAR_SPACE + this.y + '>';
             }
             return (String) invokeV.objValue;
         }

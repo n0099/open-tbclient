@@ -1,0 +1,83 @@
+package c.a.r0.g0.a.c;
+
+import android.content.Context;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import tbclient.HotThread.Pic;
+import tbclient.HotThread.tinfo;
+/* loaded from: classes2.dex */
+public class d implements c.a.q0.k0.b.a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: e  reason: collision with root package name */
+    public ArrayList<String> f17469e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f17470f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f17471g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f17472h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public String f17473i;
+
+    public d(int i2, tinfo tinfoVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), tinfoVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        if (tinfoVar == null) {
+            return;
+        }
+        this.f17469e = new ArrayList<>();
+        this.f17470f = i2;
+        this.f17472h = String.valueOf(tinfoVar.forum_id);
+        this.f17471g = tinfoVar.forum_name;
+        this.f17473i = String.valueOf(tinfoVar.thread_id);
+        for (Pic pic : tinfoVar.pics) {
+            if (pic != null && !StringUtils.isNull(pic.big_pic)) {
+                this.f17469e.add(pic.big_pic);
+            }
+        }
+    }
+
+    public CustomMessage<ImageViewerConfig> a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            ImageViewerConfig.b bVar = new ImageViewerConfig.b();
+            bVar.x(this.f17469e);
+            bVar.B(this.f17470f);
+            bVar.z(this.f17471g);
+            bVar.y(this.f17472h);
+            bVar.O(this.f17473i);
+            bVar.C(true);
+            bVar.F(false);
+            ArrayList<String> arrayList = this.f17469e;
+            bVar.J(arrayList.get(arrayList.size() - 1));
+            return new CustomMessage<>(2010000, bVar.v(context));
+        }
+        return (CustomMessage) invokeL.objValue;
+    }
+}

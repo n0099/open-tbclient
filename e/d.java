@@ -1,5 +1,5 @@
 package e;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface d<TTaskResult, TContinuationResult> {
     TContinuationResult then(e<TTaskResult> eVar) throws Exception;
 }

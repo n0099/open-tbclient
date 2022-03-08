@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class c implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,9 +44,9 @@ public final class c implements Runnable {
             try {
                 Process.setThreadPriority(0);
                 while (!linkedList.isEmpty()) {
-                    linkedList2 = this.a.f30951c;
+                    linkedList2 = this.a.f29355c;
                     Runnable runnable = (Runnable) linkedList2.get(0);
-                    linkedList3 = this.a.f30951c;
+                    linkedList3 = this.a.f29355c;
                     linkedList3.remove(0);
                     if (runnable != null) {
                         runnable.run();
@@ -54,10 +54,10 @@ public final class c implements Runnable {
                 }
             } catch (Exception unused) {
             } catch (Throwable th) {
-                this.a.f30950b = null;
+                this.a.f29354b = null;
                 throw th;
             }
-            this.a.f30950b = null;
+            this.a.f29354b = null;
         }
     }
 }

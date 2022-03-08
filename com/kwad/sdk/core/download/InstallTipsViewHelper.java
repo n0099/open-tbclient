@@ -14,8 +14,8 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.animation.PathInterpolatorCompat;
+import com.baidu.tieba.R;
 import com.kwad.sdk.KsAdSDKImpl;
-import com.kwad.sdk.R;
 import com.kwad.sdk.api.loader.Wrapper;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.response.model.AdInfo;
@@ -23,39 +23,39 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ag;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class InstallTipsViewHelper implements View.OnClickListener {
     public AdInfo a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f55939b;
+    public AdTemplate f54289b;
 
     /* renamed from: c  reason: collision with root package name */
-    public InstallTipsData f55940c;
+    public InstallTipsData f54290c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f55941d;
+    public View f54291d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f55942e;
+    public View f54292e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f55943f;
+    public ImageView f54293f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f55944g;
+    public TextView f54294g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Button f55945h;
+    public Button f54295h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f55946i = -1;
+    public int f54296i = -1;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f55947j = 10000;
+    public long f54297j = 10000;
     public Context k;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class InstallTipsData implements Serializable {
         public static final int ACTION_INSTALL = 1;
         public static final int ACTION_LAUNCH_APP = 2;
@@ -114,12 +114,12 @@ public class InstallTipsViewHelper implements View.OnClickListener {
             return;
         }
         this.a = adInfo;
-        this.f55939b = adTemplate;
-        this.f55940c = z ? InstallTipsData.newInstallInstance(wrapContextIfNeed, adTemplate) : InstallTipsData.newLaunchInstance(wrapContextIfNeed, adTemplate);
+        this.f54289b = adTemplate;
+        this.f54290c = z ? InstallTipsData.newInstallInstance(wrapContextIfNeed, adTemplate) : InstallTipsData.newLaunchInstance(wrapContextIfNeed, adTemplate);
         View inflate = LayoutInflater.from(this.k).inflate(R.layout.ksad_install_tips, (ViewGroup) null, false);
-        this.f55941d = inflate;
+        this.f54291d = inflate;
         a(this.k, inflate);
-        InstallTipsData installTipsData = this.f55940c;
+        InstallTipsData installTipsData = this.f54290c;
         if (installTipsData != null) {
             a(this.k, installTipsData);
         }
@@ -127,7 +127,7 @@ public class InstallTipsViewHelper implements View.OnClickListener {
 
     @Nullable
     private Animator a(View view) {
-        int i2 = this.f55946i;
+        int i2 = this.f54296i;
         if (i2 < 0) {
             return null;
         }
@@ -147,30 +147,30 @@ public class InstallTipsViewHelper implements View.OnClickListener {
     private void a(Context context, View view) {
         String clickButtonText;
         ViewCompat.setElevation(view, context.getResources().getDimension(R.dimen.ksad_install_tips_card_elevation));
-        this.f55942e = view.findViewById(R.id.ksad_install_tips_close);
-        this.f55943f = (ImageView) view.findViewById(R.id.ksad_install_tips_icon);
-        this.f55944g = (TextView) view.findViewById(R.id.ksad_install_tips_content);
-        this.f55945h = (Button) view.findViewById(R.id.ksad_install_tips_install);
-        InstallTipsData installTipsData = this.f55940c;
+        this.f54292e = view.findViewById(R.id.ksad_install_tips_close);
+        this.f54293f = (ImageView) view.findViewById(R.id.ksad_install_tips_icon);
+        this.f54294g = (TextView) view.findViewById(R.id.ksad_install_tips_content);
+        this.f54295h = (Button) view.findViewById(R.id.ksad_install_tips_install);
+        InstallTipsData installTipsData = this.f54290c;
         if (installTipsData != null && (clickButtonText = installTipsData.getClickButtonText()) != null) {
-            this.f55945h.setText(clickButtonText);
+            this.f54295h.setText(clickButtonText);
         }
-        this.f55942e.setOnClickListener(this);
-        this.f55945h.setOnClickListener(this);
+        this.f54292e.setOnClickListener(this);
+        this.f54295h.setOnClickListener(this);
     }
 
     private void a(Context context, InstallTipsData installTipsData) {
         if (installTipsData.getIconUrl() != null) {
-            KSImageLoader.loadAppIcon(this.f55943f, com.kwad.sdk.core.response.a.a.au(this.a), this.f55939b, 8);
+            KSImageLoader.loadAppIcon(this.f54293f, com.kwad.sdk.core.response.a.a.au(this.a), this.f54289b, 8);
         }
-        this.f55944g.setText(installTipsData.getDisplayContent());
+        this.f54294g.setText(installTipsData.getDisplayContent());
     }
 
     private void d() {
         String str = this.a.downloadFilePath;
         Context context = KsAdSDKImpl.get().getContext();
         if (context != null && !TextUtils.isEmpty(str)) {
-            com.kwad.sdk.core.report.a.h(this.f55939b);
+            com.kwad.sdk.core.report.a.h(this.f54289b);
             KsAdSDKImpl.get().getProxyForAdInstall().installApp(context, str);
             return;
         }
@@ -178,7 +178,7 @@ public class InstallTipsViewHelper implements View.OnClickListener {
     }
 
     public View a() {
-        return this.f55941d;
+        return this.f54291d;
     }
 
     public void a(FrameLayout frameLayout) {
@@ -190,7 +190,7 @@ public class InstallTipsViewHelper implements View.OnClickListener {
         int dimensionPixelSize2 = this.k.getResources().getDimensionPixelSize(R.dimen.ksad_install_tips_card_margin);
         int i2 = dimensionPixelSize + dimensionPixelSize2;
         int i3 = -i2;
-        this.f55946i = i2 + dimensionPixelSize2;
+        this.f54296i = i2 + dimensionPixelSize2;
         ViewGroup.LayoutParams layoutParams = a.getLayoutParams();
         FrameLayout.LayoutParams layoutParams2 = layoutParams instanceof FrameLayout.LayoutParams ? (FrameLayout.LayoutParams) layoutParams : new FrameLayout.LayoutParams(-1, dimensionPixelSize);
         layoutParams2.gravity = 48;
@@ -198,13 +198,13 @@ public class InstallTipsViewHelper implements View.OnClickListener {
         layoutParams2.rightMargin = dimensionPixelSize2;
         layoutParams2.topMargin = i3;
         frameLayout.addView(a, layoutParams2);
-        a(a, this.f55946i).start();
+        a(a, this.f54296i).start();
         a.postDelayed(new Runnable() { // from class: com.kwad.sdk.core.download.InstallTipsViewHelper.1
             @Override // java.lang.Runnable
             public void run() {
                 InstallTipsViewHelper.this.b();
             }
-        }, this.f55947j);
+        }, this.f54297j);
     }
 
     public void b() {
@@ -242,45 +242,45 @@ public class InstallTipsViewHelper implements View.OnClickListener {
     }
 
     public void c() {
-        this.f55941d = null;
-        this.f55942e = null;
-        this.f55943f = null;
-        this.f55945h = null;
-        this.f55946i = -1;
-        this.f55939b = null;
-        this.f55940c = null;
+        this.f54291d = null;
+        this.f54292e = null;
+        this.f54293f = null;
+        this.f54295h = null;
+        this.f54296i = -1;
+        this.f54289b = null;
+        this.f54290c = null;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         AdTemplate adTemplate;
         int i2;
-        InstallTipsData installTipsData = this.f55940c;
+        InstallTipsData installTipsData = this.f54290c;
         int clickAction = installTipsData != null ? installTipsData.getClickAction() : 1;
         int id = view.getId();
         if (id == R.id.ksad_install_tips_install) {
             b();
             if (clickAction == 1) {
                 d();
-                com.kwad.sdk.core.report.a.e(this.f55939b, 45);
+                com.kwad.sdk.core.report.a.e(this.f54289b, 45);
             } else if (clickAction != 2) {
                 return;
             }
             if (ag.c(this.k, com.kwad.sdk.core.response.a.a.v(this.a))) {
-                com.kwad.sdk.core.report.a.e(this.f55939b);
+                com.kwad.sdk.core.report.a.e(this.f54289b);
             }
-            adTemplate = this.f55939b;
+            adTemplate = this.f54289b;
             i2 = 47;
         } else if (id != R.id.ksad_install_tips_close) {
             return;
         } else {
             b();
             if (clickAction == 1) {
-                com.kwad.sdk.core.report.a.e(this.f55939b, 46);
+                com.kwad.sdk.core.report.a.e(this.f54289b, 46);
             } else if (clickAction != 2) {
                 return;
             }
-            adTemplate = this.f55939b;
+            adTemplate = this.f54289b;
             i2 = 48;
         }
         com.kwad.sdk.core.report.a.d(adTemplate, i2);

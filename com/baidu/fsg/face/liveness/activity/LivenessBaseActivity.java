@@ -11,7 +11,7 @@ import com.baidu.fsg.base.activity.BeanActivity;
 import com.baidu.fsg.face.liveness.beans.c;
 import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
 import com.baidu.fsg.face.liveness.view.BioAlertDialog;
-import com.baidu.sapi2.biometrics.liveness.R;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.lang.reflect.Field;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class LivenessBaseActivity extends BeanActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -113,7 +113,7 @@ public class LivenessBaseActivity extends BeanActivity {
                 public final /* synthetic */ BioAlertDialog a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessBaseActivity f34324b;
+                public final /* synthetic */ LivenessBaseActivity f32727b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -130,7 +130,7 @@ public class LivenessBaseActivity extends BeanActivity {
                             return;
                         }
                     }
-                    this.f34324b = this;
+                    this.f32727b = this;
                     this.a = bioAlertDialog;
                 }
 
@@ -140,7 +140,7 @@ public class LivenessBaseActivity extends BeanActivity {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         this.a.dismiss();
                         try {
-                            this.f34324b.startActivityForResult(new Intent("android.settings.SETTINGS"), 0);
+                            this.f32727b.startActivityForResult(new Intent("android.settings.SETTINGS"), 0);
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
@@ -153,7 +153,7 @@ public class LivenessBaseActivity extends BeanActivity {
                 public final /* synthetic */ BioAlertDialog a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessBaseActivity f34325b;
+                public final /* synthetic */ LivenessBaseActivity f32728b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -170,7 +170,7 @@ public class LivenessBaseActivity extends BeanActivity {
                             return;
                         }
                     }
-                    this.f34325b = this;
+                    this.f32728b = this;
                     this.a = bioAlertDialog;
                 }
 

@@ -22,19 +22,18 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import kotlin.text.Typography;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.ClassUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.Validate;
 import org.apache.commons.lang3.builder.Builder;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class TypeUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final WildcardType WILDCARD_ALL;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class GenericArrayTypeImpl implements GenericArrayType {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +83,7 @@ public class TypeUtils {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class ParameterizedTypeImpl implements ParameterizedType {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -152,7 +151,7 @@ public class TypeUtils {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class WildcardTypeBuilder implements Builder<WildcardType> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -202,7 +201,7 @@ public class TypeUtils {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class WildcardTypeImpl implements WildcardType {
         public static /* synthetic */ Interceptable $ic;
         public static final Type[] EMPTY_BOUNDS;
@@ -338,9 +337,9 @@ public class TypeUtils {
                 sb.append(cls.getName());
             }
             if (cls.getTypeParameters().length > 0) {
-                sb.append(Typography.less);
+                sb.append('<');
                 appendAllTo(sb, StringUtil.ARRAY_ELEMENT_SEPARATOR, cls.getTypeParameters());
-                sb.append(Typography.greater);
+                sb.append('>');
             }
             return sb.toString();
         }
@@ -677,8 +676,8 @@ public class TypeUtils {
                 sb.append('.');
                 sb.append(cls.getSimpleName());
             }
-            sb.append(Typography.less);
-            appendAllTo(sb, StringUtil.ARRAY_ELEMENT_SEPARATOR, actualTypeArguments).append(Typography.greater);
+            sb.append('<');
+            appendAllTo(sb, StringUtil.ARRAY_ELEMENT_SEPARATOR, actualTypeArguments).append('>');
             return sb.toString();
         }
         return (String) invokeL.objValue;

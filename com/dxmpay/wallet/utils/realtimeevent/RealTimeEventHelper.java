@@ -21,20 +21,20 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class RealTimeEventHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class a implements IBeanResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.f.b.g.c.a f54266e;
+        public final /* synthetic */ c.f.a.g.c.a f52752e;
 
-        public a(c.f.b.g.c.a aVar) {
+        public a(c.f.a.g.c.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,14 +49,14 @@ public class RealTimeEventHelper {
                     return;
                 }
             }
-            this.f54266e = aVar;
+            this.f52752e = aVar;
         }
 
         @Override // com.dxmpay.apollon.beans.IBeanResponseCallback
         public void onBeanExecFailure(int i2, int i3, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) {
-                this.f54266e.destroyBean();
+                this.f52752e.destroyBean();
             }
         }
 
@@ -64,12 +64,12 @@ public class RealTimeEventHelper {
         public void onBeanExecSuccess(int i2, Object obj, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, obj, str) == null) {
-                this.f54266e.destroyBean();
+                this.f52752e.destroyBean();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class b implements Comparator<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,7 +145,7 @@ public class RealTimeEventHelper {
     public static void eventStatBean(Context context, String str, String str2, Map<String, String> map, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, str, str2, map, str3, str4}) == null) {
-            c.f.b.g.c.a aVar = new c.f.b.g.c.a(context, a(getEventValues(context, str, str2, map, str3, str4)));
+            c.f.a.g.c.a aVar = new c.f.a.g.c.a(context, a(getEventValues(context, str, str2, map, str3, str4)));
             aVar.setResponseCallback(new a(aVar));
             aVar.execBean();
         }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.IncrForumAccessCount.IncrForumAccessCountResIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class ResponseIncrForumAccessCountSocketMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -7,59 +7,59 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import com.kwad.sdk.R;
+import com.baidu.tieba.R;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.af;
 import com.kwad.sdk.utils.at;
 import com.kwad.sdk.widget.KSCornerImageView;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class e extends d implements View.OnClickListener {
     public ViewGroup a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f57460b;
+    public ViewGroup f55810b;
 
     /* renamed from: c  reason: collision with root package name */
-    public KSCornerImageView f57461c;
+    public KSCornerImageView f55811c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f57462d;
+    public TextView f55812d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f57463e;
+    public TextView f55813e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f57464f;
+    public TextView f55814f;
 
     /* renamed from: g  reason: collision with root package name */
-    public KSCornerImageView f57465g;
+    public KSCornerImageView f55815g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f57466h;
+    public View f55816h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b f57467i;
+    public b f55817i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f57468j;
+    public boolean f55818j;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f57469b;
+        public String f55819b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f57470c;
+        public String f55820c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f57471d;
+        public String f55821d;
 
         /* renamed from: e  reason: collision with root package name */
-        public SpannableString f57472e;
+        public SpannableString f55822e;
 
         @Nullable
         public static a a(AdTemplate adTemplate) {
@@ -68,11 +68,11 @@ public class e extends d implements View.OnClickListener {
             }
             AdInfo j2 = com.kwad.sdk.core.response.a.d.j(adTemplate);
             a aVar = new a();
-            aVar.f57471d = com.kwad.sdk.core.config.b.aG();
-            aVar.f57469b = com.kwad.sdk.core.response.a.a.aC(j2);
+            aVar.f55821d = com.kwad.sdk.core.config.b.aG();
+            aVar.f55819b = com.kwad.sdk.core.response.a.a.aC(j2);
             aVar.a = com.kwad.sdk.core.response.a.a.aD(j2);
-            aVar.f57470c = com.kwad.sdk.core.response.a.a.aE(j2);
-            aVar.f57472e = com.kwad.sdk.core.response.a.a.a(j2, com.kwad.sdk.core.config.b.aJ());
+            aVar.f55820c = com.kwad.sdk.core.response.a.a.aE(j2);
+            aVar.f55822e = com.kwad.sdk.core.response.a.a.a(j2, com.kwad.sdk.core.config.b.aJ());
             return aVar;
         }
 
@@ -82,28 +82,28 @@ public class e extends d implements View.OnClickListener {
 
         public CharSequence b(boolean z) {
             SpannableString spannableString;
-            return (z || (spannableString = this.f57472e) == null) ? this.f57469b : spannableString;
+            return (z || (spannableString = this.f55822e) == null) ? this.f55819b : spannableString;
         }
     }
 
     public e(ViewGroup viewGroup, boolean z, b bVar) {
         this.a = viewGroup;
-        this.f57468j = z;
-        this.f57467i = bVar;
+        this.f55818j = z;
+        this.f55817i = bVar;
         b();
     }
 
     private void b() {
-        this.f57460b = (ViewGroup) this.a.findViewById(R.id.ksad_reward_follow_root);
-        this.f57461c = (KSCornerImageView) this.a.findViewById(R.id.ksad_reward_follow_icon);
-        this.f57462d = (TextView) this.a.findViewById(R.id.ksad_reward_follow_name);
-        this.f57463e = (TextView) this.a.findViewById(R.id.ksad_reward_follow_desc);
-        this.f57464f = (TextView) this.a.findViewById(R.id.ksad_reward_follow_btn_follow);
-        this.f57465g = (KSCornerImageView) this.a.findViewById(R.id.ksad_reward_follow_kwai_logo);
-        this.f57466h = this.a.findViewById(R.id.ksad_reward_text_aera);
-        this.f57464f.setOnClickListener(this);
-        this.f57461c.setOnClickListener(this);
-        this.f57466h.setOnClickListener(this);
+        this.f55810b = (ViewGroup) this.a.findViewById(R.id.ksad_reward_follow_root);
+        this.f55811c = (KSCornerImageView) this.a.findViewById(R.id.ksad_reward_follow_icon);
+        this.f55812d = (TextView) this.a.findViewById(R.id.ksad_reward_follow_name);
+        this.f55813e = (TextView) this.a.findViewById(R.id.ksad_reward_follow_desc);
+        this.f55814f = (TextView) this.a.findViewById(R.id.ksad_reward_follow_btn_follow);
+        this.f55815g = (KSCornerImageView) this.a.findViewById(R.id.ksad_reward_follow_kwai_logo);
+        this.f55816h = this.a.findViewById(R.id.ksad_reward_text_aera);
+        this.f55814f.setOnClickListener(this);
+        this.f55811c.setOnClickListener(this);
+        this.f55816h.setOnClickListener(this);
         Context context = this.a.getContext();
         if (af.e(context)) {
             return;
@@ -118,7 +118,7 @@ public class e extends d implements View.OnClickListener {
 
     @Override // com.kwad.sdk.reward.d.d
     public ViewGroup a() {
-        return this.f57460b;
+        return this.f55810b;
     }
 
     @Override // com.kwad.sdk.reward.d.d
@@ -128,28 +128,28 @@ public class e extends d implements View.OnClickListener {
         if (a2 == null) {
             return;
         }
-        this.f57461c.setVisibility(this.f57468j ? 8 : 0);
-        KSImageLoader.loadImage(this.f57461c, a2.f57470c, adTemplate);
+        this.f55811c.setVisibility(this.f55818j ? 8 : 0);
+        KSImageLoader.loadImage(this.f55811c, a2.f55820c, adTemplate);
         String aF = com.kwad.sdk.core.config.b.aF();
         if (!at.a(aF)) {
-            KSImageLoader.loadImage(this.f57465g, aF, adTemplate);
+            KSImageLoader.loadImage(this.f55815g, aF, adTemplate);
         }
-        this.f57462d.setText(a2.a(this.f57468j));
-        this.f57463e.setText(a2.b(this.f57468j));
-        this.f57464f.setText(a2.f57471d);
+        this.f55812d.setText(a2.a(this.f55818j));
+        this.f55813e.setText(a2.b(this.f55818j));
+        this.f55814f.setText(a2.f55821d);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f57467i == null) {
+        if (this.f55817i == null) {
             return;
         }
-        if (view.equals(this.f57464f)) {
-            this.f57467i.c();
-        } else if (view.equals(this.f57461c)) {
-            this.f57467i.a();
-        } else if (view.equals(this.f57466h)) {
-            this.f57467i.b();
+        if (view.equals(this.f55814f)) {
+            this.f55817i.c();
+        } else if (view.equals(this.f55811c)) {
+            this.f55817i.a();
+        } else if (view.equals(this.f55816h)) {
+            this.f55817i.b();
         }
     }
 }

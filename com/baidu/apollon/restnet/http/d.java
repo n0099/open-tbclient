@@ -16,14 +16,14 @@ import java.net.CookiePolicy;
 import java.net.URI;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class d extends CookieHandler {
     public static /* synthetic */ Interceptable $ic;
     public static final d a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final CookieHandler f32832b;
+    public final CookieHandler f31235b;
 
     static {
         InterceptResult invokeClinit;
@@ -55,9 +55,9 @@ public class d extends CookieHandler {
             }
         }
         if (Build.VERSION.SDK_INT >= 19) {
-            this.f32832b = e.a();
+            this.f31235b = e.a();
         } else {
-            this.f32832b = new CookieManager(null, CookiePolicy.ACCEPT_ALL);
+            this.f31235b = new CookieManager(null, CookiePolicy.ACCEPT_ALL);
         }
     }
 
@@ -71,14 +71,14 @@ public class d extends CookieHandler {
     public Map<String, List<String>> get(URI uri, Map<String, List<String>> map) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, uri, map)) == null) ? this.f32832b.get(uri, map) : (Map) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, uri, map)) == null) ? this.f31235b.get(uri, map) : (Map) invokeLL.objValue;
     }
 
     @Override // java.net.CookieHandler
     public void put(URI uri, Map<String, List<String>> map) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, map) == null) {
-            this.f32832b.put(uri, map);
+            this.f31235b.put(uri, map);
         }
     }
 }

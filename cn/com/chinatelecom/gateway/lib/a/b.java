@@ -10,20 +10,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.Base64;
-import com.baidu.webkit.internal.utils.UtilsBlink;
+import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.kwad.yoga.YogaNodeJNIBase;
 import io.flutter.plugin.common.StandardMessageCodec;
-import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "b";
 
     /* renamed from: b  reason: collision with root package name */
-    public static char[] f30809b;
+    public static char[] f29213b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static byte[] f30810c;
+    public static byte[] f29214c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,8 +39,8 @@ public class b {
                 return;
             }
         }
-        f30809b = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
-        f30810c = new byte[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, YogaNodeJNIBase.HAS_NEW_LAYOUT, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 42, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1};
+        f29213b = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', WebvttCueParser.CHAR_SLASH};
+        f29214c = new byte[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, YogaNodeJNIBase.HAS_NEW_LAYOUT, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 42, 43, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 45, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, Cea608Decoder.CTRL_END_OF_CAPTION, 48, 49, 50, 51, -1, -1, -1, -1, -1};
     }
 
     public b() {
@@ -69,24 +69,24 @@ public class b {
                 int i3 = i2 + 1;
                 int i4 = bArr[i2] & 255;
                 if (i3 == length) {
-                    stringBuffer.append(f30809b[i4 >>> 2]);
-                    stringBuffer.append(f30809b[(i4 & 3) << 4]);
+                    stringBuffer.append(f29213b[i4 >>> 2]);
+                    stringBuffer.append(f29213b[(i4 & 3) << 4]);
                     str = "==";
                 } else {
                     int i5 = i3 + 1;
                     int i6 = bArr[i3] & 255;
                     if (i5 == length) {
-                        stringBuffer.append(f30809b[i4 >>> 2]);
-                        stringBuffer.append(f30809b[((i4 & 3) << 4) | ((i6 & 240) >>> 4)]);
-                        stringBuffer.append(f30809b[(i6 & 15) << 2]);
+                        stringBuffer.append(f29213b[i4 >>> 2]);
+                        stringBuffer.append(f29213b[((i4 & 3) << 4) | ((i6 & 240) >>> 4)]);
+                        stringBuffer.append(f29213b[(i6 & 15) << 2]);
                         str = "=";
                     } else {
                         int i7 = i5 + 1;
                         int i8 = bArr[i5] & 255;
-                        stringBuffer.append(f30809b[i4 >>> 2]);
-                        stringBuffer.append(f30809b[((i4 & 3) << 4) | ((i6 & 240) >>> 4)]);
-                        stringBuffer.append(f30809b[((i6 & 15) << 2) | ((i8 & 192) >>> 6)]);
-                        stringBuffer.append(f30809b[i8 & 63]);
+                        stringBuffer.append(f29213b[i4 >>> 2]);
+                        stringBuffer.append(f29213b[((i4 & 3) << 4) | ((i6 & 240) >>> 4)]);
+                        stringBuffer.append(f29213b[((i6 & 15) << 2) | ((i8 & 192) >>> 6)]);
+                        stringBuffer.append(f29213b[i8 & 63]);
                         i2 = i7;
                     }
                 }
@@ -131,7 +131,7 @@ public class b {
             loop0: while (i6 < length) {
                 while (true) {
                     i2 = i6 + 1;
-                    b2 = f30810c[bytes[i6]];
+                    b2 = f29214c[bytes[i6]];
                     if (i2 >= length || b2 != -1) {
                         break;
                     }
@@ -142,7 +142,7 @@ public class b {
                 }
                 while (true) {
                     i3 = i2 + 1;
-                    b3 = f30810c[bytes[i2]];
+                    b3 = f29214c[bytes[i2]];
                     if (i3 >= length || b3 != -1) {
                         break;
                     }
@@ -158,7 +158,7 @@ public class b {
                     if (b6 == 61) {
                         break loop0;
                     }
-                    b4 = f30810c[b6];
+                    b4 = f29214c[b6];
                     if (i4 >= length || b4 != -1) {
                         break;
                     }
@@ -174,7 +174,7 @@ public class b {
                     if (b7 == 61) {
                         break loop0;
                     }
-                    b5 = f30810c[b7];
+                    b5 = f29214c[b7];
                     if (i5 >= length || b5 != -1) {
                         break;
                     }

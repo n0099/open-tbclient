@@ -9,25 +9,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import javax.annotation.Nullable;
 import okio.BufferedSink;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public abstract class a0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class a extends a0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ v a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f27846b;
+        public final /* synthetic */ int f27750b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ byte[] f27847c;
+        public final /* synthetic */ byte[] f27751c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f27848d;
+        public final /* synthetic */ int f27752d;
 
         public a(v vVar, int i2, byte[] bArr, int i3) {
             Interceptable interceptable = $ic;
@@ -45,16 +45,16 @@ public abstract class a0 {
                 }
             }
             this.a = vVar;
-            this.f27846b = i2;
-            this.f27847c = bArr;
-            this.f27848d = i3;
+            this.f27750b = i2;
+            this.f27751c = bArr;
+            this.f27752d = i3;
         }
 
         @Override // c.d.b.a0
         public long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27846b : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27750b : invokeV.longValue;
         }
 
         @Override // c.d.b.a0
@@ -69,7 +69,7 @@ public abstract class a0 {
         public void e(BufferedSink bufferedSink) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
-                bufferedSink.write(this.f27847c, this.f27848d, this.f27846b);
+                bufferedSink.write(this.f27751c, this.f27752d, this.f27750b);
             }
         }
     }

@@ -2,7 +2,7 @@ package com.kwad.sdk.api.loader;
 
 import android.os.Build;
 import android.os.Process;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class s {
     public static boolean a() {
         int i2 = Build.VERSION.SDK_INT;

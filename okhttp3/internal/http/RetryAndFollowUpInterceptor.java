@@ -32,7 +32,7 @@ import okhttp3.internal.Util;
 import okhttp3.internal.connection.RouteException;
 import okhttp3.internal.connection.StreamAllocation;
 import okhttp3.internal.http2.ConnectionShutdownException;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class RetryAndFollowUpInterceptor implements Interceptor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_FOLLOW_UPS = 20;

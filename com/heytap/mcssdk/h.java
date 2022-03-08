@@ -4,10 +4,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int app_name = 2130837504;
+
+    /* renamed from: app_name */
+    public static final int design_appbar_state_list_animator = 2130837504;
     public transient /* synthetic */ FieldHolder $fh;
 
     public h() {

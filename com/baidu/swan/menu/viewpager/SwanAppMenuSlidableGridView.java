@@ -6,27 +6,26 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.viewpager.widget.ViewPager;
-import c.a.s0.n.g;
-import c.a.s0.n.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.menu.viewpager.SlideableGridView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class SwanAppMenuSlidableGridView extends SlideableGridView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class a extends WrapContentHeightViewPager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppMenuSlidableGridView f40205e;
+        public final /* synthetic */ SwanAppMenuSlidableGridView f38609e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SwanAppMenuSlidableGridView swanAppMenuSlidableGridView, Context context) {
@@ -46,7 +45,7 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
                     return;
                 }
             }
-            this.f40205e = swanAppMenuSlidableGridView;
+            this.f38609e = swanAppMenuSlidableGridView;
         }
 
         @Override // androidx.viewpager.widget.ViewPager
@@ -85,9 +84,9 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
     public void addIndicator(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.mIndicator = new c.a.s0.n.r.a(context).setPointDrawableResId(h.menu_indicator_normal, h.menu_indicator_selected).setPointMargin((int) getResources().getDimension(g.common_grid_indicator_margin));
-            this.mIndicatorHeight[0] = (int) getResources().getDimension(g.aiapp_menu_gridview_indicator_height);
-            this.mIndicatorHeight[1] = (int) getResources().getDimension(g.aiapp_menu_gridview_indicator_height);
+            this.mIndicator = new c.a.p0.n.j.a(context).setPointDrawableResId(R.drawable.menu_indicator_normal, R.drawable.menu_indicator_selected).setPointMargin((int) getResources().getDimension(R.dimen.common_grid_indicator_margin));
+            this.mIndicatorHeight[0] = (int) getResources().getDimension(R.dimen.aiapp_menu_gridview_indicator_height);
+            this.mIndicatorHeight[1] = (int) getResources().getDimension(R.dimen.aiapp_menu_gridview_indicator_height);
             addView(this.mIndicator, createIndicatorParams());
         }
     }
@@ -114,7 +113,7 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
     public int createIndicatorHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (int) getResources().getDimension(g.aiapp_menu_gridview_indicator_height) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (int) getResources().getDimension(R.dimen.aiapp_menu_gridview_indicator_height) : invokeV.intValue;
     }
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
@@ -131,9 +130,9 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
             setOrientation(1);
             addViewPager(context);
             Resources resources = context.getResources();
-            addView(new View(context), new LinearLayout.LayoutParams(-1, resources.getDimensionPixelSize(g.aiapp_menu_gridview_padding_view_height1)));
+            addView(new View(context), new LinearLayout.LayoutParams(-1, resources.getDimensionPixelSize(R.dimen.aiapp_menu_gridview_padding_view_height1)));
             addIndicator(context);
-            addView(new View(context), new LinearLayout.LayoutParams(-1, resources.getDimensionPixelSize(g.aiapp_menu_gridview_padding_view_height2)));
+            addView(new View(context), new LinearLayout.LayoutParams(-1, resources.getDimensionPixelSize(R.dimen.aiapp_menu_gridview_padding_view_height2)));
         }
     }
 

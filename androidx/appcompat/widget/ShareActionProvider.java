@@ -9,7 +9,8 @@ import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
-import androidx.appcompat.R;
+import androidx.appcompat.R$attr;
+import androidx.appcompat.R$string;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.ActivityChooserModel;
 import androidx.core.view.ActionProvider;
@@ -178,11 +179,11 @@ public class ShareActionProvider extends ActionProvider {
                 activityChooserView.setActivityChooserModel(ActivityChooserModel.get(this.mContext, this.mShareHistoryFileName));
             }
             TypedValue typedValue = new TypedValue();
-            this.mContext.getTheme().resolveAttribute(R.attr.actionModeShareDrawable, typedValue, true);
+            this.mContext.getTheme().resolveAttribute(R$attr.actionModeShareDrawable, typedValue, true);
             activityChooserView.setExpandActivityOverflowButtonDrawable(AppCompatResources.getDrawable(this.mContext, typedValue.resourceId));
             activityChooserView.setProvider(this);
-            activityChooserView.setDefaultActionButtonContentDescription(R.string.abc_shareactionprovider_share_with_application);
-            activityChooserView.setExpandActivityOverflowButtonContentDescription(R.string.abc_shareactionprovider_share_with);
+            activityChooserView.setDefaultActionButtonContentDescription(R$string.abc_shareactionprovider_share_with_application);
+            activityChooserView.setExpandActivityOverflowButtonContentDescription(R$string.abc_shareactionprovider_share_with);
             return activityChooserView;
         }
         return (View) invokeV.objValue;
@@ -202,7 +203,7 @@ public class ShareActionProvider extends ActionProvider {
                 subMenu.add(0, i2, i2, activity.loadLabel(packageManager)).setIcon(activity.loadIcon(packageManager)).setOnMenuItemClickListener(this.mOnMenuItemClickListener);
             }
             if (min < activityCount) {
-                SubMenu addSubMenu = subMenu.addSubMenu(0, min, min, this.mContext.getString(R.string.abc_activity_chooser_view_see_all));
+                SubMenu addSubMenu = subMenu.addSubMenu(0, min, min, this.mContext.getString(R$string.abc_activity_chooser_view_see_all));
                 for (int i3 = 0; i3 < activityCount; i3++) {
                     ResolveInfo activity2 = activityChooserModel.getActivity(i3);
                     addSubMenu.add(0, i3, i3, activity2.loadLabel(packageManager)).setIcon(activity2.loadIcon(packageManager)).setOnMenuItemClickListener(this.mOnMenuItemClickListener);

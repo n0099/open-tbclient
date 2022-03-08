@@ -9,24 +9,24 @@ import java.util.List;
 import java.util.regex.Pattern;
 import java.util.zip.DeflaterOutputStream;
 import java.util.zip.InflaterInputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static final byte[] a = a("IHDR");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f57272b = a("PLTE");
+    public static final byte[] f55622b = a("PLTE");
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f57273c = a("IDAT");
+    public static final byte[] f55623c = a("IDAT");
 
     /* renamed from: d  reason: collision with root package name */
-    public static final byte[] f57274d = a("IEND");
+    public static final byte[] f55624d = a("IEND");
 
     /* renamed from: f  reason: collision with root package name */
-    public static byte[] f57276f = new byte[4096];
+    public static byte[] f55626f = new byte[4096];
 
     /* renamed from: e  reason: collision with root package name */
-    public static Pattern f57275e = Pattern.compile("[a-zA-Z][a-zA-Z][A-Z][a-zA-Z]");
+    public static Pattern f55625e = Pattern.compile("[a-zA-Z][a-zA-Z][A-Z][a-zA-Z]");
 
     public static String a(byte[] bArr) {
         return new String(bArr, com.kwad.sdk.pngencrypt.n.a);
@@ -51,11 +51,11 @@ public class b {
     }
 
     public static void a(InputStream inputStream, OutputStream outputStream) {
-        synchronized (f57276f) {
+        synchronized (f55626f) {
             while (true) {
-                int read = inputStream.read(f57276f);
+                int read = inputStream.read(f55626f);
                 if (read > 0) {
-                    outputStream.write(f57276f, 0, read);
+                    outputStream.write(f55626f, 0, read);
                 }
             }
         }
@@ -84,11 +84,11 @@ public class b {
     }
 
     public static String b(byte[] bArr) {
-        return new String(bArr, com.kwad.sdk.pngencrypt.n.f57353b);
+        return new String(bArr, com.kwad.sdk.pngencrypt.n.f55703b);
     }
 
     public static String b(byte[] bArr, int i2, int i3) {
-        return new String(bArr, i2, i3, com.kwad.sdk.pngencrypt.n.f57353b);
+        return new String(bArr, i2, i3, com.kwad.sdk.pngencrypt.n.f55703b);
     }
 
     public static boolean b(String str) {

@@ -13,10 +13,10 @@ public abstract class d implements c.a.j.h.a.a {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Integer f4041b;
+    public Integer f3658b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f4042c;
+    public String f3659c;
 
     public d(String str, Integer num, String str2) {
         Interceptable interceptable = $ic;
@@ -34,15 +34,15 @@ public abstract class d implements c.a.j.h.a.a {
             }
         }
         this.a = str;
-        this.f4041b = num;
-        this.f4042c = str2;
+        this.f3658b = num;
+        this.f3659c = str2;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Integer num = this.f4041b;
+            Integer num = this.f3658b;
             if (num != null) {
                 return num.intValue();
             }
@@ -54,14 +54,14 @@ public abstract class d implements c.a.j.h.a.a {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f4041b = Integer.valueOf(i2);
+            this.f3658b = Integer.valueOf(i2);
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f4042c = str;
+            this.f3659c = str;
         }
     }
 
@@ -69,7 +69,7 @@ public abstract class d implements c.a.j.h.a.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String str = this.f4042c;
+            String str = this.f3659c;
             return str != null ? str : "";
         }
         return (String) invokeV.objValue;

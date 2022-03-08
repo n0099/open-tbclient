@@ -2,16 +2,14 @@ package com.baidu.nadcore.player.tail;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import c.a.d0.d.b;
-import c.a.d0.d.d;
-import c.a.d0.d.g;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class AdEmbeddedTailFrameView extends AdBaseTailFrameView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +39,7 @@ public class AdEmbeddedTailFrameView extends AdBaseTailFrameView {
     public int layoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? g.nad_video_ad_tail_frame : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.nad_video_ad_tail_frame : invokeV.intValue;
     }
 
     @Override // com.baidu.nadcore.player.tail.AdBaseTailFrameView
@@ -49,12 +47,12 @@ public class AdEmbeddedTailFrameView extends AdBaseTailFrameView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onNightModeChanged();
-            this.mNameView.setTextColor(getResources().getColor(b.NAD_FC6));
-            this.mCheckBtn.setTextColor(getResources().getColor(b.NAD_FC38));
-            this.mDownloadBtn.setTextColor(getResources().getColor(b.NAD_FC38));
-            this.mCheckBtn.setBackgroundDrawable(getResources().getDrawable(d.nad_video_ad_tail_btn_selector));
-            this.mDownloadBtn.setBackgroundDrawable(getResources().getDrawable(d.nad_video_ad_tail_btn_selector));
-            this.mTimerCloseTxt.setTextColor(getResources().getColor(b.nad_tail_time_close));
+            this.mNameView.setTextColor(getResources().getColor(R.color.NAD_FC6));
+            this.mCheckBtn.setTextColor(getResources().getColor(R.color.NAD_FC38));
+            this.mDownloadBtn.setTextColor(getResources().getColor(R.color.NAD_FC38));
+            this.mCheckBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.nad_video_ad_tail_btn_selector));
+            this.mDownloadBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.nad_video_ad_tail_btn_selector));
+            this.mTimerCloseTxt.setTextColor(getResources().getColor(R.color.nad_tail_time_close));
         }
     }
 

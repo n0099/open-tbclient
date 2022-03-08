@@ -18,38 +18,38 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class a implements SharedPreferences {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ContentResolver a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String[] f60677b;
+    public final String[] f59027b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HashMap<String, Object> f60678c;
+    public final HashMap<String, Object> f59028c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SharedPreferences$EditorC2265a f60679d;
+    public SharedPreferences$EditorC2244a f59029d;
 
     /* renamed from: com.tencent.mm.sdk.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class SharedPreferences$EditorC2265a implements SharedPreferences.Editor {
+    /* loaded from: classes8.dex */
+    public static class SharedPreferences$EditorC2244a implements SharedPreferences.Editor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ContentResolver a;
 
         /* renamed from: e  reason: collision with root package name */
-        public Map<String, Object> f60680e;
+        public Map<String, Object> f59030e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Set<String> f60681f;
+        public Set<String> f59031f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f60682g;
+        public boolean f59032g;
 
-        public SharedPreferences$EditorC2265a(ContentResolver contentResolver) {
+        public SharedPreferences$EditorC2244a(ContentResolver contentResolver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,9 +64,9 @@ public final class a implements SharedPreferences {
                     return;
                 }
             }
-            this.f60680e = new HashMap();
-            this.f60681f = new HashSet();
-            this.f60682g = false;
+            this.f59030e = new HashMap();
+            this.f59031f = new HashSet();
+            this.f59032g = false;
             this.a = contentResolver;
         }
 
@@ -82,7 +82,7 @@ public final class a implements SharedPreferences {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                this.f60682g = true;
+                this.f59032g = true;
                 return this;
             }
             return (SharedPreferences.Editor) invokeV.objValue;
@@ -104,15 +104,15 @@ public final class a implements SharedPreferences {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 ContentValues contentValues = new ContentValues();
-                if (this.f60682g) {
+                if (this.f59032g) {
                     this.a.delete(a.b.CONTENT_URI, null, null);
-                    this.f60682g = false;
+                    this.f59032g = false;
                 }
-                Iterator<String> it = this.f60681f.iterator();
+                Iterator<String> it = this.f59031f.iterator();
                 while (it.hasNext()) {
                     this.a.delete(a.b.CONTENT_URI, "key = ?", new String[]{it.next()});
                 }
-                for (Map.Entry<String, Object> entry : this.f60680e.entrySet()) {
+                for (Map.Entry<String, Object> entry : this.f59030e.entrySet()) {
                     Object value = entry.getValue();
                     if (value == null) {
                         str = "unresolve failed, null value";
@@ -160,8 +160,8 @@ public final class a implements SharedPreferences {
             InterceptResult invokeLZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
-                this.f60680e.put(str, Boolean.valueOf(z));
-                this.f60681f.remove(str);
+                this.f59030e.put(str, Boolean.valueOf(z));
+                this.f59031f.remove(str);
                 return this;
             }
             return (SharedPreferences.Editor) invokeLZ.objValue;
@@ -172,8 +172,8 @@ public final class a implements SharedPreferences {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLF = interceptable.invokeLF(1048580, this, str, f2)) == null) {
-                this.f60680e.put(str, Float.valueOf(f2));
-                this.f60681f.remove(str);
+                this.f59030e.put(str, Float.valueOf(f2));
+                this.f59031f.remove(str);
                 return this;
             }
             return (SharedPreferences.Editor) invokeLF.objValue;
@@ -184,8 +184,8 @@ public final class a implements SharedPreferences {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i2)) == null) {
-                this.f60680e.put(str, Integer.valueOf(i2));
-                this.f60681f.remove(str);
+                this.f59030e.put(str, Integer.valueOf(i2));
+                this.f59031f.remove(str);
                 return this;
             }
             return (SharedPreferences.Editor) invokeLI.objValue;
@@ -196,8 +196,8 @@ public final class a implements SharedPreferences {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j2)) == null) {
-                this.f60680e.put(str, Long.valueOf(j2));
-                this.f60681f.remove(str);
+                this.f59030e.put(str, Long.valueOf(j2));
+                this.f59031f.remove(str);
                 return this;
             }
             return (SharedPreferences.Editor) invokeLJ.objValue;
@@ -208,8 +208,8 @@ public final class a implements SharedPreferences {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
-                this.f60680e.put(str, str2);
-                this.f60681f.remove(str);
+                this.f59030e.put(str, str2);
+                this.f59031f.remove(str);
                 return this;
             }
             return (SharedPreferences.Editor) invokeLL.objValue;
@@ -230,7 +230,7 @@ public final class a implements SharedPreferences {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-                this.f60681f.add(str);
+                this.f59031f.add(str);
                 return this;
             }
             return (SharedPreferences.Editor) invokeL.objValue;
@@ -252,9 +252,9 @@ public final class a implements SharedPreferences {
                 return;
             }
         }
-        this.f60677b = new String[]{"_id", "key", "type", "value"};
-        this.f60678c = new HashMap<>();
-        this.f60679d = null;
+        this.f59027b = new String[]{"_id", "key", "type", "value"};
+        this.f59028c = new HashMap<>();
+        this.f59029d = null;
         this.a = context.getContentResolver();
     }
 
@@ -263,11 +263,11 @@ public final class a implements SharedPreferences {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
             try {
-                Cursor query = this.a.query(a.b.CONTENT_URI, this.f60677b, "key = ?", new String[]{str}, null);
+                Cursor query = this.a.query(a.b.CONTENT_URI, this.f59027b, "key = ?", new String[]{str}, null);
                 if (query == null) {
                     return null;
                 }
-                Object a = query.moveToFirst() ? a.C2269a.a(query.getInt(query.getColumnIndex("type")), query.getString(query.getColumnIndex("value"))) : null;
+                Object a = query.moveToFirst() ? a.C2248a.a(query.getInt(query.getColumnIndex("type")), query.getString(query.getColumnIndex("value"))) : null;
                 query.close();
                 return a;
             } catch (Exception e2) {
@@ -290,10 +290,10 @@ public final class a implements SharedPreferences {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f60679d == null) {
-                this.f60679d = new SharedPreferences$EditorC2265a(this.a);
+            if (this.f59029d == null) {
+                this.f59029d = new SharedPreferences$EditorC2244a(this.a);
             }
-            return this.f60679d;
+            return this.f59029d;
         }
         return (SharedPreferences.Editor) invokeV.objValue;
     }
@@ -304,7 +304,7 @@ public final class a implements SharedPreferences {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
-                Cursor query = this.a.query(a.b.CONTENT_URI, this.f60677b, null, null, null);
+                Cursor query = this.a.query(a.b.CONTENT_URI, this.f59027b, null, null, null);
                 if (query == null) {
                     return null;
                 }
@@ -312,13 +312,13 @@ public final class a implements SharedPreferences {
                 int columnIndex2 = query.getColumnIndex("type");
                 int columnIndex3 = query.getColumnIndex("value");
                 while (query.moveToNext()) {
-                    this.f60678c.put(query.getString(columnIndex), a.C2269a.a(query.getInt(columnIndex2), query.getString(columnIndex3)));
+                    this.f59028c.put(query.getString(columnIndex), a.C2248a.a(query.getInt(columnIndex2), query.getString(columnIndex3)));
                 }
                 query.close();
-                return this.f60678c;
+                return this.f59028c;
             } catch (Exception e2) {
                 e2.printStackTrace();
-                return this.f60678c;
+                return this.f59028c;
             }
         }
         return (Map) invokeV.objValue;

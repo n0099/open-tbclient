@@ -15,27 +15,27 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.DecimalFormat;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class a1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30501b;
+    public int f28905b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30502c;
+    public int f28906c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ s1 f30503d;
+    public final /* synthetic */ n1 f28907d;
 
-    public a1(s1 s1Var) {
+    public a1(n1 n1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s1Var};
+            Object[] objArr = {n1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -45,11 +45,11 @@ public class a1 {
                 return;
             }
         }
-        this.f30503d = s1Var;
-        this.f30501b = 0;
-        this.f30502c = 0;
+        this.f28907d = n1Var;
+        this.f28905b = 0;
+        this.f28906c = 0;
         if (Looper.myLooper() != null) {
-            this.a = new x0(this, s1Var);
+            this.a = new x0(this, n1Var);
         }
     }
 
@@ -75,14 +75,14 @@ public class a1 {
             int i2 = message.what;
             if (i2 == 1) {
                 Q q = (Q) ((Object[]) message.obj)[0];
-                this.f30503d.f30675h.a();
+                this.f28907d.f29043h.a();
             } else if (i2 == 3) {
-                this.f30503d.f30675h.c();
+                this.f28907d.f29043h.c();
             } else if (i2 == 5) {
-                this.f30503d.f30675h.b(((Integer) ((Object[]) message.obj)[0]).intValue());
+                this.f28907d.f29043h.b(((Integer) ((Object[]) message.obj)[0]).intValue());
             } else if (i2 != 7) {
             } else {
-                this.f30503d.f30675h.d();
+                this.f28907d.f29043h.d();
             }
         }
     }
@@ -92,12 +92,12 @@ public class a1 {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream) == null) {
-            this.f30501b = 0;
+            this.f28905b = 0;
             try {
                 try {
                     try {
                         byte[] bArr = new byte[4096];
-                        FileOutputStream fileOutputStream = new FileOutputStream(new File(this.f30503d.f30674g));
+                        FileOutputStream fileOutputStream = new FileOutputStream(new File(this.f28907d.f29042g));
                         int i2 = 0;
                         while (true) {
                             int read = inputStream.read(bArr);
@@ -105,15 +105,15 @@ public class a1 {
                             if (read == -1) {
                                 z = false;
                                 break;
-                            } else if (this.f30503d.f30677j) {
+                            } else if (this.f28907d.f29045j) {
                                 fileOutputStream.write(bArr, 0, read);
-                                int i3 = this.f30501b + read;
-                                this.f30501b = i3;
-                                if (this.f30503d.f30672e + i3 < this.f30503d.k + this.f30503d.f30672e) {
-                                    int parseFloat = (int) (Float.parseFloat(new DecimalFormat("0.00").format((this.f30503d.f30672e + i3) / ((float) (this.f30503d.k + this.f30503d.f30672e)))) * 100.0f);
-                                    this.f30502c = parseFloat;
+                                int i3 = this.f28905b + read;
+                                this.f28905b = i3;
+                                if (this.f28907d.f29040e + i3 < this.f28907d.k + this.f28907d.f29040e) {
+                                    int parseFloat = (int) (Float.parseFloat(new DecimalFormat("0.00").format((this.f28907d.f29040e + i3) / ((float) (this.f28907d.k + this.f28907d.f29040e)))) * 100.0f);
+                                    this.f28906c = parseFloat;
                                     if (i2 % 30 == 0 || parseFloat == 100) {
-                                        d(a(5, new Object[]{Integer.valueOf(this.f30502c)}));
+                                        d(a(5, new Object[]{Integer.valueOf(this.f28906c)}));
                                     }
                                 }
                                 i2++;
@@ -124,14 +124,14 @@ public class a1 {
                         }
                         fileOutputStream.flush();
                         fileOutputStream.close();
-                        this.f30503d.f30677j = false;
+                        this.f28907d.f29045j = false;
                         if (!z) {
                             d(a(3, null));
                         }
                         inputStream.close();
                     } catch (Exception e2) {
                         d(a(7, null));
-                        this.f30503d.f30677j = false;
+                        this.f28907d.f29045j = false;
                         e2.printStackTrace();
                         if (inputStream == null) {
                             return;
@@ -143,14 +143,14 @@ public class a1 {
                         try {
                             inputStream.close();
                         } catch (IOException e3) {
-                            this.f30503d.f30677j = false;
+                            this.f28907d.f29045j = false;
                             e3.printStackTrace();
                         }
                     }
                     throw th;
                 }
             } catch (IOException e4) {
-                this.f30503d.f30677j = false;
+                this.f28907d.f29045j = false;
                 e4.printStackTrace();
             }
         }

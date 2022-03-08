@@ -8,25 +8,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public abstract class b implements Input {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean[] f27165e;
+    public final boolean[] f27069e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean[] f27166f;
+    public final boolean[] f27070f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final n f27167g;
+    public final n f27071g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f27168h;
+    public int f27072h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f27169i;
+    public boolean f27073i;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -41,24 +41,24 @@ public abstract class b implements Input {
                 return;
             }
         }
-        this.f27167g = new n();
-        this.f27165e = new boolean[256];
-        this.f27166f = new boolean[256];
+        this.f27071g = new n();
+        this.f27069e = new boolean[256];
+        this.f27070f = new boolean[256];
     }
 
     public boolean a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f27167g.c(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f27071g.c(i2) : invokeI.booleanValue;
     }
 
     public void b(int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             if (!z) {
-                this.f27167g.f(i2);
+                this.f27071g.f(i2);
             } else {
-                this.f27167g.a(i2);
+                this.f27071g.a(i2);
             }
         }
     }

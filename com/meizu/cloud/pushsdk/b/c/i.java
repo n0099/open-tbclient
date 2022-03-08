@@ -5,44 +5,44 @@ import com.meizu.cloud.pushsdk.b.c.c;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class i {
     public final f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f58777b;
+    public final String f57127b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c f58778c;
+    public final c f57128c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final j f58779d;
+    public final j f57129d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f58780e;
+    public final Object f57130e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public f a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f58781b = "GET";
+        public String f57131b = "GET";
 
         /* renamed from: c  reason: collision with root package name */
-        public c.a f58782c = new c.a();
+        public c.a f57132c = new c.a();
 
         /* renamed from: d  reason: collision with root package name */
-        public j f58783d;
+        public j f57133d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Object f58784e;
+        public Object f57134e;
 
         public a a() {
             return a("GET", (j) null);
         }
 
         public a a(c cVar) {
-            this.f58782c = cVar.c();
+            this.f57132c = cVar.c();
             return this;
         }
 
@@ -99,8 +99,8 @@ public class i {
             if (jVar != null && !d.b(str)) {
                 throw new IllegalArgumentException("method " + str + " must not have a request body.");
             } else if (jVar != null || !d.a(str)) {
-                this.f58781b = str;
-                this.f58783d = jVar;
+                this.f57131b = str;
+                this.f57133d = jVar;
                 return this;
             } else {
                 throw new IllegalArgumentException("method " + str + " must have a request body.");
@@ -108,7 +108,7 @@ public class i {
         }
 
         public a a(String str, String str2) {
-            this.f58782c.a(str, str2);
+            this.f57132c.a(str, str2);
             return this;
         }
 
@@ -138,10 +138,10 @@ public class i {
 
     public i(a aVar) {
         this.a = aVar.a;
-        this.f58777b = aVar.f58781b;
-        this.f58778c = aVar.f58782c.a();
-        this.f58779d = aVar.f58783d;
-        this.f58780e = aVar.f58784e != null ? aVar.f58784e : this;
+        this.f57127b = aVar.f57131b;
+        this.f57128c = aVar.f57132c.a();
+        this.f57129d = aVar.f57133d;
+        this.f57130e = aVar.f57134e != null ? aVar.f57134e : this;
     }
 
     public f a() {
@@ -149,11 +149,11 @@ public class i {
     }
 
     public String a(String str) {
-        return this.f58778c.a(str);
+        return this.f57128c.a(str);
     }
 
     public String b() {
-        return this.f58777b;
+        return this.f57127b;
     }
 
     public int c() {
@@ -176,11 +176,11 @@ public class i {
     }
 
     public c d() {
-        return this.f58778c;
+        return this.f57128c;
     }
 
     public j e() {
-        return this.f58779d;
+        return this.f57129d;
     }
 
     public boolean f() {
@@ -190,11 +190,11 @@ public class i {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Request{method=");
-        sb.append(this.f58777b);
+        sb.append(this.f57127b);
         sb.append(", url=");
         sb.append(this.a);
         sb.append(", tag=");
-        Object obj = this.f58780e;
+        Object obj = this.f57130e;
         if (obj == this) {
             obj = null;
         }

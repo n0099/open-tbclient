@@ -1,24 +1,28 @@
 package c.q.a;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
-public class z5 implements View.OnClickListener {
+/* loaded from: classes3.dex */
+public class z5 implements p0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ View a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ d1 f30776e;
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ l f29180b;
 
-    public z5(d1 d1Var) {
+    public z5(l lVar, View view) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d1Var};
+            Object[] objArr = {lVar, view};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -28,18 +32,30 @@ public class z5 implements View.OnClickListener {
                 return;
             }
         }
-        this.f30776e = d1Var;
+        this.f29180b = lVar;
+        this.a = view;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // c.q.a.p0
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            d1 d1Var = this.f30776e;
-            if (d1Var.f30538e != null) {
-                d1Var.f30539f = true;
-                this.f30776e.f30538e.a();
-            }
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
+            return;
+        }
+        new Handler(Looper.getMainLooper()).postDelayed(new v5(this), this.f29180b.f29009c.getSpet());
+    }
+
+    @Override // c.q.a.p0
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        }
+    }
+
+    @Override // c.q.a.p0
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 }

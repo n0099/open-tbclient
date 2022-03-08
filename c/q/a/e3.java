@@ -1,28 +1,42 @@
 package c.q.a;
 
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import android.webkit.WebView;
+import com.baidu.sapi2.SapiWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.davemorrissey.labs.subscaleview.ImageSource;
+import com.win.opensdk.bridge.JsBridge;
+import com.win.opensdk.bridge.JsInvokeJavaScope;
+import com.win.opensdk.bridge.core.JsBridgeWebChromeClient;
 import com.win.opensdk.core.Info;
-/* loaded from: classes9.dex */
-public class e3 {
+/* loaded from: classes3.dex */
+public class e3 implements n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public u2 a;
+    public z a;
 
     /* renamed from: b  reason: collision with root package name */
-    public i3 f30546b;
+    public r f28944b;
 
-    public e3(Context context, String str) {
+    /* renamed from: c  reason: collision with root package name */
+    public WebView f28945c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f28946d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f28947e;
+
+    public e3(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -32,37 +46,31 @@ public class e3 {
                 return;
             }
         }
-        u2 u2Var = new u2(context, str);
-        this.a = u2Var;
-        u2Var.f30720f = new a3(this);
+        WebView webView = new WebView(context);
+        this.f28945c = webView;
+        webView.setScrollContainer(false);
+        webView.setVerticalScrollBarEnabled(false);
+        webView.setHorizontalScrollBarEnabled(false);
+        r0.m(webView);
+        this.f28945c.getSettings().setJavaScriptEnabled(true);
+        JsBridge.getInstance().clazz(JsInvokeJavaScope.class).inject();
+        this.f28945c.setWebChromeClient(new JsBridgeWebChromeClient());
+        this.f28945c.setWebViewClient(new a3(this));
     }
 
-    public void a() {
+    public void a(String str, Info info) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                if (this.a != null) {
-                    this.a.a();
-                    this.a = null;
-                }
-                if (this.f30546b != null) {
-                    this.f30546b = null;
-                }
-            } catch (Exception unused) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, info) == null) {
+            if ((!TextUtils.isEmpty(str) && (str.startsWith("http") || str.startsWith("https"))) || str.startsWith(ImageSource.FILE_SCHEME)) {
+                this.f28945c.loadUrl(str);
+            } else {
+                this.f28945c.loadDataWithBaseURL("http://abcd/", str, SapiWebView.DATA_MIME_TYPE, "UTF-8", null);
             }
-        }
-    }
-
-    public Info b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            u2 u2Var = this.a;
-            if (u2Var == null || !u2Var.e()) {
-                return null;
+            z zVar = this.a;
+            if (zVar != null) {
+                zVar.a();
             }
-            return u2Var.f30717c;
+            this.f28945c.setOnTouchListener(new h3(info, new w2(this)));
         }
-        return (Info) invokeV.objValue;
     }
 }

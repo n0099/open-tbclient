@@ -4,13 +4,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+/* loaded from: classes7.dex */
 public final class UnsupportedDrmException extends Exception {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REASON_INSTANTIATION_ERROR = 2;
     public static final int REASON_UNSUPPORTED_SCHEME = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public final int reason;
+
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes7.dex */
+    public @interface Reason {
+    }
 
     public UnsupportedDrmException(int i2) {
         Interceptable interceptable = $ic;

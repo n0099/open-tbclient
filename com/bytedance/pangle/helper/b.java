@@ -32,16 +32,16 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f53296b;
+    public static String f51715b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Map<String, Integer> f53297c;
+    public static Map<String, Integer> f51716c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -57,19 +57,19 @@ public final class b {
                 return;
             }
         }
-        f53297c = new HashMap();
+        f51716c = new HashMap();
         if (g.a()) {
-            f53296b = Build.SUPPORTED_ABIS[0];
+            f51715b = Build.SUPPORTED_ABIS[0];
         } else {
-            f53296b = Build.CPU_ABI;
+            f51715b = Build.CPU_ABI;
         }
-        f53297c.put("arm64-v8a", 64);
-        f53297c.put("armeabi-v7a", 32);
-        f53297c.put("armeabi", 32);
-        f53297c.put("x86_64", 64);
-        f53297c.put("x86", 32);
-        f53297c.put("mips64", 64);
-        f53297c.put(IDevices.ABI_MIPS, 32);
+        f51716c.put("arm64-v8a", 64);
+        f51716c.put("armeabi-v7a", 32);
+        f51716c.put("armeabi", 32);
+        f51716c.put("x86_64", 64);
+        f51716c.put("x86", 32);
+        f51716c.put("mips64", 64);
+        f51716c.put(IDevices.ABI_MIPS, 32);
         a = c();
     }
 
@@ -92,7 +92,7 @@ public final class b {
                     if (!a2.isEmpty()) {
                         linkedList = new LinkedList();
                         HashSet hashSet = new HashSet();
-                        String str2 = a != null ? a : f53296b;
+                        String str2 = a != null ? a : f51715b;
                         char c2 = 65535;
                         switch (str2.hashCode()) {
                             case -1073971299:
@@ -199,7 +199,7 @@ public final class b {
     public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f53297c.get(a()).intValue() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f51716c.get(a()).intValue() : invokeV.intValue;
     }
 
     public static String c() {
@@ -352,7 +352,7 @@ public final class b {
                 ZipEntry nextElement = entries.nextElement();
                 if (!nextElement.isDirectory() && compile.matcher(nextElement.getName()).matches() && (split = nextElement.getName().split(File.separator)) != null && split.length >= 2) {
                     String str = split[split.length - 2];
-                    if (f53297c.containsKey(str)) {
+                    if (f51716c.containsKey(str)) {
                         if (hashMap.get(str) == null) {
                             hashMap.put(str, new LinkedList());
                         }
@@ -466,7 +466,7 @@ public final class b {
                         }
                         a(jSONObject, "processMode", String.valueOf(i2));
                         if (i2 != 0) {
-                            if (f53297c.get(str).intValue() == i2) {
+                            if (f51716c.get(str).intValue() == i2) {
                                 ZeusLogger.w(ZeusLogger.TAG_SO, "NativeLibHelper inferHostAbiAuto2, sHostAbi=".concat(String.valueOf(str)));
                                 return str;
                             }

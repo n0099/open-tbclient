@@ -4,22 +4,22 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.api.core.fragment.KsFragment;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class b extends a {
 
     /* renamed from: b  reason: collision with root package name */
-    public final AtomicBoolean f56085b;
+    public final AtomicBoolean f54435b;
 
     /* renamed from: c  reason: collision with root package name */
-    public KsFragment f56086c;
+    public KsFragment f54436c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f56087d;
+    public String f54437d;
 
     public b(@NonNull KsFragment ksFragment, @NonNull View view, int i2) {
         super(view, i2);
-        this.f56085b = new AtomicBoolean(false);
-        this.f56086c = ksFragment;
+        this.f54435b = new AtomicBoolean(false);
+        this.f54436c = ksFragment;
     }
 
     private boolean a(@NonNull KsFragment ksFragment) {
@@ -31,22 +31,22 @@ public class b extends a {
 
     @Override // com.kwad.sdk.core.j.a
     public boolean c() {
-        KsFragment ksFragment = this.f56086c;
+        KsFragment ksFragment = this.f54436c;
         if (ksFragment == null) {
             return false;
         }
         if (a(ksFragment)) {
-            this.f56087d = "message fragment";
+            this.f54437d = "message fragment";
             return false;
         }
-        this.f56087d = "message view";
+        this.f54437d = "message view";
         return d();
     }
 
     @Override // com.kwad.sdk.core.j.a
     public void g() {
         super.g();
-        this.f56086c = null;
+        this.f54436c = null;
     }
 
     public void h() {
@@ -54,7 +54,7 @@ public class b extends a {
 
     public void i() {
         com.kwad.sdk.core.d.a.c("FragmentPageVisibleHelper", "onFragmentPause");
-        this.f56087d = "onFragmentPause";
+        this.f54437d = "onFragmentPause";
         f();
     }
 }

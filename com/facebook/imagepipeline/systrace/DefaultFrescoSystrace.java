@@ -11,7 +11,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
-/* loaded from: classes3.dex */
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+/* loaded from: classes7.dex */
 public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +62,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class DefaultArgsBuilder implements FrescoSystrace.ArgsBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,9 +92,9 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, obj)) == null) {
                 StringBuilder sb = this.mStringBuilder;
-                sb.append(';');
+                sb.append(WebvttCueParser.CHAR_SEMI_COLON);
                 sb.append(str);
-                sb.append(a.f31099h);
+                sb.append(a.f29503h);
                 sb.append(obj == null ? StringUtil.NULL_STRING : obj.toString());
                 return this;
             }
@@ -119,9 +120,9 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2)) == null) {
                 StringBuilder sb = this.mStringBuilder;
-                sb.append(';');
+                sb.append(WebvttCueParser.CHAR_SEMI_COLON);
                 sb.append(str);
-                sb.append(a.f31099h);
+                sb.append(a.f29503h);
                 sb.append(Integer.toString(i2));
                 return this;
             }
@@ -134,9 +135,9 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j2)) == null) {
                 StringBuilder sb = this.mStringBuilder;
-                sb.append(';');
+                sb.append(WebvttCueParser.CHAR_SEMI_COLON);
                 sb.append(str);
-                sb.append(a.f31099h);
+                sb.append(a.f29503h);
                 sb.append(Long.toString(j2));
                 return this;
             }
@@ -149,9 +150,9 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Double.valueOf(d2)})) == null) {
                 StringBuilder sb = this.mStringBuilder;
-                sb.append(';');
+                sb.append(WebvttCueParser.CHAR_SEMI_COLON);
                 sb.append(str);
-                sb.append(a.f31099h);
+                sb.append(a.f29503h);
                 sb.append(Double.toString(d2));
                 return this;
             }

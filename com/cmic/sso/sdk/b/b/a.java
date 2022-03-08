@@ -9,38 +9,38 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URLEncoder;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class a extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f53606b;
+    public String f52025b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f53607c;
+    public String f52026c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f53608d;
+    public String f52027d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f53609e;
+    public String f52028e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f53610f;
+    public String f52029f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f53611g;
+    public String f52030g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f53612h;
+    public String f52031h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f53613i;
+    public String f52032i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f53614j;
+    public String f52033j;
     public String k;
     public String l;
     public String m;
@@ -69,15 +69,15 @@ public abstract class a extends g {
             }
         }
         this.a = "";
-        this.f53606b = "";
-        this.f53607c = "";
-        this.f53608d = "";
-        this.f53609e = "";
-        this.f53610f = "";
-        this.f53611g = "";
-        this.f53612h = "";
-        this.f53613i = "";
-        this.f53614j = "0";
+        this.f52025b = "";
+        this.f52026c = "";
+        this.f52027d = "";
+        this.f52028e = "";
+        this.f52029f = "";
+        this.f52030g = "";
+        this.f52031h = "";
+        this.f52032i = "";
+        this.f52033j = "0";
         this.k = "1.0";
         this.l = "";
         this.m = "";
@@ -97,7 +97,7 @@ public abstract class a extends g {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53607c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52026c : (String) invokeV.objValue;
     }
 
     public void a_(String str) {
@@ -117,63 +117,63 @@ public abstract class a extends g {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f53606b = v(str);
+            this.f52025b = v(str);
         }
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f53607c = v(str);
+            this.f52026c = v(str);
         }
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f53608d = v(str);
+            this.f52027d = v(str);
         }
     }
 
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f53609e = v(str);
+            this.f52028e = v(str);
         }
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f53610f = v(str);
+            this.f52029f = v(str);
         }
     }
 
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f53611g = URLEncoder.encode(v(str));
+            this.f52030g = URLEncoder.encode(v(str));
         }
     }
 
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f53612h = URLEncoder.encode(v(str));
+            this.f52031h = URLEncoder.encode(v(str));
         }
     }
 
     public void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f53613i = URLEncoder.encode(v(str));
+            this.f52032i = URLEncoder.encode(v(str));
         }
     }
 
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f53614j = v(str);
+            this.f52033j = v(str);
         }
     }
 

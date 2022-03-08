@@ -7,22 +7,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Method;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.l.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C1697a {
+    /* loaded from: classes3.dex */
+    public static class C1673a {
         public static /* synthetic */ Interceptable $ic;
         public static Object a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static Class<?> f30370b;
+        public static Class<?> f28774b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static Method f30371c;
+        public static Method f28775c;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -40,12 +40,12 @@ public class a {
             }
             try {
                 Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-                f30370b = cls;
+                f28774b = cls;
                 a = cls.newInstance();
-                f30370b.getMethod("getUDID", Context.class);
-                f30371c = f30370b.getMethod("getOAID", Context.class);
-                f30370b.getMethod("getVAID", Context.class);
-                f30370b.getMethod("getAAID", Context.class);
+                f28774b.getMethod("getUDID", Context.class);
+                f28775c = f28774b.getMethod("getOAID", Context.class);
+                f28774b.getMethod("getVAID", Context.class);
+                f28774b.getMethod("getAAID", Context.class);
             } catch (Throwable unused) {
             }
         }
@@ -53,7 +53,7 @@ public class a {
         public static String a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? b(context, f30371c) : (String) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? b(context, f28775c) : (String) invokeL.objValue;
         }
 
         public static String b(Context context, Method method) {
@@ -80,19 +80,19 @@ public class a {
         public static boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f30370b == null || a == null) ? false : true : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f28774b == null || a == null) ? false : true : invokeV.booleanValue;
         }
     }
 
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? C1697a.a(context.getApplicationContext()) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? C1673a.a(context.getApplicationContext()) : (String) invokeL.objValue;
     }
 
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C1697a.c() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C1673a.c() : invokeV.booleanValue;
     }
 }

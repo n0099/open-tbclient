@@ -16,16 +16,16 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static final Object a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map f62655b;
+    public Map f61005b;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,7 +96,7 @@ public class b {
                 return;
             }
         }
-        this.f62655b = new HashMap();
+        this.f61005b = new HashMap();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -134,7 +134,7 @@ public class b {
                 return;
             }
         }
-        this.f62655b = map == null ? new HashMap() : map;
+        this.f61005b = map == null ? new HashMap() : map;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -182,9 +182,9 @@ public class b {
             }
             if (d2 != null) {
                 b(d2);
-                this.f62655b.put(obj, d2);
+                this.f61005b.put(obj, d2);
             } else {
-                this.f62655b.remove(obj);
+                this.f61005b.remove(obj);
             }
             char c4 = cVar.c();
             if (c4 != ',' && c4 != ';') {
@@ -317,7 +317,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Object obj = str == null ? null : this.f62655b.get(str);
+            Object obj = str == null ? null : this.f61005b.get(str);
             if (obj != null) {
                 return obj;
             }
@@ -329,13 +329,13 @@ public class b {
     public final Iterator a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62655b.keySet().iterator() : (Iterator) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61005b.keySet().iterator() : (Iterator) invokeV.objValue;
     }
 
     public final boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f62655b.containsKey(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f61005b.containsKey(str) : invokeL.booleanValue;
     }
 
     public String toString() {
@@ -344,7 +344,7 @@ public class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
                 Iterator a2 = a();
-                StringBuffer stringBuffer = new StringBuffer(StringUtil.ARRAY_START);
+                StringBuffer stringBuffer = new StringBuffer("{");
                 while (a2.hasNext()) {
                     if (stringBuffer.length() > 1) {
                         stringBuffer.append(',');
@@ -352,7 +352,7 @@ public class b {
                     Object next = a2.next();
                     stringBuffer.append(c(next.toString()));
                     stringBuffer.append(':');
-                    stringBuffer.append(a(this.f62655b.get(next)));
+                    stringBuffer.append(a(this.f61005b.get(next)));
                 }
                 stringBuffer.append(ExtendedMessageFormat.END_FE);
                 return stringBuffer.toString();

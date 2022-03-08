@@ -1,17 +1,17 @@
 package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
 import android.text.TextUtils;
-import c.a.t0.d1.w0;
-import c.a.t0.t.c.o;
+import c.a.q0.c1.v0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.coreExtra.data.ChannelIconConfigFinalData;
 import com.baidu.tieba.flutter.plugin.tiebautility.TiebaUtilityAppInfoAuto;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class UtilityAppInfo implements TiebaUtilityAppInfoAuto.HostUtilityAppInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,15 +45,15 @@ public class UtilityAppInfo implements TiebaUtilityAppInfoAuto.HostUtilityAppInf
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, result) == null) {
             TiebaUtilityAppInfoAuto.ChannelTab channelTab = new TiebaUtilityAppInfoAuto.ChannelTab();
-            o c2 = TbSingleton.getInstance().getChannelConfigModel().c();
+            ChannelIconConfigFinalData c2 = TbSingleton.getInstance().getChannelConfigModel().c();
             if (c2 != null) {
-                if (!TextUtils.isEmpty(c2.e())) {
-                    channelTab.setTid(c2.e());
+                if (!TextUtils.isEmpty(c2.getTid())) {
+                    channelTab.setTid(c2.getTid());
                 }
-                if (!TextUtils.isEmpty(c2.d())) {
-                    channelTab.setTabCode(c2.d());
+                if (!TextUtils.isEmpty(c2.getTabCode())) {
+                    channelTab.setTabCode(c2.getTabCode());
                 }
-                channelTab.setTabType(String.valueOf(c2.a()));
+                channelTab.setTabType(String.valueOf(c2.getChannelConfigDataType()));
             }
             result.success(channelTab);
         }
@@ -64,7 +64,7 @@ public class UtilityAppInfo implements TiebaUtilityAppInfoAuto.HostUtilityAppInf
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, result) == null) {
             TiebaUtilityAppInfoAuto.AppInfoStringResult appInfoStringResult = new TiebaUtilityAppInfoAuto.AppInfoStringResult();
-            appInfoStringResult.setResult(w0.b());
+            appInfoStringResult.setResult(v0.b());
             result.success(appInfoStringResult);
         }
     }

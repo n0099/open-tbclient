@@ -4,14 +4,13 @@ import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
 import c.a.d.o.e.n;
 import c.a.d.o.e.s;
-import c.a.t0.d1.f;
-import c.a.t0.s.v.c;
-import c.a.u0.a4.d;
-import c.a.u0.a4.j;
+import c.a.q0.c1.f;
+import c.a.q0.r.v.c;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public final class CardLinkageManager {
     public static final /* synthetic */ CardLinkageManager[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -120,23 +119,37 @@ public final class CardLinkageManager {
                     if (item2 instanceof BaseCardInfo) {
                         BaseCardInfo baseCardInfo2 = (BaseCardInfo) item2;
                         if (baseCardInfo.position == baseCardInfo2.position && (findViewByPosition = layoutManager.findViewByPosition(i3)) != null) {
-                            if (baseCardInfo2.isSupportFull()) {
+                            boolean isSupportFull = baseCardInfo2.isSupportFull();
+                            int i4 = R.color.CAM_X0206;
+                            if (isSupportFull) {
                                 c d2 = c.d(findViewByPosition);
                                 d2.m(0);
-                                d2.n(j.J_X06);
-                                d2.f(z ? d.CAM_X0206 : d.CAM_X0205);
+                                d2.n(R.string.J_X06);
+                                if (!z) {
+                                    i4 = R.color.CAM_X0205;
+                                }
+                                d2.f(i4);
                             } else if (baseCardInfo2.isSupportTop()) {
                                 c d3 = c.d(findViewByPosition);
                                 d3.m(1);
-                                d3.n(j.J_X06);
-                                d3.f(z ? d.CAM_X0206 : d.CAM_X0205);
+                                d3.n(R.string.J_X06);
+                                if (!z) {
+                                    i4 = R.color.CAM_X0205;
+                                }
+                                d3.f(i4);
                             } else if (baseCardInfo2.isSupportBottom()) {
                                 c d4 = c.d(findViewByPosition);
                                 d4.m(2);
-                                d4.n(j.J_X06);
-                                d4.f(z ? d.CAM_X0206 : d.CAM_X0205);
+                                d4.n(R.string.J_X06);
+                                if (!z) {
+                                    i4 = R.color.CAM_X0205;
+                                }
+                                d4.f(i4);
                             } else if (baseCardInfo2.isSupportContent() || baseCardInfo2.isSupportExtend()) {
-                                SkinManager.setBackgroundColor(findViewByPosition, z ? d.CAM_X0206 : d.CAM_X0205);
+                                if (!z) {
+                                    i4 = R.color.CAM_X0205;
+                                }
+                                SkinManager.setBackgroundColor(findViewByPosition, i4);
                             }
                         }
                     }

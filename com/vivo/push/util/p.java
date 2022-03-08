@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class p {
     public static /* synthetic */ Interceptable $ic;
     public static final o a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f60982b;
+    public static boolean f59332b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f60983c;
+    public static boolean f59333c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,13 +39,13 @@ public final class p {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f60982b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f59332b : invokeV.booleanValue;
     }
 
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            f60982b = aa.b("persist.sys.log.ctrl", "no").equals("yes");
+            f59332b = aa.b("persist.sys.log.ctrl", "no").equals("yes");
         }
     }
 
@@ -71,7 +71,7 @@ public final class p {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
             b();
-            f60983c = z;
+            f59333c = z;
         }
     }
 

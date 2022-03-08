@@ -10,15 +10,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static w<Class<? extends a>, b> f27117b;
+    public static w<Class<? extends a>, b> f27021b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f27118c;
+    public static int f27022c;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
@@ -35,8 +35,8 @@ public final class b {
                 return;
             }
         }
-        f27117b = new w<>();
-        f27118c = 0;
+        f27021b = new w<>();
+        f27022c = 0;
     }
 
     public b() {
@@ -52,8 +52,8 @@ public final class b {
                 return;
             }
         }
-        int i4 = f27118c;
-        f27118c = i4 + 1;
+        int i4 = f27022c;
+        f27022c = i4 + 1;
         this.a = i4;
     }
 
@@ -74,10 +74,10 @@ public final class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
-            b c2 = f27117b.c(cls);
+            b c2 = f27021b.c(cls);
             if (c2 == null) {
                 b bVar = new b();
-                f27117b.i(cls, bVar);
+                f27021b.i(cls, bVar);
                 return bVar;
             }
             return c2;

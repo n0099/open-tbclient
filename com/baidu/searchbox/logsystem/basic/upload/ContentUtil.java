@@ -38,7 +38,7 @@ import java.util.regex.Matcher;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class ContentUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte GZIP_HEAD_1 = 117;
@@ -155,8 +155,8 @@ public final class ContentUtil {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:67:0x0188 A[Catch: IOException -> 0x01b2, TryCatch #1 {IOException -> 0x01b2, blocks: (B:5:0x0008, B:7:0x000e, B:11:0x0033, B:13:0x005b, B:14:0x0066, B:17:0x007b, B:19:0x0081, B:21:0x0098, B:24:0x00a0, B:26:0x00a6, B:27:0x00ad, B:29:0x00b3, B:31:0x00bb, B:33:0x00c9, B:34:0x00cb, B:35:0x00ce, B:37:0x00dc, B:41:0x00e4, B:43:0x00e9, B:44:0x00ec, B:46:0x0122, B:47:0x0137, B:48:0x0142, B:49:0x014a, B:51:0x0150, B:53:0x015c, B:55:0x0162, B:65:0x017f, B:67:0x0188, B:68:0x018f, B:70:0x0195, B:61:0x0175, B:63:0x0179, B:71:0x019c, B:20:0x0091), top: B:83:0x0008 }] */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x0195 A[Catch: IOException -> 0x01b2, TryCatch #1 {IOException -> 0x01b2, blocks: (B:5:0x0008, B:7:0x000e, B:11:0x0033, B:13:0x005b, B:14:0x0066, B:17:0x007b, B:19:0x0081, B:21:0x0098, B:24:0x00a0, B:26:0x00a6, B:27:0x00ad, B:29:0x00b3, B:31:0x00bb, B:33:0x00c9, B:34:0x00cb, B:35:0x00ce, B:37:0x00dc, B:41:0x00e4, B:43:0x00e9, B:44:0x00ec, B:46:0x0122, B:47:0x0137, B:48:0x0142, B:49:0x014a, B:51:0x0150, B:53:0x015c, B:55:0x0162, B:65:0x017f, B:67:0x0188, B:68:0x018f, B:70:0x0195, B:61:0x0175, B:63:0x0179, B:71:0x019c, B:20:0x0091), top: B:83:0x0008 }] */
+    /* JADX WARN: Removed duplicated region for block: B:67:0x0184 A[Catch: IOException -> 0x01ae, TryCatch #1 {IOException -> 0x01ae, blocks: (B:5:0x0008, B:7:0x000e, B:11:0x0032, B:13:0x005a, B:14:0x0065, B:17:0x0079, B:19:0x007f, B:21:0x0096, B:24:0x009e, B:26:0x00a4, B:27:0x00ab, B:29:0x00b1, B:31:0x00b9, B:33:0x00c7, B:34:0x00c9, B:35:0x00cc, B:37:0x00da, B:41:0x00e2, B:43:0x00e7, B:44:0x00ea, B:46:0x0120, B:47:0x0133, B:48:0x013e, B:49:0x0146, B:51:0x014c, B:53:0x0158, B:55:0x015e, B:65:0x017b, B:67:0x0184, B:68:0x018b, B:70:0x0191, B:61:0x0171, B:63:0x0175, B:71:0x0198, B:20:0x008f), top: B:83:0x0008 }] */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x0191 A[Catch: IOException -> 0x01ae, TryCatch #1 {IOException -> 0x01ae, blocks: (B:5:0x0008, B:7:0x000e, B:11:0x0032, B:13:0x005a, B:14:0x0065, B:17:0x0079, B:19:0x007f, B:21:0x0096, B:24:0x009e, B:26:0x00a4, B:27:0x00ab, B:29:0x00b1, B:31:0x00b9, B:33:0x00c7, B:34:0x00c9, B:35:0x00cc, B:37:0x00da, B:41:0x00e2, B:43:0x00e7, B:44:0x00ea, B:46:0x0120, B:47:0x0133, B:48:0x013e, B:49:0x0146, B:51:0x014c, B:53:0x0158, B:55:0x015e, B:65:0x017b, B:67:0x0184, B:68:0x018b, B:70:0x0191, B:61:0x0171, B:63:0x0175, B:71:0x0198, B:20:0x008f), top: B:83:0x0008 }] */
     @NonNull
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -164,7 +164,6 @@ public final class ContentUtil {
     public static void createCrashInfo(@NonNull LogObject logObject, @Nullable List<LogFile> list, @NonNull JsonWriter jsonWriter) {
         String str;
         String str2;
-        JSONObject jSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, logObject, list, jsonWriter) == null) {
             try {
@@ -223,42 +222,42 @@ public final class ContentUtil {
                         jsonWriter.beginObject();
                         jsonWriter.name("traceid").value(logExtra.mTraceID);
                         try {
-                            jSONObject = new JSONObject(logExtra.mJSONAttach);
+                            JSONObject jSONObject = new JSONObject(logExtra.mJSONAttach);
                             str2 = jSONObject.optString(Constant.LAUNCH_STAGE);
-                        } catch (JSONException e2) {
-                            e = e2;
-                            str = "";
-                        }
-                        try {
-                            str3 = jSONObject.optString(Constant.CRASH_STAGE);
-                            Iterator<String> keys = jSONObject.keys();
-                            while (keys.hasNext()) {
-                                String next = keys.next();
-                                if (!Constant.LAUNCH_STAGE.equals(next) && !Constant.CRASH_STAGE.equals(next)) {
-                                    jsonWriter.name(next).value(jSONObject.optString(next));
+                            try {
+                                str3 = jSONObject.optString(Constant.CRASH_STAGE);
+                                Iterator<String> keys = jSONObject.keys();
+                                while (keys.hasNext()) {
+                                    String next = keys.next();
+                                    if (!Constant.LAUNCH_STAGE.equals(next) && !Constant.CRASH_STAGE.equals(next)) {
+                                        jsonWriter.name(next).value(jSONObject.optString(next));
+                                    }
                                 }
+                            } catch (JSONException e2) {
+                                e = e2;
+                                String str4 = str3;
+                                str3 = str2;
+                                str = str4;
+                                if (LLog.sDebug) {
+                                    e.getMessage();
+                                }
+                                String str5 = str3;
+                                str3 = str;
+                                str2 = str5;
+                                jsonWriter.endObject();
+                                if (!TextUtils.isEmpty(str2)) {
+                                }
+                                if (!TextUtils.isEmpty(str3)) {
+                                }
+                                jsonWriter.name("pageTrace");
+                                jsonWriter.beginArray();
+                                createTraceUI(logObject.getProcessName(), jsonWriter);
+                                jsonWriter.endArray();
+                                jsonWriter.endObject();
                             }
                         } catch (JSONException e3) {
                             e = e3;
-                            String str4 = str3;
-                            str3 = str2;
-                            str = str4;
-                            if (LLog.sDebug) {
-                                e.getMessage();
-                            }
-                            String str5 = str3;
-                            str3 = str;
-                            str2 = str5;
-                            jsonWriter.endObject();
-                            if (!TextUtils.isEmpty(str2)) {
-                            }
-                            if (!TextUtils.isEmpty(str3)) {
-                            }
-                            jsonWriter.name("pageTrace");
-                            jsonWriter.beginArray();
-                            createTraceUI(logObject.getProcessName(), jsonWriter);
-                            jsonWriter.endArray();
-                            jsonWriter.endObject();
+                            str = "";
                         }
                         jsonWriter.endObject();
                         if (!TextUtils.isEmpty(str2)) {

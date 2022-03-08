@@ -6,11 +6,6 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.u0.u2.f;
-import c.a.u0.u2.g;
-import c.a.u0.u2.h;
-import c.a.u0.u2.i;
-import c.a.u0.u2.l;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -20,41 +15,42 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.PbListView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f46756b;
+    public LinearLayout f45164b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f46757c;
+    public TextView f45165c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ProgressBar f46758d;
+    public ProgressBar f45166d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f46759e;
+    public ImageView f45167e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f46760f;
+    public View f45168f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f46761g;
+    public String f45169g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f46762h;
+    public int f45170h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f46763i;
+    public CustomMessageListener f45171i;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,29 +109,29 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f46763i = new a(this, 2921471);
+        this.f45171i = new a(this, 2921471);
         this.a = view;
-        this.f46756b = (LinearLayout) view.findViewById(i.pb_more_view);
-        this.f46757c = (TextView) view.findViewById(i.pb_more_text);
-        this.f46759e = (ImageView) this.a.findViewById(i.no_data_image);
-        this.f46762h = n.f(this.a.getContext(), g.tbds156);
-        this.f46760f = this.a.findViewById(i.empty_view);
-        this.f46758d = (ProgressBar) view.findViewById(i.progress);
-        this.f46756b.setVisibility(0);
-        this.f46763i.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f46763i);
+        this.f45164b = (LinearLayout) view.findViewById(R.id.pb_more_view);
+        this.f45165c = (TextView) view.findViewById(R.id.pb_more_text);
+        this.f45167e = (ImageView) this.a.findViewById(R.id.no_data_image);
+        this.f45170h = n.f(this.a.getContext(), R.dimen.tbds156);
+        this.f45168f = this.a.findViewById(R.id.empty_view);
+        this.f45166d = (ProgressBar) view.findViewById(R.id.progress);
+        this.f45164b.setVisibility(0);
+        this.f45171i.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.f45171i);
         onChangeSkinType();
     }
 
     public void endLoadData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f46758d.setVisibility(8);
-            String str = this.f46761g;
+            this.f45166d.setVisibility(8);
+            String str = this.f45169g;
             if (str != null) {
-                this.f46757c.setText(str);
+                this.f45165c.setText(str);
             } else {
-                this.f46757c.setText(TbadkCoreApplication.getInst().getContext().getText(l.pb_load_more));
+                this.f45165c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.pb_load_more));
             }
         }
     }
@@ -143,8 +139,8 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f46757c.setTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), f.CAM_X0109));
-            this.f46756b.setBackgroundResource(h.pb_foot_more_trans_selector);
+            this.f45165c.setTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), (int) R.color.CAM_X0109));
+            this.f45164b.setBackgroundResource(R.drawable.pb_foot_more_trans_selector);
         }
     }
 
@@ -158,38 +154,38 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
     public void setText(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, str, i2) == null) {
-            this.f46761g = str;
-            this.f46757c.setText(str);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f46756b.getLayoutParams();
+            this.f45169g = str;
+            this.f45165c.setText(str);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f45164b.getLayoutParams();
             layoutParams.height = i2;
             layoutParams.bottomMargin = 0;
-            this.f46756b.setLayoutParams(layoutParams);
-            this.f46759e.setVisibility(8);
-            this.f46760f.setVisibility(8);
+            this.f45164b.setLayoutParams(layoutParams);
+            this.f45167e.setVisibility(8);
+            this.f45168f.setVisibility(8);
         }
     }
 
     public void setTextWithNoDataImg(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f46757c.setText(str);
-            this.f46759e.setVisibility(0);
-            this.f46759e.setImageResource(PbListView.H);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f46759e.getLayoutParams();
-            layoutParams.topMargin = this.f46762h;
-            this.f46759e.setLayoutParams(layoutParams);
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(this.f46760f.getLayoutParams());
-            layoutParams2.height = this.f46762h;
-            this.f46760f.setLayoutParams(layoutParams2);
-            this.f46760f.setVisibility(0);
+            this.f45165c.setText(str);
+            this.f45167e.setVisibility(0);
+            this.f45167e.setImageResource(PbListView.new_pic_emotion_03);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f45167e.getLayoutParams();
+            layoutParams.topMargin = this.f45170h;
+            this.f45167e.setLayoutParams(layoutParams);
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(this.f45168f.getLayoutParams());
+            layoutParams2.height = this.f45170h;
+            this.f45168f.setLayoutParams(layoutParams2);
+            this.f45168f.setVisibility(0);
         }
     }
 
     public void startLoadData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f46758d.setVisibility(0);
-            this.f46757c.setText(TbadkCoreApplication.getInst().getContext().getText(l.loading));
+            this.f45166d.setVisibility(0);
+            this.f45165c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.loading));
         }
     }
 }

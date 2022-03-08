@@ -36,7 +36,7 @@ import io.flutter.embedding.engine.FlutterShellArgs;
 import io.flutter.plugin.platform.PlatformPlugin;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FlutterBaseFragment extends BaseFragment implements FlutterActivityAndFragmentDelegate.Host {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARG_APP_BUNDLE_PATH = "app_bundle_path";
@@ -60,7 +60,7 @@ public class FlutterBaseFragment extends BaseFragment implements FlutterActivity
     public LinearLayout linearLayout;
     public boolean sendReumeToDart;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public @interface ActivityCallThrough {
     }
 
@@ -526,7 +526,7 @@ public class FlutterBaseFragment extends BaseFragment implements FlutterActivity
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class NewEngineFragmentBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

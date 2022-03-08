@@ -75,6 +75,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.LoadErrorCode;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.Closeable;
 import java.io.File;
 import java.io.InputStream;
@@ -132,7 +133,7 @@ import java.util.regex.Pattern;
 import javax.sql.DataSource;
 import javax.sql.RowSet;
 import javax.xml.datatype.XMLGregorianCalendar;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class ParserConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTOTYPE_ACCEPT = "fastjson.parser.autoTypeAccept";
@@ -171,7 +172,7 @@ public class ParserConfig {
     public final SymbolTable symbolTable;
     public final ConcurrentMap<String, Class<?>> typeMapping;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public interface AutoTypeCheckHandler {
         Class<?> handler(String str, Class<?> cls, int i2);
     }
@@ -1005,7 +1006,7 @@ public class ParserConfig {
                                     }
                                 }
                                 try {
-                                    String str2 = str.replace('.', '/') + ".class";
+                                    String str2 = str.replace('.', WebvttCueParser.CHAR_SLASH) + ".class";
                                     if (this.defaultClassLoader != null) {
                                         resourceAsStream = this.defaultClassLoader.getResourceAsStream(str2);
                                     } else {

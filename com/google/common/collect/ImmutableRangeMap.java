@@ -1,9 +1,9 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.a.n;
-import c.i.d.c.a1;
-import c.i.d.c.o1;
+import c.i.c.a.n;
+import c.i.c.c.a1;
+import c.i.c.c.o1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,7 +20,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final ImmutableRangeMap<Comparable<?>, Object> EMPTY;
@@ -29,7 +29,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
     public final transient ImmutableList<Range<K>> ranges;
     public final transient ImmutableList<V> values;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class SerializedForm<K extends Comparable<?>, V> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -82,7 +82,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class a<K extends Comparable<?>, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -341,7 +341,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.i.d.c.a1
+    @Override // c.i.c.c.a1
     public ImmutableMap<Range<K>, V> asMapOfRanges() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -465,7 +465,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
                     return super.m112asDescendingMapOfRanges();
                 }
 
-                @Override // com.google.common.collect.ImmutableRangeMap, c.i.d.c.a1
+                @Override // com.google.common.collect.ImmutableRangeMap, c.i.c.c.a1
                 public /* bridge */ /* synthetic */ Map asMapOfRanges() {
                     return super.asMapOfRanges();
                 }

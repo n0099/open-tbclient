@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Calendar;
 import java.util.TimeZone;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class c extends a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f50739c = "c";
+    public static final String f49158c = "c";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f50740d;
+    public int f49159d;
 
     static {
         InterceptResult invokeClinit;
@@ -56,14 +56,14 @@ public class c extends a {
                 return;
             }
         }
-        this.f50740d = i2;
+        this.f49159d = i2;
     }
 
     @Override // com.baidu.wallet.base.nopassauth.a, com.baidu.wallet.base.nopassauth.b
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f50740d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f49159d : invokeV.intValue;
     }
 
     @Override // com.baidu.wallet.base.nopassauth.a, com.baidu.wallet.base.nopassauth.b
@@ -81,7 +81,7 @@ public class c extends a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            super.b(((Calendar.getInstance(TimeZone.getTimeZone("GMT")).getTimeInMillis() / 1000) - OtpTokenUtils.getmSyncWithServerTime(context)) / this.f50740d);
+            super.b(((Calendar.getInstance(TimeZone.getTimeZone("GMT")).getTimeInMillis() / 1000) - OtpTokenUtils.getmSyncWithServerTime(context)) / this.f49159d);
             return super.a(context);
         }
         return (String) invokeL.objValue;

@@ -1,7 +1,7 @@
 package com.tachikoma.core.component.recyclerview.export;
 
 import com.kwad.v8.V8Object;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface ITKListDataSource {
     int countOfItems(V8Object v8Object, int i2);
 

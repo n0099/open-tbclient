@@ -13,7 +13,7 @@ import java.io.Reader;
 import java.io.Writer;
 import java.net.ServerSocket;
 import java.net.Socket;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class IOUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

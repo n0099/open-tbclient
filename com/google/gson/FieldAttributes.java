@@ -13,7 +13,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.Collection;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class FieldAttributes {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

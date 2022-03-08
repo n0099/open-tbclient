@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class DateTimeUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DATE_FORMAT = "yyyy-MM-dd";

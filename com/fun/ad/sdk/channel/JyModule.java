@@ -10,7 +10,7 @@ import com.fun.ad.sdk.FunAdConfig;
 import com.fun.ad.sdk.internal.api.Module;
 import com.fun.ad.sdk.internal.api.PidLoaderCreator;
 import com.win.opensdk.PBInitialize;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class JyModule implements Module {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

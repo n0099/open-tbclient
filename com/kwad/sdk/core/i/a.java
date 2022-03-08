@@ -8,19 +8,19 @@ import com.kwad.sdk.core.imageloader.cache.disc.impl.ext.DiskLruCache;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a {
-    public static Map<String, WeakReference<C2120a>> a = new ConcurrentHashMap();
+    public static Map<String, WeakReference<C2099a>> a = new ConcurrentHashMap();
 
     /* renamed from: com.kwad.sdk.core.i.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C2120a {
+    /* loaded from: classes7.dex */
+    public static class C2099a {
         public HandlerThread a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Handler f56068b;
+        public Handler f54418b;
 
-        public C2120a(String str) {
+        public C2099a(String str) {
             String str2;
             if (TextUtils.isEmpty(str)) {
                 str2 = "ksad-HandlerThread";
@@ -30,11 +30,11 @@ public class a {
             HandlerThread handlerThread = new HandlerThread(str2);
             this.a = handlerThread;
             handlerThread.start();
-            this.f56068b = new Handler(this.a.getLooper());
+            this.f54418b = new Handler(this.a.getLooper());
         }
 
         public Handler a() {
-            return this.f56068b;
+            return this.f54418b;
         }
     }
 
@@ -47,15 +47,15 @@ public class a {
     }
 
     @NonNull
-    public static C2120a a(String str) {
+    public static C2099a a(String str) {
         if (str == null) {
-            return new C2120a(null);
+            return new C2099a(null);
         }
-        WeakReference<C2120a> weakReference = a.get(str);
+        WeakReference<C2099a> weakReference = a.get(str);
         if (weakReference == null || weakReference.get() == null) {
-            C2120a c2120a = new C2120a(str);
-            a.put(str, new WeakReference<>(c2120a));
-            return c2120a;
+            C2099a c2099a = new C2099a(str);
+            a.put(str, new WeakReference<>(c2099a));
+            return c2099a;
         }
         return weakReference.get();
     }

@@ -2,7 +2,7 @@ package com.bytedance.sdk.openadsdk;
 
 import android.content.res.Resources;
 import android.os.Bundle;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface TTPluginListener {
     Bundle config();
 

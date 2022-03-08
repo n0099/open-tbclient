@@ -29,9 +29,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-import kotlin.text.Typography;
 @SuppressLint({"UseSparseArrays"})
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public final class PayUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String API_SECRET = "";
@@ -46,7 +45,7 @@ public final class PayUtils {
     public static ArrayList<String> keys;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static class ParamComparator implements Comparator<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -220,10 +219,10 @@ public final class PayUtils {
                         }
                         StringBuilder sb = new StringBuilder();
                         sb.append(name);
-                        sb.append(a.f31099h);
+                        sb.append(a.f29503h);
                         sb.append(value);
                         if (i2 != arrayList.size() - 1) {
-                            sb.append(Typography.amp);
+                            sb.append('&');
                         }
                         if (!TextUtils.isEmpty(sb)) {
                             messageDigest.update(sb.toString().getBytes(Charset.forName("UTF-8")));
@@ -298,9 +297,9 @@ public final class PayUtils {
                         value = "";
                     }
                     sb.append(name);
-                    sb.append(a.f31099h);
+                    sb.append(a.f29503h);
                     sb.append(value);
-                    sb.append(Typography.amp);
+                    sb.append('&');
                 }
             }
             if (sb.length() > 1) {

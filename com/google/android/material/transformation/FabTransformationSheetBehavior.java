@@ -11,19 +11,19 @@ import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 import com.google.android.material.animation.MotionSpec;
 import com.google.android.material.animation.Positioning;
 import com.google.android.material.transformation.FabTransformationBehavior;
 import java.util.HashMap;
 import java.util.Map;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class FabTransformationSheetBehavior extends FabTransformationBehavior {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -83,14 +83,9 @@ public class FabTransformationSheetBehavior extends FabTransformationBehavior {
     @NonNull
     public FabTransformationBehavior.FabTransformationSpec onCreateMotionSpec(Context context, boolean z) {
         InterceptResult invokeLZ;
-        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, context, z)) == null) {
-            if (z) {
-                i2 = R.animator.mtrl_fab_transformation_sheet_expand_spec;
-            } else {
-                i2 = R.animator.mtrl_fab_transformation_sheet_collapse_spec;
-            }
+            int i2 = z ? R.animator.mtrl_fab_transformation_sheet_expand_spec : R.animator.mtrl_fab_transformation_sheet_collapse_spec;
             FabTransformationBehavior.FabTransformationSpec fabTransformationSpec = new FabTransformationBehavior.FabTransformationSpec();
             fabTransformationSpec.timings = MotionSpec.createFromResource(context, i2);
             fabTransformationSpec.positioning = new Positioning(17, 0.0f, 0.0f);

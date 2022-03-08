@@ -1,7 +1,7 @@
 package com.baidu.down.request.taskmanager;
 
 import java.util.TreeSet;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public interface OnFetchDataRequestListener {
     void afterRequest(boolean z, TreeSet<HttpDNSInfo> treeSet);
 }

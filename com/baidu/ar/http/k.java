@@ -2,7 +2,7 @@ package com.baidu.ar.http;
 
 import java.io.InputStream;
 import java.nio.charset.Charset;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public interface k {
     void a(Charset charset);
 

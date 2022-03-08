@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class ActivitySpeedStats extends AbstractSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHECK_AND_SEND_ACTIVE_CONFIG_DURATION = "checkAndSendActiveConfig";
@@ -369,7 +369,11 @@ public final class ActivitySpeedStats extends AbstractSpeedStats {
     public long getStatsStartTimeStamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mLogoActivityStartTimeStamp : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            long j2 = this.mLogoActivityStartTimeStamp;
+            return (j2 <= 0 || j2 >= 60000) ? this.mMainActivityCreateStartTimeStamp : j2;
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
@@ -377,37 +381,46 @@ public final class ActivitySpeedStats extends AbstractSpeedStats {
         InterceptResult invokeL;
         long j2;
         long j3;
+        long j4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jSONObject)) == null) {
             super.packData(jSONObject);
             if (jSONObject == null) {
                 return false;
             }
-            long j4 = this.mMainActivityOnResumeEndTimeStamp;
-            long j5 = this.mLogoActivityStartTimeStamp;
-            long j6 = j4 - j5;
-            long j7 = this.mLogoActivityEndTimeStamp;
-            long j8 = j7 - j5;
-            long j9 = this.mLogoActivityOnCreateEndTimeStamp - j5;
-            long j10 = this.mLogoActivityOnResumeEndTimeStamp - this.mLogoActivityOnResumeStartTimeStamp;
-            long j11 = this.mLogoActivityOnDestroyEndTimeStamp - this.mLogoActivityOnDestroyStartTimeStamp;
-            long j12 = this.mNewLogoActivityOnDestroyEndTimeStamp - this.mNewLogoActivityOnDestroyStartTimeStamp;
-            long j13 = this.mNewLogoActivityEndTimeStamp;
-            long j14 = this.mNewLogoActivityStartTimeStamp;
-            long j15 = j13 - j14;
-            long j16 = this.mNewLogoActivityOnCreateEndTimeStamp - j14;
-            if (j14 > 0) {
-                j3 = this.mMainActivityCreateStartTimeStamp - j13;
+            long j5 = this.mMainActivityOnResumeEndTimeStamp - this.mLogoActivityStartTimeStamp;
+            if (j5 < 0 || j5 > 60000) {
+                j5 = this.mMainActivityOnResumeEndTimeStamp - this.mMainActivityCreateStartTimeStamp;
+            }
+            long j6 = this.mLogoActivityEndTimeStamp - this.mLogoActivityStartTimeStamp;
+            if (j6 < 0 || j6 > 60000) {
+                j6 = this.mLogoActivityEndTimeStamp - this.mMainActivityCreateStartTimeStamp;
+            }
+            long j7 = this.mLogoActivityOnCreateEndTimeStamp - this.mLogoActivityStartTimeStamp;
+            if (j7 < 0 || j7 > 60000) {
+                j7 = this.mLogoActivityOnCreateEndTimeStamp - this.mMainActivityCreateStartTimeStamp;
+            }
+            long j8 = j5;
+            long j9 = this.mLogoActivityOnResumeEndTimeStamp - this.mLogoActivityOnResumeStartTimeStamp;
+            long j10 = this.mLogoActivityOnDestroyEndTimeStamp - this.mLogoActivityOnDestroyStartTimeStamp;
+            long j11 = this.mNewLogoActivityOnDestroyEndTimeStamp - this.mNewLogoActivityOnDestroyStartTimeStamp;
+            long j12 = this.mNewLogoActivityEndTimeStamp;
+            long j13 = this.mNewLogoActivityStartTimeStamp;
+            long j14 = j12 - j13;
+            long j15 = this.mNewLogoActivityOnCreateEndTimeStamp - j13;
+            if (j13 > 0) {
+                j3 = this.mMainActivityCreateStartTimeStamp - j12;
                 j2 = 0;
             } else {
-                j2 = this.mMainActivityCreateStartTimeStamp - j7;
+                long j16 = this.mLogoActivityEndTimeStamp;
+                j2 = j16 < 0 ? 0L : this.mMainActivityCreateStartTimeStamp - j16;
                 j3 = 0;
             }
             long j17 = this.mMainActivityCreateEndTimeStamp;
-            long j18 = j3;
-            long j19 = this.mMainActivityCreateStartTimeStamp;
-            long j20 = j17 - j19;
-            long j21 = this.mMainActivitySuperCreateEndTimeStamp - j19;
+            long j18 = this.mMainActivityCreateStartTimeStamp;
+            long j19 = j17 - j18;
+            long j20 = j2;
+            long j21 = this.mMainActivitySuperCreateEndTimeStamp - j18;
             long j22 = this.mInitHomeFragmentControllerEndTimeStamp - this.mInitHomeFragmentControllerStartTimeStamp;
             long j23 = this.mCheckPluginEntranceStateEndTimeStamp - this.mCheckPluginEntranceStateStartTimeStamp;
             long j24 = this.mRegReceiverEndTimeStamp - this.mRegReceiverStartTimeStamp;
@@ -431,21 +444,27 @@ public final class ActivitySpeedStats extends AbstractSpeedStats {
             long mainOnCreate2DataLoadedDuration = getMainOnCreate2DataLoadedDuration();
             long mainDataLoaded2EndDuration = getMainDataLoaded2EndDuration();
             long durationWithoutAD = SpeedStatsManager.getInstance().getDurationWithoutAD(this.mLogoActivityStartTimeStamp, this.mMainActivityOnResumeEndTimeStamp);
-            if (j6 < 0 || j6 > 60000 || durationWithoutAD < 0 || durationWithoutAD > 60000 || j8 < 0 || j8 > 60000 || j9 < 0 || j9 > 60000 || j10 < 0 || j10 > 60000 || j11 < 0 || j11 > 60000 || j2 < 0 || j2 > 60000 || j15 < 0 || j15 > 60000 || j16 < 0 || j16 > 60000 || j12 < 0 || j12 > 60000 || j18 < 0 || j18 > 60000 || j20 < 0 || j20 > 60000 || j21 < 0 || j21 > 60000 || j22 < 0 || j22 > 60000 || j23 < 0 || j23 > 60000 || j24 < 0 || j24 > 60000 || j25 < 0 || j25 > 60000 || j26 < 0 || j26 > 60000 || j27 < 0 || j27 > 60000 || j28 < 0 || j28 > 60000 || j29 < 0 || j29 > 60000 || j30 < 0 || j30 > 60000 || j31 < 0 || j31 > 60000 || j32 < 0 || j32 > 60000 || j33 < 0 || j33 > 60000 || j35 < 0 || j35 > 60000 || j37 < 0 || j37 > 60000 || j39 < 0 || j39 > 60000 || j40 < 0 || j40 > 60000 || mainOnCreate2DataLoadedDuration < 0 || mainOnCreate2DataLoadedDuration > 60000 || mainDataLoaded2EndDuration < 0 || mainDataLoaded2EndDuration > 60000) {
+            if (durationWithoutAD < 0 || durationWithoutAD > 60000) {
+                j4 = j33;
+                durationWithoutAD = SpeedStatsManager.getInstance().getDurationWithoutAD(this.mMainActivityCreateStartTimeStamp, this.mMainActivityOnResumeEndTimeStamp);
+            } else {
+                j4 = j33;
+            }
+            if (j8 < 0 || j8 > 60000 || durationWithoutAD < 0 || durationWithoutAD > 60000 || j6 < 0 || j6 > 60000 || j7 < 0 || j7 > 60000 || j9 < 0 || j9 > 60000 || j10 < 0 || j10 > 60000 || j20 < 0 || j20 > 60000 || j14 < 0 || j14 > 60000 || j15 < 0 || j15 > 60000 || j11 < 0 || j11 > 60000 || j3 < 0 || j3 > 60000 || j19 < 0 || j19 > 60000 || j21 < 0 || j21 > 60000 || j22 < 0 || j22 > 60000 || j23 < 0 || j23 > 60000 || j24 < 0 || j24 > 60000 || j25 < 0 || j25 > 60000 || j26 < 0 || j26 > 60000 || j27 < 0 || j27 > 60000 || j28 < 0 || j28 > 60000 || j29 < 0 || j29 > 60000 || j30 < 0 || j30 > 60000 || j31 < 0 || j31 > 60000 || j32 < 0 || j32 > 60000 || j4 < 0 || j4 > 60000 || j35 < 0 || j35 > 60000 || j37 < 0 || j37 > 60000 || j39 < 0 || j39 > 60000 || j40 < 0 || j40 > 60000 || mainOnCreate2DataLoadedDuration < 0 || mainOnCreate2DataLoadedDuration > 60000 || mainDataLoaded2EndDuration < 0 || mainDataLoaded2EndDuration > 60000) {
                 return false;
             }
             HashMap hashMap = new HashMap();
-            hashMap.put(MAIN_ACTIVITY_TOTAL_DURATION, String.valueOf(j6));
-            hashMap.put(LOGO_ACTIVITY_DURATION, String.valueOf(j8));
-            hashMap.put(LOGO_ONCREATE_DURATION, String.valueOf(j9));
-            hashMap.put(LOGO_ONRESUME_DURATION, String.valueOf(j10));
-            hashMap.put(LOGO_ONDESTROY_DURATION, String.valueOf(j11));
-            hashMap.put(LOGO_TO_MAIN_GAP, String.valueOf(j2));
-            hashMap.put(NEW_LOGO_ACTIVITY_DURATION, String.valueOf(j15));
-            hashMap.put(NEW_LOGO_ONCREATE_DURATION, String.valueOf(j16));
-            hashMap.put(NEW_LOGO_ONDESTROY_DURATION, String.valueOf(j12));
-            hashMap.put(NEWLOGO_TO_MAIN_GAP, String.valueOf(j18));
-            hashMap.put("onCreate", String.valueOf(j20));
+            hashMap.put(MAIN_ACTIVITY_TOTAL_DURATION, String.valueOf(j8));
+            hashMap.put(LOGO_ACTIVITY_DURATION, String.valueOf(j6));
+            hashMap.put(LOGO_ONCREATE_DURATION, String.valueOf(j7));
+            hashMap.put(LOGO_ONRESUME_DURATION, String.valueOf(j9));
+            hashMap.put(LOGO_ONDESTROY_DURATION, String.valueOf(j10));
+            hashMap.put(LOGO_TO_MAIN_GAP, String.valueOf(j20));
+            hashMap.put(NEW_LOGO_ACTIVITY_DURATION, String.valueOf(j14));
+            hashMap.put(NEW_LOGO_ONCREATE_DURATION, String.valueOf(j15));
+            hashMap.put(NEW_LOGO_ONDESTROY_DURATION, String.valueOf(j11));
+            hashMap.put(NEWLOGO_TO_MAIN_GAP, String.valueOf(j3));
+            hashMap.put("onCreate", String.valueOf(j19));
             hashMap.put("superOnCreate", String.valueOf(j21));
             hashMap.put(INIT_HOME_FRAGMENT_CONTROLLER_DURATION, String.valueOf(j22));
             hashMap.put(CHECK_PLUGIN_ENTRANCE_STATE_DURATION, String.valueOf(j23));
@@ -458,7 +477,7 @@ public final class ActivitySpeedStats extends AbstractSpeedStats {
             hashMap.put(CHECK_REAL_NAME_DURATION, String.valueOf(j30));
             hashMap.put(CLEAR_CONCERN_CACHE_WHEN_VERSION_UPDATE_DURATION, String.valueOf(j31));
             hashMap.put(UPDATE_PROFILE_INFO_DURATION, String.valueOf(j32));
-            hashMap.put(TRY_LOAD_NATIVE_FUN_AD_DURATION, String.valueOf(j33));
+            hashMap.put(TRY_LOAD_NATIVE_FUN_AD_DURATION, String.valueOf(j4));
             hashMap.put(CREATE_START_GAP_DURATION, String.valueOf(j35));
             hashMap.put("onStart", String.valueOf(j37));
             hashMap.put(START_RESUME_GAP_DURATION, String.valueOf(j39));

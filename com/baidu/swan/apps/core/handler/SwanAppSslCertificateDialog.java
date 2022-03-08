@@ -5,30 +5,29 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import c.a.s0.a.f;
-import c.a.s0.a.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.widget.dialog.AutoOrientationBtnDialog;
 import com.baidu.swan.apps.res.widget.dialog.SwanAppAlertDialog;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class SwanAppSslCertificateDialog extends AutoOrientationBtnDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FrameLayout n;
     public a o;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class a extends AutoOrientationBtnDialog.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public View f39023g;
+        public View f37427g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Context context) {
@@ -72,7 +71,7 @@ public class SwanAppSslCertificateDialog extends AutoOrientationBtnDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view)) == null) {
-                this.f39023g = view;
+                this.f37427g = view;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -121,8 +120,8 @@ public class SwanAppSslCertificateDialog extends AutoOrientationBtnDialog {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(g.aiapps_view_ssl_certificate_dialog, viewGroup, false);
-            this.n = (FrameLayout) inflate.findViewById(f.ssl_certificate_container);
+            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.aiapps_view_ssl_certificate_dialog, viewGroup, false);
+            this.n = (FrameLayout) inflate.findViewById(R.id.ssl_certificate_container);
             k();
             return inflate;
         }
@@ -135,7 +134,7 @@ public class SwanAppSslCertificateDialog extends AutoOrientationBtnDialog {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.o) == null) {
             return;
         }
-        this.n.addView(aVar.f39023g);
+        this.n.addView(aVar.f37427g);
     }
 
     public void setSafeBuilder(a aVar) {

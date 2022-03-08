@@ -24,31 +24,31 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.SimpleTimeZone;
 import org.json.JSONException;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f52060b = 8;
+    public static final int f50479b = 8;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f52061c;
+    public Context f50480c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f52062d;
+    public String f50481d;
 
     /* renamed from: com.baidu.wallet.passport.a$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.wallet.passport.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C2022a {
+    /* loaded from: classes6.dex */
+    public static class C1998a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +69,7 @@ public class a {
             a = new a(null);
         }
 
-        public C2022a() {
+        public C1998a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,8 +113,8 @@ public class a {
             Date time = calendar.getTime();
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd-MMM-yyyy HH:mm:ss 'GMT'", Locale.US);
             simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
-            this.f52062d = simpleDateFormat.format(time);
-            LogUtil.d("--DxmCookieManager---cookie----expires--->" + this.f52062d);
+            this.f50481d = simpleDateFormat.format(time);
+            LogUtil.d("--DxmCookieManager---cookie----expires--->" + this.f50481d);
         }
     }
 
@@ -138,7 +138,7 @@ public class a {
                 return;
             }
         }
-        this.f52061c = BaiduWalletDelegate.getInstance().getAppContext();
+        this.f50480c = BaiduWalletDelegate.getInstance().getAppContext();
     }
 
     private String[] b(String str) {
@@ -157,7 +157,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C2022a.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1998a.a : (a) invokeV.objValue;
     }
 
     public void a(String str) {
@@ -172,16 +172,16 @@ public class a {
         if (interceptable == null || interceptable.invokeIL(65541, this, i2, str) == null) {
             try {
                 a(i2);
-                String[] b2 = b(SdkInitResponse.getInstance().getCookiesSyncDomainList(this.f52061c));
+                String[] b2 = b(SdkInitResponse.getInstance().getCookiesSyncDomainList(this.f50480c));
                 if (b2 == null) {
                     LogUtil.d("Cookie", "use default: " + Arrays.toString(a));
                     b2 = a;
                 }
-                CookieSyncManager.createInstance(this.f52061c);
+                CookieSyncManager.createInstance(this.f50480c);
                 CookieManager cookieManager = CookieManager.getInstance();
                 cookieManager.setAcceptCookie(true);
                 String str2 = "OPENBDUSS=" + str;
-                String str3 = ";expires=" + this.f52062d;
+                String str3 = ";expires=" + this.f50481d;
                 LogUtil.d("------------------DxmCookieManager start setCookie--------------");
                 for (String str4 : b2) {
                     if (!str4.startsWith(".")) {

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.text.SpanItem;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 @NotProguard
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class FontParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_FALLBACK = "/system/fonts/DroidSansFallback.ttf";
@@ -41,7 +41,7 @@ public class FontParser {
     public static Map<String, String> sSystemFontMap;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class Alias {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class FontParser {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class Axis {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +91,7 @@ public class FontParser {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class Config {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +116,7 @@ public class FontParser {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class Family {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -147,7 +147,7 @@ public class FontParser {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class Font {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -297,27 +297,27 @@ public class FontParser {
         return (Config) invokeL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x008e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x008c, code lost:
         if (r2.equals("zh") != false) goto L30;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x0097, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0094, code lost:
         if (r2.equals("zh-Hant") != false) goto L30;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x00a0, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x009c, code lost:
         if (r2.equals("zh-Hans") == false) goto L34;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x00a2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x009e, code lost:
         r5 = new java.lang.StringBuilder();
         r5.append(r2);
         r5.append("/");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x00af, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x00ab, code lost:
         if (r4.isItalic == false) goto L32;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x00b2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x00ae, code lost:
         r6 = "normal";
      */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x00b3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x00af, code lost:
         r5.append(r6);
         r5.append("/");
         r5.append(r4.weight);
@@ -328,11 +328,12 @@ public class FontParser {
     */
     public static Family readFamily(XmlPullParser xmlPullParser) {
         InterceptResult invokeL;
+        String str;
         String lowerCase;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, xmlPullParser)) == null) {
             String attributeValue = xmlPullParser.getAttributeValue(null, "name");
-            String attributeValue2 = xmlPullParser.getAttributeValue(null, "lang");
+            String attributeValue2 = xmlPullParser.getAttributeValue(null, WebvttCueParser.TAG_LANG);
             String attributeValue3 = xmlPullParser.getAttributeValue(null, "variant");
             ArrayList arrayList = new ArrayList();
             while (xmlPullParser.next() != 3) {
@@ -340,18 +341,14 @@ public class FontParser {
                     if (xmlPullParser.getName().equals("font")) {
                         Font readFont = readFont(xmlPullParser);
                         arrayList.add(readFont);
-                        boolean z = first;
-                        String str = SpanItem.STYLE_ITALIC;
-                        if (z && readFont.weight == 400 && !readFont.isItalic) {
+                        str = "italic";
+                        if (first && readFont.weight == 400 && !readFont.isItalic) {
                             first = false;
                             sFallbackFonts.add(readFont.fontName);
                             StringBuilder sb = new StringBuilder();
                             sb.append(attributeValue2);
                             sb.append("/");
-                            if (!readFont.isItalic) {
-                                str = "normal";
-                            }
-                            sb.append(str);
+                            sb.append(readFont.isItalic ? "italic" : "normal");
                             sb.append("/");
                             sb.append(readFont.weight);
                             sSystemFontMap.put(sb.toString(), readFont.fontName);
@@ -377,7 +374,7 @@ public class FontParser {
             ArrayList arrayList = new ArrayList();
             String attributeValue2 = xmlPullParser.getAttributeValue(null, "weight");
             int parseInt2 = attributeValue2 == null ? 400 : Integer.parseInt(attributeValue2);
-            boolean equals = SpanItem.STYLE_ITALIC.equals(xmlPullParser.getAttributeValue(null, "style"));
+            boolean equals = "italic".equals(xmlPullParser.getAttributeValue(null, "style"));
             StringBuilder sb = new StringBuilder();
             while (xmlPullParser.next() != 3) {
                 if (xmlPullParser.getEventType() == 4) {

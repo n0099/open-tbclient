@@ -21,32 +21,32 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @SuppressLint({"StaticFieldLeak"})
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class PhoneContactsMananger {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "PhoneContactsMananger";
 
     /* renamed from: b  reason: collision with root package name */
-    public static PhoneContactsMananger f51204b;
+    public static PhoneContactsMananger f49623b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f51205c;
+    public Context f49624c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ConcurrentHashMap<String, ContractInfo> f51206d;
+    public ConcurrentHashMap<String, ContractInfo> f49625d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ConcurrentHashMap<String, ContractInfo> f51207e;
+    public ConcurrentHashMap<String, ContractInfo> f49626e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<ContractInfo> f51208f;
+    public ArrayList<ContractInfo> f49627f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f51209g;
+    public b f49628g;
 
     /* renamed from: com.baidu.wallet.core.utils.contacts.PhoneContactsMananger$1  reason: invalid class name */
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -83,7 +83,7 @@ public class PhoneContactsMananger {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static final class ContactStatus {
         public static final /* synthetic */ ContactStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -144,37 +144,37 @@ public class PhoneContactsMananger {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface LoadAddressInfoComplitedListener {
         void onLoadContractsComplited(ArrayList<ContractInfo> arrayList);
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface LoadAddressInfoListener {
         void onFixPhoneList(String str, List<ContractInfo> list);
 
         void onLoadFastPayPhoneInfo(String str, ContractInfo contractInfo);
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface LoadAllContactListener {
         void onLoadSuccess(List<ContactSelectModel.AllContact> list, int i2);
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a extends AsyncTask<String, String, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PhoneContactsMananger a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f51210b;
+        public int f49629b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ArrayList<ContactSelectModel.AllContact> f51211c;
+        public ArrayList<ContactSelectModel.AllContact> f49630c;
 
         /* renamed from: d  reason: collision with root package name */
-        public LoadAllContactListener f51212d;
+        public LoadAllContactListener f49631d;
 
         public a(PhoneContactsMananger phoneContactsMananger) {
             Interceptable interceptable = $ic;
@@ -192,20 +192,20 @@ public class PhoneContactsMananger {
                 }
             }
             this.a = phoneContactsMananger;
-            this.f51211c = new ArrayList<>();
+            this.f49630c = new ArrayList<>();
         }
 
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51210b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f49629b : invokeV.intValue;
         }
 
         public void a(int i2, LoadAllContactListener loadAllContactListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, loadAllContactListener) == null) {
-                this.f51210b = i2;
-                this.f51212d = loadAllContactListener;
+                this.f49629b = i2;
+                this.f49631d = loadAllContactListener;
             }
         }
 
@@ -217,7 +217,7 @@ public class PhoneContactsMananger {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
                 try {
-                    List<ContractInfo> allPhone = AddressUtils.getAllPhone(this.a.f51205c);
+                    List<ContractInfo> allPhone = AddressUtils.getAllPhone(this.a.f49624c);
                     ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
                     for (int i2 = 0; i2 < allPhone.size(); i2++) {
                         String name = allPhone.get(i2).getName();
@@ -251,7 +251,7 @@ public class PhoneContactsMananger {
                         }
                     }
                     for (Map.Entry entry : concurrentHashMap.entrySet()) {
-                        this.f51211c.add((ContactSelectModel.AllContact) entry.getValue());
+                        this.f49630c.add((ContactSelectModel.AllContact) entry.getValue());
                     }
                     return null;
                 } catch (Throwable th) {
@@ -268,32 +268,32 @@ public class PhoneContactsMananger {
         public void onPostExecute(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                if (this.f51212d != null) {
-                    int size = this.f51211c.size();
-                    int i2 = this.f51210b;
+                if (this.f49631d != null) {
+                    int size = this.f49630c.size();
+                    int i2 = this.f49629b;
                     if (size > i2) {
-                        this.f51212d.onLoadSuccess(this.f51211c.subList(0, i2), this.f51210b);
+                        this.f49631d.onLoadSuccess(this.f49630c.subList(0, i2), this.f49629b);
                     } else {
-                        this.f51212d.onLoadSuccess(this.f51211c, i2);
+                        this.f49631d.onLoadSuccess(this.f49630c, i2);
                     }
-                    this.f51212d = null;
+                    this.f49631d = null;
                 }
                 super.onPostExecute(str);
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class b extends AsyncTask<String, String, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PhoneContactsMananger a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ContactStatus f51213b;
+        public ContactStatus f49632b;
 
         /* renamed from: c  reason: collision with root package name */
-        public LoadAddressInfoComplitedListener f51214c;
+        public LoadAddressInfoComplitedListener f49633c;
 
         public b(PhoneContactsMananger phoneContactsMananger) {
             Interceptable interceptable = $ic;
@@ -311,20 +311,20 @@ public class PhoneContactsMananger {
                 }
             }
             this.a = phoneContactsMananger;
-            this.f51213b = ContactStatus.unload;
+            this.f49632b = ContactStatus.unload;
         }
 
         public void a(LoadAddressInfoComplitedListener loadAddressInfoComplitedListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, loadAddressInfoComplitedListener) == null) {
-                this.f51214c = loadAddressInfoComplitedListener;
+                this.f49633c = loadAddressInfoComplitedListener;
             }
         }
 
         public ContactStatus a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51213b : (ContactStatus) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f49632b : (ContactStatus) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -334,25 +334,25 @@ public class PhoneContactsMananger {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                this.f51213b = ContactStatus.loading;
-                if (this.a.f51206d.size() == 0) {
+                this.f49632b = ContactStatus.loading;
+                if (this.a.f49625d.size() == 0) {
                     PhoneContactsMananger phoneContactsMananger = this.a;
-                    phoneContactsMananger.f51206d = AddressUtils.getPhoneContracts(phoneContactsMananger.f51205c);
+                    phoneContactsMananger.f49625d = AddressUtils.getPhoneContracts(phoneContactsMananger.f49624c);
                 }
                 String str = PhoneContactsMananger.a;
-                LogUtil.d(str, "手机里面的通讯：" + this.a.f51206d.toString());
-                if (this.a.f51207e.size() == 0) {
+                LogUtil.d(str, "手机里面的通讯：" + this.a.f49625d.toString());
+                if (this.a.f49626e.size() == 0) {
                     PhoneContactsMananger phoneContactsMananger2 = this.a;
-                    phoneContactsMananger2.f51207e = AddressUtils.getSimContracts(phoneContactsMananger2.f51205c);
+                    phoneContactsMananger2.f49626e = AddressUtils.getSimContracts(phoneContactsMananger2.f49624c);
                 }
                 String str2 = PhoneContactsMananger.a;
-                LogUtil.d(str2, "Sim里面的通讯：" + this.a.f51207e.toString());
-                if (this.a.f51208f == null || this.a.f51208f.size() == 0) {
+                LogUtil.d(str2, "Sim里面的通讯：" + this.a.f49626e.toString());
+                if (this.a.f49627f == null || this.a.f49627f.size() == 0) {
                     this.a.b();
                 }
                 String str3 = PhoneContactsMananger.a;
-                LogUtil.d(str3, "本地所有的通讯录信息：" + this.a.f51208f.toString());
-                this.f51213b = ContactStatus.complited;
+                LogUtil.d(str3, "本地所有的通讯录信息：" + this.a.f49627f.toString());
+                this.f49632b = ContactStatus.complited;
                 return null;
             }
             return (String) invokeL.objValue;
@@ -364,13 +364,13 @@ public class PhoneContactsMananger {
         public void onPostExecute(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                if (this.a.f51208f.isEmpty()) {
-                    this.f51213b = ContactStatus.unload;
+                if (this.a.f49627f.isEmpty()) {
+                    this.f49632b = ContactStatus.unload;
                 }
-                LoadAddressInfoComplitedListener loadAddressInfoComplitedListener = this.f51214c;
+                LoadAddressInfoComplitedListener loadAddressInfoComplitedListener = this.f49633c;
                 if (loadAddressInfoComplitedListener != null) {
-                    loadAddressInfoComplitedListener.onLoadContractsComplited(this.a.f51208f);
-                    this.f51214c = null;
+                    loadAddressInfoComplitedListener.onLoadContractsComplited(this.a.f49627f);
+                    this.f49633c = null;
                 }
                 super.onPostExecute(str);
             }
@@ -407,12 +407,12 @@ public class PhoneContactsMananger {
                 return;
             }
         }
-        this.f51206d = new ConcurrentHashMap<>();
-        this.f51207e = new ConcurrentHashMap<>();
-        this.f51208f = new ArrayList<>();
-        this.f51209g = null;
+        this.f49625d = new ConcurrentHashMap<>();
+        this.f49626e = new ConcurrentHashMap<>();
+        this.f49627f = new ArrayList<>();
+        this.f49628g = null;
         if (context != null) {
-            this.f51205c = DxmApplicationContextImpl.getApplicationContext(context);
+            this.f49624c = DxmApplicationContextImpl.getApplicationContext(context);
         }
     }
 
@@ -422,10 +422,10 @@ public class PhoneContactsMananger {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
             synchronized (PhoneContactsMananger.class) {
-                if (f51204b == null) {
-                    f51204b = new PhoneContactsMananger(context);
+                if (f49623b == null) {
+                    f49623b = new PhoneContactsMananger(context);
                 }
-                phoneContactsMananger = f51204b;
+                phoneContactsMananger = f49623b;
             }
             return phoneContactsMananger;
         }
@@ -437,9 +437,9 @@ public class PhoneContactsMananger {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            ContractInfo contractInfo = this.f51206d.get(str);
+            ContractInfo contractInfo = this.f49625d.get(str);
             if (contractInfo == null) {
-                contractInfo = this.f51207e.get(str);
+                contractInfo = this.f49626e.get(str);
             }
             String str3 = a;
             StringBuilder sb = new StringBuilder();
@@ -473,17 +473,17 @@ public class PhoneContactsMananger {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z), loadAddressInfoListener}) == null) {
             if (z) {
-                contractInfo = this.f51206d.get(str);
+                contractInfo = this.f49625d.get(str);
                 if (contractInfo == null) {
-                    contractInfo = this.f51207e.get(str);
+                    contractInfo = this.f49626e.get(str);
                 }
             } else {
                 String formatPhoneNumber = StringUtils.formatPhoneNumber(str);
                 if (TextUtils.isEmpty(formatPhoneNumber)) {
                     contractInfo = null;
                 } else {
-                    ContractInfo contractInfo2 = this.f51206d.get(formatPhoneNumber);
-                    contractInfo = contractInfo2 == null ? this.f51207e.get(formatPhoneNumber) : contractInfo2;
+                    ContractInfo contractInfo2 = this.f49625d.get(formatPhoneNumber);
+                    contractInfo = contractInfo2 == null ? this.f49626e.get(formatPhoneNumber) : contractInfo2;
                 }
             }
             if (contractInfo != null) {
@@ -497,28 +497,28 @@ public class PhoneContactsMananger {
             }
             ArrayList arrayList = new ArrayList();
             char[] charArray2 = str.toCharArray();
-            for (int i3 = 0; i3 < this.f51208f.size(); i3++) {
-                if (this.f51208f.get(i3) != null && !TextUtils.isEmpty(this.f51208f.get(i3).getMobile())) {
-                    String mobile = this.f51208f.get(i3).getMobile();
+            for (int i3 = 0; i3 < this.f49627f.size(); i3++) {
+                if (this.f49627f.get(i3) != null && !TextUtils.isEmpty(this.f49627f.get(i3).getMobile())) {
+                    String mobile = this.f49627f.get(i3).getMobile();
                     if (z) {
                         charArray = mobile.toCharArray();
                     } else {
                         charArray = mobile.replace(" ", "").toCharArray();
                     }
-                    this.f51208f.get(i3).setErrordigit(-1);
+                    this.f49627f.get(i3).setErrordigit(-1);
                     int i4 = 0;
                     for (int i5 = 0; i5 < charArray.length; i5++) {
                         if (charArray2[i5] != charArray[i5] && (i4 = i4 + 1) == 1) {
-                            this.f51208f.get(i3).setErrordigit(i5);
+                            this.f49627f.get(i3).setErrordigit(i5);
                         }
                         if (i4 > i2) {
                             break;
                         }
                     }
                     if (i4 > 0 && i4 <= i2) {
-                        arrayList.add(this.f51208f.get(i3));
+                        arrayList.add(this.f49627f.get(i3));
                     } else {
-                        this.f51208f.get(i3).setErrordigit(-1);
+                        this.f49627f.get(i3).setErrordigit(-1);
                     }
                 }
             }
@@ -534,11 +534,11 @@ public class PhoneContactsMananger {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, loadAddressInfoListener) == null) {
-            ContractInfo contractInfo = this.f51206d.get(str);
+            ContractInfo contractInfo = this.f49625d.get(str);
             if (contractInfo == null) {
-                contractInfo = this.f51207e.get(str);
+                contractInfo = this.f49626e.get(str);
             }
-            if (contractInfo == null && this.f51208f.size() == 0) {
+            if (contractInfo == null && this.f49627f.size() == 0) {
                 LogUtil.d(a, "通讯录为空，视为没有权限为关闭");
                 if (loadAddressInfoListener != null) {
                     loadAddressInfoListener.onLoadFastPayPhoneInfo(str, new ContractInfo());
@@ -567,20 +567,20 @@ public class PhoneContactsMananger {
     public void loadPhoneContacts(LoadAddressInfoComplitedListener loadAddressInfoComplitedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, loadAddressInfoComplitedListener) == null) {
-            if (this.f51209g == null || this.f51208f.isEmpty()) {
-                this.f51209g = new b(this);
+            if (this.f49628g == null || this.f49627f.isEmpty()) {
+                this.f49628g = new b(this);
             }
-            int i2 = AnonymousClass1.a[this.f51209g.a().ordinal()];
+            int i2 = AnonymousClass1.a[this.f49628g.a().ordinal()];
             if (i2 != 1) {
                 if (i2 == 3 && loadAddressInfoComplitedListener != null) {
-                    loadAddressInfoComplitedListener.onLoadContractsComplited(this.f51208f);
+                    loadAddressInfoComplitedListener.onLoadContractsComplited(this.f49627f);
                     return;
                 }
                 return;
             }
             try {
-                this.f51209g.a(loadAddressInfoComplitedListener);
-                this.f51209g.execute("");
+                this.f49628g.a(loadAddressInfoComplitedListener);
+                this.f49628g.execute("");
             } catch (IllegalStateException e2) {
                 LogUtil.d(PhoneContactsMananger.class.toString(), e2.toString());
             }
@@ -590,18 +590,18 @@ public class PhoneContactsMananger {
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.f51209g != null) {
-                this.f51209g = null;
+            if (this.f49628g != null) {
+                this.f49628g = null;
             }
-            ConcurrentHashMap<String, ContractInfo> concurrentHashMap = this.f51206d;
+            ConcurrentHashMap<String, ContractInfo> concurrentHashMap = this.f49625d;
             if (concurrentHashMap != null) {
                 concurrentHashMap.clear();
             }
-            ConcurrentHashMap<String, ContractInfo> concurrentHashMap2 = this.f51207e;
+            ConcurrentHashMap<String, ContractInfo> concurrentHashMap2 = this.f49626e;
             if (concurrentHashMap2 != null) {
                 concurrentHashMap2.clear();
             }
-            ArrayList<ContractInfo> arrayList = this.f51208f;
+            ArrayList<ContractInfo> arrayList = this.f49627f;
             if (arrayList != null) {
                 arrayList.clear();
             }
@@ -612,14 +612,14 @@ public class PhoneContactsMananger {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            for (String str : this.f51206d.keySet()) {
-                if (!this.f51208f.contains(this.f51206d.get(str))) {
-                    this.f51208f.add(this.f51206d.get(str));
+            for (String str : this.f49625d.keySet()) {
+                if (!this.f49627f.contains(this.f49625d.get(str))) {
+                    this.f49627f.add(this.f49625d.get(str));
                 }
             }
-            for (String str2 : this.f51207e.keySet()) {
-                if (!this.f51208f.contains(this.f51207e.get(str2))) {
-                    this.f51208f.add(this.f51207e.get(str2));
+            for (String str2 : this.f49626e.keySet()) {
+                if (!this.f49627f.contains(this.f49626e.get(str2))) {
+                    this.f49627f.add(this.f49626e.get(str2));
                 }
             }
         }

@@ -42,7 +42,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Logger;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class H264TrackImpl extends AbstractTrack {
     public static /* synthetic */ int[] $SWITCH_TABLE$com$googlecode$mp4parser$authoring$tracks$H264TrackImpl$NALActions;
     public static /* synthetic */ Interceptable $ic;
@@ -75,7 +75,7 @@ public class H264TrackImpl extends AbstractTrack {
     public int width;
 
     /* renamed from: com.googlecode.mp4parser.authoring.tracks.H264TrackImpl$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$googlecode$mp4parser$authoring$tracks$H264TrackImpl$NALActions;
         public static /* synthetic */ Interceptable $ic;
@@ -115,7 +115,7 @@ public class H264TrackImpl extends AbstractTrack {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class LookAhead {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -229,7 +229,7 @@ public class H264TrackImpl extends AbstractTrack {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class NALActions {
         public static /* synthetic */ Interceptable $ic;
         public static final NALActions BUFFER;
@@ -299,7 +299,7 @@ public class H264TrackImpl extends AbstractTrack {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class SEIMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -486,7 +486,7 @@ public class H264TrackImpl extends AbstractTrack {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class SliceHeader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -502,7 +502,7 @@ public class H264TrackImpl extends AbstractTrack {
         public SliceType slice_type;
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes3.dex */
+        /* loaded from: classes7.dex */
         public static final class SliceType {
             public static /* synthetic */ Interceptable $ic;
             public static final SliceType B;
@@ -826,7 +826,7 @@ public class H264TrackImpl extends AbstractTrack {
             if (readSamples(lookAhead)) {
                 if (readVariables()) {
                     this.sampleDescriptionBox = new SampleDescriptionBox();
-                    VisualSampleEntry visualSampleEntry = new VisualSampleEntry(VisualSampleEntry.TYPE3);
+                    VisualSampleEntry visualSampleEntry = new VisualSampleEntry("avc1");
                     visualSampleEntry.setDataReferenceIndex(1);
                     visualSampleEntry.setDepth(24);
                     visualSampleEntry.setFrameCount(1);
@@ -1058,7 +1058,7 @@ public class H264TrackImpl extends AbstractTrack {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.trackMetaData : (TrackMetaData) invokeV.objValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class ByteBufferBackedInputStream extends InputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1121,7 +1121,7 @@ public class H264TrackImpl extends AbstractTrack {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new VideoMediaHeaderBox() : (AbstractMediaHeaderBox) invokeV.objValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class CleanInputStream extends FilterInputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

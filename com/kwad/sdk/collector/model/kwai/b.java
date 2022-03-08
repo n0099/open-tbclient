@@ -8,27 +8,27 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class b implements com.kwad.sdk.collector.model.b<b> {
     public static SimpleDateFormat a = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss");
 
     /* renamed from: b  reason: collision with root package name */
-    public long f55745b;
+    public long f54095b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f55746c;
+    public String f54096c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f55747d;
+    public String f54097d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f55748e;
+    public long f54098e;
 
     public b(long j2, String str, String str2) {
-        this.f55745b = -1L;
-        this.f55745b = j2;
-        this.f55746c = str;
-        this.f55747d = str2;
+        this.f54095b = -1L;
+        this.f54095b = j2;
+        this.f54096c = str;
+        this.f54097d = str2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -38,7 +38,7 @@ public class b implements com.kwad.sdk.collector.model.b<b> {
         if (bVar == null) {
             return 1;
         }
-        int i2 = ((this.f55748e - com.kwad.sdk.collector.model.c.c(bVar)) > 0L ? 1 : ((this.f55748e - com.kwad.sdk.collector.model.c.c(bVar)) == 0L ? 0 : -1));
+        int i2 = ((this.f54098e - com.kwad.sdk.collector.model.c.c(bVar)) > 0L ? 1 : ((this.f54098e - com.kwad.sdk.collector.model.c.c(bVar)) == 0L ? 0 : -1));
         if (i2 == 0) {
             return 0;
         }
@@ -49,8 +49,8 @@ public class b implements com.kwad.sdk.collector.model.b<b> {
     @NonNull
     /* renamed from: a */
     public b clone() {
-        b bVar = new b(this.f55745b, this.f55746c, this.f55747d);
-        com.kwad.sdk.collector.model.c.a(bVar, this.f55748e);
+        b bVar = new b(this.f54095b, this.f54096c, this.f54097d);
+        com.kwad.sdk.collector.model.c.a(bVar, this.f54098e);
         return bVar;
     }
 
@@ -59,23 +59,23 @@ public class b implements com.kwad.sdk.collector.model.b<b> {
     }
 
     public String b() {
-        return this.f55746c;
+        return this.f54096c;
     }
 
     public void b(long j2) {
-        this.f55745b = j2;
+        this.f54095b = j2;
     }
 
     public String c() {
-        return this.f55747d;
+        return this.f54097d;
     }
 
     public void c(long j2) {
-        this.f55748e = j2;
+        this.f54098e = j2;
     }
 
     public long d() {
-        return this.f55748e;
+        return this.f54098e;
     }
 
     @Override // com.kwad.sdk.collector.model.b
@@ -90,28 +90,28 @@ public class b implements com.kwad.sdk.collector.model.b<b> {
             return false;
         }
         b bVar = (b) obj;
-        long j2 = this.f55745b;
-        if (j2 != bVar.f55745b) {
+        long j2 = this.f54095b;
+        if (j2 != bVar.f54095b) {
             return false;
         }
         if (j2 == 0) {
             j2 = 1;
         }
-        if (this.f55748e / j2 == bVar.f55748e / j2 && ae.a(this.f55746c, bVar.f55746c)) {
-            return ae.a(this.f55747d, bVar.f55747d);
+        if (this.f54098e / j2 == bVar.f54098e / j2 && ae.a(this.f54096c, bVar.f54096c)) {
+            return ae.a(this.f54097d, bVar.f54097d);
         }
         return false;
     }
 
     public int hashCode() {
-        long j2 = this.f55745b;
+        long j2 = this.f54095b;
         if (j2 == 0) {
             j2 = 1;
         }
-        long j3 = this.f55745b / j2;
-        String str = this.f55746c;
+        long j3 = this.f54095b / j2;
+        String str = this.f54096c;
         int hashCode = (str != null ? str.hashCode() : 1) * 31;
-        String str2 = this.f55747d;
+        String str2 = this.f54097d;
         return ((hashCode + (str2 != null ? str2.hashCode() : 1)) * 31) + ((int) (j3 ^ (j3 >>> 32)));
     }
 
@@ -122,9 +122,9 @@ public class b implements com.kwad.sdk.collector.model.b<b> {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        t.a(jSONObject, "name", this.f55746c);
-        t.a(jSONObject, "packageName", this.f55747d);
-        t.a(jSONObject, "lastRunningTime", this.f55748e);
+        t.a(jSONObject, "name", this.f54096c);
+        t.a(jSONObject, "packageName", this.f54097d);
+        t.a(jSONObject, "lastRunningTime", this.f54098e);
         return jSONObject;
     }
 

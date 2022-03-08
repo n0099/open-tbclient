@@ -23,38 +23,38 @@ import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView.Renderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final float[] f33712b;
+    public final float[] f32115b;
 
     /* renamed from: c  reason: collision with root package name */
-    public FloatBuffer f33713c;
+    public FloatBuffer f32116c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f33714d;
+    public final String f32117d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f33715e;
+    public final String f32118e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float[] f33716f;
+    public float[] f32119f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float[] f33717g;
+    public float[] f32120g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f33718h;
+    public int f32121h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f33719i;
+    public int f32122i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f33720j;
+    public int f32123j;
     public int k;
     public int l;
     public int m;
@@ -71,7 +71,7 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
     public int x;
     public i.a y;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a();
     }
@@ -89,11 +89,11 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                 return;
             }
         }
-        this.f33712b = new float[]{-1.0f, -1.0f, 0.0f, 0.0f, 0.0f, 1.0f, -1.0f, 0.0f, 1.0f, 0.0f, -1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, 1.0f};
-        this.f33714d = TextureRender.VERTEX_SHADER;
-        this.f33715e = TextureRender.FRAGMENT_SHADER;
-        this.f33716f = new float[16];
-        this.f33717g = new float[16];
+        this.f32115b = new float[]{-1.0f, -1.0f, 0.0f, 0.0f, 0.0f, 1.0f, -1.0f, 0.0f, 1.0f, 0.0f, -1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, 1.0f};
+        this.f32117d = TextureRender.VERTEX_SHADER;
+        this.f32118e = TextureRender.FRAGMENT_SHADER;
+        this.f32119f = new float[16];
+        this.f32120g = new float[16];
         this.p = false;
         this.q = new Object();
         this.r = new Object();
@@ -101,10 +101,10 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         this.v = 1.0f;
         this.w = 0;
         this.x = 0;
-        FloatBuffer asFloatBuffer = ByteBuffer.allocateDirect(this.f33712b.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
-        this.f33713c = asFloatBuffer;
-        asFloatBuffer.put(this.f33712b).position(0);
-        Matrix.setIdentityM(this.f33717g, 0);
+        FloatBuffer asFloatBuffer = ByteBuffer.allocateDirect(this.f32115b.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
+        this.f32116c = asFloatBuffer;
+        asFloatBuffer.put(this.f32115b).position(0);
+        Matrix.setIdentityM(this.f32120g, 0);
         this.s = false;
         this.t = new f();
     }
@@ -224,33 +224,33 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
     private void e() {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || (i2 = this.f33718h) == 0) {
+        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || (i2 = this.f32121h) == 0) {
             return;
         }
         GLES20.glUseProgram(i2);
         a("glUseProgram");
         GLES20.glActiveTexture(33984);
-        GLES20.glBindTexture(36197, this.f33719i);
-        this.f33713c.position(0);
-        GLES20.glVertexAttribPointer(this.l, 3, 5126, false, 20, (Buffer) this.f33713c);
+        GLES20.glBindTexture(36197, this.f32122i);
+        this.f32116c.position(0);
+        GLES20.glVertexAttribPointer(this.l, 3, 5126, false, 20, (Buffer) this.f32116c);
         a("glVertexAttribPointer maPosition");
         GLES20.glEnableVertexAttribArray(this.l);
         a("glEnableVertexAttribArray maPositionHandle");
-        this.f33713c.position(3);
-        GLES20.glVertexAttribPointer(this.m, 3, 5126, false, 20, (Buffer) this.f33713c);
+        this.f32116c.position(3);
+        GLES20.glVertexAttribPointer(this.m, 3, 5126, false, 20, (Buffer) this.f32116c);
         a("glVertexAttribPointer maTextureHandle");
         GLES20.glEnableVertexAttribArray(this.m);
         a("glEnableVertexAttribArray maTextureHandle");
-        Matrix.setIdentityM(this.f33716f, 0);
+        Matrix.setIdentityM(this.f32119f, 0);
         float[] c2 = this.t.c();
         if (this.t.f()) {
             float[] e2 = this.t.e();
-            Matrix.translateM(this.f33716f, 0, e2[0], e2[1], 0.0f);
+            Matrix.translateM(this.f32119f, 0, e2[0], e2[1], 0.0f);
         }
-        Matrix.scaleM(this.f33716f, 0, c2[0], c2[1], 0.0f);
-        Matrix.rotateM(this.f33716f, 0, this.t.g(), 0.0f, 0.0f, 1.0f);
-        GLES20.glUniformMatrix4fv(this.f33720j, 1, false, this.f33716f, 0);
-        GLES20.glUniformMatrix4fv(this.k, 1, false, this.f33717g, 0);
+        Matrix.scaleM(this.f32119f, 0, c2[0], c2[1], 0.0f);
+        Matrix.rotateM(this.f32119f, 0, this.t.g(), 0.0f, 0.0f, 1.0f);
+        GLES20.glUniformMatrix4fv(this.f32123j, 1, false, this.f32119f, 0);
+        GLES20.glUniformMatrix4fv(this.k, 1, false, this.f32120g, 0);
         GLES20.glDrawArrays(5, 0, 4);
         a("glDrawArrays");
         GLES20.glFinish();
@@ -262,8 +262,8 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
             a(this.n);
             int[] iArr = new int[1];
             GLES20.glGenTextures(1, iArr, 0);
-            this.f33719i = iArr[0];
-            SurfaceTexture surfaceTexture = new SurfaceTexture(this.f33719i);
+            this.f32122i = iArr[0];
+            SurfaceTexture surfaceTexture = new SurfaceTexture(this.f32122i);
             this.n = surfaceTexture;
             surfaceTexture.setOnFrameAvailableListener(this);
             i();
@@ -279,7 +279,7 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                     if (this.p) {
                         if (this.n != null) {
                             this.n.updateTexImage();
-                            this.n.getTransformMatrix(this.f33717g);
+                            this.n.getTransformMatrix(this.f32120g);
                         }
                         this.p = false;
                         if (!this.s) {
@@ -303,7 +303,7 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         }
         try {
             if (this.n != null) {
-                this.n.attachToGLContext(this.f33719i);
+                this.n.attachToGLContext(this.f32122i);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -527,7 +527,7 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, gl10, eGLConfig) == null) {
             int a2 = a(TextureRender.VERTEX_SHADER, TextureRender.FRAGMENT_SHADER);
-            this.f33718h = a2;
+            this.f32121h = a2;
             if (a2 == 0) {
                 return;
             }
@@ -537,21 +537,21 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                 str = "CyberRender";
                 str2 = "Could not get attrib location for aPosition";
             } else {
-                this.m = GLES20.glGetAttribLocation(this.f33718h, "aTextureCoord");
+                this.m = GLES20.glGetAttribLocation(this.f32121h, "aTextureCoord");
                 a("glGetAttribLocation aTextureCoord");
                 if (this.m == -1) {
                     str = "CyberRender";
                     str2 = "Could not get attrib location for aTextureCoord";
                 } else {
-                    this.f33720j = GLES20.glGetUniformLocation(this.f33718h, "uMVPMatrix");
+                    this.f32123j = GLES20.glGetUniformLocation(this.f32121h, "uMVPMatrix");
                     a("glGetUniformLocation uMVPMatrix");
-                    if (this.f33720j == -1) {
+                    if (this.f32123j == -1) {
                         str = "CyberRender";
                         str2 = "Could not get attrib location for uMVPMatrix";
                     } else {
-                        this.k = GLES20.glGetUniformLocation(this.f33718h, "uSTMatrix");
+                        this.k = GLES20.glGetUniformLocation(this.f32121h, "uSTMatrix");
                         a("glGetUniformLocation uSTMatrix");
-                        if (this.f33720j != -1) {
+                        if (this.f32123j != -1) {
                             GLES20.glTexParameterf(36197, 10241, 9728.0f);
                             GLES20.glTexParameterf(36197, 10240, 9729.0f);
                             i.a aVar = this.y;

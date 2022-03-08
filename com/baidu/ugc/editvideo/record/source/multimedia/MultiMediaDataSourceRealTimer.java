@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b1.t.i;
+import c.a.y0.r.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class MultiMediaDataSourceRealTimer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSourceRealTimer";
@@ -40,7 +40,7 @@ public class MultiMediaDataSourceRealTimer {
     public Runnable startRunnable;
     public Runnable stopRunnable;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface AnimatorUpdateListener {
         void onAnimationUpdate(long j2);
     }

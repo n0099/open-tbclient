@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
-import c.a.t0.s.r.e2;
+import c.a.q0.r.r.e2;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -35,7 +35,7 @@ import java.lang.ref.WeakReference;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class ShareItem {
     public static /* synthetic */ Interceptable $ic;
     public static final String B0;
@@ -74,39 +74,39 @@ public class ShareItem {
     public String a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f41019b;
+    public boolean f39425b;
     public int b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f41020c;
+    public boolean f39426c;
     public WeakReference<Bitmap> c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f41021d;
+    public boolean f39427d;
     public Bundle d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f41022e;
+    public boolean f39428e;
     public boolean e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f41023f;
+    public boolean f39429f;
     public boolean f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f41024g;
+    public boolean f39430g;
     public boolean g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f41025h;
+    public boolean f39431h;
     public boolean h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f41026i;
+    public boolean f39432i;
     public boolean i0;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f41027j;
+    public boolean f39433j;
     public int j0;
     public boolean k;
     public String k0;
@@ -171,15 +171,15 @@ public class ShareItem {
             }
         }
         this.a = false;
-        this.f41019b = false;
-        this.f41020c = false;
-        this.f41021d = false;
-        this.f41022e = false;
-        this.f41023f = false;
-        this.f41024g = false;
-        this.f41025h = false;
-        this.f41026i = false;
-        this.f41027j = false;
+        this.f39425b = false;
+        this.f39426c = false;
+        this.f39427d = false;
+        this.f39428e = false;
+        this.f39429f = false;
+        this.f39430g = false;
+        this.f39431h = false;
+        this.f39432i = false;
+        this.f39433j = false;
         this.k = false;
         this.l = false;
         this.m = false;
@@ -367,7 +367,7 @@ public class ShareItem {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class ForwardInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -454,10 +454,10 @@ public class ShareItem {
                     }
                     forwardInfo.showText = e2Var.z1.d();
                     OriginalThreadInfo originalThreadInfo = e2Var.z1;
-                    forwardInfo.showPicUrl = originalThreadInfo.f40386c;
+                    forwardInfo.showPicUrl = originalThreadInfo.f38790c;
                     forwardInfo.showType = originalThreadInfo.a;
                     forwardInfo.originalBaijiahaoData = originalThreadInfo.p;
-                    forwardInfo.originalTid = originalThreadInfo.f40389f;
+                    forwardInfo.originalTid = originalThreadInfo.f38793f;
                     if (i2 == 1) {
                         if (postData != null && postData.N() != null) {
                             str = postData.N().toString();
@@ -486,7 +486,7 @@ public class ShareItem {
                     OriginalThreadInfo l = OriginalThreadInfo.l(e2Var);
                     if (l != null) {
                         forwardInfo.showText = l.d();
-                        forwardInfo.showPicUrl = l.f40386c;
+                        forwardInfo.showPicUrl = l.f38790c;
                         forwardInfo.showType = l.a;
                     }
                     forwardInfo.originalTid = e2Var.w1();

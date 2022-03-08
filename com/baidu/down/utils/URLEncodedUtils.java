@@ -14,7 +14,7 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.List;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class URLEncodedUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_TYPE = "application/x-www-form-urlencoded";

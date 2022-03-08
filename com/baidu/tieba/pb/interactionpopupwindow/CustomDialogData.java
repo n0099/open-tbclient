@@ -6,10 +6,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class CustomDialogData implements IBaseDialogData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String POS_LEFT = "left";
@@ -23,7 +24,7 @@ public class CustomDialogData implements IBaseDialogData {
     public Button rightButton;
     public int type;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class Button implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +47,7 @@ public class CustomDialogData implements IBaseDialogData {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class Head implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,14 +90,14 @@ public class CustomDialogData implements IBaseDialogData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             CustomDialogData customDialogData = new CustomDialogData();
-            JSONObject optJSONObject = jSONObject.optJSONObject("head");
+            JSONObject optJSONObject = jSONObject.optJSONObject(TtmlNode.TAG_HEAD);
             if (optJSONObject != null) {
                 Head head = new Head();
                 head.imageUrl = optJSONObject.optString("image");
                 head.text = optJSONObject.optString("text");
                 customDialogData.head = head;
             }
-            customDialogData.body = jSONObject.optString("body");
+            customDialogData.body = jSONObject.optString(TtmlNode.TAG_BODY);
             JSONArray optJSONArray = jSONObject.optJSONArray("button");
             if (optJSONArray != null) {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {

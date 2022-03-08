@@ -16,27 +16,27 @@ import java.util.LinkedList;
 import java.util.List;
 import protobuf.QueryHistoryMsg.MsgInfo;
 import protobuf.QueryHistoryMsg.QueryHistoryMsgResIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class ResponseHistoryMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<a> msg;
     public int msgCount;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f45086b;
+        public int f43492b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f45087c;
+        public String f43493c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f45088d;
+        public int f43494d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -102,9 +102,9 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
                         Date date = new Date();
                         date.setTime(msgInfo.sendTime.longValue() * 1000);
                         aVar.a = m.getDateStringMouth(date);
-                        aVar.f45086b = msgInfo.type.intValue();
-                        aVar.f45087c = msgInfo.content;
-                        aVar.f45088d = msgInfo.id.intValue();
+                        aVar.f43492b = msgInfo.type.intValue();
+                        aVar.f43493c = msgInfo.content;
+                        aVar.f43494d = msgInfo.id.intValue();
                         this.msg.add(aVar);
                     }
                 }
@@ -112,8 +112,8 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
             if (this.msg.isEmpty()) {
                 return;
             }
-            c.a.t0.s.s.a.f();
-            l<byte[]> d2 = c.a.t0.s.s.a.d("tb.im_official_history");
+            c.a.q0.r.s.a.f();
+            l<byte[]> d2 = c.a.q0.r.s.a.d("tb.im_official_history");
             RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) getOrginalMessage();
             if (requestHistoryMessage == null || requestHistoryMessage.getRequestId() != 0) {
                 return;

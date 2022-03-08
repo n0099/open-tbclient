@@ -11,36 +11,36 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import com.kwad.sdk.R;
+import com.baidu.tieba.R;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class KsPriceView extends TextView implements b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f58257b = "¥%s 到手约 ¥%s";
+    public static String f56607b = "¥%s 到手约 ¥%s";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f58258c = "¥%s";
+    public static String f56608c = "¥%s";
     public a a;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f58259d;
+    public String f56609d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f58260e;
+    public String f56610e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f58261b;
+        public int f56611b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f58262c;
+        public int f56612c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f58263d;
+        public int f56613d;
 
         public a() {
         }
@@ -50,15 +50,15 @@ public class KsPriceView extends TextView implements b {
         }
 
         public int b() {
-            return this.f58262c;
+            return this.f56612c;
         }
 
         public int c() {
-            return this.f58261b;
+            return this.f56611b;
         }
 
         public int d() {
-            return this.f58263d;
+            return this.f56613d;
         }
     }
 
@@ -97,7 +97,7 @@ public class KsPriceView extends TextView implements b {
 
     @Nullable
     public static SpannableString a(String str, @Nullable String str2, a aVar) {
-        String format = str2 == null ? String.format(f58258c, str) : String.format(f58257b, str, str2);
+        String format = str2 == null ? String.format(f56608c, str) : String.format(f56607b, str, str2);
         SpannableString spannableString = new SpannableString(format);
         int indexOf = format.indexOf(str) - 1;
         if (indexOf < 0) {
@@ -119,28 +119,28 @@ public class KsPriceView extends TextView implements b {
     private void a(Context context, @Nullable AttributeSet attributeSet, int i2) {
         setMaxLines(1);
         this.a.a = context.getResources().getColor(R.color.ksad_reward_main_color);
-        this.a.f58261b = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_order_price_size);
-        this.a.f58262c = context.getResources().getColor(R.color.ksad_reward_original_price);
-        this.a.f58263d = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_order_original_price_size);
+        this.a.f56611b = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_order_price_size);
+        this.a.f56612c = context.getResources().getColor(R.color.ksad_reward_original_price);
+        this.a.f56613d = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_order_original_price_size);
     }
 
     @Override // com.kwad.sdk.widget.b
     public void a(c cVar) {
         this.a.a = cVar.a();
-        a(this.f58259d, this.f58260e);
+        a(this.f56609d, this.f56610e);
     }
 
     public void a(String str, String str2) {
         if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f58259d = str;
-        this.f58260e = str2;
+        this.f56609d = str;
+        this.f56610e = str2;
         if (a(str2) <= 0.0f) {
-            this.f58260e = null;
+            this.f56610e = null;
         }
         setTextColor(this.a.a());
-        SpannableString a2 = a(str, this.f58260e, this.a);
+        SpannableString a2 = a(str, this.f56610e, this.a);
         if (a2 != null) {
             setText(a2);
         }

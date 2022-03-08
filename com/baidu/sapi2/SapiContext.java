@@ -35,7 +35,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class SapiContext implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHINA_TELECOM_EXPIRED_TIME = "china_telecom_expired_time";
@@ -101,7 +101,7 @@ public final class SapiContext implements NoProguard {
             }
         }
         this.context = context;
-        this.storage = context.getSharedPreferences(SharedPreferencesUtil.f37888c, 0);
+        this.storage = context.getSharedPreferences(SharedPreferencesUtil.f36291c, 0);
     }
 
     private String getCancelNuomiAddrCountKey() {

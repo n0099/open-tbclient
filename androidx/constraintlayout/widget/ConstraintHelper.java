@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.constraintlayout.solver.widgets.Helper;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.R;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -61,7 +60,7 @@ public abstract class ConstraintHelper extends View {
         }
         String trim = str.trim();
         try {
-            i2 = R.id.class.getField(trim).getInt(null);
+            i2 = R$id.class.getField(trim).getInt(null);
         } catch (Exception unused) {
             i2 = 0;
         }
@@ -107,11 +106,11 @@ public abstract class ConstraintHelper extends View {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet) == null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.ConstraintLayout_Layout);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R$styleable.ConstraintLayout_Layout);
         int indexCount = obtainStyledAttributes.getIndexCount();
         for (int i2 = 0; i2 < indexCount; i2++) {
             int index = obtainStyledAttributes.getIndex(i2);
-            if (index == R.styleable.ConstraintLayout_Layout_constraint_referenced_ids) {
+            if (index == R$styleable.ConstraintLayout_Layout_constraint_referenced_ids) {
                 String string = obtainStyledAttributes.getString(index);
                 this.mReferenceIds = string;
                 setIds(string);

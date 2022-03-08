@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.f;
 import com.fun.openid.sdk.g;
 import com.fun.openid.sdk.v;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class g implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,11 +52,11 @@ public class g implements f {
             }
         };
         vVar.a = context;
-        vVar.f54437d = aVar2;
-        vVar.f54436c = new u(vVar);
+        vVar.f52923d = aVar2;
+        vVar.f52922c = new u(vVar);
         Intent intent = new Intent();
         intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
-        char c2 = vVar.a.bindService(intent, vVar.f54436c, 1) ? (char) 1 : (char) 65535;
+        char c2 = vVar.a.bindService(intent, vVar.f52922c, 1) ? (char) 1 : (char) 65535;
         this.a = true;
         if (c2 != 1) {
             aVar.a(true, null);
@@ -79,7 +79,7 @@ public class g implements f {
         if (interceptable == null || interceptable.invokeLLL(65537, this, aVar, str, vVar) == null) {
             vVar.getClass();
             try {
-                tVar2 = vVar.f54435b;
+                tVar2 = vVar.f52921b;
             } catch (RemoteException unused) {
             }
             if (tVar2 != null) {
@@ -87,7 +87,7 @@ public class g implements f {
                 if (!z) {
                     if (vVar.a != null) {
                         try {
-                            tVar = vVar.f54435b;
+                            tVar = vVar.f52921b;
                         } catch (RemoteException e2) {
                             e2.printStackTrace();
                         }
@@ -104,15 +104,15 @@ public class g implements f {
                     FunOpenIDSdk.isLogEnabled();
                     aVar.a(false, null);
                 }
-                vVar.a.unbindService(vVar.f54436c);
-                vVar.f54435b = null;
+                vVar.a.unbindService(vVar.f52922c);
+                vVar.f52921b = null;
                 this.a = false;
             }
             z = false;
             if (!z) {
             }
-            vVar.a.unbindService(vVar.f54436c);
-            vVar.f54435b = null;
+            vVar.a.unbindService(vVar.f52922c);
+            vVar.f52921b = null;
             this.a = false;
         }
     }

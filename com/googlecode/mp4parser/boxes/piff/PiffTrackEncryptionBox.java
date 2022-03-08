@@ -9,11 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.googlecode.mp4parser.boxes.AbstractTrackEncryptionBox;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class PiffTrackEncryptionBox extends AbstractTrackEncryptionBox {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
@@ -73,6 +74,6 @@ public class PiffTrackEncryptionBox extends AbstractTrackEncryptionBox {
     public byte[] getUserType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new byte[]{-119, 116, -37, -50, ContentUtil.GZIP_HEAD_2, -25, 76, 81, -124, -7, 113, 72, -7, -120, 37, 84} : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new byte[]{-119, 116, -37, -50, ContentUtil.GZIP_HEAD_2, -25, 76, 81, -124, -7, 113, 72, -7, -120, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 84} : (byte[]) invokeV.objValue;
     }
 }

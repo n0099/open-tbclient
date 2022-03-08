@@ -37,7 +37,7 @@ import com.tachikoma.core.utility.V8Proxy;
 import java.util.ArrayList;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class TKRecyclerView extends TKBase<b> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_GRID = "grid";

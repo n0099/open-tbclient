@@ -13,8 +13,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.Keep;
+import com.baidu.tieba.R;
 import com.kwad.sdk.KsAdSDKImpl;
-import com.kwad.sdk.R;
 import com.kwad.sdk.api.KsRewardVideoAd;
 import com.kwad.sdk.api.core.KsAdSdkDynamicImpl;
 import com.kwad.sdk.api.core.ResContext;
@@ -28,7 +28,7 @@ import com.kwad.sdk.reward.j;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class AdRewardPreviewActivityProxy extends com.kwad.sdk.h.a {
     public static final String KEY_TEMPLATE = "key_template_json";
     public static final String KEY_URL = "key_langingpage_url";

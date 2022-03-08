@@ -24,9 +24,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.w0;
+import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import java.nio.ByteBuffer;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class SegDetector extends com.baidu.ar.b.a.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SegDetector";
@@ -85,9 +85,9 @@ public class SegDetector extends com.baidu.ar.b.a.a {
         this.vE = 192;
         this.vF = 192;
         this.vG = 256;
-        this.vH = 144;
+        this.vH = Cea708Decoder.COMMAND_SPA;
         this.vI = 128;
-        this.vJ = w0.Q;
+        this.vJ = 224;
         this.vK = 192;
         this.vL = 192;
         this.vM = 160;
@@ -248,13 +248,13 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                     int i2 = this.vP.oU;
                     if (i2 == 2) {
                         int[] iArr = new int[2];
-                        return aVar.f33072tv ? ARMdlInterfaceJNI.initHumanSegFromAssetDir(str, 1, iArr) : ARMdlInterfaceJNI.initHumanSeg(str, 1, iArr);
+                        return aVar.f31475tv ? ARMdlInterfaceJNI.initHumanSegFromAssetDir(str, 1, iArr) : ARMdlInterfaceJNI.initHumanSeg(str, 1, iArr);
                     } else if (i2 == 4) {
-                        return aVar.f33072tv ? ARMdlInterfaceJNI.initHairSegFromAssetDir(str) : ARMdlInterfaceJNI.initHairSeg(str);
+                        return aVar.f31475tv ? ARMdlInterfaceJNI.initHairSegFromAssetDir(str) : ARMdlInterfaceJNI.initHairSeg(str);
                     } else if (i2 != 5) {
                         return -1;
                     } else {
-                        return aVar.f33072tv ? ARMdlInterfaceJNI.initSkySegFromAssetDir(str) : ARMdlInterfaceJNI.initSkySeg(str);
+                        return aVar.f31475tv ? ARMdlInterfaceJNI.initSkySegFromAssetDir(str) : ARMdlInterfaceJNI.initSkySeg(str);
                     }
                 }
                 return invokeL2.intValue;

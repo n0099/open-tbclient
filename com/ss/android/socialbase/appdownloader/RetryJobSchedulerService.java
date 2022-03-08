@@ -12,7 +12,7 @@ import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.downloader.r;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 @TargetApi(21)
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class RetryJobSchedulerService extends JobService {
     /* JADX WARN: Removed duplicated region for block: B:29:0x006e  */
     /* JADX WARN: Removed duplicated region for block: B:30:0x006f  */

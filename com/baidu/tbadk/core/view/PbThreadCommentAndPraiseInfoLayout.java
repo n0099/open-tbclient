@@ -11,9 +11,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.t0.s.r.e2;
-import c.a.t0.s.r.f;
-import c.a.t0.s.v.c;
+import c.a.q0.r.r.e2;
+import c.a.q0.r.r.f;
+import c.a.q0.r.v.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AntiData;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseInfoLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,9 +70,9 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             return;
         }
         f fVar = new f();
-        fVar.f13841b = 4;
-        fVar.f13843d = 2;
-        fVar.f13849j = str2;
+        fVar.f13257b = 4;
+        fVar.f13259d = 2;
+        fVar.f13265j = str2;
         this.mAgreeView.setStatisticData(fVar);
         this.mAgreeView.onAgreeClick();
     }
@@ -152,15 +152,12 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
                 c d2 = c.d(eMTextView);
                 d2.A(R.string.F_X02);
                 d2.v(R.color.CAM_X0107);
-                EMTextView eMTextView2 = this.mCommentGrabSofa;
-                int f2 = n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18);
-                int i2 = R.color.CAM_X0207;
-                SkinManager.setBackgroundShapeDrawable(eMTextView2, f2, i2, i2);
+                SkinManager.setBackgroundShapeDrawable(this.mCommentGrabSofa, n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18), R.color.CAM_X0207, R.color.CAM_X0207);
             }
-            SkinManager.setViewTextColor(this.x, R.drawable.selector_comment_and_prise_item_text_color);
-            SkinManager.setViewTextColor(this.y, R.drawable.selector_comment_and_prise_item_text_color);
-            SkinManager.setViewTextColor(this.w, R.drawable.selector_comment_and_prise_item_text_color);
-            SkinManager.setViewTextColor(this.z, R.drawable.selector_comment_and_prise_item_text_color);
+            SkinManager.setViewTextColor(this.x, (int) R.drawable.selector_comment_and_prise_item_text_color);
+            SkinManager.setViewTextColor(this.y, (int) R.drawable.selector_comment_and_prise_item_text_color);
+            SkinManager.setViewTextColor(this.w, (int) R.drawable.selector_comment_and_prise_item_text_color);
+            SkinManager.setViewTextColor(this.z, (int) R.drawable.selector_comment_and_prise_item_text_color);
             e2 e2Var = this.mData;
             if (e2Var != null) {
                 MaskView.maskNovelViewGroup(this.B, e2Var.t2());

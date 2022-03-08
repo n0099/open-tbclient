@@ -17,28 +17,28 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class t {
     public static /* synthetic */ Interceptable $ic;
     public static t a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ConnectivityManager f53673b;
+    public final ConnectivityManager f52092b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Network f53674c;
+    public Network f52093c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ConnectivityManager.NetworkCallback f53675d;
+    public ConnectivityManager.NetworkCallback f52094d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f53676e;
+    public boolean f52095e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f53677f;
+    public volatile boolean f52096f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(Network network);
     }
@@ -73,8 +73,8 @@ public class t {
                 return;
             }
         }
-        this.f53677f = false;
-        this.f53673b = (ConnectivityManager) context.getSystemService("connectivity");
+        this.f52096f = false;
+        this.f52092b = (ConnectivityManager) context.getSystemService("connectivity");
     }
 
     public static String c(String str) {
@@ -104,14 +104,14 @@ public class t {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             try {
                 if (Build.VERSION.SDK_INT < 21) {
-                    this.f53677f = false;
-                    this.f53673b.stopUsingNetworkFeature(0, "enableHIPRI");
+                    this.f52096f = false;
+                    this.f52092b.stopUsingNetworkFeature(0, "enableHIPRI");
                     return;
                 }
-                if (this.f53673b != null && this.f53675d != null) {
-                    this.f53673b.unregisterNetworkCallback(this.f53675d);
-                    this.f53675d = null;
-                    this.f53674c = null;
+                if (this.f52092b != null && this.f52094d != null) {
+                    this.f52092b.unregisterNetworkCallback(this.f52094d);
+                    this.f52094d = null;
+                    this.f52093c = null;
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -124,9 +124,9 @@ public class t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return this.f53674c != null;
+                return this.f52093c != null;
             }
-            return this.f53677f;
+            return this.f52096f;
         }
         return invokeV.booleanValue;
     }
@@ -175,18 +175,18 @@ public class t {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
-        Network network = this.f53674c;
-        if (network != null && !this.f53676e && (networkInfo = this.f53673b.getNetworkInfo(network)) != null && networkInfo.isAvailable()) {
-            aVar.a(this.f53674c);
+        Network network = this.f52093c;
+        if (network != null && !this.f52095e && (networkInfo = this.f52092b.getNetworkInfo(network)) != null && networkInfo.isAvailable()) {
+            aVar.a(this.f52093c);
             return;
         }
-        ConnectivityManager.NetworkCallback networkCallback = this.f53675d;
+        ConnectivityManager.NetworkCallback networkCallback = this.f52094d;
         if (networkCallback != null) {
             try {
-                this.f53673b.unregisterNetworkCallback(networkCallback);
+                this.f52092b.unregisterNetworkCallback(networkCallback);
             } catch (Exception e2) {
                 e2.printStackTrace();
-                this.f53675d = null;
+                this.f52094d = null;
             }
         }
         NetworkRequest build = new NetworkRequest.Builder().addCapability(12).addTransportType(0).build();
@@ -196,7 +196,7 @@ public class t {
             public final /* synthetic */ a a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ t f53678b;
+            public final /* synthetic */ t f52097b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -213,7 +213,7 @@ public class t {
                         return;
                     }
                 }
-                this.f53678b = this;
+                this.f52097b = this;
                 this.a = aVar;
             }
 
@@ -221,9 +221,9 @@ public class t {
             public void onAvailable(Network network2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, network2) == null) {
-                    this.f53678b.f53674c = network2;
+                    this.f52097b.f52093c = network2;
                     this.a.a(network2);
-                    this.f53678b.f53676e = false;
+                    this.f52097b.f52095e = false;
                 }
             }
 
@@ -231,22 +231,22 @@ public class t {
             public void onLost(Network network2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, network2) == null) {
-                    this.f53678b.f53676e = true;
+                    this.f52097b.f52095e = true;
                 }
             }
         };
-        this.f53675d = networkCallback2;
-        this.f53673b.requestNetwork(build, networkCallback2);
+        this.f52094d = networkCallback2;
+        this.f52092b.requestNetwork(build, networkCallback2);
     }
 
     public boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.f53673b.startUsingNetworkFeature(0, "enableHIPRI");
+            this.f52092b.startUsingNetworkFeature(0, "enableHIPRI");
             for (int i2 = 0; i2 < 30; i2++) {
                 try {
-                    if (this.f53673b.getNetworkInfo(5).getState().compareTo(NetworkInfo.State.CONNECTED) == 0) {
+                    if (this.f52092b.getNetworkInfo(5).getState().compareTo(NetworkInfo.State.CONNECTED) == 0) {
                         break;
                     }
                     Thread.sleep(1000L);
@@ -254,9 +254,9 @@ public class t {
                     c.a("WifiNetworkUtils", "check hipri failed");
                 }
             }
-            this.f53677f = this.f53673b.requestRouteToHost(5, b(c(str)));
-            c.a("WifiNetworkUtils", "切换数据网络结果 >>> " + this.f53677f);
-            return this.f53677f;
+            this.f52096f = this.f52092b.requestRouteToHost(5, b(c(str)));
+            c.a("WifiNetworkUtils", "切换数据网络结果 >>> " + this.f52096f);
+            return this.f52096f;
         }
         return invokeL.booleanValue;
     }
@@ -266,7 +266,7 @@ public class t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i2)) == null) {
             try {
-                return (this.f53674c == null || Build.VERSION.SDK_INT < 21) ? "" : this.f53674c.getSocketFactory().createSocket(str, i2).getLocalAddress().getHostAddress();
+                return (this.f52093c == null || Build.VERSION.SDK_INT < 21) ? "" : this.f52093c.getSocketFactory().createSocket(str, i2).getLocalAddress().getHostAddress();
             } catch (Exception unused) {
                 c.a("WifiNetworkUtils", "获取eip失败");
                 return "";

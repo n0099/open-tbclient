@@ -37,7 +37,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public final class DownloadManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_WEBSUITE_PROGRESS_CHANGE = "com.baidu.appsearch.websuite.download.PROGRESS_CHANGE";
@@ -73,17 +73,17 @@ public final class DownloadManager {
     public IIntercepter mWifiOnlyIntercepter;
     public TaskObserver mtaskObserver;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface DownloadItemFilter {
         boolean filter(Download download);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface OnProgressChangeListener {
         void onProgressChanged(long j2, int i2, long j3);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface OnStateChangeListener {
         void onStateChanged(long j2, Download download);
     }

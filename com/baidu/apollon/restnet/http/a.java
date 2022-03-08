@@ -28,37 +28,37 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TimeZone;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class a implements c<String, String> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "Host";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f32792b = "Accept";
+    public static final String f31195b = "Accept";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f32793c = "Accept-Charset";
+    public static final String f31196c = "Accept-Charset";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f32794d = "Accept-Encoding";
+    public static final String f31197d = "Accept-Encoding";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f32795e = "Accept-Language";
+    public static final String f31198e = "Accept-Language";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f32796f = "Allow";
+    public static final String f31199f = "Allow";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f32797g = "Cache-Control";
+    public static final String f31200g = "Cache-Control";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f32798h = "Content-Disposition";
+    public static final String f31201h = "Content-Disposition";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f32799i = "Content-Encoding";
+    public static final String f31202i = "Content-Encoding";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f32800j = "Content-Length";
+    public static final String f31203j = "Content-Length";
     public static final String k = "Content-Type";
     public static final String l = "Date";
     public static final String m = "ETag";

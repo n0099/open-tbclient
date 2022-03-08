@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.service.XMJobService;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class er {
     public static /* synthetic */ Interceptable $ic;
     public static int a;
@@ -24,7 +24,7 @@ public final class er {
     public static final String f339a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a();
 

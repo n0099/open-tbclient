@@ -20,20 +20,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class CustomALSHttpMessage extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public static final TbHttpMessageTask task;
     public transient /* synthetic */ FieldHolder $fh;
     public Handler mUIHandler;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CustomALSHttpMessage f42002e;
+        public final /* synthetic */ CustomALSHttpMessage f40406e;
 
         public a(CustomALSHttpMessage customALSHttpMessage) {
             Interceptable interceptable = $ic;
@@ -50,14 +50,14 @@ public class CustomALSHttpMessage extends HttpMessage {
                     return;
                 }
             }
-            this.f42002e = customALSHttpMessage;
+            this.f40406e = customALSHttpMessage;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().sendMessage(this.f42002e, CustomALSHttpMessage.task);
+                MessageManager.getInstance().sendMessage(this.f40406e, CustomALSHttpMessage.task);
             }
         }
     }

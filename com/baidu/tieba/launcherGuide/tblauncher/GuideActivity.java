@@ -48,7 +48,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class GuideActivity extends BaseActivity<GuideActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MODE_GIF = 2;
@@ -77,7 +77,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
     public final ViewPager.OnPageChangeListener mViewPagerPageChanged;
     public View.OnClickListener startOnClickListener;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a implements BaseViewPager.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,13 +117,13 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GuideActivity f45610e;
+        public final /* synthetic */ GuideActivity f44018e;
 
         public b(GuideActivity guideActivity) {
             Interceptable interceptable = $ic;
@@ -140,28 +140,28 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                     return;
                 }
             }
-            this.f45610e = guideActivity;
+            this.f44018e = guideActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f45610e.endGuide();
-                if (view.getId() == this.f45610e.mBtnStartTieba.getId()) {
+                this.f44018e.endGuide();
+                if (view.getId() == this.f44018e.mBtnStartTieba.getId()) {
                     TiebaStatic.log(new StatisticItem("c13410").param("uid", TbadkCoreApplication.getCurrentAccount()));
                 }
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class c implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GuideActivity f45611e;
+        public final /* synthetic */ GuideActivity f44019e;
 
         public c(GuideActivity guideActivity) {
             Interceptable interceptable = $ic;
@@ -178,7 +178,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                     return;
                 }
             }
-            this.f45611e = guideActivity;
+            this.f44019e = guideActivity;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -199,24 +199,24 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         public void onPageSelected(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                if (i2 == this.f45611e.guideListSize - 1) {
-                    this.f45611e.setStartButtonBottomMargin(R.dimen.tbds170);
-                    this.f45611e.mStartButton.setVisibility(0);
-                    this.f45611e.guide_page_indicator.setVisibility(0);
+                if (i2 == this.f44019e.guideListSize - 1) {
+                    this.f44019e.setStartButtonBottomMargin(R.dimen.tbds170);
+                    this.f44019e.mStartButton.setVisibility(0);
+                    this.f44019e.guide_page_indicator.setVisibility(0);
                 } else {
-                    this.f45611e.mStartButton.setVisibility(8);
-                    this.f45611e.setStartButtonBottomMargin(R.dimen.tbds170);
-                    this.f45611e.guide_page_indicator.setVisibility(0);
+                    this.f44019e.mStartButton.setVisibility(8);
+                    this.f44019e.setStartButtonBottomMargin(R.dimen.tbds170);
+                    this.f44019e.guide_page_indicator.setVisibility(0);
                 }
-                if (this.f45611e.mStartButton.getVisibility() == 0) {
-                    this.f45611e.mStartButton.requestFocus();
+                if (this.f44019e.mStartButton.getVisibility() == 0) {
+                    this.f44019e.mStartButton.requestFocus();
                 }
-                this.f45611e.guide_page_indicator.setPosition(i2);
+                this.f44019e.guide_page_indicator.setPosition(i2);
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class d extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -255,7 +255,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                             return;
                         }
                         this.a.isJumpToNewGuide = false;
-                        c.a.t0.s.j0.b.k().u("jump_to_new_user_guide", false);
+                        c.a.q0.r.j0.b.k().u("jump_to_new_user_guide", false);
                         return;
                     }
                     this.a.isJumpToNewGuide = false;
@@ -266,13 +266,13 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GuideActivity f45612e;
+        public final /* synthetic */ GuideActivity f44020e;
 
         public e(GuideActivity guideActivity) {
             Interceptable interceptable = $ic;
@@ -289,20 +289,20 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                     return;
                 }
             }
-            this.f45612e = guideActivity;
+            this.f44020e = guideActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view.getId() == this.f45612e.mBtnStartGame.getId()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view.getId() == this.f44020e.mBtnStartGame.getId()) {
                 TbSingleton.getInstance().mStartGameClicked = true;
-                this.f45612e.endGuide();
+                this.f44020e.endGuide();
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class f extends PagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -540,7 +540,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
             try {
                 setContentView(R.layout.guide_activity);
                 registerHttpTask();
-                boolean h2 = c.a.t0.s.j0.b.k().h("jump_to_new_user_guide", true);
+                boolean h2 = c.a.q0.r.j0.b.k().h("jump_to_new_user_guide", true);
                 this.isJumpToNewGuide = h2;
                 if (h2) {
                     getJumpInfoFromServer();

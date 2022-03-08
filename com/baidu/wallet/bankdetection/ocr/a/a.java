@@ -10,31 +10,31 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Bitmap a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50647b;
+    public String f49066b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<String> f50648c;
+    public ArrayList<String> f49067c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<String> f50649d;
+    public ArrayList<String> f49068d;
 
     /* renamed from: com.baidu.wallet.bankdetection.ocr.a.a$1  reason: invalid class name */
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.wallet.bankdetection.ocr.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes13.dex */
-    public static class C1994a {
+    /* loaded from: classes6.dex */
+    public static class C1970a {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1994a.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1970a.a : (a) invokeV.objValue;
     }
 
     public Bitmap b() {
@@ -75,7 +75,7 @@ public class a {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f50647b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f49066b : (String) invokeV.objValue;
     }
 
     public void d() {
@@ -86,12 +86,12 @@ public class a {
                 this.a.recycle();
                 this.a = null;
             }
-            this.f50647b = null;
-            ArrayList<String> arrayList = this.f50648c;
+            this.f49066b = null;
+            ArrayList<String> arrayList = this.f49067c;
             if (arrayList != null) {
                 arrayList.clear();
             }
-            ArrayList<String> arrayList2 = this.f50649d;
+            ArrayList<String> arrayList2 = this.f49068d;
             if (arrayList2 != null) {
                 arrayList2.clear();
             }
@@ -122,7 +122,7 @@ public class a {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f50647b = str;
+            this.f49066b = str;
         }
     }
 }

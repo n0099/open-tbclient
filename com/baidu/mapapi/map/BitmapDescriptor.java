@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public final class BitmapDescriptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Bitmap a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bundle f35464b;
+    public Bundle f33867b;
 
     public BitmapDescriptor(Bitmap bitmap) {
         Interceptable interceptable = $ic;
@@ -73,7 +73,7 @@ public final class BitmapDescriptor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (this.a != null) {
-                if (this.f35464b == null) {
+                if (this.f33867b == null) {
                     Bundle bundle = new Bundle();
                     bundle.putInt("image_width", this.a.getWidth());
                     bundle.putInt("image_height", this.a.getHeight());
@@ -94,9 +94,9 @@ public final class BitmapDescriptor {
                         }
                         bundle.putString("image_hashcode", sb.toString());
                     }
-                    this.f35464b = bundle;
+                    this.f33867b = bundle;
                 }
-                return this.f35464b;
+                return this.f33867b;
             }
             throw new IllegalStateException("BDMapSDKException: the bitmap has been recycled! you can not use it again");
         }

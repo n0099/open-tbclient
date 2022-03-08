@@ -11,21 +11,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.tachikoma.core.utility.FileUtil;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class g extends c.b.b.m.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AssetManager f27264c;
+    public final AssetManager f27168c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(AssetManager assetManager, String str, Files.FileType fileType) {
-        super(str.replace(FileUtil.WINDOWS_SEPARATOR, '/'), fileType);
+        super(str.replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH), fileType);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,7 +43,7 @@ public class g extends c.b.b.m.a {
                 return;
             }
         }
-        this.f27264c = assetManager;
+        this.f27168c = assetManager;
     }
 
     @Override // c.b.b.m.a
@@ -50,8 +51,8 @@ public class g extends c.b.b.m.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String replace = str.replace(FileUtil.WINDOWS_SEPARATOR, '/');
-            return this.a.getPath().length() == 0 ? new g(this.f27264c, new File(replace), this.f27314b) : new g(this.f27264c, new File(this.a, replace), this.f27314b);
+            String replace = str.replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH);
+            return this.a.getPath().length() == 0 ? new g(this.f27168c, new File(replace), this.f27218b) : new g(this.f27168c, new File(this.a, replace), this.f27218b);
         }
         return (c.b.b.m.a) invokeL.objValue;
     }
@@ -61,14 +62,14 @@ public class g extends c.b.b.m.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f27314b == Files.FileType.Internal) {
+            if (this.f27218b == Files.FileType.Internal) {
                 String path = this.a.getPath();
                 try {
-                    this.f27264c.open(path).close();
+                    this.f27168c.open(path).close();
                     return true;
                 } catch (Exception unused) {
                     try {
-                        return this.f27264c.list(path).length > 0;
+                        return this.f27168c.list(path).length > 0;
                     } catch (Exception unused2) {
                         return false;
                     }
@@ -83,7 +84,7 @@ public class g extends c.b.b.m.a {
     public File e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27314b == Files.FileType.Local ? new File(c.b.b.f.f27172d.b(), this.a.getPath()) : super.e() : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27218b == Files.FileType.Local ? new File(c.b.b.f.f27076d.b(), this.a.getPath()) : super.e() : (File) invokeV.objValue;
     }
 
     @Override // c.b.b.m.a
@@ -91,10 +92,10 @@ public class g extends c.b.b.m.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f27314b == Files.FileType.Internal) {
+            if (this.f27218b == Files.FileType.Internal) {
                 AssetFileDescriptor assetFileDescriptor = null;
                 try {
-                    assetFileDescriptor = this.f27264c.openFd(this.a.getPath());
+                    assetFileDescriptor = this.f27168c.openFd(this.a.getPath());
                     long length = assetFileDescriptor.getLength();
                     if (assetFileDescriptor != null) {
                         try {
@@ -132,13 +133,13 @@ public class g extends c.b.b.m.a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             File parentFile = this.a.getParentFile();
             if (parentFile == null) {
-                if (this.f27314b == Files.FileType.Absolute) {
+                if (this.f27218b == Files.FileType.Absolute) {
                     parentFile = new File("/");
                 } else {
                     parentFile = new File("");
                 }
             }
-            return new g(this.f27264c, parentFile, this.f27314b);
+            return new g(this.f27168c, parentFile, this.f27218b);
         }
         return (c.b.b.m.a) invokeV.objValue;
     }
@@ -148,11 +149,11 @@ public class g extends c.b.b.m.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f27314b == Files.FileType.Internal) {
+            if (this.f27218b == Files.FileType.Internal) {
                 try {
-                    return this.f27264c.open(this.a.getPath());
+                    return this.f27168c.open(this.a.getPath());
                 } catch (IOException e2) {
-                    throw new GdxRuntimeException("Error reading file: " + this.a + " (" + this.f27314b + SmallTailInfo.EMOTION_SUFFIX, e2);
+                    throw new GdxRuntimeException("Error reading file: " + this.a + " (" + this.f27218b + SmallTailInfo.EMOTION_SUFFIX, e2);
                 }
             }
             return super.m();
@@ -165,9 +166,9 @@ public class g extends c.b.b.m.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            String replace = str.replace(FileUtil.WINDOWS_SEPARATOR, '/');
+            String replace = str.replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH);
             if (this.a.getPath().length() != 0) {
-                return c.b.b.f.f27172d.d(new File(this.a.getParent(), replace).getPath(), this.f27314b);
+                return c.b.b.f.f27076d.d(new File(this.a.getParent(), replace).getPath(), this.f27218b);
             }
             throw new GdxRuntimeException("Cannot get the sibling of the root.");
         }
@@ -178,7 +179,7 @@ public class g extends c.b.b.m.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            AssetManager assetManager = this.f27264c;
+            AssetManager assetManager = this.f27168c;
             if (assetManager != null) {
                 return assetManager.openFd(j());
             }
@@ -206,6 +207,6 @@ public class g extends c.b.b.m.a {
                 return;
             }
         }
-        this.f27264c = assetManager;
+        this.f27168c = assetManager;
     }
 }

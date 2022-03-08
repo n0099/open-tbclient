@@ -2,7 +2,7 @@ package com.baidu.nadcore.video.videoplayer.ui.full;
 
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
-import c.a.d0.l0.j;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Landroid/graphics/LinearGradient;", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public final class BdVideoFullGradientMask$linearGradient$2 extends Lambda implements Function0<LinearGradient> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,6 +45,6 @@ public final class BdVideoFullGradientMask$linearGradient$2 extends Lambda imple
     public final LinearGradient invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new LinearGradient(0.0f, 0.0f, this.this$0.getMeasuredWidth(), 0.0f, new int[]{this.this$0.getResources().getColor(j.nad_bd_full_more_left_mask_start_color), this.this$0.getResources().getColor(j.nad_bd_full_more_left_mask_35percent_color), this.this$0.getResources().getColor(j.nad_bd_full_more_left_mask_60percent_color), this.this$0.getResources().getColor(j.nad_bd_full_more_left_mask_75percent_color), this.this$0.getResources().getColor(j.nad_bd_full_more_left_mask_95percent_color)}, new float[]{0.0f, 0.17f, 0.34f, 0.5f, 1.0f}, Shader.TileMode.CLAMP) : (LinearGradient) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new LinearGradient(0.0f, 0.0f, this.this$0.getMeasuredWidth(), 0.0f, new int[]{this.this$0.getResources().getColor(R.color.nad_bd_full_more_left_mask_start_color), this.this$0.getResources().getColor(R.color.nad_bd_full_more_left_mask_35percent_color), this.this$0.getResources().getColor(R.color.nad_bd_full_more_left_mask_60percent_color), this.this$0.getResources().getColor(R.color.nad_bd_full_more_left_mask_75percent_color), this.this$0.getResources().getColor(R.color.nad_bd_full_more_left_mask_95percent_color)}, new float[]{0.0f, 0.17f, 0.34f, 0.5f, 1.0f}, Shader.TileMode.CLAMP) : (LinearGradient) invokeV.objValue;
     }
 }

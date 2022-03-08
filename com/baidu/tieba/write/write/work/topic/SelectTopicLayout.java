@@ -19,13 +19,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.u0.s4.g;
-import c.a.u0.s4.h;
-import c.a.u0.s4.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tieba.R;
 import com.baidu.tieba.hottopicselect.HotTopicSelectModel;
 import com.baidu.tieba.write.write.work.topic.view.SelectTopicListLayout;
 import com.baidu.tieba.write.write.work.topic.view.SelectTopicSuggestLayout;
@@ -37,32 +35,32 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class SelectTopicLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<c.a.u0.s1.f> A;
+    public List<c.a.r0.r1.f> A;
     public float B;
     public float C;
     public final View.OnClickListener D;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f50186e;
+    public View f48605e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f50187f;
+    public View f48606f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RelativeLayout f50188g;
+    public RelativeLayout f48607g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f50189h;
+    public View f48608h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f50190i;
+    public View f48609i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f50191j;
+    public ImageView f48610j;
     public TextView k;
     public RelativeLayout l;
     public TextView m;
@@ -80,13 +78,13 @@ public class SelectTopicLayout extends RelativeLayout {
     public int y;
     public int z;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectTopicLayout f50192e;
+        public final /* synthetic */ SelectTopicLayout f48611e;
 
         public a(SelectTopicLayout selectTopicLayout) {
             Interceptable interceptable = $ic;
@@ -103,25 +101,25 @@ public class SelectTopicLayout extends RelativeLayout {
                     return;
                 }
             }
-            this.f50192e = selectTopicLayout;
+            this.f48611e = selectTopicLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f50192e.close(true);
+                this.f48611e.close(true);
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class b implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectTopicLayout f50193e;
+        public final /* synthetic */ SelectTopicLayout f48612e;
 
         public b(SelectTopicLayout selectTopicLayout) {
             Interceptable interceptable = $ic;
@@ -138,7 +136,7 @@ public class SelectTopicLayout extends RelativeLayout {
                     return;
                 }
             }
-            this.f50193e = selectTopicLayout;
+            this.f48612e = selectTopicLayout;
         }
 
         @Override // android.text.TextWatcher
@@ -147,16 +145,16 @@ public class SelectTopicLayout extends RelativeLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
                 String obj = editable.toString();
                 if (obj == null || obj.trim().length() <= 0) {
-                    this.f50193e.q.bindData("", null);
-                    this.f50193e.p.setVisibility(0);
-                    this.f50193e.q.setVisibility(8);
-                    this.f50193e.setDelButtonVisible(false);
+                    this.f48612e.q.bindData("", null);
+                    this.f48612e.p.setVisibility(0);
+                    this.f48612e.q.setVisibility(8);
+                    this.f48612e.setDelButtonVisible(false);
                     return;
                 }
-                this.f50193e.p.setVisibility(8);
-                this.f50193e.q.setVisibility(0);
-                this.f50193e.r.K(obj);
-                this.f50193e.setDelButtonVisible(true);
+                this.f48612e.p.setVisibility(8);
+                this.f48612e.q.setVisibility(0);
+                this.f48612e.r.K(obj);
+                this.f48612e.setDelButtonVisible(true);
             }
         }
 
@@ -175,16 +173,16 @@ public class SelectTopicLayout extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class c implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f50194e;
+        public final /* synthetic */ boolean f48613e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SelectTopicLayout f50195f;
+        public final /* synthetic */ SelectTopicLayout f48614f;
 
         public c(SelectTopicLayout selectTopicLayout, boolean z) {
             Interceptable interceptable = $ic;
@@ -201,8 +199,8 @@ public class SelectTopicLayout extends RelativeLayout {
                     return;
                 }
             }
-            this.f50195f = selectTopicLayout;
-            this.f50194e = z;
+            this.f48614f = selectTopicLayout;
+            this.f48613e = z;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -216,13 +214,13 @@ public class SelectTopicLayout extends RelativeLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f50195f.setVisibility(8);
-                this.f50195f.t = false;
-                this.f50195f.o.setText("");
-                this.f50195f.p.onClose();
-                this.f50195f.q.onClose();
-                if (this.f50195f.s != null) {
-                    this.f50195f.s.a(false, this.f50194e);
+                this.f48614f.setVisibility(8);
+                this.f48614f.t = false;
+                this.f48614f.o.setText("");
+                this.f48614f.p.onClose();
+                this.f48614f.q.onClose();
+                if (this.f48614f.s != null) {
+                    this.f48614f.s.a(false, this.f48613e);
                 }
             }
         }
@@ -242,13 +240,13 @@ public class SelectTopicLayout extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class d implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectTopicLayout f50196e;
+        public final /* synthetic */ SelectTopicLayout f48615e;
 
         public d(SelectTopicLayout selectTopicLayout) {
             Interceptable interceptable = $ic;
@@ -265,7 +263,7 @@ public class SelectTopicLayout extends RelativeLayout {
                     return;
                 }
             }
-            this.f50196e = selectTopicLayout;
+            this.f48615e = selectTopicLayout;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -279,7 +277,7 @@ public class SelectTopicLayout extends RelativeLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f50196e.t = false;
+                this.f48615e.t = false;
             }
         }
 
@@ -298,13 +296,13 @@ public class SelectTopicLayout extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectTopicLayout f50197e;
+        public final /* synthetic */ SelectTopicLayout f48616e;
 
         public e(SelectTopicLayout selectTopicLayout) {
             Interceptable interceptable = $ic;
@@ -321,19 +319,19 @@ public class SelectTopicLayout extends RelativeLayout {
                     return;
                 }
             }
-            this.f50197e = selectTopicLayout;
+            this.f48616e = selectTopicLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view == this.f50197e.n) {
-                this.f50197e.clearAllTopicText();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view == this.f48616e.n) {
+                this.f48616e.clearAllTopicText();
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface f {
         void a(boolean z, boolean z2);
     }
@@ -431,24 +429,24 @@ public class SelectTopicLayout extends RelativeLayout {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            RelativeLayout.inflate(getContext(), h.select_topic_layout, this);
-            View findViewById = findViewById(g.title_placeholder);
-            this.f50186e = findViewById;
+            RelativeLayout.inflate(getContext(), R.layout.select_topic_layout, this);
+            View findViewById = findViewById(R.id.title_placeholder);
+            this.f48605e = findViewById;
             findViewById.setOnClickListener(new a(this));
-            this.f50187f = findViewById(g.container_layout_shadow);
-            this.f50188g = (RelativeLayout) findViewById(g.container_layout);
-            this.f50189h = findViewById(g.top_container_layout);
-            this.f50190i = findViewById(g.bottom_container_layout);
-            this.f50191j = (ImageView) findViewById(g.select_topic_title_arrow);
-            this.k = (TextView) findViewById(g.select_topic_title_tip);
-            this.l = (RelativeLayout) findViewById(g.topic_self_edit_container);
-            this.m = (TextView) findViewById(g.topic_self_edit_prefix);
-            this.n = (ImageView) findViewById(g.topic_self_edit_clear_btn);
-            EditText editText = (EditText) findViewById(g.topic_self_edit_view);
+            this.f48606f = findViewById(R.id.container_layout_shadow);
+            this.f48607g = (RelativeLayout) findViewById(R.id.container_layout);
+            this.f48608h = findViewById(R.id.top_container_layout);
+            this.f48609i = findViewById(R.id.bottom_container_layout);
+            this.f48610j = (ImageView) findViewById(R.id.select_topic_title_arrow);
+            this.k = (TextView) findViewById(R.id.select_topic_title_tip);
+            this.l = (RelativeLayout) findViewById(R.id.topic_self_edit_container);
+            this.m = (TextView) findViewById(R.id.topic_self_edit_prefix);
+            this.n = (ImageView) findViewById(R.id.topic_self_edit_clear_btn);
+            EditText editText = (EditText) findViewById(R.id.topic_self_edit_view);
             this.o = editText;
             editText.addTextChangedListener(new b(this));
-            this.p = (SelectTopicListLayout) findViewById(g.select_topic_list_layout);
-            this.q = (SelectTopicSuggestLayout) findViewById(g.select_topic_suggest_layout);
+            this.p = (SelectTopicListLayout) findViewById(R.id.select_topic_list_layout);
+            this.q = (SelectTopicSuggestLayout) findViewById(R.id.select_topic_suggest_layout);
             this.n.setOnClickListener(this.D);
             setDelButtonVisible(false);
             onSkinChange();
@@ -488,7 +486,7 @@ public class SelectTopicLayout extends RelativeLayout {
         }
     }
 
-    public void onHotSelectDataNoSearchSuccess(c.a.u0.s1.c cVar, c.a.u0.s1.c cVar2, c.a.u0.s1.c cVar3) {
+    public void onHotSelectDataNoSearchSuccess(c.a.r0.r1.c cVar, c.a.r0.r1.c cVar2, c.a.r0.r1.c cVar3) {
         SelectTopicListLayout selectTopicListLayout;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(1048588, this, cVar, cVar2, cVar3) == null) || (selectTopicListLayout = this.p) == null) {
@@ -503,13 +501,13 @@ public class SelectTopicLayout extends RelativeLayout {
         }
     }
 
-    public void onHotSelectDataSearchSuccess(c.a.u0.s1.c cVar) {
+    public void onHotSelectDataSearchSuccess(c.a.r0.r1.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, cVar) == null) {
             this.A.clear();
             String searchKey = getSearchKey();
-            c.a.u0.s1.c cVar2 = new c.a.u0.s1.c();
-            this.A.add(new c.a.u0.s1.f(searchKey, 0L, false));
+            c.a.r0.r1.c cVar2 = new c.a.r0.r1.c();
+            this.A.add(new c.a.r0.r1.f(searchKey, 0L, false));
             if (cVar == null) {
                 cVar = cVar2;
             }
@@ -532,7 +530,7 @@ public class SelectTopicLayout extends RelativeLayout {
                 this.B = motionEvent.getY();
                 float y = motionEvent.getY(actionIndex);
                 this.C = y;
-                if (y < this.f50186e.getHeight()) {
+                if (y < this.f48605e.getHeight()) {
                     return false;
                 }
             }
@@ -544,34 +542,34 @@ public class SelectTopicLayout extends RelativeLayout {
     public void onSkinChange() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            c.a.t0.s.v.c.d(this.f50187f).o(new int[]{c.a.u0.s4.d.CAM_X0803, c.a.u0.s4.d.CAM_X0601});
-            c.a.t0.s.v.c d2 = c.a.t0.s.v.c.d(this.f50189h);
-            d2.n(j.J_X14);
-            d2.f(c.a.u0.s4.d.CAM_X0207);
-            c.a.t0.s.v.c.d(this.f50190i).f(c.a.u0.s4.d.CAM_X0207);
-            c.a.t0.s.v.c d3 = c.a.t0.s.v.c.d(this.k);
-            d3.v(c.a.u0.s4.d.CAM_X0108);
-            d3.z(c.a.u0.s4.e.T_X09);
-            d3.A(j.F_X01);
-            c.a.t0.s.v.c d4 = c.a.t0.s.v.c.d(this.l);
-            d4.n(j.J_X07);
-            d4.f(c.a.u0.s4.d.CAM_X0209);
-            c.a.t0.s.v.c d5 = c.a.t0.s.v.c.d(this.m);
-            d5.v(c.a.u0.s4.d.CAM_X0110);
-            d5.z(c.a.u0.s4.e.T_X07);
-            d5.A(j.F_X01);
-            this.o.setHintTextColor(c.a.t0.s.v.a.h(c.a.u0.s4.d.CAM_X0110));
-            c.a.t0.s.v.c d6 = c.a.t0.s.v.c.d(this.o);
-            d6.v(c.a.u0.s4.d.CAM_X0105);
-            d6.z(c.a.u0.s4.e.T_X07);
-            d6.A(j.F_X01);
+            c.a.q0.r.v.c.d(this.f48606f).o(new int[]{R.color.CAM_X0803, R.color.CAM_X0601});
+            c.a.q0.r.v.c d2 = c.a.q0.r.v.c.d(this.f48608h);
+            d2.n(R.string.J_X14);
+            d2.f(R.color.CAM_X0207);
+            c.a.q0.r.v.c.d(this.f48609i).f(R.color.CAM_X0207);
+            c.a.q0.r.v.c d3 = c.a.q0.r.v.c.d(this.k);
+            d3.v(R.color.CAM_X0108);
+            d3.z(R.dimen.T_X09);
+            d3.A(R.string.F_X01);
+            c.a.q0.r.v.c d4 = c.a.q0.r.v.c.d(this.l);
+            d4.n(R.string.J_X07);
+            d4.f(R.color.CAM_X0209);
+            c.a.q0.r.v.c d5 = c.a.q0.r.v.c.d(this.m);
+            d5.v(R.color.CAM_X0110);
+            d5.z(R.dimen.T_X07);
+            d5.A(R.string.F_X01);
+            this.o.setHintTextColor(c.a.q0.r.v.a.h(R.color.CAM_X0110));
+            c.a.q0.r.v.c d6 = c.a.q0.r.v.c.d(this.o);
+            d6.v(R.color.CAM_X0105);
+            d6.z(R.dimen.T_X07);
+            d6.A(R.string.F_X01);
             this.p.onChangeSkin();
             this.q.onChangeSkin();
-            SkinManager.setImageResource(this.n, c.a.u0.s4.f.del_search_btn);
-            c.a.t0.s.v.c d7 = c.a.t0.s.v.c.d(this.f50191j);
-            d7.n(j.J_X01);
-            d7.f(c.a.u0.s4.d.CAM_X0209);
-            this.f50191j.setImageDrawable(WebPManager.getPureDrawable(c.a.u0.s4.f.icon_pure_post_dropdown42, SkinManager.getColor(c.a.u0.s4.d.CAM_X0108), WebPManager.ResourceStateType.NORMAL_DISABLE));
+            SkinManager.setImageResource(this.n, R.drawable.del_search_btn);
+            c.a.q0.r.v.c d7 = c.a.q0.r.v.c.d(this.f48610j);
+            d7.n(R.string.J_X01);
+            d7.f(R.color.CAM_X0209);
+            this.f48610j.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_post_dropdown42, SkinManager.getColor(R.color.CAM_X0108), WebPManager.ResourceStateType.NORMAL_DISABLE));
         }
     }
 
@@ -603,8 +601,8 @@ public class SelectTopicLayout extends RelativeLayout {
                             float y = motionEvent.getY(j2);
                             float f2 = y - this.B;
                             this.B = y;
-                            float translationY = this.f50188g.getTranslationY() + f2;
-                            this.f50188g.setTranslationY(translationY >= 0.0f ? translationY : 0.0f);
+                            float translationY = this.f48607g.getTranslationY() + f2;
+                            this.f48607g.setTranslationY(translationY >= 0.0f ? translationY : 0.0f);
                         }
                     }
                 }
@@ -614,7 +612,7 @@ public class SelectTopicLayout extends RelativeLayout {
                 int i2 = i(motionEvent);
                 h();
                 if (Math.abs(yVelocity) <= this.x || i2 <= this.z) {
-                    if (this.f50188g.getTranslationY() >= this.u / 2.0f) {
+                    if (this.f48607g.getTranslationY() >= this.u / 2.0f) {
                         close();
                     } else {
                         open();
@@ -642,9 +640,9 @@ public class SelectTopicLayout extends RelativeLayout {
         }
         this.t = true;
         setVisibility(0);
-        RelativeLayout relativeLayout = this.f50188g;
+        RelativeLayout relativeLayout = this.f48607g;
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(relativeLayout, AnimationProperty.TRANSLATE_Y, relativeLayout.getTranslationY(), 0.0f);
-        ofFloat.setDuration((this.f50188g.getTranslationY() / this.u) * 300.0f);
+        ofFloat.setDuration((this.f48607g.getTranslationY() / this.u) * 300.0f);
         ofFloat.addListener(new d(this));
         ofFloat.start();
         f fVar = this.s;
@@ -690,12 +688,12 @@ public class SelectTopicLayout extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeI(1048599, this, i2) == null) || i2 <= 0) {
             return;
         }
-        ViewGroup.LayoutParams layoutParams = this.f50186e.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.f48605e.getLayoutParams();
         layoutParams.height = i2;
-        this.f50186e.setLayoutParams(layoutParams);
+        this.f48605e.setLayoutParams(layoutParams);
         int i3 = n.i(getContext()) - i2;
         this.u = i3;
-        this.f50188g.setTranslationY(i3);
+        this.f48607g.setTranslationY(i3);
     }
 
     public void close(boolean z) {
@@ -710,9 +708,9 @@ public class SelectTopicLayout extends RelativeLayout {
             }
         }
         this.t = true;
-        RelativeLayout relativeLayout = this.f50188g;
+        RelativeLayout relativeLayout = this.f48607g;
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(relativeLayout, AnimationProperty.TRANSLATE_Y, relativeLayout.getTranslationY(), this.u);
-        ofFloat.setDuration(((this.u - this.f50188g.getTranslationY()) / this.u) * 300.0f);
+        ofFloat.setDuration(((this.u - this.f48607g.getTranslationY()) / this.u) * 300.0f);
         ofFloat.addListener(new c(this, z));
         ofFloat.start();
     }

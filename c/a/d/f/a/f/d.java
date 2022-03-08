@@ -15,7 +15,7 @@ public class d extends DiskFileOperate {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1867b;
+    public String f2493b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(String str, String str2, DiskFileOperate.Action action) {
@@ -37,7 +37,7 @@ public class d extends DiskFileOperate {
             }
         }
         this.a = null;
-        this.f1867b = "UTF-8";
+        this.f2493b = "UTF-8";
     }
 
     public String a() {
@@ -61,7 +61,7 @@ public class d extends DiskFileOperate {
             String str = this.a;
             if (str != null) {
                 try {
-                    return str.getBytes(this.f1867b);
+                    return str.getBytes(this.f2493b);
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                 }
@@ -80,7 +80,7 @@ public class d extends DiskFileOperate {
                 return false;
             }
             try {
-                this.a = new String(bArr, this.f1867b);
+                this.a = new String(bArr, this.f2493b);
                 return true;
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());

@@ -20,22 +20,22 @@ import com.kwai.filedownloader.services.c;
 import java.io.File;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<Integer, DownloadTask> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, Integer> f55223b;
+    public final Map<String, Integer> f53573b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f55224c;
+    public c f53574c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f55225d;
+    public boolean f53575d;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final d a;
@@ -72,8 +72,8 @@ public class d {
             }
         }
         this.a = new ConcurrentHashMap();
-        this.f55223b = new ConcurrentHashMap();
-        this.f55225d = false;
+        this.f53573b = new ConcurrentHashMap();
+        this.f53575d = false;
     }
 
     public static d a() {
@@ -131,18 +131,18 @@ public class d {
             DownloadTask downloadTask = new DownloadTask(downloadRequest);
             if (downloadRequest.getDownloadUrl().contains("downali.game.uc.cn")) {
                 b();
-            } else if (this.f55225d) {
+            } else if (this.f53575d) {
                 c();
             }
             if (this.a.get(Integer.valueOf(downloadTask.getId())) != null) {
                 a(downloadTask.getId(), downloadRequest);
                 b(downloadTask.getId());
-                a(downloadTask.getId(), cVar, this.f55224c);
+                a(downloadTask.getId(), cVar, this.f53574c);
             } else {
                 this.a.put(Integer.valueOf(downloadTask.getId()), downloadTask);
-                this.f55223b.put(downloadTask.getUrl(), Integer.valueOf(downloadTask.getId()));
+                this.f53573b.put(downloadTask.getUrl(), Integer.valueOf(downloadTask.getId()));
                 downloadTask.submit();
-                a(downloadTask.getId(), cVar, this.f55224c);
+                a(downloadTask.getId(), cVar, this.f53574c);
             }
             return downloadTask.getId();
         }
@@ -173,14 +173,14 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, downloadTask) == null) {
             this.a.remove(Integer.valueOf(downloadTask.getId()));
-            this.f55223b.remove(downloadTask.getUrl());
+            this.f53573b.remove(downloadTask.getUrl());
         }
     }
 
     public void a(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f55224c = cVar;
+            this.f53574c = cVar;
         }
     }
 
@@ -196,7 +196,7 @@ public class d {
             }
             if (aVar != null) {
                 com.kwai.filedownloader.download.b.a().b(new c.a().a(Integer.MAX_VALUE).a(aVar));
-                this.f55225d = true;
+                this.f53575d = true;
             }
         }
     }

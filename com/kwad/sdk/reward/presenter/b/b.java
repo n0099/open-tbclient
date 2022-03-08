@@ -1,27 +1,27 @@
 package com.kwad.sdk.reward.presenter.b;
 
-import com.kwad.sdk.R;
+import com.baidu.tieba.R;
 import com.kwad.sdk.core.webview.jshandler.d;
 import com.kwad.sdk.reward.a.f;
 import com.kwad.sdk.reward.g;
 import com.kwad.sdk.utils.bb;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class b extends a {
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.fullscreen.kwai.kwai.c f57628b;
+    public com.kwad.sdk.fullscreen.kwai.kwai.c f55978b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.fullscreen.kwai.a.a f57629c;
+    public com.kwad.sdk.fullscreen.kwai.a.a f55979c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f57630d;
+    public boolean f55980d;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f57631e = new f() { // from class: com.kwad.sdk.reward.presenter.b.b.1
+    public f f55981e = new f() { // from class: com.kwad.sdk.reward.presenter.b.b.1
         @Override // com.kwad.sdk.reward.a.f
         public void a() {
-            if (com.kwad.sdk.core.response.a.d.s(((g) b.this).a.f57419g)) {
+            if (com.kwad.sdk.core.response.a.d.s(((g) b.this).a.f55769g)) {
                 b.this.m().findViewById(b.this.i()).setVisibility(8);
             }
         }
@@ -32,40 +32,40 @@ public class b extends a {
         m().findViewById(R.id.ksad_play_detail_top_toolbar).setVisibility(8);
         m().findViewById(R.id.ksad_play_end_top_toolbar).setVisibility(8);
         super.a();
-        ((g) this).a.a(this.f57631e);
+        ((g) this).a.a(this.f55981e);
     }
 
     @Override // com.kwad.sdk.reward.presenter.b.a
     public void a(d.a aVar) {
         aVar.a = (int) ((bb.b(q()) / bb.c(q())) + 0.5f);
-        aVar.f56578b = 44;
+        aVar.f54928b = 44;
     }
 
     @Override // com.kwad.sdk.reward.presenter.b.a, com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        if (this.f57630d) {
-            this.f57629c.j();
-            this.f57628b.j();
+        if (this.f55980d) {
+            this.f55979c.j();
+            this.f55978b.j();
         }
-        ((g) this).a.b(this.f57631e);
+        ((g) this).a.b(this.f55981e);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.f57628b = new com.kwad.sdk.fullscreen.kwai.kwai.c();
-        this.f57629c = new com.kwad.sdk.fullscreen.kwai.a.a();
-        this.f57628b.c(m());
-        this.f57629c.c(m());
+        this.f55978b = new com.kwad.sdk.fullscreen.kwai.kwai.c();
+        this.f55979c = new com.kwad.sdk.fullscreen.kwai.a.a();
+        this.f55978b.c(m());
+        this.f55979c.c(m());
     }
 
     @Override // com.kwad.sdk.reward.presenter.b.a, com.kwad.sdk.mvp.Presenter
     public void d_() {
         super.d_();
-        if (this.f57630d) {
-            this.f57629c.k();
-            this.f57628b.k();
+        if (this.f55980d) {
+            this.f55979c.k();
+            this.f55978b.k();
         }
     }
 
@@ -81,9 +81,9 @@ public class b extends a {
 
     @Override // com.kwad.sdk.reward.presenter.b.a
     public void r() {
-        this.f57630d = true;
+        this.f55980d = true;
         m().findViewById(R.id.ksad_play_detail_top_toolbar).setVisibility(0);
-        this.f57629c.a(((g) this).a);
-        this.f57628b.a(((g) this).a);
+        this.f55979c.a(((g) this).a);
+        this.f55978b.a(((g) this).a);
     }
 }

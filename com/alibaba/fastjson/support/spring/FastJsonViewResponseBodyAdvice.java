@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 @ControllerAdvice
 @Order
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class FastJsonViewResponseBodyAdvice implements ResponseBodyAdvice<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

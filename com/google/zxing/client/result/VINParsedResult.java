@@ -7,7 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+/* loaded from: classes7.dex */
 public final class VINParsedResult extends ParsedResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,20 +64,20 @@ public final class VINParsedResult extends ParsedResult {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder(50);
             sb.append(this.worldManufacturerID);
-            sb.append(' ');
+            sb.append(WebvttCueParser.CHAR_SPACE);
             sb.append(this.vehicleDescriptorSection);
-            sb.append(' ');
+            sb.append(WebvttCueParser.CHAR_SPACE);
             sb.append(this.vehicleIdentifierSection);
             sb.append('\n');
             String str = this.countryCode;
             if (str != null) {
                 sb.append(str);
-                sb.append(' ');
+                sb.append(WebvttCueParser.CHAR_SPACE);
             }
             sb.append(this.modelYear);
-            sb.append(' ');
+            sb.append(WebvttCueParser.CHAR_SPACE);
             sb.append(this.plantCode);
-            sb.append(' ');
+            sb.append(WebvttCueParser.CHAR_SPACE);
             sb.append(this.sequentialNumber);
             sb.append('\n');
             return sb.toString();

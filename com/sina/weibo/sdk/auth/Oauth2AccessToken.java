@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class Oauth2AccessToken {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ACCESS_TOKEN = "access_token";
@@ -59,7 +59,7 @@ public class Oauth2AccessToken {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || str.indexOf(StringUtil.ARRAY_START) < 0) {
+            if (TextUtils.isEmpty(str) || str.indexOf("{") < 0) {
                 return null;
             }
             try {
@@ -201,7 +201,7 @@ public class Oauth2AccessToken {
         this.mRefreshToken = "";
         this.mExpiresTime = 0L;
         this.mPhoneNum = "";
-        if (str == null || str.indexOf(StringUtil.ARRAY_START) < 0) {
+        if (str == null || str.indexOf("{") < 0) {
             return;
         }
         try {

@@ -3,10 +3,11 @@ package j.a.a.e;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import j.a.a.e.e.g;
 import tv.athena.revenue.payui.YYPayUIKit;
 import tv.athena.revenue.payui.model.PayFlowType;
 import tv.athena.revenue.payui.view.dialog.PayDialogType;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,7 +20,7 @@ public class a {
                 RLog.error("PayFlowLifecycleHandler", "notifyPayFlowWork error payUIKit null", new Object[0]);
                 return;
             }
-            j.a.a.e.m.g payFlowLifecycle = uIKit.getPayFlowLifecycle();
+            g payFlowLifecycle = uIKit.getPayFlowLifecycle();
             boolean z = payFlowLifecycle != null;
             RLog.info("PayFlowLifecycleHandler", "notifyPayActivityDestory  payFlowType:" + payFlowType + " shouldNotify:" + z);
             if (z) {
@@ -36,7 +37,7 @@ public class a {
                 RLog.error("PayFlowLifecycleHandler", "notifyPayFlowWork error payUIKit null", new Object[0]);
                 return;
             }
-            j.a.a.e.m.g payFlowLifecycle = uIKit.getPayFlowLifecycle();
+            g payFlowLifecycle = uIKit.getPayFlowLifecycle();
             boolean z = payFlowLifecycle != null;
             RLog.info("PayFlowLifecycleHandler", "notifyPayActivityVisit  payFlowType:" + payFlowType + " shouldNotify:" + z);
             if (z) {
@@ -53,7 +54,7 @@ public class a {
                 RLog.error("PayFlowLifecycleHandler", "notifyPayDialogTypeChange error payUIKit null", new Object[0]);
                 return;
             }
-            j.a.a.e.m.g payFlowLifecycle = uIKit.getPayFlowLifecycle();
+            g payFlowLifecycle = uIKit.getPayFlowLifecycle();
             boolean z = payFlowLifecycle != null;
             RLog.info("PayFlowLifecycleHandler", "notifyPayDialogTypeChange mPayFlowType:" + payFlowType + " shouldNotify:" + z);
             if (z) {
@@ -70,7 +71,7 @@ public class a {
                 RLog.error("PayFlowLifecycleHandler", "notifyPayFlowWork error payUIKit null", new Object[0]);
                 return;
             }
-            j.a.a.e.m.g payFlowLifecycle = uIKit.getPayFlowLifecycle();
+            g payFlowLifecycle = uIKit.getPayFlowLifecycle();
             boolean z = payFlowLifecycle != null;
             RLog.info("PayFlowLifecycleHandler", "notifyPayFlowWork mPayFlowType:" + payFlowType + " shouldNotify:" + z);
             if (z) {

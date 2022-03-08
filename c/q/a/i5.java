@@ -1,57 +1,98 @@
 package c.q.a;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.content.Context;
+import android.os.AsyncTask;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.views.CloseParentView;
-/* loaded from: classes9.dex */
-public class i5 extends Handler {
+import com.win.opensdk.PBError;
+import java.io.File;
+/* loaded from: classes3.dex */
+public class i5 extends AsyncTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ CloseParentView a;
+    public final /* synthetic */ String a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i5(CloseParentView closeParentView, Looper looper) {
-        super(looper);
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ d1 f28993b;
+
+    public i5(d1 d1Var, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {closeParentView, looper};
+            Object[] objArr = {d1Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = closeParentView;
+        this.f28993b = d1Var;
+        this.a = str;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    @Override // android.os.AsyncTask
+    public Object doInBackground(Object[] objArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 10) {
-            CloseParentView closeParentView = this.a;
-            closeParentView.a.setText(String.valueOf(closeParentView.f61076h));
-            CloseParentView closeParentView2 = this.a;
-            if (closeParentView2.f61076h <= 0) {
-                closeParentView2.a.setVisibility(8);
-                this.a.a.setClickable(false);
-                this.a.f61077i.removeMessages(10);
-            } else {
-                closeParentView2.a.setVisibility(0);
-                this.a.a.setClickable(true);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+            String str = ((String[]) objArr)[0];
+            if (str != null) {
+                try {
+                    return r0.F(str);
+                } catch (OutOfMemoryError unused) {
+                    return null;
+                }
             }
-            this.a.f61077i.sendEmptyMessageDelayed(10, 1000L);
-            this.a.f61076h--;
+            return null;
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // android.os.AsyncTask
+    public void onPostExecute(Object obj) {
+        Context context;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            byte[] bArr = (byte[]) obj;
+            if (bArr == null) {
+                d1 d1Var = this.f28993b;
+                e1 e1Var = d1Var.f28936e;
+                if (e1Var != null && !d1Var.f28941j) {
+                    e1Var.onFail(PBError.NO_RESUOURCE);
+                    this.f28993b.f28940i = true;
+                }
+            } else {
+                d1 d1Var2 = this.f28993b;
+                e1 e1Var2 = d1Var2.f28936e;
+                if (e1Var2 != null && !d1Var2.f28941j) {
+                    d1Var2.m = bArr;
+                    e1Var2.onLoaded();
+                    this.f28993b.f28940i = true;
+                }
+            }
+            if (bArr != null) {
+                d1 d1Var3 = this.f28993b;
+                if (d1Var3.f28941j) {
+                    StringBuilder sb = new StringBuilder();
+                    context = this.f28993b.a;
+                    sb.append(r0.e(context));
+                    sb.append(File.separator);
+                    sb.append("win");
+                    sb.append(File.separator);
+                    sb.append(r0.D(this.a));
+                    sb.append(".gif");
+                    d1Var3.p = new File(sb.toString());
+                    new Thread(new y(bArr, this.f28993b.p.getPath())).start();
+                }
+            }
         }
     }
 }

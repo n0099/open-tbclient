@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class CoachInfo extends TransitBaseInfo {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<CoachInfo> CREATOR;
@@ -19,13 +19,13 @@ public class CoachInfo extends TransitBaseInfo {
     public double a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35734b;
+    public String f34137b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f35735c;
+    public String f34138c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f35736d;
+    public String f34139d;
 
     static {
         InterceptResult invokeClinit;
@@ -76,9 +76,9 @@ public class CoachInfo extends TransitBaseInfo {
             }
         }
         this.a = parcel.readDouble();
-        this.f35734b = parcel.readString();
-        this.f35735c = parcel.readString();
-        this.f35736d = parcel.readString();
+        this.f34137b = parcel.readString();
+        this.f34138c = parcel.readString();
+        this.f34139d = parcel.readString();
     }
 
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
@@ -94,7 +94,7 @@ public class CoachInfo extends TransitBaseInfo {
     public String getBooking() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35734b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34137b : (String) invokeV.objValue;
     }
 
     public double getPrice() {
@@ -106,19 +106,19 @@ public class CoachInfo extends TransitBaseInfo {
     public String getProviderName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35735c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34138c : (String) invokeV.objValue;
     }
 
     public String getProviderUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f35736d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f34139d : (String) invokeV.objValue;
     }
 
     public void setBooking(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f35734b = str;
+            this.f34137b = str;
         }
     }
 
@@ -132,14 +132,14 @@ public class CoachInfo extends TransitBaseInfo {
     public void setProviderName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f35735c = str;
+            this.f34138c = str;
         }
     }
 
     public void setProviderUrl(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f35736d = str;
+            this.f34139d = str;
         }
     }
 
@@ -149,9 +149,9 @@ public class CoachInfo extends TransitBaseInfo {
         if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i2) == null) {
             super.writeToParcel(parcel, i2);
             parcel.writeDouble(this.a);
-            parcel.writeString(this.f35734b);
-            parcel.writeString(this.f35735c);
-            parcel.writeString(this.f35736d);
+            parcel.writeString(this.f34137b);
+            parcel.writeString(this.f34138c);
+            parcel.writeString(this.f34139d);
         }
     }
 }

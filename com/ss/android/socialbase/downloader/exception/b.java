@@ -1,5 +1,5 @@
 package com.ss.android.socialbase.downloader.exception;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class b extends BaseException {
     public final int a;
 

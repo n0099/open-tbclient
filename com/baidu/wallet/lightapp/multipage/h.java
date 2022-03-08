@@ -16,23 +16,23 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public static final Set<String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, Map<String, String>> f51935b;
+    public Map<String, Map<String, String>> f50354b;
 
     /* renamed from: com.baidu.wallet.lightapp.multipage.h$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static h a;
@@ -97,16 +97,16 @@ public class h {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f51935b.remove(str);
+            this.f50354b.remove(str);
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            for (Map.Entry<String, Map<String, String>> entry : this.f51935b.entrySet()) {
+            for (Map.Entry<String, Map<String, String>> entry : this.f50354b.entrySet()) {
                 if (entry.getKey().startsWith(str)) {
-                    this.f51935b.remove(entry.getKey());
+                    this.f50354b.remove(entry.getKey());
                 }
             }
         }
@@ -116,8 +116,8 @@ public class h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (this.f51935b.containsKey(str)) {
-                return this.f51935b.get(str).size();
+            if (this.f50354b.containsKey(str)) {
+                return this.f50354b.get(str).size();
             }
             return 0;
         }
@@ -137,7 +137,7 @@ public class h {
                 return;
             }
         }
-        this.f51935b = new ConcurrentHashMap();
+        this.f50354b = new ConcurrentHashMap();
     }
 
     public static h a() {
@@ -148,8 +148,8 @@ public class h {
 
     public void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) && this.f51935b.containsKey(str2) && this.f51935b.get(str2).containsKey(str)) {
-            this.f51935b.get(str2).remove(str);
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) && this.f50354b.containsKey(str2) && this.f50354b.get(str2).containsKey(str)) {
+            this.f50354b.get(str2).remove(str);
         }
     }
 
@@ -157,8 +157,8 @@ public class h {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (this.f51935b.containsKey(str2) && this.f51935b.get(str2).containsKey(str)) {
-                return this.f51935b.get(str2).get(str);
+            if (this.f50354b.containsKey(str2) && this.f50354b.get(str2).containsKey(str)) {
+                return this.f50354b.get(str2).get(str);
             }
             return null;
         }
@@ -173,29 +173,29 @@ public class h {
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
             ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
             ConcurrentHashMap concurrentHashMap2 = new ConcurrentHashMap();
-            for (String str3 : this.f51935b.keySet()) {
+            for (String str3 : this.f50354b.keySet()) {
                 if (!TextUtils.isEmpty(str3) && str3.startsWith(str)) {
-                    concurrentHashMap2.put(str3, this.f51935b.get(str3));
-                    concurrentHashMap.put(str2 + str3.substring(str3.indexOf(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX) + 1, str3.length()), this.f51935b.get(str3));
+                    concurrentHashMap2.put(str3, this.f50354b.get(str3));
+                    concurrentHashMap.put(str2 + str3.substring(str3.indexOf(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX) + 1, str3.length()), this.f50354b.get(str3));
                 }
             }
             for (String str4 : concurrentHashMap2.keySet()) {
-                this.f51935b.remove(str4);
+                this.f50354b.remove(str4);
             }
             Iterator it = concurrentHashMap.keySet().iterator();
             while (it.hasNext()) {
                 String str5 = (String) it.next();
-                if (this.f51935b.containsKey(str5)) {
+                if (this.f50354b.containsKey(str5)) {
                     Map map = (Map) concurrentHashMap.get(str5);
                     Iterator it2 = map.keySet().iterator();
                     while (it.hasNext()) {
                         String str6 = (String) it2.next();
-                        if (!this.f51935b.get(str5).containsKey(str6)) {
-                            this.f51935b.get(str5).put(str6, map.get(str6));
+                        if (!this.f50354b.get(str5).containsKey(str6)) {
+                            this.f50354b.get(str5).put(str6, map.get(str6));
                         }
                     }
                 } else {
-                    this.f51935b.put(str5, concurrentHashMap.get(str5));
+                    this.f50354b.put(str5, concurrentHashMap.get(str5));
                 }
             }
         }
@@ -204,13 +204,13 @@ public class h {
     public void a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3) == null) {
-            if (this.f51935b.containsKey(str3)) {
-                this.f51935b.get(str3).put(str, str2);
+            if (this.f50354b.containsKey(str3)) {
+                this.f50354b.get(str3).put(str, str2);
                 return;
             }
             ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
             concurrentHashMap.put(str, str2);
-            this.f51935b.put(str3, concurrentHashMap);
+            this.f50354b.put(str3, concurrentHashMap);
         }
     }
 
@@ -224,8 +224,8 @@ public class h {
             } catch (Exception unused) {
                 i2 = -1;
             }
-            if (this.f51935b.containsKey(str2)) {
-                Map<String, String> map = this.f51935b.get(str2);
+            if (this.f50354b.containsKey(str2)) {
+                Map<String, String> map = this.f50354b.get(str2);
                 String[] strArr = (String[]) map.keySet().toArray(new String[map.keySet().size()]);
                 if (i2 < 0 || i2 >= strArr.length) {
                     return null;

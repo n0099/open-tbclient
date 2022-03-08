@@ -14,14 +14,14 @@ import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.fastpay.datamodel.WalletChargeResultBannerResponse;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class b extends BaseBean<WalletChargeResultBannerResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f51215b;
+    public boolean f49634b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
@@ -64,7 +64,7 @@ public class b extends BaseBean<WalletChargeResultBannerResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("subBizType", this.f51215b ? "1003003" : "1003002"));
+            arrayList.add(new RestNameValuePair("subBizType", this.f49634b ? "1003003" : "1003002"));
             arrayList.add(new RestNameValuePair("returnType", "2"));
             arrayList.add(new RestNameValuePair("orderNo", this.a));
             arrayList.add(new RestNameValuePair("ua", "WAP"));
@@ -93,7 +93,7 @@ public class b extends BaseBean<WalletChargeResultBannerResponse> {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f51215b = z;
+            this.f49634b = z;
         }
     }
 }

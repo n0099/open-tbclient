@@ -15,7 +15,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public final class DownPrefUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;

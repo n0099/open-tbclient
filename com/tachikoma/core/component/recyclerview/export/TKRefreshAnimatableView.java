@@ -12,7 +12,7 @@ import com.tachikoma.annotation.TK_EXPORT_CLASS;
 import com.tachikoma.core.component.TKBase;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class TKRefreshAnimatableView extends TKBase<View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

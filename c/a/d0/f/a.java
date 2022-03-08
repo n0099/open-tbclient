@@ -1,26 +1,32 @@
 package c.a.d0.f;
 
+import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
+import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import c.a.d0.c;
+import c.a.p0.a.j1.d;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.payment.PaymentManager;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebView;
-import java.io.File;
-import java.net.URISyntaxException;
-import java.net.URLDecoder;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes.dex */
-public class a {
+public class a implements c.a.d0.g.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] a;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,156 +42,124 @@ public class a {
                 return;
             }
         }
-        a = new String[]{"tel:", UrlSchemaHelper.SCHEMA_TYPE_SMS, "smsto:", WebView.SCHEME_MAILTO, "file:"};
+        a = SchemeConfig.getSchemeHead() + "://swan/";
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        int indexOf;
+    public a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            int indexOf2 = str.indexOf(63);
-            if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS)) {
-                indexOf = str.indexOf(UrlSchemaHelper.SCHEMA_TYPE_SMS) + 4;
-            } else {
-                indexOf = str.startsWith("smsto:") ? str.indexOf("smsto:") + 6 : 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            boolean z = indexOf2 - indexOf > 1;
-            if (indexOf2 > -1) {
-                return z ? str.substring(indexOf, indexOf2) : "";
-            }
-            return str.substring(indexOf);
         }
-        return (String) invokeL.objValue;
     }
 
-    public static boolean b(Context context, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    @Override // c.a.d0.g.a
+    public void a(Activity activity, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, context, str, z)) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, str2) == null) {
+            c.a.p0.a.s0.a.S().a(activity, str, str2);
+        }
+    }
+
+    @Override // c.a.d0.g.a
+    public void aLiAuth(Activity activity, String str, c.a.f0.c.a<JSONObject> aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, aVar) == null) {
+            c.a.p0.a.s0.a.S().f(activity, str, aVar);
+        }
+    }
+
+    @Override // c.a.d0.g.a
+    public boolean b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) ? c.a.p0.a.s0.a.S().b(context) : invokeL.booleanValue;
+    }
+
+    @Override // c.a.d0.g.a
+    public void c(Activity activity, String str, c.a.d0.e.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, str, bVar) == null) {
+            c.a.p0.a.s0.a.S().c(activity, str, bVar);
+        }
+    }
+
+    @Override // c.a.d0.g.a
+    public void d(Context context, JSONObject jSONObject, c.a.d0.e.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, context, jSONObject, bVar) == null) {
+            c.a.p0.a.s0.a.S().d(context, jSONObject, bVar);
+        }
+    }
+
+    @Override // c.a.d0.g.a
+    public void e(Activity activity, String str, c.a.d0.e.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, activity, str, bVar) == null) {
+            c.a.p0.a.s0.a.S().e(activity, str, bVar);
+        }
+    }
+
+    @Override // c.a.d0.g.a
+    public void f(Context context, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, context, jSONObject) == null) {
+            if (jSONObject == null) {
+                PaymentManager.i(3, "支付信息不能为空");
+                return;
+            }
+            String optString = jSONObject.optString("appKey");
+            String optString2 = jSONObject.optString("redirectUrl");
+            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                SchemeRouter.invoke(context, a + optString + optString2);
+                return;
+            }
+            PaymentManager.i(3, "支付信息不能为空");
+        }
+    }
+
+    @Override // c.a.d0.g.a
+    public void g(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
+            String str = d.b().a;
             if (TextUtils.isEmpty(str)) {
-                return false;
+                c.a(bundle);
+                return;
             }
-            String e2 = e(str);
-            if (z || c(e2)) {
-                if (e2.startsWith("tel:")) {
-                    return h(context, e2);
-                }
-                if (!e2.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS) && !e2.startsWith("smsto:")) {
-                    if (e2.startsWith(WebView.SCHEME_MAILTO)) {
-                        return f(context, e2);
-                    }
-                    if (e2.startsWith("file:")) {
-                        return d(context, e2);
-                    }
-                    return false;
-                }
-                return g(context, e2);
-            }
-            return false;
+            c.a.p0.a.o1.c.a e2 = c.a.p0.a.o1.c.a.e();
+            c.a.p0.a.o1.c.c cVar = new c.a.p0.a.o1.c.c(119, bundle);
+            cVar.c(str);
+            cVar.p(true);
+            e2.h(cVar);
         }
-        return invokeLLZ.booleanValue;
     }
 
-    public static boolean c(String str) {
+    @Override // c.a.d0.g.a
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            d.b().a = str;
+        }
+    }
+
+    @Override // c.a.d0.g.a
+    public void i(Activity activity, JSONObject jSONObject, c.a.d0.e.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048585, this, activity, jSONObject, bVar) == null) {
+        }
+    }
+
+    @Override // c.a.d0.g.a
+    public String j(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            for (String str2 : c.a.d0.f.h.a.a().c() != null ? c.a.d0.f.h.a.a().c() : a) {
-                if (str.startsWith(str2)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean d(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            try {
-                Intent parseUri = Intent.parseUri(str, 1);
-                if (Build.VERSION.SDK_INT >= 24) {
-                    String path = Uri.parse(str).getPath();
-                    if (path == null) {
-                        return false;
-                    }
-                    c.a.d0.h0.a.a(context, new File(path), parseUri);
-                }
-                return c.a.d0.h0.a.c(context, parseUri);
-            } catch (IllegalArgumentException | URISyntaxException unused) {
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static String e(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (!str.startsWith("wtai://") || str.length() <= 13) {
-                return str;
-            }
-            return "tel:" + str.substring(13);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean f(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
-            if (context == null || str == null) {
-                return false;
-            }
-            return c.a.d0.h0.a.c(context, new Intent("android.intent.action.SENDTO", Uri.parse(str)));
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean g(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
-            String str2 = UrlSchemaHelper.SCHEMA_TYPE_SMS;
-            try {
-                int indexOf = str.indexOf("body=");
-                String str3 = null;
-                if (!str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS)) {
-                    str2 = str.startsWith("smsto:") ? "smsto:" : null;
-                }
-                String a2 = a(str);
-                if (indexOf > -1) {
-                    str3 = str.substring(indexOf + 5);
-                    if (!TextUtils.isEmpty(str3)) {
-                        str3 = URLDecoder.decode(str3, "UTF-8");
-                    }
-                }
-                Intent intent = new Intent("android.intent.action.SENDTO", Uri.parse(str2 + a2));
-                intent.putExtra("sms_body", str3);
-                c.a.d0.h0.a.c(context, intent);
-                return true;
-            } catch (Exception unused) {
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean h(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
-            Intent intent = new Intent("android.intent.action.DIAL", Uri.parse(str));
-            intent.setFlags(268435456);
-            return c.a.d0.h0.a.c(context, intent);
-        }
-        return invokeLL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) ? c.a.p0.a.s0.a.G0().a(context) : (String) invokeL.objValue;
     }
 }

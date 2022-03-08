@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class d implements View.OnFocusChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,30 +54,30 @@ public class d implements View.OnFocusChangeListener {
             if (z) {
                 z2 = safeKeyBoardEditText.o;
                 if (z2) {
-                    context = this.a.f34173e;
+                    context = this.a.f32576e;
                     RimGlobalUtils.hideInputMethod(context, this.a);
-                    safeScrollView = this.a.f34175g;
+                    safeScrollView = this.a.f32578g;
                     if (safeScrollView != null) {
-                        safeScrollView2 = this.a.f34175g;
+                        safeScrollView2 = this.a.f32578g;
                         if (safeScrollView2.hasWindowFocus()) {
-                            safeScrollView3 = this.a.f34175g;
+                            safeScrollView3 = this.a.f32578g;
                             if (!safeScrollView3.isPopupWindowShowing()) {
-                                safeScrollView4 = this.a.f34175g;
-                                viewGroup = this.a.f34174f;
+                                safeScrollView4 = this.a.f32578g;
+                                viewGroup = this.a.f32577f;
                                 SafeKeyBoardEditText safeKeyBoardEditText2 = this.a;
-                                view2 = safeKeyBoardEditText2.f34176h;
+                                view2 = safeKeyBoardEditText2.f32579h;
                                 safeScrollView4.showKeyBoard(viewGroup, safeKeyBoardEditText2, view2);
                             }
                         }
                     }
                 }
             } else if (!safeKeyBoardEditText.isAlwaysShow) {
-                safeScrollView5 = safeKeyBoardEditText.f34175g;
+                safeScrollView5 = safeKeyBoardEditText.f32578g;
                 if (safeScrollView5 != null) {
-                    safeScrollView6 = this.a.f34175g;
+                    safeScrollView6 = this.a.f32578g;
                     safeScrollView6.dismissKeyBoard(this.a);
                 } else {
-                    context2 = this.a.f34173e;
+                    context2 = this.a.f32576e;
                     RimGlobalUtils.hideInputMethod(context2, this.a);
                 }
             }

@@ -5,29 +5,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.u0.u2.f;
-import c.a.u0.u2.h;
-import c.a.u0.u2.i;
-import c.a.u0.u2.j;
-import c.a.u0.u2.u.f.o;
-import c.a.u0.u2.y.c;
+import c.a.r0.u2.k.f.o;
+import c.a.r0.u2.o.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class PbReplyLoadMoreAdapter extends o<PostData, ReplyLoadMoreViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener s;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class ReplyLoadMoreViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,13 +48,13 @@ public class PbReplyLoadMoreAdapter extends o<PostData, ReplyLoadMoreViewHolder>
                     return;
                 }
             }
-            this.a = (TextView) view.findViewById(i.tv_pb_reply_more);
+            this.a = (TextView) view.findViewById(R.id.tv_pb_reply_more);
         }
 
         public void onChangeSkin() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SkinManager.setViewTextColor(this.a, f.CAM_X0109);
+                SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
             }
         }
 
@@ -67,12 +64,12 @@ public class PbReplyLoadMoreAdapter extends o<PostData, ReplyLoadMoreViewHolder>
                 return;
             }
             if (postData.F) {
-                Drawable drawable = SkinManager.getDrawable(h.icon_emotion_smallarrow_n);
+                Drawable drawable = SkinManager.getDrawable(R.drawable.icon_emotion_smallarrow_n);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                 this.a.setCompoundDrawables(null, null, drawable, null);
                 return;
             }
-            Drawable drawable2 = SkinManager.getDrawable(h.icon_emotion_smallarrow_down);
+            Drawable drawable2 = SkinManager.getDrawable(R.drawable.icon_emotion_smallarrow_down);
             drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
             this.a.setCompoundDrawables(null, null, drawable2, null);
         }
@@ -106,8 +103,8 @@ public class PbReplyLoadMoreAdapter extends o<PostData, ReplyLoadMoreViewHolder>
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.f2447e).inflate(j.pb_reply_load_more_item, viewGroup, false);
-            inflate.findViewById(i.tv_pb_reply_more).setOnClickListener(this.s);
+            View inflate = LayoutInflater.from(this.f3076e).inflate(R.layout.pb_reply_load_more_item, viewGroup, false);
+            inflate.findViewById(R.id.tv_pb_reply_more).setOnClickListener(this.s);
             ReplyLoadMoreViewHolder replyLoadMoreViewHolder = new ReplyLoadMoreViewHolder(inflate);
             replyLoadMoreViewHolder.onChangeSkin();
             return replyLoadMoreViewHolder;
@@ -116,7 +113,7 @@ public class PbReplyLoadMoreAdapter extends o<PostData, ReplyLoadMoreViewHolder>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.u0.u2.u.f.o, c.a.d.o.e.a
+    @Override // c.a.r0.u2.k.f.o, c.a.d.o.e.a
     /* renamed from: c0 */
     public View S(int i2, View view, ViewGroup viewGroup, PostData postData, ReplyLoadMoreViewHolder replyLoadMoreViewHolder) {
         InterceptResult invokeCommon;

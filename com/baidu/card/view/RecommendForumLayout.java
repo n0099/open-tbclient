@@ -16,12 +16,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import c.a.d.f.p.n;
 import c.a.l.q;
-import c.a.t0.l0.b.a;
-import c.a.t0.n.f;
-import c.a.t0.s.r.o;
-import c.a.t0.s.r.q1;
-import c.a.t0.s.r.r1;
-import c.a.t0.s.v.c;
+import c.a.q0.k0.b.a;
+import c.a.q0.m.f;
+import c.a.q0.r.r.o;
+import c.a.q0.r.r.q1;
+import c.a.q0.r.r.r1;
+import c.a.q0.r.v.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.adapter.HorizontalRecommendForumAdapter;
@@ -36,7 +36,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class RecommendForumLayout extends LinearLayout implements q {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FROM_MY_BAR_TAB = 0;
@@ -44,22 +44,22 @@ public class RecommendForumLayout extends LinearLayout implements q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f33489e;
+    public TbPageContext<?> f31892e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PullLeftRefreshLayout f33490f;
+    public PullLeftRefreshLayout f31893f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RecyclerView f33491g;
+    public RecyclerView f31894g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HorizontalRecommendForumAdapter f33492h;
+    public HorizontalRecommendForumAdapter f31895h;
 
     /* renamed from: i  reason: collision with root package name */
-    public FrameLayout f33493i;
+    public FrameLayout f31896i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f33494j;
+    public TextView f31897j;
     public ImageView k;
     public boolean l;
     public boolean m;
@@ -98,30 +98,30 @@ public class RecommendForumLayout extends LinearLayout implements q {
             LayoutInflater.from(getContext()).inflate(R.layout.recommend_forum_horizontal_view, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.f33493i = (FrameLayout) findViewById(R.id.title_view);
+            this.f31896i = (FrameLayout) findViewById(R.id.title_view);
             TextView textView = (TextView) findViewById(R.id.tv_title);
-            this.f33494j = textView;
+            this.f31897j = textView;
             c.d(textView).z(R.dimen.T_X07);
             this.k = (ImageView) findViewById(R.id.img_arrow);
-            this.f33490f = (PullLeftRefreshLayout) findViewById(R.id.refresh_layout);
-            this.f33491g = (RecyclerView) findViewById(R.id.recycler_view);
-            HorizontalRecommendForumAdapter horizontalRecommendForumAdapter = new HorizontalRecommendForumAdapter(this.f33489e, this.mFrom);
-            this.f33492h = horizontalRecommendForumAdapter;
+            this.f31893f = (PullLeftRefreshLayout) findViewById(R.id.refresh_layout);
+            this.f31894g = (RecyclerView) findViewById(R.id.recycler_view);
+            HorizontalRecommendForumAdapter horizontalRecommendForumAdapter = new HorizontalRecommendForumAdapter(this.f31892e, this.mFrom);
+            this.f31895h = horizontalRecommendForumAdapter;
             int i2 = this.mFrom;
             if (i2 == 0) {
                 horizontalRecommendForumAdapter.setHasLikeForum(this.mHasLikeForum);
             } else if (i2 == 1) {
                 horizontalRecommendForumAdapter.setTabName(this.p);
             }
-            this.f33491g.setLayoutManager(new LinearLayoutManager(this.f33489e.getPageActivity(), 0, false));
-            this.f33491g.setAdapter(this.f33492h);
-            this.f33491g.setClipChildren(false);
-            this.f33492h.notifyDataSetChanged();
-            this.f33494j.setText(this.f33489e.getPageActivity().getString(R.string.recommend_forum_title_horizontal));
+            this.f31894g.setLayoutManager(new LinearLayoutManager(this.f31892e.getPageActivity(), 0, false));
+            this.f31894g.setAdapter(this.f31895h);
+            this.f31894g.setClipChildren(false);
+            this.f31895h.notifyDataSetChanged();
+            this.f31897j.setText(this.f31892e.getPageActivity().getString(R.string.recommend_forum_title_horizontal));
             RefreshView refreshView = new RefreshView(getContext());
             this.o = refreshView;
-            this.f33490f.setRefreshViewAndListener(refreshView);
-            this.f33490f.setCallback(this.r);
+            this.f31893f.setRefreshViewAndListener(refreshView);
+            this.f31893f.setCallback(this.r);
         }
     }
 
@@ -129,13 +129,13 @@ public class RecommendForumLayout extends LinearLayout implements q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r1Var) == null) {
             this.k.setOnClickListener(this.q);
-            if (!TextUtils.isEmpty(r1Var.f13952h) && r1Var.f13953i != 0) {
-                this.f33494j.setText(r1Var.f13952h);
+            if (!TextUtils.isEmpty(r1Var.f13368h) && r1Var.f13369i != 0) {
+                this.f31897j.setText(r1Var.f13368h);
             } else {
-                this.f33494j.setText(R.string.recommend_forum_title_horizontal);
-                if (this.f33493i.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                    ((ViewGroup.MarginLayoutParams) this.f33493i.getLayoutParams()).topMargin = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds38);
-                    this.f33493i.requestLayout();
+                this.f31897j.setText(R.string.recommend_forum_title_horizontal);
+                if (this.f31896i.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                    ((ViewGroup.MarginLayoutParams) this.f31896i.getLayoutParams()).topMargin = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds38);
+                    this.f31896i.requestLayout();
                 }
             }
             if (!this.n) {
@@ -159,7 +159,7 @@ public class RecommendForumLayout extends LinearLayout implements q {
                         arrayList.add(new o());
                     }
                 }
-                this.f33492h.setData(arrayList);
+                this.f31895h.setData(arrayList);
             }
             onChangeSkinType();
         }
@@ -171,10 +171,10 @@ public class RecommendForumLayout extends LinearLayout implements q {
             c d2 = c.d(this);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0205);
-            c.d(this.f33494j).v(R.color.CAM_X0105);
+            c.d(this.f31897j).v(R.color.CAM_X0105);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
             this.o.onChangeSkinType();
-            this.f33492h.notifyDataSetChanged();
+            this.f31895h.notifyDataSetChanged();
         }
     }
 
@@ -216,7 +216,7 @@ public class RecommendForumLayout extends LinearLayout implements q {
     public void setOnItemCoverListener(f<q1> fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, fVar) == null) {
-            this.f33492h.setOnItemCoverListener(fVar);
+            this.f31895h.setOnItemCoverListener(fVar);
         }
     }
 
@@ -224,7 +224,7 @@ public class RecommendForumLayout extends LinearLayout implements q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, fVar) == null) {
             this.r = fVar;
-            this.f33490f.setCallback(fVar);
+            this.f31893f.setCallback(fVar);
         }
     }
 
@@ -237,7 +237,7 @@ public class RecommendForumLayout extends LinearLayout implements q {
     public void setShowMore(boolean z) {
         PullLeftRefreshLayout pullLeftRefreshLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (pullLeftRefreshLayout = this.f33490f) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (pullLeftRefreshLayout = this.f31893f) == null) {
             return;
         }
         pullLeftRefreshLayout.setEnablePull(z);
@@ -287,7 +287,7 @@ public class RecommendForumLayout extends LinearLayout implements q {
         this.m = true;
         this.n = true;
         this.mFrom = 0;
-        this.f33489e = tbPageContext;
+        this.f31892e = tbPageContext;
         a();
     }
 

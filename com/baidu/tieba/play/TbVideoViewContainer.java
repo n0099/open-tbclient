@@ -7,24 +7,24 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.t0.b.d;
-import c.a.u0.b3.g;
+import c.a.r0.a3.g;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tieba.play.cyberPlayer.TbCyberVideoView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class TbVideoViewContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public g f47493e;
+    public g f45901e;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void onSurfaceDestroyed();
     }
@@ -53,19 +53,19 @@ public class TbVideoViewContainer extends FrameLayout {
     public final void a(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            if (d.C0()) {
-                this.f47493e = new TbVideoView(context);
+            if (UbsABTestHelper.isVideoPlayerABTest()) {
+                this.f45901e = new TbVideoView(context);
             } else {
-                this.f47493e = new TbCyberVideoView(context);
+                this.f45901e = new TbCyberVideoView(context);
             }
-            addView((View) this.f47493e, new FrameLayout.LayoutParams(-1, -1));
+            addView((View) this.f45901e, new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
     public void clearCallbackAndRemoveFromWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            g gVar = this.f47493e;
+            g gVar = this.f45901e;
             if (gVar != null) {
                 gVar.clearCallbackAndRemoveFromWindow();
             }
@@ -78,7 +78,7 @@ public class TbVideoViewContainer extends FrameLayout {
     public g getControl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f47493e : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45901e : (g) invokeV.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

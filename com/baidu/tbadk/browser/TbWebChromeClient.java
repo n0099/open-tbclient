@@ -15,8 +15,8 @@ import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.g;
 import c.a.d.f.p.m;
-import c.a.t0.t.c.d0;
-import c.a.u0.z3.o0.c;
+import c.a.q0.s.c.b0;
+import c.a.r0.y3.o0.c;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class TbWebChromeClient extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -132,13 +132,13 @@ public class TbWebChromeClient extends WebChromeClient {
         c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (!d0.a(str) && str2.startsWith("tiebaapp")) {
-                c.a.u0.z3.o0.d.c cVar2 = new c.a.u0.z3.o0.d.c();
-                cVar2.v(c.a.u0.z3.o0.d.g.b(str2));
+            if (!b0.a(str) && str2.startsWith("tiebaapp")) {
+                c.a.r0.y3.o0.d.c cVar2 = new c.a.r0.y3.o0.d.c();
+                cVar2.v(c.a.r0.y3.o0.d.g.b(str2));
                 cVar2.x(301);
                 callJsMethod(webView, cVar2.c(), cVar2.d());
             }
-            if (d0.a(str) && (cVar = this.callback) != null && cVar.onJsPrompt(str2, jsPromptResult)) {
+            if (b0.a(str) && (cVar = this.callback) != null && cVar.onJsPrompt(str2, jsPromptResult)) {
                 return true;
             }
             jsPromptResult.cancel();

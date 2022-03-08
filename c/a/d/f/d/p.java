@@ -40,11 +40,11 @@ public class p {
             try {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("nameSpace", hVar.a);
-                contentValues.put("tableName", hVar.f1900b);
-                contentValues.put("maxSize", Integer.valueOf(hVar.f1901c));
-                contentValues.put("cacheVersion", Integer.valueOf(hVar.f1903e));
-                contentValues.put("cacheType", hVar.f1902d);
-                contentValues.put("lastActiveTime", Long.valueOf(hVar.f1904f));
+                contentValues.put("tableName", hVar.f2526b);
+                contentValues.put("maxSize", Integer.valueOf(hVar.f2527c));
+                contentValues.put("cacheVersion", Integer.valueOf(hVar.f2529e));
+                contentValues.put("cacheType", hVar.f2528d);
+                contentValues.put("lastActiveTime", Long.valueOf(hVar.f2530f));
                 SQLiteDatabase f2 = this.a.f();
                 if (f2 == null || f2.update("cache_meta_info", contentValues, "nameSpace = ?", new String[]{hVar.a}) != 0) {
                     return;
@@ -71,11 +71,11 @@ public class p {
                 if (cursor.moveToNext()) {
                     h hVar = new h();
                     hVar.a = cursor.getString(0);
-                    hVar.f1900b = cursor.getString(1);
-                    hVar.f1901c = cursor.getInt(2);
-                    hVar.f1902d = cursor.getString(3);
-                    hVar.f1903e = cursor.getInt(4);
-                    hVar.f1904f = cursor.getLong(5);
+                    hVar.f2526b = cursor.getString(1);
+                    hVar.f2527c = cursor.getInt(2);
+                    hVar.f2528d = cursor.getString(3);
+                    hVar.f2529e = cursor.getInt(4);
+                    hVar.f2530f = cursor.getLong(5);
                     return hVar;
                 }
             } catch (Throwable th2) {

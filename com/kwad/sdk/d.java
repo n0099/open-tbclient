@@ -2,17 +2,17 @@ package com.kwad.sdk;
 
 import android.text.TextUtils;
 import com.kwad.sdk.plugin.DevelopMangerPlugin;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static String a = "kwrules.csv";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f56792b = "";
+    public static String f55142b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f56793c = "adEcDistribution";
+    public static String f55143c = "adEcDistribution";
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static String a() {
             return "/rest/sdk/common/appDownLoadInfo";

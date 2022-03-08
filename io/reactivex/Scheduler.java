@@ -20,13 +20,13 @@ import io.reactivex.internal.util.ExceptionHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import io.reactivex.schedulers.SchedulerRunnableIntrospection;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class Scheduler {
     public static /* synthetic */ Interceptable $ic;
     public static final long CLOCK_DRIFT_TOLERANCE_NANOSECONDS;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class DisposeTask implements Disposable, Runnable, SchedulerRunnableIntrospection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public abstract class Scheduler {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class PeriodicDirectTask implements Disposable, Runnable, SchedulerRunnableIntrospection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -165,12 +165,12 @@ public abstract class Scheduler {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static abstract class Worker implements Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes8.dex */
         public final class PeriodicTask implements Runnable, SchedulerRunnableIntrospection {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

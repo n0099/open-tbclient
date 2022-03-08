@@ -12,7 +12,7 @@ import com.baidu.wallet.paysdk.ui.PayTypeActivity;
 import com.dxmpay.apollon.restnet.RestNameValuePair;
 import com.dxmpay.wallet.core.utils.BaiduWalletUtils;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static a a;

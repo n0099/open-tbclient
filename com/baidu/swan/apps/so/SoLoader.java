@@ -8,12 +8,11 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.a.k;
-import c.a.s0.a.k2.a;
-import c.a.s0.a.k2.b;
-import c.a.s0.a.k2.e;
-import c.a.s0.a.k2.f;
-import c.a.s0.w.d;
+import c.a.p0.a.a;
+import c.a.p0.a.a2.b;
+import c.a.p0.a.a2.e;
+import c.a.p0.a.a2.f;
+import c.a.p0.w.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -39,7 +38,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import org.apache.commons.lang3.StringUtils;
 @Keep
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public final class SoLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -62,7 +61,7 @@ public final class SoLoader {
                 return;
             }
         }
-        DEBUG = k.a;
+        DEBUG = a.a;
         sLoadedLibraries = Collections.synchronizedSet(new HashSet());
         soSources = new ArrayList();
     }
@@ -545,7 +544,7 @@ public final class SoLoader {
         if (!(interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{context, str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || sLoadedLibraries.contains(str)) {
             return;
         }
-        a a = a.a();
+        c.a.p0.a.a2.a a = c.a.p0.a.a2.a.a();
         if (!z) {
             load = new SoLoader().loadInternalFromLocal(context, str, a, z2);
         } else {
@@ -561,7 +560,7 @@ public final class SoLoader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{context, str, bVar, Boolean.valueOf(z)})) == null) {
             if (bVar == null) {
-                bVar = a.a();
+                bVar = c.a.p0.a.a2.a.a();
             }
             SoLoader soLoader = new SoLoader();
             if (soSources.size() == 0) {

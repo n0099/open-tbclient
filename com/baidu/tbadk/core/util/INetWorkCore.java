@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.os.Handler;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public interface INetWorkCore {
     public static final int DEFAULT_MAX_RETRY_COUNT = 5;
     public static final int DEFAULT_RETRY_INTERVAL = 100;

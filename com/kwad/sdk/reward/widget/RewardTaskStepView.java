@@ -9,20 +9,20 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import com.kwad.sdk.R;
+import com.baidu.tieba.R;
 import com.kwad.sdk.reward.b.b;
 import com.kwad.sdk.widget.DividerView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class RewardTaskStepView extends LinearLayout {
     public List<b> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f57820b;
+    public int f56170b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f57821c;
+    public int f56171c;
 
     public RewardTaskStepView(Context context) {
         super(context);
@@ -75,8 +75,8 @@ public class RewardTaskStepView extends LinearLayout {
 
     private void a(Context context, @Nullable AttributeSet attributeSet, int i2) {
         setOrientation(1);
-        this.f57820b = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_apk_info_card_step_icon_size);
-        this.f57821c = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_apk_info_card_step_icon_text_size);
+        this.f56170b = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_apk_info_card_step_icon_size);
+        this.f56171c = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_apk_info_card_step_icon_text_size);
     }
 
     private void a(ViewGroup viewGroup, int i2, String str) {

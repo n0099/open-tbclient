@@ -1,7 +1,7 @@
 package com.airbnb.lottie.value;
 
 import com.airbnb.lottie.utils.MiscUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class LottieRelativeIntegerValueCallback extends LottieValueCallback<Integer> {
     public Integer getOffset(LottieFrameInfo<Integer> lottieFrameInfo) {
         T t = this.value;

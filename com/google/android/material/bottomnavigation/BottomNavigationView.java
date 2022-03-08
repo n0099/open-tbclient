@@ -35,6 +35,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.customview.view.AbsSavedState;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +43,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.internal.ViewUtils;
@@ -51,10 +51,12 @@ import com.google.android.material.ripple.RippleUtils;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class BottomNavigationView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int DEF_STYLE_RES;
+
+    /* renamed from: DEF_STYLE_RES */
+    public static final int Widget_Design_BottomNavigationView = 2131755850;
     public static final int MENU_PRESENTER_ID = 1;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
@@ -69,17 +71,17 @@ public class BottomNavigationView extends FrameLayout {
     public OnNavigationItemReselectedListener reselectedListener;
     public OnNavigationItemSelectedListener selectedListener;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface OnNavigationItemReselectedListener {
         void onNavigationItemReselected(@NonNull MenuItem menuItem);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface OnNavigationItemSelectedListener {
         boolean onNavigationItemSelected(@NonNull MenuItem menuItem);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -210,17 +212,16 @@ public class BottomNavigationView extends FrameLayout {
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-843880653, "Lcom/google/android/material/bottomnavigation/BottomNavigationView;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-843880653, "Lcom/google/android/material/bottomnavigation/BottomNavigationView;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-843880653, "Lcom/google/android/material/bottomnavigation/BottomNavigationView;")) == null) {
+            return;
         }
-        DEF_STYLE_RES = R.style.Widget_Design_BottomNavigationView;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-843880653, "Lcom/google/android/material/bottomnavigation/BottomNavigationView;");
+        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -643,7 +644,7 @@ public class BottomNavigationView extends FrameLayout {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BottomNavigationView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, DEF_STYLE_RES), attributeSet, i2);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, Widget_Design_BottomNavigationView), attributeSet, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -672,40 +673,40 @@ public class BottomNavigationView extends FrameLayout {
         this.menuView.setPresenter(this.presenter);
         this.menu.addMenuPresenter(this.presenter);
         this.presenter.initForMenu(getContext(), this.menu);
-        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, R.styleable.BottomNavigationView, i2, R.style.Widget_Design_BottomNavigationView, R.styleable.BottomNavigationView_itemTextAppearanceInactive, R.styleable.BottomNavigationView_itemTextAppearanceActive);
-        if (obtainTintedStyledAttributes.hasValue(R.styleable.BottomNavigationView_itemIconTint)) {
-            this.menuView.setIconTintList(obtainTintedStyledAttributes.getColorStateList(R.styleable.BottomNavigationView_itemIconTint));
+        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, new int[]{R.attr.backgroundTint, R.attr.elevation, R.attr.itemBackground, R.attr.itemHorizontalTranslationEnabled, R.attr.itemIconSize, R.attr.itemIconTint, R.attr.itemRippleColor, R.attr.itemTextAppearanceActive, R.attr.itemTextAppearanceInactive, R.attr.itemTextColor, R.attr.labelVisibilityMode, R.attr.menu}, i2, Widget_Design_BottomNavigationView, 8, 7);
+        if (obtainTintedStyledAttributes.hasValue(5)) {
+            this.menuView.setIconTintList(obtainTintedStyledAttributes.getColorStateList(5));
         } else {
             BottomNavigationMenuView bottomNavigationMenuView = this.menuView;
             bottomNavigationMenuView.setIconTintList(bottomNavigationMenuView.createDefaultColorStateList(16842808));
         }
-        setItemIconSize(obtainTintedStyledAttributes.getDimensionPixelSize(R.styleable.BottomNavigationView_itemIconSize, getResources().getDimensionPixelSize(R.dimen.design_bottom_navigation_icon_size)));
-        if (obtainTintedStyledAttributes.hasValue(R.styleable.BottomNavigationView_itemTextAppearanceInactive)) {
-            setItemTextAppearanceInactive(obtainTintedStyledAttributes.getResourceId(R.styleable.BottomNavigationView_itemTextAppearanceInactive, 0));
+        setItemIconSize(obtainTintedStyledAttributes.getDimensionPixelSize(4, getResources().getDimensionPixelSize(R.dimen.design_bottom_navigation_icon_size)));
+        if (obtainTintedStyledAttributes.hasValue(8)) {
+            setItemTextAppearanceInactive(obtainTintedStyledAttributes.getResourceId(8, 0));
         }
-        if (obtainTintedStyledAttributes.hasValue(R.styleable.BottomNavigationView_itemTextAppearanceActive)) {
-            setItemTextAppearanceActive(obtainTintedStyledAttributes.getResourceId(R.styleable.BottomNavigationView_itemTextAppearanceActive, 0));
+        if (obtainTintedStyledAttributes.hasValue(7)) {
+            setItemTextAppearanceActive(obtainTintedStyledAttributes.getResourceId(7, 0));
         }
-        if (obtainTintedStyledAttributes.hasValue(R.styleable.BottomNavigationView_itemTextColor)) {
-            setItemTextColor(obtainTintedStyledAttributes.getColorStateList(R.styleable.BottomNavigationView_itemTextColor));
+        if (obtainTintedStyledAttributes.hasValue(9)) {
+            setItemTextColor(obtainTintedStyledAttributes.getColorStateList(9));
         }
         if (getBackground() == null || (getBackground() instanceof ColorDrawable)) {
             ViewCompat.setBackground(this, createMaterialShapeDrawableBackground(context2));
         }
-        if (obtainTintedStyledAttributes.hasValue(R.styleable.BottomNavigationView_elevation)) {
-            ViewCompat.setElevation(this, obtainTintedStyledAttributes.getDimensionPixelSize(R.styleable.BottomNavigationView_elevation, 0));
+        if (obtainTintedStyledAttributes.hasValue(1)) {
+            ViewCompat.setElevation(this, obtainTintedStyledAttributes.getDimensionPixelSize(1, 0));
         }
-        DrawableCompat.setTintList(getBackground().mutate(), MaterialResources.getColorStateList(context2, obtainTintedStyledAttributes, R.styleable.BottomNavigationView_backgroundTint));
-        setLabelVisibilityMode(obtainTintedStyledAttributes.getInteger(R.styleable.BottomNavigationView_labelVisibilityMode, -1));
-        setItemHorizontalTranslationEnabled(obtainTintedStyledAttributes.getBoolean(R.styleable.BottomNavigationView_itemHorizontalTranslationEnabled, true));
-        int resourceId = obtainTintedStyledAttributes.getResourceId(R.styleable.BottomNavigationView_itemBackground, 0);
+        DrawableCompat.setTintList(getBackground().mutate(), MaterialResources.getColorStateList(context2, obtainTintedStyledAttributes, 0));
+        setLabelVisibilityMode(obtainTintedStyledAttributes.getInteger(10, -1));
+        setItemHorizontalTranslationEnabled(obtainTintedStyledAttributes.getBoolean(3, true));
+        int resourceId = obtainTintedStyledAttributes.getResourceId(2, 0);
         if (resourceId != 0) {
             this.menuView.setItemBackgroundRes(resourceId);
         } else {
-            setItemRippleColor(MaterialResources.getColorStateList(context2, obtainTintedStyledAttributes, R.styleable.BottomNavigationView_itemRippleColor));
+            setItemRippleColor(MaterialResources.getColorStateList(context2, obtainTintedStyledAttributes, 6));
         }
-        if (obtainTintedStyledAttributes.hasValue(R.styleable.BottomNavigationView_menu)) {
-            inflateMenu(obtainTintedStyledAttributes.getResourceId(R.styleable.BottomNavigationView_menu, 0));
+        if (obtainTintedStyledAttributes.hasValue(11)) {
+            inflateMenu(obtainTintedStyledAttributes.getResourceId(11, 0));
         }
         obtainTintedStyledAttributes.recycle();
         addView(this.menuView, layoutParams);

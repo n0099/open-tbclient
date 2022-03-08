@@ -32,7 +32,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ContentProviderManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PLUGIN_PKG_NAME = "plugin_pkg_name";
@@ -47,17 +47,17 @@ public class ContentProviderManager {
     public final Map<b, a> mContentProviderMap;
     public final Map<String, c> mSystemProviderInfoMap;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final ProviderInfo f53308b;
+        public final ProviderInfo f51727b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final PluginContentProvider f53309c;
+        public final PluginContentProvider f51728c;
 
         public a(b bVar, ProviderInfo providerInfo, PluginContentProvider pluginContentProvider) {
             Interceptable interceptable = $ic;
@@ -74,23 +74,23 @@ public class ContentProviderManager {
                     return;
                 }
             }
-            this.f53308b = providerInfo;
+            this.f51727b = providerInfo;
             this.a = bVar;
-            this.f53309c = pluginContentProvider;
+            this.f51728c = pluginContentProvider;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f53310b;
+        public final String f51729b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f53311c;
+        public final String f51730c;
 
         public b(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -108,8 +108,8 @@ public class ContentProviderManager {
                 }
             }
             this.a = str2;
-            this.f53310b = str3;
-            this.f53311c = str;
+            this.f51729b = str3;
+            this.f51730c = str;
         }
 
         public boolean equals(Object obj) {
@@ -118,7 +118,7 @@ public class ContentProviderManager {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
                 if (obj instanceof b) {
                     b bVar = (b) obj;
-                    if (TextUtils.equals(this.f53311c, bVar.f53311c) && TextUtils.equals(this.f53310b, bVar.f53310b) && TextUtils.equals(this.a, bVar.a)) {
+                    if (TextUtils.equals(this.f51730c, bVar.f51730c) && TextUtils.equals(this.f51729b, bVar.f51729b) && TextUtils.equals(this.a, bVar.a)) {
                         return true;
                     }
                 }
@@ -132,21 +132,21 @@ public class ContentProviderManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 if (Build.VERSION.SDK_INT >= 19) {
-                    return Objects.hash(this.a, this.f53310b, this.f53311c);
+                    return Objects.hash(this.a, this.f51729b, this.f51730c);
                 }
-                return (this.a + this.f53310b + this.a).hashCode();
+                return (this.a + this.f51729b + this.a).hashCode();
             }
             return invokeV.intValue;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class c extends b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public final ProviderInfo f53312d;
+        public final ProviderInfo f51731d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(String str, String str2, ProviderInfo providerInfo) {
@@ -167,7 +167,7 @@ public class ContentProviderManager {
                     return;
                 }
             }
-            this.f53312d = providerInfo;
+            this.f51731d = providerInfo;
         }
     }
 
@@ -273,7 +273,7 @@ public class ContentProviderManager {
             if (aVar == null) {
                 return null;
             }
-            return aVar.f53309c;
+            return aVar.f51728c;
         }
         return (PluginContentProvider) invokeL.objValue;
     }
@@ -299,10 +299,10 @@ public class ContentProviderManager {
                     return;
                 }
                 for (ProviderInfo providerInfo : providerInfoArr) {
-                    if (providerInfo != null && providerInfo.authority != null && providerInfo.authority.contains(ZeusConstants.f53154b)) {
+                    if (providerInfo != null && providerInfo.authority != null && providerInfo.authority.contains(ZeusConstants.f51573b)) {
                         try {
                             ZeusLogger.w(ZeusLogger.TAG_PROVIDER, "Need to init system provider info start [packageNam:=" + providerInfo.packageName + "],[processName=" + providerInfo.processName + "],[authority:" + providerInfo.authority + PreferencesUtil.RIGHT_MOUNT);
-                            if (providerInfo.authority.contains(Zeus.getAppApplication().getPackageName() + ZeusConstants.f53154b)) {
+                            if (providerInfo.authority.contains(Zeus.getAppApplication().getPackageName() + ZeusConstants.f51573b)) {
                                 String a2 = com.bytedance.pangle.helper.c.a(providerInfo.processName);
                                 this.mSystemProviderInfoMap.put(a2, new c(Zeus.getAppApplication().getPackageName(), a2, providerInfo));
                                 ZeusLogger.w(ZeusLogger.TAG_PROVIDER, "Init system provider info finish [packageNam:=" + providerInfo.packageName + "],[processName=" + providerInfo.processName + "],[authority:" + providerInfo.authority + PreferencesUtil.RIGHT_MOUNT);

@@ -15,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.ssa.SsaDecoder;
 import h.c.m0;
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -29,7 +30,7 @@ import org.webrtc.ThreadUtils;
 import org.webrtc.VideoEncoder;
 import org.webrtc.VideoFrame;
 @TargetApi(19)
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class HardwareVideoEncoder implements VideoEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEQUEUE_OUTPUT_BUFFER_TIMEOUT_US = 100000;
@@ -80,7 +81,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
     public final YuvFormat yuvFormat;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static abstract class YuvFormat {
         public static final /* synthetic */ YuvFormat[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -396,7 +397,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
                         createVideoFormat.setInteger("profile", 8);
                         createVideoFormat.setInteger("level", 256);
                     }
-                    Logging.d(TAG, "Format: " + createVideoFormat);
+                    Logging.d(TAG, SsaDecoder.FORMAT_LINE_PREFIX + createVideoFormat);
                     this.codec.configure(createVideoFormat, null, null, 1);
                     if (this.useSurfaceMode) {
                         this.textureEglBase = new EglBase14(this.sharedContext, EglBase.CONFIG_RECORDABLE);

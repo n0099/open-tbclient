@@ -3,14 +3,14 @@ package com.baidu.tbadk.core.data;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.s.l;
-import c.a.t0.s.r.e;
-import c.a.t0.s.r.e2;
-import c.a.t0.s.r.o0;
-import c.a.u0.l3.d0.c;
-import c.a.u0.l3.z;
-import c.a.u0.z1.o.b;
-import c.a.u0.z1.o.k.a;
+import c.a.q0.r.l;
+import c.a.q0.r.r.e;
+import c.a.q0.r.r.e2;
+import c.a.q0.r.r.o0;
+import c.a.r0.j3.a0;
+import c.a.r0.j3.e0.c;
+import c.a.r0.z1.o.b;
+import c.a.r0.z1.o.k.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
@@ -30,7 +30,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.App;
 import tbclient.GoodsInfo;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class AdvertAppInfo extends e2 implements o0, c {
     public static /* synthetic */ Interceptable $ic;
     public static AtomicBoolean A4;
@@ -69,7 +69,7 @@ public class AdvertAppInfo extends e2 implements o0, c {
     public String y4;
     public String z4;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public interface ILegoAdvert extends ICardInfo {
         boolean checkIsAppAdvert();
 
@@ -77,7 +77,7 @@ public class AdvertAppInfo extends e2 implements o0, c {
 
         AdvertAppInfo getAdvertAppInfo();
 
-        c.a.t0.s.r.c getAppInfoModel();
+        c.a.q0.r.r.c getAppInfoModel();
 
         @NonNull
         String getDownloadId();
@@ -238,10 +238,10 @@ public class AdvertAppInfo extends e2 implements o0, c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (!e2.X3.get()) {
-                z.B();
+                a0.B();
                 return 31;
             } else if (!A4.get()) {
-                z.B();
+                a0.B();
                 return 31;
             } else if (TextUtils.equals("PB_BANNER", this.q4) || TextUtils.equals("PIC_PAGE_BANNER", this.q4) || !TextUtils.isEmpty(this.m4)) {
                 if (SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) == 0) {
@@ -269,7 +269,7 @@ public class AdvertAppInfo extends e2 implements o0, c {
                 if (TextUtils.isEmpty(this.g4) || TextUtils.isEmpty(this.g4.trim())) {
                     return 24;
                 }
-                if (this.o4.getAppInfoModel() == null || c.a.t0.s.r.c.c(this.o4.getAppInfoModel())) {
+                if (this.o4.getAppInfoModel() == null || c.a.q0.r.r.c.c(this.o4.getAppInfoModel())) {
                     if (l.c().g() || this.o4.isNoPicAd()) {
                         int i4 = this.v4;
                         if (i4 == 3 || i4 == 1) {
@@ -301,7 +301,7 @@ public class AdvertAppInfo extends e2 implements o0, c {
         return invokeV.intValue;
     }
 
-    @Override // c.a.u0.l3.d0.c
+    @Override // c.a.r0.j3.e0.c
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
@@ -344,14 +344,14 @@ public class AdvertAppInfo extends e2 implements o0, c {
         }
     }
 
-    @Override // c.a.t0.s.r.o0
+    @Override // c.a.q0.r.r.o0
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.k4 : invokeV.booleanValue;
     }
 
-    @Override // c.a.u0.l3.d0.c
+    @Override // c.a.r0.j3.e0.c
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -399,7 +399,7 @@ public class AdvertAppInfo extends e2 implements o0, c {
         return invokeL.booleanValue;
     }
 
-    @Override // c.a.t0.s.r.o0
+    @Override // c.a.q0.r.r.o0
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -413,7 +413,7 @@ public class AdvertAppInfo extends e2 implements o0, c {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? W4() ? this.o4.getDownloadId() : "" : (String) invokeV.objValue;
     }
 
-    @Override // c.a.t0.s.r.e2, com.baidu.tieba.card.data.BaseCardInfo, c.a.d.o.e.n
+    @Override // c.a.q0.r.r.e2, com.baidu.tieba.card.data.BaseCardInfo, c.a.d.o.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         ILegoAdvert iLegoAdvert;
@@ -469,14 +469,14 @@ public class AdvertAppInfo extends e2 implements o0, c {
         return invokeV.intValue;
     }
 
-    @Override // c.a.t0.s.r.o0
+    @Override // c.a.q0.r.r.o0
     public AdvertAppInfo m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this : (AdvertAppInfo) invokeV.objValue;
     }
 
-    @Override // c.a.t0.s.r.o0
+    @Override // c.a.q0.r.r.o0
     public void setPosition(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {

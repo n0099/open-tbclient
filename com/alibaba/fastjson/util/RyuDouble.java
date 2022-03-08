@@ -9,11 +9,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.qrcodescanner.QRScanCodeActivity;
+import com.google.android.exoplayer2.C;
 import com.google.android.material.slider.BasicLabelFormatter;
 import java.lang.reflect.Array;
 import java.math.BigInteger;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class RyuDouble {
     public static /* synthetic */ Interceptable $ic;
     public static final int[][] POW5_INV_SPLIT;
@@ -350,7 +351,7 @@ public final class RyuDouble {
                             i38 = 12;
                         } else if (j4 >= 10000000000L) {
                             i38 = 11;
-                        } else if (j4 >= 1000000000) {
+                        } else if (j4 >= C.NANOS_PER_SECOND) {
                             i38 = 10;
                         } else if (j4 >= 100000000) {
                             i38 = 9;

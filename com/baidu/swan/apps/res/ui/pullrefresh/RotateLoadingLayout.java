@@ -14,13 +14,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.a.e;
-import c.a.s0.a.f;
-import c.a.s0.a.g;
-import c.a.s0.a.h;
-import c.a.s0.a.z2.d;
+import c.a.p0.a.p2.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,17 +25,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class RotateLoadingLayout extends LoadingLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final Interpolator o;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f39475i;
+    public RelativeLayout f37879i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f39476j;
+    public ImageView f37880j;
     public TextView k;
     public TextView l;
     public TextView m;
@@ -84,13 +81,13 @@ public class RotateLoadingLayout extends LoadingLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f39475i = (RelativeLayout) findViewById(f.pull_to_refresh_header_content);
-            this.f39476j = (ImageView) findViewById(f.pull_to_refresh_header_arrow);
-            this.k = (TextView) findViewById(f.pull_to_refresh_header_hint_textview);
-            this.l = (TextView) findViewById(f.pull_to_refresh_header_time);
-            this.m = (TextView) findViewById(f.pull_to_refresh_last_update_time_text);
-            this.f39476j.setScaleType(ImageView.ScaleType.CENTER);
-            this.f39476j.setImageResource(e.aiapps_default_ptr_rotate);
+            this.f37879i = (RelativeLayout) findViewById(R.id.pull_to_refresh_header_content);
+            this.f37880j = (ImageView) findViewById(R.id.pull_to_refresh_header_arrow);
+            this.k = (TextView) findViewById(R.id.pull_to_refresh_header_hint_textview);
+            this.l = (TextView) findViewById(R.id.pull_to_refresh_header_time);
+            this.m = (TextView) findViewById(R.id.pull_to_refresh_last_update_time_text);
+            this.f37880j.setScaleType(ImageView.ScaleType.CENTER);
+            this.f37880j.setImageResource(R.drawable.aiapps_default_ptr_rotate);
             RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);
             this.n = rotateAnimation;
             rotateAnimation.setFillAfter(true);
@@ -104,9 +101,9 @@ public class RotateLoadingLayout extends LoadingLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f39476j.clearAnimation();
+            this.f37880j.clearAnimation();
             if (d.c()) {
-                this.f39476j.setRotation(0.0f);
+                this.f37880j.setRotation(0.0f);
             }
         }
     }
@@ -115,7 +112,7 @@ public class RotateLoadingLayout extends LoadingLayout {
     public View createLoadingView(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, viewGroup, attributeSet)) == null) ? LayoutInflater.from(context).inflate(g.aiapps_pull_to_refresh_header2, viewGroup, false) : (View) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, viewGroup, attributeSet)) == null) ? LayoutInflater.from(context).inflate(R.layout.aiapps_pull_to_refresh_header2, viewGroup, false) : (View) invokeLLL.objValue;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -123,11 +120,11 @@ public class RotateLoadingLayout extends LoadingLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RelativeLayout relativeLayout = this.f39475i;
+            RelativeLayout relativeLayout = this.f37879i;
             if (relativeLayout != null) {
                 return relativeLayout.getHeight();
             }
-            return (int) getResources().getDimension(c.a.s0.a.d.aiapps_picture_pull_to_refresh_height_height);
+            return (int) getResources().getDimension(R.dimen.aiapps_picture_pull_to_refresh_height_height);
         }
         return invokeV.intValue;
     }
@@ -136,7 +133,7 @@ public class RotateLoadingLayout extends LoadingLayout {
     public void onPull(float f2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeF(1048580, this, f2) == null) && d.c()) {
-            this.f39476j.setRotation(f2 * 180.0f);
+            this.f37880j.setRotation(f2 * 180.0f);
         }
     }
 
@@ -144,7 +141,7 @@ public class RotateLoadingLayout extends LoadingLayout {
     public void onPullToRefresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.k.setText(h.aiapps_pull_to_refresh_header_hint_normal);
+            this.k.setText(R.string.aiapps_pull_to_refresh_header_hint_normal);
         }
     }
 
@@ -153,8 +150,8 @@ public class RotateLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             b();
-            this.f39476j.startAnimation(this.n);
-            this.k.setText(h.aiapps_pull_to_refresh_header_hint_loading);
+            this.f37880j.startAnimation(this.n);
+            this.k.setText(R.string.aiapps_pull_to_refresh_header_hint_loading);
         }
     }
 
@@ -163,7 +160,7 @@ public class RotateLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onReleaseToLongRefresh();
-            this.k.setText(h.aiapps_pull_to_refresh_header_hint_go_home);
+            this.k.setText(R.string.aiapps_pull_to_refresh_header_hint_go_home);
         }
     }
 
@@ -171,7 +168,7 @@ public class RotateLoadingLayout extends LoadingLayout {
     public void onReleaseToRefresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.k.setText(h.aiapps_pull_to_refresh_header_hint_ready);
+            this.k.setText(R.string.aiapps_pull_to_refresh_header_hint_ready);
         }
     }
 
@@ -180,7 +177,7 @@ public class RotateLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             b();
-            this.k.setText(h.aiapps_pull_to_refresh_header_hint_normal);
+            this.k.setText(R.string.aiapps_pull_to_refresh_header_hint_normal);
         }
     }
 

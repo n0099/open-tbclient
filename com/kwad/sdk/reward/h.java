@@ -5,14 +5,14 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class h {
     public volatile boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.network.i<i, BaseResultData> f57492b;
+    public com.kwad.sdk.core.network.i<i, BaseResultData> f55842b;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static h a = new h();
     }
@@ -46,7 +46,7 @@ public class h {
                 };
             }
         };
-        this.f57492b = iVar;
+        this.f55842b = iVar;
         iVar.a(new com.kwad.sdk.core.network.j<i, BaseResultData>() { // from class: com.kwad.sdk.reward.h.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
@@ -76,7 +76,7 @@ public class h {
     }
 
     public void b() {
-        com.kwad.sdk.core.network.i<i, BaseResultData> iVar = this.f57492b;
+        com.kwad.sdk.core.network.i<i, BaseResultData> iVar = this.f55842b;
         if (iVar != null) {
             iVar.e();
         }

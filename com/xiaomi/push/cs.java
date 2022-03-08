@@ -43,7 +43,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class cs {
     public static /* synthetic */ Interceptable $ic;
     public static Context a;
@@ -58,13 +58,13 @@ public class cs {
     public static boolean f204a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<String, co> f61176b;
+    public static Map<String, co> f59526b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f61177c;
+    public static String f59527c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f61178d;
+    public static String f59528d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -91,12 +91,12 @@ public class cs {
     /* renamed from: c  reason: collision with other field name */
     public long f212c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         cs a(Context context, cr crVar, b bVar, String str);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         String a(String str);
     }
@@ -114,7 +114,7 @@ public class cs {
                 return;
             }
         }
-        f61176b = new HashMap();
+        f59526b = new HashMap();
         f204a = false;
     }
 
@@ -163,8 +163,8 @@ public class cs {
         this.f207a = bVar;
         this.f206a = crVar == null ? new ct(this) : crVar;
         this.f208a = str;
-        f61177c = str2 == null ? context.getPackageName() : str2;
-        f61178d = str3 == null ? f() : str3;
+        f59527c = str2 == null ? context.getPackageName() : str2;
+        f59528d = str3 == null ? f() : str3;
     }
 
     public static synchronized cs a() {
@@ -250,12 +250,12 @@ public class cs {
                     }
                 }
             }
-            boolean isEmpty = f61176b.isEmpty();
-            synchronized (f61176b) {
-                for (Object obj : f61176b.values().toArray()) {
+            boolean isEmpty = f59526b.isEmpty();
+            synchronized (f59526b) {
+                for (Object obj : f59526b.values().toArray()) {
                     co coVar = (co) obj;
                     if (!coVar.b()) {
-                        f61176b.remove(coVar.f199b);
+                        f59526b.remove(coVar.f199b);
                         isEmpty = true;
                     }
                 }
@@ -305,11 +305,11 @@ public class cs {
                                 }
                                 jSONObject = jSONObject5;
                                 arrayList2.set(i3, coVar2);
-                                coVar2.f61172g = string5;
-                                coVar2.f61168c = string;
-                                coVar2.f61170e = string3;
-                                coVar2.f61171f = string4;
-                                coVar2.f61169d = string2;
+                                coVar2.f59522g = string5;
+                                coVar2.f59518c = string;
+                                coVar2.f59520e = string3;
+                                coVar2.f59521f = string4;
+                                coVar2.f59519d = string2;
                                 if (jSONObject4.has("stat-percent")) {
                                     coVar2.a(jSONObject4.getDouble("stat-percent"));
                                 }
@@ -342,9 +342,9 @@ public class cs {
                                             coVar3.a(new cx(string7, optJSONArray2.length() - i5));
                                         }
                                     }
-                                    synchronized (f61176b) {
+                                    synchronized (f59526b) {
                                         if (this.f206a.a(next)) {
-                                            f61176b.put(next, coVar3);
+                                            f59526b.put(next, coVar3);
                                         }
                                     }
                                 }
@@ -400,13 +400,13 @@ public class cs {
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
-            co coVar = f61176b.get(str);
-            synchronized (f61176b) {
+            co coVar = f59526b.get(str);
+            synchronized (f59526b) {
                 if (coVar == null) {
                     co coVar2 = new co(str);
                     coVar2.a(604800000L);
                     coVar2.m284a(str2);
-                    f61176b.put(str, coVar2);
+                    f59526b.put(str, coVar2);
                 } else {
                     coVar.m284a(str2);
                 }
@@ -478,8 +478,8 @@ public class cs {
             String format = String.format(Locale.US, "https://%1$s/gslb/?ver=4.0", b());
             if (c2 == null) {
                 arrayList2.add(format);
-                synchronized (f61176b) {
-                    co coVar = f61176b.get("resolver.msg.xiaomi.net");
+                synchronized (f59526b) {
+                    co coVar = f59526b.get("resolver.msg.xiaomi.net");
                     if (coVar != null) {
                         Iterator<String> it = coVar.a(true).iterator();
                         while (it.hasNext()) {
@@ -527,7 +527,7 @@ public class cs {
                 }
                 jSONObject.put("data", jSONArray);
                 JSONArray jSONArray2 = new JSONArray();
-                for (co coVar : f61176b.values()) {
+                for (co coVar : f59526b.values()) {
                     jSONArray2.put(coVar.m283a());
                 }
                 jSONObject.put(GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED, jSONArray2);
@@ -656,7 +656,7 @@ public class cs {
                 JSONArray optJSONArray2 = jSONObject.optJSONArray(GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED);
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                     co a3 = new co("").a(optJSONArray2.getJSONObject(i3));
-                    f61176b.put(a3.f199b, a3);
+                    f59526b.put(a3.f199b, a3);
                 }
             }
         }

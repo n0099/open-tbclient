@@ -10,7 +10,7 @@ import com.bumptech.glide.util.Util;
 import java.util.Collections;
 import java.util.Set;
 import java.util.WeakHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ActivityFragmentLifecycle implements Lifecycle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

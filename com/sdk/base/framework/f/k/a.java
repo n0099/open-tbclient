@@ -16,13 +16,13 @@ import com.sdk.base.framework.bean.DataInfo;
 import com.sdk.base.framework.c.f;
 import java.util.TreeMap;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Boolean f59481b;
+    public static Boolean f57831b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public class a {
         }
         new TreeMap();
         a = a.class.getSimpleName();
-        f59481b = Boolean.valueOf(f.f59448b);
+        f57831b = Boolean.valueOf(f.f57798b);
     }
 
     public a() {
@@ -68,7 +68,7 @@ public class a {
             } catch (Throwable th) {
                 com.sdk.base.framework.f.f.a.a(th.toString());
                 String str2 = a;
-                c.b(str2, "SDK解密异常：" + th.toString(), f59481b);
+                c.b(str2, "SDK解密异常：" + th.toString(), f57831b);
                 return null;
             }
         }
@@ -88,7 +88,7 @@ public class a {
                     dataInfo.putData("msg", str);
                     dataInfo.putData("obj", a2);
                     dataInfo.putData("seq", str2);
-                    aVar.a(aVar.f59456c, "/st/api/v1.0/ses", dataInfo, aVar.a(), 0, j.f59415b);
+                    aVar.a(aVar.f57806c, "/st/api/v1.0/ses", dataInfo, aVar.a(), 0, j.f57765b);
                 } catch (Throwable unused) {
                 }
             }
@@ -103,7 +103,7 @@ public class a {
                 return new JSONObject(str).optLong("exp") < System.currentTimeMillis();
             } catch (Exception e2) {
                 String str2 = a;
-                c.c(str2, "out data error" + e2, f59481b);
+                c.c(str2, "out data error" + e2, f57831b);
                 return true;
             }
         }

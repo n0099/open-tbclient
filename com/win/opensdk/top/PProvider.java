@@ -8,7 +8,7 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import c.q.a.c0;
-import c.q.a.m2;
+import c.q.a.h2;
 import c.q.a.r0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class PProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class PProvider extends ContentProvider {
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && m2.A(this.a) == 0) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && h2.A(this.a) == 0) {
             r0.E(this.a);
         }
     }
@@ -81,7 +81,7 @@ public class PProvider extends ContentProvider {
             Context context = getContext();
             this.a = context;
             if (context != null) {
-                if (m2.A(context) == 0) {
+                if (h2.A(context) == 0) {
                     r0.E(this.a);
                     return true;
                 }

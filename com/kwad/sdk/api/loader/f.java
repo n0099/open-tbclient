@@ -3,21 +3,21 @@ package com.kwad.sdk.api.loader;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class f {
     public static String a = "newversion";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f55608b = "curversion";
+    public static String f53958b = "curversion";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f55609c = "apiversion";
+    public static String f53959c = "apiversion";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f55610d = "_enable";
+    public static String f53960d = "_enable";
 
     public static String a(Context context) {
-        return a(context, f55609c);
+        return a(context, f53959c);
     }
 
     public static String a(Context context, String str) {
@@ -57,6 +57,6 @@ public class f {
     }
 
     public static void b(Context context, String str) {
-        a(context, f55609c, str);
+        a(context, f53959c, str);
     }
 }

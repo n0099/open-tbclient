@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.net.BdNetTask;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
@@ -19,7 +18,7 @@ import java.net.Proxy;
 import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ConnectionFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,7 +71,7 @@ public class ConnectionFactory {
                 httpURLConnection2.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
                 httpURLConnection2.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
                 httpURLConnection2.setReadTimeout(20000);
-                httpURLConnection2.setConnectTimeout(BdNetTask.TIMEOUT_READ);
+                httpURLConnection2.setConnectTimeout(25000);
                 return httpURLConnection2;
             }
             throw new RuntimeException("非法url请求");

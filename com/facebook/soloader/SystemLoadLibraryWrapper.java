@@ -1,5 +1,5 @@
 package com.facebook.soloader;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface SystemLoadLibraryWrapper {
     void loadLibrary(String str);
 }

@@ -3,7 +3,7 @@ package com.baidu.ar.content;
 import com.baidu.ar.bean.ARCaseBundleInfo;
 import com.baidu.ar.bean.FunctionType;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public interface IARCaseInfo {
     String getARKey();
 

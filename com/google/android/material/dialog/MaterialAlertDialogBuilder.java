@@ -27,6 +27,7 @@ import androidx.appcompat.view.ContextThemeWrapper;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,20 +35,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.resources.MaterialAttributes;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
     @AttrRes
-    public static final int DEF_STYLE_ATTR;
+    public static final int DEF_STYLE_ATTR = 2130968708;
     @StyleRes
-    public static final int DEF_STYLE_RES;
+
+    /* renamed from: DEF_STYLE_RES */
+    public static final int MaterialAlertDialog_MaterialComponents = 2131755325;
     @AttrRes
-    public static final int MATERIAL_ALERT_DIALOG_THEME_OVERLAY;
+    public static final int MATERIAL_ALERT_DIALOG_THEME_OVERLAY = 2130969608;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public Drawable background;
@@ -58,19 +60,16 @@ public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-606213406, "Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-606213406, "Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-606213406, "Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;")) == null) {
+            return;
         }
-        DEF_STYLE_ATTR = R.attr.alertDialogStyle;
-        DEF_STYLE_RES = R.style.MaterialAlertDialog_MaterialComponents;
-        MATERIAL_ALERT_DIALOG_THEME_OVERLAY = R.attr.materialAlertDialogTheme;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-606213406, "Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;");
+        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -99,7 +98,7 @@ public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             int materialAlertDialogThemeOverlay = getMaterialAlertDialogThemeOverlay(context);
-            Context wrap = MaterialThemeOverlay.wrap(context, null, DEF_STYLE_ATTR, DEF_STYLE_RES);
+            Context wrap = MaterialThemeOverlay.wrap(context, null, DEF_STYLE_ATTR, MaterialAlertDialog_MaterialComponents);
             return materialAlertDialogThemeOverlay == 0 ? wrap : new ContextThemeWrapper(wrap, materialAlertDialogThemeOverlay);
         }
         return (Context) invokeL.objValue;
@@ -235,9 +234,9 @@ public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
         }
         Context context2 = getContext();
         Resources.Theme theme = context2.getTheme();
-        this.backgroundInsets = MaterialDialogs.getDialogBackgroundInsets(context2, DEF_STYLE_ATTR, DEF_STYLE_RES);
-        int color = MaterialColors.getColor(context2, R.attr.colorSurface, MaterialAlertDialogBuilder.class.getCanonicalName());
-        MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(context2, null, DEF_STYLE_ATTR, DEF_STYLE_RES);
+        this.backgroundInsets = MaterialDialogs.getDialogBackgroundInsets(context2, DEF_STYLE_ATTR, MaterialAlertDialog_MaterialComponents);
+        int color = MaterialColors.getColor(context2, (int) R.attr.colorSurface, MaterialAlertDialogBuilder.class.getCanonicalName());
+        MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(context2, null, DEF_STYLE_ATTR, MaterialAlertDialog_MaterialComponents);
         materialShapeDrawable.initializeElevationOverlay(context2);
         materialShapeDrawable.setFillColor(ColorStateList.valueOf(color));
         if (Build.VERSION.SDK_INT >= 28) {

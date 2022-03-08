@@ -6,12 +6,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Iterator;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class cx implements Comparable<cx> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -107,7 +106,7 @@ public class cx implements Comparable<cx> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
             synchronized (this) {
-                this.f214a = jSONObject.getLong(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP);
+                this.f214a = jSONObject.getLong("tt");
                 this.a = jSONObject.getInt("wt");
                 this.f215a = jSONObject.getString("host");
                 JSONArray jSONArray = jSONObject.getJSONArray("ah");
@@ -127,7 +126,7 @@ public class cx implements Comparable<cx> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
                 jSONObject = new JSONObject();
-                jSONObject.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, this.f214a);
+                jSONObject.put("tt", this.f214a);
                 jSONObject.put("wt", this.a);
                 jSONObject.put("host", this.f215a);
                 JSONArray jSONArray = new JSONArray();

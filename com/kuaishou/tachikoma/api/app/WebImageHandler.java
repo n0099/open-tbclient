@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 import com.kuaishou.tachikoma.api.model.TKCDNUrl;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface WebImageHandler {
     void load(ImageView imageView, String str, Drawable drawable, int i2);
 

@@ -2,7 +2,6 @@ package com.google.ar.core;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class Anchor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class CloudAnchorState {
         public static final /* synthetic */ CloudAnchorState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -50,7 +49,7 @@ public class Anchor {
                     return;
                 }
             }
-            NONE = new CloudAnchorState(PolyActivity.NONE_PANEL_TYPE, 0, 0);
+            NONE = new CloudAnchorState("NONE", 0, 0);
             TASK_IN_PROGRESS = new CloudAnchorState("TASK_IN_PROGRESS", 1, 1);
             SUCCESS = new CloudAnchorState(com.alipay.security.mobile.module.http.model.c.p, 2, 2);
             ERROR_INTERNAL = new CloudAnchorState("ERROR_INTERNAL", 3, -1);

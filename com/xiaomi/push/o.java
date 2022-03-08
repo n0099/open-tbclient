@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class o {
     public static /* synthetic */ Interceptable $ic;
     public static final o a;
@@ -17,16 +17,16 @@ public final class o {
     public static final /* synthetic */ o[] f825a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final o f61611b;
+    public static final o f59961b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final o f61612c;
+    public static final o f59962c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final o f61613d;
+    public static final o f59963d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final o f61614e;
+    public static final o f59964e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,12 +43,12 @@ public final class o {
             }
         }
         a = new o("China", 0);
-        f61611b = new o("Global", 1);
-        f61612c = new o("Europe", 2);
-        f61613d = new o("Russia", 3);
+        f59961b = new o("Global", 1);
+        f59962c = new o("Europe", 2);
+        f59963d = new o("Russia", 3);
         o oVar = new o("India", 4);
-        f61614e = oVar;
-        f825a = new o[]{a, f61611b, f61612c, f61613d, oVar};
+        f59964e = oVar;
+        f825a = new o[]{a, f59961b, f59962c, f59963d, oVar};
     }
 
     public o(String str, int i2) {

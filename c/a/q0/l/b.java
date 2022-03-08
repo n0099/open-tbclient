@@ -1,62 +1,118 @@
 package c.a.q0.l;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Build;
-import androidx.core.app.NotificationCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import c.a.q0.r.b0.l;
+import c.a.q0.r.b0.n;
+import c.a.q0.r.b0.o;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes.dex */
-public class b {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static long a = 60000;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static long f4943b;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes2.dex */
+public class b extends n {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1522518874, "Lc/a/q0/l/b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1522518874, "Lc/a/q0/l/b;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b(l lVar) {
+        super(lVar);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {lVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((l) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        f4943b = a * 60;
     }
 
-    public static void a(Context context, long j2) {
+    @o(isAsync = false, value = "showDeviceInfo")
+    private JSONObject showDeviceInfo() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(65537, null, context, j2) == null) || j2 <= 0) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            String cuid = TbadkCoreApplication.getInst().getCuid();
+            String str = Build.VERSION.RELEASE;
+            String str2 = Build.MODEL;
+            int k = c.a.d.f.p.n.k(getContext());
+            int i2 = c.a.d.f.p.n.i(getContext());
+            String str3 = String.valueOf(k) + "," + String.valueOf(i2);
+            String versionName = TbadkCoreApplication.getInst().getVersionName();
+            try {
+                jSONObject.put("systemName", "android");
+                jSONObject.put("systemVersion", str);
+                jSONObject.put("model", str2);
+                jSONObject.put("cuid", cuid);
+                jSONObject.put("resolution", str3);
+                jSONObject.put("appVersion", versionName);
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    @o(isAsync = false, value = "showNetStatus")
+    private JSONObject showNetStatus() {
+        InterceptResult invokeV;
+        int i2;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (c.a.d.f.p.l.H()) {
+                i2 = 1;
+                str = CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
+            } else if (c.a.d.f.p.l.t()) {
+                i2 = 3;
+                str = "2G";
+            } else if (c.a.d.f.p.l.u()) {
+                i2 = 4;
+                str = "3G";
+            } else if (c.a.d.f.p.l.v()) {
+                i2 = 5;
+                str = "4G";
+            } else {
+                i2 = 0;
+                str = "NotReachable";
+            }
+            try {
+                jSONObject.put("netStatus", i2);
+                jSONObject.put("netDesc", str);
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    @o(isAsync = false, value = "showToast")
+    private void showToast(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        try {
-            AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
-            Intent intent = new Intent("sso_action_t_m");
-            intent.setPackage(context.getPackageName());
-            PendingIntent broadcast = PendingIntent.getBroadcast(context, 101, intent, 134217728);
-            alarmManager.cancel(broadcast);
-            long currentTimeMillis = System.currentTimeMillis() + j2;
-            if (Build.VERSION.SDK_INT >= 23) {
-                alarmManager.setExactAndAllowWhileIdle(0, currentTimeMillis, broadcast);
-            } else if (Build.VERSION.SDK_INT >= 19) {
-                alarmManager.setExact(0, currentTimeMillis, broadcast);
-            } else {
-                alarmManager.set(0, currentTimeMillis, broadcast);
-            }
-        } catch (Throwable th) {
-            c.d(th);
-        }
+        BdToast.c(getContext(), jSONObject.optString("message")).q();
+    }
+
+    @Override // c.a.q0.r.b0.n
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_Utils" : (String) invokeV.objValue;
     }
 }

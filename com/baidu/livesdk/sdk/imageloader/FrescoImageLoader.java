@@ -32,7 +32,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class FrescoImageLoader implements ImageLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;

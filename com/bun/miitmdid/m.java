@@ -7,28 +7,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class m extends n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public g f53126c;
+    public g f51545c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f53127d;
+    public String f51546d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f53128e;
+    public String f51547e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f53129f;
+    public String f51548f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f53130g;
+    public boolean f51549g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f53131h;
+    public boolean f51550h;
 
     public m() {
         Interceptable interceptable = $ic;
@@ -43,12 +43,12 @@ public abstract class m extends n {
                 return;
             }
         }
-        this.f53127d = "";
-        this.f53128e = "";
-        this.f53129f = "";
-        this.f53130g = false;
-        this.f53131h = false;
-        this.f53126c = a();
+        this.f51546d = "";
+        this.f51547e = "";
+        this.f51548f = "";
+        this.f51549g = false;
+        this.f51550h = false;
+        this.f51545c = a();
     }
 
     public abstract g a();
@@ -62,7 +62,7 @@ public abstract class m extends n {
             getOAID();
             getVAID();
             getAAID();
-            a(this.f53127d, this.f53128e, this.f53129f, this.f53130g, this.f53131h);
+            a(this.f51546d, this.f51547e, this.f51548f, this.f51549g, this.f51550h);
         }
     }
 
@@ -72,12 +72,12 @@ public abstract class m extends n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
-                this.f53129f = (String) this.f53126c.a().a();
+                this.f51548f = (String) this.f51545c.a().a();
             } catch (Exception e2) {
                 e0.b("SyncProvider", "getAAID: Exception: " + e2.getMessage());
-                this.f53129f = "";
+                this.f51548f = "";
             }
-            return this.f53129f;
+            return this.f51548f;
         }
         return (String) invokeV.objValue;
     }
@@ -88,12 +88,12 @@ public abstract class m extends n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                this.f53127d = (String) this.f53126c.b().a();
+                this.f51546d = (String) this.f51545c.b().a();
             } catch (Exception e2) {
                 e0.b("SyncProvider", "getOAID: Exception: " + e2.getMessage());
-                this.f53127d = "";
+                this.f51546d = "";
             }
-            return this.f53127d;
+            return this.f51546d;
         }
         return (String) invokeV.objValue;
     }
@@ -104,12 +104,12 @@ public abstract class m extends n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
-                this.f53128e = (String) this.f53126c.c().a();
+                this.f51547e = (String) this.f51545c.c().a();
             } catch (Exception e2) {
                 e0.b("SyncProvider", "getVAID: Exception: " + e2.getMessage());
-                this.f53128e = "";
+                this.f51547e = "";
             }
-            return this.f53128e;
+            return this.f51547e;
         }
         return (String) invokeV.objValue;
     }
@@ -123,30 +123,30 @@ public abstract class m extends n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             try {
-                d2 = this.f53126c.d();
+                d2 = this.f51545c.d();
                 Class<?> b2 = d2.b();
                 if (b2 == null) {
                     b2 = Boolean.class;
                 }
                 cast = b2.cast(d2.a());
             } catch (Exception unused) {
-                this.f53131h = false;
+                this.f51550h = false;
             }
             if (cast != null) {
                 if (cast instanceof String) {
                     booleanValue = ((String) cast).equals("0");
                 } else if (cast instanceof Boolean) {
                     if (d2.c()) {
-                        this.f53131h = !((Boolean) cast).booleanValue();
-                        return this.f53131h;
+                        this.f51550h = !((Boolean) cast).booleanValue();
+                        return this.f51550h;
                     }
                     booleanValue = ((Boolean) cast).booleanValue();
                 }
-                this.f53131h = booleanValue;
-                return this.f53131h;
+                this.f51550h = booleanValue;
+                return this.f51550h;
             }
-            this.f53131h = false;
-            return this.f53131h;
+            this.f51550h = false;
+            return this.f51550h;
         }
         return invokeV.booleanValue;
     }
@@ -157,12 +157,12 @@ public abstract class m extends n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             try {
-                this.f53130g = ((Boolean) this.f53126c.e().a()).booleanValue();
+                this.f51549g = ((Boolean) this.f51545c.e().a()).booleanValue();
             } catch (Exception e2) {
                 e0.b("SyncProvider", "isSupported: Exception: " + e2.getMessage());
-                this.f53130g = false;
+                this.f51549g = false;
             }
-            return this.f53130g;
+            return this.f51549g;
         }
         return invokeV.booleanValue;
     }

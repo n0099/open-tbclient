@@ -19,7 +19,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 @Service
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class ANRBOSRegister implements IANRRegister {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

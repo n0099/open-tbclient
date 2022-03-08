@@ -3,7 +3,7 @@ package com.ss.android.socialbase.downloader.i;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.dxmpay.wallet.utils.StatHelper;
 import org.apache.http.HttpStatus;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static String a(int i2) {
         if (i2 != 449) {

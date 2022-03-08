@@ -1,14 +1,15 @@
 package kotlin.jvm.internal;
 
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.util.Arrays;
 import kotlin.KotlinNullPointerException;
 import kotlin.SinceKotlin;
 import kotlin.UninitializedPropertyAccessException;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class Intrinsics {
 
     @SinceKotlin(version = "1.4")
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class Kotlin {
     }
 
@@ -34,7 +35,7 @@ public class Intrinsics {
     }
 
     public static void checkHasClass(String str) throws ClassNotFoundException {
-        String replace = str.replace('/', '.');
+        String replace = str.replace(WebvttCueParser.CHAR_SLASH, '.');
         try {
             Class.forName(replace);
         } catch (ClassNotFoundException e2) {
@@ -240,7 +241,7 @@ public class Intrinsics {
     }
 
     public static void checkHasClass(String str, String str2) throws ClassNotFoundException {
-        String replace = str.replace('/', '.');
+        String replace = str.replace(WebvttCueParser.CHAR_SLASH, '.');
         try {
             Class.forName(replace);
         } catch (ClassNotFoundException e2) {

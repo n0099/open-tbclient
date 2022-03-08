@@ -1,7 +1,7 @@
 package com.ss.android.socialbase.downloader.f;
 
 import com.ss.android.socialbase.downloader.exception.BaseException;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface f {
     i a(m mVar, q qVar);
 

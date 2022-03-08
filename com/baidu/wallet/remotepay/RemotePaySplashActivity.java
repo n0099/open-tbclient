@@ -15,14 +15,14 @@ import com.baidu.wallet.paysdk.ui.PayBaseBeanActivity;
 import com.baidu.wallet.paysdk.ui.WelcomeActivity;
 import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class RemotePaySplashActivity extends PayBaseBeanActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PrecashierCreateOrderResponse f52922b;
+    public PrecashierCreateOrderResponse f51341b;
 
     public RemotePaySplashActivity() {
         Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class RemotePaySplashActivity extends PayBaseBeanActivity {
                 return;
             }
             this.a = intent.getIntExtra(SapiAccount.SAPI_ACCOUNT_FROMTYPE, 0);
-            this.f52922b = (PrecashierCreateOrderResponse) intent.getSerializableExtra(BaiduPay.PRECASHIER_PAY_RESPONSE);
+            this.f51341b = (PrecashierCreateOrderResponse) intent.getSerializableExtra(BaiduPay.PRECASHIER_PAY_RESPONSE);
         }
     }
 
@@ -96,7 +96,7 @@ public class RemotePaySplashActivity extends PayBaseBeanActivity {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             Intent intent = new Intent(this, WelcomeActivity.class);
             intent.putExtra(SapiAccount.SAPI_ACCOUNT_FROMTYPE, this.a);
-            PrecashierCreateOrderResponse precashierCreateOrderResponse = this.f52922b;
+            PrecashierCreateOrderResponse precashierCreateOrderResponse = this.f51341b;
             if (precashierCreateOrderResponse != null) {
                 intent.putExtra(BaiduPay.PRECASHIER_PAY_RESPONSE, precashierCreateOrderResponse);
             }

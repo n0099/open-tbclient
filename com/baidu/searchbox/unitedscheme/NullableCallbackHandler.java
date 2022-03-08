@@ -1,4 +1,4 @@
 package com.baidu.searchbox.unitedscheme;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public interface NullableCallbackHandler extends CallbackHandler {
 }

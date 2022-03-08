@@ -4,16 +4,16 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d0.s.b;
-import c.a.d0.s.c;
-import c.a.d0.s.e;
-import c.a.d0.s.g;
-import c.a.d0.s.i;
-import c.a.d0.s.k;
-import c.a.d0.s.p;
-import c.a.d0.s.s;
-import c.a.d0.s.t;
-import c.a.d0.x.a;
+import c.a.b0.s.b;
+import c.a.b0.s.c;
+import c.a.b0.s.e;
+import c.a.b0.s.g;
+import c.a.b0.s.i;
+import c.a.b0.s.k;
+import c.a.b0.s.p;
+import c.a.b0.s.s;
+import c.a.b0.s.t;
+import c.a.b0.x.a;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
@@ -26,49 +26,51 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
+import com.tachikoma.core.component.TKBase;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class AdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f37254b;
+    public boolean f35657b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public final ParseError f37255c;
+    public final ParseError f35658c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f37256d;
+    public final boolean f35659d;
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<MonitorUrl> f37257e;
+    public final List<MonitorUrl> f35660e;
     @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public final i f37258f;
+    public final i f35661f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public final b f37259g;
+    public final b f35662g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public final AdOperator f37260h;
+    public final AdOperator f35663h;
     @Nullable
 
     /* renamed from: i  reason: collision with root package name */
-    public final t f37261i;
+    public final t f35664i;
     @Nullable
 
     /* renamed from: j  reason: collision with root package name */
-    public final p f37262j;
+    public final p f35665j;
     @Nullable
     public final List<k> k;
     @Nullable
@@ -83,12 +85,13 @@ public class AdBaseModel {
     public s q;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class STYLE {
         public static final /* synthetic */ STYLE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final STYLE BIG_IMAGE;
         public static final STYLE FLOAT;
+        public static final STYLE HIDDEN;
         public static final STYLE MAX;
         public static final STYLE PORTRAIT_VIDEO;
         public static final STYLE REWARD_VIDEO_LP;
@@ -115,14 +118,15 @@ public class AdBaseModel {
             BIG_IMAGE = new STYLE("BIG_IMAGE", 0, "big_image");
             SMALL_IMAGE = new STYLE("SMALL_IMAGE", 1, "small_image");
             THREE_IMAGE = new STYLE("THREE_IMAGE", 2, "three_image");
-            VIDEO = new STYLE("VIDEO", 3, "video");
+            VIDEO = new STYLE(HlsPlaylistParser.TYPE_VIDEO, 3, "video");
             PORTRAIT_VIDEO = new STYLE("PORTRAIT_VIDEO", 4, "portrait_video");
             FLOAT = new STYLE("FLOAT", 5, ShaderParams.VALUE_TYPE_FLOAT);
             REWARD_VIDEO_LP = new STYLE("REWARD_VIDEO_LP", 6, "reward_video_lp");
             REWARD_VIDEO_LP_IMPL = new STYLE("REWARD_VIDEO_LP_IMPL", 7, "reward_video_lp_impl");
-            STYLE style = new STYLE("MAX", 8, "max");
-            MAX = style;
-            $VALUES = new STYLE[]{BIG_IMAGE, SMALL_IMAGE, THREE_IMAGE, VIDEO, PORTRAIT_VIDEO, FLOAT, REWARD_VIDEO_LP, REWARD_VIDEO_LP_IMPL, style};
+            MAX = new STYLE("MAX", 8, "max");
+            STYLE style = new STYLE("HIDDEN", 9, TKBase.VISIBILITY_HIDDEN);
+            HIDDEN = style;
+            $VALUES = new STYLE[]{BIG_IMAGE, SMALL_IMAGE, THREE_IMAGE, VIDEO, PORTRAIT_VIDEO, FLOAT, REWARD_VIDEO_LP, REWARD_VIDEO_LP_IMPL, MAX, style};
         }
 
         public STYLE(String str, int i2, String str2) {
@@ -195,24 +199,24 @@ public class AdBaseModel {
                 return;
             }
         }
-        this.f37257e = new ArrayList();
+        this.f35660e = new ArrayList();
         this.p = new ArrayList();
-        String str = iVar.f3091b;
+        String str = iVar.f1921b;
         JSONObject optJSONObject = jSONObject.optJSONObject(GameGuideConfigInfo.KEY_CLOSE_INFO);
-        this.f37259g = optJSONObject == null ? null : b.a(optJSONObject);
-        this.f37258f = iVar;
-        this.f37262j = p.a(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO));
+        this.f35662g = optJSONObject == null ? null : b.a(optJSONObject);
+        this.f35661f = iVar;
+        this.f35665j = p.a(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO));
         this.k = k.a(jSONObject.optJSONArray("prefetch_video"));
         this.l = c.b(jSONObject.optJSONObject(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO));
         this.m = g.a(jSONObject.optJSONObject("enhance"));
         this.n = e.a(jSONObject.optJSONObject(ThreadAchievementShareDialogView.THREAD_INTERACTION_VIEW_TYPE));
         JSONObject optJSONObject2 = jSONObject.optJSONObject("operate");
         AdOperator a = optJSONObject2 == null ? null : AdOperator.a(optJSONObject2);
-        this.f37260h = a;
-        this.f37256d = a != null;
+        this.f35663h = a;
+        this.f35659d = a != null;
         JSONObject optJSONObject3 = jSONObject.optJSONObject("app_info");
         t c2 = optJSONObject3 == null ? null : t.c(optJSONObject3);
-        this.f37261i = (c2 == null || !c2.k) ? null : c2;
+        this.f35664i = (c2 == null || !c2.k) ? null : c2;
         JSONArray optJSONArray = jSONObject.optJSONArray("ad_monitor_url");
         int length = optJSONArray == null ? 0 : optJSONArray.length();
         for (int i4 = 0; i4 < length; i4++) {
@@ -221,7 +225,7 @@ public class AdBaseModel {
                 String optString = optJSONObject4.optString("show_url");
                 String optString2 = optJSONObject4.optString("click_url");
                 if (!TextUtils.isEmpty(optString) || !TextUtils.isEmpty(optString2)) {
-                    a.b(this.f37257e, new MonitorUrl(optString, optString2));
+                    a.b(this.f35660e, new MonitorUrl(optString, optString2));
                 }
             }
         }
@@ -236,11 +240,11 @@ public class AdBaseModel {
                 }
             }
         }
-        p pVar = this.f37262j;
+        p pVar = this.f35665j;
         if (pVar != null) {
             pVar.b(this);
         }
-        this.f37255c = null;
+        this.f35658c = null;
     }
 
     public void a(@Nullable s sVar) {
@@ -248,10 +252,10 @@ public class AdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, sVar) == null) {
             this.q = sVar;
-            if (sVar == null || sVar.f3119c) {
-                this.f37258f.b();
+            if (sVar == null || sVar.f1949c) {
+                this.f35661f.b();
             }
-            if ((sVar == null || sVar.f3120d) && (list = this.k) != null && list.size() > 0) {
+            if ((sVar == null || sVar.f1950d) && (list = this.k) != null && list.size() > 0) {
                 for (k kVar : this.k) {
                     kVar.b();
                 }

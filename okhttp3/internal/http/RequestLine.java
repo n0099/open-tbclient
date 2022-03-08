@@ -5,10 +5,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.net.Proxy;
 import okhttp3.HttpUrl;
 import okhttp3.Request;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class RequestLine {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +34,7 @@ public final class RequestLine {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, request, type)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(request.method());
-            sb.append(' ');
+            sb.append(WebvttCueParser.CHAR_SPACE);
             if (includeAuthorityInRequestLine(request, type)) {
                 sb.append(request.url());
             } else {

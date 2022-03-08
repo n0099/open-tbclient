@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class d extends com.baidu.platform.base.a implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public OnGetDistricSearchResultListener f37979b;
+    public OnGetDistricSearchResultListener f36382b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class d extends com.baidu.platform.base.a implements e {
                 return;
             }
         }
-        this.f37979b = null;
+        this.f36382b = null;
     }
 
     @Override // com.baidu.platform.core.a.e
@@ -38,7 +38,7 @@ public class d extends com.baidu.platform.base.a implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a.lock();
-            this.f37979b = null;
+            this.f36382b = null;
             this.a.unlock();
         }
     }
@@ -48,7 +48,7 @@ public class d extends com.baidu.platform.base.a implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onGetDistricSearchResultListener) == null) {
             this.a.lock();
-            this.f37979b = onGetDistricSearchResultListener;
+            this.f36382b = onGetDistricSearchResultListener;
             this.a.unlock();
         }
     }
@@ -60,7 +60,7 @@ public class d extends com.baidu.platform.base.a implements e {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, districtSearchOption)) == null) {
             b bVar = new b();
             bVar.a(SearchType.p);
-            return a(new a(districtSearchOption), this.f37979b, bVar);
+            return a(new a(districtSearchOption), this.f36382b, bVar);
         }
         return invokeL.booleanValue;
     }

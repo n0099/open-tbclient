@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public final class d implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,21 +45,21 @@ public final class d implements ServiceConnection {
                 thread2 = b.v;
                 thread2.interrupt();
             }
-            unused = b.f35938c;
+            unused = b.f34341c;
             String str = "onServiceConnected " + componentName;
             try {
-                aVar2 = b.f35939d;
+                aVar2 = b.f34342d;
                 if (aVar2 != null) {
-                    com.baidu.mapframework.open.aidl.a unused3 = b.f35939d = null;
+                    com.baidu.mapframework.open.aidl.a unused3 = b.f34342d = null;
                 }
-                com.baidu.mapframework.open.aidl.a unused4 = b.f35939d = a.AbstractBinderC1833a.a(iBinder);
-                aVar3 = b.f35939d;
+                com.baidu.mapframework.open.aidl.a unused4 = b.f34342d = a.AbstractBinderC1809a.a(iBinder);
+                aVar3 = b.f34342d;
                 aVar3.a(new e(this));
             } catch (RemoteException unused5) {
-                unused2 = b.f35938c;
-                aVar = b.f35939d;
+                unused2 = b.f34341c;
+                aVar = b.f34342d;
                 if (aVar != null) {
-                    com.baidu.mapframework.open.aidl.a unused6 = b.f35939d = null;
+                    com.baidu.mapframework.open.aidl.a unused6 = b.f34342d = null;
                 }
             }
         }
@@ -71,11 +71,11 @@ public final class d implements ServiceConnection {
         String unused;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            unused = b.f35938c;
+            unused = b.f34341c;
             String str = "onServiceDisconnected " + componentName;
-            aVar = b.f35939d;
+            aVar = b.f34342d;
             if (aVar != null) {
-                com.baidu.mapframework.open.aidl.a unused2 = b.f35939d = null;
+                com.baidu.mapframework.open.aidl.a unused2 = b.f34342d = null;
                 boolean unused3 = b.u = false;
             }
         }

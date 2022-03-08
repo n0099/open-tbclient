@@ -18,13 +18,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class VideoChannelFragment extends AbsVideoChannelFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CustomMessageListener E;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class b implements BdSwipeRefreshLayout.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,7 +94,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class c implements BdSwipeRefreshLayout.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -127,7 +127,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class d implements VideoChannelHeaderLayout.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -161,9 +161,9 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
                     return;
                 }
                 VideoChannelFragment videoChannelFragment2 = this.a;
-                if (((c.a.t0.i0.c) ListUtils.getItem(videoChannelFragment2.fragmentTabStructures, videoChannelFragment2.mainViewPager.getCurrentItem())).a instanceof BaseFragment) {
+                if (((c.a.q0.h0.c) ListUtils.getItem(videoChannelFragment2.fragmentTabStructures, videoChannelFragment2.mainViewPager.getCurrentItem())).a instanceof BaseFragment) {
                     VideoChannelFragment videoChannelFragment3 = this.a;
-                    videoChannelFragment3.mainHeaderLayout.achieveRefresh(((BaseFragment) ((c.a.t0.i0.c) ListUtils.getItem(videoChannelFragment3.fragmentTabStructures, videoChannelFragment3.mainViewPager.getCurrentItem())).a).getUniqueId());
+                    videoChannelFragment3.mainHeaderLayout.achieveRefresh(((BaseFragment) ((c.a.q0.h0.c) ListUtils.getItem(videoChannelFragment3.fragmentTabStructures, videoChannelFragment3.mainViewPager.getCurrentItem())).a).getUniqueId());
                 }
             }
         }
@@ -232,8 +232,8 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onPause();
-            if (c.a.t0.a.d.y().A(c.a.t0.a.c.c0)) {
-                c.a.t0.a.d.y().G();
+            if (c.a.q0.a.d.y().A(c.a.q0.a.c.c0)) {
+                c.a.q0.a.d.y().G();
             }
         }
     }
@@ -245,8 +245,8 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
             super.onPrimary();
             if (isPrimary()) {
                 startBrowseTimeMission();
-            } else if (c.a.t0.a.d.y().A(c.a.t0.a.c.c0)) {
-                c.a.t0.a.d.y().G();
+            } else if (c.a.q0.a.d.y().A(c.a.q0.a.c.c0)) {
+                c.a.q0.a.d.y().G();
             }
         }
     }
@@ -273,7 +273,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
     public final void startBrowseTimeMission() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            c.a.t0.a.d.y().P(c.a.t0.a.c.c0);
+            c.a.q0.a.d.y().P(c.a.q0.a.c.c0);
         }
     }
 

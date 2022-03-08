@@ -6,12 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.t0.s.l0.n.a;
-import c.a.u0.o3.b;
-import c.a.u0.o3.d;
-import c.a.u0.o3.e;
-import c.a.u0.o3.f;
-import c.a.u0.o3.g;
+import c.a.q0.r.l0.n.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,32 +14,33 @@ import com.baidu.tbadk.core.atomData.YoungsterPasswordActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class YoungsterIntroduceView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f48026e;
+    public ImageView f46443e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f48027f;
+    public TextView f46444f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f48028g;
+    public TextView f46445g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f48029h;
+    public TextView f46446h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f48030i;
+    public TextView f46447i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f48031j;
+    public TextView f46448j;
     public TBSpecificationBtn k;
     public int l;
 
@@ -72,17 +68,17 @@ public class YoungsterIntroduceView extends LinearLayout implements View.OnClick
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LinearLayout.inflate(getContext(), f.youngster_introduce, this);
-            this.f48026e = (ImageView) findViewById(e.img_youngster_introduce);
-            this.f48027f = (TextView) findViewById(e.txt_youngster_introduce_title);
-            this.f48028g = (TextView) findViewById(e.txt_youngster_introduce_content1);
-            this.f48029h = (TextView) findViewById(e.txt_youngster_introduce_content2);
-            this.f48030i = (TextView) findViewById(e.txt_youngster_introduce_content3);
-            this.f48031j = (TextView) findViewById(e.txt_youngster_introduce_content4);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(e.btn_youngster_open);
+            LinearLayout.inflate(getContext(), R.layout.youngster_introduce, this);
+            this.f46443e = (ImageView) findViewById(R.id.img_youngster_introduce);
+            this.f46444f = (TextView) findViewById(R.id.txt_youngster_introduce_title);
+            this.f46445g = (TextView) findViewById(R.id.txt_youngster_introduce_content1);
+            this.f46446h = (TextView) findViewById(R.id.txt_youngster_introduce_content2);
+            this.f46447i = (TextView) findViewById(R.id.txt_youngster_introduce_content3);
+            this.f46448j = (TextView) findViewById(R.id.txt_youngster_introduce_content4);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.btn_youngster_open);
             this.k = tBSpecificationBtn;
             tBSpecificationBtn.setConfig(new a());
-            this.k.setText(getContext().getString(g.youngster_settings_open_title));
+            this.k.setText(getContext().getString(R.string.youngster_settings_open_title));
             this.k.setOnClickListener(this);
             onChangeSkinType();
         }
@@ -91,12 +87,12 @@ public class YoungsterIntroduceView extends LinearLayout implements View.OnClick
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f48026e.setImageDrawable(WebPManager.getMaskDrawable(d.pic_mask_qingshaonian_time, WebPManager.ResourceStateType.NORMAL));
-            SkinManager.setViewTextColor(this.f48027f, b.CAM_X0105);
-            SkinManager.setViewTextColor(this.f48028g, b.CAM_X0107);
-            SkinManager.setViewTextColor(this.f48029h, b.CAM_X0107);
-            SkinManager.setViewTextColor(this.f48030i, b.CAM_X0107);
-            SkinManager.setViewTextColor(this.f48031j, b.CAM_X0107);
+            this.f46443e.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.pic_mask_qingshaonian_time, WebPManager.ResourceStateType.NORMAL));
+            SkinManager.setViewTextColor(this.f46444f, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f46445g, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f46446h, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f46447i, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f46448j, (int) R.color.CAM_X0107);
             this.k.changeSkinType();
         }
     }

@@ -1,7 +1,7 @@
 package com.yy.hiidostatis.defs.obj;
 
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface Elem extends Serializable {
     public static final String DIVIDER = ":";
 

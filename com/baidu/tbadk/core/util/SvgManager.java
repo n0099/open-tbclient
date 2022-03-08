@@ -17,11 +17,11 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
-import c.a.u0.a4.d;
-import c.a.u0.z3.c;
+import c.a.r0.y3.c;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class SvgManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DRAWABLE_TYPE_ANIMATED_VECTOR_DRAWABLE = 2;
@@ -40,13 +40,13 @@ public class SvgManager {
     public VectorDrawableCache mVectorDrawableCache;
 
     /* renamed from: com.baidu.tbadk.core.util.SvgManager$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class InstanceHolder {
         public static /* synthetic */ Interceptable $ic;
         public static SvgManager SvgManagerInstance;
@@ -84,7 +84,7 @@ public class SvgManager {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static final class SvgResourceStateType {
         public static final /* synthetic */ SvgResourceStateType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -186,7 +186,7 @@ public class SvgManager {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class VectorDrawableCache {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int COUNT_OF_CACHED_SVG_ICON = 50;
@@ -374,9 +374,9 @@ public class SvgManager {
             Drawable mutate = drawable.mutate();
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (skinType == 1) {
-                mutate.setColorFilter(SkinManager.getColor(d.CAM_X0501), PorterDuff.Mode.SRC_ATOP);
+                mutate.setColorFilter(SkinManager.getColor(R.color.CAM_X0501), PorterDuff.Mode.SRC_ATOP);
             } else if (skinType == 4) {
-                mutate.setColorFilter(SkinManager.getColor(d.CAM_X0501), PorterDuff.Mode.SRC_ATOP);
+                mutate.setColorFilter(SkinManager.getColor(R.color.CAM_X0501), PorterDuff.Mode.SRC_ATOP);
             }
             return mutate;
         }
@@ -602,14 +602,13 @@ public class SvgManager {
             if (i2 <= 0) {
                 return null;
             }
-            int i5 = d.CAM_X0105;
             StateListDrawable stateListDrawable = new StateListDrawable();
             Drawable drawable = getDrawable(i2, 1, false);
             if (drawable == null) {
                 return null;
             }
             Drawable mutate = getDrawable(i2, 1, false).mutate();
-            DrawableCompat.setTint(mutate, c.a(SkinManager.getColor(i4, i5), SkinManager.RESOURCE_ALPHA_DISABLE));
+            DrawableCompat.setTint(mutate, c.a(SkinManager.getColor(i4, (int) R.color.CAM_X0105), SkinManager.RESOURCE_ALPHA_DISABLE));
             stateListDrawable.addState(new int[]{-16842910}, mutate);
             if (i3 > 0 && (drawableWithDayNightMask = getDrawableWithDayNightMask(i3)) != null) {
                 Drawable mutate2 = getDrawableWithDayNightMask(i3).mutate();
@@ -618,9 +617,9 @@ public class SvgManager {
                 stateListDrawable.addState(new int[]{16842913}, drawableWithDayNightMask);
             }
             Drawable mutate3 = getDrawable(i2, 1, false).mutate();
-            DrawableCompat.setTint(mutate3, c.a(SkinManager.getColor(i4, i5), SkinManager.RESOURCE_ALPHA_PRESS));
+            DrawableCompat.setTint(mutate3, c.a(SkinManager.getColor(i4, (int) R.color.CAM_X0105), SkinManager.RESOURCE_ALPHA_PRESS));
             stateListDrawable.addState(new int[]{16842919}, mutate3);
-            DrawableCompat.setTint(drawable.mutate(), SkinManager.getColor(i4, i5));
+            DrawableCompat.setTint(drawable.mutate(), SkinManager.getColor(i4, (int) R.color.CAM_X0105));
             stateListDrawable.addState(new int[0], drawable);
             return stateListDrawable;
         }

@@ -12,19 +12,19 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<HashMap<String, String>> f34841b;
+    public List<HashMap<String, String>> f33244b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a<String> f34842c;
+    public a<String> f33245c;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface a<Result> {
         void a(Result result);
     }
@@ -44,8 +44,8 @@ public class e {
                 return;
             }
         }
-        this.f34841b = null;
-        this.f34842c = null;
+        this.f33244b = null;
+        this.f33245c = null;
         this.a = context;
     }
 
@@ -97,7 +97,7 @@ public class e {
                     e2.printStackTrace();
                 }
             }
-            a<String> aVar = this.f34842c;
+            a<String> aVar = this.f33245c;
             if (aVar != null) {
                 aVar.a(jSONObject.toString());
             }
@@ -164,8 +164,8 @@ public class e {
     public void a(HashMap<String, String> hashMap, String[] strArr, a<String> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, hashMap, strArr, aVar) == null) {
-            this.f34841b = a(hashMap, strArr);
-            this.f34842c = aVar;
+            this.f33244b = a(hashMap, strArr);
+            this.f33245c = aVar;
             new Thread(new f(this)).start();
         }
     }

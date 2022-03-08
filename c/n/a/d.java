@@ -13,7 +13,7 @@ import java.io.IOException;
 import kotlinx.coroutines.scheduling.CoroutineScheduler;
 import okio.BufferedSink;
 import okio.ByteString;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +118,7 @@ public final class d {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i2)) == null) {
-            if ((i2 & com.alipay.sdk.encrypt.a.f31098g) == 0) {
+            if ((i2 & com.alipay.sdk.encrypt.a.f29502g) == 0) {
                 return 1;
             }
             if ((i2 & (-16384)) == 0) {
@@ -214,7 +214,7 @@ public final class d {
     public void q(int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            while ((i2 & com.alipay.sdk.encrypt.a.f31098g) != 0) {
+            while ((i2 & com.alipay.sdk.encrypt.a.f29502g) != 0) {
                 this.a.writeByte((i2 & 127) | 128);
                 i2 >>>= 7;
             }

@@ -9,7 +9,7 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class h {
     public static boolean a(int i2) {
         return i2 == 0 || i2 == 1;
@@ -52,25 +52,25 @@ public class h {
         a2.h(System.currentTimeMillis());
         a2.i(0L);
         com.ss.android.socialbase.downloader.g.a a3 = com.ss.android.socialbase.downloader.g.a.a(fVar.ad());
-        if (!a(fVar, a3, a) && eVar.f59676b.isShowToast()) {
-            String startToast = eVar.f59676b.getStartToast();
+        if (!a(fVar, a3, a) && eVar.f58026b.isShowToast()) {
+            String startToast = eVar.f58026b.getStartToast();
             if (TextUtils.isEmpty(startToast)) {
                 startToast = a3.c("download_start_toast_text");
             }
             if (TextUtils.isEmpty(startToast)) {
                 startToast = z ? "已开始下载，可在\"我的\"里查看管理" : "已开始下载";
             }
-            j.c().a(2, fVar.getContext(), eVar.f59676b, startToast, null, 0);
+            j.c().a(2, fVar.getContext(), eVar.f58026b, startToast, null, 0);
         }
         return a;
     }
 
     public static com.ss.android.downloadad.api.a.b a(com.ss.android.downloadlib.addownload.b.e eVar, int i2) {
-        com.ss.android.downloadad.api.a.b bVar = new com.ss.android.downloadad.api.a.b(eVar.f59676b, eVar.f59677c, eVar.f59678d, i2);
+        com.ss.android.downloadad.api.a.b bVar = new com.ss.android.downloadad.api.a.b(eVar.f58026b, eVar.f58027c, eVar.f58028d, i2);
         boolean z = true;
         if (com.ss.android.socialbase.downloader.g.a.a(i2).a("download_event_opt", 1) > 1) {
             try {
-                String packageName = eVar.f59676b.getPackageName();
+                String packageName = eVar.f58026b.getPackageName();
                 if (!TextUtils.isEmpty(packageName)) {
                     if (j.getContext().getPackageManager().getPackageInfo(packageName, 0) == null) {
                         z = false;
@@ -150,13 +150,13 @@ public class h {
                             case 1:
                             case 2:
                             case 3:
-                                if (com.ss.android.socialbase.appdownloader.b.a(optJSONObject, aVar).f59912b == 0) {
+                                if (com.ss.android.socialbase.appdownloader.b.a(optJSONObject, aVar).f58262b == 0) {
                                     break;
                                 } else {
                                     continue;
                                 }
                             case 6:
-                                if (com.ss.android.socialbase.appdownloader.b.b(optJSONObject, aVar).f59912b == 0) {
+                                if (com.ss.android.socialbase.appdownloader.b.b(optJSONObject, aVar).f58262b == 0) {
                                     break;
                                 } else {
                                     continue;

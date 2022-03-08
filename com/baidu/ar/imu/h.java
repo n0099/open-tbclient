@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class h implements Observer {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;

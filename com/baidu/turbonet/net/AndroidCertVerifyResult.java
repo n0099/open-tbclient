@@ -14,17 +14,17 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 @JNINamespace
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class AndroidCertVerifyResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f50294b;
+    public final boolean f48713b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<X509Certificate> f50295c;
+    public final List<X509Certificate> f48714c;
 
     public AndroidCertVerifyResult(int i2, boolean z, List<X509Certificate> list) {
         Interceptable interceptable = $ic;
@@ -42,8 +42,8 @@ public class AndroidCertVerifyResult {
             }
         }
         this.a = i2;
-        this.f50294b = z;
-        this.f50295c = new ArrayList(list);
+        this.f48713b = z;
+        this.f48714c = new ArrayList(list);
     }
 
     @CalledByNative
@@ -51,10 +51,10 @@ public class AndroidCertVerifyResult {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            byte[][] bArr = new byte[this.f50295c.size()];
-            for (int i2 = 0; i2 < this.f50295c.size(); i2++) {
+            byte[][] bArr = new byte[this.f48714c.size()];
+            for (int i2 = 0; i2 < this.f48714c.size(); i2++) {
                 try {
-                    bArr[i2] = this.f50295c.get(i2).getEncoded();
+                    bArr[i2] = this.f48714c.get(i2).getEncoded();
                 } catch (CertificateEncodingException unused) {
                     return new byte[0];
                 }
@@ -75,7 +75,7 @@ public class AndroidCertVerifyResult {
     public boolean isIssuedByKnownRoot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f50294b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f48713b : invokeV.booleanValue;
     }
 
     public AndroidCertVerifyResult(int i2) {
@@ -94,7 +94,7 @@ public class AndroidCertVerifyResult {
             }
         }
         this.a = i2;
-        this.f50294b = false;
-        this.f50295c = Collections.emptyList();
+        this.f48713b = false;
+        this.f48714c = Collections.emptyList();
     }
 }

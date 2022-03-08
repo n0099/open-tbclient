@@ -8,7 +8,7 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.view.LayoutInflater;
 import androidx.annotation.StyleRes;
-import androidx.appcompat.R;
+import androidx.appcompat.R$style;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -143,7 +143,7 @@ public class ContextThemeWrapper extends ContextWrapper {
                 return theme;
             }
             if (this.mThemeResource == 0) {
-                this.mThemeResource = R.style.Theme_AppCompat_Light;
+                this.mThemeResource = R$style.Theme_AppCompat_Light;
             }
             initializeTheme();
             return this.mTheme;

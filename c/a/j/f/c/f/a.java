@@ -16,16 +16,16 @@ public final class a extends d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f4029d;
+    public final String f3646d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TaskResponseData f4030e;
+    public TaskResponseData f3647e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TaskInfo f4031f;
+    public TaskInfo f3648f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f4032g;
+    public final String f3649g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(String str, TaskResponseData taskResponseData, TaskInfo taskInfo, String str2, Integer num, String str3) {
@@ -46,10 +46,10 @@ public final class a extends d {
                 return;
             }
         }
-        this.f4029d = str;
-        this.f4030e = taskResponseData;
-        this.f4031f = taskInfo;
-        this.f4032g = str2;
+        this.f3646d = str;
+        this.f3647e = taskResponseData;
+        this.f3648f = taskInfo;
+        this.f3649g = str2;
     }
 
     @Override // c.a.j.h.a.a
@@ -63,20 +63,20 @@ public final class a extends d {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4029d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3646d : (String) invokeV.objValue;
     }
 
     public final void g(TaskInfo taskInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskInfo) == null) {
-            this.f4031f = taskInfo;
+            this.f3648f = taskInfo;
         }
     }
 
     public final void h(TaskResponseData taskResponseData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, taskResponseData) == null) {
-            this.f4030e = taskResponseData;
+            this.f3647e = taskResponseData;
         }
     }
 
@@ -92,19 +92,19 @@ public final class a extends d {
     public final TaskResponseData j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f4030e : (TaskResponseData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f3647e : (TaskResponseData) invokeV.objValue;
     }
 
     public final TaskInfo k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f4031f : (TaskInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f3648f : (TaskInfo) invokeV.objValue;
     }
 
     public final String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f4032g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f3649g : (String) invokeV.objValue;
     }
 
     public /* synthetic */ a(String str, TaskResponseData taskResponseData, TaskInfo taskInfo, String str2, Integer num, String str3, int i2, DefaultConstructorMarker defaultConstructorMarker) {

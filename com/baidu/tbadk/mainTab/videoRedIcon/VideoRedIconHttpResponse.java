@@ -1,6 +1,6 @@
 package com.baidu.tbadk.mainTab.videoRedIcon;
 
-import c.a.t0.i0.f.a;
+import c.a.q0.h0.g.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
@@ -14,7 +14,7 @@ import java.util.List;
 import tbclient.VideoRedIcon.DataRes;
 import tbclient.VideoRedIcon.RedIcon;
 import tbclient.VideoRedIcon.VideoRedIconResIdl;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class VideoRedIconHttpResponse extends TbHttpResponsedMessage implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,14 +39,14 @@ public class VideoRedIconHttpResponse extends TbHttpResponsedMessage implements 
         }
     }
 
-    @Override // c.a.t0.i0.f.a
+    @Override // c.a.q0.h0.g.a
     public List<RedIcon> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.redIcons : (List) invokeV.objValue;
     }
 
-    @Override // c.a.t0.i0.f.a
+    @Override // c.a.q0.h0.g.a
     public VideoRedIconResIdl getResData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

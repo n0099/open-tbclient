@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.s;
 import java.util.Random;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class Constants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACK_MAX_SIZE = 20;
@@ -318,11 +318,11 @@ public final class Constants {
         RELIABLE_CASTID = "castid";
         RELIABLE_UPDATTIME = "updatetime";
         SYNC_USERS_PROFILE_RANDTIME = new Random().nextInt(12) + 12;
-        URL_SOCKET_PORT_OL_SSL = SOCKET_PORT_SSL;
+        URL_SOCKET_PORT_OL_SSL = 443;
         URL_SOCKET_SERVER = "pimc.baidu.com";
         URL_SOCKET_PORT = 8100;
         IM_ENV = 0;
-        mSdkPermissions = new String[]{s.a, s.f55454c, "android.permission.ACCESS_NETWORK_STATE", "android.permission.RECEIVE_BOOT_COMPLETED", "android.permission.VIBRATE", s.f55459h, s.f55455d};
+        mSdkPermissions = new String[]{s.a, s.f53804c, "android.permission.ACCESS_NETWORK_STATE", "android.permission.RECEIVE_BOOT_COMPLETED", "android.permission.VIBRATE", s.f53809h, s.f53805d};
     }
 
     public Constants() {

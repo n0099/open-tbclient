@@ -2,7 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.kwad.sdk.core.webview.jshandler.n;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class cd implements com.kwad.sdk.core.d<n.b> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
@@ -11,8 +11,8 @@ public class cd implements com.kwad.sdk.core.d<n.b> {
             return;
         }
         bVar.a = jSONObject.optDouble("progress");
-        bVar.f56633b = jSONObject.optInt("status");
-        bVar.f56634c = jSONObject.optLong("totalBytes");
+        bVar.f54983b = jSONObject.optInt("status");
+        bVar.f54984c = jSONObject.optLong("totalBytes");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,8 +22,8 @@ public class cd implements com.kwad.sdk.core.d<n.b> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "progress", bVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "status", bVar.f56633b);
-        com.kwad.sdk.utils.t.a(jSONObject, "totalBytes", bVar.f56634c);
+        com.kwad.sdk.utils.t.a(jSONObject, "status", bVar.f54983b);
+        com.kwad.sdk.utils.t.a(jSONObject, "totalBytes", bVar.f54984c);
         return jSONObject;
     }
 }

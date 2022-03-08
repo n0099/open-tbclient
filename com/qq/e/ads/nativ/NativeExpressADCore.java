@@ -16,22 +16,22 @@ import com.qq.e.comm.pi.NEADVI;
 import com.qq.e.comm.pi.POFactory;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f59210g;
+    public volatile boolean f57560g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile boolean f59211h;
+    public volatile boolean f57561h;
 
     /* renamed from: i  reason: collision with root package name */
-    public NativeExpressMediaListener f59212i;
+    public NativeExpressMediaListener f57562i;
 
     /* renamed from: j  reason: collision with root package name */
-    public volatile boolean f59213j;
+    public volatile boolean f57563j;
     public final NEADI k;
     public final NEADVI l;
     public final NativeExpressADData2 m;
@@ -56,9 +56,9 @@ public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
                 return;
             }
         }
-        this.f59210g = false;
-        this.f59211h = false;
-        this.f59213j = false;
+        this.f57560g = false;
+        this.f57561h = false;
+        this.f57563j = false;
         this.q = nativeExpressADView;
         this.k = neadi;
         this.l = neadvi;
@@ -83,7 +83,7 @@ public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
     public void a(NativeExpressMediaListener nativeExpressMediaListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nativeExpressMediaListener) == null) {
-            this.f59212i = nativeExpressMediaListener;
+            this.f57562i = nativeExpressMediaListener;
             T t = this.a;
             if (t == 0 || nativeExpressMediaListener == null) {
                 return;
@@ -108,21 +108,21 @@ public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            NativeExpressMediaListener nativeExpressMediaListener = this.f59212i;
+            NativeExpressMediaListener nativeExpressMediaListener = this.f57562i;
             if (nativeExpressMediaListener != null) {
-                this.f59212i = nativeExpressMediaListener;
+                this.f57562i = nativeExpressMediaListener;
                 T t = this.a;
                 if (t != 0 && nativeExpressMediaListener != null) {
                     ((NEADVI) t).setAdListener(new NativeExpressAD.ADListenerAdapter(nativeExpressMediaListener));
                 }
             }
-            if (this.f59210g) {
+            if (this.f57560g) {
                 preloadVideo();
             }
-            if (this.f59211h) {
+            if (this.f57561h) {
                 render();
             }
-            if (this.f59213j) {
+            if (this.f57563j) {
                 negativeFeedback();
             }
         }
@@ -153,7 +153,7 @@ public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
             } else {
                 z = true;
             }
-            this.f59213j = z;
+            this.f57563j = z;
         }
     }
 
@@ -161,7 +161,7 @@ public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (!b()) {
-                this.f59210g = true;
+                this.f57560g = true;
                 return;
             }
             T t = this.a;
@@ -177,7 +177,7 @@ public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             if (!b()) {
-                this.f59211h = true;
+                this.f57561h = true;
                 return;
             }
             T t = this.a;

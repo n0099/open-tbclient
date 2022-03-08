@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,13 +21,13 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
     public ImageProblemView mView;
 
     /* renamed from: com.baidu.tieba.imageProblem.logic.ImageProblemActivity$1  reason: invalid class name */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class CheckTask extends BdAsyncTask<Object, Integer, BdStatSwitchData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +100,7 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
                 super.onProgressUpdate(numArr);
                 int intValue = numArr[0].intValue();
                 ImageProblemActivity imageProblemActivity = this.a;
-                imageProblemActivity.mView.setValue(intValue, imageProblemActivity.mImageProblemAssistant.f45554d);
+                imageProblemActivity.mView.setValue(intValue, imageProblemActivity.mImageProblemAssistant.f43960d);
             }
         }
 

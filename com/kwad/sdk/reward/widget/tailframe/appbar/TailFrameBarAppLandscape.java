@@ -18,7 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
-import com.kwad.sdk.R;
+import com.baidu.tieba.R;
 import com.kwad.sdk.core.config.b;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.page.widget.TextProgressBar;
@@ -30,41 +30,41 @@ import com.kwad.sdk.reward.widget.AppScoreView;
 import com.kwad.sdk.utils.ax;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class TailFrameBarAppLandscape extends LinearLayout {
     public ImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f57920b;
+    public TextView f56270b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AppScoreView f57921c;
+    public AppScoreView f56271c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f57922d;
+    public TextView f56272d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f57923e;
+    public TextView f56273e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextProgressBar f57924f;
+    public TextProgressBar f56274f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ValueAnimator f57925g;
+    public ValueAnimator f56275g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f57926h;
+    public LinearLayout f56276h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f57927i;
+    public View f56277i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Button f57928j;
+    public Button f56278j;
     public Button k;
     @Nullable
     public Animator l;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Animator.AnimatorListener {
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
@@ -163,54 +163,54 @@ public class TailFrameBarAppLandscape extends LinearLayout {
     private void a(LinearLayout linearLayout, String str) {
         TextView textView = (TextView) LayoutInflater.from(linearLayout.getContext()).inflate(R.layout.ksad_reward_apk_info_card_tag_item, (ViewGroup) linearLayout, false);
         textView.setText(str);
-        this.f57926h.addView(textView);
+        this.f56276h.addView(textView);
     }
 
     private void c() {
         LinearLayout.inflate(getContext(), R.layout.ksad_video_tf_bar_app_landscape, this);
         this.a = (ImageView) findViewById(R.id.ksad_app_icon);
-        this.f57920b = (TextView) findViewById(R.id.ksad_app_name);
-        this.f57921c = (AppScoreView) findViewById(R.id.ksad_app_score);
-        this.f57922d = (TextView) findViewById(R.id.ksad_app_download_count);
-        this.f57923e = (TextView) findViewById(R.id.ksad_app_introduce);
+        this.f56270b = (TextView) findViewById(R.id.ksad_app_name);
+        this.f56271c = (AppScoreView) findViewById(R.id.ksad_app_score);
+        this.f56272d = (TextView) findViewById(R.id.ksad_app_download_count);
+        this.f56273e = (TextView) findViewById(R.id.ksad_app_introduce);
         TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.ksad_download_bar);
-        this.f57924f = textProgressBar;
+        this.f56274f = textProgressBar;
         textProgressBar.setTextDimen(com.kwad.sdk.a.kwai.a.a(getContext(), 16.0f));
-        this.f57924f.setTextColor(-1);
-        this.f57926h = (LinearLayout) findViewById(R.id.ksad_reward_apk_info_tags);
-        this.f57928j = (Button) findViewById(R.id.ksad_reward_apk_info_install_action);
+        this.f56274f.setTextColor(-1);
+        this.f56276h = (LinearLayout) findViewById(R.id.ksad_reward_apk_info_tags);
+        this.f56278j = (Button) findViewById(R.id.ksad_reward_apk_info_install_action);
         this.k = (Button) findViewById(R.id.ksad_reward_apk_info_install_start);
-        this.f57927i = findViewById(R.id.ksad_reward_apk_info_install_container);
+        this.f56277i = findViewById(R.id.ksad_reward_apk_info_install_container);
     }
 
     private void d() {
-        ValueAnimator valueAnimator = this.f57925g;
+        ValueAnimator valueAnimator = this.f56275g;
         if (valueAnimator == null || !valueAnimator.isRunning()) {
             ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 1.2f, 1.0f);
-            this.f57925g = ofFloat;
+            this.f56275g = ofFloat;
             ofFloat.setDuration(IMLikeRequest.TIME_INTERVAL);
-            this.f57925g.setRepeatCount(-1);
-            this.f57925g.setRepeatMode(1);
-            this.f57925g.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppLandscape.5
+            this.f56275g.setRepeatCount(-1);
+            this.f56275g.setRepeatMode(1);
+            this.f56275g.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppLandscape.5
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator2) {
                     float floatValue = ((Float) valueAnimator2.getAnimatedValue()).floatValue();
-                    TailFrameBarAppLandscape.this.f57924f.setScaleY(floatValue);
-                    TailFrameBarAppLandscape.this.f57924f.setScaleX(floatValue);
+                    TailFrameBarAppLandscape.this.f56274f.setScaleY(floatValue);
+                    TailFrameBarAppLandscape.this.f56274f.setScaleX(floatValue);
                 }
             });
-            this.f57925g.start();
+            this.f56275g.start();
         }
     }
 
     public void a() {
-        int height = this.f57927i.getHeight();
-        int width = this.f57927i.getWidth();
+        int height = this.f56277i.getHeight();
+        int width = this.f56277i.getWidth();
         if (height == 0 || width == 0) {
             return;
         }
         if (this.l == null) {
-            Animator a2 = a(this.k, this.f57928j, width, height);
+            Animator a2 = a(this.k, this.f56278j, width, height);
             this.l = a2;
             a2.addListener(new a() { // from class: com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppLandscape.2
                 @Override // com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppLandscape.a, android.animation.Animator.AnimatorListener
@@ -240,10 +240,10 @@ public class TailFrameBarAppLandscape extends LinearLayout {
     }
 
     public void b() {
-        ValueAnimator valueAnimator = this.f57925g;
+        ValueAnimator valueAnimator = this.f56275g;
         if (valueAnimator != null && valueAnimator.isRunning()) {
-            this.f57925g.cancel();
-            this.f57925g.end();
+            this.f56275g.cancel();
+            this.f56275g.end();
         }
         Animator animator = this.l;
         if (animator == null || !animator.isRunning()) {
@@ -254,7 +254,7 @@ public class TailFrameBarAppLandscape extends LinearLayout {
     }
 
     public TextProgressBar getTextProgressBar() {
-        return this.f57924f;
+        return this.f56274f;
     }
 
     public void setModel(@NonNull AdTemplate adTemplate) {
@@ -272,10 +272,10 @@ public class TailFrameBarAppLandscape extends LinearLayout {
         }
         KSImageLoader.loadAppIcon(imageView, au, adTemplate, 12);
         if (d.v(adTemplate)) {
-            textView = this.f57920b;
+            textView = this.f56270b;
             t = com.kwad.sdk.core.response.a.a.u(j2);
         } else {
-            textView = this.f57920b;
+            textView = this.f56270b;
             t = com.kwad.sdk.core.response.a.a.t(j2);
         }
         textView.setText(t);
@@ -283,50 +283,50 @@ public class TailFrameBarAppLandscape extends LinearLayout {
         if (!d.v(adTemplate)) {
             float x = com.kwad.sdk.core.response.a.a.x(j2);
             if (x >= 3.0f) {
-                this.f57921c.setScore(x);
-                this.f57921c.setVisibility(0);
+                this.f56271c.setScore(x);
+                this.f56271c.setVisibility(0);
             } else {
-                this.f57921c.setVisibility(8);
+                this.f56271c.setVisibility(8);
             }
             String w = com.kwad.sdk.core.response.a.a.w(j2);
             if (TextUtils.isEmpty(w)) {
-                this.f57922d.setVisibility(8);
+                this.f56272d.setVisibility(8);
             } else {
-                this.f57922d.setText(w);
-                this.f57922d.setVisibility(0);
+                this.f56272d.setText(w);
+                this.f56272d.setVisibility(0);
             }
         }
-        this.f57923e.setText(com.kwad.sdk.core.response.a.a.s(j2));
+        this.f56273e.setText(com.kwad.sdk.core.response.a.a.s(j2));
         if (d.v(adTemplate)) {
-            this.f57924f.setVisibility(8);
-            this.f57927i.setVisibility(0);
+            this.f56274f.setVisibility(8);
+            this.f56277i.setVisibility(0);
             this.k.setText("查看详情");
-            Button button = this.f57928j;
+            Button button = this.f56278j;
             button.setText(String.format("浏览详情页%s秒，领取奖励", b.aA() + ""));
-            this.f57927i.postDelayed(new Runnable() { // from class: com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppLandscape.1
+            this.f56277i.postDelayed(new Runnable() { // from class: com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppLandscape.1
                 @Override // java.lang.Runnable
                 public void run() {
                     TailFrameBarAppLandscape.this.a();
                 }
             }, 1600L);
         } else {
-            this.f57924f.setVisibility(0);
-            this.f57927i.setVisibility(8);
+            this.f56274f.setVisibility(0);
+            this.f56277i.setVisibility(8);
             a(d.j(adTemplate));
         }
         if (d.v(adTemplate)) {
             List<String> i3 = c.i(adTemplate);
             if (i3 == null || i3.size() <= 0) {
-                this.f57926h.setVisibility(8);
+                this.f56276h.setVisibility(8);
             } else {
-                this.f57926h.setVisibility(0);
+                this.f56276h.setVisibility(0);
             }
             for (String str : i3) {
                 i2++;
                 if (i2 > 3) {
                     return;
                 }
-                a(this.f57926h, str);
+                a(this.f56276h, str);
             }
         }
     }

@@ -6,9 +6,10 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import c.a.d.a.h;
 import c.a.d.f.p.n;
-import c.a.t0.i0.b;
-import c.a.t0.i0.c;
-import c.a.t0.i0.d;
+import c.a.q0.h0.b;
+import c.a.q0.h0.c;
+import c.a.q0.h0.d;
+import c.a.q0.h0.e;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -30,7 +31,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FlutterEnterForumDelegateStatic extends b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PERSON_INFO_TAB_MIDDLE_REDDOT_DISTANCE = 10;
@@ -98,7 +99,7 @@ public class FlutterEnterForumDelegateStatic extends b {
         }
     }
 
-    @Override // c.a.t0.i0.b
+    @Override // c.a.q0.h0.b
     public c createFragmentTabStructure() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -106,39 +107,43 @@ public class FlutterEnterForumDelegateStatic extends b {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.CREATE_FLUTTER_FRAGMENT_START_KEY);
             c cVar = new c();
             HashMap hashMap = new HashMap();
-            hashMap.put("tabIndex", Integer.valueOf(c.a.t0.s.f0.b.f13480c));
-            TbFlutterFragment tbFlutterFragment = (TbFlutterFragment) new FlutterBaseFragment.NewEngineFragmentBuilder(TbFlutterFragment.class).params(hashMap).url(OpenFlutter.FRAGMENT_ENTER_FORUM).isTabHost(c.a.t0.s.f0.b.f13479b != 1).build();
+            hashMap.put("tabIndex", Integer.valueOf(c.a.q0.r.f0.b.f12896c));
+            TbFlutterFragment tbFlutterFragment = (TbFlutterFragment) new FlutterBaseFragment.NewEngineFragmentBuilder(TbFlutterFragment.class).params(hashMap).url(OpenFlutter.FRAGMENT_ENTER_FORUM).isTabHost(c.a.q0.r.f0.b.f12895b != 1).build();
             cVar.a = tbFlutterFragment;
-            if (c.a.t0.s.f0.b.f13480c == c.a.t0.s.f0.b.f13482e) {
-                c.a.t0.s.f0.b.f13480c = c.a.t0.s.f0.b.f13481d;
+            if (c.a.q0.r.f0.b.f12896c == c.a.q0.r.f0.b.f12898e) {
+                c.a.q0.r.f0.b.f12896c = c.a.q0.r.f0.b.f12897d;
                 tbFlutterFragment.removeSplashDelay(1000L);
                 tbFlutterFragment.setAutoPlayWhenInit(true);
             }
-            cVar.f13192e = 1;
+            cVar.f12602e = 1;
             Resources resources = h.a().getResources();
-            cVar.f13189b = resources.getIdentifier("enter_forum", "string", BdBaseApplication.getInst().getPackageName());
-            cVar.f13193f = resources.getIdentifier("lottie_tab_forum", "raw", BdBaseApplication.getInst().getPackageName());
-            cVar.f13196i = c.m;
-            cVar.f13195h = c.a.t0.i0.e.c.d().c("enterForum");
+            cVar.f12599b = resources.getIdentifier("enter_forum", "string", BdBaseApplication.getInst().getPackageName());
+            cVar.f12603f = resources.getIdentifier("lottie_tab_forum", "raw", BdBaseApplication.getInst().getPackageName());
+            cVar.f12606i = c.m;
+            cVar.f12605h = c.a.q0.h0.f.c.d().c("enterForum");
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.CREATE_FLUTTER_FRAGMENT_END_KEY);
             return cVar;
         }
         return (c) invokeV.objValue;
     }
 
-    @Override // c.a.t0.i0.b
+    @Override // c.a.q0.h0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(h.a().getResources().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
+            MaintabBottomIndicator maintabBottomIndicator = (MaintabBottomIndicator) e.e().d(1);
+            this.mIndicator = maintabBottomIndicator;
+            if (maintabBottomIndicator == null) {
+                this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(h.a().getResources().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
+            }
             this.tipView = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-            aVar.f41301f = this.mIndicator;
-            aVar.f41298c = n.d(context, 10.0f);
+            aVar.f39707f = this.mIndicator;
+            aVar.f39704c = n.d(context, 10.0f);
             aVar.a = this.tipView;
             this.mIndicator.addTipWrapContent(FileHelper.FILE_CACHE_EMOTION_PACKAGE, aVar);
-            boolean h2 = c.a.t0.s.j0.b.k().h("key_feedback_tip_tab_show", false);
+            boolean h2 = c.a.q0.r.j0.b.k().h("key_feedback_tip_tab_show", false);
             if (!this.isNew.booleanValue() && !h2) {
                 this.tipView.setVisibility(8);
             } else {
@@ -150,7 +155,7 @@ public class FlutterEnterForumDelegateStatic extends b {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // c.a.t0.i0.b
+    @Override // c.a.q0.h0.b
     public boolean isAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

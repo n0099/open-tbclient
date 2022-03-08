@@ -20,7 +20,7 @@ import java.util.WeakHashMap;
 import org.apache.commons.lang3.ClassUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.SystemUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class ToStringStyle implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ToStringStyle DEFAULT_STYLE;
@@ -54,7 +54,7 @@ public abstract class ToStringStyle implements Serializable {
     public boolean useIdentityHashCode;
     public boolean useShortClassName;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class DefaultToStringStyle extends ToStringStyle {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -81,7 +81,7 @@ public abstract class ToStringStyle implements Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class JsonToStringStyle extends ToStringStyle {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -104,7 +104,7 @@ public abstract class ToStringStyle implements Serializable {
             this.FIELD_NAME_PREFIX = "\"";
             setUseClassName(false);
             setUseIdentityHashCode(false);
-            setContentStart(StringUtil.ARRAY_START);
+            setContentStart("{");
             setContentEnd("}");
             setArrayStart(PreferencesUtil.LEFT_MOUNT);
             setArrayEnd(PreferencesUtil.RIGHT_MOUNT);
@@ -337,7 +337,7 @@ public abstract class ToStringStyle implements Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class MultiLineToStringStyle extends ToStringStyle {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -369,7 +369,7 @@ public abstract class ToStringStyle implements Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class NoClassNameToStringStyle extends ToStringStyle {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -399,7 +399,7 @@ public abstract class ToStringStyle implements Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class NoFieldNameToStringStyle extends ToStringStyle {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -428,7 +428,7 @@ public abstract class ToStringStyle implements Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class ShortPrefixToStringStyle extends ToStringStyle {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -458,7 +458,7 @@ public abstract class ToStringStyle implements Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class SimpleToStringStyle extends ToStringStyle {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -537,7 +537,7 @@ public abstract class ToStringStyle implements Serializable {
         this.fieldSeparatorAtStart = false;
         this.fieldSeparatorAtEnd = false;
         this.fieldSeparator = ",";
-        this.arrayStart = StringUtil.ARRAY_START;
+        this.arrayStart = "{";
         this.arraySeparator = ",";
         this.arrayContentDetail = true;
         this.arrayEnd = "}";

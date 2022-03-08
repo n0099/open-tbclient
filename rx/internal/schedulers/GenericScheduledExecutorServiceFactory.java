@@ -15,7 +15,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
 import rx.internal.util.RxThreadFactory;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class GenericScheduledExecutorServiceFactory {
     public static final /* synthetic */ GenericScheduledExecutorServiceFactory[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;

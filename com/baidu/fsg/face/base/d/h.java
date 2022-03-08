@@ -35,37 +35,37 @@ import java.util.Enumeration;
 import java.util.Random;
 import java.util.UUID;
 import org.apache.http.conn.util.InetAddressUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "armeabi";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f34287b = "armeabi-v7a";
+    public static final String f32690b = "armeabi-v7a";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f34288c = "x86";
+    public static final String f32691c = "x86";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f34289d = "arm64-v8a";
+    public static final String f32692d = "arm64-v8a";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f34290e = 480;
+    public static final int f32693e = 480;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f34291f = 480;
+    public static final int f32694f = 480;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f34292g = 192;
+    public static final int f32695g = 192;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f34293h = 480;
+    public static final int f32696h = 480;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f34294i = 620;
+    public static final int f32697i = 620;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f34295j = 728;
+    public static final int f32698j = 728;
     public static final int k = 750;
     public static final int l = 1335;
     public static final String m = "SapiBiometricUtil";

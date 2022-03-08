@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.producers;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface ProducerContextCallbacks {
     void onCancellationRequested();
 

@@ -4,25 +4,25 @@ import java.io.File;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class e implements com.kwad.sdk.core.videocache.kwai.a {
     public final ExecutorService a = com.kwad.sdk.core.i.b.b();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public class a implements Callable<Void> {
 
         /* renamed from: b  reason: collision with root package name */
-        public final File f56518b;
+        public final File f54868b;
 
         public a(File file) {
-            this.f56518b = file;
+            this.f54868b = file;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public Void call() {
-            e.this.b(this.f56518b);
+            e.this.b(this.f54868b);
             return null;
         }
     }

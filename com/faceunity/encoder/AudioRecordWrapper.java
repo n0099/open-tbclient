@@ -3,7 +3,6 @@ package com.faceunity.encoder;
 import android.media.AudioRecord;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.rtc.record.MediaEncodeParams;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class AudioRecordWrapper {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] AUDIO_SOURCES;
@@ -38,7 +37,7 @@ public class AudioRecordWrapper {
             }
         }
         AUDIO_SOURCES = new int[]{1, 0, 5, 7, 6};
-        SAMPLE_RATE = MediaEncodeParams.AUDIO_SAMPLE_RATE;
+        SAMPLE_RATE = 48000;
         SAMPLES_PER_FRAME = 2048;
         FRAMES_PER_BUFFER = 24;
     }

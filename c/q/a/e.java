@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class e implements p0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ u f30545b;
+    public final /* synthetic */ u f28943b;
 
     public e(u uVar, View view) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class e implements p0 {
                 return;
             }
         }
-        this.f30545b = uVar;
+        this.f28943b = uVar;
         this.a = view;
     }
 
@@ -42,7 +42,7 @@ public class e implements p0 {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
             return;
         }
-        new Handler(Looper.getMainLooper()).postDelayed(new b(this), this.f30545b.f30703c.getSpet());
+        new Handler(Looper.getMainLooper()).postDelayed(new b(this), this.f28943b.f29133c.getSpet());
     }
 
     @Override // c.q.a.p0

@@ -23,42 +23,43 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class GDTFileProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f59255b;
+    public static final String[] f57605b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final File f59256c;
+    public static final File f57606c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static HashMap<String, a> f59257d;
+    public static HashMap<String, a> f57607d;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         Uri a(File file);
 
         File a(Uri uri);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class b implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final HashMap<String, File> f59258b;
+        public final HashMap<String, File> f57608b;
 
         public b(String str) {
             Interceptable interceptable = $ic;
@@ -75,7 +76,7 @@ public class GDTFileProvider extends ContentProvider {
                     return;
                 }
             }
-            this.f59258b = new HashMap<>();
+            this.f57608b = new HashMap<>();
             this.a = str;
         }
 
@@ -87,7 +88,7 @@ public class GDTFileProvider extends ContentProvider {
                 try {
                     String canonicalPath = file.getCanonicalPath();
                     Map.Entry<String, File> entry = null;
-                    for (Map.Entry<String, File> entry2 : this.f59258b.entrySet()) {
+                    for (Map.Entry<String, File> entry2 : this.f57608b.entrySet()) {
                         String path = entry2.getValue().getPath();
                         if (canonicalPath.startsWith(path) && (entry == null || path.length() > entry.getValue().getPath().length())) {
                             entry = entry2;
@@ -103,7 +104,7 @@ public class GDTFileProvider extends ContentProvider {
                         length++;
                     }
                     String substring = canonicalPath.substring(length);
-                    return new Uri.Builder().scheme("content").authority(this.a).encodedPath(Uri.encode(entry.getKey()) + '/' + Uri.encode(substring, "/")).build();
+                    return new Uri.Builder().scheme("content").authority(this.a).encodedPath(Uri.encode(entry.getKey()) + WebvttCueParser.CHAR_SLASH + Uri.encode(substring, "/")).build();
                 } catch (IOException unused) {
                     throw new IllegalArgumentException("Failed to resolve canonical path for " + file);
                 }
@@ -120,7 +121,7 @@ public class GDTFileProvider extends ContentProvider {
                 int indexOf = encodedPath.indexOf(47, 1);
                 String decode = Uri.decode(encodedPath.substring(1, indexOf));
                 String decode2 = Uri.decode(encodedPath.substring(indexOf + 1));
-                File file = this.f59258b.get(decode);
+                File file = this.f57608b.get(decode);
                 if (file == null) {
                     throw new IllegalArgumentException("Unable to find configured root for " + uri);
                 }
@@ -145,7 +146,7 @@ public class GDTFileProvider extends ContentProvider {
                     throw new IllegalArgumentException("Name must not be empty");
                 }
                 try {
-                    this.f59258b.put(str, file.getCanonicalFile());
+                    this.f57608b.put(str, file.getCanonicalFile());
                 } catch (IOException e2) {
                     throw new IllegalArgumentException("Failed to resolve canonical path for " + file, e2);
                 }
@@ -166,9 +167,9 @@ public class GDTFileProvider extends ContentProvider {
                 return;
             }
         }
-        f59255b = new String[]{"_display_name", "_size"};
-        f59256c = new File("/");
-        f59257d = new HashMap<>();
+        f57605b = new String[]{"_display_name", "_size"};
+        f57606c = new File("/");
+        f57607d = new HashMap<>();
     }
 
     public GDTFileProvider() {
@@ -190,12 +191,12 @@ public class GDTFileProvider extends ContentProvider {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            synchronized (f59257d) {
-                aVar = f59257d.get(str);
+            synchronized (f57607d) {
+                aVar = f57607d.get(str);
                 if (aVar == null) {
                     try {
                         aVar = b(context, str);
-                        f59257d.put(str, aVar);
+                        f57607d.put(str, aVar);
                     } catch (IOException e2) {
                         throw new IllegalArgumentException("Failed to parse android.support.FILE_PROVIDER_PATHS meta-data", e2);
                     } catch (XmlPullParserException e3) {
@@ -230,7 +231,7 @@ public class GDTFileProvider extends ContentProvider {
                 String attributeValue = loadXmlMetaData.getAttributeValue(null, "name");
                 String attributeValue2 = loadXmlMetaData.getAttributeValue(null, "path");
                 if ("root-path".equals(name)) {
-                    file = f59256c;
+                    file = f57606c;
                 } else if ("files-path".equals(name)) {
                     file = context.getFilesDir();
                 } else if ("cache-path".equals(name)) {
@@ -378,7 +379,7 @@ public class GDTFileProvider extends ContentProvider {
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, uri, strArr, str, strArr2, str2)) == null) {
             File a2 = this.a.a(uri);
             if (strArr == null) {
-                strArr = f59255b;
+                strArr = f57605b;
             }
             String[] strArr3 = new String[strArr.length];
             Object[] objArr = new Object[strArr.length];

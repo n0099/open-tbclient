@@ -8,7 +8,7 @@ import android.graphics.Path;
 import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.View;
-import c.a.u0.c0.e.c;
+import c.a.r0.c0.e.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class VoteStatusView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,23 +24,23 @@ public class VoteStatusView extends View {
     public int activeStartColor;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42544e;
+    public int f40947e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f42545f;
+    public boolean f40948f;
     public int frozenColor;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f42546g;
+    public Paint f40949g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Shader f42547h;
+    public Shader f40950h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Path f42548i;
+    public Path f40951i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Path f42549j;
+    public Path f40952j;
     public Path k;
     public Path l;
     public Path m;
@@ -73,12 +73,12 @@ public class VoteStatusView extends View {
             this.activeStartColor = SkinManager.getColor(R.color.CAM_X0303);
             this.activeEndColor = SkinManager.getColor(R.color.CAM_X0302);
             Paint paint = new Paint();
-            this.f42546g = paint;
+            this.f40949g = paint;
             paint.setAntiAlias(true);
-            this.f42546g.setStyle(Paint.Style.FILL);
-            this.f42546g.setColor(this.frozenColor);
-            this.f42548i = new Path();
-            this.f42549j = new Path();
+            this.f40949g.setStyle(Paint.Style.FILL);
+            this.f40949g.setColor(this.frozenColor);
+            this.f40951i = new Path();
+            this.f40952j = new Path();
             this.k = new Path();
             this.l = new Path();
             this.m = new Path();
@@ -96,45 +96,45 @@ public class VoteStatusView extends View {
             }
             int i2 = height / 2;
             float f2 = i2;
-            this.f42548i.addCircle(f2, f2, f2, Path.Direction.CW);
+            this.f40951i.addCircle(f2, f2, f2, Path.Direction.CW);
             float f3 = width / 2;
-            this.f42549j.addCircle(f3, f2, f2, Path.Direction.CW);
+            this.f40952j.addCircle(f3, f2, f2, Path.Direction.CW);
             float f4 = width - i2;
             this.k.addCircle(f4, f2, f2, Path.Direction.CW);
             float f5 = (height * 9) / 26;
             float f6 = (height * 17) / 26;
             this.l.addRect(f2, f5, f3, f6, Path.Direction.CW);
             this.m.addRect(f3, f5, f4, f6, Path.Direction.CW);
-            this.f42546g.setColor(this.frozenColor);
-            this.f42546g.setShader(null);
-            if (this.f42547h == null || this.f42545f) {
-                this.f42547h = new LinearGradient(f2, 0.0f, f4, 0.0f, this.activeStartColor, this.activeEndColor, Shader.TileMode.CLAMP);
-                this.f42545f = false;
+            this.f40949g.setColor(this.frozenColor);
+            this.f40949g.setShader(null);
+            if (this.f40950h == null || this.f40948f) {
+                this.f40950h = new LinearGradient(f2, 0.0f, f4, 0.0f, this.activeStartColor, this.activeEndColor, Shader.TileMode.CLAMP);
+                this.f40948f = false;
             }
-            if (this.f42544e == c.f15757c) {
-                this.f42546g.setShader(this.f42547h);
+            if (this.f40947e == c.f15249c) {
+                this.f40949g.setShader(this.f40950h);
             }
-            canvas.drawPath(this.m, this.f42546g);
-            canvas.drawPath(this.k, this.f42546g);
-            if (this.f42544e == c.f15756b) {
-                this.f42546g.setShader(this.f42547h);
+            canvas.drawPath(this.m, this.f40949g);
+            canvas.drawPath(this.k, this.f40949g);
+            if (this.f40947e == c.f15248b) {
+                this.f40949g.setShader(this.f40950h);
             }
-            canvas.drawPath(this.l, this.f42546g);
-            canvas.drawPath(this.f42549j, this.f42546g);
-            if (this.f42544e == c.a) {
-                this.f42546g.setShader(this.f42547h);
+            canvas.drawPath(this.l, this.f40949g);
+            canvas.drawPath(this.f40952j, this.f40949g);
+            if (this.f40947e == c.a) {
+                this.f40949g.setShader(this.f40950h);
             }
-            canvas.drawPath(this.f42548i, this.f42546g);
+            canvas.drawPath(this.f40951i, this.f40949g);
         }
     }
 
     public void onSkinChange(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.activeStartColor = SkinManager.getColor(i2, R.color.CAM_X0303);
-            this.activeEndColor = SkinManager.getColor(i2, R.color.CAM_X0302);
-            this.frozenColor = SkinManager.getColor(i2, R.color.CAM_X0204);
-            this.f42545f = true;
+            this.activeStartColor = SkinManager.getColor(i2, (int) R.color.CAM_X0303);
+            this.activeEndColor = SkinManager.getColor(i2, (int) R.color.CAM_X0302);
+            this.frozenColor = SkinManager.getColor(i2, (int) R.color.CAM_X0204);
+            this.f40948f = true;
             invalidate();
         }
     }
@@ -142,7 +142,7 @@ public class VoteStatusView extends View {
     public void setStatus(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f42544e = i2;
+            this.f40947e = i2;
             invalidate();
         }
     }
@@ -166,8 +166,8 @@ public class VoteStatusView extends View {
                 return;
             }
         }
-        this.f42544e = -1;
-        this.f42545f = true;
+        this.f40947e = -1;
+        this.f40948f = true;
         a();
     }
 }

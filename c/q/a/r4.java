@@ -4,48 +4,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes9.dex */
-public class r4 {
+/* loaded from: classes3.dex */
+public class r4 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f30659b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f30660c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public n4 f30661d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List f30662e;
+    public final /* synthetic */ v4 f29097e;
 
-    /* renamed from: f  reason: collision with root package name */
-    public int f30663f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f30664g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f30665h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f30666i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f30667j;
-    public int k;
-    public int l;
-    public int m;
-
-    public r4() {
+    public r4(v4 v4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {v4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -55,10 +27,16 @@ public class r4 {
                 return;
             }
         }
-        this.a = null;
-        this.f30659b = 0;
-        this.f30660c = 0;
-        this.f30662e = new ArrayList();
-        this.m = 0;
+        this.f29097e = v4Var;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        z4 z4Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (z4Var = this.f29097e.f29158g) == null) {
+            return;
+        }
+        z4Var.a();
     }
 }

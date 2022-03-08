@@ -12,7 +12,7 @@ import com.facebook.cache.common.SimpleCacheKey;
 import com.facebook.imagepipeline.nativecode.NativeRoundingFilter;
 import com.facebook.imagepipeline.request.BasePostprocessor;
 import javax.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class RoundAsCirclePostprocessor extends BasePostprocessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean ENABLE_ANTI_ALIASING = true;

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import c.a.d.f.p.n;
-import c.a.u0.z1.o.k.b;
+import c.a.r0.z1.o.k.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.widget.TbImageView;
@@ -14,11 +14,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class BazhuHeadView extends HeadPendantView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbImageView q;
+    public TbImageView r;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BazhuHeadView(Context context, AttributeSet attributeSet, int i2) {
@@ -44,7 +44,7 @@ public class BazhuHeadView extends HeadPendantView {
     public TbImageView getBawuLogoView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.q : (TbImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.r : (TbImageView) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.view.HeadPendantView
@@ -58,10 +58,10 @@ public class BazhuHeadView extends HeadPendantView {
                 getPendantView().setLayoutParams(new RelativeLayout.LayoutParams(f2, f3));
             }
             TbImageView tbImageView = new TbImageView(getContext());
-            this.q = tbImageView;
+            this.r = tbImageView;
             tbImageView.setDefaultBgResource(0);
-            this.q.setDefaultResource(0);
-            this.q.setImageDrawable(null);
+            this.r.setDefaultResource(0);
+            this.r.setImageDrawable(null);
             int f4 = n.f(getContext(), R.dimen.tbds115);
             int f5 = n.f(getContext(), R.dimen.tbds34);
             int f6 = n.f(getContext(), R.dimen.tbds154);
@@ -69,8 +69,8 @@ public class BazhuHeadView extends HeadPendantView {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(f4, f5);
             layoutParams.topMargin = f6;
             layoutParams.leftMargin = f7;
-            this.q.setLayoutParams(layoutParams);
-            this.q.setVisibility(8);
+            this.r.setLayoutParams(layoutParams);
+            this.r.setVisibility(8);
         }
     }
 
@@ -95,7 +95,7 @@ public class BazhuHeadView extends HeadPendantView {
             getHeadView().setBorderWidth(0);
             getHeadView().setDrawBorder(false);
             getHeadView().setLayoutParams(new RelativeLayout.LayoutParams(f6, f6));
-            TbImageView tbImageView = this.q;
+            TbImageView tbImageView = this.r;
             if (tbImageView != null) {
                 tbImageView.setVisibility(8);
             }
@@ -109,11 +109,11 @@ public class BazhuHeadView extends HeadPendantView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             if (i2 == 0) {
-                this.q.setVisibility(8);
+                this.r.setVisibility(8);
                 return;
             }
-            this.q.setImageResource(i2);
-            this.q.setVisibility(0);
+            this.r.setImageResource(i2);
+            this.r.setVisibility(0);
         }
     }
 

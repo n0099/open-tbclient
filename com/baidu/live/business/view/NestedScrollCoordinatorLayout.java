@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements NestedScrollingChild {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PASS_MODE_BOTH = 0;
@@ -28,14 +28,14 @@ public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements 
     public NestedScrollingChildHelper D;
     public a E;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static class a<DummyView extends View> extends CoordinatorLayout.Behavior<DummyView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int[] f35022b;
+        public final int[] f33425b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements 
                 }
             }
             this.a = 1;
-            this.f35022b = new int[2];
+            this.f33425b = new int[2];
         }
 
         @Override // com.baidu.live.framework.coordinatorlayout.CoordinatorLayout.Behavior
@@ -99,7 +99,7 @@ public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements 
                 if (i5 == 1) {
                     nestedScrollCoordinatorLayout.dispatchNestedPreScroll(i2, i3, iArr, null);
                 } else if (i5 == 0) {
-                    int[] iArr2 = this.f35022b;
+                    int[] iArr2 = this.f33425b;
                     iArr2[0] = iArr[0];
                     iArr2[1] = iArr[1];
                     nestedScrollCoordinatorLayout.dispatchNestedPreScroll(i2, i3, iArr2, null);

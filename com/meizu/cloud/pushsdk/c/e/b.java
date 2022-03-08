@@ -5,24 +5,26 @@ import android.location.Location;
 import android.os.Build;
 import com.baidu.pass.face.platform.common.ConstantHelper;
 import com.baidu.tbadk.browser.SearchJsBridge;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.kuaishou.weapon.un.x;
 import com.meizu.cloud.pushsdk.c.f.e;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static String a = "b";
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f58951b;
+    public HashMap<String, String> f57301b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, Object> f58952c;
+    public HashMap<String, Object> f57302c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, String> f58953d;
+    public HashMap<String, String> f57303d;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public Context a = null;
 
@@ -37,9 +39,9 @@ public class b {
     }
 
     public b(a aVar) {
-        this.f58951b = new HashMap<>();
-        this.f58952c = new HashMap<>();
-        this.f58953d = new HashMap<>();
+        this.f57301b = new HashMap<>();
+        this.f57302c = new HashMap<>();
+        this.f57303d = new HashMap<>();
         d();
         e();
         f();
@@ -54,14 +56,14 @@ public class b {
         if ((str == null || obj == null || str.isEmpty()) && (!(obj instanceof String) || ((String) obj).isEmpty())) {
             return;
         }
-        this.f58952c.put(str, obj);
+        this.f57302c.put(str, obj);
     }
 
     private void a(String str, String str2) {
         if (str == null || str2 == null || str.isEmpty() || str2.isEmpty()) {
             return;
         }
-        this.f58953d.put(str, str2);
+        this.f57303d.put(str, str2);
     }
 
     private void d() {
@@ -81,7 +83,7 @@ public class b {
     }
 
     public Map<String, Object> a() {
-        return this.f58952c;
+        return this.f57302c;
     }
 
     public void a(Context context) {
@@ -90,7 +92,7 @@ public class b {
     }
 
     public Map<String, String> b() {
-        return this.f58953d;
+        return this.f57303d;
     }
 
     public void b(Context context) {
@@ -100,15 +102,15 @@ public class b {
             return;
         }
         a("la", Double.valueOf(c2.getLatitude()));
-        a("lt", Double.valueOf(c2.getLongitude()));
+        a(WebvttCueParser.ENTITY_LESS_THAN, Double.valueOf(c2.getLongitude()));
         a("al", Double.valueOf(c2.getAltitude()));
         a("lla", Float.valueOf(c2.getAccuracy()));
         a("speed", Float.valueOf(c2.getSpeed()));
-        a("br", Float.valueOf(c2.getBearing()));
+        a(TtmlNode.TAG_BR, Float.valueOf(c2.getBearing()));
     }
 
     public Map<String, String> c() {
-        return this.f58951b;
+        return this.f57301b;
     }
 
     public void c(Context context) {

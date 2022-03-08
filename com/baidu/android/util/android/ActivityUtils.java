@@ -16,6 +16,7 @@ import android.text.TextUtils;
 import android.widget.Toast;
 import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +26,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class ActivityUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DEBUG = false;
@@ -152,13 +153,13 @@ public final class ActivityUtils {
                 return true;
             } catch (ActivityNotFoundException unused) {
                 if (z2) {
-                    Toast.makeText(activity, R.string.activity_not_found, 0).show();
+                    Toast.makeText(activity, (int) R.string.activity_not_found, 0).show();
                     return false;
                 }
                 return false;
             } catch (SecurityException unused2) {
                 if (z2) {
-                    Toast.makeText(activity, R.string.activity_not_found, 0).show();
+                    Toast.makeText(activity, (int) R.string.activity_not_found, 0).show();
                 }
                 if (DEBUG) {
                     String str = "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.";
@@ -188,13 +189,13 @@ public final class ActivityUtils {
                 return true;
             } catch (ActivityNotFoundException unused) {
                 if (z2) {
-                    Toast.makeText(context, R.string.activity_not_found, 0).show();
+                    Toast.makeText(context, (int) R.string.activity_not_found, 0).show();
                     return false;
                 }
                 return false;
             } catch (SecurityException unused2) {
                 if (z2) {
-                    Toast.makeText(context, R.string.activity_not_found, 0).show();
+                    Toast.makeText(context, (int) R.string.activity_not_found, 0).show();
                 }
                 if (DEBUG) {
                     String str = "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.";

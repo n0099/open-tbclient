@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public abstract class c<T> extends com.baidu.ar.c.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int cI;
 
     /* renamed from: cn  reason: collision with root package name */
-    public FramePixels f33059cn;
+    public FramePixels f31462cn;
 
     public c(int i2, FramePixels framePixels) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public abstract class c<T> extends com.baidu.ar.c.a {
             }
         }
         this.cI = i2;
-        this.f33059cn = framePixels;
+        this.f31462cn = framePixels;
     }
 
     @Override // com.baidu.ar.c.a
@@ -42,7 +42,7 @@ public abstract class c<T> extends com.baidu.ar.c.a {
             if (com.baidu.ar.b.a.as().c(this.cI)) {
                 try {
                     com.baidu.ar.b.a.as().a(this.cI, true);
-                    return e(this.f33059cn);
+                    return e(this.f31462cn);
                 } finally {
                     com.baidu.ar.b.a.as().a(this.cI, false);
                 }

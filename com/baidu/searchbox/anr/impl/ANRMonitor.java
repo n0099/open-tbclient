@@ -5,7 +5,7 @@ import android.os.Build;
 import android.os.FileObserver;
 import android.os.Handler;
 import android.os.Looper;
-import c.a.h0.a.a.c;
+import c.a.e0.a.a.c;
 import c.h.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
@@ -28,7 +28,7 @@ import com.github.anrwatchdog.ANRError;
 import java.io.File;
 @Singleton
 @Service
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class ANRMonitor implements IANRMonitor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long ANR_HAPPENT_TIME_LIMIT = 20000;
@@ -47,9 +47,9 @@ public class ANRMonitor implements IANRMonitor {
     public int mAnrWatchTimeOut;
     public FileObserver mFileObserver;
     public boolean mMonitorStarted;
-    public c.a.h0.a.a.a nativeANRListener;
+    public c.a.e0.a.a.a nativeANRListener;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class ANRListenerImpl implements a.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -161,7 +161,7 @@ public class ANRMonitor implements IANRMonitor {
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             AppConfig.isDebug();
             if (this.nativeANRListener == null) {
-                c.a.h0.a.a.a aVar = new c.a.h0.a.a.a(this) { // from class: com.baidu.searchbox.anr.impl.ANRMonitor.3
+                c.a.e0.a.a.a aVar = new c.a.e0.a.a.a(this) { // from class: com.baidu.searchbox.anr.impl.ANRMonitor.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ANRMonitor this$0;
@@ -184,7 +184,7 @@ public class ANRMonitor implements IANRMonitor {
                         this.this$0 = this;
                     }
 
-                    @Override // c.a.h0.a.a.a
+                    @Override // c.a.e0.a.a.a
                     public void onNativeANR(int i2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {

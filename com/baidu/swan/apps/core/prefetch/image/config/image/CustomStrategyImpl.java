@@ -1,8 +1,8 @@
 package com.baidu.swan.apps.core.prefetch.image.config.image;
 
 import androidx.annotation.NonNull;
-import c.a.s0.a.h0.o.g.c.b.a;
-import c.a.s0.a.h0.o.g.f.h;
+import c.a.p0.a.x.o.g.c.b.a;
+import c.a.p0.a.x.o.g.f.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class CustomStrategyImpl implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,7 +57,7 @@ public class CustomStrategyImpl implements a {
         };
     }
 
-    @Override // c.a.s0.a.h0.o.g.c.b.a
+    @Override // c.a.p0.a.x.o.g.c.b.a
     public boolean a(@NonNull h.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

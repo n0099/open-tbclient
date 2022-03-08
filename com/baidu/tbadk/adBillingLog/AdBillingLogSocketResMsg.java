@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.AdNewLog.AdNewLogResIdl;
 import tbclient.Error;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class AdBillingLogSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

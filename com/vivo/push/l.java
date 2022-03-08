@@ -1,24 +1,23 @@
 package com.vivo.push;
 
 import android.content.Context;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class l implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f60923b;
+    public int f59273b;
 
     /* renamed from: c  reason: collision with root package name */
-    public o f60924c;
+    public o f59274c;
 
     public l(o oVar) {
         Interceptable interceptable = $ic;
@@ -35,10 +34,10 @@ public abstract class l implements Runnable {
                 return;
             }
         }
-        this.f60923b = -1;
-        this.f60924c = oVar;
+        this.f59273b = -1;
+        this.f59274c = oVar;
         int b2 = oVar.b();
-        this.f60923b = b2;
+        this.f59273b = b2;
         if (b2 >= 0) {
             this.a = e.a().h();
             return;
@@ -49,7 +48,7 @@ public abstract class l implements Runnable {
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60923b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59273b : invokeV.intValue;
     }
 
     public abstract void a(o oVar);
@@ -59,10 +58,10 @@ public abstract class l implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Context context = this.a;
-            if (context != null && !(this.f60924c instanceof com.vivo.push.b.n)) {
-                com.vivo.push.util.p.a(context, "[执行指令]" + this.f60924c);
+            if (context != null && !(this.f59274c instanceof com.vivo.push.b.n)) {
+                com.vivo.push.util.p.a(context, "[执行指令]" + this.f59274c);
             }
-            a(this.f60924c);
+            a(this.f59274c);
         }
     }
 
@@ -72,8 +71,8 @@ public abstract class l implements Runnable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(getClass().getSimpleName());
-            sb.append(StringUtil.ARRAY_START);
-            o oVar = this.f60924c;
+            sb.append("{");
+            o oVar = this.f59274c;
             sb.append(oVar == null ? "[null]" : oVar.toString());
             sb.append("}");
             return sb.toString();

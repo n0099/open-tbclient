@@ -12,17 +12,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.g;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class c implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public /* synthetic */ Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public /* synthetic */ a f61686b;
+    public /* synthetic */ a f60036b;
 
     /* renamed from: c  reason: collision with root package name */
-    public /* synthetic */ b f61687c;
+    public /* synthetic */ b f60037c;
 
     public c(b bVar, Context context, a aVar) {
         Interceptable interceptable = $ic;
@@ -39,9 +39,9 @@ public final class c implements Runnable {
                 return;
             }
         }
-        this.f61687c = bVar;
+        this.f60037c = bVar;
         this.a = context;
-        this.f61686b = aVar;
+        this.f60036b = aVar;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:163:0x0287, code lost:
@@ -108,9 +108,9 @@ public final class c implements Runnable {
                 return;
             }
             if (Build.VERSION.SDK_INT >= 29) {
-                this.f61687c.f61682d = new CountDownLatch(1);
+                this.f60037c.f60032d = new CountDownLatch(1);
             }
-            this.f61687c.f61681b = this.f61686b;
+            this.f60037c.f60031b = this.f60036b;
             if (!Build.MANUFACTURER.equalsIgnoreCase("LENOVO") && !Build.BRAND.equalsIgnoreCase("LENOVO") && !Build.BRAND.equalsIgnoreCase("ZUK")) {
                 z = false;
                 if (!z) {
@@ -129,7 +129,7 @@ public final class c implements Runnable {
                                                     if (!Build.MANUFACTURER.equalsIgnoreCase("BLACKSHARK") && !Build.BRAND.equalsIgnoreCase("BLACKSHARK")) {
                                                         z6 = false;
                                                         if (z6) {
-                                                            if (!Build.MANUFACTURER.equalsIgnoreCase(g.f55274j) && !Build.BRAND.equalsIgnoreCase(g.f55274j)) {
+                                                            if (!Build.MANUFACTURER.equalsIgnoreCase(g.f53624j) && !Build.BRAND.equalsIgnoreCase(g.f53624j)) {
                                                                 z7 = false;
                                                                 if (z7) {
                                                                     if (!Build.MANUFACTURER.equalsIgnoreCase("VIVO") && !Build.BRAND.equalsIgnoreCase("VIVO") && !Build.BRAND.equalsIgnoreCase("IQOO") && TextUtils.isEmpty(d.a("ro.vivo.os.version", ""))) {
@@ -160,13 +160,13 @@ public final class c implements Runnable {
                                                                                                                     if (!z14) {
                                                                                                                     }
                                                                                                                 }
-                                                                                                                bVar = this.f61687c;
+                                                                                                                bVar = this.f60037c;
                                                                                                                 dVar = new com.yxcorp.kuaishou.addfp.a.b.j.g(this.a, b.a());
                                                                                                             }
                                                                                                             z13 = true;
                                                                                                             if (!z13) {
                                                                                                             }
-                                                                                                            bVar = this.f61687c;
+                                                                                                            bVar = this.f60037c;
                                                                                                             dVar = new com.yxcorp.kuaishou.addfp.a.b.j.g(this.a, b.a());
                                                                                                         }
                                                                                                     }
@@ -174,16 +174,16 @@ public final class c implements Runnable {
                                                                                                     if (z12) {
                                                                                                     }
                                                                                                 }
-                                                                                                bVar = this.f61687c;
+                                                                                                bVar = this.f60037c;
                                                                                                 dVar = new com.yxcorp.kuaishou.addfp.a.b.f.g(this.a, b.a());
                                                                                             }
                                                                                             z11 = true;
                                                                                             if (!z11) {
                                                                                             }
-                                                                                            bVar = this.f61687c;
+                                                                                            bVar = this.f60037c;
                                                                                             dVar = new com.yxcorp.kuaishou.addfp.a.b.f.g(this.a, b.a());
                                                                                         } else {
-                                                                                            bVar = this.f61687c;
+                                                                                            bVar = this.f60037c;
                                                                                             dVar = new com.yxcorp.kuaishou.addfp.a.b.b.c(this.a, b.a());
                                                                                         }
                                                                                     }
@@ -191,7 +191,7 @@ public final class c implements Runnable {
                                                                                     if (z10) {
                                                                                     }
                                                                                 } else {
-                                                                                    bVar = this.f61687c;
+                                                                                    bVar = this.f60037c;
                                                                                     dVar = new com.yxcorp.kuaishou.addfp.a.b.a.a(this.a, b.a());
                                                                                 }
                                                                             }
@@ -199,39 +199,39 @@ public final class c implements Runnable {
                                                                             if (z9) {
                                                                             }
                                                                         } else {
-                                                                            this.f61687c.f61683e = new com.yxcorp.kuaishou.addfp.a.b.h.b(this.a);
-                                                                            aVar6 = this.f61687c.f61683e;
+                                                                            this.f60037c.f60033e = new com.yxcorp.kuaishou.addfp.a.b.h.b(this.a);
+                                                                            aVar6 = this.f60037c.f60033e;
                                                                             ((com.yxcorp.kuaishou.addfp.a.b.h.b) aVar6).a("100215079");
                                                                         }
-                                                                        aVar = this.f61687c.f61683e;
+                                                                        aVar = this.f60037c.f60033e;
                                                                         if (aVar != null) {
-                                                                            this.f61687c.a(false, (com.yxcorp.kuaishou.addfp.a.b.a) null);
+                                                                            this.f60037c.a(false, (com.yxcorp.kuaishou.addfp.a.b.a) null);
                                                                             return;
                                                                         }
-                                                                        aVar2 = this.f61687c.f61683e;
+                                                                        aVar2 = this.f60037c.f60033e;
                                                                         if (!aVar2.a()) {
-                                                                            aVar5 = this.f61687c.f61683e;
+                                                                            aVar5 = this.f60037c.f60033e;
                                                                             aVar5.a(b.a());
                                                                             return;
                                                                         }
-                                                                        aVar3 = this.f61687c.f61683e;
+                                                                        aVar3 = this.f60037c.f60033e;
                                                                         if (!aVar3.c()) {
-                                                                            this.f61687c.a(false, (com.yxcorp.kuaishou.addfp.a.b.a) null);
+                                                                            this.f60037c.a(false, (com.yxcorp.kuaishou.addfp.a.b.a) null);
                                                                             return;
                                                                         }
-                                                                        b bVar2 = this.f61687c;
-                                                                        aVar4 = this.f61687c.f61683e;
+                                                                        b bVar2 = this.f60037c;
+                                                                        aVar4 = this.f60037c.f60033e;
                                                                         bVar2.a(true, aVar4);
                                                                         return;
                                                                     }
                                                                     z8 = true;
                                                                     if (z8) {
                                                                     }
-                                                                    aVar = this.f61687c.f61683e;
+                                                                    aVar = this.f60037c.f60033e;
                                                                     if (aVar != null) {
                                                                     }
                                                                 } else {
-                                                                    bVar = this.f61687c;
+                                                                    bVar = this.f60037c;
                                                                     dVar = new com.yxcorp.kuaishou.addfp.a.b.g.g(this.a, b.a());
                                                                 }
                                                             }
@@ -244,16 +244,16 @@ public final class c implements Runnable {
                                                     if (z6) {
                                                     }
                                                 }
-                                                bVar = this.f61687c;
+                                                bVar = this.f60037c;
                                                 dVar = new com.yxcorp.kuaishou.addfp.a.b.i.b(this.a);
                                             }
                                             z5 = true;
                                             if (!z5) {
                                             }
-                                            bVar = this.f61687c;
+                                            bVar = this.f60037c;
                                             dVar = new com.yxcorp.kuaishou.addfp.a.b.i.b(this.a);
                                         } else {
-                                            bVar = this.f61687c;
+                                            bVar = this.f60037c;
                                             dVar = new com.yxcorp.kuaishou.addfp.a.b.e.b(this.a);
                                         }
                                     }
@@ -261,19 +261,19 @@ public final class c implements Runnable {
                                     if (z4) {
                                     }
                                 } else {
-                                    bVar = this.f61687c;
+                                    bVar = this.f60037c;
                                     dVar = new com.yxcorp.kuaishou.addfp.android.b.e(this.a);
                                 }
-                                bVar.f61683e = dVar;
-                                aVar = this.f61687c.f61683e;
+                                bVar.f60033e = dVar;
+                                aVar = this.f60037c.f60033e;
                                 if (aVar != null) {
                                 }
                             }
                             z3 = true;
                             if (z3) {
                             }
-                            bVar.f61683e = dVar;
-                            aVar = this.f61687c.f61683e;
+                            bVar.f60033e = dVar;
+                            aVar = this.f60037c.f60033e;
                             if (aVar != null) {
                             }
                         }
@@ -282,20 +282,20 @@ public final class c implements Runnable {
                     if (z2) {
                     }
                 }
-                bVar = this.f61687c;
+                bVar = this.f60037c;
                 dVar = new com.yxcorp.kuaishou.addfp.a.b.c.d(this.a, b.a());
-                bVar.f61683e = dVar;
-                aVar = this.f61687c.f61683e;
+                bVar.f60033e = dVar;
+                aVar = this.f60037c.f60033e;
                 if (aVar != null) {
                 }
             }
             z = true;
             if (!z) {
             }
-            bVar = this.f61687c;
+            bVar = this.f60037c;
             dVar = new com.yxcorp.kuaishou.addfp.a.b.c.d(this.a, b.a());
-            bVar.f61683e = dVar;
-            aVar = this.f61687c.f61683e;
+            bVar.f60033e = dVar;
+            aVar = this.f60037c.f60033e;
             if (aVar != null) {
             }
         } catch (Throwable th) {

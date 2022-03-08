@@ -17,26 +17,26 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.MaskTextView;
 import com.baidu.wallet.home.ui.widget.b;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class NHCreditLongItem extends BaseItemView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NetImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f51447b;
+    public MaskTextView f49866b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f51448c;
+    public MaskTextView f49867c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MaskTextView f51449d;
+    public MaskTextView f49868d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MaskTextView f51450e;
+    public MaskTextView f49869e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f51451f;
+    public TextView f49870f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NHCreditLongItem(Context context) {
@@ -73,11 +73,11 @@ public class NHCreditLongItem extends BaseItemView {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_nh_credit_long_item"), this);
             this.a = (NetImageView) findViewById(ResUtils.id(getContext(), "bg_pic"));
-            this.f51447b = (MaskTextView) findViewById(ResUtils.id(getContext(), "tv_title1"));
-            this.f51448c = (MaskTextView) findViewById(ResUtils.id(getContext(), "tv_title2"));
-            this.f51449d = (MaskTextView) findViewById(ResUtils.id(getContext(), "tv_desc"));
-            this.f51450e = (MaskTextView) findViewById(ResUtils.id(getContext(), "bt_submit"));
-            this.f51451f = (TextView) findViewById(ResUtils.id(getContext(), "tv_dot"));
+            this.f49866b = (MaskTextView) findViewById(ResUtils.id(getContext(), "tv_title1"));
+            this.f49867c = (MaskTextView) findViewById(ResUtils.id(getContext(), "tv_title2"));
+            this.f49868d = (MaskTextView) findViewById(ResUtils.id(getContext(), "tv_desc"));
+            this.f49869e = (MaskTextView) findViewById(ResUtils.id(getContext(), "bt_submit"));
+            this.f49870f = (TextView) findViewById(ResUtils.id(getContext(), "tv_dot"));
         }
     }
 
@@ -89,27 +89,27 @@ public class NHCreditLongItem extends BaseItemView {
         }
         setNetImageViewUrl(this.a, getData().logo);
         boolean z = true;
-        boolean z2 = (TextUtils.isEmpty(getData().name) || this.f51447b == null) ? false : true;
-        z = (TextUtils.isEmpty(getData().value1) || this.f51448c == null) ? false : false;
+        boolean z2 = (TextUtils.isEmpty(getData().name) || this.f49866b == null) ? false : true;
+        z = (TextUtils.isEmpty(getData().value1) || this.f49867c == null) ? false : false;
         if (z2) {
-            this.f51447b.setVisibility(0);
-            this.f51447b.setMaskText(getData().name);
+            this.f49866b.setVisibility(0);
+            this.f49866b.setMaskText(getData().name);
         }
         if (z) {
-            this.f51448c.setVisibility(0);
-            this.f51448c.setMaskText(getData().value1);
+            this.f49867c.setVisibility(0);
+            this.f49867c.setMaskText(getData().value1);
         }
-        this.f51451f.setVisibility((z2 && z) ? 0 : 8);
-        if (!TextUtils.isEmpty(getData().value2) && (maskTextView = this.f51449d) != null) {
+        this.f49870f.setVisibility((z2 && z) ? 0 : 8);
+        if (!TextUtils.isEmpty(getData().value2) && (maskTextView = this.f49868d) != null) {
             maskTextView.setVisibility(0);
-            this.f51449d.setMaskText(getData().value2);
+            this.f49868d.setMaskText(getData().value2);
         }
         if (!TextUtils.isEmpty(getData().value3)) {
-            this.f51450e.setVisibility(0);
-            this.f51450e.setMaskText(getData().value3);
+            this.f49869e.setVisibility(0);
+            this.f49869e.setMaskText(getData().value3);
             return;
         }
-        this.f51450e.setVisibility(4);
+        this.f49869e.setVisibility(4);
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView

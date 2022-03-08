@@ -11,12 +11,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.u0.a4.d;
-import c.a.u0.a4.e;
-import c.a.u0.a4.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class ProgressButton extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FILL_COLOR = 1;
@@ -35,22 +33,22 @@ public class ProgressButton extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f41436e;
+    public int f39842e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f41437f;
+    public int f39843f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f41438g;
+    public int f39844g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f41439h;
+    public float f39845h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f41440i;
+    public int f39846i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f41441j;
+    public int f39847j;
     public int k;
     public int l;
     public Paint m;
@@ -75,8 +73,8 @@ public class ProgressButton extends View {
                 return;
             }
         }
-        u = UtilHelper.getDimenPixelSize(e.tbds177);
-        v = UtilHelper.getDimenPixelSize(e.M_W_X006);
+        u = UtilHelper.getDimenPixelSize(R.dimen.tbds177);
+        v = UtilHelper.getDimenPixelSize(R.dimen.M_W_X006);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -103,8 +101,8 @@ public class ProgressButton extends View {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f41437f = SkinManager.getColor(this.f41438g);
-            this.f41440i = SkinManager.getColor(this.f41441j);
+            this.f39843f = SkinManager.getColor(this.f39844g);
+            this.f39846i = SkinManager.getColor(this.f39847j);
             this.k = SkinManager.getColor(this.l);
         }
     }
@@ -112,13 +110,13 @@ public class ProgressButton extends View {
     public final void b(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            this.m.setColor(this.f41437f);
+            this.m.setColor(this.f39843f);
             this.m.setAlpha((int) (this.s ? SkinManager.RESOURCE_ALPHA_PRESS * 255.0f : 255.0f));
-            this.m.setStyle(this.f41436e == 0 ? Paint.Style.STROKE : Paint.Style.FILL_AND_STROKE);
+            this.m.setStyle(this.f39842e == 0 ? Paint.Style.STROKE : Paint.Style.FILL_AND_STROKE);
             this.m.setStrokeWidth(this.r);
             float f2 = this.r;
             canvas.drawRoundRect(f2 / 2.0f, f2 / 2.0f, getWidth() - (this.r / 2.0f), getHeight() - (this.r / 2.0f), getHeight(), getHeight(), this.m);
-            this.n.setColor(this.f41440i);
+            this.n.setColor(this.f39846i);
             this.n.setAlpha(this.s ? (int) (SkinManager.RESOURCE_ALPHA_PRESS * 255.0f) : 255);
             this.n.setStyle(Paint.Style.FILL);
             this.n.setTextAlign(Paint.Align.CENTER);
@@ -137,11 +135,11 @@ public class ProgressButton extends View {
             int width = (int) (getWidth() * (this.q / 100.0f));
             canvas.save();
             canvas.clipRect(width, 0, getWidth(), getHeight());
-            this.m.setColor(this.f41437f);
-            this.m.setAlpha((int) (this.f41439h * (this.s ? SkinManager.RESOURCE_ALPHA_PRESS * 255.0f : 255.0f)));
+            this.m.setColor(this.f39843f);
+            this.m.setAlpha((int) (this.f39845h * (this.s ? SkinManager.RESOURCE_ALPHA_PRESS * 255.0f : 255.0f)));
             this.m.setStyle(Paint.Style.FILL_AND_STROKE);
             canvas.drawRoundRect(0.0f, 0.0f, getWidth(), getHeight(), getHeight(), getHeight(), this.m);
-            this.n.setColor(this.f41437f);
+            this.n.setColor(this.f39843f);
             this.n.setAlpha(this.s ? (int) (SkinManager.RESOURCE_ALPHA_PRESS * 255.0f) : 255);
             this.n.setStyle(Paint.Style.FILL);
             this.n.setTextAlign(Paint.Align.CENTER);
@@ -154,7 +152,7 @@ public class ProgressButton extends View {
             canvas.restore();
             canvas.save();
             canvas.clipRect(0, 0, width, getHeight());
-            this.m.setColor(this.f41437f);
+            this.m.setColor(this.f39843f);
             this.m.setAlpha((int) (this.s ? SkinManager.RESOURCE_ALPHA_PRESS * 255.0f : 255.0f));
             this.m.setStyle(Paint.Style.FILL_AND_STROKE);
             float f2 = this.r;
@@ -174,8 +172,8 @@ public class ProgressButton extends View {
     public void disableText() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f41438g = d.CAM_X0112;
-            this.f41441j = d.CAM_X0110;
+            this.f39844g = R.color.CAM_X0112;
+            this.f39847j = R.color.CAM_X0110;
             a();
         }
     }
@@ -183,12 +181,12 @@ public class ProgressButton extends View {
     public void enableText() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            int i2 = d.CAM_X0302;
-            this.f41438g = i2;
-            if (this.f41436e != 0) {
-                i2 = d.CAM_X0101;
+            int i2 = R.color.CAM_X0302;
+            this.f39844g = R.color.CAM_X0302;
+            if (this.f39842e != 0) {
+                i2 = R.color.CAM_X0101;
             }
-            this.f41441j = i2;
+            this.f39847j = i2;
             a();
         }
     }
@@ -210,34 +208,34 @@ public class ProgressButton extends View {
     public int getColorStyle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f41436e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f39842e : invokeV.intValue;
     }
 
     @SuppressLint({"CustomViewStyleable"})
     public void initView(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, l.TBProgressButton);
-            this.o = obtainStyledAttributes.getDimensionPixelSize(l.TBProgressButton_btnTextSize, e.T_X08);
-            this.p = obtainStyledAttributes.getString(l.TBProgressButton_btnText);
-            int i2 = obtainStyledAttributes.getInt(l.TBProgressButton_btnColorStyle, 0);
-            this.f41436e = i2;
-            this.f41438g = d.CAM_X0302;
-            int i3 = d.CAM_X0101;
-            this.l = i3;
-            if (i2 == 0) {
-                i3 = d.CAM_X0302;
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.btnBackgroundAlpha, R.attr.btnBackgroundColor, R.attr.btnColorStyle, R.attr.btnText, R.attr.btnTextSize, R.attr.textColorInit, R.attr.textColorProgress});
+            this.o = obtainStyledAttributes.getDimensionPixelSize(4, R.dimen.T_X08);
+            this.p = obtainStyledAttributes.getString(3);
+            int i2 = obtainStyledAttributes.getInt(2, 0);
+            this.f39842e = i2;
+            int i3 = R.color.CAM_X0302;
+            this.f39844g = R.color.CAM_X0302;
+            this.l = R.color.CAM_X0101;
+            if (i2 != 0) {
+                i3 = R.color.CAM_X0101;
             }
-            this.f41441j = i3;
-            this.f41437f = obtainStyledAttributes.getColor(l.TBProgressButton_btnBackgroundColor, SkinManager.getColor(this.f41438g));
-            this.f41440i = obtainStyledAttributes.getColor(l.TBProgressButton_textColorInit, SkinManager.getColor(this.f41441j));
-            this.k = obtainStyledAttributes.getColor(l.TBProgressButton_textColorProgress, SkinManager.getColor(this.l));
-            this.f41439h = obtainStyledAttributes.getFloat(l.TBProgressButton_btnBackgroundAlpha, 0.2f);
+            this.f39847j = i3;
+            this.f39843f = obtainStyledAttributes.getColor(1, SkinManager.getColor(this.f39844g));
+            this.f39846i = obtainStyledAttributes.getColor(5, SkinManager.getColor(this.f39847j));
+            this.k = obtainStyledAttributes.getColor(6, SkinManager.getColor(this.l));
+            this.f39845h = obtainStyledAttributes.getFloat(0, 0.2f);
             obtainStyledAttributes.recycle();
-            this.r = n.f(getContext(), e.L_X02);
+            this.r = n.f(getContext(), R.dimen.L_X02);
             Paint paint = new Paint(1);
             this.m = paint;
-            paint.setColor(this.f41437f);
+            paint.setColor(this.f39843f);
             this.m.setStrokeWidth(this.r);
             TextPaint textPaint = new TextPaint();
             this.n = textPaint;

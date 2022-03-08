@@ -17,7 +17,7 @@ import java.io.Flushable;
 import java.io.IOException;
 import java.io.Writer;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class JsonWriter implements Closeable, Flushable {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] HTML_SAFE_REPLACEMENT_CHARS;
@@ -285,7 +285,7 @@ public class JsonWriter implements Closeable, Flushable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             writeDeferredName();
-            return open(3, StringUtil.ARRAY_START);
+            return open(3, "{");
         }
         return (JsonWriter) invokeV.objValue;
     }

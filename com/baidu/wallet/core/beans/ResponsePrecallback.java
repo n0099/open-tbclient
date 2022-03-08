@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
 import com.yy.hiidostatis.inner.util.log.ActLog;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public abstract class ResponsePrecallback implements IBeanResponseCallback, NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static final class ResponseType {
         public static final /* synthetic */ ResponseType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

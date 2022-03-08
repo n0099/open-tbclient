@@ -16,7 +16,7 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.Enumeration;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class NetworkUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NETWORK_2G = 2;

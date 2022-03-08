@@ -13,7 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.XmlRes;
-import androidx.core.R;
+import androidx.core.R$attr;
+import androidx.core.R$styleable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -127,13 +128,13 @@ public final class ColorStateListInflaterCompat {
                     break;
                 }
                 if (next == 2 && depth <= depth2 && xmlPullParser.getName().equals("item")) {
-                    TypedArray obtainAttributes = obtainAttributes(resources, theme, attributeSet, R.styleable.ColorStateListItem);
-                    int color = obtainAttributes.getColor(R.styleable.ColorStateListItem_android_color, -65281);
+                    TypedArray obtainAttributes = obtainAttributes(resources, theme, attributeSet, R$styleable.ColorStateListItem);
+                    int color = obtainAttributes.getColor(R$styleable.ColorStateListItem_android_color, -65281);
                     float f2 = 1.0f;
-                    if (obtainAttributes.hasValue(R.styleable.ColorStateListItem_android_alpha)) {
-                        f2 = obtainAttributes.getFloat(R.styleable.ColorStateListItem_android_alpha, 1.0f);
-                    } else if (obtainAttributes.hasValue(R.styleable.ColorStateListItem_alpha)) {
-                        f2 = obtainAttributes.getFloat(R.styleable.ColorStateListItem_alpha, 1.0f);
+                    if (obtainAttributes.hasValue(R$styleable.ColorStateListItem_android_alpha)) {
+                        f2 = obtainAttributes.getFloat(R$styleable.ColorStateListItem_android_alpha, 1.0f);
+                    } else if (obtainAttributes.hasValue(R$styleable.ColorStateListItem_alpha)) {
+                        f2 = obtainAttributes.getFloat(R$styleable.ColorStateListItem_alpha, 1.0f);
                     }
                     obtainAttributes.recycle();
                     int attributeCount = attributeSet.getAttributeCount();
@@ -141,7 +142,7 @@ public final class ColorStateListInflaterCompat {
                     int i4 = 0;
                     for (int i5 = 0; i5 < attributeCount; i5++) {
                         int attributeNameResource = attributeSet.getAttributeNameResource(i5);
-                        if (attributeNameResource != 16843173 && attributeNameResource != 16843551 && attributeNameResource != R.attr.alpha) {
+                        if (attributeNameResource != 16843173 && attributeNameResource != 16843551 && attributeNameResource != R$attr.alpha) {
                             int i6 = i4 + 1;
                             if (!attributeSet.getAttributeBooleanValue(i5, false)) {
                                 attributeNameResource = -attributeNameResource;

@@ -38,15 +38,15 @@ import java.util.concurrent.ExecutorService;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class h {
     public static Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Messenger f58152b;
+    public static Messenger f56502b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ServiceConnection f58153c = new ServiceConnection() { // from class: com.kwad.sdk.utils.h.1
+    public static ServiceConnection f56503c = new ServiceConnection() { // from class: com.kwad.sdk.utils.h.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Messenger messenger = new Messenger(iBinder);
@@ -56,7 +56,7 @@ public class h {
                 com.kwad.sdk.core.d.a.d("AppStatusHelper", "clientMessenger init error");
                 return;
             }
-            obtain.replyTo = h.f58152b;
+            obtain.replyTo = h.f56502b;
             try {
                 messenger.send(obtain);
             } catch (RemoteException unused) {
@@ -69,16 +69,16 @@ public class h {
     };
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile ExecutorService f58154d;
+    public static volatile ExecutorService f56504d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile AppStatusRules f58155e;
+    public static volatile AppStatusRules f56505e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static WeakReference<Context> f58156f;
+    public static WeakReference<Context> f56506f;
 
     /* renamed from: com.kwad.sdk.utils.h$2  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class AnonymousClass2 implements Runnable {
         public final /* synthetic */ Context a;
 
@@ -97,30 +97,30 @@ public class h {
                 @Override // com.kwad.sdk.collector.c.a
                 public void a(AppStatusRules appStatusRules) {
                     appStatusRules.initStatus(AnonymousClass2.this.a);
-                    AppStatusRules unused = h.f58155e = appStatusRules;
-                    h.b(AnonymousClass2.this.a, h.f58155e);
+                    AppStatusRules unused = h.f56505e = appStatusRules;
+                    h.b(AnonymousClass2.this.a, h.f56505e);
                     h.a(AnonymousClass2.this.a);
                     boolean l = h.l(AnonymousClass2.this.a);
-                    boolean isAppStatusTargetNotEmpty = AppStatusRules.isAppStatusTargetNotEmpty(h.f58155e);
+                    boolean isAppStatusTargetNotEmpty = AppStatusRules.isAppStatusTargetNotEmpty(h.f56505e);
                     com.kwad.sdk.core.d.a.a("AppStatusHelper", "appStatusTargetNotEmpty: " + isAppStatusTargetNotEmpty + ", permissionGranted: " + l);
                     if (l && isAppStatusTargetNotEmpty) {
-                        long obtainDefaultScanInterval = h.f58155e.obtainDefaultScanInterval();
+                        long obtainDefaultScanInterval = h.f56505e.obtainDefaultScanInterval();
                         if (obtainDefaultScanInterval > 0) {
                             h.b(AnonymousClass2.this.a, obtainDefaultScanInterval);
                         } else {
                             h.i(AnonymousClass2.this.a);
                         }
                     }
-                    boolean isUploadTargetNotEmpty = AppStatusRules.isUploadTargetNotEmpty(h.f58155e);
-                    boolean z = h.f58155e.obtainUploadConfigFileMaxSize() > 0;
+                    boolean isUploadTargetNotEmpty = AppStatusRules.isUploadTargetNotEmpty(h.f56505e);
+                    boolean z = h.f56505e.obtainUploadConfigFileMaxSize() > 0;
                     com.kwad.sdk.core.d.a.a("AppStatusHelper", "uploadTargetNotEmpty: " + isUploadTargetNotEmpty + ", enableUpload: " + z);
                     if (isUploadTargetNotEmpty && z && l) {
                         h.k();
-                        h.f58154d.submit(new Runnable() { // from class: com.kwad.sdk.utils.h.2.1.1
+                        h.f56504d.submit(new Runnable() { // from class: com.kwad.sdk.utils.h.2.1.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 try {
-                                    com.kwad.sdk.collector.j.a(AnonymousClass2.this.a, h.f58155e);
+                                    com.kwad.sdk.collector.j.a(AnonymousClass2.this.a, h.f56505e);
                                 } catch (Throwable th) {
                                     com.kwad.sdk.crash.a.a(th);
                                     com.kwad.sdk.core.d.a.b(th);
@@ -133,22 +133,22 @@ public class h {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a implements com.kwad.sdk.core.b {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f58159b;
+        public String f56509b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<Long> f58160c = new ArrayList();
+        public List<Long> f56510c = new ArrayList();
 
         public a() {
         }
 
         public a(String str, String str2) {
             this.a = str;
-            this.f58159b = str2;
+            this.f56509b = str2;
         }
 
         @Nullable
@@ -195,7 +195,7 @@ public class h {
         }
 
         public void a(long j2) {
-            this.f58160c.add(Long.valueOf(j2));
+            this.f56510c.add(Long.valueOf(j2));
         }
 
         @Override // com.kwad.sdk.core.b
@@ -204,14 +204,14 @@ public class h {
                 return;
             }
             this.a = jSONObject.optString("appName");
-            this.f58159b = jSONObject.optString("packageName");
+            this.f56509b = jSONObject.optString("packageName");
             JSONArray optJSONArray = jSONObject.optJSONArray("runningTimes");
             if (optJSONArray != null) {
-                this.f58160c.clear();
+                this.f56510c.clear();
                 int length = optJSONArray.length();
                 for (int i2 = 0; i2 < length; i2++) {
                     try {
-                        this.f58160c.add(Long.valueOf(optJSONArray.getLong(i2)));
+                        this.f56510c.add(Long.valueOf(optJSONArray.getLong(i2)));
                     } catch (JSONException e2) {
                         com.kwad.sdk.core.d.a.b(e2);
                     }
@@ -223,9 +223,9 @@ public class h {
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
             t.a(jSONObject, "appName", this.a);
-            t.a(jSONObject, "packageName", this.f58159b);
+            t.a(jSONObject, "packageName", this.f56509b);
             JSONArray jSONArray = new JSONArray();
-            for (Long l : this.f58160c) {
+            for (Long l : this.f56510c) {
                 jSONArray.put(l.longValue());
             }
             t.a(jSONObject, "runningTimes", jSONArray);
@@ -233,12 +233,12 @@ public class h {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void a(List<com.kwad.sdk.collector.model.b> list);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class c extends Handler {
         public c(@NonNull Looper looper) {
             super(looper);
@@ -277,7 +277,7 @@ public class h {
                     a(list);
                 }
             }
-            if (h.f58156f != null && h.f58156f.get() != null && data != null) {
+            if (h.f56506f != null && h.f56506f.get() != null && data != null) {
                 if (data.containsKey("allStrategyJson")) {
                     String string = data.getString("allStrategyJson");
                     if (string != null) {
@@ -297,16 +297,16 @@ public class h {
                     for (AppStatusRules.Strategy strategy : list2) {
                         long needSaveLaunchTime = strategy.getNeedSaveLaunchTime();
                         if (needSaveLaunchTime >= 0) {
-                            com.kwad.sdk.collector.h.a((Context) h.f58156f.get(), strategy, needSaveLaunchTime);
+                            com.kwad.sdk.collector.h.a((Context) h.f56506f.get(), strategy, needSaveLaunchTime);
                         }
                     }
                 }
             }
-            if (h.f58156f == null || h.f58153c == null) {
+            if (h.f56506f == null || h.f56503c == null) {
                 return;
             }
             com.kwad.sdk.core.d.a.a("AppStatusHelper", "unbindASService");
-            com.kwad.sdk.collector.b.a.b((Context) h.f58156f.get(), h.f58153c);
+            com.kwad.sdk.collector.b.a.b((Context) h.f56506f.get(), h.f56503c);
         }
 
         public static void a(ArrayList<com.kwad.sdk.collector.model.b> arrayList) {
@@ -339,7 +339,7 @@ public class h {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class d implements b {
         public b a;
 
@@ -361,7 +361,7 @@ public class h {
     }
 
     public static AppStatusRules a() {
-        return f58155e;
+        return f56505e;
     }
 
     @NonNull
@@ -377,8 +377,8 @@ public class h {
 
     @WorkerThread
     public static void a(Context context) {
-        if (f58155e == null) {
-            f58155e = h(context);
+        if (f56505e == null) {
+            f56505e = h(context);
         }
     }
 
@@ -389,7 +389,7 @@ public class h {
         boolean b2 = SystemUtil.b(context);
         com.kwad.sdk.core.d.a.a("AppStatusHelper", "isMainProcess: " + b2);
         if (b2) {
-            f58156f = new WeakReference<>(context);
+            f56506f = new WeakReference<>(context);
             if (j2 <= 0) {
                 j2 = 30000;
             }
@@ -405,7 +405,7 @@ public class h {
             return;
         }
         k();
-        f58154d.submit(new Runnable() { // from class: com.kwad.sdk.utils.h.4
+        f56504d.submit(new Runnable() { // from class: com.kwad.sdk.utils.h.4
             @Override // java.lang.Runnable
             public void run() {
                 List k;
@@ -517,7 +517,7 @@ public class h {
         boolean l = l();
         com.kwad.sdk.core.d.a.a("AppStatusHelper", "isServiceAvailable: " + l);
         if (l) {
-            com.kwad.sdk.collector.b.a.a(context, f58153c);
+            com.kwad.sdk.collector.b.a.a(context, f56503c);
         } else {
             a(context, new d(null));
         }
@@ -526,7 +526,7 @@ public class h {
     @Nullable
     public static List<com.kwad.sdk.collector.model.b> j(Context context) {
         List<ActivityManager.RunningTaskInfo> runningTasks;
-        if ((av.a(context, com.kuaishou.weapon.un.s.f55456e) == 0) && (runningTasks = ((ActivityManager) context.getSystemService("activity")).getRunningTasks(100)) != null) {
+        if ((av.a(context, com.kuaishou.weapon.un.s.f53806e) == 0) && (runningTasks = ((ActivityManager) context.getSystemService("activity")).getRunningTasks(100)) != null) {
             LinkedList linkedList = new LinkedList();
             for (ActivityManager.RunningTaskInfo runningTaskInfo : runningTasks) {
                 ComponentName componentName = runningTaskInfo.topActivity;
@@ -542,20 +542,20 @@ public class h {
     }
 
     public static boolean j() {
-        if (f58152b == null) {
+        if (f56502b == null) {
             try {
-                f58152b = new Messenger(new c(Looper.getMainLooper()));
+                f56502b = new Messenger(new c(Looper.getMainLooper()));
             } catch (Throwable unused) {
             }
         }
-        return f58152b != null;
+        return f56502b != null;
     }
 
     @WorkerThread
     public static List<com.kwad.sdk.collector.model.b> k(Context context) {
         if (l(context)) {
-            if (f58155e == null) {
-                f58155e = h(context);
+            if (f56505e == null) {
+                f56505e = h(context);
             }
             return c(context);
         }
@@ -564,10 +564,10 @@ public class h {
 
     public static synchronized void k() {
         synchronized (h.class) {
-            if (f58154d != null) {
+            if (f56504d != null) {
                 return;
             }
-            f58154d = com.kwad.sdk.core.i.b.m();
+            f56504d = com.kwad.sdk.core.i.b.m();
         }
     }
 

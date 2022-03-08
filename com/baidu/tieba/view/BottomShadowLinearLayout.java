@@ -8,36 +8,35 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import c.a.d.f.p.n;
-import c.a.u0.a4.d;
-import c.a.u0.a4.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class BottomShadowLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49207e;
+    public int f47626e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49208f;
+    public int f47627f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f49209g;
+    public float f47628g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f49210h;
+    public float f47629h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f49211i;
+    public Paint f47630i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Paint f49212j;
+    public Paint f47631j;
     public RectF k;
     public RectF l;
 
@@ -66,20 +65,20 @@ public class BottomShadowLinearLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             Paint paint = new Paint();
-            this.f49211i = paint;
+            this.f47630i = paint;
             paint.reset();
-            this.f49211i.setAntiAlias(true);
-            this.f49211i.setStyle(Paint.Style.FILL);
-            this.f49211i.setDither(true);
+            this.f47630i.setAntiAlias(true);
+            this.f47630i.setStyle(Paint.Style.FILL);
+            this.f47630i.setDither(true);
             Paint paint2 = new Paint();
-            this.f49212j = paint2;
+            this.f47631j = paint2;
             paint2.reset();
-            this.f49212j.setAntiAlias(true);
-            this.f49212j.setStyle(Paint.Style.FILL);
-            this.f49212j.setDither(true);
-            this.f49209g = n.f(context, e.ds20);
-            this.f49210h = n.f(context, e.ds25);
-            setLayerType(1, this.f49211i);
+            this.f47631j.setAntiAlias(true);
+            this.f47631j.setStyle(Paint.Style.FILL);
+            this.f47631j.setDither(true);
+            this.f47628g = n.f(context, R.dimen.ds20);
+            this.f47629h = n.f(context, R.dimen.ds25);
+            setLayerType(1, this.f47630i);
             onChangeSkinType();
         }
     }
@@ -87,28 +86,28 @@ public class BottomShadowLinearLayout extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) || this.f49207e <= 0 || this.f49208f <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) || this.f47626e <= 0 || this.f47627f <= 0) {
             return;
         }
         if (this.k == null) {
-            this.k = new RectF(0.0f, 0.0f, this.f49207e, this.f49208f - this.f49210h);
+            this.k = new RectF(0.0f, 0.0f, this.f47626e, this.f47627f - this.f47629h);
         }
         RectF rectF = this.k;
-        float f2 = this.f49209g;
-        canvas.drawRoundRect(rectF, f2, f2, this.f49211i);
+        float f2 = this.f47628g;
+        canvas.drawRoundRect(rectF, f2, f2, this.f47630i);
         if (this.l == null) {
-            this.l = new RectF(0.0f, 0.0f, this.f49207e, this.f49208f / 2);
+            this.l = new RectF(0.0f, 0.0f, this.f47626e, this.f47627f / 2);
         }
-        canvas.drawRect(this.l, this.f49212j);
+        canvas.drawRect(this.l, this.f47631j);
         super.dispatchDraw(canvas);
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f49211i.setColor(SkinManager.getColor(d.CAM_X0207));
-            this.f49212j.setColor(SkinManager.getColor(d.CAM_X0207));
-            this.f49211i.setShadowLayer(25.0f, 0.0f, 0.0f, SkinManager.getColor(d.CAM_X0805));
+            this.f47630i.setColor(SkinManager.getColor(R.color.CAM_X0207));
+            this.f47631j.setColor(SkinManager.getColor(R.color.CAM_X0207));
+            this.f47630i.setShadowLayer(25.0f, 0.0f, 0.0f, SkinManager.getColor(R.color.CAM_X0805));
         }
     }
 
@@ -117,8 +116,8 @@ public class BottomShadowLinearLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            this.f49207e = getMeasuredWidth();
-            this.f49208f = getMeasuredHeight();
+            this.f47626e = getMeasuredWidth();
+            this.f47627f = getMeasuredHeight();
         }
     }
 

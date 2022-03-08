@@ -24,7 +24,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.view.addressdialog.OnTabSelectListener;
-import com.baidu.sapi2.ecommerce.R;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ import com.dxmpay.wallet.utils.StatHelper;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.OnPageChangeListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STYLE_BLOCK = 2;
@@ -89,7 +89,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
     public ViewPager mViewPager;
     public float margin;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public class InnerPagerAdapter extends FragmentPagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -291,41 +291,40 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
         float f2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.SapiSdkSlidingTabLayout);
-            int i2 = obtainStyledAttributes.getInt(R.styleable.SapiSdkSlidingTabLayout_SapiSdkIndicatorStyle, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.SapiSdkDividerColor, R.attr.SapiSdkDividerPadding, R.attr.SapiSdkDividerWidth, R.attr.SapiSdkIndicatorColor, R.attr.SapiSdkIndicatorCornerRadius, R.attr.SapiSdkIndicatorGravity, R.attr.SapiSdkIndicatorHeight, R.attr.SapiSdkIndicatorMarginBottom, R.attr.SapiSdkIndicatorMarginLeft, R.attr.SapiSdkIndicatorMarginRight, R.attr.SapiSdkIndicatorMarginTop, R.attr.SapiSdkIndicatorStyle, R.attr.SapiSdkIndicatorWidth, R.attr.SapiSdkIndicatorWidthEqualTitle, R.attr.SapiSdkTabPadding, R.attr.SapiSdkTabSpaceEqual, R.attr.SapiSdkTabTextAllCaps, R.attr.SapiSdkTabTextBold, R.attr.SapiSdkTabTextSelectColor, R.attr.SapiSdkTabTextSize, R.attr.SapiSdkTabTextUnselectColor, R.attr.SapiSdkTabWidth, R.attr.SapiSdkUnderlineColor, R.attr.SapiSdkUnderlineGravity, R.attr.SapiSdkUnderlineHeight});
+            int i2 = obtainStyledAttributes.getInt(11, 0);
             this.mIndicatorStyle = i2;
-            this.mIndicatorColor = obtainStyledAttributes.getColor(R.styleable.SapiSdkSlidingTabLayout_SapiSdkIndicatorColor, Color.parseColor(i2 == 2 ? "#4B6A87" : "#ffffff"));
-            int i3 = R.styleable.SapiSdkSlidingTabLayout_SapiSdkIndicatorHeight;
-            int i4 = this.mIndicatorStyle;
-            if (i4 == 1) {
+            this.mIndicatorColor = obtainStyledAttributes.getColor(3, Color.parseColor(i2 == 2 ? "#4B6A87" : "#ffffff"));
+            int i3 = this.mIndicatorStyle;
+            if (i3 == 1) {
                 f2 = 4.0f;
             } else {
-                f2 = i4 == 2 ? -1 : 2;
+                f2 = i3 == 2 ? -1 : 2;
             }
-            this.mIndicatorHeight = obtainStyledAttributes.getDimension(i3, dp2px(f2));
-            this.mIndicatorWidth = obtainStyledAttributes.getDimension(R.styleable.SapiSdkSlidingTabLayout_SapiSdkIndicatorWidth, dp2px(this.mIndicatorStyle == 1 ? 10.0f : -1.0f));
-            this.mIndicatorCornerRadius = obtainStyledAttributes.getDimension(R.styleable.SapiSdkSlidingTabLayout_SapiSdkIndicatorCornerRadius, dp2px(this.mIndicatorStyle == 2 ? -1.0f : 0.0f));
-            this.mIndicatorMarginLeft = obtainStyledAttributes.getDimension(R.styleable.SapiSdkSlidingTabLayout_SapiSdkIndicatorMarginLeft, dp2px(0.0f));
-            this.mIndicatorMarginTop = obtainStyledAttributes.getDimension(R.styleable.SapiSdkSlidingTabLayout_SapiSdkIndicatorMarginTop, dp2px(this.mIndicatorStyle == 2 ? 7.0f : 0.0f));
-            this.mIndicatorMarginRight = obtainStyledAttributes.getDimension(R.styleable.SapiSdkSlidingTabLayout_SapiSdkIndicatorMarginRight, dp2px(0.0f));
-            this.mIndicatorMarginBottom = obtainStyledAttributes.getDimension(R.styleable.SapiSdkSlidingTabLayout_SapiSdkIndicatorMarginBottom, dp2px(this.mIndicatorStyle != 2 ? 0.0f : 7.0f));
-            this.mIndicatorGravity = obtainStyledAttributes.getInt(R.styleable.SapiSdkSlidingTabLayout_SapiSdkIndicatorGravity, 80);
-            this.mIndicatorWidthEqualTitle = obtainStyledAttributes.getBoolean(R.styleable.SapiSdkSlidingTabLayout_SapiSdkIndicatorWidthEqualTitle, false);
-            this.mUnderlineColor = obtainStyledAttributes.getColor(R.styleable.SapiSdkSlidingTabLayout_SapiSdkUnderlineColor, Color.parseColor("#ffffff"));
-            this.mUnderlineHeight = obtainStyledAttributes.getDimension(R.styleable.SapiSdkSlidingTabLayout_SapiSdkUnderlineHeight, dp2px(0.0f));
-            this.mUnderlineGravity = obtainStyledAttributes.getInt(R.styleable.SapiSdkSlidingTabLayout_SapiSdkUnderlineGravity, 80);
-            this.mDividerColor = obtainStyledAttributes.getColor(R.styleable.SapiSdkSlidingTabLayout_SapiSdkDividerColor, Color.parseColor("#ffffff"));
-            this.mDividerWidth = obtainStyledAttributes.getDimension(R.styleable.SapiSdkSlidingTabLayout_SapiSdkDividerWidth, dp2px(0.0f));
-            this.mDividerPadding = obtainStyledAttributes.getDimension(R.styleable.SapiSdkSlidingTabLayout_SapiSdkDividerPadding, dp2px(12.0f));
-            this.mTextsize = obtainStyledAttributes.getDimension(R.styleable.SapiSdkSlidingTabLayout_SapiSdkTabTextSize, sp2px(14.0f));
-            this.mTextSelectColor = obtainStyledAttributes.getColor(R.styleable.SapiSdkSlidingTabLayout_SapiSdkTabTextSelectColor, Color.parseColor("#ffffff"));
-            this.mTextUnselectColor = obtainStyledAttributes.getColor(R.styleable.SapiSdkSlidingTabLayout_SapiSdkTabTextUnselectColor, Color.parseColor("#AAffffff"));
-            this.mTextBold = obtainStyledAttributes.getInt(R.styleable.SapiSdkSlidingTabLayout_SapiSdkTabTextBold, 0);
-            this.mTextAllCaps = obtainStyledAttributes.getBoolean(R.styleable.SapiSdkSlidingTabLayout_SapiSdkTabTextAllCaps, false);
-            this.mTabSpaceEqual = obtainStyledAttributes.getBoolean(R.styleable.SapiSdkSlidingTabLayout_SapiSdkTabSpaceEqual, false);
-            float dimension = obtainStyledAttributes.getDimension(R.styleable.SapiSdkSlidingTabLayout_SapiSdkTabWidth, dp2px(-1.0f));
+            this.mIndicatorHeight = obtainStyledAttributes.getDimension(6, dp2px(f2));
+            this.mIndicatorWidth = obtainStyledAttributes.getDimension(12, dp2px(this.mIndicatorStyle == 1 ? 10.0f : -1.0f));
+            this.mIndicatorCornerRadius = obtainStyledAttributes.getDimension(4, dp2px(this.mIndicatorStyle == 2 ? -1.0f : 0.0f));
+            this.mIndicatorMarginLeft = obtainStyledAttributes.getDimension(8, dp2px(0.0f));
+            this.mIndicatorMarginTop = obtainStyledAttributes.getDimension(10, dp2px(this.mIndicatorStyle == 2 ? 7.0f : 0.0f));
+            this.mIndicatorMarginRight = obtainStyledAttributes.getDimension(9, dp2px(0.0f));
+            this.mIndicatorMarginBottom = obtainStyledAttributes.getDimension(7, dp2px(this.mIndicatorStyle != 2 ? 0.0f : 7.0f));
+            this.mIndicatorGravity = obtainStyledAttributes.getInt(5, 80);
+            this.mIndicatorWidthEqualTitle = obtainStyledAttributes.getBoolean(13, false);
+            this.mUnderlineColor = obtainStyledAttributes.getColor(22, Color.parseColor("#ffffff"));
+            this.mUnderlineHeight = obtainStyledAttributes.getDimension(24, dp2px(0.0f));
+            this.mUnderlineGravity = obtainStyledAttributes.getInt(23, 80);
+            this.mDividerColor = obtainStyledAttributes.getColor(0, Color.parseColor("#ffffff"));
+            this.mDividerWidth = obtainStyledAttributes.getDimension(2, dp2px(0.0f));
+            this.mDividerPadding = obtainStyledAttributes.getDimension(1, dp2px(12.0f));
+            this.mTextsize = obtainStyledAttributes.getDimension(19, sp2px(14.0f));
+            this.mTextSelectColor = obtainStyledAttributes.getColor(18, Color.parseColor("#ffffff"));
+            this.mTextUnselectColor = obtainStyledAttributes.getColor(20, Color.parseColor("#AAffffff"));
+            this.mTextBold = obtainStyledAttributes.getInt(17, 0);
+            this.mTextAllCaps = obtainStyledAttributes.getBoolean(16, false);
+            this.mTabSpaceEqual = obtainStyledAttributes.getBoolean(15, false);
+            float dimension = obtainStyledAttributes.getDimension(21, dp2px(-1.0f));
             this.mTabWidth = dimension;
-            this.mTabPadding = obtainStyledAttributes.getDimension(R.styleable.SapiSdkSlidingTabLayout_SapiSdkTabPadding, (this.mTabSpaceEqual || dimension > 0.0f) ? dp2px(0.0f) : dp2px(20.0f));
+            this.mTabPadding = obtainStyledAttributes.getDimension(14, (this.mTabSpaceEqual || dimension > 0.0f) ? dp2px(0.0f) : dp2px(20.0f));
             obtainStyledAttributes.recycle();
         }
     }

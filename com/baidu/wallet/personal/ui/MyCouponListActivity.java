@@ -25,7 +25,7 @@ import com.baidu.wallet.core.utils.PassUtil;
 import com.baidu.wallet.personal.b.b;
 import com.baidu.wallet.personal.datamodel.CouponListResponse;
 import com.baidu.wallet.personal.ui.view.CouponTabHostView;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class MyCouponListActivity extends CouponBaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_DATA = "extra_data";
@@ -171,7 +171,7 @@ public class MyCouponListActivity extends CouponBaseActivity {
                         public final /* synthetic */ CouponListResponse.CodeCoupon a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ MyCouponListActivity f52792b;
+                        public final /* synthetic */ MyCouponListActivity f51211b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -188,7 +188,7 @@ public class MyCouponListActivity extends CouponBaseActivity {
                                     return;
                                 }
                             }
-                            this.f52792b = this;
+                            this.f51211b = this;
                             this.a = codeCoupon;
                         }
 
@@ -196,7 +196,7 @@ public class MyCouponListActivity extends CouponBaseActivity {
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                BaiduWalletDelegate.getInstance().openH5Module(this.f52792b.getActivity(), this.a.url);
+                                BaiduWalletDelegate.getInstance().openH5Module(this.f51211b.getActivity(), this.a.url);
                             }
                         }
                     });

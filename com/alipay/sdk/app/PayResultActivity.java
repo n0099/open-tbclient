@@ -19,37 +19,37 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class PayResultActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f30994b = "{\"isLogin\":\"false\"}";
+    public static final String f29398b = "{\"isLogin\":\"false\"}";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final HashMap<String, Object> f30995c;
+    public static final HashMap<String, Object> f29399c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f30996d = "hk.alipay.wallet";
+    public static final String f29400d = "hk.alipay.wallet";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f30997e = "phonecashier.pay.hash";
+    public static final String f29401e = "phonecashier.pay.hash";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f30998f = "orderSuffix";
+    public static final String f29402f = "orderSuffix";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f30999g = "externalPkgName";
+    public static final String f29403g = "externalPkgName";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f31000h = "phonecashier.pay.result";
+    public static final String f29404h = "phonecashier.pay.result";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f31001i = "phonecashier.pay.resultOrderHash";
+    public static final String f29405i = "phonecashier.pay.resultOrderHash";
     public transient /* synthetic */ FieldHolder $fh;
     public com.alipay.sdk.sys.a a;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,13 +82,13 @@ public final class PayResultActivity extends Activity {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public static volatile String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static volatile String f31002b;
+        public static volatile String f29406b;
         public transient /* synthetic */ FieldHolder $fh;
 
         public b() {
@@ -119,7 +119,7 @@ public final class PayResultActivity extends Activity {
                 return;
             }
         }
-        f30995c = new HashMap<>();
+        f29399c = new HashMap<>();
     }
 
     public PayResultActivity() {
@@ -145,7 +145,7 @@ public final class PayResultActivity extends Activity {
         }
         Intent intent = new Intent();
         try {
-            intent.setPackage(f30996d);
+            intent.setPackage(f29400d);
             intent.setData(Uri.parse("alipayhk://platformapi/startApp?appId=20000125&schemePaySession=" + URLEncoder.encode(str, "UTF-8") + "&orderSuffix=" + URLEncoder.encode(str2, "UTF-8") + "&packageName=" + URLEncoder.encode(str3, "UTF-8") + "&externalPkgName=" + URLEncoder.encode(str3, "UTF-8")));
         } catch (UnsupportedEncodingException e2) {
             com.alipay.sdk.util.c.a(e2);
@@ -166,11 +166,11 @@ public final class PayResultActivity extends Activity {
             super.onCreate(bundle);
             try {
                 Intent intent = getIntent();
-                if (!TextUtils.isEmpty(intent.getStringExtra(f30998f))) {
-                    b.a = intent.getStringExtra(f30997e);
-                    String stringExtra = intent.getStringExtra(f30998f);
-                    String stringExtra2 = intent.getStringExtra(f30999g);
-                    com.alipay.sdk.sys.a a2 = a.C1713a.a(intent);
+                if (!TextUtils.isEmpty(intent.getStringExtra(f29402f))) {
+                    b.a = intent.getStringExtra(f29401e);
+                    String stringExtra = intent.getStringExtra(f29402f);
+                    String stringExtra2 = intent.getStringExtra(f29403g);
+                    com.alipay.sdk.sys.a a2 = a.C1689a.a(intent);
                     this.a = a2;
                     if (a2 == null) {
                         finish();
@@ -183,8 +183,8 @@ public final class PayResultActivity extends Activity {
                 if (this.a == null) {
                     finish();
                 }
-                String stringExtra3 = intent.getStringExtra(f31000h);
-                int intExtra = intent.getIntExtra(f31001i, 0);
+                String stringExtra3 = intent.getStringExtra(f29404h);
+                int intExtra = intent.getIntExtra(f29405i, 0);
                 if (intExtra != 0 && TextUtils.equals(b.a, String.valueOf(intExtra))) {
                     if (!TextUtils.isEmpty(stringExtra3)) {
                         a(stringExtra3, b.a);
@@ -211,16 +211,16 @@ public final class PayResultActivity extends Activity {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            b.f31002b = com.alipay.sdk.app.b.a();
-            a(f30995c, str);
+            b.f29406b = com.alipay.sdk.app.b.a();
+            a(f29399c, str);
         }
     }
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
-            b.f31002b = str;
-            a(f30995c, str2);
+            b.f29406b = str;
+            a(f29399c, str2);
         }
     }
 

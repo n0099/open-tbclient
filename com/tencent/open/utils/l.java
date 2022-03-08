@@ -27,7 +27,6 @@ import android.util.DisplayMetrics;
 import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
-import com.baidu.android.common.util.Util;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.pass.main.facesdk.BuildConfig;
 import com.baidu.sapi2.activity.ImageClipActivity;
@@ -57,39 +56,38 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.webrtc.MediaStreamTrack;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f60819b = "";
+    public static String f59169b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f60820c = "";
+    public static String f59170c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f60821d = "";
+    public static String f59171d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f60822e = -1;
+    public static int f59172e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f60823f = "0123456789ABCDEF";
+    public static String f59173f = "0123456789ABCDEF";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f60825b;
+        public long f59175b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f60826c;
+        public long f59176c;
 
         public a(String str, int i2) {
             Interceptable interceptable = $ic;
@@ -107,9 +105,9 @@ public class l {
                 }
             }
             this.a = str;
-            this.f60825b = i2;
+            this.f59175b = i2;
             if (str != null) {
-                this.f60826c = str.length();
+                this.f59176c = str.length();
             }
         }
     }
@@ -406,7 +404,7 @@ public class l {
                 return "";
             }
             String d2 = d(context, str);
-            f60820c = d2;
+            f59170c = d2;
             return d2;
         }
         return (String) invokeLL.objValue;
@@ -466,7 +464,7 @@ public class l {
                 return "";
             }
             b(context, str);
-            return f60819b;
+            return f59169b;
         }
         return (String) invokeLL.objValue;
     }
@@ -537,10 +535,10 @@ public class l {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 0);
             String str2 = packageInfo.versionName;
-            f60819b = str2;
+            f59169b = str2;
             a = str2.substring(0, str2.lastIndexOf(46));
-            f60821d = f60819b.substring(f60819b.lastIndexOf(46) + 1, f60819b.length());
-            f60822e = packageInfo.versionCode;
+            f59171d = f59169b.substring(f59169b.lastIndexOf(46) + 1, f59169b.length());
+            f59172e = packageInfo.versionCode;
         } catch (PackageManager.NameNotFoundException e2) {
             SLog.e("openSDK_LOG.Util", "getPackageInfo has exception: " + e2.getMessage());
         } catch (Exception e3) {
@@ -895,7 +893,7 @@ public class l {
                 public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Bundle f60824b;
+                public final /* synthetic */ Bundle f59174b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -913,7 +911,7 @@ public class l {
                         }
                     }
                     this.a = context;
-                    this.f60824b = bundle;
+                    this.f59174b = bundle;
                 }
 
                 @Override // java.lang.Thread, java.lang.Runnable
@@ -921,7 +919,7 @@ public class l {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            HttpUtils.openUrl2(this.a, "https://cgi.qplus.com/report/report", "GET", this.f60824b);
+                            HttpUtils.openUrl2(this.a, "https://cgi.qplus.com/report/report", "GET", this.f59174b);
                         } catch (Exception e2) {
                             SLog.e("openSDK_LOG.Util", "reportBernoulli has exception: " + e2.getMessage());
                         }
@@ -1120,7 +1118,7 @@ public class l {
                             uri2 = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
                         } else if ("video".equals(str2)) {
                             uri2 = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
-                        } else if (MediaStreamTrack.AUDIO_TRACK_KIND.equals(str2)) {
+                        } else if ("audio".equals(str2)) {
                             uri2 = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
                         }
                         return b(context, ContentUris.withAppendedId(uri2, Long.parseLong(split2[1])));
@@ -1154,7 +1152,7 @@ public class l {
                     }
                     return bArr2;
                 } catch (Throwable th) {
-                    SLog.e(Util.f31775b, "xor Exception! ", th);
+                    SLog.e("Util", "xor Exception! ", th);
                 }
             }
             return bArr;

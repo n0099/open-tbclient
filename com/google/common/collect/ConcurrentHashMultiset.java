@@ -1,13 +1,13 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.a.n;
-import c.i.d.c.b0;
-import c.i.d.c.d1;
-import c.i.d.c.j0;
-import c.i.d.c.m;
-import c.i.d.c.o0;
-import c.i.d.c.s0;
+import c.i.c.a.n;
+import c.i.c.c.b0;
+import c.i.c.c.d1;
+import c.i.c.c.j0;
+import c.i.c.c.m;
+import c.i.c.c.o0;
+import c.i.c.c.s0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -30,23 +30,23 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
-public final class ConcurrentHashMultiset<E> extends c.i.d.c.d<E> implements Serializable {
+/* loaded from: classes7.dex */
+public final class ConcurrentHashMultiset<E> extends c.i.c.c.d<E> implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public final transient ConcurrentMap<E, AtomicInteger> countMap;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class b extends AbstractIterator<s0.a<E>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final Iterator<Map.Entry<E, AtomicInteger>> f54792g;
+        public final Iterator<Map.Entry<E, AtomicInteger>> f53142g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ ConcurrentHashMultiset f54793h;
+        public final /* synthetic */ ConcurrentHashMultiset f53143h;
 
         public b(ConcurrentHashMultiset concurrentHashMultiset) {
             Interceptable interceptable = $ic;
@@ -63,8 +63,8 @@ public final class ConcurrentHashMultiset<E> extends c.i.d.c.d<E> implements Ser
                     return;
                 }
             }
-            this.f54793h = concurrentHashMultiset;
-            this.f54792g = this.f54793h.countMap.entrySet().iterator();
+            this.f53143h = concurrentHashMultiset;
+            this.f53142g = this.f53143h.countMap.entrySet().iterator();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -74,8 +74,8 @@ public final class ConcurrentHashMultiset<E> extends c.i.d.c.d<E> implements Ser
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                while (this.f54792g.hasNext()) {
-                    Map.Entry<E, AtomicInteger> next = this.f54792g.next();
+                while (this.f53142g.hasNext()) {
+                    Map.Entry<E, AtomicInteger> next = this.f53142g.next();
                     int i2 = next.getValue().get();
                     if (i2 != 0) {
                         return Multisets.h(next.getKey(), i2);
@@ -87,19 +87,19 @@ public final class ConcurrentHashMultiset<E> extends c.i.d.c.d<E> implements Ser
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class c extends b0<s0.a<E>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public s0.a<E> f54794e;
+        public s0.a<E> f53144e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Iterator f54795f;
+        public final /* synthetic */ Iterator f53145f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ConcurrentHashMultiset f54796g;
+        public final /* synthetic */ ConcurrentHashMultiset f53146g;
 
         public c(ConcurrentHashMultiset concurrentHashMultiset, Iterator it) {
             Interceptable interceptable = $ic;
@@ -116,28 +116,28 @@ public final class ConcurrentHashMultiset<E> extends c.i.d.c.d<E> implements Ser
                     return;
                 }
             }
-            this.f54796g = concurrentHashMultiset;
-            this.f54795f = it;
+            this.f53146g = concurrentHashMultiset;
+            this.f53145f = it;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.i.d.c.h0
+        @Override // c.i.c.c.h0
         /* renamed from: d */
         public Iterator<s0.a<E>> delegate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54795f : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53145f : (Iterator) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.i.d.c.b0, java.util.Iterator
+        @Override // c.i.c.c.b0, java.util.Iterator
         /* renamed from: e */
         public s0.a<E> next() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 s0.a<E> aVar = (s0.a) super.next();
-                this.f54794e = aVar;
+                this.f53144e = aVar;
                 return aVar;
             }
             return (s0.a) invokeV.objValue;
@@ -147,20 +147,20 @@ public final class ConcurrentHashMultiset<E> extends c.i.d.c.d<E> implements Ser
         public void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                m.e(this.f54794e != null);
-                this.f54796g.setCount(this.f54794e.getElement(), 0);
-                this.f54794e = null;
+                m.e(this.f53144e != null);
+                this.f53146g.setCount(this.f53144e.getElement(), 0);
+                this.f53144e = null;
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class d extends c.i.d.c.d<E>.b {
+    /* loaded from: classes7.dex */
+    public class d extends c.i.c.c.d<E>.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ConcurrentHashMultiset f54797f;
+        public final /* synthetic */ ConcurrentHashMultiset f53147f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(ConcurrentHashMultiset concurrentHashMultiset) {
@@ -174,22 +174,22 @@ public final class ConcurrentHashMultiset<E> extends c.i.d.c.d<E> implements Ser
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
-                    super((c.i.d.c.d) newInitContext.callArgs[0]);
+                    super((c.i.c.c.d) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f54797f = concurrentHashMultiset;
+            this.f53147f = concurrentHashMultiset;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.i.d.c.d.b, com.google.common.collect.Multisets.d
+        @Override // c.i.c.c.d.b, com.google.common.collect.Multisets.d
         /* renamed from: c */
         public ConcurrentHashMultiset<E> b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54797f : (ConcurrentHashMultiset) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f53147f : (ConcurrentHashMultiset) invokeV.objValue;
         }
 
         public final List<s0.a<E>> d() {
@@ -222,7 +222,7 @@ public final class ConcurrentHashMultiset<E> extends c.i.d.c.d<E> implements Ser
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class e {
         public static /* synthetic */ Interceptable $ic;
         public static final d1.b<ConcurrentHashMultiset> a;
@@ -310,7 +310,7 @@ public final class ConcurrentHashMultiset<E> extends c.i.d.c.d<E> implements Ser
     /* JADX WARN: Code restructure failed: missing block: B:22:0x0069, code lost:
         if (r4.countMap.putIfAbsent(r5, r2) == null) goto L33;
      */
-    @Override // c.i.d.c.d, c.i.d.c.s0
+    @Override // c.i.c.c.d, c.i.c.c.s0
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -334,7 +334,7 @@ public final class ConcurrentHashMultiset<E> extends c.i.d.c.d<E> implements Ser
                             break;
                         }
                         try {
-                            if (atomicInteger.compareAndSet(i3, c.i.d.f.c.a(i3, i2))) {
+                            if (atomicInteger.compareAndSet(i3, c.i.c.f.c.a(i3, i2))) {
                                 return i3;
                             }
                         } catch (ArithmeticException unused) {
@@ -350,7 +350,7 @@ public final class ConcurrentHashMultiset<E> extends c.i.d.c.d<E> implements Ser
         return invokeLI.intValue;
     }
 
-    @Override // c.i.d.c.d, java.util.AbstractCollection, java.util.Collection
+    @Override // c.i.c.c.d, java.util.AbstractCollection, java.util.Collection
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -358,12 +358,12 @@ public final class ConcurrentHashMultiset<E> extends c.i.d.c.d<E> implements Ser
         }
     }
 
-    @Override // c.i.d.c.d, java.util.AbstractCollection, java.util.Collection, c.i.d.c.s0
+    @Override // c.i.c.c.d, java.util.AbstractCollection, java.util.Collection, c.i.c.c.s0
     public /* bridge */ /* synthetic */ boolean contains(Object obj) {
         return super.contains(obj);
     }
 
-    @Override // c.i.d.c.s0
+    @Override // c.i.c.c.s0
     public int count(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -377,14 +377,14 @@ public final class ConcurrentHashMultiset<E> extends c.i.d.c.d<E> implements Ser
         return invokeL.intValue;
     }
 
-    @Override // c.i.d.c.d
+    @Override // c.i.c.c.d
     public Set<E> createElementSet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new a(this, this.countMap.keySet()) : (Set) invokeV.objValue;
     }
 
-    @Override // c.i.d.c.d
+    @Override // c.i.c.c.d
     @Deprecated
     public Set<s0.a<E>> createEntrySet() {
         InterceptResult invokeV;
@@ -392,14 +392,14 @@ public final class ConcurrentHashMultiset<E> extends c.i.d.c.d<E> implements Ser
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new d(this, null) : (Set) invokeV.objValue;
     }
 
-    @Override // c.i.d.c.d
+    @Override // c.i.c.c.d
     public int distinctElements() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.countMap.size() : invokeV.intValue;
     }
 
-    @Override // c.i.d.c.d
+    @Override // c.i.c.c.d
     public Iterator<E> elementIterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -409,38 +409,38 @@ public final class ConcurrentHashMultiset<E> extends c.i.d.c.d<E> implements Ser
         return (Iterator) invokeV.objValue;
     }
 
-    @Override // c.i.d.c.d, c.i.d.c.s0
+    @Override // c.i.c.c.d, c.i.c.c.s0
     public /* bridge */ /* synthetic */ Set elementSet() {
         return super.elementSet();
     }
 
-    @Override // c.i.d.c.d
+    @Override // c.i.c.c.d
     public Iterator<s0.a<E>> entryIterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? new c(this, new b(this)) : (Iterator) invokeV.objValue;
     }
 
-    @Override // c.i.d.c.d, c.i.d.c.s0
+    @Override // c.i.c.c.d, c.i.c.c.s0
     public /* bridge */ /* synthetic */ Set entrySet() {
         return super.entrySet();
     }
 
-    @Override // c.i.d.c.d, java.util.AbstractCollection, java.util.Collection
+    @Override // c.i.c.c.d, java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.countMap.isEmpty() : invokeV.booleanValue;
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, c.i.d.c.s0
+    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, c.i.c.c.s0
     public Iterator<E> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? Multisets.j(this) : (Iterator) invokeV.objValue;
     }
 
-    @Override // c.i.d.c.d, c.i.d.c.s0
+    @Override // c.i.c.c.d, c.i.c.c.s0
     public int remove(Object obj, int i2) {
         InterceptResult invokeLI;
         int i3;
@@ -511,7 +511,7 @@ public final class ConcurrentHashMultiset<E> extends c.i.d.c.d<E> implements Ser
     /* JADX WARN: Code restructure failed: missing block: B:17:0x003e, code lost:
         if (r4.countMap.putIfAbsent(r5, r2) == null) goto L31;
      */
-    @Override // c.i.d.c.d, c.i.d.c.s0
+    @Override // c.i.c.c.d, c.i.c.c.s0
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -545,7 +545,7 @@ public final class ConcurrentHashMultiset<E> extends c.i.d.c.d<E> implements Ser
         return invokeLI.intValue;
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection, c.i.d.c.s0
+    @Override // java.util.AbstractCollection, java.util.Collection, c.i.c.c.s0
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -566,13 +566,13 @@ public final class ConcurrentHashMultiset<E> extends c.i.d.c.d<E> implements Ser
         return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? snapshot().toArray() : (Object[]) invokeV.objValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class a extends j0<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Set f54791e;
+        public final /* synthetic */ Set f53141e;
 
         public a(ConcurrentHashMultiset concurrentHashMultiset, Set set) {
             Interceptable interceptable = $ic;
@@ -589,31 +589,31 @@ public final class ConcurrentHashMultiset<E> extends c.i.d.c.d<E> implements Ser
                     return;
                 }
             }
-            this.f54791e = set;
+            this.f53141e = set;
         }
 
-        @Override // c.i.d.c.y, java.util.Collection
+        @Override // c.i.c.c.y, java.util.Collection
         public boolean contains(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj != null && c.i.d.c.n.e(this.f54791e, obj) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj != null && c.i.c.c.n.e(this.f53141e, obj) : invokeL.booleanValue;
         }
 
-        @Override // c.i.d.c.y, java.util.Collection
+        @Override // c.i.c.c.y, java.util.Collection
         public boolean containsAll(Collection<?> collection) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection)) == null) ? standardContainsAll(collection) : invokeL.booleanValue;
         }
 
-        @Override // c.i.d.c.y, java.util.Collection
+        @Override // c.i.c.c.y, java.util.Collection
         public boolean remove(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) ? obj != null && c.i.d.c.n.f(this.f54791e, obj) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) ? obj != null && c.i.c.c.n.f(this.f53141e, obj) : invokeL.booleanValue;
         }
 
-        @Override // c.i.d.c.y, java.util.Collection
+        @Override // c.i.c.c.y, java.util.Collection
         public boolean removeAll(Collection<?> collection) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -621,11 +621,11 @@ public final class ConcurrentHashMultiset<E> extends c.i.d.c.d<E> implements Ser
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.i.d.c.j0, c.i.d.c.y, c.i.d.c.h0
+        @Override // c.i.c.c.j0, c.i.c.c.y, c.i.c.c.h0
         public Set<E> delegate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f54791e : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f53141e : (Set) invokeV.objValue;
         }
     }
 
@@ -653,7 +653,7 @@ public final class ConcurrentHashMultiset<E> extends c.i.d.c.d<E> implements Ser
         return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, concurrentMap)) == null) ? new ConcurrentHashMultiset<>(concurrentMap) : (ConcurrentHashMultiset) invokeL.objValue;
     }
 
-    @Override // c.i.d.c.d, c.i.d.c.s0
+    @Override // c.i.c.c.d, c.i.c.c.s0
     public boolean setCount(E e2, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;

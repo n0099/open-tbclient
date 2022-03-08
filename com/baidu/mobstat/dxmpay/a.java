@@ -10,17 +10,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.Thread;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class a implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic;
     public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f37064b;
+    public Thread.UncaughtExceptionHandler f35467b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f37065c;
+    public Context f35468c;
 
     static {
         InterceptResult invokeClinit;
@@ -62,20 +62,20 @@ public class a implements Thread.UncaughtExceptionHandler {
     public void uncaughtException(Thread thread, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thread, th) == null) {
-            ExceptionAnalysis.getInstance().saveCrashInfo(this.f37065c, th, true);
-            if (this.f37064b.equals(this)) {
+            ExceptionAnalysis.getInstance().saveCrashInfo(this.f35468c, th, true);
+            if (this.f35467b.equals(this)) {
                 return;
             }
-            this.f37064b.uncaughtException(thread, th);
+            this.f35467b.uncaughtException(thread, th);
         }
     }
 
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f37065c = context;
-            if (this.f37064b == null) {
-                this.f37064b = Thread.getDefaultUncaughtExceptionHandler();
+            this.f35468c = context;
+            if (this.f35467b == null) {
+                this.f35467b = Thread.getDefaultUncaughtExceptionHandler();
                 Thread.setDefaultUncaughtExceptionHandler(this);
             }
         }

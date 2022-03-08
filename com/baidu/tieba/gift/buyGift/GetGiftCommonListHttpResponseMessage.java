@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.GetGiftCommonList.GetGiftCommonListResIdl;
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class GetGiftCommonListHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

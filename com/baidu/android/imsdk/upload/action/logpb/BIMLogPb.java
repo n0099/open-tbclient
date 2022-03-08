@@ -22,19 +22,19 @@ import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class BIMLogPb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.imsdk.upload.action.logpb.BIMLogPb$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class LogRequest extends GeneratedMessageLite implements LogRequestOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int AUTH_INFO_FIELD_NUMBER = 3;
@@ -57,7 +57,7 @@ public final class BIMLogPb {
         public Object sign_;
         public long version_;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes3.dex */
         public static final class AuthInfo extends GeneratedMessageLite implements AuthInfoOrBuilder {
             public static /* synthetic */ Interceptable $ic = null;
             public static Parser<AuthInfo> PARSER = null;
@@ -70,7 +70,7 @@ public final class BIMLogPb {
             public int memoizedSerializedSize;
             public Object token_;
 
-            /* loaded from: classes10.dex */
+            /* loaded from: classes3.dex */
             public static final class Builder extends GeneratedMessageLite.Builder<AuthInfo, Builder> implements AuthInfoOrBuilder {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -658,7 +658,7 @@ public final class BIMLogPb {
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes3.dex */
         public interface AuthInfoOrBuilder extends MessageLiteOrBuilder {
             String getToken();
 
@@ -667,7 +667,7 @@ public final class BIMLogPb {
             boolean hasToken();
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<LogRequest, Builder> implements LogRequestOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -1725,7 +1725,7 @@ public final class BIMLogPb {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public interface LogRequestOrBuilder extends MessageLiteOrBuilder {
         LogRequest.AuthInfo getAuthInfo();
 
@@ -1756,7 +1756,7 @@ public final class BIMLogPb {
         boolean hasVersion();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class LogResponse extends GeneratedMessageLite implements LogResponseOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ERROR_CODE_FIELD_NUMBER = 1;
@@ -1773,7 +1773,7 @@ public final class BIMLogPb {
         public int memoizedSerializedSize;
         public long pingIntervalMs_;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<LogResponse, Builder> implements LogResponseOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -2505,7 +2505,7 @@ public final class BIMLogPb {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public interface LogResponseOrBuilder extends MessageLiteOrBuilder {
         int getErrorCode();
 

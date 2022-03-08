@@ -1,0 +1,97 @@
+package com.google.android.exoplayer2.source.hls;
+
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Pair;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.Format;
+import com.google.android.exoplayer2.drm.DrmInitData;
+import com.google.android.exoplayer2.extractor.Extractor;
+import com.google.android.exoplayer2.extractor.mp3.Mp3Extractor;
+import com.google.android.exoplayer2.extractor.mp4.FragmentedMp4Extractor;
+import com.google.android.exoplayer2.extractor.ts.Ac3Extractor;
+import com.google.android.exoplayer2.extractor.ts.AdtsExtractor;
+import com.google.android.exoplayer2.extractor.ts.DefaultTsPayloadReaderFactory;
+import com.google.android.exoplayer2.extractor.ts.TsExtractor;
+import com.google.android.exoplayer2.util.MimeTypes;
+import com.google.android.exoplayer2.util.TimestampAdjuster;
+import java.util.Collections;
+import java.util.List;
+/* loaded from: classes7.dex */
+public final class DefaultHlsExtractorFactory implements HlsExtractorFactory {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String AAC_FILE_EXTENSION = ".aac";
+    public static final String AC3_FILE_EXTENSION = ".ac3";
+    public static final String EC3_FILE_EXTENSION = ".ec3";
+    public static final String M4_FILE_EXTENSION_PREFIX = ".m4";
+    public static final String MP3_FILE_EXTENSION = ".mp3";
+    public static final String MP4_FILE_EXTENSION = ".mp4";
+    public static final String VTT_FILE_EXTENSION = ".vtt";
+    public static final String WEBVTT_FILE_EXTENSION = ".webvtt";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public DefaultHlsExtractorFactory() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.source.hls.HlsExtractorFactory
+    public Pair<Extractor, Boolean> createExtractor(Extractor extractor, Uri uri, Format format, List<Format> list, DrmInitData drmInitData, TimestampAdjuster timestampAdjuster) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{extractor, uri, format, list, drmInitData, timestampAdjuster})) == null) {
+            String lastPathSegment = uri.getLastPathSegment();
+            boolean z = true;
+            if (!MimeTypes.TEXT_VTT.equals(format.sampleMimeType) && !lastPathSegment.endsWith(WEBVTT_FILE_EXTENSION) && !lastPathSegment.endsWith(VTT_FILE_EXTENSION)) {
+                if (lastPathSegment.endsWith(AAC_FILE_EXTENSION)) {
+                    extractor = new AdtsExtractor();
+                } else if (!lastPathSegment.endsWith(AC3_FILE_EXTENSION) && !lastPathSegment.endsWith(EC3_FILE_EXTENSION)) {
+                    if (lastPathSegment.endsWith(".mp3")) {
+                        extractor = new Mp3Extractor(0, 0L);
+                    } else if (extractor == null) {
+                        if (!lastPathSegment.endsWith(MP4_FILE_EXTENSION) && !lastPathSegment.startsWith(M4_FILE_EXTENSION_PREFIX, lastPathSegment.length() - 4)) {
+                            int i2 = 16;
+                            if (list != null) {
+                                i2 = 48;
+                            } else {
+                                list = Collections.emptyList();
+                            }
+                            String str = format.codecs;
+                            if (!TextUtils.isEmpty(str)) {
+                                if (!"audio/mp4a-latm".equals(MimeTypes.getAudioMediaMimeType(str))) {
+                                    i2 |= 2;
+                                }
+                                if (!"video/avc".equals(MimeTypes.getVideoMediaMimeType(str))) {
+                                    i2 |= 4;
+                                }
+                            }
+                            extractor = new TsExtractor(2, timestampAdjuster, new DefaultTsPayloadReaderFactory(i2, list));
+                        } else {
+                            extractor = new FragmentedMp4Extractor(0, timestampAdjuster, null, drmInitData);
+                        }
+                    }
+                } else {
+                    extractor = new Ac3Extractor();
+                }
+                return Pair.create(extractor, Boolean.valueOf(z));
+            }
+            extractor = new WebvttExtractor(format.language, timestampAdjuster);
+            z = false;
+            return Pair.create(extractor, Boolean.valueOf(z));
+        }
+        return (Pair) invokeCommon.objValue;
+    }
+}

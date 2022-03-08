@@ -14,15 +14,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.b.d;
-import c.a.t0.s.v.c;
-import c.a.u0.f1.a;
-import c.a.u0.g1.b;
-import c.a.u0.g1.f.a;
-import c.a.u0.z3.k0.o;
+import c.a.q0.r.v.c;
+import c.a.r0.e1.a;
+import c.a.r0.f1.b;
+import c.a.r0.f1.f.a;
+import c.a.r0.y3.k0.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -41,7 +41,7 @@ import com.kwad.sdk.api.KsNativeAd;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FunAdNativePbView extends FunAbsAdView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class FunAdNativePbView extends FunAbsAdView {
     public View dividerView;
 
     /* renamed from: e  reason: collision with root package name */
-    public FunAdButton f44236e;
+    public FunAdButton f42638e;
     public ViewGroup funAdContainer;
     public ViewGroup mediaContainer;
     public FunAdNativePicView mediaImageView;
@@ -83,12 +83,12 @@ public class FunAdNativePbView extends FunAbsAdView {
         }
     }
 
-    public final void a(@NonNull FunNativeAd funNativeAd, o oVar) {
+    public final void a(@NonNull FunNativeAd funNativeAd, n nVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, funNativeAd, oVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, funNativeAd, nVar) == null) {
             ChannelNativeAds channelNativeAds = funNativeAd.getChannelNativeAds();
-            this.f44236e.setTag(oVar);
-            a aVar = new a(this.f44236e, oVar);
+            this.f42638e.setTag(nVar);
+            a aVar = new a(this.f42638e, nVar);
             if (channelNativeAds != null) {
                 Object obj = channelNativeAds.ksNative;
                 if (obj instanceof KsNativeAd) {
@@ -158,7 +158,7 @@ public class FunAdNativePbView extends FunAbsAdView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return c.a.u0.f1.a.b("pb", d.Z() ? "1" : "0");
+            return c.a.r0.e1.a.b("pb", UbsABTestHelper.isPbPageBannerFunAdSdkTest() ? "1" : "0");
         }
         return (a.g) invokeV.objValue;
     }
@@ -191,12 +191,12 @@ public class FunAdNativePbView extends FunAbsAdView {
     }
 
     @Override // com.baidu.tieba.funad.view.FunAbsAdView
-    public void inflateFunAd(@NonNull o oVar, @NonNull Activity activity) {
+    public void inflateFunAd(@NonNull n nVar, @NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048587, this, oVar, activity) == null) || oVar.d() == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048587, this, nVar, activity) == null) || nVar.d() == null) {
             return;
         }
-        FunNativeAd funNativeAd = (FunNativeAd) oVar.d();
+        FunNativeAd funNativeAd = (FunNativeAd) nVar.d();
         b.s(funNativeAd);
         String title = funNativeAd.getTitle();
         this.funAdTitle = title;
@@ -226,12 +226,12 @@ public class FunAdNativePbView extends FunAbsAdView {
             this.mediaImageView.setFunNativeAd(imageUrls);
         }
         resetAdLaybleState(funNativeAd);
-        if (StringUtils.isNull(oVar.b())) {
-            oVar.i(b.e(funNativeAd, activity));
+        if (StringUtils.isNull(nVar.b())) {
+            nVar.i(b.e(funNativeAd, activity));
         }
-        this.adButton.setText(oVar.b());
+        this.adButton.setText(nVar.b());
         resetCreativeBtn(b.o(funNativeAd));
-        a(funNativeAd, oVar);
+        a(funNativeAd, nVar);
     }
 
     @Override // com.baidu.tieba.funad.view.FunAbsAdView
@@ -286,7 +286,7 @@ public class FunAdNativePbView extends FunAbsAdView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
             this.adButton.setVisibility(0);
-            this.f44236e = this.adButton;
+            this.f42638e = this.adButton;
         }
     }
 

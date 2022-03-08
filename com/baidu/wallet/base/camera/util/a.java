@@ -10,20 +10,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.regex.Pattern;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: com.baidu.wallet.base.camera.util.a$a  reason: collision with other inner class name */
-    /* loaded from: classes13.dex */
-    public class C1995a implements FileFilter {
+    /* loaded from: classes6.dex */
+    public class C1971a implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Pattern a;
 
-        public C1995a() {
+        public C1971a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,7 +47,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
@@ -106,7 +106,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             if (-1 == b.a.a) {
                 try {
-                    b.a.a = new File("/sys/devices/system/cpu/").listFiles(new C1995a()).length;
+                    b.a.a = new File("/sys/devices/system/cpu/").listFiles(new C1971a()).length;
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     b.a.a = 1;

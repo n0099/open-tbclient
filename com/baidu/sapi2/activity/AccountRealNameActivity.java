@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
-import c.a.f0.a.f;
-import c.a.f0.a.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccountManager;
@@ -17,13 +15,14 @@ import com.baidu.sapi2.callback.GetTplStokenCallback;
 import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.result.AccountRealNameResult;
 import com.baidu.sapi2.result.GetTplStokenResult;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class AccountRealNameActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
@@ -123,7 +122,7 @@ public class AccountRealNameActivity extends BaseActivity {
             try {
                 this.z = CoreViewRouter.getInstance().getAccountRealNameCallback();
                 CoreViewRouter.getInstance().releaseAccountRealNameCallback();
-                setContentView(f.layout_sapi_sdk_webview_with_title_bar);
+                setContentView(R.layout.layout_sapi_sdk_webview_with_title_bar);
                 init();
                 setupViews();
             } catch (Throwable th) {
@@ -151,7 +150,7 @@ public class AccountRealNameActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.setupViews();
-            setTitleText(g.sapi_sdk_title_real_name);
+            setTitleText(R.string.sapi_sdk_title_real_name);
             this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback(this) { // from class: com.baidu.sapi2.activity.AccountRealNameActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -326,7 +325,7 @@ public class AccountRealNameActivity extends BaseActivity {
                 }, this.t, arrayList);
                 return;
             }
-            Toast.makeText(this, getString(g.sapi_sdk_account_center_please_relogin), 1).show();
+            Toast.makeText(this, getString(R.string.sapi_sdk_account_center_please_relogin), 1).show();
             finishActivity();
         }
     }

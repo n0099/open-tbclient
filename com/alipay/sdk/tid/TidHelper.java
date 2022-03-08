@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class TidHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class TidHelper {
                     JSONObject jSONObject = new JSONObject(a.a());
                     a a2 = a.a(context);
                     String optString = jSONObject.optString("tid");
-                    String string = jSONObject.getString(a.f31144j);
+                    String string = jSONObject.getString(a.f29548j);
                     if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(string)) {
                         a2.a(optString, string);
                     }

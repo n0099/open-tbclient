@@ -12,7 +12,7 @@ import java.nio.ByteBuffer;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class JSONMethodCodec implements MethodCodec {
     public static /* synthetic */ Interceptable $ic;
     public static final JSONMethodCodec INSTANCE;

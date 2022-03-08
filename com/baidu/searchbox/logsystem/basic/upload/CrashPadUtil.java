@@ -20,7 +20,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class CrashPadUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -65,7 +65,7 @@ public final class CrashPadUtil {
             return;
         }
         try {
-            Pair<String, Boolean> readFile = Utility.readFile(file, MAX_READ_EXTRA);
+            Pair<String, Boolean> readFile = Utility.readFile(file, 20480);
             if (readFile == null || TextUtils.isEmpty((CharSequence) readFile.first)) {
                 return;
             }

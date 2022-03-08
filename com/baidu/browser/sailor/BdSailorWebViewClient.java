@@ -19,7 +19,7 @@ import com.baidu.webkit.sdk.RenderProcessGoneDetail;
 import com.baidu.webkit.sdk.WebResourceError;
 import com.baidu.webkit.sdk.WebResourceRequest;
 import com.baidu.webkit.sdk.WebResourceResponse;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class BdSailorWebViewClient implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

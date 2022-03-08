@@ -11,6 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -20,7 +22,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class LoadErrorCode {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APK_FILE_NOT_EXIST = 1009;
@@ -95,7 +97,7 @@ public class LoadErrorCode {
     public volatile JSONArray mDownloadInfo;
     public volatile int mErrorCode;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class Statistics {
         public static /* synthetic */ Interceptable $ic = null;
         public static final boolean DEBUG = true;
@@ -115,7 +117,7 @@ public class LoadErrorCode {
         public static volatile File sRecordFile;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes6.dex */
         public static class ErrorItem {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -180,8 +182,8 @@ public class LoadErrorCode {
                     return;
                 }
             }
-            RECORD_RELATIVE_PATH = "/zeus/statistics/".replace('/', File.separatorChar);
-            RECORD_FILE_NAME = "/load_error.json".replace('/', File.separatorChar);
+            RECORD_RELATIVE_PATH = "/zeus/statistics/".replace((char) WebvttCueParser.CHAR_SLASH, File.separatorChar);
+            RECORD_FILE_NAME = "/load_error.json".replace((char) WebvttCueParser.CHAR_SLASH, File.separatorChar);
         }
 
         public Statistics() {
@@ -539,7 +541,7 @@ public class LoadErrorCode {
                 for (int i2 = 0; i2 < bytes.length; i2++) {
                     byte b2 = bytes[i2];
                     if (b2 == 34) {
-                        bytes[i2] = 47;
+                        bytes[i2] = Cea608Decoder.CTRL_END_OF_CAPTION;
                     } else if (b2 == 91) {
                         bytes[i2] = 60;
                     } else if (b2 == 93) {
@@ -547,7 +549,7 @@ public class LoadErrorCode {
                     } else if (b2 == 123) {
                         bytes[i2] = 40;
                     } else if (b2 == 125) {
-                        bytes[i2] = 41;
+                        bytes[i2] = Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING;
                     }
                 }
                 return new String(bytes);

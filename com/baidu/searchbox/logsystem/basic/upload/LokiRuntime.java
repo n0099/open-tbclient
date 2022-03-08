@@ -1,8 +1,8 @@
 package com.baidu.searchbox.logsystem.basic.upload;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.u0.r3.f;
-import c.a.u0.r3.l;
+import c.a.r0.q3.f;
+import c.a.r0.q3.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Autowired
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class LokiRuntime {
     public static /* synthetic */ Interceptable $ic;
     public static final ILokiIdentityContext EMPTY;

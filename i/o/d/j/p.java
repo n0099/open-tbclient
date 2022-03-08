@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class p<E> extends l<E> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final long f62277j;
+    public static final long f60627j;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile long producerIndex;
 
@@ -30,7 +30,7 @@ public abstract class p<E> extends l<E> {
                 return;
             }
         }
-        f62277j = f0.a(p.class, "producerIndex");
+        f60627j = f0.a(p.class, "producerIndex");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -62,7 +62,7 @@ public abstract class p<E> extends l<E> {
     public final void i(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            f0.a.i(this, f62277j, j2);
+            f0.a.i(this, f60627j, j2);
         }
     }
 }

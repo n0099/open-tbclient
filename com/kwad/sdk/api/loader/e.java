@@ -23,23 +23,23 @@ import java.util.Map;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class e {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f55603b;
+    public String f53953b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f55604c;
+    public int f53954c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, String> f55605d = new HashMap();
+    public Map<String, String> f53955d = new HashMap();
 
     /* renamed from: e  reason: collision with root package name */
-    public IKsAdSDK f55606e;
+    public IKsAdSDK f53956e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(a.b bVar);
 
@@ -47,9 +47,9 @@ public class e {
     }
 
     public e(String str, IKsAdSDK iKsAdSDK) {
-        this.f55603b = str;
+        this.f53953b = str;
         this.a = str;
-        this.f55606e = iKsAdSDK;
+        this.f53956e = iKsAdSDK;
     }
 
     private String a() {
@@ -81,16 +81,16 @@ public class e {
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        if (this.f55606e != null) {
+        if (this.f53956e != null) {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("version", "3.3.17.4");
                 jSONObject2.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, appInfo.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID));
-                jSONObject2.put("message", this.f55606e.getRM(jSONObject.toString()));
+                jSONObject2.put("message", this.f53956e.getRM(jSONObject.toString()));
             } catch (JSONException e3) {
                 e3.printStackTrace();
             }
-            this.f55606e.sR(this.f55603b.replace("https://open.e.kuaishou.com", ""), this.f55605d, jSONObject2.toString());
+            this.f53956e.sR(this.f53953b.replace("https://open.e.kuaishou.com", ""), this.f53955d, jSONObject2.toString());
             return jSONObject2.toString();
         }
         return jSONObject.toString();
@@ -174,7 +174,7 @@ public class e {
     }
 
     private void a(String str, String str2) {
-        this.f55605d.put(str, str2);
+        this.f53955d.put(str, str2);
     }
 
     @Nullable
@@ -188,9 +188,9 @@ public class e {
         httpURLConnection.setInstanceFollowRedirects(true);
         a("Content-Type", "application/json; charset=UTF-8");
         a("User-Agent", RequestParamsUtils.getUserAgent());
-        IKsAdSDK iKsAdSDK = this.f55606e;
+        IKsAdSDK iKsAdSDK = this.f53956e;
         if (iKsAdSDK != null) {
-            iKsAdSDK.addHp(this.f55605d);
+            iKsAdSDK.addHp(this.f53955d);
         }
         return httpURLConnection;
     }
@@ -203,8 +203,8 @@ public class e {
                 httpURLConnection = b();
                 if (httpURLConnection != null) {
                     String a2 = a();
-                    if (this.f55605d != null) {
-                        for (Map.Entry<String, String> entry : this.f55605d.entrySet()) {
+                    if (this.f53955d != null) {
+                        for (Map.Entry<String, String> entry : this.f53955d.entrySet()) {
                             httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
                         }
                     }
@@ -215,16 +215,16 @@ public class e {
                         String a3 = a(httpURLConnection.getInputStream());
                         a.b bVar = new a.b();
                         JSONObject jSONObject = new JSONObject(a3);
-                        if (this.f55606e != null) {
-                            jSONObject.put("data", new JSONObject(this.f55606e.getRD(jSONObject.optString("data"))));
+                        if (this.f53956e != null) {
+                            jSONObject.put("data", new JSONObject(this.f53956e.getRD(jSONObject.optString("data"))));
                         }
                         bVar.a(jSONObject);
                         aVar.a(bVar);
                     } else if (responseCode / 100 != 3) {
                         throw new RuntimeException("response code = " + responseCode);
-                    } else if (this.f55604c < 21) {
+                    } else if (this.f53954c < 21) {
                         this.a = httpURLConnection.getHeaderField("Location");
-                        this.f55604c++;
+                        this.f53954c++;
                         b(aVar);
                     }
                 }

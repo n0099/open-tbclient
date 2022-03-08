@@ -18,7 +18,7 @@ import com.bumptech.glide.util.Util;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class ResourceCacheKey implements Key {
     public static /* synthetic */ Interceptable $ic;
     public static final LruCache<Class<?>, byte[]> RESOURCE_CLASS_BYTES;

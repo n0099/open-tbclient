@@ -1,6 +1,6 @@
 package com.baidu.tieba.danmu.ecs;
 
-import c.a.u0.m0.e.a;
+import c.a.r0.l0.e.a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n"}, d2 = {"<anonymous>", "", AdvanceSetting.NETWORK_TYPE, "Lcom/baidu/tieba/danmu/data/DanmakuItem;"}, k = 3, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public final class DanmakuContext$updateSlice$startIndex$1 extends Lambda implements Function1<a, Long> {
     public static /* synthetic */ Interceptable $ic;
     public static final DanmakuContext$updateSlice$startIndex$1 INSTANCE;

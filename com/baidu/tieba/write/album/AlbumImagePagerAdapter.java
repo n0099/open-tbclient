@@ -4,15 +4,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.viewpager.widget.PagerAdapter;
-import c.a.u0.s4.d;
-import c.a.u0.s4.g;
-import c.a.u0.s4.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,20 +19,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class AlbumImagePagerAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BaseFragmentActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LayoutInflater f49766b;
+    public LayoutInflater f48185b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<ImageFileInfo> f49767c;
+    public List<ImageFileInfo> f48186c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<Integer, Boolean> f49768d;
+    public Map<Integer, Boolean> f48187d;
 
     public AlbumImagePagerAdapter(BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
@@ -51,9 +49,9 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
                 return;
             }
         }
-        this.f49768d = new HashMap();
+        this.f48187d = new HashMap();
         this.a = baseFragmentActivity;
-        this.f49766b = LayoutInflater.from(baseFragmentActivity.getPageContext().getPageActivity());
+        this.f48185b = LayoutInflater.from(baseFragmentActivity.getPageContext().getPageActivity());
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -68,23 +66,23 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ListUtils.getCount(this.f49767c) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ListUtils.getCount(this.f48186c) : invokeV.intValue;
     }
 
     public ImageFileInfo getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? (ImageFileInfo) ListUtils.getItem(this.f49767c, i2) : (ImageFileInfo) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? (ImageFileInfo) ListUtils.getItem(this.f48186c, i2) : (ImageFileInfo) invokeI.objValue;
     }
 
     public boolean getItemClick(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            if (this.f49768d.get(Integer.valueOf(i2)) == null) {
+            if (this.f48187d.get(Integer.valueOf(i2)) == null) {
                 return false;
             }
-            return this.f49768d.get(Integer.valueOf(i2)).booleanValue();
+            return this.f48187d.get(Integer.valueOf(i2)).booleanValue();
         }
         return invokeI.booleanValue;
     }
@@ -94,14 +92,14 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i2)) == null) {
-            View inflate = this.f49766b.inflate(h.album_big_image_item, (ViewGroup) null);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(g.big_image);
+            View inflate = this.f48185b.inflate(R.layout.album_big_image_item, (ViewGroup) null);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.big_image);
             tbImageView.setTag(null);
             tbImageView.setDefaultBgResource(0);
             tbImageView.setDefaultResource(0);
             tbImageView.setGifIconSupport(false);
             tbImageView.setLongIconSupport(false);
-            TbImageView tbImageView2 = (TbImageView) inflate.findViewById(g.thumbnail_iamge);
+            TbImageView tbImageView2 = (TbImageView) inflate.findViewById(R.id.thumbnail_iamge);
             tbImageView2.setTag(null);
             tbImageView2.setDefaultBgResource(0);
             tbImageView2.setDefaultResource(0);
@@ -111,10 +109,10 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
             if (item != null) {
                 tbImageView2.startLoad(item.getFilePath(), 35, false, true);
                 tbImageView.startLoad(item.getFilePath(), 36, false);
-                this.f49768d.put(Integer.valueOf(i2), Boolean.TRUE);
+                this.f48187d.put(Integer.valueOf(i2), Boolean.TRUE);
             }
             viewGroup.addView(inflate, 0);
-            SkinManager.setBackgroundColor(inflate, d.CAM_X0201);
+            SkinManager.setBackgroundColor(inflate, R.color.CAM_X0201);
             return inflate;
         }
         return invokeLI.objValue;
@@ -130,7 +128,7 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
     public void setData(List<ImageFileInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            this.f49767c = list;
+            this.f48186c = list;
             notifyDataSetChanged();
         }
     }

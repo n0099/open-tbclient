@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class CodedInputStream {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE = 4096;

@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTAdDislike;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class j implements TTAdDislike.DislikeInteractionCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ f f28425b;
+    public final /* synthetic */ f f28263b;
 
     public j(f fVar, View view) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class j implements TTAdDislike.DislikeInteractionCallback {
                 return;
             }
         }
-        this.f28425b = fVar;
+        this.f28263b = fVar;
         this.a = view;
     }
 
@@ -53,7 +53,7 @@ public class j implements TTAdDislike.DislikeInteractionCallback {
             if (this.a.getParent() != null) {
                 ((ViewGroup) this.a.getParent()).removeView(this.a);
             }
-            this.f28425b.onAdClose();
+            this.f28263b.onAdClose();
         }
     }
 

@@ -11,23 +11,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.base.widget.dialog.model.MultiBtnDialogModel;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class MultiBtnDialogBinding extends BaseBinding<MultiBtnDialogModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final TextView f54125b;
+    public final TextView f52611b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Button f54126c;
+    public final Button f52612c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Button f54127d;
+    public final Button f52613d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Button f54128e;
+    public final Button f52614e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MultiBtnDialogBinding(View view) {
@@ -48,10 +48,10 @@ public class MultiBtnDialogBinding extends BaseBinding<MultiBtnDialogModel> {
             }
         }
         this.a = (TextView) view.findViewById(ResUtils.id(this.context, "dialog_title"));
-        this.f54125b = (TextView) view.findViewById(ResUtils.id(this.context, "dialog_text_content"));
-        this.f54126c = (Button) view.findViewById(ResUtils.id(this.context, "first_btn"));
-        this.f54127d = (Button) view.findViewById(ResUtils.id(this.context, "second_btn"));
-        this.f54128e = (Button) view.findViewById(ResUtils.id(this.context, "third_btn"));
+        this.f52611b = (TextView) view.findViewById(ResUtils.id(this.context, "dialog_text_content"));
+        this.f52612c = (Button) view.findViewById(ResUtils.id(this.context, "first_btn"));
+        this.f52613d = (Button) view.findViewById(ResUtils.id(this.context, "second_btn"));
+        this.f52614e = (Button) view.findViewById(ResUtils.id(this.context, "third_btn"));
     }
 
     @Override // com.dxmpay.wallet.base.widget.dialog.binding.BaseBinding
@@ -69,50 +69,50 @@ public class MultiBtnDialogBinding extends BaseBinding<MultiBtnDialogModel> {
             }
             T t2 = this.viewModel;
             if (((MultiBtnDialogModel) t2).messageId != 0) {
-                this.f54125b.setText(((MultiBtnDialogModel) t2).messageId);
+                this.f52611b.setText(((MultiBtnDialogModel) t2).messageId);
             } else if (!TextUtils.isEmpty(((MultiBtnDialogModel) t2).message)) {
-                this.f54125b.setText(((MultiBtnDialogModel) this.viewModel).message);
+                this.f52611b.setText(((MultiBtnDialogModel) this.viewModel).message);
             }
-            this.f54126c.setOnClickListener(((MultiBtnDialogModel) this.viewModel).defaultClickListener);
-            this.f54127d.setOnClickListener(((MultiBtnDialogModel) this.viewModel).defaultClickListener);
-            this.f54128e.setOnClickListener(((MultiBtnDialogModel) this.viewModel).defaultClickListener);
+            this.f52612c.setOnClickListener(((MultiBtnDialogModel) this.viewModel).defaultClickListener);
+            this.f52613d.setOnClickListener(((MultiBtnDialogModel) this.viewModel).defaultClickListener);
+            this.f52614e.setOnClickListener(((MultiBtnDialogModel) this.viewModel).defaultClickListener);
             T t3 = this.viewModel;
             if (((MultiBtnDialogModel) t3).firstBtnClickListener != null) {
-                this.f54126c.setOnClickListener(((MultiBtnDialogModel) t3).firstBtnClickListener);
+                this.f52612c.setOnClickListener(((MultiBtnDialogModel) t3).firstBtnClickListener);
             }
             T t4 = this.viewModel;
             if (((MultiBtnDialogModel) t4).secondBtnClickListener != null) {
-                this.f54127d.setOnClickListener(((MultiBtnDialogModel) t4).secondBtnClickListener);
+                this.f52613d.setOnClickListener(((MultiBtnDialogModel) t4).secondBtnClickListener);
             }
             T t5 = this.viewModel;
             if (((MultiBtnDialogModel) t5).thirdBtnClickListener != null) {
-                this.f54128e.setOnClickListener(((MultiBtnDialogModel) t5).thirdBtnClickListener);
+                this.f52614e.setOnClickListener(((MultiBtnDialogModel) t5).thirdBtnClickListener);
             }
             T t6 = this.viewModel;
             if (((MultiBtnDialogModel) t6).firstBtnTextId != 0) {
-                this.f54126c.setText(((MultiBtnDialogModel) t6).firstBtnTextId);
+                this.f52612c.setText(((MultiBtnDialogModel) t6).firstBtnTextId);
             } else if (!TextUtils.isEmpty(((MultiBtnDialogModel) t6).firstBtnText)) {
-                this.f54126c.setText(((MultiBtnDialogModel) this.viewModel).firstBtnText);
+                this.f52612c.setText(((MultiBtnDialogModel) this.viewModel).firstBtnText);
             }
             T t7 = this.viewModel;
             if (((MultiBtnDialogModel) t7).secondBtnTextId != 0) {
-                this.f54127d.setText(((MultiBtnDialogModel) t7).secondBtnTextId);
+                this.f52613d.setText(((MultiBtnDialogModel) t7).secondBtnTextId);
             } else if (!TextUtils.isEmpty(((MultiBtnDialogModel) t7).secondBtnText)) {
-                this.f54127d.setText(((MultiBtnDialogModel) this.viewModel).secondBtnText);
+                this.f52613d.setText(((MultiBtnDialogModel) this.viewModel).secondBtnText);
             }
             T t8 = this.viewModel;
             if (((MultiBtnDialogModel) t8).thirdBtnTextId != 0) {
-                this.f54128e.setText(((MultiBtnDialogModel) t8).thirdBtnTextId);
+                this.f52614e.setText(((MultiBtnDialogModel) t8).thirdBtnTextId);
             } else if (!TextUtils.isEmpty(((MultiBtnDialogModel) t8).thirdBtnText)) {
-                this.f54128e.setText(((MultiBtnDialogModel) this.viewModel).thirdBtnText);
+                this.f52614e.setText(((MultiBtnDialogModel) this.viewModel).thirdBtnText);
             }
-            if (((MultiBtnDialogModel) this.viewModel).firstBtnTextBold && (paint3 = this.f54126c.getPaint()) != null) {
+            if (((MultiBtnDialogModel) this.viewModel).firstBtnTextBold && (paint3 = this.f52612c.getPaint()) != null) {
                 paint3.setFakeBoldText(true);
             }
-            if (((MultiBtnDialogModel) this.viewModel).secondBtnTextBold && (paint2 = this.f54127d.getPaint()) != null) {
+            if (((MultiBtnDialogModel) this.viewModel).secondBtnTextBold && (paint2 = this.f52613d.getPaint()) != null) {
                 paint2.setFakeBoldText(true);
             }
-            if (!((MultiBtnDialogModel) this.viewModel).thirdBtnTextBold || (paint = this.f54128e.getPaint()) == null) {
+            if (!((MultiBtnDialogModel) this.viewModel).thirdBtnTextBold || (paint = this.f52614e.getPaint()) == null) {
                 return;
             }
             paint.setFakeBoldText(true);

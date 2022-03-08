@@ -13,35 +13,35 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.Base64;
-import com.baidu.webkit.internal.utils.UtilsBlink;
+import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.kwad.yoga.YogaNodeJNIBase;
 import io.flutter.plugin.common.StandardMessageCodec;
 import java.io.IOException;
 import java.io.Reader;
-import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.apache.commons.lang3.CharUtils;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class p implements c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final byte[] f27702e;
+    public static final byte[] f27606e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final short[] f27703f;
+    public static final short[] f27607f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final char[] f27704g;
+    public static final char[] f27608g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final byte[] f27705h;
+    public static final byte[] f27609h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final byte[] f27706i;
+    public static final byte[] f27610i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final short[] f27707j;
+    public static final short[] f27611j;
     public static final byte[] k;
     public static final byte[] l;
     public static final byte[] m;
@@ -50,13 +50,13 @@ public class p implements c {
     public final a<JsonValue> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a<JsonValue> f27708b;
+    public final a<JsonValue> f27612b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JsonValue f27709c;
+    public JsonValue f27613c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JsonValue f27710d;
+    public JsonValue f27614d;
 
     static {
         InterceptResult invokeClinit;
@@ -71,12 +71,12 @@ public class p implements c {
                 return;
             }
         }
-        f27702e = d();
-        f27703f = h();
-        f27704g = l();
-        f27705h = j();
-        f27706i = i();
-        f27707j = f();
+        f27606e = d();
+        f27607f = h();
+        f27608g = l();
+        f27609h = j();
+        f27610i = i();
+        f27611j = f();
         k = g();
         l = m();
         m = k();
@@ -97,7 +97,7 @@ public class p implements c {
             }
         }
         this.a = new a<>(8);
-        this.f27708b = new a<>(8);
+        this.f27612b = new a<>(8);
     }
 
     public static byte[] d() {
@@ -121,7 +121,7 @@ public class p implements c {
     public static byte[] g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? new byte[]{1, 1, 2, 3, 4, 3, 5, 3, 6, 1, 0, 7, 7, 3, 8, 3, 9, 9, 3, 11, 11, StandardMessageCodec.LIST, 13, 14, 3, 15, 11, 10, YogaNodeJNIBase.HAS_NEW_LAYOUT, YogaNodeJNIBase.HAS_NEW_LAYOUT, 17, 18, YogaNodeJNIBase.HAS_NEW_LAYOUT, 3, 19, 19, 20, 21, 19, 3, 22, 22, 3, 21, 21, 24, 3, 25, 3, 26, 3, 27, 21, 23, 28, 29, 29, 28, 30, 31, 32, 3, PublicSuffixDatabase.EXCEPTION_MARKER, 34, 34, PublicSuffixDatabase.EXCEPTION_MARKER, 13, Base64.INTERNAL_PADDING, 15, 3, 34, 34, StandardMessageCodec.LIST, 36, 37, 3, 15, 34, 10, YogaNodeJNIBase.HAS_NEW_LAYOUT, 3, 36, 36, StandardMessageCodec.LIST, 3, 38, 3, 3, 36, 10, 39, 39, 3, 40, 40, 3, 13, 13, StandardMessageCodec.LIST, 3, 41, 3, 15, 13, 10, 42, 42, 3, 43, 43, 3, 28, 3, 44, 44, 3, UtilsBlink.VER_TYPE_SEPARATOR, UtilsBlink.VER_TYPE_SEPARATOR, 3, 47, 47, 48, 49, 50, 3, 51, 52, 53, 47, 46, 54, 55, 55, 54, 56, 57, 58, 3, 59, 60, 60, 59, 49, 61, 52, 3, 60, 60, 48, 62, 63, 3, 51, 52, 53, 60, 46, 54, 3, 62, 62, 48, 3, 64, 3, 51, 3, 53, 62, 46, 65, 65, 3, 66, 66, 3, 49, 49, 48, 3, 67, 3, 51, 52, 53, 49, 46, 68, 68, 3, 69, 69, 3, 70, 70, 3, 8, 8, 71, 8, 3, 72, 72, 73, 72, 3, 3, 3, 0} : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? new byte[]{1, 1, 2, 3, 4, 3, 5, 3, 6, 1, 0, 7, 7, 3, 8, 3, 9, 9, 3, 11, 11, StandardMessageCodec.LIST, 13, 14, 3, 15, 11, 10, YogaNodeJNIBase.HAS_NEW_LAYOUT, YogaNodeJNIBase.HAS_NEW_LAYOUT, 17, 18, YogaNodeJNIBase.HAS_NEW_LAYOUT, 3, 19, 19, 20, 21, 19, 3, 22, 22, 3, 21, 21, 24, 3, 25, 3, 26, 3, 27, 21, 23, 28, 29, 29, 28, 30, 31, 32, 3, 33, 34, 34, 33, 13, Base64.INTERNAL_PADDING, 15, 3, 34, 34, StandardMessageCodec.LIST, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 3, 15, 34, 10, YogaNodeJNIBase.HAS_NEW_LAYOUT, 3, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, StandardMessageCodec.LIST, 3, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, 3, 3, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 10, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 3, 40, 40, 3, 13, 13, StandardMessageCodec.LIST, 3, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 3, 15, 13, 10, 42, 42, 3, 43, 43, 3, 28, 3, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 3, 45, 45, 3, Cea608Decoder.CTRL_END_OF_CAPTION, Cea608Decoder.CTRL_END_OF_CAPTION, 48, 49, 50, 3, 51, 52, 53, Cea608Decoder.CTRL_END_OF_CAPTION, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 54, 55, 55, 54, 56, 57, 58, 3, 59, 60, 60, 59, 49, 61, 52, 3, 60, 60, 48, 62, 63, 3, 51, 52, 53, 60, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 54, 3, 62, 62, 48, 3, 64, 3, 51, 3, 53, 62, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 65, 65, 3, 66, 66, 3, 49, 49, 48, 3, 67, 3, 51, 52, 53, 49, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 68, 68, 3, 69, 69, 3, 70, 70, 3, 8, 8, 71, 8, 3, 72, 72, 73, 72, 3, 3, 3, 0} : (byte[]) invokeV.objValue;
     }
 
     public static short[] h() {
@@ -151,13 +151,13 @@ public class p implements c {
     public static char[] l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? new char[]{CharUtils.CR, ' ', '\"', ',', '/', ':', '[', ']', ExtendedMessageFormat.START_FE, '\t', '\n', '*', '/', '\"', '*', '/', CharUtils.CR, ' ', '\"', ',', '/', ':', ExtendedMessageFormat.END_FE, '\t', '\n', CharUtils.CR, ' ', '/', ':', '\t', '\n', CharUtils.CR, ' ', '/', ':', '\t', '\n', '*', '/', CharUtils.CR, ' ', '\"', ',', '/', ':', '[', ']', ExtendedMessageFormat.START_FE, '\t', '\n', '\t', '\n', CharUtils.CR, ' ', ',', '/', ExtendedMessageFormat.END_FE, '\t', '\n', CharUtils.CR, ' ', ',', '/', ExtendedMessageFormat.END_FE, CharUtils.CR, ' ', '\"', ',', '/', ':', ExtendedMessageFormat.END_FE, '\t', '\n', '\"', CharUtils.CR, ' ', '\"', ',', '/', ':', ExtendedMessageFormat.END_FE, '\t', '\n', '*', '/', '*', '/', CharUtils.CR, ' ', '\"', ',', '/', ':', ExtendedMessageFormat.END_FE, '\t', '\n', '*', '/', '*', '/', '\"', '*', '/', '*', '/', CharUtils.CR, ' ', '\"', ',', '/', ':', '[', ']', ExtendedMessageFormat.START_FE, '\t', '\n', '\t', '\n', CharUtils.CR, ' ', ',', '/', ']', '\t', '\n', CharUtils.CR, ' ', ',', '/', ']', CharUtils.CR, ' ', '\"', ',', '/', ':', '[', ']', ExtendedMessageFormat.START_FE, '\t', '\n', '\"', CharUtils.CR, ' ', '\"', ',', '/', ':', '[', ']', ExtendedMessageFormat.START_FE, '\t', '\n', '*', '/', '*', '/', CharUtils.CR, ' ', '\"', ',', '/', ':', '[', ']', ExtendedMessageFormat.START_FE, '\t', '\n', '*', '/', '*', '/', '*', '/', CharUtils.CR, ' ', '/', '\t', '\n', CharUtils.CR, ' ', '/', '\t', '\n', 0} : (char[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? new char[]{CharUtils.CR, WebvttCueParser.CHAR_SPACE, '\"', ',', WebvttCueParser.CHAR_SLASH, ':', '[', ']', ExtendedMessageFormat.START_FE, '\t', '\n', '*', WebvttCueParser.CHAR_SLASH, '\"', '*', WebvttCueParser.CHAR_SLASH, CharUtils.CR, WebvttCueParser.CHAR_SPACE, '\"', ',', WebvttCueParser.CHAR_SLASH, ':', ExtendedMessageFormat.END_FE, '\t', '\n', CharUtils.CR, WebvttCueParser.CHAR_SPACE, WebvttCueParser.CHAR_SLASH, ':', '\t', '\n', CharUtils.CR, WebvttCueParser.CHAR_SPACE, WebvttCueParser.CHAR_SLASH, ':', '\t', '\n', '*', WebvttCueParser.CHAR_SLASH, CharUtils.CR, WebvttCueParser.CHAR_SPACE, '\"', ',', WebvttCueParser.CHAR_SLASH, ':', '[', ']', ExtendedMessageFormat.START_FE, '\t', '\n', '\t', '\n', CharUtils.CR, WebvttCueParser.CHAR_SPACE, ',', WebvttCueParser.CHAR_SLASH, ExtendedMessageFormat.END_FE, '\t', '\n', CharUtils.CR, WebvttCueParser.CHAR_SPACE, ',', WebvttCueParser.CHAR_SLASH, ExtendedMessageFormat.END_FE, CharUtils.CR, WebvttCueParser.CHAR_SPACE, '\"', ',', WebvttCueParser.CHAR_SLASH, ':', ExtendedMessageFormat.END_FE, '\t', '\n', '\"', CharUtils.CR, WebvttCueParser.CHAR_SPACE, '\"', ',', WebvttCueParser.CHAR_SLASH, ':', ExtendedMessageFormat.END_FE, '\t', '\n', '*', WebvttCueParser.CHAR_SLASH, '*', WebvttCueParser.CHAR_SLASH, CharUtils.CR, WebvttCueParser.CHAR_SPACE, '\"', ',', WebvttCueParser.CHAR_SLASH, ':', ExtendedMessageFormat.END_FE, '\t', '\n', '*', WebvttCueParser.CHAR_SLASH, '*', WebvttCueParser.CHAR_SLASH, '\"', '*', WebvttCueParser.CHAR_SLASH, '*', WebvttCueParser.CHAR_SLASH, CharUtils.CR, WebvttCueParser.CHAR_SPACE, '\"', ',', WebvttCueParser.CHAR_SLASH, ':', '[', ']', ExtendedMessageFormat.START_FE, '\t', '\n', '\t', '\n', CharUtils.CR, WebvttCueParser.CHAR_SPACE, ',', WebvttCueParser.CHAR_SLASH, ']', '\t', '\n', CharUtils.CR, WebvttCueParser.CHAR_SPACE, ',', WebvttCueParser.CHAR_SLASH, ']', CharUtils.CR, WebvttCueParser.CHAR_SPACE, '\"', ',', WebvttCueParser.CHAR_SLASH, ':', '[', ']', ExtendedMessageFormat.START_FE, '\t', '\n', '\"', CharUtils.CR, WebvttCueParser.CHAR_SPACE, '\"', ',', WebvttCueParser.CHAR_SLASH, ':', '[', ']', ExtendedMessageFormat.START_FE, '\t', '\n', '*', WebvttCueParser.CHAR_SLASH, '*', WebvttCueParser.CHAR_SLASH, CharUtils.CR, WebvttCueParser.CHAR_SPACE, '\"', ',', WebvttCueParser.CHAR_SLASH, ':', '[', ']', ExtendedMessageFormat.START_FE, '\t', '\n', '*', WebvttCueParser.CHAR_SLASH, '*', WebvttCueParser.CHAR_SLASH, '*', WebvttCueParser.CHAR_SLASH, CharUtils.CR, WebvttCueParser.CHAR_SPACE, WebvttCueParser.CHAR_SLASH, '\t', '\n', CharUtils.CR, WebvttCueParser.CHAR_SPACE, WebvttCueParser.CHAR_SLASH, '\t', '\n', 0} : (char[]) invokeV.objValue;
     }
 
     public static byte[] m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? new byte[]{Base64.INTERNAL_PADDING, 1, 3, 0, 4, 36, 36, 36, 36, 1, 6, 5, 13, 17, 22, 37, 7, 8, 9, 7, 8, 9, 7, 10, 20, 21, 11, 11, 11, StandardMessageCodec.LIST, 17, 19, 37, 11, StandardMessageCodec.LIST, 19, 14, YogaNodeJNIBase.HAS_NEW_LAYOUT, 15, 14, StandardMessageCodec.LIST, 18, 17, 11, 9, 5, 24, 23, 27, 31, 34, 25, 38, 25, 25, 26, 31, PublicSuffixDatabase.EXCEPTION_MARKER, 38, 25, 26, PublicSuffixDatabase.EXCEPTION_MARKER, 28, 30, 29, 28, 26, 32, 31, 25, 23, 2, 36, 2} : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? new byte[]{Base64.INTERNAL_PADDING, 1, 3, 0, 4, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 1, 6, 5, 13, 17, 22, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 7, 8, 9, 7, 8, 9, 7, 10, 20, 21, 11, 11, 11, StandardMessageCodec.LIST, 17, 19, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 11, StandardMessageCodec.LIST, 19, 14, YogaNodeJNIBase.HAS_NEW_LAYOUT, 15, 14, StandardMessageCodec.LIST, 18, 17, 11, 9, 5, 24, 23, 27, 31, 34, 25, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, 25, 25, 26, 31, 33, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, 25, 26, 33, 28, 30, 29, 28, 26, 32, 31, 25, 23, 2, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 2} : (byte[]) invokeV.objValue;
     }
 
     @Override // c.b.b.q.c
@@ -182,24 +182,24 @@ public class p implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jsonValue) == null) {
             jsonValue.Q(str);
-            JsonValue jsonValue2 = this.f27710d;
+            JsonValue jsonValue2 = this.f27614d;
             if (jsonValue2 == null) {
-                this.f27710d = jsonValue;
-                this.f27709c = jsonValue;
-            } else if (!jsonValue2.v() && !this.f27710d.D()) {
-                this.f27709c = this.f27710d;
+                this.f27614d = jsonValue;
+                this.f27613c = jsonValue;
+            } else if (!jsonValue2.v() && !this.f27614d.D()) {
+                this.f27613c = this.f27614d;
             } else {
-                JsonValue jsonValue3 = this.f27710d;
+                JsonValue jsonValue3 = this.f27614d;
                 jsonValue.k = jsonValue3;
                 if (jsonValue3.n == 0) {
-                    jsonValue3.f31371j = jsonValue;
+                    jsonValue3.f29775j = jsonValue;
                 } else {
-                    JsonValue pop = this.f27708b.pop();
+                    JsonValue pop = this.f27612b.pop();
                     pop.l = jsonValue;
                     jsonValue.m = pop;
                 }
-                this.f27708b.a(jsonValue);
-                this.f27710d.n++;
+                this.f27612b.a(jsonValue);
+                this.f27614d.n++;
             }
         }
     }
@@ -275,8 +275,8 @@ public class p implements c {
     /* JADX WARN: Removed duplicated region for block: B:387:0x0345 A[SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:425:0x01a5 A[SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:48:0x00e1 A[Catch: RuntimeException -> 0x045a, TRY_LEAVE, TryCatch #6 {RuntimeException -> 0x045a, blocks: (B:262:0x0393, B:264:0x0399, B:268:0x03ab, B:275:0x03bc, B:281:0x03d1, B:286:0x03dc, B:21:0x0044, B:23:0x0052, B:25:0x005d, B:34:0x008f, B:36:0x0095, B:38:0x009d, B:39:0x00a0, B:41:0x00b6, B:42:0x00bb, B:44:0x00c5, B:45:0x00cc, B:46:0x00d3, B:48:0x00e1, B:139:0x01d0, B:161:0x0207, B:162:0x020f, B:164:0x0213, B:166:0x021b, B:168:0x0221, B:169:0x022d, B:170:0x0235, B:172:0x0240, B:174:0x0244, B:176:0x024c, B:178:0x0252, B:180:0x0260, B:185:0x0274, B:187:0x027a, B:191:0x028b, B:198:0x029c, B:204:0x02af, B:209:0x02bc, B:26:0x0062, B:28:0x0076, B:29:0x007b, B:31:0x0083, B:32:0x0088), top: B:368:0x0044 }] */
-    /* JADX WARN: Type inference failed for: r0v40, types: [int[], java.lang.Object] */
-    /* JADX WARN: Type inference failed for: r0v50, types: [int[], java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r0v40, types: [java.lang.Object, int[]] */
+    /* JADX WARN: Type inference failed for: r0v50, types: [java.lang.Object, int[]] */
     /* JADX WARN: Type inference failed for: r13v16, types: [int] */
     /* JADX WARN: Type inference failed for: r13v17 */
     /* JADX WARN: Type inference failed for: r13v50, types: [int] */
@@ -350,9 +350,9 @@ public class p implements c {
                     } else if (b4 == 0) {
                         c2 = 5;
                     }
-                    short s3 = f27703f[b4];
-                    short s4 = f27707j[b4];
-                    byte b5 = f27705h[b4];
+                    short s3 = f27607f[b4];
+                    short s4 = f27611j[b4];
+                    byte b5 = f27609h[b4];
                     if (b5 > 0) {
                         int i14 = s3 + b5;
                         int i15 = i14 - 1;
@@ -362,10 +362,10 @@ public class p implements c {
                             int i17 = i16 + ((i15 - i16) >> 1);
                             int i18 = i15;
                             int i19 = i16;
-                            if (cArr[i13] < f27704g[i17]) {
+                            if (cArr[i13] < f27608g[i17]) {
                                 i15 = i17 - 1;
                                 i16 = i19;
-                            } else if (cArr[i13] > f27704g[i17]) {
+                            } else if (cArr[i13] > f27608g[i17]) {
                                 i16 = i17 + 1;
                                 i15 = i18;
                             } else {
@@ -375,7 +375,7 @@ public class p implements c {
                                 if (m[b2] == 0) {
                                     byte b7 = m[b2];
                                     int i20 = b7 + 1;
-                                    byte b8 = f27702e[b7];
+                                    byte b8 = f27606e[b7];
                                     int i21 = i20;
                                     i12 = i6;
                                     while (true) {
@@ -383,7 +383,7 @@ public class p implements c {
                                         if (b8 > 0) {
                                             try {
                                                 int i22 = i21 + 1;
-                                                switch (f27702e[i21]) {
+                                                switch (f27606e[i21]) {
                                                     case 0:
                                                         i7 = i11;
                                                         bArr2 = bArr3;
@@ -407,7 +407,7 @@ public class p implements c {
                                                             b3 = b6;
                                                             z5 = false;
                                                         } else {
-                                                            String str4 = aVar2.f27595f > 0 ? (String) aVar2.pop() : null;
+                                                            String str4 = aVar2.f27499f > 0 ? (String) aVar2.pop() : null;
                                                             if (z6) {
                                                                 if (str3.equals("true")) {
                                                                     c(str4, true);
@@ -502,7 +502,7 @@ public class p implements c {
                                                         bArr3 = bArr2;
                                                         break;
                                                     case 2:
-                                                        t(aVar2.f27595f > 0 ? (String) aVar2.pop() : null);
+                                                        t(aVar2.f27499f > 0 ? (String) aVar2.pop() : null);
                                                         if (i11 == bArr3.length) {
                                                             ?? r0 = new int[bArr3.length * 2];
                                                             System.arraycopy(bArr3, 0, r0, 0, bArr3.length);
@@ -520,7 +520,7 @@ public class p implements c {
                                                         b4 = bArr3[i11];
                                                         break;
                                                     case 4:
-                                                        s(aVar2.f27595f > 0 ? (String) aVar2.pop() : null);
+                                                        s(aVar2.f27499f > 0 ? (String) aVar2.pop() : null);
                                                         if (i11 == bArr3.length) {
                                                             ?? r02 = new int[bArr3.length * 2];
                                                             System.arraycopy(bArr3, 0, r02, 0, bArr3.length);
@@ -741,10 +741,10 @@ public class p implements c {
                                             } catch (RuntimeException e6) {
                                                 e = e6;
                                                 runtimeException = e;
-                                                JsonValue jsonValue = this.f27709c;
-                                                this.f27709c = null;
-                                                this.f27710d = null;
-                                                this.f27708b.clear();
+                                                JsonValue jsonValue = this.f27613c;
+                                                this.f27613c = null;
+                                                this.f27614d = null;
+                                                this.f27612b.clear();
                                                 if (i13 < i3) {
                                                 }
                                             }
@@ -770,7 +770,7 @@ public class p implements c {
                         i6 = i12;
                         s = s4;
                     }
-                    byte b9 = f27706i[b4];
+                    byte b9 = f27610i[b4];
                     s2 = s;
                     if (b9 > 0) {
                         int i32 = ((b9 << 1) + s3) - 2;
@@ -782,10 +782,10 @@ public class p implements c {
                                 int i34 = i33 + (((i32 - i33) >> 1) & (-2));
                                 byte b10 = b9;
                                 int i35 = i32;
-                                if (cArr[i13] < f27704g[i34]) {
+                                if (cArr[i13] < f27608g[i34]) {
                                     i32 = i34 - 2;
                                     b9 = b10;
-                                } else if (cArr[i13] > f27704g[i34 + 1]) {
+                                } else if (cArr[i13] > f27608g[i34 + 1]) {
                                     i33 = i34 + 2;
                                     b9 = b10;
                                     i32 = i35;
@@ -809,12 +809,12 @@ public class p implements c {
                 try {
                     byte b11 = n[b4];
                     int i36 = b11 + 1;
-                    byte b12 = f27702e[b11];
+                    byte b12 = f27606e[b11];
                     while (true) {
                         ?? r9 = b12 - 1;
                         if (b12 > 0) {
                             int i37 = i36 + 1;
-                            if (f27702e[i36] != 1) {
+                            if (f27606e[i36] != 1) {
                                 i5 = i13;
                                 aVar = aVar2;
                                 boolean z12 = z6;
@@ -832,7 +832,7 @@ public class p implements c {
                                     aVar = aVar2;
                                     z5 = false;
                                 } else {
-                                    String str6 = aVar2.f27595f > 0 ? (String) aVar2.pop() : null;
+                                    String str6 = aVar2.f27499f > 0 ? (String) aVar2.pop() : null;
                                     if (z6) {
                                         if (str5.equals("true")) {
                                             c(str6, true);
@@ -929,20 +929,20 @@ public class p implements c {
                 } catch (RuntimeException e9) {
                     e = e9;
                     runtimeException = e;
-                    JsonValue jsonValue2 = this.f27709c;
-                    this.f27709c = null;
-                    this.f27710d = null;
-                    this.f27708b.clear();
+                    JsonValue jsonValue2 = this.f27613c;
+                    this.f27613c = null;
+                    this.f27614d = null;
+                    this.f27612b.clear();
                     if (i13 < i3) {
                     }
                 }
             }
             i13 = i13;
             runtimeException = null;
-            JsonValue jsonValue22 = this.f27709c;
-            this.f27709c = null;
-            this.f27710d = null;
-            this.f27708b.clear();
+            JsonValue jsonValue22 = this.f27613c;
+            this.f27613c = null;
+            this.f27614d = null;
+            this.f27612b.clear();
             if (i13 < i3) {
                 int i39 = 1;
                 for (int i40 = 0; i40 < i13; i40++) {
@@ -954,7 +954,7 @@ public class p implements c {
                 throw new SerializationException("Error parsing JSON on line " + i39 + " near: " + new String(cArr, max, i13 - max) + "*ERROR*" + new String(cArr, i13, Math.min(64, i3 - i13)), runtimeException);
             }
             a<JsonValue> aVar3 = this.a;
-            if (aVar3.f27595f == 0) {
+            if (aVar3.f27499f == 0) {
                 if (runtimeException == null) {
                     return jsonValue22;
                 } else {
@@ -974,12 +974,12 @@ public class p implements c {
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f27709c = this.a.pop();
-            if (this.f27710d.n > 0) {
-                this.f27708b.pop();
+            this.f27613c = this.a.pop();
+            if (this.f27614d.n > 0) {
+                this.f27612b.pop();
             }
             a<JsonValue> aVar = this.a;
-            this.f27710d = aVar.f27595f > 0 ? aVar.peek() : null;
+            this.f27614d = aVar.f27499f > 0 ? aVar.peek() : null;
         }
     }
 
@@ -987,11 +987,11 @@ public class p implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             JsonValue jsonValue = new JsonValue(JsonValue.ValueType.array);
-            if (this.f27710d != null) {
+            if (this.f27614d != null) {
                 b(str, jsonValue);
             }
             this.a.a(jsonValue);
-            this.f27710d = jsonValue;
+            this.f27614d = jsonValue;
         }
     }
 
@@ -999,11 +999,11 @@ public class p implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             JsonValue jsonValue = new JsonValue(JsonValue.ValueType.object);
-            if (this.f27710d != null) {
+            if (this.f27614d != null) {
                 b(str, jsonValue);
             }
             this.a.a(jsonValue);
-            this.f27710d = jsonValue;
+            this.f27614d = jsonValue;
         }
     }
 

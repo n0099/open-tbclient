@@ -9,13 +9,13 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bigkoo.svprogresshud.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class SVCircleProgressBar extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FILL = 1;
@@ -221,12 +221,12 @@ public class SVCircleProgressBar extends View {
             }
         }
         this.paint = new Paint();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.SVCircleProgressBar);
-        this.roundColor = obtainStyledAttributes.getColor(R.styleable.SVCircleProgressBar_svprogress_roundColor, -16776961);
-        this.roundProgressColor = obtainStyledAttributes.getColor(R.styleable.SVCircleProgressBar_svprogress_roundProgressColor, -7829368);
-        this.roundWidth = obtainStyledAttributes.getDimension(R.styleable.SVCircleProgressBar_svprogress_roundWidth, 5.0f);
-        this.max = obtainStyledAttributes.getInteger(R.styleable.SVCircleProgressBar_svprogress_max, 100);
-        this.style = obtainStyledAttributes.getInt(R.styleable.SVCircleProgressBar_svprogress_style, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.svprogress_max, R.attr.svprogress_roundColor, R.attr.svprogress_roundProgressColor, R.attr.svprogress_roundWidth, R.attr.svprogress_style});
+        this.roundColor = obtainStyledAttributes.getColor(1, -16776961);
+        this.roundProgressColor = obtainStyledAttributes.getColor(2, -7829368);
+        this.roundWidth = obtainStyledAttributes.getDimension(3, 5.0f);
+        this.max = obtainStyledAttributes.getInteger(0, 100);
+        this.style = obtainStyledAttributes.getInt(4, 0);
         obtainStyledAttributes.recycle();
     }
 }

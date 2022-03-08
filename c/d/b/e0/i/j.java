@@ -28,20 +28,20 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSocketFactory;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class j implements t {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final w a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile c.d.b.e0.h.f f27981b;
+    public volatile c.d.b.e0.h.f f27885b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Object f27982c;
+    public Object f27886c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f27983d;
+    public volatile boolean f27887d;
 
     public j(w wVar, boolean z) {
         Interceptable interceptable = $ic;
@@ -72,11 +72,11 @@ public final class j implements t {
             g gVar = (g) aVar;
             c.d.b.e call = gVar.call();
             p b2 = gVar.b();
-            c.d.b.e0.h.f fVar = new c.d.b.e0.h.f(this.a.f(), c(request.h()), call, b2, this.f27982c);
-            this.f27981b = fVar;
+            c.d.b.e0.h.f fVar = new c.d.b.e0.h.f(this.a.f(), c(request.h()), call, b2, this.f27886c);
+            this.f27885b = fVar;
             b0 b0Var = null;
             int i2 = 0;
-            while (!this.f27983d) {
+            while (!this.f27887d) {
                 try {
                     try {
                         d2 = gVar.d(request, fVar, null, null);
@@ -112,8 +112,8 @@ public final class j implements t {
                         if (!(d3.a() instanceof l)) {
                             if (!j(d2, d3.h())) {
                                 fVar.p();
-                                fVar = new c.d.b.e0.h.f(this.a.f(), c(d3.h()), call, b2, this.f27982c);
-                                this.f27981b = fVar;
+                                fVar = new c.d.b.e0.h.f(this.a.f(), c(d3.h()), call, b2, this.f27886c);
+                                this.f27885b = fVar;
                             } else if (fVar.c() != null) {
                                 throw new IllegalStateException("Closing the body of " + d2 + " didn't close its backing stream. Bad interceptor?");
                             }
@@ -143,8 +143,8 @@ public final class j implements t {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f27983d = true;
-            c.d.b.e0.h.f fVar = this.f27981b;
+            this.f27887d = true;
+            c.d.b.e0.h.f fVar = this.f27885b;
             if (fVar != null) {
                 fVar.b();
             }
@@ -253,7 +253,7 @@ public final class j implements t {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27983d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27887d : invokeV.booleanValue;
     }
 
     public final boolean f(IOException iOException, boolean z) {
@@ -316,7 +316,7 @@ public final class j implements t {
     public void k(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, obj) == null) {
-            this.f27982c = obj;
+            this.f27886c = obj;
         }
     }
 }

@@ -18,7 +18,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -181,7 +181,7 @@ public final class a {
                     StringBuilder sb = new StringBuilder();
                     sb.append(externalStorageDirectory);
                     sb.append(File.separator);
-                    sb.append(com.baidu.fsg.base.statistics.a.f34000b);
+                    sb.append(com.baidu.fsg.base.statistics.a.f32403b);
                     sb.append(File.separator);
                     sb.append(context.getPackageName());
                     sb.append(File.separator);
@@ -205,7 +205,7 @@ public final class a {
                     StringBuilder sb = new StringBuilder();
                     sb.append(externalStorageDirectory);
                     sb.append(File.separator);
-                    sb.append(com.baidu.fsg.base.statistics.a.f34000b);
+                    sb.append(com.baidu.fsg.base.statistics.a.f32403b);
                     sb.append(File.separator);
                     sb.append(context.getPackageName());
                     sb.append(File.separator);
@@ -366,7 +366,7 @@ public final class a {
             String externalStorageState = Environment.getExternalStorageState();
             if ("mounted".equals(externalStorageState) || "mounted_ro".equals(externalStorageState)) {
                 File externalStorageDirectory = Environment.getExternalStorageDirectory();
-                File file = new File(externalStorageDirectory + File.separator + com.baidu.fsg.base.statistics.a.f34000b + File.separator + context.getPackageName() + File.separator + str);
+                File file = new File(externalStorageDirectory + File.separator + com.baidu.fsg.base.statistics.a.f32403b + File.separator + context.getPackageName() + File.separator + str);
                 if (file.exists()) {
                     FileInputStream fileInputStream2 = null;
                     try {

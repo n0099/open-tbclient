@@ -1,7 +1,7 @@
 package com.baidu.tbadk.widget.richText;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.s.r.e2;
+import c.a.q0.r.r.e2;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
@@ -13,25 +13,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 import tbclient.PluginUser;
 import tbclient.TiebaPlusInfo;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class TbRichTextTiebaPlusInfo extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TiebaPlusInfo f41734e;
+    public TiebaPlusInfo f40140e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f41735f;
+    public final int f40141f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f41736g;
+    public String f40142g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f41737h;
+    public String f40143h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e2 f41738i;
+    public e2 f40144i;
 
     public TbRichTextTiebaPlusInfo(int i2, TiebaPlusInfo tiebaPlusInfo) {
         Interceptable interceptable = $ic;
@@ -48,47 +48,47 @@ public class TbRichTextTiebaPlusInfo extends OrmObject {
                 return;
             }
         }
-        this.f41734e = tiebaPlusInfo;
-        this.f41735f = i2;
+        this.f40140e = tiebaPlusInfo;
+        this.f40141f = i2;
     }
 
     public void A(e2 e2Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, e2Var) == null) {
-            this.f41738i = e2Var;
+            this.f40144i = e2Var;
         }
     }
 
     public void B(TiebaPlusInfo tiebaPlusInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tiebaPlusInfo) == null) {
-            this.f41734e = tiebaPlusInfo;
+            this.f40140e = tiebaPlusInfo;
         }
     }
 
     public String getForumId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41737h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40143h : (String) invokeV.objValue;
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41735f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f40141f : invokeV.intValue;
     }
 
     public void setForumId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f41737h = str;
+            this.f40143h = str;
         }
     }
 
     public void setTid(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f41736g = str;
+            this.f40142g = str;
         }
     }
 
@@ -96,7 +96,7 @@ public class TbRichTextTiebaPlusInfo extends OrmObject {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            e2 e2Var = this.f41738i;
+            e2 e2Var = this.f40144i;
             return e2Var == null ? "0" : String.valueOf(e2Var.R());
         }
         return (String) invokeV.objValue;
@@ -105,19 +105,19 @@ public class TbRichTextTiebaPlusInfo extends OrmObject {
     public e2 x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f41738i : (e2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f40144i : (e2) invokeV.objValue;
     }
 
     public String y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f41736g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f40142g : (String) invokeV.objValue;
     }
 
     public TiebaPlusInfo z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f41734e : (TiebaPlusInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f40140e : (TiebaPlusInfo) invokeV.objValue;
     }
 
     public TbRichTextTiebaPlusInfo(int i2, JSONObject jSONObject) {
@@ -135,7 +135,7 @@ public class TbRichTextTiebaPlusInfo extends OrmObject {
                 return;
             }
         }
-        this.f41735f = i2;
+        this.f40141f = i2;
         TiebaPlusInfo.Builder builder = new TiebaPlusInfo.Builder();
         builder.title = jSONObject.optString("title");
         builder.desc = jSONObject.optString("desc");
@@ -168,6 +168,6 @@ public class TbRichTextTiebaPlusInfo extends OrmObject {
         builder.jump_setting = Integer.valueOf(jSONObject.optInt("jump_setting"));
         builder.wx_thumbnail = jSONObject.optString("wx_thumbnail");
         builder.button_desc = jSONObject.optString("button_desc");
-        this.f41734e = builder.build(true);
+        this.f40140e = builder.build(true);
     }
 }

@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public static final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f62230b;
+    public static final boolean f60580b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a implements PrivilegedAction<ClassLoader> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public final class e {
         }
         int d2 = d();
         a = d2;
-        f62230b = d2 != 0;
+        f60580b = d2 != 0;
     }
 
     public static int a() {
@@ -87,7 +87,7 @@ public final class e {
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f62230b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f60580b : invokeV.booleanValue;
     }
 
     public static int d() {

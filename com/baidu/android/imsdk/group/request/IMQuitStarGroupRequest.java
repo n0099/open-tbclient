@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class IMQuitStarGroupRequest extends GroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQuitStarGroupRequest";
@@ -35,7 +35,7 @@ public class IMQuitStarGroupRequest extends GroupBaseHttpRequest {
     public String mGroupId;
     public String mKey;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class Mytask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

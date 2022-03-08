@@ -11,7 +11,7 @@ public class m extends r {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2288b;
+    public String f2917b;
 
     public m() {
         Interceptable interceptable = $ic;
@@ -27,7 +27,7 @@ public class m extends r {
             }
         }
         this.a = -1;
-        this.f2288b = null;
+        this.f2917b = null;
     }
 
     public m(int i2, String str) {
@@ -46,6 +46,6 @@ public class m extends r {
             }
         }
         this.a = i2;
-        this.f2288b = str;
+        this.f2917b = str;
     }
 }

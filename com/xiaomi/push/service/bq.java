@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.hf;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public /* synthetic */ class bq {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ int[] a;
@@ -32,39 +32,39 @@ public /* synthetic */ class bq {
         } catch (NoSuchFieldError unused) {
         }
         try {
-            a[hf.f61371b.ordinal()] = 2;
+            a[hf.f59721b.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            a[hf.f61372c.ordinal()] = 3;
+            a[hf.f59722c.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            a[hf.f61373d.ordinal()] = 4;
+            a[hf.f59723d.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            a[hf.f61374e.ordinal()] = 5;
+            a[hf.f59724e.ordinal()] = 5;
         } catch (NoSuchFieldError unused5) {
         }
         try {
-            a[hf.f61375f.ordinal()] = 6;
+            a[hf.f59725f.ordinal()] = 6;
         } catch (NoSuchFieldError unused6) {
         }
         try {
-            a[hf.f61376g.ordinal()] = 7;
+            a[hf.f59726g.ordinal()] = 7;
         } catch (NoSuchFieldError unused7) {
         }
         try {
-            a[hf.f61377h.ordinal()] = 8;
+            a[hf.f59727h.ordinal()] = 8;
         } catch (NoSuchFieldError unused8) {
         }
         try {
-            a[hf.f61378i.ordinal()] = 9;
+            a[hf.f59728i.ordinal()] = 9;
         } catch (NoSuchFieldError unused9) {
         }
         try {
-            a[hf.f61379j.ordinal()] = 10;
+            a[hf.f59729j.ordinal()] = 10;
         } catch (NoSuchFieldError unused10) {
         }
     }

@@ -8,8 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public final class EffectType {
     public static final /* synthetic */ EffectType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -73,7 +74,7 @@ public final class EffectType {
             }
         }
         NO_MATCH = new EffectType("NO_MATCH", 0, 0);
-        NO = new EffectType("NO", 1, 0);
+        NO = new EffectType(HlsPlaylistParser.BOOLEAN_FALSE, 1, 0);
         TRANSITION_TRAN_LEFT = new EffectType("TRANSITION_TRAN_LEFT", 2, 20);
         TRANSITION_TRAN_RIGHT = new EffectType("TRANSITION_TRAN_RIGHT", 3, 21);
         TRANSITION_TRAN_REPEAT = new EffectType("TRANSITION_TRAN_REPEAT", 4, 22);

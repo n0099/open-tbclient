@@ -5,8 +5,7 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.core.view.InputDeviceCompat;
-import c.a.u0.a4.d;
-import c.a.u0.a4.j;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,13 +13,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public final class TagTextHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static final class HotTopicTag {
         public static final /* synthetic */ HotTopicTag[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -48,11 +47,11 @@ public final class TagTextHelper {
                     return;
                 }
             }
-            NEW = new HotTopicTag("NEW", 0, j.tag_str_new, d.CAM_X0305);
-            HOT = new HotTopicTag("HOT", 1, j.tag_str_hot, d.CAM_X0301);
-            REC = new HotTopicTag("REC", 2, j.tag_str_rec, d.CAM_X0306);
-            BAO = new HotTopicTag("BAO", 3, j.tag_str_bao, d.CAM_X0308);
-            HotTopicTag hotTopicTag = new HotTopicTag("FEI", 4, j.tag_str_fei, d.CAM_X0317);
+            NEW = new HotTopicTag("NEW", 0, R.string.tag_str_new, R.color.CAM_X0305);
+            HOT = new HotTopicTag("HOT", 1, R.string.tag_str_hot, R.color.CAM_X0301);
+            REC = new HotTopicTag("REC", 2, R.string.tag_str_rec, R.color.CAM_X0306);
+            BAO = new HotTopicTag("BAO", 3, R.string.tag_str_bao, R.color.CAM_X0308);
+            HotTopicTag hotTopicTag = new HotTopicTag("FEI", 4, R.string.tag_str_fei, R.color.CAM_X0317);
             FEI = hotTopicTag;
             $VALUES = new HotTopicTag[]{NEW, HOT, REC, BAO, hotTopicTag};
         }
@@ -136,10 +135,7 @@ public final class TagTextHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
             HotTopicTag hotTopicTag = HotTopicTag.getHotTopicTag(i2);
-            if (hotTopicTag != null) {
-                return hotTopicTag.tagColorRes;
-            }
-            return d.transparent;
+            return hotTopicTag != null ? hotTopicTag.tagColorRes : R.color.transparent;
         }
         return invokeI.intValue;
     }
@@ -158,18 +154,6 @@ public final class TagTextHelper {
     public static int getIndexTextColorRes(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
-                        return d.CAM_X0315;
-                    }
-                    return d.CAM_X0305;
-                }
-                return d.CAM_X0319;
-            }
-            return d.CAM_X0301;
-        }
-        return invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) ? i2 != 1 ? i2 != 2 ? i2 != 3 ? R.color.CAM_X0315 : R.color.CAM_X0305 : R.color.CAM_X0319 : R.color.CAM_X0301 : invokeI.intValue;
     }
 }

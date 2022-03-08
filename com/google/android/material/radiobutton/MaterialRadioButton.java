@@ -10,6 +10,7 @@ import androidx.appcompat.widget.AppCompatRadioButton;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.widget.CompoundButtonCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,15 +18,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class MaterialRadioButton extends AppCompatRadioButton {
-    public static /* synthetic */ Interceptable $ic;
-    public static final int DEF_STYLE_RES;
+    public static /* synthetic */ Interceptable $ic = null;
+
+    /* renamed from: DEF_STYLE_RES */
+    public static final int Widget_MaterialComponents_CompoundButton_RadioButton = 2131755900;
     public static final int[][] ENABLED_CHECKED_STATES;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
@@ -45,7 +47,6 @@ public class MaterialRadioButton extends AppCompatRadioButton {
                 return;
             }
         }
-        DEF_STYLE_RES = R.style.Widget_MaterialComponents_CompoundButton_RadioButton;
         ENABLED_CHECKED_STATES = new int[][]{new int[]{16842910, 16842912}, new int[]{16842910, -16842912}, new int[]{-16842910, 16842912}, new int[]{-16842910, -16842912}};
     }
 
@@ -142,7 +143,7 @@ public class MaterialRadioButton extends AppCompatRadioButton {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MaterialRadioButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, DEF_STYLE_RES), attributeSet, i2);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, Widget_MaterialComponents_CompoundButton_RadioButton), attributeSet, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -160,11 +161,11 @@ public class MaterialRadioButton extends AppCompatRadioButton {
             }
         }
         Context context2 = getContext();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, R.styleable.MaterialRadioButton, i2, DEF_STYLE_RES, new int[0]);
-        if (obtainStyledAttributes.hasValue(R.styleable.MaterialRadioButton_buttonTint)) {
-            CompoundButtonCompat.setButtonTintList(this, MaterialResources.getColorStateList(context2, obtainStyledAttributes, R.styleable.MaterialRadioButton_buttonTint));
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.buttonTint, R.attr.useMaterialThemeColors}, i2, Widget_MaterialComponents_CompoundButton_RadioButton, new int[0]);
+        if (obtainStyledAttributes.hasValue(0)) {
+            CompoundButtonCompat.setButtonTintList(this, MaterialResources.getColorStateList(context2, obtainStyledAttributes, 0));
         }
-        this.useMaterialThemeColors = obtainStyledAttributes.getBoolean(R.styleable.MaterialRadioButton_useMaterialThemeColors, false);
+        this.useMaterialThemeColors = obtainStyledAttributes.getBoolean(1, false);
         obtainStyledAttributes.recycle();
     }
 }

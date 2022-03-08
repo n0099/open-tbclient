@@ -17,38 +17,38 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @TargetApi(16)
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f34566b = "video/avc";
+    public static final String f32969b = "video/avc";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f34567c = 10000;
+    public static final int f32970c = 10000;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f34568d;
+    public int f32971d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f34569e;
+    public int f32972e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MediaCodec f34570f;
+    public MediaCodec f32973f;
 
     /* renamed from: g  reason: collision with root package name */
-    public MediaMuxer f34571g;
+    public MediaMuxer f32974g;
 
     /* renamed from: h  reason: collision with root package name */
-    public MediaCodec.BufferInfo f34572h;
+    public MediaCodec.BufferInfo f32975h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f34573i;
+    public int f32976i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f34574j;
+    public boolean f32977j;
     public byte[] k;
     public int l;
     public int m;
@@ -73,24 +73,24 @@ public class f {
                 return;
             }
         }
-        this.f34573i = -1;
-        this.f34568d = i2;
-        this.f34569e = i3;
+        this.f32976i = -1;
+        this.f32971d = i2;
+        this.f32972e = i3;
         this.n = i4;
         this.o = i6;
         this.l = i5;
-        this.f34572h = new MediaCodec.BufferInfo();
-        this.f34571g = mediaMuxer;
-        this.f34573i = -1;
-        this.f34574j = false;
+        this.f32975h = new MediaCodec.BufferInfo();
+        this.f32974g = mediaMuxer;
+        this.f32976i = -1;
+        this.f32977j = false;
         this.m = 0;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int i2 = this.f34568d;
-            int i3 = this.f34569e;
+            int i2 = this.f32971d;
+            int i3 = this.f32972e;
             this.k = new byte[((i2 * i3) * 3) / 2];
             MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", i2, i3);
             createVideoFormat.setInteger("bitrate", this.n);
@@ -101,9 +101,9 @@ public class f {
             try {
                 try {
                     MediaCodec createEncoderByType = MediaCodec.createEncoderByType("video/avc");
-                    this.f34570f = createEncoderByType;
+                    this.f32973f = createEncoderByType;
                     createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-                    this.f34570f.start();
+                    this.f32973f.start();
                 } catch (IOException e2) {
                     LogUtil.e(e2.toString());
                 }
@@ -119,30 +119,30 @@ public class f {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LogUtil.i(IntentConfig.CLOSE);
             try {
-                if (this.f34570f != null && this.q) {
+                if (this.f32973f != null && this.q) {
                     this.q = false;
-                    this.f34570f.stop();
-                    this.f34570f.release();
+                    this.f32973f.stop();
+                    this.f32973f.release();
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
                 LogUtil.e(e2.toString());
             }
-            if (this.f34571g != null) {
+            if (this.f32974g != null) {
                 try {
                     try {
-                        if (!a.f34563c) {
-                            a.f34563c = true;
+                        if (!a.f32966c) {
+                            a.f32966c = true;
                             LogUtil.i("VideoMediaEncoderThread", "mMuxer.stop:");
-                            this.f34571g.stop();
+                            this.f32974g.stop();
                         }
                     } catch (Exception e3) {
                         e3.printStackTrace();
                         LogUtil.e(e3.toString());
                     }
-                    this.f34571g = null;
+                    this.f32974g = null;
                 } finally {
-                    this.f34571g.release();
+                    this.f32974g.release();
                 }
             }
         }
@@ -153,30 +153,30 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, j2) == null) {
             LogUtil.i("encodeFrame()");
-            a(bArr, this.k, this.f34568d, this.f34569e, bArr.length);
-            ByteBuffer[] inputBuffers = this.f34570f.getInputBuffers();
-            ByteBuffer[] outputBuffers = this.f34570f.getOutputBuffers();
-            int dequeueInputBuffer = this.f34570f.dequeueInputBuffer(10000L);
+            a(bArr, this.k, this.f32971d, this.f32972e, bArr.length);
+            ByteBuffer[] inputBuffers = this.f32973f.getInputBuffers();
+            ByteBuffer[] outputBuffers = this.f32973f.getOutputBuffers();
+            int dequeueInputBuffer = this.f32973f.dequeueInputBuffer(10000L);
             LogUtil.i("inputBufferIndex-->" + dequeueInputBuffer);
             if (dequeueInputBuffer >= 0) {
                 ByteBuffer byteBuffer = inputBuffers[dequeueInputBuffer];
                 byteBuffer.clear();
                 byteBuffer.put(this.k);
-                this.f34570f.queueInputBuffer(dequeueInputBuffer, 0, this.k.length, j2, 0);
+                this.f32973f.queueInputBuffer(dequeueInputBuffer, 0, this.k.length, j2, 0);
             } else {
                 LogUtil.d("input buffer not available");
             }
-            int dequeueOutputBuffer = this.f34570f.dequeueOutputBuffer(this.f34572h, 10000L);
+            int dequeueOutputBuffer = this.f32973f.dequeueOutputBuffer(this.f32975h, 10000L);
             LogUtil.i("outputBufferIndex-->" + dequeueOutputBuffer);
             do {
                 if (dequeueOutputBuffer == -1) {
                     LogUtil.d("no output from encoder available");
                 } else if (dequeueOutputBuffer == -3) {
-                    ByteBuffer[] outputBuffers2 = this.f34570f.getOutputBuffers();
+                    ByteBuffer[] outputBuffers2 = this.f32973f.getOutputBuffers();
                     LogUtil.d("encoder output buffers changed");
                     outputBuffers = outputBuffers2;
                 } else if (dequeueOutputBuffer == -2) {
-                    this.p = this.f34570f.getOutputFormat();
+                    this.p = this.f32973f.getOutputFormat();
                     LogUtil.d("encoder output format changed: " + this.p);
                 } else if (dequeueOutputBuffer < 0) {
                     LogUtil.w("unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
@@ -184,36 +184,36 @@ public class f {
                     LogUtil.d("perform encoding");
                     ByteBuffer byteBuffer2 = outputBuffers[dequeueOutputBuffer];
                     if (byteBuffer2 != null) {
-                        if ((this.f34572h.flags & 2) != 0) {
+                        if ((this.f32975h.flags & 2) != 0) {
                             LogUtil.d("ignoring BUFFER_FLAG_CODEC_CONFIG");
-                            this.f34572h.size = 0;
+                            this.f32975h.size = 0;
                         }
-                        if (this.f34572h.size != 0) {
-                            if (!this.f34574j) {
-                                this.f34573i = this.f34571g.addTrack(this.f34570f.getOutputFormat());
+                        if (this.f32975h.size != 0) {
+                            if (!this.f32977j) {
+                                this.f32976i = this.f32974g.addTrack(this.f32973f.getOutputFormat());
                                 try {
-                                    if (!a.f34562b && !a.f34562b) {
-                                        a.f34562b = true;
-                                        this.f34571g.start();
+                                    if (!a.f32965b && !a.f32965b) {
+                                        a.f32965b = true;
+                                        this.f32974g.start();
                                     }
                                 } catch (Exception e2) {
                                     e2.printStackTrace();
                                     LogUtil.e(e2.toString());
                                 }
-                                this.f34574j = true;
+                                this.f32977j = true;
                             }
-                            byteBuffer2.position(this.f34572h.offset);
-                            MediaCodec.BufferInfo bufferInfo = this.f34572h;
+                            byteBuffer2.position(this.f32975h.offset);
+                            MediaCodec.BufferInfo bufferInfo = this.f32975h;
                             byteBuffer2.limit(bufferInfo.offset + bufferInfo.size);
-                            this.f34571g.writeSampleData(this.f34573i, byteBuffer2, this.f34572h);
-                            LogUtil.d("sent " + this.f34572h.size + " bytes to muxer");
+                            this.f32974g.writeSampleData(this.f32976i, byteBuffer2, this.f32975h);
+                            LogUtil.d("sent " + this.f32975h.size + " bytes to muxer");
                         }
-                        this.f34570f.releaseOutputBuffer(dequeueOutputBuffer, false);
+                        this.f32973f.releaseOutputBuffer(dequeueOutputBuffer, false);
                     } else {
                         throw new RuntimeException("encoderOutputBuffer " + dequeueOutputBuffer + " was null");
                     }
                 }
-                dequeueOutputBuffer = this.f34570f.dequeueOutputBuffer(this.f34572h, 10000L);
+                dequeueOutputBuffer = this.f32973f.dequeueOutputBuffer(this.f32975h, 10000L);
             } while (dequeueOutputBuffer >= 0);
             this.m++;
         }

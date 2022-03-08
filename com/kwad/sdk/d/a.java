@@ -10,54 +10,54 @@ import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.plugin.DevelopMangerPlugin;
 import com.kwad.sdk.plugin.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a implements KsInterstitialAd {
     public KsScene a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public final AdTemplate f56794b;
+    public final AdTemplate f55144b;
 
     /* renamed from: c  reason: collision with root package name */
-    public KsInterstitialAd.AdInteractionListener f56795c;
+    public KsInterstitialAd.AdInteractionListener f55145c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f56796d;
+    public b f55146d;
 
     public a(@NonNull KsScene ksScene, @NonNull AdTemplate adTemplate) {
         this.a = ksScene;
-        this.f56794b = adTemplate;
+        this.f55144b = adTemplate;
     }
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
     public int getECPM() {
-        return com.kwad.sdk.core.response.a.a.F(d.j(this.f56794b));
+        return com.kwad.sdk.core.response.a.a.F(d.j(this.f55144b));
     }
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
     public int getInteractionType() {
-        return com.kwad.sdk.core.response.a.a.E(d.j(this.f56794b));
+        return com.kwad.sdk.core.response.a.a.E(d.j(this.f55144b));
     }
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
     public int getMaterialType() {
-        return com.kwad.sdk.core.response.a.a.R(d.j(this.f56794b));
+        return com.kwad.sdk.core.response.a.a.R(d.j(this.f55144b));
     }
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
     public boolean isVideo() {
-        return com.kwad.sdk.core.response.a.a.P(d.j(this.f56794b));
+        return com.kwad.sdk.core.response.a.a.P(d.j(this.f55144b));
     }
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
     public void reportAdExposureFailed(int i2, AdExposureFailedReason adExposureFailedReason) {
-        com.kwad.sdk.core.report.a.a(this.f56794b, i2, adExposureFailedReason);
+        com.kwad.sdk.core.report.a.a(this.f55144b, i2, adExposureFailedReason);
     }
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
     public void setAdInteractionListener(@NonNull KsInterstitialAd.AdInteractionListener adInteractionListener) {
-        this.f56795c = adInteractionListener;
-        b bVar = this.f56796d;
+        this.f55145c = adInteractionListener;
+        b bVar = this.f55146d;
         if (bVar != null) {
             bVar.a(adInteractionListener);
         }
@@ -65,7 +65,7 @@ public class a implements KsInterstitialAd {
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
     public void setBidEcpm(int i2) {
-        AdTemplate adTemplate = this.f56794b;
+        AdTemplate adTemplate = this.f55144b;
         adTemplate.mBidEcpm = i2;
         com.kwad.sdk.core.report.a.m(adTemplate);
     }
@@ -84,16 +84,16 @@ public class a implements KsInterstitialAd {
             ksVideoPlayConfig.setVideoSoundEnable(((Boolean) a.getValue()).booleanValue());
         }
         if (ksVideoPlayConfig.isVideoSoundEnable()) {
-            adTemplate = this.f56794b;
+            adTemplate = this.f55144b;
             i2 = 2;
         } else {
-            adTemplate = this.f56794b;
+            adTemplate = this.f55144b;
             i2 = 1;
         }
         adTemplate.mInitVoiceStatus = i2;
-        if (this.f56796d == null) {
-            b bVar = new b(activity, this.f56794b, ksVideoPlayConfig, this.f56795c);
-            this.f56796d = bVar;
+        if (this.f55146d == null) {
+            b bVar = new b(activity, this.f55144b, ksVideoPlayConfig, this.f55145c);
+            this.f55146d = bVar;
             bVar.a();
         }
     }

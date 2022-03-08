@@ -1,7 +1,7 @@
 package com.baidu.tieba.enterForum.home;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.s.s.a;
+import c.a.q0.r.s.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -23,7 +23,7 @@ import tbclient.ForumRecommend.LikeForum;
 import tbclient.FrsTabInfo;
 import tbclient.PrivatePopInfo;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class forumRecommendSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

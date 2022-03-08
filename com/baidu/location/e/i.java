@@ -12,14 +12,14 @@ import java.net.URL;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class i implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ e f35397b;
+    public final /* synthetic */ e f33800b;
 
     public i(e eVar, String str) {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class i implements Runnable {
                 return;
             }
         }
-        this.f35397b = eVar;
+        this.f33800b = eVar;
         this.a = str;
     }
 
@@ -70,9 +70,9 @@ public class i implements Runnable {
         ByteArrayOutputStream byteArrayOutputStream3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f35397b.a();
-            this.f35397b.b();
-            this.f35397b.f35391h = this.a;
+            this.f33800b.a();
+            this.f33800b.b();
+            this.f33800b.f33794h = this.a;
             HttpsURLConnection httpsURLConnection3 = null;
             InputStream inputStream3 = null;
             httpsURLConnection3 = null;
@@ -80,7 +80,7 @@ public class i implements Runnable {
                 try {
                     try {
                         stringBuffer = new StringBuffer();
-                        url2 = new URL(this.f35397b.f35391h);
+                        url2 = new URL(this.f33800b.f33794h);
                         try {
                             httpsURLConnection2 = (HttpsURLConnection) url2.openConnection();
                         } catch (Error e2) {
@@ -129,15 +129,15 @@ public class i implements Runnable {
                     httpsURLConnection2.setInstanceFollowRedirects(false);
                     httpsURLConnection2.setDoOutput(true);
                     httpsURLConnection2.setDoInput(true);
-                    httpsURLConnection2.setConnectTimeout(a.f35356b);
-                    httpsURLConnection2.setReadTimeout(a.f35357c);
+                    httpsURLConnection2.setConnectTimeout(a.f33759b);
+                    httpsURLConnection2.setReadTimeout(a.f33760c);
                     httpsURLConnection2.setRequestMethod("POST");
                     httpsURLConnection2.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
                     httpsURLConnection2.setRequestProperty("Accept-Encoding", "gzip");
                     if (k.ax != null) {
                         httpsURLConnection2.setRequestProperty("bd-loc-android", k.ax);
                     }
-                    for (Map.Entry<String, Object> entry : this.f35397b.k.entrySet()) {
+                    for (Map.Entry<String, Object> entry : this.f33800b.k.entrySet()) {
                         stringBuffer.append(entry.getKey());
                         stringBuffer.append("=");
                         stringBuffer.append(entry.getValue());
@@ -167,8 +167,8 @@ public class i implements Runnable {
                                         }
                                         byteArrayOutputStream3.write(bArr, 0, read);
                                     }
-                                    this.f35397b.f35393j = new String(byteArrayOutputStream3.toByteArray(), "utf-8");
-                                    this.f35397b.a(true);
+                                    this.f33800b.f33796j = new String(byteArrayOutputStream3.toByteArray(), "utf-8");
+                                    this.f33800b.a(true);
                                     inputStream3 = inputStream;
                                 } catch (Error e6) {
                                     InputStream inputStream4 = inputStream;
@@ -179,8 +179,8 @@ public class i implements Runnable {
                                     inputStream2 = inputStream4;
                                     e.printStackTrace();
                                     String str = a.a;
-                                    this.f35397b.f35393j = null;
-                                    this.f35397b.a(false);
+                                    this.f33800b.f33796j = null;
+                                    this.f33800b.a(false);
                                     if (httpsURLConnection != null) {
                                         httpsURLConnection.disconnect();
                                     }
@@ -211,8 +211,8 @@ public class i implements Runnable {
                                     inputStream2 = inputStream5;
                                     e.printStackTrace();
                                     String str4 = a.a;
-                                    this.f35397b.f35393j = null;
-                                    this.f35397b.a(false);
+                                    this.f33800b.f33796j = null;
+                                    this.f33800b.a(false);
                                     if (httpsURLConnection != null) {
                                         httpsURLConnection.disconnect();
                                     }
@@ -291,8 +291,8 @@ public class i implements Runnable {
                                 throw th;
                             }
                         } else {
-                            this.f35397b.f35393j = null;
-                            this.f35397b.a(false);
+                            this.f33800b.f33796j = null;
+                            this.f33800b.a(false);
                             byteArrayOutputStream3 = null;
                         }
                         if (httpsURLConnection2 != null) {
@@ -338,8 +338,8 @@ public class i implements Runnable {
                     inputStream2 = outputStream;
                     e.printStackTrace();
                     String str12 = a.a;
-                    this.f35397b.f35393j = null;
-                    this.f35397b.a(false);
+                    this.f33800b.f33796j = null;
+                    this.f33800b.a(false);
                     if (httpsURLConnection != null) {
                     }
                     if (outputStream != null) {
@@ -358,8 +358,8 @@ public class i implements Runnable {
                     inputStream2 = outputStream;
                     e.printStackTrace();
                     String str42 = a.a;
-                    this.f35397b.f35393j = null;
-                    this.f35397b.a(false);
+                    this.f33800b.f33796j = null;
+                    this.f33800b.a(false);
                     if (httpsURLConnection != null) {
                     }
                     if (outputStream != null) {

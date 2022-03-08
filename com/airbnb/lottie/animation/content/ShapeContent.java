@@ -8,7 +8,7 @@ import com.airbnb.lottie.model.content.ShapePath;
 import com.airbnb.lottie.model.content.ShapeTrimPath;
 import com.airbnb.lottie.model.layer.BaseLayer;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class ShapeContent implements PathContent, BaseKeyframeAnimation.AnimationListener {
     public final boolean hidden;
     public boolean isPathValid;

@@ -16,25 +16,25 @@ public final class c {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f3977b;
+    public final String f3594b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f3978c;
+    public final String f3595c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f3979d;
+    public final String f3596d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f3980e;
+    public final String f3597e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f3981f;
+    public final String f3598f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f3982g;
+    public final String f3599g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f3983h;
+    public final String f3600h;
 
     public c(int i2, String str, String str2, String str3, String str4, String str5, String str6, String str7) {
         Interceptable interceptable = $ic;
@@ -52,43 +52,43 @@ public final class c {
             }
         }
         this.a = i2;
-        this.f3977b = str;
-        this.f3978c = str2;
-        this.f3979d = str3;
-        this.f3980e = str4;
-        this.f3981f = str5;
-        this.f3982g = str6;
-        this.f3983h = str7;
+        this.f3594b = str;
+        this.f3595c = str2;
+        this.f3596d = str3;
+        this.f3597e = str4;
+        this.f3598f = str5;
+        this.f3599g = str6;
+        this.f3600h = str7;
     }
 
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3979d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3596d : (String) invokeV.objValue;
     }
 
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3982g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3599g : (String) invokeV.objValue;
     }
 
     public final String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3977b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3594b : (String) invokeV.objValue;
     }
 
     public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3981f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3598f : (String) invokeV.objValue;
     }
 
     public final String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3980e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3597e : (String) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -98,7 +98,7 @@ public final class c {
             if (this != obj) {
                 if (obj instanceof c) {
                     c cVar = (c) obj;
-                    if (!(this.a == cVar.a) || !Intrinsics.areEqual(this.f3977b, cVar.f3977b) || !Intrinsics.areEqual(this.f3978c, cVar.f3978c) || !Intrinsics.areEqual(this.f3979d, cVar.f3979d) || !Intrinsics.areEqual(this.f3980e, cVar.f3980e) || !Intrinsics.areEqual(this.f3981f, cVar.f3981f) || !Intrinsics.areEqual(this.f3982g, cVar.f3982g) || !Intrinsics.areEqual(this.f3983h, cVar.f3983h)) {
+                    if (!(this.a == cVar.a) || !Intrinsics.areEqual(this.f3594b, cVar.f3594b) || !Intrinsics.areEqual(this.f3595c, cVar.f3595c) || !Intrinsics.areEqual(this.f3596d, cVar.f3596d) || !Intrinsics.areEqual(this.f3597e, cVar.f3597e) || !Intrinsics.areEqual(this.f3598f, cVar.f3598f) || !Intrinsics.areEqual(this.f3599g, cVar.f3599g) || !Intrinsics.areEqual(this.f3600h, cVar.f3600h)) {
                     }
                 }
                 return false;
@@ -111,13 +111,13 @@ public final class c {
     public final String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f3983h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f3600h : (String) invokeV.objValue;
     }
 
     public final String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f3978c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f3595c : (String) invokeV.objValue;
     }
 
     public final int h() {
@@ -131,19 +131,19 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             int i2 = this.a * 31;
-            String str = this.f3977b;
+            String str = this.f3594b;
             int hashCode = (i2 + (str != null ? str.hashCode() : 0)) * 31;
-            String str2 = this.f3978c;
+            String str2 = this.f3595c;
             int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
-            String str3 = this.f3979d;
+            String str3 = this.f3596d;
             int hashCode3 = (hashCode2 + (str3 != null ? str3.hashCode() : 0)) * 31;
-            String str4 = this.f3980e;
+            String str4 = this.f3597e;
             int hashCode4 = (hashCode3 + (str4 != null ? str4.hashCode() : 0)) * 31;
-            String str5 = this.f3981f;
+            String str5 = this.f3598f;
             int hashCode5 = (hashCode4 + (str5 != null ? str5.hashCode() : 0)) * 31;
-            String str6 = this.f3982g;
+            String str6 = this.f3599g;
             int hashCode6 = (hashCode5 + (str6 != null ? str6.hashCode() : 0)) * 31;
-            String str7 = this.f3983h;
+            String str7 = this.f3600h;
             return hashCode6 + (str7 != null ? str7.hashCode() : 0);
         }
         return invokeV.intValue;
@@ -153,7 +153,7 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "TaskBuoyUIConfig(uiType=" + this.a + ", message=" + this.f3977b + ", txtColor=" + this.f3978c + ", bgUrl=" + this.f3979d + ", pForeColor=" + this.f3980e + ", pBackColor=" + this.f3981f + ", closeBg=" + this.f3982g + ", schema=" + this.f3983h + SmallTailInfo.EMOTION_SUFFIX;
+            return "TaskBuoyUIConfig(uiType=" + this.a + ", message=" + this.f3594b + ", txtColor=" + this.f3595c + ", bgUrl=" + this.f3596d + ", pForeColor=" + this.f3597e + ", pBackColor=" + this.f3598f + ", closeBg=" + this.f3599g + ", schema=" + this.f3600h + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

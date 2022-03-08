@@ -15,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -25,7 +26,7 @@ import org.aspectj.runtime.reflect.SignatureImpl;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class SapiOptions implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_GRAY = 1000000;
@@ -84,7 +85,7 @@ public final class SapiOptions implements NoProguard {
     public Map<String, LoginShareStrategy> specificShareStrategy;
     public String tid;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class Cache {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String EXTERNAL_CACHE_DIR = ".BD_SAPI_CACHE";
@@ -93,7 +94,7 @@ public final class SapiOptions implements NoProguard {
         public List<Module> modules;
         public String version;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes4.dex */
         public static class Module {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -131,7 +132,7 @@ public final class SapiOptions implements NoProguard {
             public static String getAssetFile(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? str.replace(':', '/') : (String) invokeL.objValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? str.replace(':', WebvttCueParser.CHAR_SLASH) : (String) invokeL.objValue;
             }
 
             public static String getExternalFile(String str) {
@@ -146,7 +147,7 @@ public final class SapiOptions implements NoProguard {
             public static String getInternalFile(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? getAssetFile(str).replace('/', SignatureImpl.SEP) : (String) invokeL.objValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? getAssetFile(str).replace(WebvttCueParser.CHAR_SLASH, SignatureImpl.SEP) : (String) invokeL.objValue;
             }
 
             public boolean equals(Object obj) {
@@ -266,7 +267,7 @@ public final class SapiOptions implements NoProguard {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class CacheGray {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -322,7 +323,7 @@ public final class SapiOptions implements NoProguard {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class Gray implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FUN_NAME_ADDRESS_NA_MAP = "addrmap";
@@ -348,7 +349,7 @@ public final class SapiOptions implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
         public Map<String, GrayModule> grayModuleMap;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes4.dex */
         public static class GrayModule implements NoProguard {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -510,7 +511,7 @@ public final class SapiOptions implements NoProguard {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class PkgSigns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_AUTHORIZED_PACKAGES = "authorized_packages";

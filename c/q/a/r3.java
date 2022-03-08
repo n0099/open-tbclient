@@ -1,65 +1,37 @@
 package c.q.a;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
-public class r3 implements q1 {
+/* loaded from: classes3.dex */
+public class r3 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ v3 a;
 
-    public r3(v3 v3Var) {
+    public r3(c4 c4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {v3Var};
+            Object[] objArr = {c4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = v3Var;
     }
 
-    @Override // c.q.a.q1
-    public void a() {
+    @Override // android.webkit.WebChromeClient
+    public void onReceivedTitle(WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // c.q.a.q1
-    public void a(int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-            y3 y3Var = this.a.f30733e;
-            long currentTimeMillis = System.currentTimeMillis();
-            y3 y3Var2 = this.a.f30733e;
-            y3Var.f30768c = currentTimeMillis - y3Var2.f30767b;
-            y2 a = c3.a(y3Var2.a);
-            a.a(i2, this.a.f30733e.f30768c);
-            a.m();
-        }
-    }
-
-    @Override // c.q.a.q1
-    public void a(Object obj) {
-        long j2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            y3 y3Var = this.a.f30733e;
-            long currentTimeMillis = System.currentTimeMillis();
-            j2 = this.a.f30733e.f30767b;
-            y3Var.f30768c = currentTimeMillis - j2;
-            this.a.f30733e.e((b6) obj);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
+            super.onReceivedTitle(webView, str);
         }
     }
 }

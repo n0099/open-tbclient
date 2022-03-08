@@ -1,42 +1,36 @@
 package c.q.a;
 
 import android.content.Context;
-import android.text.TextUtils;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
-import com.baidu.sapi2.SapiWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.davemorrissey.labs.subscaleview.ImageSource;
-import com.win.opensdk.bridge.JsBridge;
-import com.win.opensdk.bridge.JsInvokeJavaScope;
-import com.win.opensdk.bridge.core.JsBridgeWebChromeClient;
 import com.win.opensdk.core.Info;
-/* loaded from: classes9.dex */
-public class j3 implements n {
+import java.util.HashMap;
+/* loaded from: classes3.dex */
+public class j3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z a;
+    public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public r f30577b;
+    public Info f29003b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WebView f30578c;
+    public Handler f29004c;
 
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f30579d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f30580e;
-
-    public j3(Context context) {
+    public j3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -46,31 +40,48 @@ public class j3 implements n {
                 return;
             }
         }
-        WebView webView = new WebView(context);
-        this.f30578c = webView;
-        webView.setScrollContainer(false);
-        webView.setVerticalScrollBarEnabled(false);
-        webView.setHorizontalScrollBarEnabled(false);
-        r0.m(webView);
-        this.f30578c.getSettings().setJavaScriptEnabled(true);
-        JsBridge.getInstance().clazz(JsInvokeJavaScope.class).inject();
-        this.f30578c.setWebChromeClient(new JsBridgeWebChromeClient());
-        this.f30578c.setWebViewClient(new f3(this));
+        this.f29004c = new c3(this, Looper.getMainLooper());
     }
 
-    public void a(String str, Info info) {
+    public static boolean b(Uri uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, info) == null) {
-            if ((!TextUtils.isEmpty(str) && (str.startsWith("http") || str.startsWith("https"))) || str.startsWith(ImageSource.FILE_SCHEME)) {
-                this.f30578c.loadUrl(str);
-            } else {
-                this.f30578c.loadDataWithBaseURL("http://abcd/", str, SapiWebView.DATA_MIME_TYPE, "UTF-8", null);
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) ? "appmarket".equalsIgnoreCase(uri.getScheme()) : invokeL.booleanValue;
+    }
+
+    public static boolean c(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, uri)) == null) {
+            String scheme = uri.getScheme();
+            String host = uri.getHost();
+            return "market".equalsIgnoreCase(scheme) || "market.android.com".equalsIgnoreCase(host) || "play.google.com".equalsIgnoreCase(host);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void a(Context context, String str, Info info) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, context, str, info) == null) {
+            this.a = context;
+            this.f29003b = info;
+            WebView webView = new WebView(context);
+            WebSettings settings = webView.getSettings();
+            settings.setAllowContentAccess(true);
+            settings.setJavaScriptEnabled(true);
+            if (Build.VERSION.SDK_INT >= 11) {
+                webView.removeJavascriptInterface("searchBoxJavaBridge_");
+                webView.removeJavascriptInterface("accessibility");
+                webView.removeJavascriptInterface("accessibilityTraversal");
             }
-            z zVar = this.a;
-            if (zVar != null) {
-                zVar.a();
-            }
-            this.f30578c.setOnTouchListener(new m3(info, new b3(this)));
+            webView.setWebViewClient(new g3(this, context, info, str));
+            HashMap hashMap = new HashMap();
+            hashMap.put("X-Requested-With", "");
+            webView.loadUrl(str, hashMap);
+            Message obtain = Message.obtain();
+            obtain.what = 11;
+            obtain.obj = str;
+            this.f29004c.sendMessageDelayed(obtain, 5000L);
         }
     }
 }

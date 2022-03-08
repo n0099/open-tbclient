@@ -10,26 +10,22 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.s0.a.a;
-import c.a.s0.a.e;
-import c.a.s0.a.f;
-import c.a.s0.a.g;
-import c.a.s0.a.h;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class LoadingLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f39681e;
+    public ImageView f38085e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f39682f;
+    public TextView f38086f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingLayout(Context context) {
@@ -54,10 +50,10 @@ public class LoadingLayout extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(g.swanapp_album_loadding_layout, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.swanapp_album_loadding_layout, (ViewGroup) null);
             inflate.setBackgroundColor(-1);
-            this.f39681e = (ImageView) inflate.findViewById(f.album_loadding_img);
-            this.f39682f = (TextView) inflate.findViewById(f.album_loadding_tv);
+            this.f38085e = (ImageView) inflate.findViewById(R.id.album_loadding_img);
+            this.f38086f = (TextView) inflate.findViewById(R.id.album_loadding_tv);
             addView(inflate);
         }
     }
@@ -75,12 +71,12 @@ public class LoadingLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             setVisibility(0);
-            this.f39681e.clearAnimation();
-            this.f39681e.setImageResource(e.swanapp_album_empty_icon);
+            this.f38085e.clearAnimation();
+            this.f38085e.setImageResource(R.drawable.swanapp_album_empty_icon);
             if (i2 == 0) {
-                this.f39682f.setText(h.swanapp_album_empty_photo);
+                this.f38086f.setText(R.string.swanapp_album_empty_photo);
             } else {
-                this.f39682f.setText(h.swanapp_album_empty_video);
+                this.f38086f.setText(R.string.swanapp_album_empty_video);
             }
         }
     }
@@ -90,9 +86,9 @@ public class LoadingLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             if (z) {
                 setVisibility(0);
-                Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), a.swanapp_album_rotate_loading);
-                this.f39681e.setImageResource(e.swanapp_album_progress_icon);
-                this.f39681e.startAnimation(loadAnimation);
+                Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.swanapp_album_rotate_loading);
+                this.f38085e.setImageResource(R.drawable.swanapp_album_progress_icon);
+                this.f38085e.startAnimation(loadAnimation);
                 return;
             }
             setVisibility(8);

@@ -2,7 +2,7 @@ package com.kwad.sdk.crash.utils;
 
 import java.io.Serializable;
 import java.io.Writer;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class StringBuilderWriter extends Writer implements Serializable {
     public static final long serialVersionUID = 4424285024471074820L;
     public final StringBuilder builder;

@@ -8,7 +8,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class f implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,22 +48,22 @@ public class f implements Runnable {
         InputStream inputStream2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.f35391h = k.e();
+            this.a.f33794h = k.e();
             this.a.b();
             this.a.a();
-            int i2 = this.a.f35392i;
+            int i2 = this.a.f33795i;
             InputStream inputStream3 = null;
             HttpURLConnection httpURLConnection = null;
             while (i2 > 0) {
                 try {
-                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.a.f35391h).openConnection();
+                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.a.f33794h).openConnection();
                     try {
                         httpURLConnection2.setRequestMethod("GET");
                         httpURLConnection2.setDoInput(true);
                         httpURLConnection2.setDoOutput(true);
                         httpURLConnection2.setUseCaches(false);
-                        httpURLConnection2.setConnectTimeout(a.f35356b);
-                        httpURLConnection2.setReadTimeout(a.f35356b);
+                        httpURLConnection2.setConnectTimeout(a.f33759b);
+                        httpURLConnection2.setReadTimeout(a.f33759b);
                         httpURLConnection2.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
                         httpURLConnection2.setRequestProperty("Accept-Charset", "UTF-8");
                         if (k.ax != null) {
@@ -90,7 +90,7 @@ public class f implements Runnable {
                                 }
                                 inputStream2.close();
                                 byteArrayOutputStream.close();
-                                this.a.f35393j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
+                                this.a.f33796j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
                                 this.a.a(true);
                                 httpURLConnection2.disconnect();
                                 z = true;
@@ -203,7 +203,7 @@ public class f implements Runnable {
             }
             e.p++;
             e eVar = this.a;
-            eVar.f35393j = null;
+            eVar.f33796j = null;
             eVar.a(false);
         }
     }

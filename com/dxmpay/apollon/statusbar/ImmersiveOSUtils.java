@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.iddetect.UrlOcrConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ImmersiveOSUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FLYME = "flyme";

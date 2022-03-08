@@ -18,10 +18,10 @@ public class b implements c {
     public Cursor a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ContentValues f1868b;
+    public final ContentValues f2494b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Set<String> f1869c;
+    public final Set<String> f2495c;
 
     public b(Cursor cursor) {
         Interceptable interceptable = $ic;
@@ -39,38 +39,31 @@ public class b implements c {
             }
         }
         this.a = cursor;
-        this.f1868b = null;
-        this.f1869c = new TreeSet();
+        this.f2494b = null;
+        this.f2495c = new TreeSet();
         if (cursor != null) {
             int columnCount = cursor.getColumnCount();
             for (int i4 = 0; i4 < columnCount; i4++) {
                 String columnName = cursor.getColumnName(i4);
                 if (columnName != null) {
-                    this.f1869c.add(columnName);
+                    this.f2495c.add(columnName);
                 }
             }
         }
     }
 
     @Override // c.a.d.f.b.b.a.c.c
-    public Set<String> a() {
-        InterceptResult invokeV;
+    public void a(String str, Object obj) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1869c : (Set) invokeV.objValue;
-    }
-
-    @Override // c.a.d.f.b.b.a.c.c
-    public void b(String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) || str == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) || str == null) {
             return;
         }
         if (obj == null) {
-            this.f1868b.putNull(str);
+            this.f2494b.putNull(str);
         } else if (obj.getClass() != Boolean.TYPE && obj.getClass() != Boolean.class) {
             if (obj.getClass() != Byte.TYPE && obj.getClass() != Byte.class) {
                 if (obj.getClass() == byte[].class) {
-                    this.f1868b.put(str, (byte[]) obj);
+                    this.f2494b.put(str, (byte[]) obj);
                     return;
                 } else if (obj.getClass() != Double.TYPE && obj.getClass() != Double.class) {
                     if (obj.getClass() != Float.TYPE && obj.getClass() != Float.class) {
@@ -78,53 +71,53 @@ public class b implements c {
                             if (obj.getClass() != Long.TYPE && obj.getClass() != Long.class) {
                                 if (obj.getClass() != Short.TYPE && obj.getClass() != Short.class) {
                                     if (obj.getClass() == String.class) {
-                                        this.f1868b.put(str, (String) obj);
+                                        this.f2494b.put(str, (String) obj);
                                         return;
                                     }
                                     return;
                                 }
-                                this.f1868b.put(str, (Short) obj);
+                                this.f2494b.put(str, (Short) obj);
                                 return;
                             }
-                            this.f1868b.put(str, (Long) obj);
+                            this.f2494b.put(str, (Long) obj);
                             return;
                         }
-                        this.f1868b.put(str, (Integer) obj);
+                        this.f2494b.put(str, (Integer) obj);
                         return;
                     }
-                    this.f1868b.put(str, (Float) obj);
+                    this.f2494b.put(str, (Float) obj);
                     return;
                 } else {
-                    this.f1868b.put(str, (Double) obj);
+                    this.f2494b.put(str, (Double) obj);
                     return;
                 }
             }
-            this.f1868b.put(str, (Byte) obj);
+            this.f2494b.put(str, (Byte) obj);
         } else {
-            this.f1868b.put(str, (Boolean) obj);
+            this.f2494b.put(str, (Boolean) obj);
         }
     }
 
     @Override // c.a.d.f.b.b.a.c.c
-    public Object c(String str, Type type) {
+    public Object b(String str, Type type) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) {
-            Object d2 = d(str);
-            if (d2 != null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, type)) == null) {
+            Object c2 = c(str);
+            if (c2 != null) {
                 c.a.d.f.b.b.a.e.c cVar = new c.a.d.f.b.b.a.e.c(type);
-                c.a.d.f.b.b.a.d.h a = c.a.d.f.b.b.a.e.g.a(d2);
-                return a != null ? a.a(cVar) : d2;
+                c.a.d.f.b.b.a.d.h a = c.a.d.f.b.b.a.e.g.a(c2);
+                return a != null ? a.a(cVar) : c2;
             }
-            return d2;
+            return c2;
         }
         return invokeLL.objValue;
     }
 
-    public Object d(String str) {
+    public Object c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             int columnIndex = this.a.getColumnIndex(str);
             Object obj = null;
             if (columnIndex <= 0 || columnIndex >= this.a.getColumnCount()) {
@@ -183,6 +176,13 @@ public class b implements c {
         return invokeL.objValue;
     }
 
+    @Override // c.a.d.f.b.b.a.c.c
+    public Set<String> getKeys() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2495c : (Set) invokeV.objValue;
+    }
+
     public b(ContentValues contentValues) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -198,7 +198,7 @@ public class b implements c {
                 return;
             }
         }
-        this.f1868b = contentValues;
-        this.f1869c = new TreeSet();
+        this.f2494b = contentValues;
+        this.f2495c = new TreeSet();
     }
 }

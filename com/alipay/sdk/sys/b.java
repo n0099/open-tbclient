@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ta.utdid2.device.UTDevice;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f31140b;
+    public static b f29544b;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
@@ -37,10 +37,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f31140b == null) {
-                f31140b = new b();
+            if (f29544b == null) {
+                f29544b = new b();
             }
-            return f31140b;
+            return f29544b;
         }
         return (b) invokeV.objValue;
     }

@@ -1,8 +1,8 @@
 package com.baidu.tieba.ala.livecard.models;
 
 import c.a.d.o.e.n;
-import c.a.t0.s.r.e2;
-import c.a.u0.e1.m1;
+import c.a.q0.r.r.e2;
+import c.a.r0.d1.c1;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,7 +21,7 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
     public String errMsg;
     public ArrayList<n> mAltList;
     public ArrayList<n> mThreadList;
-    public m1 pageInfo;
+    public c1 pageInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsPageAlaTabResponseMessage(int i2) {
@@ -56,14 +56,14 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
             this.errMsg = jSONObject.optString("errmsg");
             this.alaLiveCount = jSONObject.optInt("ala_live_count");
             JSONObject optJSONObject = jSONObject.optJSONObject("page");
-            m1 m1Var = new m1();
-            this.pageInfo = m1Var;
-            m1Var.f16769g = optJSONObject.optInt("has_more") == 1;
-            this.pageInfo.f17359c = optJSONObject.optInt("pn");
+            c1 c1Var = new c1();
+            this.pageInfo = c1Var;
+            c1Var.f15369g = optJSONObject.optInt("has_more") == 1;
+            this.pageInfo.f16773c = optJSONObject.optInt("pn");
             if (getOrginalMessage() instanceof FrsPageAlaTabRequestMessage) {
                 FrsPageAlaTabRequestMessage frsPageAlaTabRequestMessage = (FrsPageAlaTabRequestMessage) getOrginalMessage();
                 this.pageInfo.a = frsPageAlaTabRequestMessage.getForumName();
-                this.pageInfo.f17358b = frsPageAlaTabRequestMessage.getForumId();
+                this.pageInfo.f16772b = frsPageAlaTabRequestMessage.getForumId();
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
             if (optJSONArray.length() > 0) {

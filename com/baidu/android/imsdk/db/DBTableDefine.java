@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class DBTableDefine {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DB_NAME_PREFIX = "bd_imsdk_";
@@ -20,7 +20,7 @@ public class DBTableDefine {
     public static final String SQL_CREATE_TABLE_LOCALMESSAGE = "CREATE TABLE grouplocalmessage (_id INTEGER PRIMARY KEY AUTOINCREMENT, msgid LONG, sendid TEXT DEFALUT '', groupid LONG, from_uk LONG, from_buid TEXT, type INTEGER, content TEXT, time LONG, is_read INTEGER, local_url TEXT, isclicked INTEGER,device_flag INTEGER,cmd INTEGER, status INTEGER DEFAULT0, msg_key TEXT);";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class GroupInfoColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_ACTIVE_STATE = "active_state";
@@ -64,7 +64,7 @@ public class DBTableDefine {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class GroupMemberColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_AVATAR = "avatar";
@@ -95,7 +95,7 @@ public class DBTableDefine {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class GroupMessageColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_CMD = "cmd";

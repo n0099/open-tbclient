@@ -13,7 +13,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a extends c {
     public final String u;
     public d v;
@@ -22,7 +22,7 @@ public class a extends c {
     public a(c.a aVar) {
         super(aVar);
         this.u = a.class.getSimpleName();
-        com.meizu.cloud.pushsdk.c.d.a aVar2 = new com.meizu.cloud.pushsdk.c.d.a(this.f58888d, this.o);
+        com.meizu.cloud.pushsdk.c.d.a aVar2 = new com.meizu.cloud.pushsdk.c.d.a(this.f57238d, this.o);
         this.v = aVar2;
         if (aVar2.a()) {
             return;
@@ -113,7 +113,7 @@ public class a extends c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        if (com.meizu.cloud.pushsdk.c.f.e.a(this.f58888d)) {
+        if (com.meizu.cloud.pushsdk.c.f.e.a(this.f57238d)) {
             if (this.v.c() > 0) {
                 this.w = 0;
                 LinkedList<g> a = a(a(this.v.d()));
@@ -138,7 +138,7 @@ public class a extends c {
                 b(linkedList);
                 com.meizu.cloud.pushsdk.c.f.c.b(this.u, "Success Count: %s", Integer.valueOf(i2));
                 com.meizu.cloud.pushsdk.c.f.c.b(this.u, "Failure Count: %s", Integer.valueOf(i3));
-                f fVar = this.f58890f;
+                f fVar = this.f57240f;
                 if (fVar != null) {
                     if (i3 != 0) {
                         fVar.a(i2, i3);
@@ -147,7 +147,7 @@ public class a extends c {
                     }
                 }
                 if (i3 > 0 && i2 == 0) {
-                    if (com.meizu.cloud.pushsdk.c.f.e.a(this.f58888d)) {
+                    if (com.meizu.cloud.pushsdk.c.f.e.a(this.f57238d)) {
                         com.meizu.cloud.pushsdk.c.f.c.a(this.u, "Ensure collector path is valid: %s", b());
                     }
                     com.meizu.cloud.pushsdk.c.f.c.a(this.u, "Emitter loop stopping: failures.", new Object[0]);
@@ -157,7 +157,7 @@ public class a extends c {
                 if (i4 >= this.n) {
                     com.meizu.cloud.pushsdk.c.f.c.a(this.u, "Emitter loop stopping: empty limit reached.", new Object[0]);
                     this.t.compareAndSet(true, false);
-                    f fVar2 = this.f58890f;
+                    f fVar2 = this.f57240f;
                     if (fVar2 != null) {
                         fVar2.a(true);
                         return;

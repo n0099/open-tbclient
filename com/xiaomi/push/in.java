@@ -16,7 +16,7 @@ import io.flutter.plugin.common.StandardMessageCodec;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class in implements iq<in, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final iy a;
@@ -25,25 +25,25 @@ public class in implements iq<in, Object>, Serializable, Cloneable {
     public static final jg f785a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f61580b;
+    public static final iy f59930b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f61581c;
+    public static final iy f59931c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f61582d;
+    public static final iy f59932d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f61583e;
+    public static final iy f59933e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f61584f;
+    public static final iy f59934f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f61585g;
+    public static final iy f59935g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final iy f61586h;
+    public static final iy f59936h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -85,13 +85,13 @@ public class in implements iq<in, Object>, Serializable, Cloneable {
         }
         f785a = new jg("XmPushActionUnSubscription");
         a = new iy("", (byte) 11, (short) 1);
-        f61580b = new iy("", StandardMessageCodec.LIST, (short) 2);
-        f61581c = new iy("", (byte) 11, (short) 3);
-        f61582d = new iy("", (byte) 11, (short) 4);
-        f61583e = new iy("", (byte) 11, (short) 5);
-        f61584f = new iy("", (byte) 11, (short) 6);
-        f61585g = new iy("", (byte) 11, (short) 7);
-        f61586h = new iy("", (byte) 15, (short) 8);
+        f59930b = new iy("", StandardMessageCodec.LIST, (short) 2);
+        f59931c = new iy("", (byte) 11, (short) 3);
+        f59932d = new iy("", (byte) 11, (short) 4);
+        f59933e = new iy("", (byte) 11, (short) 5);
+        f59934f = new iy("", (byte) 11, (short) 6);
+        f59935g = new iy("", (byte) 11, (short) 7);
+        f59936h = new iy("", (byte) 15, (short) 8);
     }
 
     public in() {
@@ -378,37 +378,37 @@ public class in implements iq<in, Object>, Serializable, Cloneable {
                 jbVar.b();
             }
             if (this.f786a != null && b()) {
-                jbVar.a(f61580b);
+                jbVar.a(f59930b);
                 this.f786a.b(jbVar);
                 jbVar.b();
             }
             if (this.f789b != null) {
-                jbVar.a(f61581c);
+                jbVar.a(f59931c);
                 jbVar.a(this.f789b);
                 jbVar.b();
             }
             if (this.f790c != null) {
-                jbVar.a(f61582d);
+                jbVar.a(f59932d);
                 jbVar.a(this.f790c);
                 jbVar.b();
             }
             if (this.f791d != null) {
-                jbVar.a(f61583e);
+                jbVar.a(f59933e);
                 jbVar.a(this.f791d);
                 jbVar.b();
             }
             if (this.f792e != null && f()) {
-                jbVar.a(f61584f);
+                jbVar.a(f59934f);
                 jbVar.a(this.f792e);
                 jbVar.b();
             }
             if (this.f793f != null && g()) {
-                jbVar.a(f61585g);
+                jbVar.a(f59935g);
                 jbVar.a(this.f793f);
                 jbVar.b();
             }
             if (this.f788a != null && h()) {
-                jbVar.a(f61586h);
+                jbVar.a(f59936h);
                 jbVar.a(new iz((byte) 11, this.f788a.size()));
                 for (String str : this.f788a) {
                     jbVar.a(str);

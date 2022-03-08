@@ -20,7 +20,7 @@ import com.xiaomi.push.ge;
 import com.xiaomi.push.service.av;
 import java.util.Collection;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class e {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bVar)) == null) {
-            if ("9".equals(bVar.f61635g)) {
+            if ("9".equals(bVar.f59985g)) {
                 sb = new StringBuilder();
                 sb.append(bVar.f916a);
                 str = ".permission.MIMC_RECEIVE";
@@ -144,17 +144,17 @@ public class e {
 
     public void a(Context context, av.b bVar, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048579, this, context, bVar, i2) == null) || "5".equalsIgnoreCase(bVar.f61635g)) {
+        if (!(interceptable == null || interceptable.invokeLLI(1048579, this, context, bVar, i2) == null) || "5".equalsIgnoreCase(bVar.f59985g)) {
             return;
         }
         Intent intent = new Intent();
         intent.setAction("com.xiaomi.push.channel_closed");
         intent.setPackage(bVar.f916a);
-        intent.putExtra(az.s, bVar.f61635g);
+        intent.putExtra(az.s, bVar.f59985g);
         intent.putExtra("ext_reason", i2);
         intent.putExtra(az.p, bVar.f919b);
-        intent.putExtra(az.D, bVar.f61637i);
-        if (bVar.f910a == null || !"9".equals(bVar.f61635g)) {
+        intent.putExtra(az.D, bVar.f59987i);
+        if (bVar.f910a == null || !"9".equals(bVar.f59985g)) {
             a(context, intent, bVar);
             return;
         }
@@ -173,7 +173,7 @@ public class e {
     public void a(Context context, av.b bVar, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, context, bVar, str, str2) == null) {
-            if ("5".equalsIgnoreCase(bVar.f61635g)) {
+            if ("5".equalsIgnoreCase(bVar.f59985g)) {
                 com.xiaomi.channel.commonutils.logger.b.d("mipush kicked by server");
                 return;
             }
@@ -182,9 +182,9 @@ public class e {
             intent.setPackage(bVar.f916a);
             intent.putExtra("ext_kick_type", str);
             intent.putExtra("ext_kick_reason", str2);
-            intent.putExtra("ext_chid", bVar.f61635g);
+            intent.putExtra("ext_chid", bVar.f59985g);
             intent.putExtra(az.p, bVar.f919b);
-            intent.putExtra(az.D, bVar.f61637i);
+            intent.putExtra(az.D, bVar.f59987i);
             a(context, intent, bVar);
         }
     }
@@ -192,7 +192,7 @@ public class e {
     public void a(Context context, av.b bVar, boolean z, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, bVar, Boolean.valueOf(z), Integer.valueOf(i2), str}) == null) {
-            if ("5".equalsIgnoreCase(bVar.f61635g)) {
+            if ("5".equalsIgnoreCase(bVar.f59985g)) {
                 this.a.a(context, bVar, z, i2, str);
                 return;
             }
@@ -206,9 +206,9 @@ public class e {
             if (!TextUtils.isEmpty(str)) {
                 intent.putExtra("ext_reason_msg", str);
             }
-            intent.putExtra("ext_chid", bVar.f61635g);
+            intent.putExtra("ext_chid", bVar.f59985g);
             intent.putExtra(az.p, bVar.f919b);
-            intent.putExtra(az.D, bVar.f61637i);
+            intent.putExtra(az.D, bVar.f59987i);
             a(context, intent, bVar);
         }
     }
@@ -227,9 +227,9 @@ public class e {
                 intent.setAction("com.xiaomi.push.new_msg");
                 intent.setPackage(str2);
                 intent.putExtra("ext_chid", str);
-                intent.putExtra("ext_raw_packet", faVar.m370a(a.f61636h));
-                intent.putExtra(az.D, a.f61637i);
-                intent.putExtra(az.w, a.f61636h);
+                intent.putExtra("ext_raw_packet", faVar.m370a(a.f59986h));
+                intent.putExtra(az.D, a.f59987i);
+                intent.putExtra(az.w, a.f59986h);
                 if (a.f910a != null) {
                     try {
                         a.f910a.send(Message.obtain(null, 17, intent));
@@ -279,8 +279,8 @@ public class e {
                 intent.setPackage(str4);
                 intent.putExtra("ext_chid", str);
                 intent.putExtra("ext_packet", gcVar.a());
-                intent.putExtra(az.D, a.f61637i);
-                intent.putExtra(az.w, a.f61636h);
+                intent.putExtra(az.D, a.f59987i);
+                intent.putExtra(az.w, a.f59986h);
                 a(xMPushService, intent, a);
                 return;
             }

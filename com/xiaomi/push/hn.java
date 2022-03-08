@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.BitSet;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class hn implements iq<hn, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final iy a;
@@ -22,10 +22,10 @@ public class hn implements iq<hn, Object>, Serializable, Cloneable {
     public static final jg f503a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f61412b;
+    public static final iy f59762b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f61413c;
+    public static final iy f59763c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -55,8 +55,8 @@ public class hn implements iq<hn, Object>, Serializable, Cloneable {
         }
         f503a = new jg("DataCollectionItem");
         a = new iy("", (byte) 10, (short) 1);
-        f61412b = new iy("", (byte) 8, (short) 2);
-        f61413c = new iy("", (byte) 11, (short) 3);
+        f59762b = new iy("", (byte) 8, (short) 2);
+        f59763c = new iy("", (byte) 11, (short) 3);
     }
 
     public hn() {
@@ -256,12 +256,12 @@ public class hn implements iq<hn, Object>, Serializable, Cloneable {
             jbVar.a(this.f504a);
             jbVar.b();
             if (this.f505a != null) {
-                jbVar.a(f61412b);
+                jbVar.a(f59762b);
                 jbVar.a(this.f505a.a());
                 jbVar.b();
             }
             if (this.f506a != null) {
-                jbVar.a(f61413c);
+                jbVar.a(f59763c);
                 jbVar.a(this.f506a);
                 jbVar.b();
             }

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.pool.FactoryPools;
 import com.bumptech.glide.util.pool.StateVerifier;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class LockedResource<Z> implements Resource<Z>, FactoryPools.Poolable {
     public static /* synthetic */ Interceptable $ic;
     public static final Pools.Pool<LockedResource<?>> POOL;

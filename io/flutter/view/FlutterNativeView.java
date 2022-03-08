@@ -20,7 +20,7 @@ import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
 import io.flutter.plugin.common.BinaryMessenger;
 import java.nio.ByteBuffer;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class FlutterNativeView implements BinaryMessenger {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterNativeView";
@@ -33,7 +33,7 @@ public class FlutterNativeView implements BinaryMessenger {
     public FlutterView mFlutterView;
     public final FlutterPluginRegistry mPluginRegistry;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public final class EngineLifecycleListenerImpl implements FlutterEngine.EngineLifecycleListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

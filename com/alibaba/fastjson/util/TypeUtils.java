@@ -29,6 +29,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.vivo.push.PushClientConstants;
 import java.io.InputStream;
 import java.io.Reader;
@@ -85,7 +86,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class TypeUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern NUMBER_WITH_TRAILING_ZEROS_PATTERN;
@@ -1212,7 +1213,7 @@ public class TypeUtils {
                 char charAt = str.charAt(i2);
                 if (charAt != '_' && charAt != '-') {
                     if (charAt >= 'A' && charAt <= 'Z') {
-                        charAt = (char) (charAt + ' ');
+                        charAt = (char) (charAt + WebvttCueParser.CHAR_SPACE);
                     }
                     j2 = (j2 ^ charAt) * 1099511628211L;
                 }
@@ -1230,7 +1231,7 @@ public class TypeUtils {
             for (int i2 = 0; i2 < str.length(); i2++) {
                 char charAt = str.charAt(i2);
                 if (charAt >= 'A' && charAt <= 'Z') {
-                    charAt = (char) (charAt + ' ');
+                    charAt = (char) (charAt + WebvttCueParser.CHAR_SPACE);
                 }
                 j2 = (j2 ^ charAt) * 1099511628211L;
             }

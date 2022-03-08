@@ -12,39 +12,36 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.s0.y.d;
-import c.a.s0.y.e;
-import c.a.s0.y.f;
-import c.a.s0.y.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.videoplayer.widget.MediaController;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public final class MediaFastForward extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f40251e;
+    public View f38655e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f40252f;
+    public ImageView f38656f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f40253g;
+    public TextView f38657g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ProgressBar f40254h;
+    public ProgressBar f38658h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f40255i;
+    public int f38659i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f40256j;
+    public int f38660j;
     public int k;
     public int l;
 
@@ -78,7 +75,7 @@ public final class MediaFastForward extends FrameLayout {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40256j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38660j : invokeV.intValue;
     }
 
     public int c() {
@@ -91,22 +88,22 @@ public final class MediaFastForward extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             Resources resources = getResources();
-            View inflate = LayoutInflater.from(context).inflate(g.swanapp_video_slide_horizontal, (ViewGroup) this, true);
-            this.f40251e = inflate;
-            this.f40252f = (ImageView) inflate.findViewById(f.icon_video_slide_horizontal);
-            this.f40253g = (TextView) this.f40251e.findViewById(f.label_video_slide_horizontal);
-            this.f40254h = (ProgressBar) this.f40251e.findViewById(f.progress_video_slide_horizontal);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(resources.getDimensionPixelSize(d.swanapp_video_fast_forward_width), resources.getDimensionPixelSize(d.swanapp_video_fast_forward_height));
+            View inflate = LayoutInflater.from(context).inflate(R.layout.swanapp_video_slide_horizontal, (ViewGroup) this, true);
+            this.f38655e = inflate;
+            this.f38656f = (ImageView) inflate.findViewById(R.id.icon_video_slide_horizontal);
+            this.f38657g = (TextView) this.f38655e.findViewById(R.id.label_video_slide_horizontal);
+            this.f38658h = (ProgressBar) this.f38655e.findViewById(R.id.progress_video_slide_horizontal);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(resources.getDimensionPixelSize(R.dimen.swanapp_video_fast_forward_width), resources.getDimensionPixelSize(R.dimen.swanapp_video_fast_forward_height));
             layoutParams.gravity = 17;
-            this.f40251e.setBackgroundResource(e.swanapp_video_icon_background);
-            this.f40251e.setLayoutParams(layoutParams);
+            this.f38655e.setBackgroundResource(R.drawable.swanapp_video_icon_background);
+            this.f38655e.setLayoutParams(layoutParams);
         }
     }
 
     public void e(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-            this.f40256j = i2;
+            this.f38660j = i2;
             this.l = i3;
         }
     }
@@ -114,10 +111,10 @@ public final class MediaFastForward extends FrameLayout {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f40252f.setImageResource(this.f40255i);
-            this.f40253g.setText(String.format("%s / %s", MediaController.formatTimeText(this.k), MediaController.formatTimeText(this.l)));
-            this.f40254h.setProgress(this.k);
-            this.f40254h.setMax(this.l);
+            this.f38656f.setImageResource(this.f38659i);
+            this.f38657g.setText(String.format("%s / %s", MediaController.formatTimeText(this.k), MediaController.formatTimeText(this.l)));
+            this.f38658h.setProgress(this.k);
+            this.f38658h.setMax(this.l);
             setVisibility(0);
         }
     }
@@ -125,7 +122,7 @@ public final class MediaFastForward extends FrameLayout {
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f40255i = i2;
+            this.f38659i = i2;
         }
     }
 

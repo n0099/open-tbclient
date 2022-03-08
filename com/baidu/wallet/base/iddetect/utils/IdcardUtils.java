@@ -20,7 +20,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public final class IdcardUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CHINA_ID_MAX_LENGTH = 18;

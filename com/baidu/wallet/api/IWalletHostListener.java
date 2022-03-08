@@ -1,5 +1,5 @@
 package com.baidu.wallet.api;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public interface IWalletHostListener {
     void login(ILoginBackListener iLoginBackListener);
 

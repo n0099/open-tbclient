@@ -3,7 +3,7 @@ package com.kwad.sdk.c;
 import android.content.Context;
 import com.kwad.sdk.utils.q;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class b {
     public final Context a;
 

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +19,6 @@ import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunNativeAd;
 import com.fun.ad.sdk.FunNativeAd2;
 import com.fun.ad.sdk.FunNativeAdInflater;
-import com.fun.ad.sdk.channel.jy.R;
 import com.fun.ad.sdk.channel.model.jy.JYNativeAdView;
 import com.fun.ad.sdk.internal.api.BaseNativeAd2;
 import com.fun.ad.sdk.internal.api.ReporterPidLoader;
@@ -29,28 +29,28 @@ import com.win.opensdk.PBMediaView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class v extends ReporterPidLoader<f> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final HashMap<f, b> f28549h;
+    public final HashMap<f, b> f28387h;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class a implements p {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f28550b;
+        public boolean f28388b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ f f28551c;
+        public final /* synthetic */ f f28389c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ v f28552d;
+        public final /* synthetic */ v f28390d;
 
         public a(v vVar, f fVar) {
             Interceptable interceptable = $ic;
@@ -67,20 +67,20 @@ public class v extends ReporterPidLoader<f> {
                     return;
                 }
             }
-            this.f28552d = vVar;
-            this.f28551c = fVar;
+            this.f28390d = vVar;
+            this.f28389c = fVar;
         }
 
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 LogPrinter.d();
-                this.f28552d.onAdClicked(this.f28550b);
-                this.f28550b = true;
-                synchronized (this.f28552d.f28549h) {
-                    b bVar = this.f28552d.f28549h.get(this.f28551c);
+                this.f28390d.onAdClicked(this.f28388b);
+                this.f28388b = true;
+                synchronized (this.f28390d.f28387h) {
+                    b bVar = this.f28390d.f28387h.get(this.f28389c);
                     if (bVar != null) {
-                        bVar.f28554c.onAdClicked(bVar.a, this.f28552d.mPid.ssp.type, this.f28552d.mPid.pid);
+                        bVar.f28392c.onAdClicked(bVar.a, this.f28390d.mPid.ssp.type, this.f28390d.mPid.pid);
                     }
                 }
             }
@@ -90,7 +90,7 @@ public class v extends ReporterPidLoader<f> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2) == null) {
                 LogPrinter.e("onFail code: " + i2 + ", message: " + str, new Object[0]);
-                this.f28552d.onError(i2, str);
+                this.f28390d.onError(i2, str);
             }
         }
 
@@ -98,22 +98,22 @@ public class v extends ReporterPidLoader<f> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 LogPrinter.d();
-                this.f28552d.onAdLoaded((v) this.f28551c);
+                this.f28390d.onAdLoaded((v) this.f28389c);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f28553b;
+        public boolean f28391b;
 
         /* renamed from: c  reason: collision with root package name */
-        public FunAdInteractionListener f28554c;
+        public FunAdInteractionListener f28392c;
 
         public b(String str) {
             Interceptable interceptable = $ic;
@@ -153,7 +153,7 @@ public class v extends ReporterPidLoader<f> {
                 return;
             }
         }
-        this.f28549h = new HashMap<>();
+        this.f28387h = new HashMap<>();
     }
 
     public JYNativeAdView a(f fVar) {
@@ -162,11 +162,11 @@ public class v extends ReporterPidLoader<f> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) {
             JYNativeAdView jYNativeAdView = (JYNativeAdView) LayoutInflater.from(FunAdSdk.getAppContext()).inflate(R.layout.fun_jy_ad_native_view, (ViewGroup) null, false);
             jYNativeAdView.a.setText(fVar.f());
-            jYNativeAdView.f54319d.setText(fVar.h());
-            GlideHelper.get().load(jYNativeAdView.getContext(), fVar.j(), jYNativeAdView.f54320e);
-            jYNativeAdView.f54321f.setText(fVar.g());
-            jYNativeAdView.f54322g = (fVar.l() * 1.0f) / (fVar.k() * 1.0f);
-            fVar.c(jYNativeAdView, jYNativeAdView.f54318c);
+            jYNativeAdView.f52805d.setText(fVar.h());
+            GlideHelper.get().load(jYNativeAdView.getContext(), fVar.j(), jYNativeAdView.f52806e);
+            jYNativeAdView.f52807f.setText(fVar.g());
+            jYNativeAdView.f52808g = (fVar.l() * 1.0f) / (fVar.k() * 1.0f);
+            fVar.c(jYNativeAdView, jYNativeAdView.f52804c);
             return jYNativeAdView;
         }
         return (JYNativeAdView) invokeL.objValue;
@@ -184,15 +184,15 @@ public class v extends ReporterPidLoader<f> {
     public final void d(f fVar, String str, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, fVar, str, funAdInteractionListener) == null) {
-            synchronized (this.f28549h) {
-                b bVar = this.f28549h.get(fVar);
+            synchronized (this.f28387h) {
+                b bVar = this.f28387h.get(fVar);
                 if (bVar == null) {
                     bVar = new b(str);
-                    this.f28549h.put(fVar, bVar);
+                    this.f28387h.put(fVar, bVar);
                 }
-                onShowStart(bVar.f28553b);
-                bVar.f28553b = true;
-                bVar.f28554c = funAdInteractionListener;
+                onShowStart(bVar.f28391b);
+                bVar.f28391b = true;
+                bVar.f28392c = funAdInteractionListener;
             }
         }
     }
@@ -205,8 +205,8 @@ public class v extends ReporterPidLoader<f> {
             return;
         }
         fVar.a();
-        synchronized (this.f28549h) {
-            this.f28549h.remove(fVar);
+        synchronized (this.f28387h) {
+            this.f28387h.remove(fVar);
         }
     }
 

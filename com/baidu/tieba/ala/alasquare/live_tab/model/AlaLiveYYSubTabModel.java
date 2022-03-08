@@ -3,8 +3,8 @@ package com.baidu.tieba.ala.alasquare.live_tab.model;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.l;
 import c.a.d.o.e.n;
-import c.a.u0.a0.f.c.e.j;
-import c.a.u0.a0.f.c.g.d;
+import c.a.r0.a0.f.c.e.j;
+import c.a.r0.a0.f.c.g.d;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -24,28 +24,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class AlaLiveYYSubTabModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f42180e;
+    public TbPageContext f40583e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f42181f;
+    public boolean f40584f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f42182g;
+    public boolean f40585g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdUniqueId f42183h;
+    public BdUniqueId f40586h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d f42184i;
+    public d f40587i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f42185j;
+    public long f40588j;
     public int k;
     public String l;
     public String m;
@@ -53,7 +53,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
     public b o;
     public HttpMessageListener p;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,36 +84,36 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021141 && (httpResponsedMessage instanceof AlaTabLiveResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.a.f42183h) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021141 && (httpResponsedMessage instanceof AlaTabLiveResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.a.f40586h) {
                 AlaTabLiveResponsedMessage alaTabLiveResponsedMessage = (AlaTabLiveResponsedMessage) httpResponsedMessage;
                 if (alaTabLiveResponsedMessage.getError() != 0 || !alaTabLiveResponsedMessage.isSuccess()) {
                     if (this.a.o != null) {
-                        this.a.o.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.f42182g);
+                        this.a.o.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.f40585g);
                     }
                 } else {
                     j jVar = alaTabLiveResponsedMessage.tabAllLiveInfo;
-                    if (this.a.f42182g) {
-                        this.a.f42184i.a(jVar);
+                    if (this.a.f40585g) {
+                        this.a.f40587i.a(jVar);
                     } else {
                         AlaLiveTabFragment.addRefreshNewCountYYTab(this.a.k);
-                        if (this.a.f42184i != null) {
-                            this.a.f42184i.b();
+                        if (this.a.f40587i != null) {
+                            this.a.f40587i.b();
                         }
                         AlaLiveYYSubTabModel alaLiveYYSubTabModel = this.a;
-                        alaLiveYYSubTabModel.f42184i = new d(jVar, alaLiveYYSubTabModel.l, this.a.m);
+                        alaLiveYYSubTabModel.f40587i = new d(jVar, alaLiveYYSubTabModel.l, this.a.m);
                     }
                     AlaLiveYYSubTabModel alaLiveYYSubTabModel2 = this.a;
-                    alaLiveYYSubTabModel2.f42181f = alaLiveYYSubTabModel2.f42184i.f();
+                    alaLiveYYSubTabModel2.f40584f = alaLiveYYSubTabModel2.f40587i.f();
                     if (this.a.o != null) {
-                        this.a.o.a(this.a.f42181f, this.a.f42184i.d());
+                        this.a.o.a(this.a.f40584f, this.a.f40587i.d());
                     }
                 }
-                this.a.f42182g = false;
+                this.a.f40585g = false;
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(boolean z, List<n> list);
 
@@ -137,9 +137,9 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         }
         this.n = 60;
         this.p = new a(this, AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO);
-        this.f42180e = tbPageContext;
+        this.f40583e = tbPageContext;
         this.o = bVar;
-        this.f42183h = BdUniqueId.gen();
+        this.f40586h = BdUniqueId.gen();
         this.k = i2;
     }
 
@@ -161,13 +161,13 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
                 }
             }
             httpMessage.addParam("network", str);
-            httpMessage.addParam("ua_str", c.a.d.f.p.n.k(this.f42180e.getPageActivity()) + "_" + c.a.d.f.p.n.i(this.f42180e.getPageActivity()) + "_android_" + TbConfig.getVersion());
-            httpMessage.addParam("session_id", this.f42185j);
+            httpMessage.addParam("ua_str", c.a.d.f.p.n.k(this.f40583e.getPageActivity()) + "_" + c.a.d.f.p.n.i(this.f40583e.getPageActivity()) + "_android_" + TbConfig.getVersion());
+            httpMessage.addParam("session_id", this.f40588j);
             httpMessage.addParam("refresh_type", i2);
             httpMessage.addParam("big_refresh_count", i3);
             httpMessage.addParam("fid", this.l);
             httpMessage.addParam("fname", this.m);
-            httpMessage.setTag(this.f42183h);
+            httpMessage.setTag(this.f40586h);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
@@ -184,7 +184,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            d dVar = this.f42184i;
+            d dVar = this.f40587i;
             return (dVar == null || ListUtils.isEmpty(dVar.d())) ? false : true;
         }
         return invokeV.booleanValue;
@@ -219,12 +219,12 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
 
     public void loadMore() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.f42181f && !this.f42182g) {
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.f40584f && !this.f40585g) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.f42185j >= this.n * 30 * 1000) {
-                this.f42185j = currentTimeMillis;
+            if (currentTimeMillis - this.f40588j >= this.n * 30 * 1000) {
+                this.f40588j = currentTimeMillis;
             }
-            this.f42182g = true;
+            this.f40585g = true;
             H(1, AlaLiveTabFragment.getRefreshNewCountYYTab(this.k) - 1);
         }
     }
@@ -239,8 +239,8 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
     public void refresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f42185j = System.currentTimeMillis();
-            this.f42182g = false;
+            this.f40588j = System.currentTimeMillis();
+            this.f40585g = false;
             H(0, AlaLiveTabFragment.getRefreshNewCountYYTab(this.k));
         }
     }

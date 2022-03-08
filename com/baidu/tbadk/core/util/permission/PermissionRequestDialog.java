@@ -6,13 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import c.a.d.a.f;
-import c.a.t0.s.t.a;
-import c.a.u0.a4.d;
-import c.a.u0.a4.g;
-import c.a.u0.a4.h;
-import c.a.u0.a4.j;
+import c.a.q0.r.t.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kuaishou.weapon.un.s;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class PermissionRequestDialog extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +29,7 @@ public class PermissionRequestDialog extends a {
     public ViewGroup mRootView;
     public TextView mTitleView;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public interface OnClickCallback {
         void onClickClose(Activity activity, String str);
 
@@ -67,22 +64,22 @@ public class PermissionRequestDialog extends a {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(h.dialog_permission_request, (ViewGroup) null);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.dialog_permission_request, (ViewGroup) null);
             this.mRootView = viewGroup;
-            this.mTitleView = (TextView) viewGroup.findViewById(g.tv_permission_request_title);
-            this.mDetailView = (TextView) this.mRootView.findViewById(g.tv_permission_request_detail);
-            TextView textView = (TextView) this.mRootView.findViewById(g.tv_permission_request_close);
+            this.mTitleView = (TextView) viewGroup.findViewById(R.id.tv_permission_request_title);
+            this.mDetailView = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_detail);
+            TextView textView = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_close);
             this.mCloseView = textView;
-            textView.setText(j.close);
-            TextView textView2 = (TextView) this.mRootView.findViewById(g.tv_permission_request_continue);
+            textView.setText(R.string.close);
+            TextView textView2 = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_continue);
             this.mContinueView = textView2;
-            textView2.setText(j.go_on);
+            textView2.setText(R.string.go_on);
             onChangeSkinType();
             setContentView(this.mRootView);
         }
     }
 
-    @Override // c.a.t0.s.t.a
+    @Override // c.a.q0.r.t.a
     public a create(f<?> fVar) {
         InterceptResult invokeL;
         char c2;
@@ -93,7 +90,7 @@ public class PermissionRequestDialog extends a {
             String str = this.mRequestPermission;
             int hashCode = str.hashCode();
             if (hashCode == -63024214) {
-                if (str.equals(s.f55459h)) {
+                if (str.equals(s.f53809h)) {
                     c2 = 2;
                 }
                 c2 = 65535;
@@ -110,16 +107,16 @@ public class PermissionRequestDialog extends a {
             }
             String str2 = null;
             if (c2 == 0) {
-                str2 = fVar.getString(j.request_permission_title_camera);
-                string = fVar.getString(j.request_permission_detail_camera);
+                str2 = fVar.getString(R.string.request_permission_title_camera);
+                string = fVar.getString(R.string.request_permission_detail_camera);
             } else if (c2 == 1) {
-                str2 = fVar.getString(j.request_permission_title_record_audio);
-                string = fVar.getString(j.request_permission_detail_record_audio);
+                str2 = fVar.getString(R.string.request_permission_title_record_audio);
+                string = fVar.getString(R.string.request_permission_detail_record_audio);
             } else if (c2 != 2) {
                 string = null;
             } else {
-                str2 = fVar.getString(j.request_permission_title_location);
-                string = fVar.getString(j.request_permission_detail_location);
+                str2 = fVar.getString(R.string.request_permission_title_location);
+                string = fVar.getString(R.string.request_permission_detail_location);
             }
             this.mTitleView.setText(str2);
             this.mDetailView.setText(string);
@@ -195,11 +192,11 @@ public class PermissionRequestDialog extends a {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundResource(this.mRootView, c.a.u0.a4.f.bg_permission_request_dialog);
-            SkinManager.setViewTextColor(this.mTitleView, d.CAM_X0105);
-            SkinManager.setViewTextColor(this.mDetailView, d.CAM_X0107);
-            SkinManager.setViewTextColorSelector(this.mCloseView, d.CAM_X0105, d.cp_cont_b_alpha50);
-            SkinManager.setViewTextColorSelector(this.mContinueView, d.CAM_X0302, d.cp_link_tip_a_alpha50);
+            SkinManager.setBackgroundResource(this.mRootView, R.drawable.bg_permission_request_dialog);
+            SkinManager.setViewTextColor(this.mTitleView, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.mDetailView, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColorSelector(this.mCloseView, R.color.CAM_X0105, R.color.cp_cont_b_alpha50);
+            SkinManager.setViewTextColorSelector(this.mContinueView, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50);
         }
     }
 

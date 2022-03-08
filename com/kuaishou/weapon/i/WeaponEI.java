@@ -2,7 +2,7 @@ package com.kuaishou.weapon.i;
 
 import android.location.Location;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface WeaponEI {
     String getA();
 

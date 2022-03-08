@@ -5,23 +5,23 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTImage;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.ad.sdk.channel.csj.R;
 import com.fun.ad.sdk.internal.api.utils.GlideHelper;
 import com.fun.module.csj.e0;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class CSJNativeAdVerticalImgView extends e0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f54302f;
+    public ImageView f52788f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CSJNativeAdVerticalImgView(Context context) {
@@ -95,7 +95,7 @@ public final class CSJNativeAdVerticalImgView extends e0 {
             if (imageList == null || imageList.isEmpty() || (tTImage = imageList.get(0)) == null || !tTImage.isValid()) {
                 return;
             }
-            GlideHelper.get().load(getContext(), tTImage.getImageUrl(), this.f54302f);
+            GlideHelper.get().load(getContext(), tTImage.getImageUrl(), this.f52788f);
         }
     }
 
@@ -104,7 +104,7 @@ public final class CSJNativeAdVerticalImgView extends e0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f54302f = (ImageView) findViewById(R.id.ad_img);
+            this.f52788f = (ImageView) findViewById(R.id.ad_img);
         }
     }
 }

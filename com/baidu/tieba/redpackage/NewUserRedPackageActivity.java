@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.l.d;
 import c.a.d.f.p.n;
-import c.a.t0.a.t;
+import c.a.q0.a.s;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
@@ -25,24 +25,24 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class NewUserRedPackageActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView mBgImage;
     public ImageView mCloseBtnImage;
     public NewUserRedPackageData mData;
-    public t mGetMoneyModel;
+    public s mGetMoneyModel;
     public View.OnClickListener mOnClickListener;
     public RoundRelativeLayout mRoundCornerLayout;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewUserRedPackageActivity f47912e;
+        public final /* synthetic */ NewUserRedPackageActivity f46328e;
 
         public a(NewUserRedPackageActivity newUserRedPackageActivity) {
             Interceptable interceptable = $ic;
@@ -59,31 +59,31 @@ public class NewUserRedPackageActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f47912e = newUserRedPackageActivity;
+            this.f46328e = newUserRedPackageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view.getId() != this.f47912e.mCloseBtnImage.getId()) {
-                    if (view.getId() == this.f47912e.mBgImage.getId()) {
+                if (view.getId() != this.f46328e.mCloseBtnImage.getId()) {
+                    if (view.getId() == this.f46328e.mBgImage.getId()) {
                         TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 2));
                         if (TbadkCoreApplication.isLogin()) {
-                            if (this.f47912e.mData != null) {
-                                UrlManager.getInstance().dealOneLink(this.f47912e.getPageContext(), new String[]{this.f47912e.mData.clickUrl});
-                                this.f47912e.finish();
+                            if (this.f46328e.mData != null) {
+                                UrlManager.getInstance().dealOneLink(this.f46328e.getPageContext(), new String[]{this.f46328e.mData.clickUrl});
+                                this.f46328e.finish();
                                 return;
                             }
                             return;
                         }
-                        this.f47912e.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.f47912e.getActivity(), true, 25046)));
+                        this.f46328e.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.f46328e.getActivity(), true, 25046)));
                         return;
                     }
                     return;
                 }
                 TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 3));
-                this.f47912e.finish();
+                this.f46328e.finish();
             }
         }
     }
@@ -173,7 +173,7 @@ public class NewUserRedPackageActivity extends BaseActivity {
             this.mCloseBtnImage.setOnClickListener(this.mOnClickListener);
             setData();
             TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 1));
-            this.mGetMoneyModel = new t();
+            this.mGetMoneyModel = new s();
         }
     }
 }

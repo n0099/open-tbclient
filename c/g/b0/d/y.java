@@ -3,22 +3,22 @@ package c.g.b0.d;
 import android.text.TextUtils;
 import android.widget.Button;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.channel.ks.R;
 import com.kwad.sdk.api.KsAppDownloadListener;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class y implements KsAppDownloadListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f28602e;
+    public Button f28440e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f28603f;
+    public String f28441f;
 
     public y(String str, Button button) {
         Interceptable interceptable = $ic;
@@ -35,18 +35,18 @@ public class y implements KsAppDownloadListener {
                 return;
             }
         }
-        this.f28603f = str;
-        this.f28602e = button;
+        this.f28441f = str;
+        this.f28440e = button;
     }
 
     @Override // com.kwad.sdk.api.KsAppDownloadListener
     public void onDownloadFailed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (TextUtils.isEmpty(this.f28603f)) {
-                this.f28602e.setText(R.string.fun_ad_interaction_type_download);
+            if (TextUtils.isEmpty(this.f28441f)) {
+                this.f28440e.setText(R.string.fun_ad_interaction_type_download);
             } else {
-                this.f28602e.setText(this.f28603f);
+                this.f28440e.setText(this.f28441f);
             }
         }
     }
@@ -55,7 +55,7 @@ public class y implements KsAppDownloadListener {
     public void onDownloadFinished() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f28602e.setText(R.string.fun_ad_interaction_type_install);
+            this.f28440e.setText(R.string.fun_ad_interaction_type_install);
         }
     }
 
@@ -70,10 +70,10 @@ public class y implements KsAppDownloadListener {
     public void onIdle() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (TextUtils.isEmpty(this.f28603f)) {
-                this.f28602e.setText(R.string.fun_ad_interaction_type_download);
+            if (TextUtils.isEmpty(this.f28441f)) {
+                this.f28440e.setText(R.string.fun_ad_interaction_type_download);
             } else {
-                this.f28602e.setText(this.f28603f);
+                this.f28440e.setText(this.f28441f);
             }
         }
     }
@@ -82,7 +82,7 @@ public class y implements KsAppDownloadListener {
     public void onInstalled() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f28602e.setText(R.string.fun_ad_interaction_type_open);
+            this.f28440e.setText(R.string.fun_ad_interaction_type_open);
         }
     }
 
@@ -90,7 +90,7 @@ public class y implements KsAppDownloadListener {
     public void onProgressUpdate(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            Button button = this.f28602e;
+            Button button = this.f28440e;
             button.setText(button.getContext().getResources().getString(R.string.fun_ad_interaction_type_downloading, String.format("%s/100", Integer.valueOf(i2))));
         }
     }

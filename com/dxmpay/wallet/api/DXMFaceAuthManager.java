@@ -3,7 +3,6 @@ package com.dxmpay.wallet.api;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.f.a.d.a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,6 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.duxiaoman.dxmpay.statistics.StatApi;
 import com.dxmpay.apollon.armor.SecurePay;
+import com.dxmpay.apollon.heartbeat.a;
 import com.dxmpay.apollon.utils.ChannelUtils;
 import com.dxmpay.apollon.utils.SharedPreferencesUtils;
 import com.dxmpay.wallet.core.DebugConfig;
@@ -20,12 +20,12 @@ import com.dxmpay.wallet.core.beans.BeanConstants;
 import com.dxmpay.wallet.core.domain.DomainConfig;
 import com.dxmpay.wallet.statistics.impl.SensorsSyncHttpImpl;
 import com.dxmpay.wallet.statistics.impl.StatConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class DXMFaceAuthManager implements IFaceAuthAPI {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final DXMFaceAuthManager instance;
@@ -74,14 +74,14 @@ public class DXMFaceAuthManager implements IFaceAuthAPI {
             if (DebugConfig.getInstance().isOnline()) {
                 DomainConfig.getInstance().setStrategy(DomainConfig.DomainStrategyType.ONLINE, (String) SharedPreferencesUtils.getParam(context, BeanConstants.DOMAIN_CONFIG_NAME_ONLINE, "wallet_sdk_domain_config_key", ""));
                 if (((Boolean) SharedPreferencesUtils.getParam(context, BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_ONLINE, BeanConstants.DOMAIN_CHANGE_SWITCH_KEY, Boolean.FALSE)).booleanValue()) {
-                    a.i().h(true);
+                    a.b().a(true);
                     return;
                 }
                 return;
             }
             DomainConfig.getInstance().setStrategy(DomainConfig.DomainStrategyType.QA, (String) SharedPreferencesUtils.getParam(context, BeanConstants.DOMAIN_CONFIG_NAME_QA, "wallet_sdk_domain_config_key", ""));
             if (((Boolean) SharedPreferencesUtils.getParam(context, BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_QA, BeanConstants.DOMAIN_CHANGE_SWITCH_KEY, Boolean.FALSE)).booleanValue()) {
-                a.i().h(true);
+                a.b().a(true);
             }
         }
     }

@@ -27,14 +27,14 @@ import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static final String a = aq.a(KsAdSDKImpl.get().getContext()) + "/downloadFileSync/.temp";
 
     /* renamed from: b  reason: collision with root package name */
-    public static ExecutorService f55990b = com.kwad.sdk.core.i.b.i();
+    public static ExecutorService f54340b = com.kwad.sdk.core.i.b.i();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class a implements c {
         public final OutputStream a;
 
@@ -61,12 +61,12 @@ public class d {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         boolean a(int i2, int i3, Object obj);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface c extends Closeable {
         void a(int i2, Map<String, List<String>> map);
 

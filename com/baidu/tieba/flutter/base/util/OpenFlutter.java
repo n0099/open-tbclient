@@ -8,12 +8,12 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.e;
-import c.a.t0.a.g;
-import c.a.t0.b.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
 import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
@@ -45,7 +45,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class OpenFlutter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTIVITY_CONCERN_FORUM = "ConcernForumPage";
@@ -133,7 +133,7 @@ public class OpenFlutter {
                 }
                 str = ACTIVITY_FANS;
             } else if (intentConfig instanceof ForumDetailActivityConfig) {
-                str = d.u() ? ACTIVITY_FORUM_DETAIL_NEW : ACTIVITY_FORUM_DETAIL;
+                str = UbsABTestHelper.isFrsModifyABTestA() ? ACTIVITY_FORUM_DETAIL_NEW : ACTIVITY_FORUM_DETAIL;
             } else if (intentConfig instanceof PersonBarActivityConfig) {
                 str = ACTIVITY_CONCERN_FORUM;
             } else if (!(intentConfig instanceof PersonPolymericActivityConfig) && !(intentConfig instanceof PersonInfoActivityConfig)) {
@@ -169,7 +169,7 @@ public class OpenFlutter {
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921521, TbPageExtraHelper.m()));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921521, TbPageExtraHelper.getPrePageKey()));
                         }
                     }
                 }, 100L);
@@ -320,8 +320,8 @@ public class OpenFlutter {
         if (interceptable == null || interceptable.invokeLLL(65542, null, str, hashMap, uri) == null) {
             if (ACTIVITY_PERSON_CENTER.equals(str)) {
                 String uri2 = uri.toString();
-                if (g.c(uri)) {
-                    g.b().i(uri, new g.b(hashMap) { // from class: com.baidu.tieba.flutter.base.util.OpenFlutter.1
+                if (BdUniDispatchSchemeController.isUniScheme(uri)) {
+                    BdUniDispatchSchemeController.getInstance().parseUserCenterScheme(uri, new BdUniDispatchSchemeController.b(hashMap) { // from class: com.baidu.tieba.flutter.base.util.OpenFlutter.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ HashMap val$params;
@@ -344,18 +344,18 @@ public class OpenFlutter {
                             this.val$params = hashMap;
                         }
 
-                        @Override // c.a.t0.a.g.b
+                        @Override // com.baidu.tbadk.BdToken.BdUniDispatchSchemeController.b
                         public void onCallBack(HashMap<String, Object> hashMap2) {
                             Interceptable interceptable2 = $ic;
                             if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, hashMap2) == null) || hashMap2 == null) {
                                 return;
                             }
-                            Boolean bool = (Boolean) hashMap2.get(g.b0);
+                            Boolean bool = (Boolean) hashMap2.get(BdUniDispatchSchemeController.PARAM_USE_MAIN_STATE);
                             if (bool != null && bool.booleanValue()) {
                                 this.val$params.put("portrait", TbadkCoreApplication.getCurrentPortrait());
                             }
-                            if (hashMap2.get(g.z) instanceof String) {
-                                String str2 = (String) hashMap2.get(g.z);
+                            if (hashMap2.get(BdUniDispatchSchemeController.PARAM_PORTRAIT) instanceof String) {
+                                String str2 = (String) hashMap2.get(BdUniDispatchSchemeController.PARAM_PORTRAIT);
                                 if (StringUtils.isNull(str2)) {
                                     return;
                                 }
@@ -400,8 +400,8 @@ public class OpenFlutter {
                         }
                     }
                 }
-            } else if (ACTIVITY_FORUM_SQUARE_PAGE.equals(str) && g.c(uri)) {
-                g.b().d(uri, new g.b(hashMap) { // from class: com.baidu.tieba.flutter.base.util.OpenFlutter.2
+            } else if (ACTIVITY_FORUM_SQUARE_PAGE.equals(str) && BdUniDispatchSchemeController.isUniScheme(uri)) {
+                BdUniDispatchSchemeController.getInstance().parseForumSquareScheme(uri, new BdUniDispatchSchemeController.b(hashMap) { // from class: com.baidu.tieba.flutter.base.util.OpenFlutter.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ HashMap val$params;
@@ -424,13 +424,13 @@ public class OpenFlutter {
                         this.val$params = hashMap;
                     }
 
-                    @Override // c.a.t0.a.g.b
+                    @Override // com.baidu.tbadk.BdToken.BdUniDispatchSchemeController.b
                     public void onCallBack(HashMap<String, Object> hashMap2) {
                         Interceptable interceptable2 = $ic;
                         if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, hashMap2) == null) || hashMap2 == null) {
                             return;
                         }
-                        Object obj = hashMap2.get(g.F);
+                        Object obj = hashMap2.get(BdUniDispatchSchemeController.PARAM_TAB_NAME);
                         if (obj instanceof String) {
                             String str3 = (String) obj;
                             if (TextUtils.isEmpty(str3)) {

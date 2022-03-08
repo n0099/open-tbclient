@@ -15,7 +15,7 @@ import io.reactivex.internal.util.EndConsumerHelper;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public abstract class ResourceSubscriber<T> implements FlowableSubscriber<T>, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
+import com.google.android.exoplayer2.util.MimeTypes;
 import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.core.MethodParameter;
@@ -25,7 +26,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 @ControllerAdvice
 @Deprecated
 @Order(Integer.MIN_VALUE)
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class FastJsonpResponseBodyAdvice implements ResponseBodyAdvice<Object> {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern CALLBACK_PARAM_PATTERN;
@@ -94,7 +95,7 @@ public class FastJsonpResponseBodyAdvice implements ResponseBodyAdvice<Object> {
     public MediaType getContentType(MediaType mediaType, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, mediaType, serverHttpRequest, serverHttpResponse)) == null) ? new MediaType("application", "javascript") : (MediaType) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, mediaType, serverHttpRequest, serverHttpResponse)) == null) ? new MediaType(MimeTypes.BASE_TYPE_APPLICATION, "javascript") : (MediaType) invokeLLL.objValue;
     }
 
     public MappingFastJsonValue getOrCreateContainer(Object obj) {

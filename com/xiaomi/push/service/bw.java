@@ -9,7 +9,7 @@ import com.xiaomi.push.du;
 import com.xiaomi.push.fm;
 import com.xiaomi.push.fp;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class bw extends fm {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

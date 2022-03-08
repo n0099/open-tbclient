@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class AnimationProperty {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BACKGROUND_COLOR = "backgroundColor";

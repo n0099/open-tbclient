@@ -28,7 +28,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.WeakHashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class PluginManager {
     public static /* synthetic */ Interceptable $ic;
     public static Map<String, ClassLoader> sPluginClassLoaderCache;

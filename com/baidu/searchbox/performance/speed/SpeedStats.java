@@ -39,7 +39,7 @@ import java.util.Set;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class SpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP_TO_ACTIVITY_DELAY = 300;
@@ -271,7 +271,7 @@ public class SpeedStats {
                 this.val$map = map;
             }
 
-            /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x0093 -> B:40:0x0096). Please submit an issue!!! */
+            /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x0091 -> B:39:0x0094). Please submit an issue!!! */
             @Override // java.lang.Runnable
             public void run() {
                 BufferedWriter bufferedWriter;
@@ -286,11 +286,11 @@ public class SpeedStats {
                                     file.createNewFile();
                                 }
                                 bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, true)));
-                            } catch (IOException e2) {
-                                e = e2;
+                            } catch (Throwable th) {
+                                th = th;
                             }
-                        } catch (Throwable th) {
-                            th = th;
+                        } catch (IOException e2) {
+                            e = e2;
                         }
                     } catch (IOException e3) {
                         e3.printStackTrace();
@@ -516,7 +516,7 @@ public class SpeedStats {
             String action = intent.getAction();
             Set<String> categories = intent.getCategories();
             if (action != null && categories != null) {
-                if (isLogoActivity(activity)) {
+                if (isMainTabActivity(activity)) {
                     if (TextUtils.equals(action, "android.intent.action.MAIN") && categories.contains("android.intent.category.LAUNCHER")) {
                         this.mIsStartAppFromLauncher = true;
                     } else {
@@ -560,12 +560,12 @@ public class SpeedStats {
         }
     }
 
-    private boolean isLogoActivity(Activity activity) {
+    private boolean isMainTabActivity(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65574, this, activity)) == null) {
             ComponentName componentName = activity.getComponentName();
-            return componentName != null && SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(componentName.getClassName());
+            return componentName != null && SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(componentName.getClassName());
         }
         return invokeL.booleanValue;
     }
@@ -639,29 +639,35 @@ public class SpeedStats {
         return invokeV.booleanValue;
     }
 
+    public boolean isStartAppFromLauncher() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mIsStartAppFromLauncher : invokeV.booleanValue;
+    }
+
     public void onAppCreateEnd() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             SmartLaunchStats.setAppStartTimeStamp(getAppStartTime());
         }
     }
 
     public void onAppProcessUpgrade(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
             this.mLaunchType = i2;
         }
     }
 
     public void onBaseActivityCreate(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, activity) == null) {
             detectStartAppFrom(activity);
             if (!this.mHasActivityCreate && System.currentTimeMillis() - this.mSpeedStatsManager.getAppCreateEndTimeStamp() > 300) {
                 SmartLaunchStats.setFirstAvailableTimeFlag(false);
             }
             if (activity != null) {
-                if (isLogoActivity(activity)) {
+                if (isMainTabActivity(activity)) {
                     Intent intent = activity.getIntent();
                     if (intent != null) {
                         if (TextUtils.equals(intent.getAction(), "android.intent.action.MAIN")) {
@@ -672,12 +678,14 @@ public class SpeedStats {
                             if (SpeedRuntime.getSpeedContext().isAgreePrivacyPolicy()) {
                                 this.mSpeedStatsManager.setStatsFlag(true);
                             }
-                            if (this.mHasMainActivityLaunched) {
-                                this.mStartMainActivityType = 6;
-                            } else {
-                                getMainActivityStartType();
+                            if (this.mStartMainActivityType == -1) {
+                                if (this.mHasMainActivityLaunched) {
+                                    this.mStartMainActivityType = 6;
+                                } else {
+                                    getMainActivityStartType();
+                                }
                             }
-                        } else {
+                        } else if (this.mStartMainActivityType == -1) {
                             this.mStartMainActivityType = 7;
                         }
                     }
@@ -692,29 +700,30 @@ public class SpeedStats {
     @TimeSpendTrace(isEnd = true)
     public void onMainPageStatsEnd(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
-            this.isMainPageStatsEnd = true;
-            a.b().c();
-            if (this.mSpeedStatsManager.getStatsFlag()) {
-                this.mSpeedStatsManager.addStatsTimeStamp(6000);
-                if (!checkValid()) {
-                    resetMainActivityStatsPeriod();
-                    return;
-                }
-                asyncUploadSpeedInfo();
-            } else {
-                LaunchStatsUtils.setLaunchTypeDetail(this.mLaunchType, this.mIsStartAppFromLauncher, this.mHasSkin, this.mIntroductionType != -1);
-            }
-            if (SmartLaunchStats.hasTriedToFindFirstAvailableTime() || hasForegroundToBackground()) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, context) == null) || this.isMainPageStatsEnd) {
+            return;
+        }
+        this.isMainPageStatsEnd = true;
+        a.b().c();
+        if (this.mSpeedStatsManager.getStatsFlag()) {
+            this.mSpeedStatsManager.addStatsTimeStamp(6000);
+            if (!checkValid()) {
+                resetMainActivityStatsPeriod();
                 return;
             }
-            SmartLaunchStats.tryToFindFirstIdleTimeStamp();
+            asyncUploadSpeedInfo();
+        } else {
+            LaunchStatsUtils.setLaunchTypeDetail(this.mLaunchType, this.mIsStartAppFromLauncher, this.mHasSkin, this.mIntroductionType != -1);
         }
+        if (SmartLaunchStats.hasTriedToFindFirstAvailableTime() || hasForegroundToBackground()) {
+            return;
+        }
+        SmartLaunchStats.tryToFindFirstIdleTimeStamp();
     }
 
     public void setContext(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, context) == null) {
             this.mContext = context;
         }
     }

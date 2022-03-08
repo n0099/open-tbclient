@@ -14,22 +14,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class RoundRelativeLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f47739e;
+    public float f46148e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Path f47740f;
+    public Path f46149f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RectF f47741g;
+    public RectF f46150g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float[] f47742h;
+    public float[] f46151h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RoundRelativeLayout(Context context) {
@@ -50,8 +50,8 @@ public class RoundRelativeLayout extends RelativeLayout {
             }
         }
         float f2 = n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
-        this.f47739e = f2;
-        this.f47742h = new float[]{f2, f2, f2, f2, f2, f2, f2, f2};
+        this.f46148e = f2;
+        this.f46151h = new float[]{f2, f2, f2, f2, f2, f2, f2, f2};
         a();
     }
 
@@ -59,15 +59,15 @@ public class RoundRelativeLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setWillNotDraw(false);
-            this.f47740f = new Path();
-            this.f47741g = new RectF();
+            this.f46149f = new Path();
+            this.f46150g = new RectF();
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f47740f.addRoundRect(this.f47741g, this.f47742h, Path.Direction.CW);
+            this.f46149f.addRoundRect(this.f46150g, this.f46151h, Path.Direction.CW);
         }
     }
 
@@ -75,7 +75,7 @@ public class RoundRelativeLayout extends RelativeLayout {
     public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            canvas.clipPath(this.f47740f);
+            canvas.clipPath(this.f46149f);
             super.draw(canvas);
         }
     }
@@ -85,7 +85,7 @@ public class RoundRelativeLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            this.f47741g.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+            this.f46150g.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
             b();
         }
     }
@@ -95,9 +95,9 @@ public class RoundRelativeLayout extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, fArr) == null) || fArr == null || fArr.length <= 0) {
             return;
         }
-        this.f47742h = new float[fArr.length];
+        this.f46151h = new float[fArr.length];
         for (int i2 = 0; i2 < fArr.length; i2++) {
-            this.f47742h[i2] = fArr[i2];
+            this.f46151h[i2] = fArr[i2];
         }
         b();
         invalidate();
@@ -123,8 +123,8 @@ public class RoundRelativeLayout extends RelativeLayout {
             }
         }
         float f2 = n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
-        this.f47739e = f2;
-        this.f47742h = new float[]{f2, f2, f2, f2, f2, f2, f2, f2};
+        this.f46148e = f2;
+        this.f46151h = new float[]{f2, f2, f2, f2, f2, f2, f2, f2};
         a();
     }
 
@@ -148,8 +148,8 @@ public class RoundRelativeLayout extends RelativeLayout {
             }
         }
         float f2 = n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
-        this.f47739e = f2;
-        this.f47742h = new float[]{f2, f2, f2, f2, f2, f2, f2, f2};
+        this.f46148e = f2;
+        this.f46151h = new float[]{f2, f2, f2, f2, f2, f2, f2, f2};
         a();
     }
 }

@@ -13,7 +13,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class RichContentHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int RICH_CONTENT_IMAGE_TYPE = 1;

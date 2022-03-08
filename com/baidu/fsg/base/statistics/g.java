@@ -14,35 +14,35 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "g";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONArray f34019b;
+    public JSONArray f32422b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f34020c;
+    public byte[] f32423c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f34021d;
+    public byte[] f32424d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f34022e;
+    public byte[] f32425e;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f34023b;
+        public String f32426b;
 
         /* renamed from: c  reason: collision with root package name */
-        public h[] f34024c;
+        public h[] f32427c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class g {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static g a;
@@ -124,10 +124,10 @@ public class g {
                 return;
             }
         }
-        this.f34019b = new JSONArray();
-        this.f34020c = new byte[0];
-        this.f34021d = new byte[0];
-        this.f34022e = new byte[0];
+        this.f32422b = new JSONArray();
+        this.f32423c = new byte[0];
+        this.f32424d = new byte[0];
+        this.f32425e = new byte[0];
     }
 
     public /* synthetic */ g(f fVar) {
@@ -143,14 +143,14 @@ public class g {
     public JSONArray a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34019b : (JSONArray) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32422b : (JSONArray) invokeV.objValue;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && com.baidu.fsg.base.statistics.b.o.equals(str)) {
-            synchronized (this.f34021d) {
-                this.f34019b = new JSONArray();
+            synchronized (this.f32424d) {
+                this.f32422b = new JSONArray();
             }
             com.baidu.fsg.base.statistics.a.a(RimStatisticsUtil.getAppContext(), com.baidu.fsg.base.statistics.b.n, StringUtil.EMPTY_ARRAY, false);
         }
@@ -159,9 +159,9 @@ public class g {
     public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            synchronized (this.f34021d) {
+            synchronized (this.f32424d) {
                 try {
-                    this.f34019b.put(this.f34019b.length(), jSONObject);
+                    this.f32422b.put(this.f32422b.length(), jSONObject);
                 } catch (JSONException unused) {
                 }
             }
@@ -173,8 +173,8 @@ public class g {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this.f34021d) {
-                z = this.f34019b.length() == 0;
+            synchronized (this.f32424d) {
+                z = this.f32422b.length() == 0;
             }
             return z;
         }

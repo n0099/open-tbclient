@@ -24,7 +24,7 @@ import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.MaskTextView;
 import com.baidu.wallet.home.ui.widget.b;
 import com.baidu.wallet.paysdk.ui.widget.PayTypeItemView;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class NHCreditItem extends BaseItemView {
     public static /* synthetic */ Interceptable $ic = null;
     public static int CREDIT_TAG_LENGTH = 5;

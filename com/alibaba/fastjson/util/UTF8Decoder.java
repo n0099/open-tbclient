@@ -16,7 +16,7 @@ import java.nio.CharBuffer;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CoderResult;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class UTF8Decoder extends CharsetDecoder {
     public static /* synthetic */ Interceptable $ic;
     public static final Charset charset;
@@ -161,7 +161,7 @@ public class UTF8Decoder extends CharsetDecoder {
     public static boolean isMalformed3(int i2, int i3, int i4) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3, i4)) == null) ? ((i2 != -32 || (i3 & w0.Q) != 128) && (i3 & 192) == 128 && (i4 & 192) == 128) ? false : true : invokeIII.booleanValue;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3, i4)) == null) ? ((i2 != -32 || (i3 & 224) != 128) && (i3 & 192) == 128 && (i4 & 192) == 128) ? false : true : invokeIII.booleanValue;
     }
 
     public static boolean isMalformed4(int i2, int i3, int i4) {

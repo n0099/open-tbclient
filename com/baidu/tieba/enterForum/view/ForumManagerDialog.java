@@ -4,10 +4,10 @@ import android.content.Context;
 import android.view.View;
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
-import c.a.t0.l0.c.b;
-import c.a.t0.s.t.g;
-import c.a.t0.s.t.j;
-import c.a.u0.v0.d.f;
+import c.a.q0.k0.c.b;
+import c.a.q0.r.t.g;
+import c.a.q0.r.t.j;
+import c.a.r0.u0.d.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.dialog.PopupDialog;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class ForumManagerDialog extends PopupDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,13 +32,13 @@ public class ForumManagerDialog extends PopupDialog {
     public final List<g> s;
     public final j.e t;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a implements j.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumManagerDialog f42957e;
+        public final /* synthetic */ ForumManagerDialog f41360e;
 
         public a(ForumManagerDialog forumManagerDialog) {
             Interceptable interceptable = $ic;
@@ -55,20 +55,20 @@ public class ForumManagerDialog extends PopupDialog {
                     return;
                 }
             }
-            this.f42957e = forumManagerDialog;
+            this.f41360e = forumManagerDialog;
         }
 
-        @Override // c.a.t0.s.t.j.e
+        @Override // c.a.q0.r.t.j.e
         public void onItemClick(j jVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, jVar, i2, view) == null) {
-                this.f42957e.dismiss();
+                this.f41360e.dismiss();
                 if (!l.z()) {
-                    n.M(this.f42957e.o, R.string.network_not_available);
+                    n.M(this.f41360e.o, R.string.network_not_available);
                 } else if (i2 == 2) {
-                    this.f42957e.p.dispatchMvcEvent(new b(4, this.f42957e.r, null, null));
+                    this.f41360e.p.dispatchMvcEvent(new b(4, this.f41360e.r, null, null));
                 } else if (i2 == 1) {
-                    this.f42957e.p.dispatchMvcEvent(new b(13, this.f42957e.r, null, null));
+                    this.f41360e.p.dispatchMvcEvent(new b(13, this.f41360e.r, null, null));
                 }
             }
         }

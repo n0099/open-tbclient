@@ -9,15 +9,15 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
-import c.a.d0.l0.b;
-import c.a.d0.l0.j;
+import c.a.b0.l0.b;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class ArrowView extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DOWN = 4;
@@ -27,19 +27,19 @@ public class ArrowView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f37518e;
+    public Paint f35921e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Path f37519f;
+    public Path f35922f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f37520g;
+    public int f35923g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f37521h;
+    public int f35924h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f37522i;
+    public boolean f35925i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ArrowView(Context context) {
@@ -181,13 +181,13 @@ public class ArrowView extends View {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f37521h = b.a().getResources().getColor(j.NAD_UC29);
-            this.f37519f = new Path();
+            this.f35924h = b.a().getResources().getColor(R.color.NAD_UC29);
+            this.f35922f = new Path();
             Paint paint = new Paint();
-            this.f37518e = paint;
+            this.f35921e = paint;
             paint.setAntiAlias(true);
-            this.f37518e.setStyle(Paint.Style.FILL_AND_STROKE);
-            this.f37518e.setColor(this.f37521h);
+            this.f35921e.setStyle(Paint.Style.FILL_AND_STROKE);
+            this.f35921e.setColor(this.f35924h);
         }
     }
 
@@ -200,7 +200,7 @@ public class ArrowView extends View {
     public void enableNewTemplate(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f37522i = z;
+            this.f35925i = z;
         }
     }
 
@@ -209,20 +209,20 @@ public class ArrowView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.f37522i) {
-                this.f37519f = b(this.f37519f, this.f37520g);
+            if (this.f35925i) {
+                this.f35922f = b(this.f35922f, this.f35923g);
             } else {
-                this.f37519f = a(this.f37519f, this.f37520g);
+                this.f35922f = a(this.f35922f, this.f35923g);
             }
-            canvas.drawPath(this.f37519f, this.f37518e);
+            canvas.drawPath(this.f35922f, this.f35921e);
         }
     }
 
     public void setArrowViewColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f37521h = i2;
-            this.f37518e.setColor(i2);
+            this.f35924h = i2;
+            this.f35921e.setColor(i2);
             invalidate();
         }
     }
@@ -230,7 +230,7 @@ public class ArrowView extends View {
     public void setDirection(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f37520g = i2;
+            this.f35923g = i2;
             invalidate();
         }
     }
@@ -275,9 +275,9 @@ public class ArrowView extends View {
                 return;
             }
         }
-        this.f37520g = 4;
-        this.f37521h = Color.argb(204, 0, 0, 0);
-        this.f37522i = true;
+        this.f35923g = 4;
+        this.f35924h = Color.argb(204, 0, 0, 0);
+        this.f35925i = true;
         c();
     }
 
@@ -301,9 +301,9 @@ public class ArrowView extends View {
                 return;
             }
         }
-        this.f37520g = 4;
-        this.f37521h = Color.argb(204, 0, 0, 0);
-        this.f37522i = true;
+        this.f35923g = 4;
+        this.f35924h = Color.argb(204, 0, 0, 0);
+        this.f35925i = true;
         c();
     }
 }

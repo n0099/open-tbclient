@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class ErrorAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "Action not implement";

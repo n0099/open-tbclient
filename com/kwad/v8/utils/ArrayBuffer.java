@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.v8.V8;
 import com.kwad.v8.V8ArrayBuffer;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ArrayBuffer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

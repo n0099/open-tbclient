@@ -14,29 +14,29 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class CDNLogSyncData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f45539b;
+    public int f43945b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f45540c;
+    public int f43946c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f45541d;
+    public int f43947d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f45542e;
+    public int f43948e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f45543f;
+    public int f43949f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f45544g;
+    public int f43950g;
 
     public CDNLogSyncData() {
         Interceptable interceptable = $ic;
@@ -51,9 +51,9 @@ public class CDNLogSyncData {
                 return;
             }
         }
-        this.f45542e = 25;
-        this.f45543f = 25;
-        this.f45544g = 10;
+        this.f43948e = 25;
+        this.f43949f = 25;
+        this.f43950g = 10;
     }
 
     public final void a(JSONObject jSONObject) {
@@ -69,20 +69,20 @@ public class CDNLogSyncData {
             }
             JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompat.CATEGORY_ERROR);
             if (optJSONObject != null) {
-                this.f45541d = optJSONObject.optInt("num");
+                this.f43947d = optJSONObject.optInt("num");
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
             if (optJSONObject2 != null) {
-                this.f45540c = optJSONObject2.optInt("time");
-                this.f45539b = optJSONObject2.optInt("num");
+                this.f43946c = optJSONObject2.optInt("time");
+                this.f43945b = optJSONObject2.optInt("num");
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
             if (optJSONObject3 != null) {
-                this.f45542e = optJSONObject3.optInt("succ");
-                this.f45543f = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
-                this.f45544g = optJSONObject3.optInt("slow");
+                this.f43948e = optJSONObject3.optInt("succ");
+                this.f43949f = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
+                this.f43950g = optJSONObject3.optInt("slow");
             }
-            if (this.f45540c <= 0 || this.f45539b <= 0 || this.f45541d <= 0) {
+            if (this.f43946c <= 0 || this.f43945b <= 0 || this.f43947d <= 0) {
                 this.a = false;
             }
         } catch (Exception e2) {
@@ -94,37 +94,37 @@ public class CDNLogSyncData {
     public int getErrNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45541d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43947d : invokeV.intValue;
     }
 
     public int getErrRank() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45543f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43949f : invokeV.intValue;
     }
 
     public int getSlowNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f45539b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f43945b : invokeV.intValue;
     }
 
     public int getSlowRank() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f45544g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f43950g : invokeV.intValue;
     }
 
     public int getSuccRank() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f45542e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f43948e : invokeV.intValue;
     }
 
     public int getTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f45540c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f43946c : invokeV.intValue;
     }
 
     public boolean ismSwitch() {
@@ -151,42 +151,42 @@ public class CDNLogSyncData {
     public void setErrNumber(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f45541d = i2;
+            this.f43947d = i2;
         }
     }
 
     public void setErrRank(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f45543f = i2;
+            this.f43949f = i2;
         }
     }
 
     public void setSlowNumber(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f45539b = i2;
+            this.f43945b = i2;
         }
     }
 
     public void setSlowRank(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f45544g = i2;
+            this.f43950g = i2;
         }
     }
 
     public void setSuccRank(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f45542e = i2;
+            this.f43948e = i2;
         }
     }
 
     public void setTime(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f45540c = i2;
+            this.f43946c = i2;
         }
     }
 

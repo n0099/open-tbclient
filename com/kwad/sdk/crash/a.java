@@ -4,12 +4,12 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import com.kwad.sdk.utils.i;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static volatile boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f56713b;
+    public static volatile boolean f55063b;
 
     public static synchronized void a() {
         synchronized (a.class) {
@@ -23,22 +23,22 @@ public class a {
                         } catch (Throwable unused) {
                         }
                     }
-                }, TimeUnit.SECONDS.toMillis(c.f56748f));
+                }, TimeUnit.SECONDS.toMillis(c.f55098f));
             }
         }
     }
 
     public static void a(@NonNull b bVar) {
-        if (bVar.f56720g == null || f56713b) {
+        if (bVar.f55070g == null || f55063b) {
             return;
         }
-        f56713b = true;
+        f55063b = true;
         try {
-            com.kwad.sdk.crash.utils.d.a(bVar.f56720g);
-            com.kwad.sdk.crash.kwai.a.a(bVar.f56720g, bVar.n);
+            com.kwad.sdk.crash.utils.d.a(bVar.f55070g);
+            com.kwad.sdk.crash.kwai.a.a(bVar.f55070g, bVar.n);
             d.a().a(bVar);
             c();
-            Thread.setDefaultUncaughtExceptionHandler(new com.kwad.sdk.crash.b.d(bVar.f56720g));
+            Thread.setDefaultUncaughtExceptionHandler(new com.kwad.sdk.crash.b.d(bVar.f55070g));
             a();
         } catch (Throwable unused) {
         }

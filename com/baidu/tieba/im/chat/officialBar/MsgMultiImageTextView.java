@@ -2,8 +2,8 @@ package com.baidu.tieba.im.chat.officialBar;
 
 import android.view.View;
 import android.widget.TextView;
-import c.a.u0.t1.f.e;
-import c.a.u0.t1.l.c.a;
+import c.a.r0.s1.f.e;
+import c.a.r0.s1.l.c.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class MsgMultiImageTextView extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class MsgMultiImageTextView extends e {
     public final void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f22424h = (TextView) c(R.id.tex_msgitem_time);
+            this.f21680h = (TextView) c(R.id.tex_msgitem_time);
             this.y = (MultiContentView) c(R.id.msg_content);
         }
     }
@@ -56,9 +56,9 @@ public class MsgMultiImageTextView extends e {
             return;
         }
         B(chatMessage);
-        List<a.C1387a> b2 = a.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
-        this.y.setPosition(this.f22422f);
-        this.y.setOnItemViewLongClickListener(this.f22419c);
+        List<a.C1364a> b2 = a.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+        this.y.setPosition(this.f21678f);
+        this.y.setOnItemViewLongClickListener(this.f21675c);
         this.y.setNeedNightMode(true);
         this.y.setType(1);
         this.y.setData(tbPageContext, b2, view);

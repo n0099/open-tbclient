@@ -23,17 +23,17 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class u extends BaseBean<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PwdRequest a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f52156b;
+    public String f50575b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f52157c;
+    public boolean f50576c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> u(Context context) {
@@ -58,9 +58,9 @@ public class u extends BaseBean<Object> {
 
     private void a(List<RestNameValuePair> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, this, list) == null) && this.f52157c && !TextUtils.isEmpty(this.f52156b)) {
+        if ((interceptable == null || interceptable.invokeL(65537, this, list) == null) && this.f50576c && !TextUtils.isEmpty(this.f50575b)) {
             try {
-                JSONObject jSONObject = new JSONObject(this.f52156b);
+                JSONObject jSONObject = new JSONObject(this.f50575b);
                 jSONObject.remove("half_screen_pwd_verify");
                 Iterator<String> keys = jSONObject.keys();
                 if (keys != null) {
@@ -166,14 +166,14 @@ public class u extends BaseBean<Object> {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f52156b = str;
+            this.f50575b = str;
         }
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f52157c = z;
+            this.f50576c = z;
         }
     }
 }

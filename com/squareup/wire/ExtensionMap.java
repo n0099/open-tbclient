@@ -13,7 +13,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class ExtensionMap<T extends ExtendableMessage<?>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +71,7 @@ public final class ExtensionMap<T extends ExtendableMessage<?>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(StringUtil.ARRAY_START);
+            sb.append("{");
             String str = "";
             for (Map.Entry<Extension<T, ?>, Object> entry : this.map.entrySet()) {
                 sb.append(str);

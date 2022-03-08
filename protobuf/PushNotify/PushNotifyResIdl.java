@@ -12,7 +12,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class PushNotifyResIdl extends Message {
     public static /* synthetic */ Interceptable $ic;
     public static final List<PusherMsg> DEFAULT_MULTIMSG;
@@ -23,7 +23,7 @@ public final class PushNotifyResIdl extends Message {
     @ProtoField(tag = 1, type = Message.Datatype.INT64)
     public final Long pushTime;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder extends Message.Builder<PushNotifyResIdl> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +78,7 @@ public final class PushNotifyResIdl extends Message {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

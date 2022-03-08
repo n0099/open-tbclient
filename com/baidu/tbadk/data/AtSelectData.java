@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Objects;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class AtSelectData implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<AtSelectData> CREATOR;
@@ -20,7 +20,7 @@ public class AtSelectData implements Parcelable {
     public String mPortrait;
     public String mUid;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Parcelable.Creator<AtSelectData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

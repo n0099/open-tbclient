@@ -1,8 +1,8 @@
 package com.baidu.searchbox.task.async.appcreate;
 
 import c.a.d.f.p.n;
-import c.a.t0.a.d;
-import c.a.t0.d1.d0;
+import c.a.q0.a.d;
+import c.a.q0.c1.c0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbConfig;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class PreLoadTiebaClass extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class PreLoadTiebaClass extends LaunchTask {
             }
             d.y();
             ItemCardHelper.i();
-            d0.b();
+            c0.b();
             n.x(TbadkCoreApplication.getInst());
         }
     }

@@ -4,20 +4,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+import com.win.opensdk.PBError;
+/* loaded from: classes3.dex */
 public class s3 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ h4 f30679e;
+    public final /* synthetic */ v3 f29105e;
 
-    public s3(h4 h4Var) {
+    public s3(v3 v3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {h4Var};
+            Object[] objArr = {v3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -27,14 +28,15 @@ public class s3 implements Runnable {
                 return;
             }
         }
-        this.f30679e = h4Var;
+        this.f29105e = v3Var;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f30679e.a();
+            this.f29105e.a.f29179c.f28915c.onFail(PBError.NO_FILL);
+            this.f29105e.a.f29179c.f28916d = true;
         }
     }
 }

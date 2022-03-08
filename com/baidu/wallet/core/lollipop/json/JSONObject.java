@@ -17,7 +17,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class JSONObject {
     public static /* synthetic */ Interceptable $ic;
     public static final Double NEGATIVE_ZERO;

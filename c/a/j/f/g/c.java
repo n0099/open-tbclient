@@ -20,15 +20,15 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final b f4045d;
+    public static final b f3662d;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f4046b;
+    public final String f3663b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final TaskResponseData f4047c;
+    public final TaskResponseData f3664c;
 
     /* loaded from: classes.dex */
     public static final class a {
@@ -127,7 +127,7 @@ public final class c {
                 return;
             }
         }
-        f4045d = new b(null);
+        f3662d = new b(null);
     }
 
     public c(int i2, String str, TaskResponseData taskResponseData) {
@@ -146,8 +146,8 @@ public final class c {
             }
         }
         this.a = i2;
-        this.f4046b = str;
-        this.f4047c = taskResponseData;
+        this.f3663b = str;
+        this.f3664c = taskResponseData;
     }
 
     public final boolean a() {
@@ -165,13 +165,13 @@ public final class c {
     public final String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4046b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3663b : (String) invokeV.objValue;
     }
 
     public final TaskResponseData d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f4047c : (TaskResponseData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3664c : (TaskResponseData) invokeV.objValue;
     }
 
     public /* synthetic */ c(int i2, String str, TaskResponseData taskResponseData, int i3, DefaultConstructorMarker defaultConstructorMarker) {

@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static SparseArray<List<Handler>> f36343b;
+    public static SparseArray<List<Handler>> f34746b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class a {
                 return;
             }
         }
-        f36343b = new SparseArray<>();
+        f34746b = new SparseArray<>();
     }
 
     public a() {
@@ -55,8 +55,8 @@ public class a {
     public static void a(int i2, int i3, int i4, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2)}) == null) {
-            synchronized (f36343b) {
-                List<Handler> list = f36343b.get(i2);
+            synchronized (f34746b) {
+                List<Handler> list = f34746b.get(i2);
                 if (list != null && !list.isEmpty()) {
                     for (Handler handler : list) {
                         Message.obtain(handler, i2, i3, i4, Long.valueOf(j2)).sendToTarget();
@@ -69,15 +69,15 @@ public class a {
     public static void a(int i2, Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65539, null, i2, handler) == null) {
-            synchronized (f36343b) {
+            synchronized (f34746b) {
                 if (handler == null) {
                     return;
                 }
-                List<Handler> list = f36343b.get(i2);
+                List<Handler> list = f34746b.get(i2);
                 if (list == null) {
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(handler);
-                    f36343b.put(i2, arrayList);
+                    f34746b.put(i2, arrayList);
                 } else if (!list.contains(handler)) {
                     list.add(handler);
                 }
@@ -88,10 +88,10 @@ public class a {
     public static void b(int i2, Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, handler) == null) {
-            synchronized (f36343b) {
+            synchronized (f34746b) {
                 if (handler != null) {
                     handler.removeCallbacksAndMessages(null);
-                    List<Handler> list = f36343b.get(i2);
+                    List<Handler> list = f34746b.get(i2);
                     if (list != null) {
                         list.remove(handler);
                     }

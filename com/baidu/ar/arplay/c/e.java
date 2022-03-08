@@ -3,7 +3,6 @@ package com.baidu.ar.arplay.c;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import com.baidu.poly.widget.PolyActivity;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,13 +13,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ConectivityUtils;
 import java.util.Locale;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a fU;
@@ -46,7 +45,7 @@ public class e {
             fU = new a(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 0);
             fV = new a("CMNET", 1);
             fW = new a("CMWAP", 2);
-            a aVar = new a(PolyActivity.NONE_PANEL_TYPE, 3);
+            a aVar = new a("NONE", 3);
             fX = aVar;
             fY = new a[]{fU, fV, fW, aVar};
         }

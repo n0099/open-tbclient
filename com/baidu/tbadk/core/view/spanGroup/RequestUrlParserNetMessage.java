@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.view.spanGroup;
 
-import c.a.t0.d1.c0;
+import c.a.q0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.UrlParser.DataReq;
 import tbclient.UrlParser.UrlParserReqIdl;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class RequestUrlParserNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class RequestUrlParserNetMessage extends NetMessage {
             builder.forum_id = Long.valueOf(this.mForumId);
             builder.url = this.mUrl;
             builder.link_num = Integer.valueOf(this.mLinkNum);
-            c0.a(builder, true);
+            b0.a(builder, true);
             UrlParserReqIdl.Builder builder2 = new UrlParserReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

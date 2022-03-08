@@ -2,7 +2,6 @@ package com.googlecode.mp4parser.authoring.tracks;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.rtc.record.MediaEncodeParams;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +30,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class AC3TrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
     public static int[][][][] bitRateAndFrameSizeTable;
@@ -318,7 +317,7 @@ public class AC3TrackImpl extends AbstractTrack {
                 bitReaderBuffer.readBits(16);
                 int readBits = bitReaderBuffer.readBits(2);
                 if (readBits == 0) {
-                    i2 = MediaEncodeParams.AUDIO_SAMPLE_RATE;
+                    i2 = 48000;
                 } else if (readBits == 1) {
                     i2 = 44100;
                 } else if (readBits != 2) {

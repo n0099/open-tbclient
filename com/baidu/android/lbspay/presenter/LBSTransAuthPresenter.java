@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.LBSPayResult;
-import com.baidu.android.lbspay.R;
 import com.baidu.android.lbspay.activity.LBSTransActivity;
 import com.baidu.android.lbspay.activity.WXSignActivity;
 import com.baidu.android.lbspay.beans.AuthorizeSignBean;
@@ -14,6 +13,7 @@ import com.baidu.android.lbspay.beans.LbsPayBeanFactory;
 import com.baidu.android.lbspay.channelpay.alipay.LBSPayAli;
 import com.baidu.android.lbspay.datamodel.AuthorizeData;
 import com.baidu.android.lbspay.network.AuthorizeSignContent;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.statistics.PayStatServiceEvent;
 import com.dxmpay.wallet.utils.StatHelper;
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class LBSTransAuthPresenter implements LBSTransPresenter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTH_CHANNEL_ALI = "alipay";

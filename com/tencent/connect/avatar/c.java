@@ -16,38 +16,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class c extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f60628b;
+    public boolean f58978b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Matrix f60629c;
+    public Matrix f58979c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Matrix f60630d;
+    public Matrix f58980d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f60631e;
+    public int f58981e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f60632f;
+    public float f58982f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f60633g;
+    public float f58983g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Bitmap f60634h;
+    public Bitmap f58984h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f60635i;
+    public boolean f58985i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f60636j;
+    public float f58986j;
     public float k;
     public PointF l;
     public PointF m;
@@ -73,18 +73,18 @@ public class c extends ImageView {
                 return;
             }
         }
-        this.f60629c = new Matrix();
-        this.f60630d = new Matrix();
-        this.f60631e = 0;
-        this.f60632f = 1.0f;
-        this.f60633g = 1.0f;
-        this.f60635i = false;
+        this.f58979c = new Matrix();
+        this.f58980d = new Matrix();
+        this.f58981e = 0;
+        this.f58982f = 1.0f;
+        this.f58983g = 1.0f;
+        this.f58985i = false;
         this.a = "TouchView";
         this.l = new PointF();
         this.m = new PointF();
         this.n = 1.0f;
         this.o = 0.0f;
-        this.f60628b = false;
+        this.f58978b = false;
         Rect rect = new Rect();
         this.p = rect;
         getDrawingRect(rect);
@@ -102,44 +102,44 @@ public class c extends ImageView {
         Rect rect;
         boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || this.f60634h == null) {
+        if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || this.f58984h == null) {
             return;
         }
         float width = this.p.width();
         float height = this.p.height();
         float[] fArr = new float[9];
-        this.f60629c.getValues(fArr);
+        this.f58979c.getValues(fArr);
         float f2 = fArr[2];
         float f3 = fArr[5];
         float f4 = fArr[0];
         Animation animation = null;
-        float f5 = this.f60632f;
+        float f5 = this.f58982f;
         if (f4 > f5) {
             float f6 = f5 / f4;
             this.o = f6;
-            Matrix matrix = this.f60629c;
+            Matrix matrix = this.f58979c;
             PointF pointF = this.m;
             matrix.postScale(f6, f6, pointF.x, pointF.y);
-            setImageMatrix(this.f60629c);
+            setImageMatrix(this.f58979c);
             float f7 = this.o;
             float f8 = 1.0f / f7;
             float f9 = 1.0f / f7;
             PointF pointF2 = this.m;
             animation = new ScaleAnimation(f8, 1.0f, f9, 1.0f, pointF2.x, pointF2.y);
         } else {
-            float f10 = this.f60633g;
+            float f10 = this.f58983g;
             if (f4 < f10) {
                 float f11 = f10 / f4;
                 this.o = f11;
-                Matrix matrix2 = this.f60629c;
+                Matrix matrix2 = this.f58979c;
                 PointF pointF3 = this.m;
                 matrix2.postScale(f11, f11, pointF3.x, pointF3.y);
                 float f12 = this.o;
                 PointF pointF4 = this.m;
                 animation = new ScaleAnimation(1.0f, f12, 1.0f, f12, pointF4.x, pointF4.y);
             } else {
-                float width2 = this.f60634h.getWidth() * f4;
-                float height2 = this.f60634h.getHeight() * f4;
+                float width2 = this.f58984h.getWidth() * f4;
+                float height2 = this.f58984h.getHeight() * f4;
                 int i2 = this.p.left;
                 float f13 = i2 - f2;
                 float f14 = rect.top - f3;
@@ -165,16 +165,16 @@ public class c extends ImageView {
                 if (z) {
                     fArr[2] = f2;
                     fArr[5] = f3;
-                    this.f60629c.setValues(fArr);
-                    setImageMatrix(this.f60629c);
+                    this.f58979c.setValues(fArr);
+                    setImageMatrix(this.f58979c);
                     animation = new TranslateAnimation(fArr[2] - f2, 0.0f, fArr[5] - f3, 0.0f);
                 } else {
-                    setImageMatrix(this.f60629c);
+                    setImageMatrix(this.f58979c);
                 }
             }
         }
         if (animation != null) {
-            this.f60635i = true;
+            this.f58985i = true;
             animation.setDuration(300L);
             startAnimation(animation);
             new Thread(new Runnable(this) { // from class: com.tencent.connect.avatar.c.1
@@ -241,7 +241,7 @@ public class c extends ImageView {
                                 }
                             }
                         });
-                        this.a.f60635i = false;
+                        this.a.f58985i = false;
                     }
                 }
             }).start();
@@ -250,23 +250,23 @@ public class c extends ImageView {
 
     private void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65543, this) == null) || this.f60634h == null) {
+        if (!(interceptable == null || interceptable.invokeV(65543, this) == null) || this.f58984h == null) {
             return;
         }
-        this.f60629c.getValues(r0);
-        float max = Math.max(this.p.width() / this.f60634h.getWidth(), this.p.height() / this.f60634h.getHeight());
-        this.f60636j = this.p.left - (((this.f60634h.getWidth() * max) - this.p.width()) / 2.0f);
-        float height = this.p.top - (((this.f60634h.getHeight() * max) - this.p.height()) / 2.0f);
+        this.f58979c.getValues(r0);
+        float max = Math.max(this.p.width() / this.f58984h.getWidth(), this.p.height() / this.f58984h.getHeight());
+        this.f58986j = this.p.left - (((this.f58984h.getWidth() * max) - this.p.width()) / 2.0f);
+        float height = this.p.top - (((this.f58984h.getHeight() * max) - this.p.height()) / 2.0f);
         this.k = height;
-        float[] fArr = {max, 0.0f, this.f60636j, 0.0f, max, height};
-        this.f60629c.setValues(fArr);
-        float min = Math.min(2048.0f / this.f60634h.getWidth(), 2048.0f / this.f60634h.getHeight());
-        this.f60632f = min;
-        this.f60633g = max;
+        float[] fArr = {max, 0.0f, this.f58986j, 0.0f, max, height};
+        this.f58979c.setValues(fArr);
+        float min = Math.min(2048.0f / this.f58984h.getWidth(), 2048.0f / this.f58984h.getHeight());
+        this.f58982f = min;
+        this.f58983g = max;
         if (min < max) {
-            this.f60632f = max;
+            this.f58982f = max;
         }
-        setImageMatrix(this.f60629c);
+        setImageMatrix(this.f58979c);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:15:0x001d, code lost:
@@ -280,50 +280,50 @@ public class c extends ImageView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            if (this.f60635i) {
+            if (this.f58985i) {
                 return true;
             }
             int action = motionEvent.getAction() & 255;
             if (action != 0) {
                 if (action != 1) {
                     if (action == 2) {
-                        int i2 = this.f60631e;
+                        int i2 = this.f58981e;
                         if (i2 == 1) {
-                            this.f60629c.set(this.f60630d);
-                            this.f60629c.postTranslate(motionEvent.getX() - this.l.x, motionEvent.getY() - this.l.y);
-                            setImageMatrix(this.f60629c);
+                            this.f58979c.set(this.f58980d);
+                            this.f58979c.postTranslate(motionEvent.getX() - this.l.x, motionEvent.getY() - this.l.y);
+                            setImageMatrix(this.f58979c);
                         } else if (i2 == 2) {
-                            Matrix matrix = this.f60629c;
+                            Matrix matrix = this.f58979c;
                             matrix.set(matrix);
                             float a = a(motionEvent);
                             if (a > 10.0f) {
-                                this.f60629c.set(this.f60630d);
+                                this.f58979c.set(this.f58980d);
                                 float f2 = a / this.n;
-                                Matrix matrix2 = this.f60629c;
+                                Matrix matrix2 = this.f58979c;
                                 PointF pointF = this.m;
                                 matrix2.postScale(f2, f2, pointF.x, pointF.y);
                             }
-                            setImageMatrix(this.f60629c);
+                            setImageMatrix(this.f58979c);
                         }
                     } else if (action == 5) {
                         float a2 = a(motionEvent);
                         this.n = a2;
                         if (a2 > 10.0f) {
-                            this.f60630d.set(this.f60629c);
+                            this.f58980d.set(this.f58979c);
                             a(this.m);
-                            this.f60631e = 2;
+                            this.f58981e = 2;
                         }
                     }
                 }
                 b();
-                this.f60631e = 0;
+                this.f58981e = 0;
             } else {
-                this.f60629c.set(getImageMatrix());
-                this.f60630d.set(this.f60629c);
+                this.f58979c.set(getImageMatrix());
+                this.f58980d.set(this.f58979c);
                 this.l.set(motionEvent.getX(), motionEvent.getY());
-                this.f60631e = 1;
+                this.f58981e = 1;
             }
-            this.f60628b = true;
+            this.f58978b = true;
             return true;
         }
         return invokeL.booleanValue;
@@ -334,9 +334,9 @@ public class c extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
             super.setImageBitmap(bitmap);
-            this.f60634h = bitmap;
+            this.f58984h = bitmap;
             if (bitmap != null) {
-                this.f60634h = bitmap;
+                this.f58984h = bitmap;
             }
         }
     }
@@ -359,7 +359,7 @@ public class c extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, rect) == null) {
             this.p = rect;
-            if (this.f60634h != null) {
+            if (this.f58984h != null) {
                 c();
             }
         }
@@ -367,16 +367,16 @@ public class c extends ImageView {
 
     private void a(PointF pointF) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, this, pointF) == null) || this.f60634h == null) {
+        if (!(interceptable == null || interceptable.invokeL(65539, this, pointF) == null) || this.f58984h == null) {
             return;
         }
         float[] fArr = new float[9];
-        this.f60629c.getValues(fArr);
+        this.f58979c.getValues(fArr);
         float f2 = fArr[2];
         float f3 = fArr[5];
         float f4 = fArr[0];
-        float width = this.f60634h.getWidth() * f4;
-        float height = this.f60634h.getHeight() * f4;
+        float width = this.f58984h.getWidth() * f4;
+        float height = this.f58984h.getHeight() * f4;
         float f5 = this.p.left - f2;
         if (f5 <= 1.0f) {
             f5 = 1.0f;

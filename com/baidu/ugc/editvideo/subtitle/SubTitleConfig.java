@@ -6,8 +6,8 @@ import android.graphics.Typeface;
 import android.text.TextUtils;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b1.b;
-import c.a.b1.t.g;
+import c.a.y0.b;
+import c.a.y0.r.g;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import com.baidu.ugc.editvideo.data.TextWordsEntity;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class SubTitleConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CENTER = 0;
@@ -66,7 +66,7 @@ public class SubTitleConfig {
     public int maxEngLineNum;
     public Paint.Align textGravity;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class ShadowConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -93,7 +93,7 @@ public class SubTitleConfig {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class StrokeConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +118,7 @@ public class SubTitleConfig {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class TypefaceConfig {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CREATE_FROM_ASSET = 1;

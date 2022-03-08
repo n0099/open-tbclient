@@ -33,8 +33,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.X509TrustManager;
-import kotlin.text.Typography;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class ProxyURLConnection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_TYPE_VALUE = "application/x-www-form-urlencoded; charset=UTF-8";
@@ -202,13 +201,13 @@ public class ProxyURLConnection {
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, this, list, z)) == null) {
             StringBuffer stringBuffer = new StringBuffer();
             for (NameValuePair nameValuePair : list) {
-                stringBuffer.append(Typography.amp);
+                stringBuffer.append('&');
                 String name = nameValuePair.getName();
                 if (z) {
                     name = Uri.encode(name);
                 }
                 stringBuffer.append(name);
-                stringBuffer.append(a.f31099h);
+                stringBuffer.append(a.f29503h);
                 stringBuffer.append(Uri.encode(nameValuePair.getValue()));
             }
             return stringBuffer.toString();

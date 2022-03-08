@@ -10,23 +10,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.C;
 import com.google.android.material.slider.BasicLabelFormatter;
 import java.io.IOException;
 import java.util.Arrays;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class j0 implements Appendable, CharSequence {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final char[] f27653g;
+    public static final char[] f27557g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public char[] f27654e;
+    public char[] f27558e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27655f;
+    public int f27559f;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +42,7 @@ public class j0 implements Appendable, CharSequence {
                 return;
             }
         }
-        f27653g = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+        f27557g = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
     }
 
     public j0() {
@@ -57,7 +58,7 @@ public class j0 implements Appendable, CharSequence {
                 return;
             }
         }
-        this.f27654e = new char[16];
+        this.f27558e = new char[16];
     }
 
     public static int E(int i2, int i3) {
@@ -95,15 +96,15 @@ public class j0 implements Appendable, CharSequence {
     public final void A(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-            if (i2 >= 0 && i2 <= this.f27655f) {
+            if (i2 >= 0 && i2 <= this.f27559f) {
                 if (str == null) {
                     str = StringUtil.NULL_STRING;
                 }
                 int length = str.length();
                 if (length != 0) {
                     D(length, i2);
-                    str.getChars(0, length, this.f27654e, i2);
-                    this.f27655f += length;
+                    str.getChars(0, length, this.f27558e, i2);
+                    this.f27559f += length;
                     return;
                 }
                 return;
@@ -115,11 +116,11 @@ public class j0 implements Appendable, CharSequence {
     public final void B(int i2, char[] cArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, cArr) == null) {
-            if (i2 >= 0 && i2 <= this.f27655f) {
+            if (i2 >= 0 && i2 <= this.f27559f) {
                 if (cArr.length != 0) {
                     D(cArr.length, i2);
                     System.arraycopy(cArr, 0, cArr, i2, cArr.length);
-                    this.f27655f += cArr.length;
+                    this.f27559f += cArr.length;
                     return;
                 }
                 return;
@@ -135,8 +136,8 @@ public class j0 implements Appendable, CharSequence {
                 if (i3 >= 0 && i4 >= 0 && i4 <= cArr.length - i3) {
                     if (i4 != 0) {
                         D(i4, i2);
-                        System.arraycopy(cArr, i3, this.f27654e, i2, i4);
-                        this.f27655f += i4;
+                        System.arraycopy(cArr, i3, this.f27558e, i2, i4);
+                        this.f27559f += i4;
                         return;
                     }
                     return;
@@ -150,9 +151,9 @@ public class j0 implements Appendable, CharSequence {
     public final void D(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
-            char[] cArr = this.f27654e;
+            char[] cArr = this.f27558e;
             int length = cArr.length;
-            int i4 = this.f27655f;
+            int i4 = this.f27559f;
             if (length - i4 >= i2) {
                 System.arraycopy(cArr, i3, cArr, i2 + i3, i4 - i3);
                 return;
@@ -163,9 +164,9 @@ public class j0 implements Appendable, CharSequence {
                 i5 = length2;
             }
             char[] cArr2 = new char[i5];
-            System.arraycopy(this.f27654e, 0, cArr2, 0, i3);
-            System.arraycopy(this.f27654e, i3, cArr2, i2 + i3, this.f27655f - i3);
-            this.f27654e = cArr2;
+            System.arraycopy(this.f27558e, 0, cArr2, 0, i3);
+            System.arraycopy(this.f27558e, i3, cArr2, i2 + i3, this.f27559f - i3);
+            this.f27558e = cArr2;
         }
     }
 
@@ -175,8 +176,8 @@ public class j0 implements Appendable, CharSequence {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Character.valueOf(c2), str})) == null) {
             int length = str.length();
             int i2 = 0;
-            while (i2 != this.f27655f) {
-                if (this.f27654e[i2] == c2) {
+            while (i2 != this.f27559f) {
+                if (this.f27558e[i2] == c2) {
                     H(i2, i2 + 1, str);
                     i2 += length;
                 } else {
@@ -192,7 +193,7 @@ public class j0 implements Appendable, CharSequence {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048581, this, i2, i3, str) == null) {
             if (i2 >= 0) {
-                int i4 = this.f27655f;
+                int i4 = this.f27559f;
                 if (i3 > i4) {
                     i3 = i4;
                 }
@@ -200,13 +201,13 @@ public class j0 implements Appendable, CharSequence {
                     int length = str.length();
                     int i5 = (i3 - i2) - length;
                     if (i5 > 0) {
-                        char[] cArr = this.f27654e;
-                        System.arraycopy(cArr, i3, cArr, i2 + length, this.f27655f - i3);
+                        char[] cArr = this.f27558e;
+                        System.arraycopy(cArr, i3, cArr, i2 + length, this.f27559f - i3);
                     } else if (i5 < 0) {
                         D(-i5, i3);
                     }
-                    str.getChars(0, length, this.f27654e, i2);
-                    this.f27655f -= i5;
+                    str.getChars(0, length, this.f27558e, i2);
+                    this.f27559f -= i5;
                     return;
                 } else if (i2 == i3) {
                     if (str != null) {
@@ -224,16 +225,16 @@ public class j0 implements Appendable, CharSequence {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
             if (i2 >= 0) {
-                char[] cArr = this.f27654e;
+                char[] cArr = this.f27558e;
                 if (i2 > cArr.length) {
                     x(i2);
                 } else {
-                    int i3 = this.f27655f;
+                    int i3 = this.f27559f;
                     if (i3 < i2) {
                         Arrays.fill(cArr, i3, i2, (char) 0);
                     }
                 }
-                this.f27655f = i2;
+                this.f27559f = i2;
                 return;
             }
             throw new StringIndexOutOfBoundsException(i2);
@@ -244,10 +245,10 @@ public class j0 implements Appendable, CharSequence {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048583, this, i2, i3)) == null) {
-            if (i2 < 0 || i2 > i3 || i3 > this.f27655f) {
+            if (i2 < 0 || i2 > i3 || i3 > this.f27559f) {
                 throw new StringIndexOutOfBoundsException();
             }
-            return i2 == i3 ? "" : new String(this.f27654e, i2, i3 - i2);
+            return i2 == i3 ? "" : new String(this.f27558e, i2, i3 - i2);
         }
         return (String) invokeII.objValue;
     }
@@ -293,8 +294,8 @@ public class j0 implements Appendable, CharSequence {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
-            if (i2 >= 0 && i2 < this.f27655f) {
-                return this.f27654e[i2];
+            if (i2 >= 0 && i2 < this.f27559f) {
+                return this.f27558e[i2];
             }
             throw new StringIndexOutOfBoundsException(i2);
         }
@@ -340,12 +341,12 @@ public class j0 implements Appendable, CharSequence {
             }
             if (obj != null && j0.class == obj.getClass()) {
                 j0 j0Var = (j0) obj;
-                int i2 = this.f27655f;
-                if (i2 != j0Var.f27655f) {
+                int i2 = this.f27559f;
+                if (i2 != j0Var.f27559f) {
                     return false;
                 }
-                char[] cArr = this.f27654e;
-                char[] cArr2 = j0Var.f27654e;
+                char[] cArr = this.f27558e;
+                char[] cArr2 = j0Var.f27558e;
                 for (int i3 = 0; i3 < i2; i3++) {
                     if (cArr[i3] != cArr2[i3]) {
                         return false;
@@ -377,32 +378,32 @@ public class j0 implements Appendable, CharSequence {
             }
             if (i2 >= 10000) {
                 if (i2 >= 1000000000) {
-                    q(f27653g[(int) ((i2 % 10000000000L) / 1000000000)]);
+                    q(f27557g[(int) ((i2 % 10000000000L) / C.NANOS_PER_SECOND)]);
                 }
                 if (i2 >= 100000000) {
-                    q(f27653g[(i2 % 1000000000) / 100000000]);
+                    q(f27557g[(i2 % 1000000000) / 100000000]);
                 }
                 if (i2 >= 10000000) {
-                    q(f27653g[(i2 % 100000000) / 10000000]);
+                    q(f27557g[(i2 % 100000000) / 10000000]);
                 }
                 if (i2 >= 1000000) {
-                    q(f27653g[(i2 % 10000000) / 1000000]);
+                    q(f27557g[(i2 % 10000000) / 1000000]);
                 }
                 if (i2 >= 100000) {
-                    q(f27653g[(i2 % 1000000) / 100000]);
+                    q(f27557g[(i2 % 1000000) / 100000]);
                 }
-                q(f27653g[(i2 % 100000) / 10000]);
+                q(f27557g[(i2 % 100000) / 10000]);
             }
             if (i2 >= 1000) {
-                q(f27653g[(i2 % 10000) / 1000]);
+                q(f27557g[(i2 % 10000) / 1000]);
             }
             if (i2 >= 100) {
-                q(f27653g[(i2 % 1000) / 100]);
+                q(f27557g[(i2 % 1000) / 100]);
             }
             if (i2 >= 10) {
-                q(f27653g[(i2 % 100) / 10]);
+                q(f27557g[(i2 % 100) / 10]);
             }
-            q(f27653g[i2 % 10]);
+            q(f27557g[i2 % 10]);
             return this;
         }
         return (j0) invokeCommon.objValue;
@@ -432,9 +433,9 @@ public class j0 implements Appendable, CharSequence {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            int i2 = this.f27655f + 31;
-            for (int i3 = 0; i3 < this.f27655f; i3++) {
-                i2 = (i2 * 31) + this.f27654e[i3];
+            int i2 = this.f27559f + 31;
+            for (int i3 = 0; i3 < this.f27559f; i3++) {
+                i2 = (i2 * 31) + this.f27558e[i3];
             }
             return i2;
         }
@@ -460,59 +461,59 @@ public class j0 implements Appendable, CharSequence {
             }
             if (j2 >= 10000) {
                 if (j2 >= 1000000000000000000L) {
-                    q(f27653g[(int) ((j2 % 1.0E19d) / 1.0E18d)]);
+                    q(f27557g[(int) ((j2 % 1.0E19d) / 1.0E18d)]);
                 }
                 if (j2 >= 100000000000000000L) {
-                    q(f27653g[(int) ((j2 % 1000000000000000000L) / 100000000000000000L)]);
+                    q(f27557g[(int) ((j2 % 1000000000000000000L) / 100000000000000000L)]);
                 }
                 if (j2 >= 10000000000000000L) {
-                    q(f27653g[(int) ((j2 % 100000000000000000L) / 10000000000000000L)]);
+                    q(f27557g[(int) ((j2 % 100000000000000000L) / 10000000000000000L)]);
                 }
                 if (j2 >= 1000000000000000L) {
-                    q(f27653g[(int) ((j2 % 10000000000000000L) / 1000000000000000L)]);
+                    q(f27557g[(int) ((j2 % 10000000000000000L) / 1000000000000000L)]);
                 }
                 if (j2 >= 100000000000000L) {
-                    q(f27653g[(int) ((j2 % 1000000000000000L) / 100000000000000L)]);
+                    q(f27557g[(int) ((j2 % 1000000000000000L) / 100000000000000L)]);
                 }
                 if (j2 >= 10000000000000L) {
-                    q(f27653g[(int) ((j2 % 100000000000000L) / 10000000000000L)]);
+                    q(f27557g[(int) ((j2 % 100000000000000L) / 10000000000000L)]);
                 }
                 if (j2 >= BasicLabelFormatter.TRILLION) {
-                    q(f27653g[(int) ((j2 % 10000000000000L) / BasicLabelFormatter.TRILLION)]);
+                    q(f27557g[(int) ((j2 % 10000000000000L) / BasicLabelFormatter.TRILLION)]);
                 }
                 if (j2 >= 100000000000L) {
-                    q(f27653g[(int) ((j2 % BasicLabelFormatter.TRILLION) / 100000000000L)]);
+                    q(f27557g[(int) ((j2 % BasicLabelFormatter.TRILLION) / 100000000000L)]);
                 }
                 if (j2 >= 10000000000L) {
-                    q(f27653g[(int) ((j2 % 100000000000L) / 10000000000L)]);
+                    q(f27557g[(int) ((j2 % 100000000000L) / 10000000000L)]);
                 }
-                if (j2 >= 1000000000) {
-                    q(f27653g[(int) ((j2 % 10000000000L) / 1000000000)]);
+                if (j2 >= C.NANOS_PER_SECOND) {
+                    q(f27557g[(int) ((j2 % 10000000000L) / C.NANOS_PER_SECOND)]);
                 }
                 if (j2 >= 100000000) {
-                    q(f27653g[(int) ((j2 % 1000000000) / 100000000)]);
+                    q(f27557g[(int) ((j2 % C.NANOS_PER_SECOND) / 100000000)]);
                 }
                 if (j2 >= 10000000) {
-                    q(f27653g[(int) ((j2 % 100000000) / 10000000)]);
+                    q(f27557g[(int) ((j2 % 100000000) / 10000000)]);
                 }
                 if (j2 >= 1000000) {
-                    q(f27653g[(int) ((j2 % 10000000) / 1000000)]);
+                    q(f27557g[(int) ((j2 % 10000000) / 1000000)]);
                 }
                 if (j2 >= 100000) {
-                    q(f27653g[(int) ((j2 % 1000000) / 100000)]);
+                    q(f27557g[(int) ((j2 % 1000000) / 100000)]);
                 }
-                q(f27653g[(int) ((j2 % 100000) / 10000)]);
+                q(f27557g[(int) ((j2 % 100000) / 10000)]);
             }
             if (j2 >= 1000) {
-                q(f27653g[(int) ((j2 % 10000) / 1000)]);
+                q(f27557g[(int) ((j2 % 10000) / 1000)]);
             }
             if (j2 >= 100) {
-                q(f27653g[(int) ((j2 % 1000) / 100)]);
+                q(f27557g[(int) ((j2 % 1000) / 100)]);
             }
             if (j2 >= 10) {
-                q(f27653g[(int) ((j2 % 100) / 10)]);
+                q(f27557g[(int) ((j2 % 100) / 10)]);
             }
-            q(f27653g[(int) (j2 % 10)]);
+            q(f27557g[(int) (j2 % 10)]);
             return this;
         }
         return (j0) invokeCommon.objValue;
@@ -535,7 +536,7 @@ public class j0 implements Appendable, CharSequence {
             if (j0Var == null) {
                 v();
             } else {
-                u(j0Var.f27654e, 0, j0Var.f27655f);
+                u(j0Var.f27558e, 0, j0Var.f27559f);
             }
             return this;
         }
@@ -550,7 +551,7 @@ public class j0 implements Appendable, CharSequence {
                 v();
             } else if (charSequence instanceof j0) {
                 j0 j0Var = (j0) charSequence;
-                u(j0Var.f27654e, 0, j0Var.f27655f);
+                u(j0Var.f27558e, 0, j0Var.f27559f);
             } else {
                 s(charSequence.toString());
             }
@@ -573,7 +574,7 @@ public class j0 implements Appendable, CharSequence {
     public int length() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.f27655f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.f27559f : invokeV.intValue;
     }
 
     public j0 m(Object obj) {
@@ -623,13 +624,13 @@ public class j0 implements Appendable, CharSequence {
     public final void q(char c2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048620, this, new Object[]{Character.valueOf(c2)}) == null) {
-            int i2 = this.f27655f;
-            if (i2 == this.f27654e.length) {
+            int i2 = this.f27559f;
+            if (i2 == this.f27558e.length) {
                 x(i2 + 1);
             }
-            char[] cArr = this.f27654e;
-            int i3 = this.f27655f;
-            this.f27655f = i3 + 1;
+            char[] cArr = this.f27558e;
+            int i3 = this.f27559f;
+            this.f27559f = i3 + 1;
             cArr[i3] = c2;
         }
     }
@@ -656,12 +657,12 @@ public class j0 implements Appendable, CharSequence {
                 return;
             }
             int length = str.length();
-            int i2 = this.f27655f + length;
-            if (i2 > this.f27654e.length) {
+            int i2 = this.f27559f + length;
+            if (i2 > this.f27558e.length) {
                 x(i2);
             }
-            str.getChars(0, length, this.f27654e, this.f27655f);
-            this.f27655f = i2;
+            str.getChars(0, length, this.f27558e, this.f27559f);
+            this.f27559f = i2;
         }
     }
 
@@ -675,12 +676,12 @@ public class j0 implements Appendable, CharSequence {
     public final void t(char[] cArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048624, this, cArr) == null) {
-            int length = this.f27655f + cArr.length;
-            if (length > this.f27654e.length) {
+            int length = this.f27559f + cArr.length;
+            if (length > this.f27558e.length) {
                 x(length);
             }
-            System.arraycopy(cArr, 0, this.f27654e, this.f27655f, cArr.length);
-            this.f27655f = length;
+            System.arraycopy(cArr, 0, this.f27558e, this.f27559f, cArr.length);
+            this.f27559f = length;
         }
     }
 
@@ -688,7 +689,7 @@ public class j0 implements Appendable, CharSequence {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.f27655f == 0 ? "" : new String(this.f27654e, 0, this.f27655f) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.f27559f == 0 ? "" : new String(this.f27558e, 0, this.f27559f) : (String) invokeV.objValue;
     }
 
     public final void u(char[] cArr, int i2, int i3) {
@@ -696,12 +697,12 @@ public class j0 implements Appendable, CharSequence {
         if (interceptable == null || interceptable.invokeLII(1048626, this, cArr, i2, i3) == null) {
             if (i2 <= cArr.length && i2 >= 0) {
                 if (i3 >= 0 && cArr.length - i2 >= i3) {
-                    int i4 = this.f27655f + i3;
-                    if (i4 > this.f27654e.length) {
+                    int i4 = this.f27559f + i3;
+                    if (i4 > this.f27558e.length) {
                         x(i4);
                     }
-                    System.arraycopy(cArr, i2, this.f27654e, this.f27655f, i3);
-                    this.f27655f = i4;
+                    System.arraycopy(cArr, i2, this.f27558e, this.f27559f, i3);
+                    this.f27559f = i4;
                     return;
                 }
                 throw new ArrayIndexOutOfBoundsException("Length out of bounds: " + i3);
@@ -713,22 +714,22 @@ public class j0 implements Appendable, CharSequence {
     public final void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048627, this) == null) {
-            int i2 = this.f27655f + 4;
-            if (i2 > this.f27654e.length) {
+            int i2 = this.f27559f + 4;
+            if (i2 > this.f27558e.length) {
                 x(i2);
             }
-            char[] cArr = this.f27654e;
-            int i3 = this.f27655f;
+            char[] cArr = this.f27558e;
+            int i3 = this.f27559f;
             int i4 = i3 + 1;
-            this.f27655f = i4;
+            this.f27559f = i4;
             cArr[i3] = 'n';
             int i5 = i4 + 1;
-            this.f27655f = i5;
+            this.f27559f = i5;
             cArr[i4] = 'u';
             int i6 = i5 + 1;
-            this.f27655f = i6;
+            this.f27559f = i6;
             cArr[i5] = 'l';
-            this.f27655f = i6 + 1;
+            this.f27559f = i6 + 1;
             cArr[i6] = 'l';
         }
     }
@@ -737,7 +738,7 @@ public class j0 implements Appendable, CharSequence {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048628, this, i2, i3) == null) {
             if (i2 >= 0) {
-                int i4 = this.f27655f;
+                int i4 = this.f27559f;
                 if (i3 > i4) {
                     i3 = i4;
                 }
@@ -745,12 +746,12 @@ public class j0 implements Appendable, CharSequence {
                     return;
                 }
                 if (i3 > i2) {
-                    int i5 = this.f27655f - i3;
+                    int i5 = this.f27559f - i3;
                     if (i5 >= 0) {
-                        char[] cArr = this.f27654e;
+                        char[] cArr = this.f27558e;
                         System.arraycopy(cArr, i3, cArr, i2, i5);
                     }
-                    this.f27655f -= i3 - i2;
+                    this.f27559f -= i3 - i2;
                     return;
                 }
             }
@@ -761,24 +762,24 @@ public class j0 implements Appendable, CharSequence {
     public final void x(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048629, this, i2) == null) {
-            char[] cArr = this.f27654e;
+            char[] cArr = this.f27558e;
             int length = (cArr.length >> 1) + cArr.length + 2;
             if (i2 <= length) {
                 i2 = length;
             }
             char[] cArr2 = new char[i2];
-            System.arraycopy(this.f27654e, 0, cArr2, 0, this.f27655f);
-            this.f27654e = cArr2;
+            System.arraycopy(this.f27558e, 0, cArr2, 0, this.f27559f);
+            this.f27558e = cArr2;
         }
     }
 
     public final void y(int i2, char c2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048630, this, new Object[]{Integer.valueOf(i2), Character.valueOf(c2)}) == null) {
-            if (i2 >= 0 && i2 <= this.f27655f) {
+            if (i2 >= 0 && i2 <= this.f27559f) {
                 D(1, i2);
-                this.f27654e[i2] = c2;
-                this.f27655f++;
+                this.f27558e[i2] = c2;
+                this.f27559f++;
                 return;
             }
             throw new ArrayIndexOutOfBoundsException(i2);
@@ -791,7 +792,7 @@ public class j0 implements Appendable, CharSequence {
             if (charSequence == null) {
                 charSequence = StringUtil.NULL_STRING;
             }
-            if (i2 >= 0 && i2 <= this.f27655f && i3 >= 0 && i4 >= 0 && i3 <= i4 && i4 <= charSequence.length()) {
+            if (i2 >= 0 && i2 <= this.f27559f && i3 >= 0 && i4 >= 0 && i3 <= i4 && i4 <= charSequence.length()) {
                 A(i2, charSequence.subSequence(i3, i4).toString());
                 return;
             }
@@ -831,7 +832,7 @@ public class j0 implements Appendable, CharSequence {
             }
         }
         if (i2 >= 0) {
-            this.f27654e = new char[i2];
+            this.f27558e = new char[i2];
             return;
         }
         throw new NegativeArraySizeException();
@@ -889,9 +890,9 @@ public class j0 implements Appendable, CharSequence {
             }
         }
         int length = str.length();
-        this.f27655f = length;
+        this.f27559f = length;
         char[] cArr = new char[length + 16];
-        this.f27654e = cArr;
+        this.f27558e = cArr;
         str.getChars(0, length, cArr, 0);
     }
 

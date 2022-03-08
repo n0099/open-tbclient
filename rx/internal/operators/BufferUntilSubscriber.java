@@ -14,21 +14,21 @@ import i.j;
 import i.t.d;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class BufferUntilSubscriber<T> extends d<T, T> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final e f62666h;
+    public static final e f61016h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final State<T> f62667f;
+    public final State<T> f61017f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f62668g;
+    public boolean f61018g;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class State<T> extends AtomicReference<e<? super T>> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8026705089538090368L;
@@ -61,7 +61,7 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class a implements e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,21 +102,21 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class b<T> implements d.a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final State<T> f62669e;
+        public final State<T> f61019e;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes9.dex */
         public class a implements i.n.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f62670e;
+            public final /* synthetic */ b f61020e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -133,14 +133,14 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
                         return;
                     }
                 }
-                this.f62670e = bVar;
+                this.f61020e = bVar;
             }
 
             @Override // i.n.a
             public void call() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f62670e.f62669e.set(BufferUntilSubscriber.f62666h);
+                    this.f61020e.f61019e.set(BufferUntilSubscriber.f61016h);
                 }
             }
         }
@@ -160,7 +160,7 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
                     return;
                 }
             }
-            this.f62669e = state;
+            this.f61019e = state;
         }
 
         @Override // i.d.a, i.n.b
@@ -174,27 +174,27 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
             if (interceptable != null && interceptable.invokeL(1048576, this, jVar) != null) {
                 return;
             }
-            if (this.f62669e.casObserverRef(null, jVar)) {
+            if (this.f61019e.casObserverRef(null, jVar)) {
                 jVar.b(i.u.e.a(new a(this)));
-                synchronized (this.f62669e.guard) {
+                synchronized (this.f61019e.guard) {
                     z = true;
-                    if (this.f62669e.emitting) {
+                    if (this.f61019e.emitting) {
                         z = false;
                     } else {
-                        this.f62669e.emitting = true;
+                        this.f61019e.emitting = true;
                     }
                 }
                 if (!z) {
                     return;
                 }
                 while (true) {
-                    Object poll = this.f62669e.buffer.poll();
+                    Object poll = this.f61019e.buffer.poll();
                     if (poll != null) {
-                        NotificationLite.a(this.f62669e.get(), poll);
+                        NotificationLite.a(this.f61019e.get(), poll);
                     } else {
-                        synchronized (this.f62669e.guard) {
-                            if (this.f62669e.buffer.isEmpty()) {
-                                this.f62669e.emitting = false;
+                        synchronized (this.f61019e.guard) {
+                            if (this.f61019e.buffer.isEmpty()) {
+                                this.f61019e.emitting = false;
                                 return;
                             }
                         }
@@ -219,7 +219,7 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
                 return;
             }
         }
-        f62666h = new a();
+        f61016h = new a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -240,7 +240,7 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
                 return;
             }
         }
-        this.f62667f = state;
+        this.f61017f = state;
     }
 
     public static <T> BufferUntilSubscriber<T> F() {
@@ -254,22 +254,22 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
         if (interceptable != null && interceptable.invokeL(1048576, this, obj) != null) {
             return;
         }
-        synchronized (this.f62667f.guard) {
-            this.f62667f.buffer.add(obj);
-            if (this.f62667f.get() != null && !this.f62667f.emitting) {
-                this.f62668g = true;
-                this.f62667f.emitting = true;
+        synchronized (this.f61017f.guard) {
+            this.f61017f.buffer.add(obj);
+            if (this.f61017f.get() != null && !this.f61017f.emitting) {
+                this.f61018g = true;
+                this.f61017f.emitting = true;
             }
         }
-        if (!this.f62668g) {
+        if (!this.f61018g) {
             return;
         }
         while (true) {
-            Object poll = this.f62667f.buffer.poll();
+            Object poll = this.f61017f.buffer.poll();
             if (poll == null) {
                 return;
             }
-            NotificationLite.a(this.f62667f.get(), poll);
+            NotificationLite.a(this.f61017f.get(), poll);
         }
     }
 
@@ -277,8 +277,8 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f62668g) {
-                this.f62667f.get().onCompleted();
+            if (this.f61018g) {
+                this.f61017f.get().onCompleted();
             } else {
                 G(NotificationLite.b());
             }
@@ -289,8 +289,8 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-            if (this.f62668g) {
-                this.f62667f.get().onError(th);
+            if (this.f61018g) {
+                this.f61017f.get().onError(th);
             } else {
                 G(NotificationLite.c(th));
             }
@@ -301,8 +301,8 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-            if (this.f62668g) {
-                this.f62667f.get().onNext(t);
+            if (this.f61018g) {
+                this.f61017f.get().onNext(t);
             } else {
                 G(NotificationLite.h(t));
             }

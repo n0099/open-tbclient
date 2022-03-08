@@ -41,7 +41,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.R;
+import androidx.appcompat.R$attr;
+import androidx.appcompat.R$dimen;
+import androidx.appcompat.R$id;
+import androidx.appcompat.R$layout;
+import androidx.appcompat.R$string;
+import androidx.appcompat.R$styleable;
 import androidx.appcompat.view.CollapsibleActionView;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -568,7 +573,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public SearchAutoComplete(Context context, AttributeSet attributeSet) {
-            this(context, attributeSet, R.attr.autoCompleteTextViewStyle);
+            this(context, attributeSet, R$attr.autoCompleteTextViewStyle);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -931,13 +936,13 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
     private int getPreferredHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) ? getContext().getResources().getDimensionPixelSize(R.dimen.abc_search_view_preferred_height) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) ? getContext().getResources().getDimensionPixelSize(R$dimen.abc_search_view_preferred_height) : invokeV.intValue;
     }
 
     private int getPreferredWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) ? getContext().getResources().getDimensionPixelSize(R.dimen.abc_search_view_preferred_width) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) ? getContext().getResources().getDimensionPixelSize(R$dimen.abc_search_view_preferred_width) : invokeV.intValue;
     }
 
     private boolean hasVoiceSearch() {
@@ -1133,7 +1138,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         int paddingLeft = this.mSearchPlate.getPaddingLeft();
         Rect rect = new Rect();
         boolean isLayoutRtl = ViewUtils.isLayoutRtl(this);
-        int dimensionPixelSize = this.mIconifiedByDefault ? resources.getDimensionPixelSize(R.dimen.abc_dropdownitem_icon_width) + resources.getDimensionPixelSize(R.dimen.abc_dropdownitem_text_padding_left) : 0;
+        int dimensionPixelSize = this.mIconifiedByDefault ? resources.getDimensionPixelSize(R$dimen.abc_dropdownitem_icon_width) + resources.getDimensionPixelSize(R$dimen.abc_dropdownitem_text_padding_left) : 0;
         this.mSearchSrcTextView.getDropDownBackground().getPadding(rect);
         if (isLayoutRtl) {
             i2 = -rect.left;
@@ -1734,7 +1739,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SearchView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.searchViewStyle);
+        this(context, attributeSet, R$attr.searchViewStyle);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2078,30 +2083,30 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                 }
             }
         };
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.SearchView, i2, 0);
-        LayoutInflater.from(context).inflate(obtainStyledAttributes.getResourceId(R.styleable.SearchView_layout, R.layout.abc_search_view), (ViewGroup) this, true);
-        SearchAutoComplete searchAutoComplete = (SearchAutoComplete) findViewById(R.id.search_src_text);
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R$styleable.SearchView, i2, 0);
+        LayoutInflater.from(context).inflate(obtainStyledAttributes.getResourceId(R$styleable.SearchView_layout, R$layout.abc_search_view), (ViewGroup) this, true);
+        SearchAutoComplete searchAutoComplete = (SearchAutoComplete) findViewById(R$id.search_src_text);
         this.mSearchSrcTextView = searchAutoComplete;
         searchAutoComplete.setSearchView(this);
-        this.mSearchEditFrame = findViewById(R.id.search_edit_frame);
-        this.mSearchPlate = findViewById(R.id.search_plate);
-        this.mSubmitArea = findViewById(R.id.submit_area);
-        this.mSearchButton = (ImageView) findViewById(R.id.search_button);
-        this.mGoButton = (ImageView) findViewById(R.id.search_go_btn);
-        this.mCloseButton = (ImageView) findViewById(R.id.search_close_btn);
-        this.mVoiceButton = (ImageView) findViewById(R.id.search_voice_btn);
-        this.mCollapsedIcon = (ImageView) findViewById(R.id.search_mag_icon);
-        ViewCompat.setBackground(this.mSearchPlate, obtainStyledAttributes.getDrawable(R.styleable.SearchView_queryBackground));
-        ViewCompat.setBackground(this.mSubmitArea, obtainStyledAttributes.getDrawable(R.styleable.SearchView_submitBackground));
-        this.mSearchButton.setImageDrawable(obtainStyledAttributes.getDrawable(R.styleable.SearchView_searchIcon));
-        this.mGoButton.setImageDrawable(obtainStyledAttributes.getDrawable(R.styleable.SearchView_goIcon));
-        this.mCloseButton.setImageDrawable(obtainStyledAttributes.getDrawable(R.styleable.SearchView_closeIcon));
-        this.mVoiceButton.setImageDrawable(obtainStyledAttributes.getDrawable(R.styleable.SearchView_voiceIcon));
-        this.mCollapsedIcon.setImageDrawable(obtainStyledAttributes.getDrawable(R.styleable.SearchView_searchIcon));
-        this.mSearchHintIcon = obtainStyledAttributes.getDrawable(R.styleable.SearchView_searchHintIcon);
-        TooltipCompat.setTooltipText(this.mSearchButton, getResources().getString(R.string.abc_searchview_description_search));
-        this.mSuggestionRowLayout = obtainStyledAttributes.getResourceId(R.styleable.SearchView_suggestionRowLayout, R.layout.abc_search_dropdown_item_icons_2line);
-        this.mSuggestionCommitIconResId = obtainStyledAttributes.getResourceId(R.styleable.SearchView_commitIcon, 0);
+        this.mSearchEditFrame = findViewById(R$id.search_edit_frame);
+        this.mSearchPlate = findViewById(R$id.search_plate);
+        this.mSubmitArea = findViewById(R$id.submit_area);
+        this.mSearchButton = (ImageView) findViewById(R$id.search_button);
+        this.mGoButton = (ImageView) findViewById(R$id.search_go_btn);
+        this.mCloseButton = (ImageView) findViewById(R$id.search_close_btn);
+        this.mVoiceButton = (ImageView) findViewById(R$id.search_voice_btn);
+        this.mCollapsedIcon = (ImageView) findViewById(R$id.search_mag_icon);
+        ViewCompat.setBackground(this.mSearchPlate, obtainStyledAttributes.getDrawable(R$styleable.SearchView_queryBackground));
+        ViewCompat.setBackground(this.mSubmitArea, obtainStyledAttributes.getDrawable(R$styleable.SearchView_submitBackground));
+        this.mSearchButton.setImageDrawable(obtainStyledAttributes.getDrawable(R$styleable.SearchView_searchIcon));
+        this.mGoButton.setImageDrawable(obtainStyledAttributes.getDrawable(R$styleable.SearchView_goIcon));
+        this.mCloseButton.setImageDrawable(obtainStyledAttributes.getDrawable(R$styleable.SearchView_closeIcon));
+        this.mVoiceButton.setImageDrawable(obtainStyledAttributes.getDrawable(R$styleable.SearchView_voiceIcon));
+        this.mCollapsedIcon.setImageDrawable(obtainStyledAttributes.getDrawable(R$styleable.SearchView_searchIcon));
+        this.mSearchHintIcon = obtainStyledAttributes.getDrawable(R$styleable.SearchView_searchHintIcon);
+        TooltipCompat.setTooltipText(this.mSearchButton, getResources().getString(R$string.abc_searchview_description_search));
+        this.mSuggestionRowLayout = obtainStyledAttributes.getResourceId(R$styleable.SearchView_suggestionRowLayout, R$layout.abc_search_dropdown_item_icons_2line);
+        this.mSuggestionCommitIconResId = obtainStyledAttributes.getResourceId(R$styleable.SearchView_commitIcon, 0);
         this.mSearchButton.setOnClickListener(this.mOnClickListener);
         this.mCloseButton.setOnClickListener(this.mOnClickListener);
         this.mGoButton.setOnClickListener(this.mOnClickListener);
@@ -2146,22 +2151,22 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                 onFocusChangeListener.onFocusChange(searchView, z);
             }
         });
-        setIconifiedByDefault(obtainStyledAttributes.getBoolean(R.styleable.SearchView_iconifiedByDefault, true));
-        int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(R.styleable.SearchView_android_maxWidth, -1);
+        setIconifiedByDefault(obtainStyledAttributes.getBoolean(R$styleable.SearchView_iconifiedByDefault, true));
+        int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(R$styleable.SearchView_android_maxWidth, -1);
         if (dimensionPixelSize != -1) {
             setMaxWidth(dimensionPixelSize);
         }
-        this.mDefaultQueryHint = obtainStyledAttributes.getText(R.styleable.SearchView_defaultQueryHint);
-        this.mQueryHint = obtainStyledAttributes.getText(R.styleable.SearchView_queryHint);
-        int i5 = obtainStyledAttributes.getInt(R.styleable.SearchView_android_imeOptions, -1);
+        this.mDefaultQueryHint = obtainStyledAttributes.getText(R$styleable.SearchView_defaultQueryHint);
+        this.mQueryHint = obtainStyledAttributes.getText(R$styleable.SearchView_queryHint);
+        int i5 = obtainStyledAttributes.getInt(R$styleable.SearchView_android_imeOptions, -1);
         if (i5 != -1) {
             setImeOptions(i5);
         }
-        int i6 = obtainStyledAttributes.getInt(R.styleable.SearchView_android_inputType, -1);
+        int i6 = obtainStyledAttributes.getInt(R$styleable.SearchView_android_inputType, -1);
         if (i6 != -1) {
             setInputType(i6);
         }
-        setFocusable(obtainStyledAttributes.getBoolean(R.styleable.SearchView_android_focusable, true));
+        setFocusable(obtainStyledAttributes.getBoolean(R$styleable.SearchView_android_focusable, true));
         obtainStyledAttributes.recycle();
         Intent intent = new Intent("android.speech.action.WEB_SEARCH");
         this.mVoiceWebSearchIntent = intent;

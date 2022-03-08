@@ -10,11 +10,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.InetAddress;
 import org.apache.http.HttpHost;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface RouteInfo {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class LayerType {
         public static final /* synthetic */ LayerType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -74,7 +74,7 @@ public interface RouteInfo {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class TunnelType {
         public static final /* synthetic */ TunnelType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

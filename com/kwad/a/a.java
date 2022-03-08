@@ -19,22 +19,22 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a implements b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C2101a {
+    /* loaded from: classes7.dex */
+    public static class C2080a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ZipFile a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ZipEntry f55543b;
+        public ZipEntry f53893b;
 
-        public C2101a(ZipFile zipFile, ZipEntry zipEntry) {
+        public C2080a(ZipFile zipFile, ZipEntry zipEntry) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,7 +50,7 @@ public class a implements b.a {
                 }
             }
             this.a = zipFile;
-            this.f55543b = zipEntry;
+            this.f53893b = zipEntry;
         }
     }
 
@@ -87,7 +87,7 @@ public class a implements b.a {
         }
     }
 
-    private C2101a a(Context context, String[] strArr, String str, c cVar) {
+    private C2080a a(Context context, String[] strArr, String str, c cVar) {
         InterceptResult invokeLLLL;
         int i2;
         Interceptable interceptable = $ic;
@@ -130,7 +130,7 @@ public class a implements b.a {
                             cVar.a("Looking for %s in APK %s...", objArr);
                             ZipEntry entry = zipFile.getEntry(str3);
                             if (entry != null) {
-                                return new C2101a(zipFile, entry);
+                                return new C2080a(zipFile, entry);
                             }
                             i8++;
                             c2 = 0;
@@ -144,7 +144,7 @@ public class a implements b.a {
             }
             return null;
         }
-        return (C2101a) invokeLLLL.objValue;
+        return (C2080a) invokeLLLL.objValue;
     }
 
     private void a(Closeable closeable) {
@@ -184,10 +184,10 @@ public class a implements b.a {
         if (interceptable != null && interceptable.invokeLLLLL(1048576, this, context, strArr, str, file, cVar) != null) {
             return;
         }
-        C2101a c2101a = null;
+        C2080a c2080a = null;
         Closeable closeable2 = null;
         try {
-            C2101a a2 = a(context, strArr, str, cVar);
+            C2080a a2 = a(context, strArr, str, cVar);
             try {
                 if (a2 == null) {
                     throw new RuntimeException(str);
@@ -214,7 +214,7 @@ public class a implements b.a {
                     try {
                         if (file.exists() || file.createNewFile()) {
                             try {
-                                inputStream = a2.a.getInputStream(a2.f55543b);
+                                inputStream = a2.a.getInputStream(a2.f53893b);
                                 try {
                                     closeable = new FileOutputStream(file);
                                 } catch (FileNotFoundException unused2) {
@@ -281,11 +281,11 @@ public class a implements b.a {
                 }
             } catch (Throwable th4) {
                 th = th4;
-                c2101a = a2;
-                if (c2101a != null) {
+                c2080a = a2;
+                if (c2080a != null) {
                     try {
-                        if (c2101a.a != null) {
-                            c2101a.a.close();
+                        if (c2080a.a != null) {
+                            c2080a.a.close();
                         }
                     } catch (IOException unused10) {
                     }

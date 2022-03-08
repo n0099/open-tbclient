@@ -5,14 +5,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class b implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ WeakReference a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ a f35355b;
+    public final /* synthetic */ a f33758b;
 
     public b(a aVar, WeakReference weakReference) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class b implements Runnable {
                 return;
             }
         }
-        this.f35355b = aVar;
+        this.f33758b = aVar;
         this.a = weakReference;
     }
 
@@ -41,7 +41,7 @@ public class b implements Runnable {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = (a) this.a.get()) == null) {
             return;
         }
-        i2 = aVar.f35354h;
+        i2 = aVar.f33757h;
         if (i2 == 3) {
             aVar.b();
         }

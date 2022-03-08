@@ -10,37 +10,37 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c.b.a.c.b<d> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public w<g, c.b.b.q.a<d>> f27146b;
+    public w<g, c.b.b.q.a<d>> f27050b;
 
     /* renamed from: c  reason: collision with root package name */
-    public w<g, c.b.a.c.b<d>> f27147c;
+    public w<g, c.b.a.c.b<d>> f27051c;
 
     /* renamed from: d  reason: collision with root package name */
-    public g0<c> f27148d;
+    public g0<c> f27052d;
 
     /* renamed from: e  reason: collision with root package name */
-    public w<g, c.b.b.q.d> f27149e;
+    public w<g, c.b.b.q.d> f27053e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f27150f;
+    public b f27054f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f27151g;
+    public boolean f27055g;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class b extends z<c.b.b.q.d> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,14 +73,14 @@ public class h {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public e a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f27152b;
+        public int f27056b;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -116,12 +116,12 @@ public class h {
                 return;
             }
         }
-        this.f27146b = new w<>();
-        this.f27147c = new w<>();
-        this.f27148d = new g0<>(true, 16);
-        this.f27149e = new w<>();
-        this.f27150f = new b(null);
-        this.f27151g = false;
+        this.f27050b = new w<>();
+        this.f27051c = new w<>();
+        this.f27052d = new g0<>(true, 16);
+        this.f27053e = new w<>();
+        this.f27054f = new b(null);
+        this.f27055g = false;
         this.a = bVar;
     }
 
@@ -131,13 +131,13 @@ public class h {
             d(gVar);
             int i3 = 0;
             while (true) {
-                g0<c> g0Var = this.f27148d;
-                if (i3 >= g0Var.f27595f || g0Var.get(i3).f27152b > i2) {
+                g0<c> g0Var = this.f27052d;
+                if (i3 >= g0Var.f27499f || g0Var.get(i3).f27056b > i2) {
                     break;
                 }
                 i3++;
             }
-            w.e<c.b.b.q.d> n = this.f27149e.n();
+            w.e<c.b.b.q.d> n = this.f27053e.n();
             n.d();
             while (n.hasNext()) {
                 c.b.b.q.d next = n.next();
@@ -150,11 +150,11 @@ public class h {
                 }
                 next.c(i3);
             }
-            this.f27149e.c(gVar).k(i3);
+            this.f27053e.c(gVar).k(i3);
             c cVar = new c(null);
             cVar.a = eVar;
-            cVar.f27152b = i2;
-            this.f27148d.insert(i3, cVar);
+            cVar.f27056b = i2;
+            this.f27052d.insert(i3, cVar);
         }
     }
 
@@ -167,20 +167,20 @@ public class h {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27151g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27055g : invokeV.booleanValue;
     }
 
     public final c.b.a.c.b<d> d(g gVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, gVar)) == null) {
-            c.b.a.c.b<d> c2 = this.f27147c.c(gVar);
+            c.b.a.c.b<d> c2 = this.f27051c.c(gVar);
             if (c2 == null) {
                 c.b.b.q.a<d> aVar = new c.b.b.q.a<>(false, 16);
                 c.b.a.c.b<d> bVar = new c.b.a.c.b<>(aVar);
-                this.f27146b.i(gVar, aVar);
-                this.f27147c.i(gVar, bVar);
-                this.f27149e.i(gVar, new c.b.b.q.d());
+                this.f27050b.i(gVar, aVar);
+                this.f27051c.i(gVar, bVar);
+                this.f27053e.i(gVar, new c.b.b.q.d());
                 Iterator<d> it = this.a.iterator();
                 while (it.hasNext()) {
                     f(it.next());
@@ -199,12 +199,12 @@ public class h {
         }
         int i2 = 0;
         while (true) {
-            g0<c> g0Var = this.f27148d;
-            if (i2 >= g0Var.f27595f) {
+            g0<c> g0Var = this.f27052d;
+            if (i2 >= g0Var.f27499f) {
                 return;
             }
             if (g0Var.get(i2).a == eVar) {
-                w.e<c.b.b.q.d> n = this.f27149e.n();
+                w.e<c.b.b.q.d> n = this.f27053e.n();
                 n.d();
                 while (n.hasNext()) {
                     c.b.b.q.d next = n.next();
@@ -220,7 +220,7 @@ public class h {
                         i3 = i4;
                     }
                 }
-                this.f27148d.h(i2);
+                this.f27052d.h(i2);
                 i2--;
             }
             i2++;
@@ -230,9 +230,9 @@ public class h {
     public void f(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) {
-            c.b.b.q.d e2 = this.f27150f.e();
-            c.b.b.q.d e3 = this.f27150f.e();
-            w.c<g> f2 = this.f27149e.f();
+            c.b.b.q.d e2 = this.f27054f.e();
+            c.b.b.q.d e3 = this.f27054f.e();
+            w.c<g> f2 = this.f27053e.f();
             f2.d();
             while (true) {
                 boolean z = false;
@@ -243,12 +243,12 @@ public class h {
                 int g2 = next.g();
                 c.b.b.q.d f3 = dVar.f();
                 boolean e4 = f3.e(g2);
-                if (next.h(dVar) && !dVar.f27128d) {
+                if (next.h(dVar) && !dVar.f27032d) {
                     z = true;
                 }
                 if (e4 != z) {
-                    c.b.b.q.d c2 = this.f27149e.c(next);
-                    c.b.b.q.a<d> c3 = this.f27146b.c(next);
+                    c.b.b.q.d c2 = this.f27053e.c(next);
+                    c.b.b.q.a<d> c3 = this.f27050b.c(next);
                     if (z) {
                         e2.j(c2);
                         c3.a(dVar);
@@ -260,8 +260,8 @@ public class h {
                     }
                 }
             }
-            this.f27151g = true;
-            c[] o = this.f27148d.o();
+            this.f27055g = true;
+            c[] o = this.f27052d.o();
             try {
                 for (int i2 = e3.i(0); i2 >= 0; i2 = e3.i(i2 + 1)) {
                     o[i2].a.a(dVar);
@@ -272,10 +272,10 @@ public class h {
             } finally {
                 e2.b();
                 e3.b();
-                this.f27150f.c(e2);
-                this.f27150f.c(e3);
-                this.f27148d.p();
-                this.f27151g = false;
+                this.f27054f.c(e2);
+                this.f27054f.c(e3);
+                this.f27052d.p();
+                this.f27055g = false;
             }
         }
     }

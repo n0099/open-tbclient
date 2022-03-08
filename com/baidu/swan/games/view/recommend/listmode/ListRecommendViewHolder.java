@@ -4,13 +4,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.s0.h.e;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.view.SimpleDraweeView;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class ListRecommendViewHolder extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,9 +37,9 @@ public class ListRecommendViewHolder extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.icon = (SimpleDraweeView) view.findViewById(e.swangame_recommend_item_icon);
-        this.name = (TextView) view.findViewById(e.swangame_recommend_item_name);
-        this.detail = (TextView) view.findViewById(e.swangame_recommend_item_detail);
-        this.play = (Button) view.findViewById(e.swangame_recommend_item_play);
+        this.icon = (SimpleDraweeView) view.findViewById(R.id.swangame_recommend_item_icon);
+        this.name = (TextView) view.findViewById(R.id.swangame_recommend_item_name);
+        this.detail = (TextView) view.findViewById(R.id.swangame_recommend_item_detail);
+        this.play = (Button) view.findViewById(R.id.swangame_recommend_item_play);
     }
 }

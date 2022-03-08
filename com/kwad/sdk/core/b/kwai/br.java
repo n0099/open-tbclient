@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.b.kwai;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class br implements com.kwad.sdk.core.d<com.kwad.sdk.c.kwai.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
@@ -13,17 +13,17 @@ public class br implements com.kwad.sdk.core.d<com.kwad.sdk.c.kwai.a> {
         if (jSONObject.opt("Access-Control-Allow-Origin") == JSONObject.NULL) {
             aVar.a = "";
         }
-        aVar.f55671b = jSONObject.optString("Timing-Allow-Origin");
+        aVar.f54021b = jSONObject.optString("Timing-Allow-Origin");
         if (jSONObject.opt("Timing-Allow-Origin") == JSONObject.NULL) {
-            aVar.f55671b = "";
+            aVar.f54021b = "";
         }
-        aVar.f55672c = jSONObject.optString("content-type");
+        aVar.f54022c = jSONObject.optString("content-type");
         if (jSONObject.opt("content-type") == JSONObject.NULL) {
-            aVar.f55672c = "";
+            aVar.f54022c = "";
         }
-        aVar.f55673d = jSONObject.optString("Date");
+        aVar.f54023d = jSONObject.optString("Date");
         if (jSONObject.opt("Date") == JSONObject.NULL) {
-            aVar.f55673d = "";
+            aVar.f54023d = "";
         }
     }
 
@@ -34,9 +34,9 @@ public class br implements com.kwad.sdk.core.d<com.kwad.sdk.c.kwai.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "Access-Control-Allow-Origin", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "Timing-Allow-Origin", aVar.f55671b);
-        com.kwad.sdk.utils.t.a(jSONObject, "content-type", aVar.f55672c);
-        com.kwad.sdk.utils.t.a(jSONObject, "Date", aVar.f55673d);
+        com.kwad.sdk.utils.t.a(jSONObject, "Timing-Allow-Origin", aVar.f54021b);
+        com.kwad.sdk.utils.t.a(jSONObject, "content-type", aVar.f54022c);
+        com.kwad.sdk.utils.t.a(jSONObject, "Date", aVar.f54023d);
         return jSONObject;
     }
 }

@@ -16,7 +16,7 @@ import java.io.OutputStream;
 import org.apache.commons.codec.binary4util.bdapp.Base64;
 @SuppressLint({"BDThrowableCheck"})
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class Base64OutputStream extends FilterOutputStream {
     public static /* synthetic */ Interceptable $ic;
     public static byte[] EMPTY;

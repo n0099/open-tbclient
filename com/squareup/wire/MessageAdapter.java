@@ -22,7 +22,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class MessageAdapter<M extends Message> {
     public static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$Message$Datatype;
     public static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$WireType;
@@ -884,7 +884,7 @@ public final class MessageAdapter<M extends Message> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, m)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(this.messageType.getSimpleName());
-            sb.append(StringUtil.ARRAY_START);
+            sb.append("{");
             String str = "";
             for (FieldInfo fieldInfo : getFields()) {
                 Object fieldValue = getFieldValue(m, fieldInfo);
@@ -936,7 +936,7 @@ public final class MessageAdapter<M extends Message> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class Storage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1000,7 +1000,7 @@ public final class MessageAdapter<M extends Message> {
         return (Extension) invokeL.objValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class FieldInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -1,8 +1,6 @@
 package com.baidu.sapi2.activity;
 
 import android.os.Bundle;
-import c.a.f0.a.f;
-import c.a.f0.a.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccount;
@@ -13,12 +11,13 @@ import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.enums.AccountType;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class RegisterActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +117,7 @@ public class RegisterActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(f.layout_sapi_sdk_webview_with_title_bar);
+                setContentView(R.layout.layout_sapi_sdk_webview_with_title_bar);
                 init();
                 setupViews();
             } catch (Throwable th) {
@@ -151,7 +150,7 @@ public class RegisterActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.setupViews();
-            setTitleText(g.sapi_sdk_title_register);
+            setTitleText(R.string.sapi_sdk_title_register);
             WebAuthListener webAuthListener = CoreViewRouter.getInstance().getWebAuthListener();
             this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback(this) { // from class: com.baidu.sapi2.activity.RegisterActivity.2
                 public static /* synthetic */ Interceptable $ic;
@@ -190,7 +189,7 @@ public class RegisterActivity extends BaseActivity {
                 public final /* synthetic */ WebAuthListener a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ RegisterActivity f38285b;
+                public final /* synthetic */ RegisterActivity f36689b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -207,7 +206,7 @@ public class RegisterActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f38285b = this;
+                    this.f36689b = this;
                     this.a = webAuthListener;
                 }
 
@@ -227,13 +226,13 @@ public class RegisterActivity extends BaseActivity {
                 public void onFailed(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                        this.f38285b.t.setResultCode(i2);
-                        this.f38285b.t.setResultMsg(str);
+                        this.f36689b.t.setResultCode(i2);
+                        this.f36689b.t.setResultMsg(str);
                         WebAuthListener webAuthListener2 = this.a;
                         if (webAuthListener2 != null) {
-                            webAuthListener2.onFailure(this.f38285b.t);
+                            webAuthListener2.onFailure(this.f36689b.t);
                         }
-                        this.f38285b.finish();
+                        this.f36689b.finish();
                         CoreViewRouter.getInstance().release();
                     }
                 }
@@ -243,17 +242,17 @@ public class RegisterActivity extends BaseActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountType) == null) {
                         super.onSuccess(accountType);
-                        this.f38285b.t.accountType = accountType;
-                        this.f38285b.t.setResultCode(0);
+                        this.f36689b.t.accountType = accountType;
+                        this.f36689b.t.setResultCode(0);
                         WebAuthListener webAuthListener2 = this.a;
                         if (webAuthListener2 != null) {
-                            webAuthListener2.onSuccess(this.f38285b.t);
+                            webAuthListener2.onSuccess(this.f36689b.t);
                         }
                         WebRegDTO webRegDTO = CoreViewRouter.getInstance().getWebRegDTO();
                         if (webRegDTO == null || !webRegDTO.finishActivityAfterSuc) {
                             return;
                         }
-                        this.f38285b.finish();
+                        this.f36689b.finish();
                         CoreViewRouter.getInstance().release();
                     }
                 }

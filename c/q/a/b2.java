@@ -1,28 +1,38 @@
 package c.q.a;
 
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.core.Info;
-import com.win.opensdk.downloader.WDownLoadService;
-/* loaded from: classes9.dex */
-public class b2 implements Runnable {
+import com.fun.openid.sdk.FunOpenIDSdk;
+/* loaded from: classes3.dex */
+public class b2 {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static b2 f28923b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f28924c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static String f28925d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ Info f30524e;
+    public static String f28926e;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ WDownLoadService f30525f;
-
-    public b2(WDownLoadService wDownLoadService, Info info) {
+    public b2(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wDownLoadService, info};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -32,17 +42,71 @@ public class b2 implements Runnable {
                 return;
             }
         }
-        this.f30525f = wDownLoadService;
-        this.f30524e = info;
+        this.a = context;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public static b2 a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Info info = this.f30524e;
-            WDownLoadService wDownLoadService = this.f30525f;
-            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(m1.win_wdownload_download_finish), this.f30525f.getString(m1.win_wdownload_download_finish), 100);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (f28923b == null) {
+                synchronized (b2.class) {
+                    if (f28923b == null) {
+                        f28923b = new b2(context);
+                    }
+                }
+            }
+            return f28923b;
+        }
+        return (b2) invokeL.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f28925d : (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (TextUtils.isEmpty(f28924c)) {
+                try {
+                    return h2.E(this.a);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    return "";
+                }
+            }
+            return f28924c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f28926e : (String) invokeV.objValue;
+    }
+
+    public void e() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            try {
+                Class.forName("com.fun.openid.sdk.FunOpenIDSdk");
+                Class.forName("com.fun.openid.sdk.OnGetOaidListener");
+                z = true;
+            } catch (Exception unused) {
+                z = false;
+            }
+            if (z) {
+                try {
+                    FunOpenIDSdk.getOaid(this.a, new y1(this));
+                } catch (Exception unused2) {
+                }
+            }
         }
     }
 }

@@ -21,14 +21,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class a extends BasePromotionAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PromotionInfoResponse a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f51276b;
+    public Context f49695b;
 
     public a(Context context, PromotionInfoResponse promotionInfoResponse) {
         Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class a extends BasePromotionAdapter {
             }
         }
         this.a = promotionInfoResponse;
-        this.f51276b = context;
+        this.f49695b = context;
     }
 
     @Override // com.baidu.wallet.base.widget.compromtion.BasePromotionAdapter
@@ -61,7 +61,7 @@ public class a extends BasePromotionAdapter {
             int i2 = promotionInfoResponse.promotion_type;
             if (i2 == 1) {
                 CommonPromotionView commonPromotionView = new CommonPromotionView(context);
-                commonPromotionView.setCenText(getCenText()).setCenTextColor(ResUtils.getColor(this.f51276b, "wallet_fp_promtion_text"));
+                commonPromotionView.setCenText(getCenText()).setCenTextColor(ResUtils.getColor(this.f49695b, "wallet_fp_promtion_text"));
                 return commonPromotionView;
             } else if (i2 == 2) {
                 CommonPromotionView commonPromotionView2 = new CommonPromotionView(context);
@@ -150,10 +150,10 @@ public class a extends BasePromotionAdapter {
                 DXMSdkSAUtils.onEventWithValues("mobileRechargeClickPrompt", arrayList);
                 int i2 = this.a.a.link_type;
                 if (i2 == 1) {
-                    BaiduWalletDelegate.getInstance().openH5Module(this.a.f51276b, this.a.a.promotion_detail_url, true);
+                    BaiduWalletDelegate.getInstance().openH5Module(this.a.f49695b, this.a.a.promotion_detail_url, true);
                 } else if (i2 != 3) {
                 } else {
-                    BaiduWalletDelegate.getInstance().gotoWalletService(this.a.f51276b, this.a.a.promotion_detail_url, "");
+                    BaiduWalletDelegate.getInstance().gotoWalletService(this.a.f49695b, this.a.a.promotion_detail_url, "");
                 }
             }
         } : (View.OnClickListener) invokeV.objValue;
@@ -170,11 +170,11 @@ public class a extends BasePromotionAdapter {
                     if (i2 != 4) {
                         return null;
                     }
-                    return ResUtils.getDrawable(this.f51276b, "wallet_fp_promotion_gift");
+                    return ResUtils.getDrawable(this.f49695b, "wallet_fp_promotion_gift");
                 }
-                return ResUtils.getDrawable(this.f51276b, "wallet_fp_promotion_youhui");
+                return ResUtils.getDrawable(this.f49695b, "wallet_fp_promotion_youhui");
             }
-            return ResUtils.getDrawable(this.f51276b, "wallet_fp_promoiton_left");
+            return ResUtils.getDrawable(this.f49695b, "wallet_fp_promoiton_left");
         }
         return (Drawable) invokeV.objValue;
     }
@@ -185,9 +185,9 @@ public class a extends BasePromotionAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (this.a.promotion_type != 4) {
-                return ResUtils.getDrawable(this.f51276b, "wallet_fp_promotion_right");
+                return ResUtils.getDrawable(this.f49695b, "wallet_fp_promotion_right");
             }
-            return ResUtils.getDrawable(this.f51276b, "wallet_fp_promotion_close");
+            return ResUtils.getDrawable(this.f49695b, "wallet_fp_promotion_close");
         }
         return (Drawable) invokeV.objValue;
     }

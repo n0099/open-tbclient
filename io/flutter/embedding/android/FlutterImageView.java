@@ -30,7 +30,7 @@ import io.flutter.embedding.engine.renderer.FlutterRenderer;
 import io.flutter.embedding.engine.renderer.RenderSurface;
 import java.nio.ByteBuffer;
 @TargetApi(19)
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class FlutterImageView extends View implements RenderSurface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class FlutterImageView extends View implements RenderSurface {
     public SurfaceKind kind;
 
     /* renamed from: io.flutter.embedding.android.FlutterImageView$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$io$flutter$embedding$android$FlutterImageView$SurfaceKind;
         public static /* synthetic */ Interceptable $ic;
@@ -79,7 +79,7 @@ public class FlutterImageView extends View implements RenderSurface {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class SurfaceKind {
         public static final /* synthetic */ SurfaceKind[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

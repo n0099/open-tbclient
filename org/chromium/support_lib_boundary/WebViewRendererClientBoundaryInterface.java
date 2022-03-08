@@ -2,7 +2,7 @@ package org.chromium.support_lib_boundary;
 
 import android.webkit.WebView;
 import java.lang.reflect.InvocationHandler;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface WebViewRendererClientBoundaryInterface extends FeatureFlagHolderBoundaryInterface {
     void onRendererResponsive(WebView webView, InvocationHandler invocationHandler);
 

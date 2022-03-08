@@ -20,7 +20,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class AesUtils implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IV_STRING = "A-16-Byte-String";

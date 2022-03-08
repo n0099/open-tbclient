@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.logging.Logger;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Descriptor(tags = {4})
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class DecoderConfigDescriptor extends BaseDescriptor {
     public static /* synthetic */ Interceptable $ic;
     public static Logger log;

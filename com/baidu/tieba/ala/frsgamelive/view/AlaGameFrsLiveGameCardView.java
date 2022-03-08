@@ -2,11 +2,11 @@ package com.baidu.tieba.ala.frsgamelive.view;
 
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.t0.s.r.e2;
-import c.a.u0.a0.e;
-import c.a.u0.a0.g.b.c;
-import c.a.u0.a0.g.d.a;
-import c.a.u0.g0.b;
+import c.a.q0.r.r.e2;
+import c.a.r0.a0.e;
+import c.a.r0.a0.g.b.c;
+import c.a.r0.a0.g.d.a;
+import c.a.r0.f0.b;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class AlaGameFrsLiveGameCardView extends b<c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext m;
     public a n;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class AlaGameFrsGameViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,14 +73,14 @@ public class AlaGameFrsLiveGameCardView extends b<c> {
         p();
     }
 
-    @Override // c.a.u0.g0.b
+    @Override // c.a.r0.f0.b
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.ala_sub_list_game_live : invokeV.intValue;
     }
 
-    @Override // c.a.u0.g0.b
+    @Override // c.a.r0.f0.b
     public void l(TbPageContext<?> tbPageContext, int i2) {
         a aVar;
         Interceptable interceptable = $ic;
@@ -106,13 +106,13 @@ public class AlaGameFrsLiveGameCardView extends b<c> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.u0.g0.b
+    @Override // c.a.r0.f0.b
     /* renamed from: q */
     public void k(c cVar) {
         e2 e2Var;
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null || (e2Var = cVar.f15170e) == null || (aVar = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null || (e2Var = cVar.f14585e) == null || (aVar = this.n) == null) {
             return;
         }
         aVar.d(e2Var);

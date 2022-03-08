@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class b0 implements ViewTreeObserver.OnWindowFocusChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,8 +34,8 @@ public class b0 implements ViewTreeObserver.OnWindowFocusChangeListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             String str = "onWindowFocusChanged:" + z;
-            if (this.a.f30669c != null) {
-                this.a.f30669c.a(z);
+            if (this.a.f29099c != null) {
+                this.a.f29099c.a(z);
             }
         }
     }

@@ -11,13 +11,13 @@ import io.reactivex.MaybeSource;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class MaybeSwitchIfEmpty<T> extends AbstractMaybeWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MaybeSource<? extends T> other;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class SwitchIfEmptyMaybeObserver<T> extends AtomicReference<Disposable> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2223459372976438024L;
@@ -25,7 +25,7 @@ public final class MaybeSwitchIfEmpty<T> extends AbstractMaybeWithUpstream<T, T>
         public final MaybeObserver<? super T> actual;
         public final MaybeSource<? extends T> other;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes8.dex */
         public static final class OtherMaybeObserver<T> implements MaybeObserver<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

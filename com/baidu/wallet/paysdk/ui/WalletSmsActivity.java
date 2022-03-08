@@ -61,38 +61,38 @@ import com.dxmpay.wallet.core.utils.WalletGlobalUtils;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import com.dxmpay.wallet.utils.StatHelper;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class WalletSmsActivity extends PayBaseActivity implements View.OnClickListener, SmsVerifyHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f52567b;
+    public int f50986b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ISmsController f52568c;
+    public ISmsController f50987c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SafeKeyBoardEditText f52569d;
+    public SafeKeyBoardEditText f50988d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SafeScrollView f52570e;
+    public SafeScrollView f50989e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f52571f;
+    public ViewGroup f50990f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Button f52572g;
+    public Button f50991g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f52573h;
+    public TextView f50992h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f52574i;
+    public TextView f50993i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f52575j;
+    public ImageView f50994j;
     public View k;
     public TextView l;
     public Animation m;
@@ -127,7 +127,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
                 return;
             }
         }
-        this.f52567b = -1;
+        this.f50986b = -1;
         this.r = false;
         this.mHasVerifyCodeSend = false;
         this.x = 4;
@@ -138,9 +138,9 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
     public void clearSmsEditText() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f52569d.setText("");
-            this.f52569d.requestFocus();
-            this.f52575j.setVisibility(8);
+            this.f50988d.setText("");
+            this.f50988d.requestFocus();
+            this.f50994j.setVisibility(8);
         }
     }
 
@@ -209,7 +209,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048583, this, i2, i3, str) == null) {
             WalletGlobalUtils.safeDismissDialog(this, 0);
-            ISmsController iSmsController = this.f52568c;
+            ISmsController iSmsController = this.f50987c;
             if (iSmsController == null || !iSmsController.handleFailure(i2, i3, str)) {
                 super.handleFailure(i2, i3, str);
             }
@@ -220,7 +220,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
     public void handleResponse(int i2, Object obj, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, obj, str) == null) {
-            ISmsController iSmsController = this.f52568c;
+            ISmsController iSmsController = this.f50987c;
             if (iSmsController == null || !iSmsController.handleResponse(i2, obj, str)) {
                 super.handleResponse(i2, obj, str);
             }
@@ -235,12 +235,12 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
             this.l.setText(ResUtils.string(this.a, str));
             setPhoneNum(str4);
             if (TextUtils.isEmpty(str2)) {
-                this.f52574i.setVisibility(8);
+                this.f50993i.setVisibility(8);
             } else {
-                this.f52574i.setText(str2);
-                this.f52574i.setVisibility(0);
+                this.f50993i.setText(str2);
+                this.f50993i.setVisibility(0);
             }
-            this.f52572g.setText(str3);
+            this.f50991g.setText(str3);
             if (this.y) {
                 return;
             }
@@ -253,7 +253,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            ISmsController iSmsController = this.f52568c;
+            ISmsController iSmsController = this.f50987c;
             if (iSmsController != null && (iSmsController instanceof com.baidu.wallet.paysdk.sms.controller.c)) {
                 return ((com.baidu.wallet.paysdk.sms.controller.c) iSmsController).b();
             }
@@ -266,7 +266,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            if (this.f52567b == 8) {
+            if (this.f50986b == 8) {
                 WalletGlobalUtils.safeShowDialog(this, 18, "");
                 return;
             }
@@ -290,7 +290,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, obj}) == null) {
             WalletGlobalUtils.safeDismissDialog(this, 0);
             ErrorContentResponse errorContentResponse = (obj == null || !(obj instanceof ErrorContentResponse)) ? null : (ErrorContentResponse) obj;
-            ISmsController iSmsController = this.f52568c;
+            ISmsController iSmsController = this.f50987c;
             if (iSmsController == null || !iSmsController.doOnBeanExecFailureWithErrContent(i2, i3, str, obj)) {
                 if (i3 == 51000 && errorContentResponse != null && (guidance = errorContentResponse.guidance) != null) {
                     this.mGuidance = guidance;
@@ -313,7 +313,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, view) == null) {
-            if (view == this.f52575j) {
+            if (view == this.f50994j) {
                 clearSmsEditText();
             } else if (view == this.mSendSms) {
                 StatHelper.statServiceEvent("getSmsCode");
@@ -321,19 +321,19 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
                 startCountDown();
                 c();
                 b();
-            } else if (view == this.f52572g) {
+            } else if (view == this.f50991g) {
                 if (CheckUtils.isFastDoubleClick()) {
                     return;
                 }
                 if (!this.mHasVerifyCodeSend) {
                     a((CharSequence) ResUtils.getString(getActivity(), "ebpay_sms_tips_get_code_first"));
-                } else if (!a(this.f52569d.getText().toString())) {
+                } else if (!a(this.f50988d.getText().toString())) {
                     GlobalUtils.toast(getActivity(), ResUtils.getString(getActivity(), "ebpay_error_cer"));
-                    this.f52569d.requestFocus();
+                    this.f50988d.requestFocus();
                 } else {
-                    ISmsController iSmsController = this.f52568c;
+                    ISmsController iSmsController = this.f50987c;
                     if (iSmsController != null) {
-                        iSmsController.onNextBtnClick(this.f52569d.getText().toString());
+                        iSmsController.onNextBtnClick(this.f50988d.getText().toString());
                     }
                 }
             } else if (view == this.mHelp) {
@@ -348,7 +348,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
                 finishWithoutAnim();
             } else if (view.getId() == ResUtils.id(this, "ebpay_btn_modify_phone")) {
                 StatHelper.statServiceEvent(PayStatServiceEvent.SMS_MODIFY_PHONE);
-                ISmsController iSmsController2 = this.f52568c;
+                ISmsController iSmsController2 = this.f50987c;
                 if (iSmsController2 instanceof com.baidu.wallet.paysdk.sms.controller.a) {
                     ((com.baidu.wallet.paysdk.sms.controller.a) iSmsController2).a();
                 }
@@ -366,13 +366,13 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
             this.a = getActivity();
             this.t = bundle;
             if (bundle == null) {
-                this.f52567b = getIntent().getIntExtra(BeanConstants.SMS_ACTIVITY_FROM_KEY, -1);
+                this.f50986b = getIntent().getIntExtra(BeanConstants.SMS_ACTIVITY_FROM_KEY, -1);
             } else {
-                this.f52567b = bundle.getInt("SMS_FROM");
+                this.f50986b = bundle.getInt("SMS_FROM");
             }
             setContentView(ResUtils.layout(this.a, "wallet_base_sms"));
             a();
-            a(this.f52567b, getIntent().getBooleanExtra(BeanConstants.KEY_SEND_SMS_AUTO, false));
+            a(this.f50986b, getIntent().getBooleanExtra(BeanConstants.KEY_SEND_SMS_AUTO, false));
         }
     }
 
@@ -381,7 +381,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) {
-            ISmsController iSmsController = this.f52568c;
+            ISmsController iSmsController = this.f50987c;
             if (iSmsController != null) {
                 Dialog doOnCreateDialog = iSmsController.doOnCreateDialog(i2);
                 return doOnCreateDialog != null ? doOnCreateDialog : super.onCreateDialog(i2);
@@ -395,10 +395,10 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            if (this.f52567b == 1 || com.baidu.wallet.paysdk.a.b.a()) {
+            if (this.f50986b == 1 || com.baidu.wallet.paysdk.a.b.a()) {
                 StatHelper.payEventEndWithValues(PayStatServiceEvent.PAY_SMS_DURATION, null, new String[0]);
             }
-            ISmsController iSmsController = this.f52568c;
+            ISmsController iSmsController = this.f50987c;
             if (iSmsController != null) {
                 iSmsController.doOnDestroy();
             }
@@ -410,7 +410,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
                 countDownTimer.cancel();
                 this.mTimer = null;
             }
-            this.f52568c = null;
+            this.f50987c = null;
         }
     }
 
@@ -421,14 +421,14 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
             super.onNewIntent(intent);
             setIntent(intent);
             a(intent);
-            a(this.f52567b, intent.getBooleanExtra(BeanConstants.KEY_SEND_SMS_AUTO, false));
+            a(this.f50986b, intent.getBooleanExtra(BeanConstants.KEY_SEND_SMS_AUTO, false));
         }
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.dxmpay.wallet.core.BaseActivity, android.app.Activity
     public void onPrepareDialog(int i2, Dialog dialog) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048594, this, i2, dialog) == null) || this.f52568c == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048594, this, i2, dialog) == null) || this.f50987c == null) {
             return;
         }
         if (!(dialog instanceof LoadingDialog)) {
@@ -436,8 +436,8 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
                 if (this.m == null) {
                     this.m = AnimationUtils.loadAnimation(this, this.o);
                 }
-                this.f52570e.setAlwaysShowSoftKeyBoard(false);
-                this.f52570e.startAnimation(this.m);
+                this.f50989e.setAlwaysShowSoftKeyBoard(false);
+                this.f50989e.startAnimation(this.m);
             } catch (Resources.NotFoundException unused) {
             }
             dialog.setOnDismissListener(new DelegateOnDismissListener(new DialogInterface.OnDismissListener(this) { // from class: com.baidu.wallet.paysdk.ui.WalletSmsActivity.3
@@ -471,15 +471,15 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
                             if (this.a.n == null) {
                                 this.a.n = AnimationUtils.loadAnimation(this.a.getActivity(), this.a.p);
                             }
-                            this.a.f52570e.setAlwaysShowSoftKeyBoard(true);
-                            this.a.f52570e.startAnimation(this.a.n);
+                            this.a.f50989e.setAlwaysShowSoftKeyBoard(true);
+                            this.a.f50989e.startAnimation(this.a.n);
                         } catch (Resources.NotFoundException unused2) {
                         }
                     }
                 }
             }));
         }
-        if (this.f52568c.doOnPrepareDialog(i2, dialog)) {
+        if (this.f50987c.doOnPrepareDialog(i2, dialog)) {
             return;
         }
         super.onPrepareDialog(i2, dialog);
@@ -490,7 +490,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onResume();
-            SafeKeyBoardEditText safeKeyBoardEditText = this.f52569d;
+            SafeKeyBoardEditText safeKeyBoardEditText = this.f50988d;
             if (safeKeyBoardEditText != null) {
                 safeKeyBoardEditText.requestFocus();
             }
@@ -501,11 +501,11 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, bundle) == null) {
-            ISmsController iSmsController = this.f52568c;
+            ISmsController iSmsController = this.f50987c;
             if (iSmsController != null) {
                 iSmsController.doOnSaveInstanceState(bundle);
             }
-            bundle.putInt("SMS_FROM", this.f52567b);
+            bundle.putInt("SMS_FROM", this.f50986b);
             super.onSaveInstanceState(bundle);
         }
     }
@@ -551,9 +551,9 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
             if (!TextUtils.isEmpty(str)) {
-                this.f52573h.setText(StringUtils.maskingPhoneNumber(str));
+                this.f50992h.setText(StringUtils.maskingPhoneNumber(str));
             } else {
-                this.f52573h.setText("");
+                this.f50992h.setText("");
             }
         }
     }
@@ -638,7 +638,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
     public void upDateSafeKeyBoradView(String str, String str2) {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048604, this, str, str2) == null) || this.f52569d == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048604, this, str, str2) == null) || this.f50988d == null) {
             return;
         }
         if (TextUtils.isEmpty(str2)) {
@@ -663,27 +663,27 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
             StatHelper.statServiceEvent("smsLength", null, str + "");
         }
         if (i2 == 0) {
-            this.f52569d.setInputType(2);
+            this.f50988d.setInputType(2);
             getWindow().setSoftInputMode(2);
-            this.f52569d.setUseSafeKeyBoard(true);
-            this.f52569d.initSafeKeyBoardParams(this.f52571f, this.f52570e, this.mHelp, true);
-            this.f52570e.setAlwaysShowSoftKeyBoard(true);
-            List<IEditTextPasteFilter> editTextPasteFilters = this.f52569d.getEditTextPasteFilters();
+            this.f50988d.setUseSafeKeyBoard(true);
+            this.f50988d.initSafeKeyBoardParams(this.f50990f, this.f50989e, this.mHelp, true);
+            this.f50989e.setAlwaysShowSoftKeyBoard(true);
+            List<IEditTextPasteFilter> editTextPasteFilters = this.f50988d.getEditTextPasteFilters();
             if (editTextPasteFilters != null) {
                 editTextPasteFilters.clear();
                 editTextPasteFilters.add(new NumberEditTextPasteFilter());
             }
         } else {
-            this.f52569d.setInputType(1);
-            List<IEditTextPasteFilter> editTextPasteFilters2 = this.f52569d.getEditTextPasteFilters();
+            this.f50988d.setInputType(1);
+            List<IEditTextPasteFilter> editTextPasteFilters2 = this.f50988d.getEditTextPasteFilters();
             if (editTextPasteFilters2 != null) {
                 editTextPasteFilters2.clear();
                 editTextPasteFilters2.add(new BlankCharEditTextPasteFilter());
             }
             getWindow().setSoftInputMode(4);
-            this.f52569d.initSafeKeyBoardParams(this.f52571f, this.f52570e, this.mHelp, true);
+            this.f50988d.initSafeKeyBoardParams(this.f50990f, this.f50989e, this.mHelp, true);
         }
-        this.f52569d.setFilters(new InputFilter[]{new InputFilter.LengthFilter(i3)});
+        this.f50988d.setFilters(new InputFilter[]{new InputFilter.LengthFilter(i3)});
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.SmsUpdateUiInterface
@@ -692,7 +692,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
         if (!(interceptable == null || interceptable.invokeL(1048605, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f52572g.setText(str);
+        this.f50991g.setText(str);
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.SmsUpdateUiInterface
@@ -717,7 +717,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
     private void c() {
         ISmsController iSmsController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || (iSmsController = this.f52568c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || (iSmsController = this.f50987c) == null) {
             return;
         }
         iSmsController.sendSms();
@@ -726,8 +726,8 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
     private void d() {
         SafeScrollView safeScrollView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65551, this) == null) && (safeScrollView = this.f52570e) != null && safeScrollView.isPopupWindowShowing()) {
-            this.f52570e.dismissKeyBoard(this.f52569d);
+        if ((interceptable == null || interceptable.invokeV(65551, this) == null) && (safeScrollView = this.f50989e) != null && safeScrollView.isPopupWindowShowing()) {
+            this.f50989e.dismissKeyBoard(this.f50988d);
         }
     }
 
@@ -735,9 +735,9 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             this.y = getIntent().getBooleanExtra("showSMSDialog", true);
-            this.f52568c = getController(i2);
+            this.f50987c = getController(i2);
             getBindCardFlagDelegate().a((BindFastRequest) PayRequestCache.getInstance().getRequest(PayRequestCache.getInstance().getBindCategoryByIntent(getIntent())));
-            ISmsController iSmsController = this.f52568c;
+            ISmsController iSmsController = this.f50987c;
             if (iSmsController == null) {
                 finish();
                 return;
@@ -748,20 +748,20 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
                 cVar.a(bindCategoryByIntent);
                 cVar.a((BindFastRequest) PayRequestCache.getInstance().getRequest(bindCategoryByIntent));
             }
-            this.f52568c.setSmsUpdateUIInterface(this);
-            this.f52568c.setSmsVerifyHandler(this);
-            this.f52568c.setActivity(this);
-            if (this.f52568c.onCreateCheckInvalide(this.t)) {
-                if (this.f52568c.isBelongPaySDK()) {
+            this.f50987c.setSmsUpdateUIInterface(this);
+            this.f50987c.setSmsVerifyHandler(this);
+            this.f50987c.setActivity(this);
+            if (this.f50987c.onCreateCheckInvalide(this.t)) {
+                if (this.f50987c.isBelongPaySDK()) {
                     setFlagPaySdk();
                 }
-                this.f52568c.initSmsActivityView();
-                ISmsController iSmsController2 = this.f52568c;
+                this.f50987c.initSmsActivityView();
+                ISmsController iSmsController2 = this.f50987c;
                 if (!(iSmsController2 instanceof h) && !(iSmsController2 instanceof g)) {
                     clearSmsEditText();
                     startCountDown();
                 }
-                if (this.f52568c.isSendSmsOnCreate() || z) {
+                if (this.f50987c.isSendSmsOnCreate() || z) {
                     stopCountDown();
                     c();
                 }
@@ -775,32 +775,32 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f52571f = (ViewGroup) findViewById(ResUtils.id(this.a, "root_view"));
-            this.f52570e = (SafeScrollView) findViewById(ResUtils.id(this.a, "scrollview"));
-            this.f52573h = (TextView) findViewById(ResUtils.id(this.a, "ebpay_sms_moblie"));
+            this.f50990f = (ViewGroup) findViewById(ResUtils.id(this.a, "root_view"));
+            this.f50989e = (SafeScrollView) findViewById(ResUtils.id(this.a, "scrollview"));
+            this.f50992h = (TextView) findViewById(ResUtils.id(this.a, "ebpay_sms_moblie"));
             this.mTopPhoneTip = (TextView) findViewById(ResUtils.id(this.a, "ebpay_tip_top"));
-            this.f52569d = (SafeKeyBoardEditText) findViewById(ResUtils.id(this.a, "ebpay_message_vcode_id"));
-            this.f52575j = (ImageView) findViewById(ResUtils.id(this.a, "wallet_sms_clear"));
+            this.f50988d = (SafeKeyBoardEditText) findViewById(ResUtils.id(this.a, "ebpay_message_vcode_id"));
+            this.f50994j = (ImageView) findViewById(ResUtils.id(this.a, "wallet_sms_clear"));
             this.mSendSms = (Button) findViewById(ResUtils.id(this.a, "ebpay_sms_sendsms"));
             this.mHelp = (TextView) findViewById(ResUtils.id(this.a, "ebpay_tip_bottom_right"));
-            this.f52574i = (TextView) findViewById(ResUtils.id(this.a, "ebpay_top_tip"));
-            this.f52572g = (Button) findViewById(ResUtils.id(this.a, "ebpay_next_btn"));
+            this.f50993i = (TextView) findViewById(ResUtils.id(this.a, "ebpay_top_tip"));
+            this.f50991g = (Button) findViewById(ResUtils.id(this.a, "ebpay_next_btn"));
             this.w = (LinearLayout) findViewById(ResUtils.id(getActivity(), "lin_sms_dialog"));
             SafeScrollView safeScrollView = (SafeScrollView) findViewById(ResUtils.id(getActivity(), "scrollview"));
-            this.f52570e = safeScrollView;
-            this.f52569d.initSafeKeyBoardParams(this.f52571f, safeScrollView, this.mHelp, false);
-            this.f52569d.setUseSafeKeyBoard(true);
-            this.f52575j.setOnClickListener(this);
+            this.f50989e = safeScrollView;
+            this.f50988d.initSafeKeyBoardParams(this.f50990f, safeScrollView, this.mHelp, false);
+            this.f50988d.setUseSafeKeyBoard(true);
+            this.f50994j.setOnClickListener(this);
             this.mSendSms.setOnClickListener(this);
-            this.f52572g.setOnClickListener(this);
+            this.f50991g.setOnClickListener(this);
             this.mHelp.setOnClickListener(this);
-            this.f52569d.addTextChangedListener(new TextWatcher(this) { // from class: com.baidu.wallet.paysdk.ui.WalletSmsActivity.1
+            this.f50988d.addTextChangedListener(new TextWatcher(this) { // from class: com.baidu.wallet.paysdk.ui.WalletSmsActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ WalletSmsActivity a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public boolean f52576b;
+                public boolean f50995b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -818,7 +818,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
                         }
                     }
                     this.a = this;
-                    this.f52576b = false;
+                    this.f50995b = false;
                 }
 
                 @Override // android.text.TextWatcher
@@ -826,11 +826,11 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, editable) == null) {
                         if (!TextUtils.isEmpty(editable.toString())) {
-                            this.a.f52575j.setVisibility(0);
+                            this.a.f50994j.setVisibility(0);
                         } else {
-                            this.a.f52575j.setVisibility(8);
+                            this.a.f50994j.setVisibility(8);
                         }
-                        this.a.f52572g.setEnabled(this.a.a(editable.toString()));
+                        this.a.f50991g.setEnabled(this.a.a(editable.toString()));
                     }
                 }
 
@@ -845,11 +845,11 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
                 public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
-                        if (!this.f52576b) {
-                            if (this.a.f52568c != null) {
-                                this.a.f52568c.doOnEvent();
+                        if (!this.f50995b) {
+                            if (this.a.f50987c != null) {
+                                this.a.f50987c.doOnEvent();
                             }
-                            this.f52576b = true;
+                            this.f50995b = true;
                         }
                         this.a.b();
                     }
@@ -868,7 +868,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
             TextView textView = (TextView) findViewById(ResUtils.id(this, "ebpay_btn_modify_phone"));
             this.u = textView;
             textView.setOnClickListener(this);
-            setSafeScrollView(this.f52570e);
+            setSafeScrollView(this.f50989e);
             a(getIntent());
         }
     }
@@ -895,7 +895,7 @@ public class WalletSmsActivity extends PayBaseActivity implements View.OnClickLi
     private void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, this, str, str2) == null) {
-            if (this.f52567b == 1 || com.baidu.wallet.paysdk.a.b.a()) {
+            if (this.f50986b == 1 || com.baidu.wallet.paysdk.a.b.a()) {
                 StatHelper.cacheCodeAndMsg(str, str2);
             }
         }

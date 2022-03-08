@@ -2,7 +2,7 @@ package io.flutter.plugin.platform;
 
 import android.view.View;
 import io.flutter.view.AccessibilityBridge;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface PlatformViewsAccessibilityDelegate {
     void attachAccessibilityBridge(AccessibilityBridge accessibilityBridge);
 

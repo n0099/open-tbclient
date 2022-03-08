@@ -21,24 +21,24 @@ import com.dxmpay.apollon.utils.DisplayUtils;
 import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.base.widget.BdMenuItem;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ContextMenuView extends BdContextMenuView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f53974e;
+    public int f52460e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdMenuItem f53975e;
+        public final /* synthetic */ BdMenuItem f52461e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ContextMenuView f53976f;
+        public final /* synthetic */ ContextMenuView f52462f;
 
         public a(ContextMenuView contextMenuView, BdMenuItem bdMenuItem) {
             Interceptable interceptable = $ic;
@@ -55,18 +55,18 @@ public class ContextMenuView extends BdContextMenuView {
                     return;
                 }
             }
-            this.f53976f = contextMenuView;
-            this.f53975e = bdMenuItem;
+            this.f52462f = contextMenuView;
+            this.f52461e = bdMenuItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             BdMenuItem.OnItemClickListener onClickListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (onClickListener = this.f53975e.getOnClickListener()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (onClickListener = this.f52461e.getOnClickListener()) == null) {
                 return;
             }
-            onClickListener.onClick(this.f53975e);
+            onClickListener.onClick(this.f52461e);
         }
     }
 
@@ -90,7 +90,7 @@ public class ContextMenuView extends BdContextMenuView {
                 return;
             }
         }
-        this.f53974e = 0;
+        this.f52460e = 0;
     }
 
     public final View c(BdMenuItem bdMenuItem) {
@@ -120,7 +120,7 @@ public class ContextMenuView extends BdContextMenuView {
     public int getMaxMenuItemWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f53974e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52460e : invokeV.intValue;
     }
 
     @Override // com.dxmpay.wallet.base.widget.BdContextMenuView
@@ -160,9 +160,9 @@ public class ContextMenuView extends BdContextMenuView {
         for (int i2 = 0; i2 < size; i2++) {
             View c2 = c(list.get(i2));
             c2.measure(0, 0);
-            if (this.f53974e < c2.getMeasuredWidth()) {
+            if (this.f52460e < c2.getMeasuredWidth()) {
                 int measuredWidth = c2.getMeasuredWidth();
-                this.f53974e = measuredWidth;
+                this.f52460e = measuredWidth;
                 c2.setMinimumWidth(measuredWidth);
             }
             if (size == 1) {
@@ -204,7 +204,7 @@ public class ContextMenuView extends BdContextMenuView {
                 return;
             }
         }
-        this.f53974e = 0;
+        this.f52460e = 0;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -225,6 +225,6 @@ public class ContextMenuView extends BdContextMenuView {
                 return;
             }
         }
-        this.f53974e = 0;
+        this.f52460e = 0;
     }
 }

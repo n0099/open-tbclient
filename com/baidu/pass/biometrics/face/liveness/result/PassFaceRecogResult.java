@@ -1,8 +1,8 @@
 package com.baidu.pass.biometrics.face.liveness.result;
 
-import com.baidu.pass.biometrics.R;
 import com.baidu.pass.biometrics.base.result.PassBiometricResult;
 import com.baidu.pass.biometrics.base.utils.ResUtils;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class PassFaceRecogResult extends PassBiometricResult {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_CODE_CONTRAST_FAIL = -302;

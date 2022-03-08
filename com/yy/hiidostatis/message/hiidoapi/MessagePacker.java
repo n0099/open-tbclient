@@ -36,7 +36,7 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class MessagePacker implements Packer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_MAGIC = "HiidoData";

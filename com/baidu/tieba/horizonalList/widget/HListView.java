@@ -26,9 +26,9 @@ import android.widget.ListAdapter;
 import android.widget.RemoteViews;
 import androidx.collection.SparseArrayCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.a.u0.a4.l;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.tieba.horizonalList.widget.AbsHListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -37,7 +37,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 @RemoteViews.RemoteView
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class HListView extends AbsHListView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "HListView";
@@ -65,20 +65,20 @@ public class HListView extends AbsHListView {
     public Drawable mOverScrollHeader;
     public final Rect mTempRect;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f44913b;
+        public int f43319b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public class HListView extends AbsHListView {
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44913b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43319b : invokeV.intValue;
         }
 
         public int b() {
@@ -110,7 +110,7 @@ public class HListView extends AbsHListView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
                 this.a = i2;
-                this.f44913b = i3;
+                this.f43319b = i3;
             }
         }
 
@@ -119,17 +119,17 @@ public class HListView extends AbsHListView {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Object f44914b;
+        public Object f43320b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f44915c;
+        public boolean f43321c;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -146,19 +146,19 @@ public class HListView extends AbsHListView {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f44916e;
+        public int f43322e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f44917f;
+        public int f43323f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ HListView f44918g;
+        public final /* synthetic */ HListView f43324g;
 
         public d(HListView hListView) {
             Interceptable interceptable = $ic;
@@ -175,15 +175,15 @@ public class HListView extends AbsHListView {
                     return;
                 }
             }
-            this.f44918g = hListView;
+            this.f43324g = hListView;
         }
 
         public d a(int i2, int i3) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
-                this.f44916e = i2;
-                this.f44917f = i3;
+                this.f43322e = i2;
+                this.f43323f = i3;
                 return this;
             }
             return (d) invokeII.objValue;
@@ -193,7 +193,7 @@ public class HListView extends AbsHListView {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f44918g.setSelectionFromLeft(this.f44916e, this.f44917f);
+                this.f43324g.setSelectionFromLeft(this.f43322e, this.f43323f);
             }
         }
 
@@ -202,13 +202,13 @@ public class HListView extends AbsHListView {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class e extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HListView f44919e;
+        public final /* synthetic */ HListView f43325e;
 
         public e(HListView hListView) {
             Interceptable interceptable = $ic;
@@ -225,7 +225,7 @@ public class HListView extends AbsHListView {
                     return;
                 }
             }
-            this.f44919e = hListView;
+            this.f43325e = hListView;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -519,7 +519,7 @@ public class HListView extends AbsHListView {
         for (int i2 = 0; i2 < size; i2++) {
             AbsHListView.LayoutParams layoutParams = (AbsHListView.LayoutParams) arrayList.get(i2).a.getLayoutParams();
             if (layoutParams != null) {
-                layoutParams.f44855b = false;
+                layoutParams.f43261b = false;
             }
         }
     }
@@ -1175,7 +1175,7 @@ public class HListView extends AbsHListView {
                 view.setLayoutParams(layoutParams);
             }
             layoutParams.a = this.mAdapter.getItemViewType(i2);
-            layoutParams.f44856c = true;
+            layoutParams.f43262c = true;
             Rect rect = this.mListPadding;
             int childMeasureSpec = ViewGroup.getChildMeasureSpec(i3, rect.top + rect.bottom, ((ViewGroup.LayoutParams) layoutParams).height);
             int i4 = ((ViewGroup.LayoutParams) layoutParams).width;
@@ -1353,12 +1353,12 @@ public class HListView extends AbsHListView {
                 layoutParams = (AbsHListView.LayoutParams) generateDefaultLayoutParams();
             }
             layoutParams.a = this.mAdapter.getItemViewType(i2);
-            if ((z3 && !layoutParams.f44856c) || (layoutParams.f44855b && layoutParams.a == -2)) {
+            if ((z3 && !layoutParams.f43262c) || (layoutParams.f43261b && layoutParams.a == -2)) {
                 attachViewToParent(view, z ? -1 : 0, layoutParams);
             } else {
-                layoutParams.f44856c = false;
+                layoutParams.f43262c = false;
                 if (layoutParams.a == -2) {
-                    layoutParams.f44855b = true;
+                    layoutParams.f43261b = true;
                 }
                 addViewInLayout(view, z ? -1 : 0, layoutParams, true);
             }
@@ -1401,7 +1401,7 @@ public class HListView extends AbsHListView {
             if (this.mCachingStarted && !view.isDrawingCacheEnabled()) {
                 view.setDrawingCacheEnabled(true);
             }
-            if (Build.VERSION.SDK_INT < 11 || !z3 || ((AbsHListView.LayoutParams) view.getLayoutParams()).f44857d == i2) {
+            if (Build.VERSION.SDK_INT < 11 || !z3 || ((AbsHListView.LayoutParams) view.getLayoutParams()).f43263d == i2) {
                 return;
             }
             view.jumpDrawablesToCurrentState();
@@ -1433,8 +1433,8 @@ public class HListView extends AbsHListView {
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, obj, z) == null) {
             c cVar2 = new c();
             cVar2.a = view;
-            cVar2.f44914b = obj;
-            cVar2.f44915c = z;
+            cVar2.f43320b = obj;
+            cVar2.f43321c = z;
             this.mFooterViewInfos.add(cVar2);
             if (this.mAdapter == null || (cVar = this.mDataSetObserver) == null) {
                 return;
@@ -1448,13 +1448,13 @@ public class HListView extends AbsHListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048579, this, view, obj, z) == null) {
             ListAdapter listAdapter = this.mAdapter;
-            if (listAdapter != null && !(listAdapter instanceof c.a.u0.q1.b.d)) {
+            if (listAdapter != null && !(listAdapter instanceof c.a.r0.p1.b.d)) {
                 throw new IllegalStateException("Cannot add header view to list -- setAdapter has already been called.");
             }
             c cVar2 = new c();
             cVar2.a = view;
-            cVar2.f44914b = obj;
-            cVar2.f44915c = z;
+            cVar2.f43320b = obj;
+            cVar2.f43321c = z;
             this.mHeaderViewInfos.add(cVar2);
             if (this.mAdapter == null || (cVar = this.mDataSetObserver) == null) {
                 return;
@@ -2584,7 +2584,7 @@ public class HListView extends AbsHListView {
             boolean z = false;
             if (this.mFooterViewInfos.size() > 0) {
                 ListAdapter listAdapter = this.mAdapter;
-                if (listAdapter != null && ((c.a.u0.q1.b.d) listAdapter).d(view)) {
+                if (listAdapter != null && ((c.a.r0.p1.b.d) listAdapter).d(view)) {
                     AbsHListView.c cVar = this.mDataSetObserver;
                     if (cVar != null) {
                         cVar.onChanged();
@@ -2605,7 +2605,7 @@ public class HListView extends AbsHListView {
             boolean z = false;
             if (this.mHeaderViewInfos.size() > 0) {
                 ListAdapter listAdapter = this.mAdapter;
-                if (listAdapter != null && ((c.a.u0.q1.b.d) listAdapter).e(view)) {
+                if (listAdapter != null && ((c.a.r0.p1.b.d) listAdapter).e(view)) {
                     AbsHListView.c cVar = this.mDataSetObserver;
                     if (cVar != null) {
                         cVar.onChanged();
@@ -2864,7 +2864,7 @@ public class HListView extends AbsHListView {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public HListView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, c.a.u0.a4.c.hlv_listViewStyle);
+        this(context, attributeSet, R.attr.hlv_listViewStyle);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2908,7 +2908,7 @@ public class HListView extends AbsHListView {
             if (this.mHeaderViewInfos.size() <= 0 && this.mFooterViewInfos.size() <= 0) {
                 this.mAdapter = listAdapter;
             } else {
-                this.mAdapter = new c.a.u0.q1.b.d(this.mHeaderViewInfos, this.mFooterViewInfos, listAdapter);
+                this.mAdapter = new c.a.r0.p1.b.d(this.mHeaderViewInfos, this.mFooterViewInfos, listAdapter);
             }
             this.mOldSelectedPosition = -1;
             this.mOldSelectedColId = Long.MIN_VALUE;
@@ -2976,17 +2976,17 @@ public class HListView extends AbsHListView {
         this.mArrowScrollFocusResult = new b(null);
         this.mMaxWidth = 0;
         this.mGestureDetector = new GestureDetector(new e(this, null));
-        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, l.HListView, i2, 0);
+        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{16842930, 16843049, R.attr.hlv_dividerWidth, R.attr.hlv_footerDividersEnabled, R.attr.hlv_headerDividersEnabled, R.attr.hlv_measureWithChild, R.attr.hlv_overScrollFooter, R.attr.hlv_overScrollHeader}, i2, 0);
         int i6 = -1;
         if (obtainStyledAttributes != null) {
-            charSequenceArr = obtainStyledAttributes.getTextArray(l.HListView_android_entries);
-            drawable = obtainStyledAttributes.getDrawable(l.HListView_android_divider);
-            drawable2 = obtainStyledAttributes.getDrawable(l.HListView_hlv_overScrollHeader);
-            drawable3 = obtainStyledAttributes.getDrawable(l.HListView_hlv_overScrollFooter);
-            i5 = obtainStyledAttributes.getDimensionPixelSize(l.HListView_hlv_dividerWidth, 0);
-            boolean z3 = obtainStyledAttributes.getBoolean(l.HListView_hlv_headerDividersEnabled, true);
-            boolean z4 = obtainStyledAttributes.getBoolean(l.HListView_hlv_footerDividersEnabled, true);
-            i6 = obtainStyledAttributes.getInteger(l.HListView_hlv_measureWithChild, -1);
+            charSequenceArr = obtainStyledAttributes.getTextArray(0);
+            drawable = obtainStyledAttributes.getDrawable(1);
+            drawable2 = obtainStyledAttributes.getDrawable(7);
+            drawable3 = obtainStyledAttributes.getDrawable(6);
+            i5 = obtainStyledAttributes.getDimensionPixelSize(2, 0);
+            boolean z3 = obtainStyledAttributes.getBoolean(4, true);
+            boolean z4 = obtainStyledAttributes.getBoolean(3, true);
+            i6 = obtainStyledAttributes.getInteger(5, -1);
             obtainStyledAttributes.recycle();
             z = z4;
             z2 = z3;

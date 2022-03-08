@@ -3,9 +3,6 @@ package com.google.android.exoplayer2.upstream;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.net.Uri;
-import c.i.b.a.h0.e;
-import c.i.b.a.h0.g;
-import c.i.b.a.h0.p;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,28 +12,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
-public final class AssetDataSource implements e {
+/* loaded from: classes7.dex */
+public final class AssetDataSource implements DataSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AssetManager a;
+    public final AssetManager assetManager;
+    public long bytesRemaining;
+    public InputStream inputStream;
+    public final TransferListener<? super AssetDataSource> listener;
+    public boolean opened;
+    public Uri uri;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final p<? super AssetDataSource> f54552b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Uri f54553c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public InputStream f54554d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public long f54555e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f54556f;
-
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class AssetDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,57 +49,92 @@ public final class AssetDataSource implements e {
         }
     }
 
-    public AssetDataSource(Context context, p<? super AssetDataSource> pVar) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public AssetDataSource(Context context) {
+        this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, pVar};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (TransferListener) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context.getAssets();
-        this.f54552b = pVar;
     }
 
-    @Override // c.i.b.a.h0.e
-    public long a(g gVar) throws AssetDataSourceException {
+    @Override // com.google.android.exoplayer2.upstream.DataSource
+    public void close() throws AssetDataSourceException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.uri = null;
+            try {
+                try {
+                    if (this.inputStream != null) {
+                        this.inputStream.close();
+                    }
+                } catch (IOException e2) {
+                    throw new AssetDataSourceException(e2);
+                }
+            } finally {
+                this.inputStream = null;
+                if (this.opened) {
+                    this.opened = false;
+                    TransferListener<? super AssetDataSource> transferListener = this.listener;
+                    if (transferListener != null) {
+                        transferListener.onTransferEnd(this);
+                    }
+                }
+            }
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.upstream.DataSource
+    public Uri getUri() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.uri : (Uri) invokeV.objValue;
+    }
+
+    @Override // com.google.android.exoplayer2.upstream.DataSource
+    public long open(DataSpec dataSpec) throws AssetDataSourceException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataSpec)) == null) {
             try {
-                Uri uri = gVar.a;
-                this.f54553c = uri;
+                Uri uri = dataSpec.uri;
+                this.uri = uri;
                 String path = uri.getPath();
                 if (path.startsWith("/android_asset/")) {
                     path = path.substring(15);
                 } else if (path.startsWith("/")) {
                     path = path.substring(1);
                 }
-                InputStream open = this.a.open(path, 1);
-                this.f54554d = open;
-                if (open.skip(gVar.f29863d) >= gVar.f29863d) {
-                    if (gVar.f29864e != -1) {
-                        this.f54555e = gVar.f29864e;
+                InputStream open = this.assetManager.open(path, 1);
+                this.inputStream = open;
+                if (open.skip(dataSpec.position) >= dataSpec.position) {
+                    if (dataSpec.length != -1) {
+                        this.bytesRemaining = dataSpec.length;
                     } else {
-                        long available = this.f54554d.available();
-                        this.f54555e = available;
+                        long available = this.inputStream.available();
+                        this.bytesRemaining = available;
                         if (available == 2147483647L) {
-                            this.f54555e = -1L;
+                            this.bytesRemaining = -1L;
                         }
                     }
-                    this.f54556f = true;
-                    p<? super AssetDataSource> pVar = this.f54552b;
-                    if (pVar != null) {
-                        pVar.d(this, gVar);
+                    this.opened = true;
+                    TransferListener<? super AssetDataSource> transferListener = this.listener;
+                    if (transferListener != null) {
+                        transferListener.onTransferStart(this, dataSpec);
                     }
-                    return this.f54555e;
+                    return this.bytesRemaining;
                 }
                 throw new EOFException();
             } catch (IOException e2) {
@@ -122,40 +144,7 @@ public final class AssetDataSource implements e {
         return invokeL.longValue;
     }
 
-    @Override // c.i.b.a.h0.e
-    public void close() throws AssetDataSourceException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f54553c = null;
-            try {
-                try {
-                    if (this.f54554d != null) {
-                        this.f54554d.close();
-                    }
-                } catch (IOException e2) {
-                    throw new AssetDataSourceException(e2);
-                }
-            } finally {
-                this.f54554d = null;
-                if (this.f54556f) {
-                    this.f54556f = false;
-                    p<? super AssetDataSource> pVar = this.f54552b;
-                    if (pVar != null) {
-                        pVar.b(this);
-                    }
-                }
-            }
-        }
-    }
-
-    @Override // c.i.b.a.h0.e
-    public Uri getUri() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54553c : (Uri) invokeV.objValue;
-    }
-
-    @Override // c.i.b.a.h0.e
+    @Override // com.google.android.exoplayer2.upstream.DataSource
     public int read(byte[] bArr, int i2, int i3) throws AssetDataSourceException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
@@ -163,7 +152,7 @@ public final class AssetDataSource implements e {
             if (i3 == 0) {
                 return 0;
             }
-            long j2 = this.f54555e;
+            long j2 = this.bytesRemaining;
             if (j2 == 0) {
                 return -1;
             }
@@ -174,23 +163,42 @@ public final class AssetDataSource implements e {
                     throw new AssetDataSourceException(e2);
                 }
             }
-            int read = this.f54554d.read(bArr, i2, i3);
+            int read = this.inputStream.read(bArr, i2, i3);
             if (read == -1) {
-                if (this.f54555e == -1) {
+                if (this.bytesRemaining == -1) {
                     return -1;
                 }
                 throw new AssetDataSourceException(new EOFException());
             }
-            long j3 = this.f54555e;
+            long j3 = this.bytesRemaining;
             if (j3 != -1) {
-                this.f54555e = j3 - read;
+                this.bytesRemaining = j3 - read;
             }
-            p<? super AssetDataSource> pVar = this.f54552b;
-            if (pVar != null) {
-                pVar.a(this, read);
+            TransferListener<? super AssetDataSource> transferListener = this.listener;
+            if (transferListener != null) {
+                transferListener.onBytesTransferred(this, read);
             }
             return read;
         }
         return invokeLII.intValue;
+    }
+
+    public AssetDataSource(Context context, TransferListener<? super AssetDataSource> transferListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, transferListener};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.assetManager = context.getAssets();
+        this.listener = transferListener;
     }
 }

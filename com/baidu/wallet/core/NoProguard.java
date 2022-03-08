@@ -1,4 +1,4 @@
 package com.baidu.wallet.core;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public interface NoProguard {
 }

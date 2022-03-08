@@ -28,14 +28,14 @@ import com.dxmpay.apollon.utils.support.ViewHelper;
 import com.dxmpay.wallet.core.utils.WalletGlobalUtils;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class CouponListActivity extends HalfScreenBaseActivity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f52473b;
+    public View f50892b;
     public CouponListContract.Presenter mPresenter;
 
     public CouponListActivity() {
@@ -159,11 +159,11 @@ public class CouponListActivity extends HalfScreenBaseActivity implements View.O
     public void revertItemView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            View view = this.f52473b;
+            View view = this.f50892b;
             if (view != null) {
-                a((ProgressBar) view.findViewById(ResUtils.id(this, "ebpay_mini_progress_bar")), (ImageView) this.f52473b.findViewById(ResUtils.id(this, "coupon_select")), false);
+                a((ProgressBar) view.findViewById(ResUtils.id(this, "ebpay_mini_progress_bar")), (ImageView) this.f50892b.findViewById(ResUtils.id(this, "coupon_select")), false);
             }
-            this.f52473b = null;
+            this.f50892b = null;
         }
     }
 
@@ -194,7 +194,7 @@ public class CouponListActivity extends HalfScreenBaseActivity implements View.O
         if (!(interceptable == null || interceptable.invokeL(1048586, this, arrayList) == null) || arrayList == null) {
             return;
         }
-        this.f52473b = null;
+        this.f50892b = null;
         setPageClickable(true);
         this.a.removeAllViews();
         int dimension = (int) ResUtils.getDimension(this.mAct, "bd_wallet_coupon_height");
@@ -244,13 +244,13 @@ public class CouponListActivity extends HalfScreenBaseActivity implements View.O
                 public final /* synthetic */ View a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ProgressBar f52474b;
+                public final /* synthetic */ ProgressBar f50893b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ ImageView f52475c;
+                public final /* synthetic */ ImageView f50894c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ CouponListActivity f52476d;
+                public final /* synthetic */ CouponListActivity f50895d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -267,41 +267,41 @@ public class CouponListActivity extends HalfScreenBaseActivity implements View.O
                             return;
                         }
                     }
-                    this.f52476d = this;
+                    this.f50895d = this;
                     this.a = inflate;
-                    this.f52474b = progressBar;
-                    this.f52475c = imageView;
+                    this.f50893b = progressBar;
+                    this.f50894c = imageView;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f52476d.f52473b = this.a;
+                        this.f50895d.f50892b = this.a;
                         CouponListPresenter.a aVar2 = (CouponListPresenter.a) view.getTag();
-                        if (aVar2.f52299g) {
+                        if (aVar2.f50718g) {
                             StatisticManager.onEvent("switchCoupon");
-                            this.f52476d.a(this.f52474b, this.f52475c, true);
-                            this.f52476d.mPresenter.calcPayamount(aVar2);
+                            this.f50895d.a(this.f50893b, this.f50894c, true);
+                            this.f50895d.mPresenter.calcPayamount(aVar2);
                             return;
                         }
-                        GlobalUtils.toast(this.f52476d, aVar2.f52298f);
+                        GlobalUtils.toast(this.f50895d, aVar2.f50717f);
                     }
                 }
             });
             a(progressBar, imageView, false);
             ((NetImageView) inflate.findViewById(ResUtils.id(this, "ebpay_coupon_logo"))).setImageUrl(aVar.a);
-            ((TextView) inflate.findViewById(ResUtils.id(this, "coupon_dicount_name"))).setText(aVar.f52296d);
-            ((TextView) inflate.findViewById(ResUtils.id(this, "coupon_dicount_tip"))).setText(aVar.f52297e);
+            ((TextView) inflate.findViewById(ResUtils.id(this, "coupon_dicount_name"))).setText(aVar.f50715d);
+            ((TextView) inflate.findViewById(ResUtils.id(this, "coupon_dicount_tip"))).setText(aVar.f50716e);
             TextView textView = (TextView) inflate.findViewById(ResUtils.id(this, "coupon_disable_reason"));
-            if (!TextUtils.isEmpty(aVar.f52298f)) {
+            if (!TextUtils.isEmpty(aVar.f50717f)) {
                 textView.setVisibility(0);
-                textView.setText(aVar.f52298f);
+                textView.setText(aVar.f50717f);
             } else {
                 textView.setVisibility(8);
             }
-            if (aVar.f52299g) {
-                imageView.setSelected(aVar.f52300h);
+            if (aVar.f50718g) {
+                imageView.setSelected(aVar.f50719h);
                 inflate.setTag(aVar);
                 a(inflate, true);
             } else {

@@ -17,7 +17,7 @@ import java.nio.ByteBuffer;
 import java.util.BitSet;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ie implements iq<ie, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final iy a;
@@ -26,31 +26,31 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
     public static final jg f649a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f61506b;
+    public static final iy f59856b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f61507c;
+    public static final iy f59857c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f61508d;
+    public static final iy f59858d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f61509e;
+    public static final iy f59859e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f61510f;
+    public static final iy f59860f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f61511g;
+    public static final iy f59861g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final iy f61512h;
+    public static final iy f59862h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final iy f61513i;
+    public static final iy f59863i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final iy f61514j;
+    public static final iy f59864j;
     public static final iy k;
     public static final iy l;
     public static final iy m;
@@ -121,15 +121,15 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
         }
         f649a = new jg("XmPushActionNotification");
         a = new iy("", (byte) 11, (short) 1);
-        f61506b = new iy("", StandardMessageCodec.LIST, (short) 2);
-        f61507c = new iy("", (byte) 11, (short) 3);
-        f61508d = new iy("", (byte) 11, (short) 4);
-        f61509e = new iy("", (byte) 11, (short) 5);
-        f61510f = new iy("", (byte) 2, (short) 6);
-        f61511g = new iy("", (byte) 11, (short) 7);
-        f61512h = new iy("", (byte) 13, (short) 8);
-        f61513i = new iy("", (byte) 11, (short) 9);
-        f61514j = new iy("", (byte) 11, (short) 10);
+        f59856b = new iy("", StandardMessageCodec.LIST, (short) 2);
+        f59857c = new iy("", (byte) 11, (short) 3);
+        f59858d = new iy("", (byte) 11, (short) 4);
+        f59859e = new iy("", (byte) 11, (short) 5);
+        f59860f = new iy("", (byte) 2, (short) 6);
+        f59861g = new iy("", (byte) 11, (short) 7);
+        f59862h = new iy("", (byte) 13, (short) 8);
+        f59863i = new iy("", (byte) 11, (short) 9);
+        f59864j = new iy("", (byte) 11, (short) 10);
         k = new iy("", (byte) 11, (short) 12);
         l = new iy("", (byte) 11, (short) 13);
         m = new iy("", (byte) 11, (short) 14);
@@ -679,35 +679,35 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
                 jbVar.b();
             }
             if (this.f651a != null && m535b()) {
-                jbVar.a(f61506b);
+                jbVar.a(f59856b);
                 this.f651a.b(jbVar);
                 jbVar.b();
             }
             if (this.f657b != null) {
-                jbVar.a(f61507c);
+                jbVar.a(f59857c);
                 jbVar.a(this.f657b);
                 jbVar.b();
             }
             if (this.f659c != null && d()) {
-                jbVar.a(f61508d);
+                jbVar.a(f59858d);
                 jbVar.a(this.f659c);
                 jbVar.b();
             }
             if (this.f660d != null && e()) {
-                jbVar.a(f61509e);
+                jbVar.a(f59859e);
                 jbVar.a(this.f660d);
                 jbVar.b();
             }
-            jbVar.a(f61510f);
+            jbVar.a(f59860f);
             jbVar.a(this.f656a);
             jbVar.b();
             if (this.f661e != null && g()) {
-                jbVar.a(f61511g);
+                jbVar.a(f59861g);
                 jbVar.a(this.f661e);
                 jbVar.b();
             }
             if (this.f655a != null && h()) {
-                jbVar.a(f61512h);
+                jbVar.a(f59862h);
                 jbVar.a(new ja((byte) 11, (byte) 11, this.f655a.size()));
                 for (Map.Entry<String, String> entry : this.f655a.entrySet()) {
                     jbVar.a(entry.getKey());
@@ -717,12 +717,12 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
                 jbVar.b();
             }
             if (this.f662f != null && i()) {
-                jbVar.a(f61513i);
+                jbVar.a(f59863i);
                 jbVar.a(this.f662f);
                 jbVar.b();
             }
             if (this.f663g != null && j()) {
-                jbVar.a(f61514j);
+                jbVar.a(f59864j);
                 jbVar.a(this.f663g);
                 jbVar.b();
             }

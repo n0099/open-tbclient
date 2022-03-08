@@ -1,8 +1,8 @@
 package com.google.common.hash;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.d.e;
-import c.i.d.d.g;
+import c.i.c.d.e;
+import c.i.c.d.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.zip.Adler32;
 import java.util.zip.CRC32;
 import java.util.zip.Checksum;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class Hashing {
     public static /* synthetic */ Interceptable $ic;
     public static final int a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static abstract class ChecksumType implements g<Checksum> {
         public static final /* synthetic */ ChecksumType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -69,7 +69,7 @@ public final class Hashing {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.google.common.hash.Hashing.ChecksumType, c.i.d.a.r
+                @Override // com.google.common.hash.Hashing.ChecksumType, c.i.c.a.r
                 public Checksum get() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -102,7 +102,7 @@ public final class Hashing {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.google.common.hash.Hashing.ChecksumType, c.i.d.a.r
+                @Override // com.google.common.hash.Hashing.ChecksumType, c.i.c.a.r
                 public Checksum get() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -129,7 +129,7 @@ public final class Hashing {
             return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ChecksumType[]) $VALUES.clone() : (ChecksumType[]) invokeV.objValue;
         }
 
-        @Override // c.i.d.a.r
+        @Override // c.i.c.a.r
         public abstract /* synthetic */ T get();
 
         public ChecksumType(String str, int i2, String str2) {
@@ -154,7 +154,7 @@ public final class Hashing {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

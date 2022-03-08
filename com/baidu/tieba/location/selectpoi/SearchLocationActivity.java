@@ -16,7 +16,7 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import c.a.d.f.p.m;
 import c.a.d.f.p.n;
-import c.a.u0.d2.c.a;
+import c.a.r0.d2.c.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
@@ -42,12 +42,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public class SearchLocationActivity extends NavigationBarActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AdapterView.OnItemClickListener itemListener;
-    public c.a.u0.d2.e.a mAdapter;
+    public c.a.r0.d2.e.a mAdapter;
     public LinearLayout mEditLayout;
     public EditText mEditSearch;
     public InputMethodManager mInputManager;
@@ -55,10 +55,10 @@ public class SearchLocationActivity extends NavigationBarActivity {
     public final AbsListView.OnScrollListener mOnScrollListener;
     public TextView mSearchButton;
     public c.a.d.c.g.a mSearchDataNetListener;
-    public c.a.u0.d2.c.a mSearchDatas;
+    public c.a.r0.d2.c.a mSearchDatas;
     public ImageView searchBarIcon;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -110,13 +110,13 @@ public class SearchLocationActivity extends NavigationBarActivity {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SearchLocationActivity f45881e;
+        public final /* synthetic */ SearchLocationActivity f44289e;
 
         public b(SearchLocationActivity searchLocationActivity) {
             Interceptable interceptable = $ic;
@@ -133,26 +133,26 @@ public class SearchLocationActivity extends NavigationBarActivity {
                     return;
                 }
             }
-            this.f45881e = searchLocationActivity;
+            this.f44289e = searchLocationActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f45881e.mEditSearch.hasFocus()) {
-                n.w(this.f45881e.getPageContext().getPageActivity(), this.f45881e.mEditSearch);
-                this.f45881e.closeActivity();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f44289e.mEditSearch.hasFocus()) {
+                n.w(this.f44289e.getPageContext().getPageActivity(), this.f44289e.mEditSearch);
+                this.f44289e.closeActivity();
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public class c implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SearchLocationActivity f45882e;
+        public final /* synthetic */ SearchLocationActivity f44290e;
 
         public c(SearchLocationActivity searchLocationActivity) {
             Interceptable interceptable = $ic;
@@ -169,17 +169,17 @@ public class SearchLocationActivity extends NavigationBarActivity {
                     return;
                 }
             }
-            this.f45882e = searchLocationActivity;
+            this.f44290e = searchLocationActivity;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                if (StringUtils.isNull(this.f45882e.getInputMsg())) {
-                    this.f45882e.mSearchButton.setEnabled(false);
+                if (StringUtils.isNull(this.f44290e.getInputMsg())) {
+                    this.f44290e.mSearchButton.setEnabled(false);
                 } else {
-                    this.f45882e.mSearchButton.setEnabled(true);
+                    this.f44290e.mSearchButton.setEnabled(true);
                 }
             }
         }
@@ -199,7 +199,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public class d implements TextView.OnEditorActionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -245,13 +245,13 @@ public class SearchLocationActivity extends NavigationBarActivity {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SearchLocationActivity f45883e;
+        public final /* synthetic */ SearchLocationActivity f44291e;
 
         public e(SearchLocationActivity searchLocationActivity) {
             Interceptable interceptable = $ic;
@@ -268,7 +268,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
                     return;
                 }
             }
-            this.f45883e = searchLocationActivity;
+            this.f44291e = searchLocationActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -276,22 +276,22 @@ public class SearchLocationActivity extends NavigationBarActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (!n.C()) {
-                    this.f45883e.showToast(R.string.no_network_guide);
-                } else if (StringUtils.isNull(this.f45883e.getInputMsg())) {
+                    this.f44291e.showToast(R.string.no_network_guide);
+                } else if (StringUtils.isNull(this.f44291e.getInputMsg())) {
                 } else {
-                    this.f45883e.getSearchData();
+                    this.f44291e.getSearchData();
                 }
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public class f implements AbsListView.OnScrollListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SearchLocationActivity f45884e;
+        public final /* synthetic */ SearchLocationActivity f44292e;
 
         public f(SearchLocationActivity searchLocationActivity) {
             Interceptable interceptable = $ic;
@@ -308,7 +308,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
                     return;
                 }
             }
-            this.f45884e = searchLocationActivity;
+            this.f44292e = searchLocationActivity;
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
@@ -323,19 +323,19 @@ public class SearchLocationActivity extends NavigationBarActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i2) == null) {
                 if (i2 == 2 || i2 == 1) {
-                    n.w(this.f45884e.getPageContext().getPageActivity(), this.f45884e.mEditSearch);
+                    n.w(this.f44292e.getPageContext().getPageActivity(), this.f44292e.mEditSearch);
                 }
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public class g implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SearchLocationActivity f45885e;
+        public final /* synthetic */ SearchLocationActivity f44293e;
 
         public g(SearchLocationActivity searchLocationActivity) {
             Interceptable interceptable = $ic;
@@ -352,26 +352,26 @@ public class SearchLocationActivity extends NavigationBarActivity {
                     return;
                 }
             }
-            this.f45885e = searchLocationActivity;
+            this.f44293e = searchLocationActivity;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && this.f45885e.mAdapter != null && this.f45885e.mAdapter.c()) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && this.f44293e.mAdapter != null && this.f44293e.mAdapter.c()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002013));
                 MessageManager messageManager = MessageManager.getInstance();
-                a.C1011a c1011a = (a.C1011a) this.f45885e.mAdapter.getItem(i2);
-                messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, c1011a.a(), c1011a.a(), c1011a.b()));
+                a.C1071a c1071a = (a.C1071a) this.f44293e.mAdapter.getItem(i2);
+                messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, c1071a.a(), c1071a.a(), c1071a.b()));
                 LocationEvent locationEvent = new LocationEvent();
                 locationEvent.setType(1);
                 locationEvent.eventType = 2;
-                locationEvent.locName = c1011a.a();
-                locationEvent.locAddr = c1011a.a();
-                locationEvent.locSn = c1011a.b();
+                locationEvent.locName = c1071a.a();
+                locationEvent.locAddr = c1071a.a();
+                locationEvent.locSn = c1071a.b();
                 locationEvent.isShowLocation = true;
-                this.f45885e.getPageContext().getOrignalPage().publishEvent(locationEvent);
-                this.f45885e.finish();
+                this.f44293e.getPageContext().getOrignalPage().publishEvent(locationEvent);
+                this.f44293e.finish();
             }
         }
     }
@@ -394,7 +394,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
         this.itemListener = new g(this);
     }
 
-    private ArrayList<a.C1011a> processInvalidData(List<LocationData.NearByAddressData> list, String str, String str2) {
+    private ArrayList<a.C1071a> processInvalidData(List<LocationData.NearByAddressData> list, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, this, list, str, str2)) == null) {
@@ -402,29 +402,29 @@ public class SearchLocationActivity extends NavigationBarActivity {
             if (list == null || list.size() <= 0) {
                 return null;
             }
-            ArrayList<a.C1011a> arrayList = new ArrayList<>();
+            ArrayList<a.C1071a> arrayList = new ArrayList<>();
             for (LocationData.NearByAddressData nearByAddressData2 : list) {
                 if (nearByAddressData2 != null && !TextUtils.isEmpty(nearByAddressData2.getName())) {
                     if (TextUtils.equals(nearByAddressData2.getName(), str)) {
                         nearByAddressData = nearByAddressData2;
                     } else {
-                        a.C1011a c1011a = new a.C1011a();
-                        c1011a.d(nearByAddressData2.getName());
-                        c1011a.e(nearByAddressData2.getSn());
-                        arrayList.add(c1011a);
+                        a.C1071a c1071a = new a.C1071a();
+                        c1071a.d(nearByAddressData2.getName());
+                        c1071a.e(nearByAddressData2.getSn());
+                        arrayList.add(c1071a);
                     }
                 }
             }
             if (nearByAddressData != null) {
-                a.C1011a c1011a2 = new a.C1011a();
-                c1011a2.d(nearByAddressData.getName());
-                c1011a2.e(nearByAddressData.getSn());
-                arrayList.add(0, c1011a2);
+                a.C1071a c1071a2 = new a.C1071a();
+                c1071a2.d(nearByAddressData.getName());
+                c1071a2.e(nearByAddressData.getSn());
+                arrayList.add(0, c1071a2);
             } else {
-                a.C1011a c1011a3 = new a.C1011a();
-                c1011a3.d(str);
-                c1011a3.e(str2);
-                arrayList.add(0, c1011a3);
+                a.C1071a c1071a3 = new a.C1071a();
+                c1071a3.d(str);
+                c1071a3.e(str2);
+                arrayList.add(0, c1071a3);
             }
             return arrayList;
         }
@@ -456,8 +456,8 @@ public class SearchLocationActivity extends NavigationBarActivity {
     public void initData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.mSearchDatas = new c.a.u0.d2.c.a();
-            LocationData b2 = c.a.u0.z3.p0.b.a().b();
+            this.mSearchDatas = new c.a.r0.d2.c.a();
+            LocationData b2 = c.a.r0.y3.p0.b.a().b();
             if (b2 != null) {
                 this.mSearchDatas.c(processInvalidData(b2.getPoi_info(), b2.getFormatted_address(), b2.getSn()));
             }
@@ -483,7 +483,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
             textView.setEnabled(false);
             this.mSearchButton.setOnClickListener(new e(this));
             this.mListView = (BdListView) findViewById(R.id.search_position_list);
-            c.a.u0.d2.e.a aVar = new c.a.u0.d2.e.a(this);
+            c.a.r0.d2.e.a aVar = new c.a.r0.d2.e.a(this);
             this.mAdapter = aVar;
             this.mListView.setAdapter((ListAdapter) aVar);
             this.mListView.setOnItemClickListener(this.itemListener);
@@ -496,7 +496,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             super.onChangeSkinType(i2);
-            c.a.t0.s.v.c d2 = c.a.t0.s.v.c.d(this.mSearchButton);
+            c.a.q0.r.v.c d2 = c.a.q0.r.v.c.d(this.mSearchButton);
             d2.v(R.color.CAM_X0101);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0302);

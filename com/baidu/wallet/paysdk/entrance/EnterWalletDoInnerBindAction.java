@@ -15,7 +15,7 @@ import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 import com.dxmpay.wallet.utils.BdWalletUtils;
 import com.qq.e.comm.constants.Constants;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class EnterWalletDoInnerBindAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,10 +45,10 @@ public class EnterWalletDoInnerBindAction implements RouterAction {
                 public final /* synthetic */ RouterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f52186b;
+                public final /* synthetic */ boolean f50605b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ EnterWalletDoInnerBindAction f52187c;
+                public final /* synthetic */ EnterWalletDoInnerBindAction f50606c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -65,16 +65,16 @@ public class EnterWalletDoInnerBindAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f52187c = this;
+                    this.f50606c = this;
                     this.a = routerCallback;
-                    this.f52186b = z;
+                    this.f50605b = z;
                 }
 
                 @Override // com.baidu.android.pay.BindBack
                 public boolean isHideLoadingDialog() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f52186b : invokeV.booleanValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f50605b : invokeV.booleanValue;
                 }
 
                 @Override // com.baidu.android.pay.BindBack

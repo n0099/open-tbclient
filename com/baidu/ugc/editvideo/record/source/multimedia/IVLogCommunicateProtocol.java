@@ -1,7 +1,7 @@
 package com.baidu.ugc.editvideo.record.source.multimedia;
 
 import android.graphics.SurfaceTexture;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public interface IVLogCommunicateProtocol {
     void setMultiMediaStateEventListener(MultiMediaStateEventListener multiMediaStateEventListener);
 

@@ -23,7 +23,7 @@ import com.tencent.open.utils.f;
 import com.tencent.open.utils.i;
 import com.tencent.open.utils.l;
 import com.tencent.tauth.IUiListener;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class QQAvatar extends BaseApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM_SDK_AVATAR_SET_IMAGE = "FROM_SDK_AVATAR_SET_IMAGE";
@@ -72,17 +72,17 @@ public class QQAvatar extends BaseApi {
             Bundle bundle = new Bundle();
             bundle.putString("picture", uri.toString());
             bundle.putInt("exitAnim", i2);
-            bundle.putString("appid", this.f60643c.getAppId());
-            bundle.putString("access_token", this.f60643c.getAccessToken());
-            bundle.putLong("expires_in", this.f60643c.getExpireTimeInSecond());
-            bundle.putString("openid", this.f60643c.getOpenId());
+            bundle.putString("appid", this.f58993c.getAppId());
+            bundle.putString("access_token", this.f58993c.getAccessToken());
+            bundle.putLong("expires_in", this.f58993c.getExpireTimeInSecond());
+            bundle.putString("openid", this.f58993c.getOpenId());
             Intent a = a(activity);
             if (a(a)) {
                 a(activity, bundle, a);
-                d.a().a(this.f60643c.getOpenId(), this.f60643c.getAppId(), Constants.VIA_SET_AVATAR, "12", "18", "0");
+                d.a().a(this.f58993c.getOpenId(), this.f58993c.getAppId(), Constants.VIA_SET_AVATAR, "12", "18", "0");
                 return;
             }
-            d.a().a(this.f60643c.getOpenId(), this.f60643c.getAppId(), Constants.VIA_SET_AVATAR, "12", "18", "1");
+            d.a().a(this.f58993c.getOpenId(), this.f58993c.getAppId(), Constants.VIA_SET_AVATAR, "12", "18", "1");
         }
     }
 
@@ -107,8 +107,8 @@ public class QQAvatar extends BaseApi {
                     }
                     stringBuffer.append("&app_name=" + Base64.encodeToString(l.i(a), 2));
                 }
-                String appId = this.f60643c.getAppId();
-                String openId = this.f60643c.getOpenId();
+                String appId = this.f58993c.getAppId();
+                String openId = this.f58993c.getOpenId();
                 if (!TextUtils.isEmpty(appId)) {
                     stringBuffer.append("&share_id=" + appId);
                 }
@@ -162,8 +162,8 @@ public class QQAvatar extends BaseApi {
                     }
                     stringBuffer.append("&app_name=" + Base64.encodeToString(l.i(a), 2));
                 }
-                String appId = this.f60643c.getAppId();
-                String openId = this.f60643c.getOpenId();
+                String appId = this.f58993c.getAppId();
+                String openId = this.f58993c.getOpenId();
                 if (!TextUtils.isEmpty(appId)) {
                     stringBuffer.append("&share_id=" + appId);
                 }
@@ -211,14 +211,14 @@ public class QQAvatar extends BaseApi {
     private void a(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, bundle) == null) {
-            QQToken qQToken = this.f60643c;
+            QQToken qQToken = this.f58993c;
             if (qQToken != null) {
                 bundle.putString("appid", qQToken.getAppId());
-                if (this.f60643c.isSessionValid()) {
-                    bundle.putString(Constants.PARAM_KEY_STR, this.f60643c.getAccessToken());
+                if (this.f58993c.isSessionValid()) {
+                    bundle.putString(Constants.PARAM_KEY_STR, this.f58993c.getAccessToken());
                     bundle.putString(Constants.PARAM_KEY_TYPE, "0x80");
                 }
-                String openId = this.f60643c.getOpenId();
+                String openId = this.f58993c.getOpenId();
                 if (openId != null) {
                     bundle.putString("hopenid", openId);
                 }

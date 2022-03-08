@@ -15,7 +15,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.R;
+import androidx.appcompat.R$styleable;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -179,18 +179,18 @@ public class AppCompatTextHelper {
         String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, this, context, tintTypedArray) == null) {
-            this.mStyle = tintTypedArray.getInt(R.styleable.TextAppearance_android_textStyle, this.mStyle);
+            this.mStyle = tintTypedArray.getInt(R$styleable.TextAppearance_android_textStyle, this.mStyle);
             if (Build.VERSION.SDK_INT >= 28) {
-                int i3 = tintTypedArray.getInt(R.styleable.TextAppearance_android_textFontWeight, -1);
+                int i3 = tintTypedArray.getInt(R$styleable.TextAppearance_android_textFontWeight, -1);
                 this.mFontWeight = i3;
                 if (i3 != -1) {
                     this.mStyle = (this.mStyle & 2) | 0;
                 }
             }
-            if (!tintTypedArray.hasValue(R.styleable.TextAppearance_android_fontFamily) && !tintTypedArray.hasValue(R.styleable.TextAppearance_fontFamily)) {
-                if (tintTypedArray.hasValue(R.styleable.TextAppearance_android_typeface)) {
+            if (!tintTypedArray.hasValue(R$styleable.TextAppearance_android_fontFamily) && !tintTypedArray.hasValue(R$styleable.TextAppearance_fontFamily)) {
+                if (tintTypedArray.hasValue(R$styleable.TextAppearance_android_typeface)) {
                     this.mAsyncFontPending = false;
-                    int i4 = tintTypedArray.getInt(R.styleable.TextAppearance_android_typeface, 1);
+                    int i4 = tintTypedArray.getInt(R$styleable.TextAppearance_android_typeface, 1);
                     if (i4 == 1) {
                         this.mFontTypeface = Typeface.SANS_SERIF;
                         return;
@@ -207,10 +207,10 @@ public class AppCompatTextHelper {
                 return;
             }
             this.mFontTypeface = null;
-            if (tintTypedArray.hasValue(R.styleable.TextAppearance_fontFamily)) {
-                i2 = R.styleable.TextAppearance_fontFamily;
+            if (tintTypedArray.hasValue(R$styleable.TextAppearance_fontFamily)) {
+                i2 = R$styleable.TextAppearance_fontFamily;
             } else {
-                i2 = R.styleable.TextAppearance_android_fontFamily;
+                i2 = R$styleable.TextAppearance_android_fontFamily;
             }
             int i5 = this.mFontWeight;
             int i6 = this.mStyle;
@@ -395,53 +395,53 @@ public class AppCompatTextHelper {
         if (interceptable == null || interceptable.invokeLI(1048586, this, attributeSet, i2) == null) {
             Context context = this.mView.getContext();
             AppCompatDrawableManager appCompatDrawableManager = AppCompatDrawableManager.get();
-            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.AppCompatTextHelper, i2, 0);
+            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R$styleable.AppCompatTextHelper, i2, 0);
             TextView textView = this.mView;
-            ViewCompat.saveAttributeDataForStyleable(textView, textView.getContext(), R.styleable.AppCompatTextHelper, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i2, 0);
-            int resourceId = obtainStyledAttributes.getResourceId(R.styleable.AppCompatTextHelper_android_textAppearance, -1);
-            if (obtainStyledAttributes.hasValue(R.styleable.AppCompatTextHelper_android_drawableLeft)) {
-                this.mDrawableLeftTint = createTintInfo(context, appCompatDrawableManager, obtainStyledAttributes.getResourceId(R.styleable.AppCompatTextHelper_android_drawableLeft, 0));
+            ViewCompat.saveAttributeDataForStyleable(textView, textView.getContext(), R$styleable.AppCompatTextHelper, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i2, 0);
+            int resourceId = obtainStyledAttributes.getResourceId(R$styleable.AppCompatTextHelper_android_textAppearance, -1);
+            if (obtainStyledAttributes.hasValue(R$styleable.AppCompatTextHelper_android_drawableLeft)) {
+                this.mDrawableLeftTint = createTintInfo(context, appCompatDrawableManager, obtainStyledAttributes.getResourceId(R$styleable.AppCompatTextHelper_android_drawableLeft, 0));
             }
-            if (obtainStyledAttributes.hasValue(R.styleable.AppCompatTextHelper_android_drawableTop)) {
-                this.mDrawableTopTint = createTintInfo(context, appCompatDrawableManager, obtainStyledAttributes.getResourceId(R.styleable.AppCompatTextHelper_android_drawableTop, 0));
+            if (obtainStyledAttributes.hasValue(R$styleable.AppCompatTextHelper_android_drawableTop)) {
+                this.mDrawableTopTint = createTintInfo(context, appCompatDrawableManager, obtainStyledAttributes.getResourceId(R$styleable.AppCompatTextHelper_android_drawableTop, 0));
             }
-            if (obtainStyledAttributes.hasValue(R.styleable.AppCompatTextHelper_android_drawableRight)) {
-                this.mDrawableRightTint = createTintInfo(context, appCompatDrawableManager, obtainStyledAttributes.getResourceId(R.styleable.AppCompatTextHelper_android_drawableRight, 0));
+            if (obtainStyledAttributes.hasValue(R$styleable.AppCompatTextHelper_android_drawableRight)) {
+                this.mDrawableRightTint = createTintInfo(context, appCompatDrawableManager, obtainStyledAttributes.getResourceId(R$styleable.AppCompatTextHelper_android_drawableRight, 0));
             }
-            if (obtainStyledAttributes.hasValue(R.styleable.AppCompatTextHelper_android_drawableBottom)) {
-                this.mDrawableBottomTint = createTintInfo(context, appCompatDrawableManager, obtainStyledAttributes.getResourceId(R.styleable.AppCompatTextHelper_android_drawableBottom, 0));
+            if (obtainStyledAttributes.hasValue(R$styleable.AppCompatTextHelper_android_drawableBottom)) {
+                this.mDrawableBottomTint = createTintInfo(context, appCompatDrawableManager, obtainStyledAttributes.getResourceId(R$styleable.AppCompatTextHelper_android_drawableBottom, 0));
             }
             if (Build.VERSION.SDK_INT >= 17) {
-                if (obtainStyledAttributes.hasValue(R.styleable.AppCompatTextHelper_android_drawableStart)) {
-                    this.mDrawableStartTint = createTintInfo(context, appCompatDrawableManager, obtainStyledAttributes.getResourceId(R.styleable.AppCompatTextHelper_android_drawableStart, 0));
+                if (obtainStyledAttributes.hasValue(R$styleable.AppCompatTextHelper_android_drawableStart)) {
+                    this.mDrawableStartTint = createTintInfo(context, appCompatDrawableManager, obtainStyledAttributes.getResourceId(R$styleable.AppCompatTextHelper_android_drawableStart, 0));
                 }
-                if (obtainStyledAttributes.hasValue(R.styleable.AppCompatTextHelper_android_drawableEnd)) {
-                    this.mDrawableEndTint = createTintInfo(context, appCompatDrawableManager, obtainStyledAttributes.getResourceId(R.styleable.AppCompatTextHelper_android_drawableEnd, 0));
+                if (obtainStyledAttributes.hasValue(R$styleable.AppCompatTextHelper_android_drawableEnd)) {
+                    this.mDrawableEndTint = createTintInfo(context, appCompatDrawableManager, obtainStyledAttributes.getResourceId(R$styleable.AppCompatTextHelper_android_drawableEnd, 0));
                 }
             }
             obtainStyledAttributes.recycle();
             boolean z4 = this.mView.getTransformationMethod() instanceof PasswordTransformationMethod;
             if (resourceId != -1) {
-                TintTypedArray obtainStyledAttributes2 = TintTypedArray.obtainStyledAttributes(context, resourceId, R.styleable.TextAppearance);
-                if (z4 || !obtainStyledAttributes2.hasValue(R.styleable.TextAppearance_textAllCaps)) {
+                TintTypedArray obtainStyledAttributes2 = TintTypedArray.obtainStyledAttributes(context, resourceId, R$styleable.TextAppearance);
+                if (z4 || !obtainStyledAttributes2.hasValue(R$styleable.TextAppearance_textAllCaps)) {
                     z = false;
                     z2 = false;
                 } else {
-                    z = obtainStyledAttributes2.getBoolean(R.styleable.TextAppearance_textAllCaps, false);
+                    z = obtainStyledAttributes2.getBoolean(R$styleable.TextAppearance_textAllCaps, false);
                     z2 = true;
                 }
                 updateTypefaceAndStyle(context, obtainStyledAttributes2);
                 if (Build.VERSION.SDK_INT < 23) {
-                    colorStateList3 = obtainStyledAttributes2.hasValue(R.styleable.TextAppearance_android_textColor) ? obtainStyledAttributes2.getColorStateList(R.styleable.TextAppearance_android_textColor) : null;
-                    colorStateList = obtainStyledAttributes2.hasValue(R.styleable.TextAppearance_android_textColorHint) ? obtainStyledAttributes2.getColorStateList(R.styleable.TextAppearance_android_textColorHint) : null;
-                    colorStateList2 = obtainStyledAttributes2.hasValue(R.styleable.TextAppearance_android_textColorLink) ? obtainStyledAttributes2.getColorStateList(R.styleable.TextAppearance_android_textColorLink) : null;
+                    colorStateList3 = obtainStyledAttributes2.hasValue(R$styleable.TextAppearance_android_textColor) ? obtainStyledAttributes2.getColorStateList(R$styleable.TextAppearance_android_textColor) : null;
+                    colorStateList = obtainStyledAttributes2.hasValue(R$styleable.TextAppearance_android_textColorHint) ? obtainStyledAttributes2.getColorStateList(R$styleable.TextAppearance_android_textColorHint) : null;
+                    colorStateList2 = obtainStyledAttributes2.hasValue(R$styleable.TextAppearance_android_textColorLink) ? obtainStyledAttributes2.getColorStateList(R$styleable.TextAppearance_android_textColorLink) : null;
                 } else {
                     colorStateList = null;
                     colorStateList2 = null;
                     colorStateList3 = null;
                 }
-                str2 = obtainStyledAttributes2.hasValue(R.styleable.TextAppearance_textLocale) ? obtainStyledAttributes2.getString(R.styleable.TextAppearance_textLocale) : null;
-                str = (Build.VERSION.SDK_INT < 26 || !obtainStyledAttributes2.hasValue(R.styleable.TextAppearance_fontVariationSettings)) ? null : obtainStyledAttributes2.getString(R.styleable.TextAppearance_fontVariationSettings);
+                str2 = obtainStyledAttributes2.hasValue(R$styleable.TextAppearance_textLocale) ? obtainStyledAttributes2.getString(R$styleable.TextAppearance_textLocale) : null;
+                str = (Build.VERSION.SDK_INT < 26 || !obtainStyledAttributes2.hasValue(R$styleable.TextAppearance_fontVariationSettings)) ? null : obtainStyledAttributes2.getString(R$styleable.TextAppearance_fontVariationSettings);
                 obtainStyledAttributes2.recycle();
             } else {
                 colorStateList = null;
@@ -452,31 +452,31 @@ public class AppCompatTextHelper {
                 str2 = null;
                 colorStateList3 = null;
             }
-            TintTypedArray obtainStyledAttributes3 = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.TextAppearance, i2, 0);
-            if (z4 || !obtainStyledAttributes3.hasValue(R.styleable.TextAppearance_textAllCaps)) {
+            TintTypedArray obtainStyledAttributes3 = TintTypedArray.obtainStyledAttributes(context, attributeSet, R$styleable.TextAppearance, i2, 0);
+            if (z4 || !obtainStyledAttributes3.hasValue(R$styleable.TextAppearance_textAllCaps)) {
                 z3 = z2;
             } else {
-                z = obtainStyledAttributes3.getBoolean(R.styleable.TextAppearance_textAllCaps, false);
+                z = obtainStyledAttributes3.getBoolean(R$styleable.TextAppearance_textAllCaps, false);
                 z3 = true;
             }
             if (Build.VERSION.SDK_INT < 23) {
-                if (obtainStyledAttributes3.hasValue(R.styleable.TextAppearance_android_textColor)) {
-                    colorStateList3 = obtainStyledAttributes3.getColorStateList(R.styleable.TextAppearance_android_textColor);
+                if (obtainStyledAttributes3.hasValue(R$styleable.TextAppearance_android_textColor)) {
+                    colorStateList3 = obtainStyledAttributes3.getColorStateList(R$styleable.TextAppearance_android_textColor);
                 }
-                if (obtainStyledAttributes3.hasValue(R.styleable.TextAppearance_android_textColorHint)) {
-                    colorStateList = obtainStyledAttributes3.getColorStateList(R.styleable.TextAppearance_android_textColorHint);
+                if (obtainStyledAttributes3.hasValue(R$styleable.TextAppearance_android_textColorHint)) {
+                    colorStateList = obtainStyledAttributes3.getColorStateList(R$styleable.TextAppearance_android_textColorHint);
                 }
-                if (obtainStyledAttributes3.hasValue(R.styleable.TextAppearance_android_textColorLink)) {
-                    colorStateList2 = obtainStyledAttributes3.getColorStateList(R.styleable.TextAppearance_android_textColorLink);
+                if (obtainStyledAttributes3.hasValue(R$styleable.TextAppearance_android_textColorLink)) {
+                    colorStateList2 = obtainStyledAttributes3.getColorStateList(R$styleable.TextAppearance_android_textColorLink);
                 }
             }
-            if (obtainStyledAttributes3.hasValue(R.styleable.TextAppearance_textLocale)) {
-                str2 = obtainStyledAttributes3.getString(R.styleable.TextAppearance_textLocale);
+            if (obtainStyledAttributes3.hasValue(R$styleable.TextAppearance_textLocale)) {
+                str2 = obtainStyledAttributes3.getString(R$styleable.TextAppearance_textLocale);
             }
-            if (Build.VERSION.SDK_INT >= 26 && obtainStyledAttributes3.hasValue(R.styleable.TextAppearance_fontVariationSettings)) {
-                str = obtainStyledAttributes3.getString(R.styleable.TextAppearance_fontVariationSettings);
+            if (Build.VERSION.SDK_INT >= 26 && obtainStyledAttributes3.hasValue(R$styleable.TextAppearance_fontVariationSettings)) {
+                str = obtainStyledAttributes3.getString(R$styleable.TextAppearance_fontVariationSettings);
             }
-            if (Build.VERSION.SDK_INT >= 28 && obtainStyledAttributes3.hasValue(R.styleable.TextAppearance_android_textSize) && obtainStyledAttributes3.getDimensionPixelSize(R.styleable.TextAppearance_android_textSize, -1) == 0) {
+            if (Build.VERSION.SDK_INT >= 28 && obtainStyledAttributes3.hasValue(R$styleable.TextAppearance_android_textSize) && obtainStyledAttributes3.getDimensionPixelSize(R$styleable.TextAppearance_android_textSize, -1) == 0) {
                 this.mView.setTextSize(0, 0.0f);
             }
             updateTypefaceAndStyle(context, obtainStyledAttributes3);
@@ -523,31 +523,31 @@ public class AppCompatTextHelper {
                     }
                 }
             }
-            TintTypedArray obtainStyledAttributes4 = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.AppCompatTextView);
-            int resourceId2 = obtainStyledAttributes4.getResourceId(R.styleable.AppCompatTextView_drawableLeftCompat, -1);
+            TintTypedArray obtainStyledAttributes4 = TintTypedArray.obtainStyledAttributes(context, attributeSet, R$styleable.AppCompatTextView);
+            int resourceId2 = obtainStyledAttributes4.getResourceId(R$styleable.AppCompatTextView_drawableLeftCompat, -1);
             Drawable drawable = resourceId2 != -1 ? appCompatDrawableManager.getDrawable(context, resourceId2) : null;
-            int resourceId3 = obtainStyledAttributes4.getResourceId(R.styleable.AppCompatTextView_drawableTopCompat, -1);
+            int resourceId3 = obtainStyledAttributes4.getResourceId(R$styleable.AppCompatTextView_drawableTopCompat, -1);
             Drawable drawable2 = resourceId3 != -1 ? appCompatDrawableManager.getDrawable(context, resourceId3) : null;
-            int resourceId4 = obtainStyledAttributes4.getResourceId(R.styleable.AppCompatTextView_drawableRightCompat, -1);
+            int resourceId4 = obtainStyledAttributes4.getResourceId(R$styleable.AppCompatTextView_drawableRightCompat, -1);
             Drawable drawable3 = resourceId4 != -1 ? appCompatDrawableManager.getDrawable(context, resourceId4) : null;
-            int resourceId5 = obtainStyledAttributes4.getResourceId(R.styleable.AppCompatTextView_drawableBottomCompat, -1);
+            int resourceId5 = obtainStyledAttributes4.getResourceId(R$styleable.AppCompatTextView_drawableBottomCompat, -1);
             Drawable drawable4 = resourceId5 != -1 ? appCompatDrawableManager.getDrawable(context, resourceId5) : null;
-            int resourceId6 = obtainStyledAttributes4.getResourceId(R.styleable.AppCompatTextView_drawableStartCompat, -1);
+            int resourceId6 = obtainStyledAttributes4.getResourceId(R$styleable.AppCompatTextView_drawableStartCompat, -1);
             Drawable drawable5 = resourceId6 != -1 ? appCompatDrawableManager.getDrawable(context, resourceId6) : null;
-            int resourceId7 = obtainStyledAttributes4.getResourceId(R.styleable.AppCompatTextView_drawableEndCompat, -1);
+            int resourceId7 = obtainStyledAttributes4.getResourceId(R$styleable.AppCompatTextView_drawableEndCompat, -1);
             setCompoundDrawables(drawable, drawable2, drawable3, drawable4, drawable5, resourceId7 != -1 ? appCompatDrawableManager.getDrawable(context, resourceId7) : null);
-            if (obtainStyledAttributes4.hasValue(R.styleable.AppCompatTextView_drawableTint)) {
-                TextViewCompat.setCompoundDrawableTintList(this.mView, obtainStyledAttributes4.getColorStateList(R.styleable.AppCompatTextView_drawableTint));
+            if (obtainStyledAttributes4.hasValue(R$styleable.AppCompatTextView_drawableTint)) {
+                TextViewCompat.setCompoundDrawableTintList(this.mView, obtainStyledAttributes4.getColorStateList(R$styleable.AppCompatTextView_drawableTint));
             }
-            if (obtainStyledAttributes4.hasValue(R.styleable.AppCompatTextView_drawableTintMode)) {
+            if (obtainStyledAttributes4.hasValue(R$styleable.AppCompatTextView_drawableTintMode)) {
                 i3 = -1;
-                TextViewCompat.setCompoundDrawableTintMode(this.mView, DrawableUtils.parseTintMode(obtainStyledAttributes4.getInt(R.styleable.AppCompatTextView_drawableTintMode, -1), null));
+                TextViewCompat.setCompoundDrawableTintMode(this.mView, DrawableUtils.parseTintMode(obtainStyledAttributes4.getInt(R$styleable.AppCompatTextView_drawableTintMode, -1), null));
             } else {
                 i3 = -1;
             }
-            int dimensionPixelSize = obtainStyledAttributes4.getDimensionPixelSize(R.styleable.AppCompatTextView_firstBaselineToTopHeight, i3);
-            int dimensionPixelSize2 = obtainStyledAttributes4.getDimensionPixelSize(R.styleable.AppCompatTextView_lastBaselineToBottomHeight, i3);
-            int dimensionPixelSize3 = obtainStyledAttributes4.getDimensionPixelSize(R.styleable.AppCompatTextView_lineHeight, i3);
+            int dimensionPixelSize = obtainStyledAttributes4.getDimensionPixelSize(R$styleable.AppCompatTextView_firstBaselineToTopHeight, i3);
+            int dimensionPixelSize2 = obtainStyledAttributes4.getDimensionPixelSize(R$styleable.AppCompatTextView_lastBaselineToBottomHeight, i3);
+            int dimensionPixelSize3 = obtainStyledAttributes4.getDimensionPixelSize(R$styleable.AppCompatTextView_lineHeight, i3);
             obtainStyledAttributes4.recycle();
             if (dimensionPixelSize != i3) {
                 TextViewCompat.setFirstBaselineToTopHeight(this.mView, dimensionPixelSize);
@@ -593,18 +593,18 @@ public class AppCompatTextHelper {
         ColorStateList colorStateList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048590, this, context, i2) == null) {
-            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, i2, R.styleable.TextAppearance);
-            if (obtainStyledAttributes.hasValue(R.styleable.TextAppearance_textAllCaps)) {
-                setAllCaps(obtainStyledAttributes.getBoolean(R.styleable.TextAppearance_textAllCaps, false));
+            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, i2, R$styleable.TextAppearance);
+            if (obtainStyledAttributes.hasValue(R$styleable.TextAppearance_textAllCaps)) {
+                setAllCaps(obtainStyledAttributes.getBoolean(R$styleable.TextAppearance_textAllCaps, false));
             }
-            if (Build.VERSION.SDK_INT < 23 && obtainStyledAttributes.hasValue(R.styleable.TextAppearance_android_textColor) && (colorStateList = obtainStyledAttributes.getColorStateList(R.styleable.TextAppearance_android_textColor)) != null) {
+            if (Build.VERSION.SDK_INT < 23 && obtainStyledAttributes.hasValue(R$styleable.TextAppearance_android_textColor) && (colorStateList = obtainStyledAttributes.getColorStateList(R$styleable.TextAppearance_android_textColor)) != null) {
                 this.mView.setTextColor(colorStateList);
             }
-            if (obtainStyledAttributes.hasValue(R.styleable.TextAppearance_android_textSize) && obtainStyledAttributes.getDimensionPixelSize(R.styleable.TextAppearance_android_textSize, -1) == 0) {
+            if (obtainStyledAttributes.hasValue(R$styleable.TextAppearance_android_textSize) && obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextAppearance_android_textSize, -1) == 0) {
                 this.mView.setTextSize(0, 0.0f);
             }
             updateTypefaceAndStyle(context, obtainStyledAttributes);
-            if (Build.VERSION.SDK_INT >= 26 && obtainStyledAttributes.hasValue(R.styleable.TextAppearance_fontVariationSettings) && (string = obtainStyledAttributes.getString(R.styleable.TextAppearance_fontVariationSettings)) != null) {
+            if (Build.VERSION.SDK_INT >= 26 && obtainStyledAttributes.hasValue(R$styleable.TextAppearance_fontVariationSettings) && (string = obtainStyledAttributes.getString(R$styleable.TextAppearance_fontVariationSettings)) != null) {
                 this.mView.setFontVariationSettings(string);
             }
             obtainStyledAttributes.recycle();

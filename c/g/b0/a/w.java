@@ -16,12 +16,12 @@ import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class w extends q<TTFullScreenVideoAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class a implements TTAdNative.FullScreenVideoAdListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -123,7 +123,7 @@ public class w extends q<TTFullScreenVideoAd> {
             super.loadInternal(context, funAdSlot);
             AdSlot a2 = a(funAdSlot);
             onLoadStart(funAdSlot);
-            this.f28451h.loadFullScreenVideoAd(a2, new a(this));
+            this.f28289h.loadFullScreenVideoAd(a2, new a(this));
         }
     }
 

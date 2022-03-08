@@ -10,23 +10,23 @@ import com.kwad.sdk.core.page.AdRewardPreviewActivityProxy;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.plugin.DevelopMangerPlugin;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class f implements KsRewardVideoAd {
     public int a = 1;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f57489b;
+    public AdTemplate f55839b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdInfo f57490c;
+    public AdInfo f55840c;
 
     /* renamed from: d  reason: collision with root package name */
-    public KsRewardVideoAd.RewardAdInteractionListener f57491d;
+    public KsRewardVideoAd.RewardAdInteractionListener f55841d;
 
     public f(@NonNull AdTemplate adTemplate) {
-        this.f57489b = adTemplate;
-        this.f57490c = com.kwad.sdk.core.response.a.d.j(adTemplate);
+        this.f55839b = adTemplate;
+        this.f55840c = com.kwad.sdk.core.response.a.d.j(adTemplate);
     }
 
     private void a(Context context, KsVideoPlayConfig ksVideoPlayConfig) {
@@ -45,26 +45,26 @@ public class f implements KsRewardVideoAd {
         if (a2 != null) {
             ksVideoPlayConfig.setSkipThirtySecond(((Boolean) a2.getValue()).booleanValue());
         }
-        if (com.kwad.sdk.core.response.a.a.as(this.f57490c)) {
-            AdRewardPreviewActivityProxy.launch(context, this.f57489b, com.kwad.sdk.core.response.a.a.G(this.f57490c), this.f57491d);
+        if (com.kwad.sdk.core.response.a.a.as(this.f55840c)) {
+            AdRewardPreviewActivityProxy.launch(context, this.f55839b, com.kwad.sdk.core.response.a.a.G(this.f55840c), this.f55841d);
         } else {
-            KSRewardVideoActivityProxy.launch(context, this.f57489b, ksVideoPlayConfig, this.f57491d, this.a);
+            KSRewardVideoActivityProxy.launch(context, this.f55839b, ksVideoPlayConfig, this.f55841d, this.a);
         }
     }
 
     @Override // com.kwad.sdk.api.KsRewardVideoAd
     public int getECPM() {
-        return com.kwad.sdk.core.response.a.a.F(this.f57490c);
+        return com.kwad.sdk.core.response.a.a.F(this.f55840c);
     }
 
     @Override // com.kwad.sdk.api.KsRewardVideoAd
     public int getInteractionType() {
-        return com.kwad.sdk.core.response.a.a.E(this.f57490c);
+        return com.kwad.sdk.core.response.a.a.E(this.f55840c);
     }
 
     @Override // com.kwad.sdk.api.KsRewardVideoAd
     public int getMaterialType() {
-        return com.kwad.sdk.core.response.a.a.R(this.f57490c);
+        return com.kwad.sdk.core.response.a.a.R(this.f55840c);
     }
 
     @Override // com.kwad.sdk.api.KsRewardVideoAd
@@ -72,24 +72,24 @@ public class f implements KsRewardVideoAd {
         if (com.kwad.sdk.core.config.b.C() >= 0) {
             return true;
         }
-        return n.b(this.f57489b);
+        return n.b(this.f55839b);
     }
 
     @Override // com.kwad.sdk.api.KsRewardVideoAd
     public void reportAdExposureFailed(int i2, AdExposureFailedReason adExposureFailedReason) {
-        com.kwad.sdk.core.report.a.a(this.f57489b, i2, adExposureFailedReason);
+        com.kwad.sdk.core.report.a.a(this.f55839b, i2, adExposureFailedReason);
     }
 
     @Override // com.kwad.sdk.api.KsRewardVideoAd
     public void setBidEcpm(int i2) {
-        AdTemplate adTemplate = this.f57489b;
+        AdTemplate adTemplate = this.f55839b;
         adTemplate.mBidEcpm = i2;
         com.kwad.sdk.core.report.a.m(adTemplate);
     }
 
     @Override // com.kwad.sdk.api.KsRewardVideoAd
     public void setRewardAdInteractionListener(KsRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener) {
-        this.f57491d = rewardAdInteractionListener;
+        this.f55841d = rewardAdInteractionListener;
     }
 
     @Override // com.kwad.sdk.api.KsRewardVideoAd

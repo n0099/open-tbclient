@@ -10,23 +10,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class AdOperator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TYPE a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f37263b;
+    public final a f35666b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f37264c;
+    public final String f35667c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f37265d;
+    public String f35668d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class TYPE {
         public static final /* synthetic */ TYPE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -103,7 +103,7 @@ public class AdOperator {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -160,11 +160,11 @@ public class AdOperator {
         }
         if (type != null) {
             this.a = type;
-            this.f37263b = a.a(jSONObject.optJSONObject("desc"));
+            this.f35666b = a.a(jSONObject.optJSONObject("desc"));
             JSONObject optJSONObject = jSONObject.optJSONObject("button");
             optJSONObject = optJSONObject == null ? new JSONObject() : optJSONObject;
-            this.f37264c = optJSONObject.optString("text");
-            this.f37265d = optJSONObject.optString("scheme");
+            this.f35667c = optJSONObject.optString("text");
+            this.f35668d = optJSONObject.optString("scheme");
             return;
         }
         throw ParseError.contentError(12, "operator type:" + jSONObject.optString("type"));

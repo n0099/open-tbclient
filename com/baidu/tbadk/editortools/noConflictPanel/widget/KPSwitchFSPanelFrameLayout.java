@@ -5,21 +5,21 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.Window;
 import android.widget.FrameLayout;
-import c.a.t0.x.x.b;
-import c.a.t0.x.x.c.a;
-import c.a.t0.x.x.d.d;
+import c.a.q0.w.x.b;
+import c.a.q0.w.x.c.a;
+import c.a.q0.w.x.d.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class KPSwitchFSPanelFrameLayout extends FrameLayout implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f41215e;
+    public a f39621e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KPSwitchFSPanelFrameLayout(Context context) {
@@ -45,26 +45,26 @@ public class KPSwitchFSPanelFrameLayout extends FrameLayout implements b {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f41215e = new a(this);
+            this.f39621e = new a(this);
         }
     }
 
-    @Override // c.a.t0.x.x.b
+    @Override // c.a.q0.w.x.b
     public void onKeyboardShowing(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f41215e.a(z);
+            this.f39621e.a(z);
         }
     }
 
     public void recordKeyboardStatus(Window window) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, window) == null) {
-            this.f41215e.b(window);
+            this.f39621e.b(window);
         }
     }
 
-    @Override // c.a.t0.x.x.b
+    @Override // c.a.q0.w.x.b
     public void refreshHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {

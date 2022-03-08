@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class VideoEvent implements IPoolItem {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOG_LEVEL_HIGH = 0;
@@ -45,17 +45,17 @@ public class VideoEvent implements IPoolItem {
     public int type;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public @interface LogLevel {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public @interface Priority {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public @interface Type {
     }
 

@@ -1,9 +1,9 @@
 package com.baidu.tieba.tbadkCore;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.d1.c0;
-import c.a.t0.d1.i;
-import c.a.u0.l3.j0.a;
+import c.a.q0.c1.b0;
+import c.a.q0.c1.i;
+import c.a.r0.j3.k0.a;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Message;
 import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class FRSPageRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -340,7 +340,7 @@ public class FRSPageRequestMessage extends NetMessage {
             builder.call_from = Integer.valueOf(this.callFrom);
             builder.app_pos = a.e().a();
             builder.app_transmit_data = i.b();
-            c0.c(builder, true, false, true);
+            b0.c(builder, true, false, true);
             FrsPageReqIdl.Builder builder2 = new FrsPageReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

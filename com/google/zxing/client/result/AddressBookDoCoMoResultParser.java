@@ -5,8 +5,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.zxing.Result;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class AddressBookDoCoMoResultParser extends AbstractDoCoMoResultParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +32,7 @@ public final class AddressBookDoCoMoResultParser extends AbstractDoCoMoResultPar
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             int indexOf = str.indexOf(44);
             if (indexOf >= 0) {
-                return str.substring(indexOf + 1) + ' ' + str.substring(0, indexOf);
+                return str.substring(indexOf + 1) + WebvttCueParser.CHAR_SPACE + str.substring(0, indexOf);
             }
             return str;
         }

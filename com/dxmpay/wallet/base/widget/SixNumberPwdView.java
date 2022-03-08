@@ -23,36 +23,36 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.armor.SecurePay;
 import com.dxmpay.apollon.utils.DisplayUtils;
 import com.dxmpay.apollon.utils.ResUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class SixNumberPwdView extends LinearLayout implements TextWatcher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PWD_LEN = 6;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public EditText f54089e;
+    public EditText f52575e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView[] f54090f;
+    public ImageView[] f52576f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View[] f54091g;
+    public View[] f52577g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View[] f54092h;
+    public View[] f52578h;
 
     /* renamed from: i  reason: collision with root package name */
-    public OnPwdChangedListener f54093i;
+    public OnPwdChangedListener f52579i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f54094j;
+    public boolean f52580j;
     public Animation k;
     public Animation l;
     public Drawable m;
     public Drawable n;
     public int o;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface OnPwdChangedListener {
         void onPwdChanged(int i2);
     }
@@ -76,34 +76,34 @@ public class SixNumberPwdView extends LinearLayout implements TextWatcher {
                 return;
             }
         }
-        this.f54090f = new ImageView[6];
-        this.f54091g = new View[6];
-        this.f54092h = new View[6];
-        this.f54094j = true;
+        this.f52576f = new ImageView[6];
+        this.f52577g = new View[6];
+        this.f52578h = new View[6];
+        this.f52580j = true;
         this.k = null;
         this.l = null;
         this.m = null;
         this.n = null;
-        this.f54089e = (EditText) LayoutInflater.from(context).inflate(ResUtils.layout(context, "dxm_wallet_base_new_view_six_pwd"), this).findViewById(ResUtils.id(context, "pwd_input"));
-        this.f54090f[0] = (ImageView) findViewById(ResUtils.id(context, "pwd_iv_1"));
-        this.f54091g[0] = findViewById(ResUtils.id(context, "pwd_iv_1_line"));
-        this.f54092h[0] = findViewById(ResUtils.id(context, "pwd_iv_1_line_view"));
-        this.f54090f[1] = (ImageView) findViewById(ResUtils.id(context, "pwd_iv_2"));
-        this.f54091g[1] = findViewById(ResUtils.id(context, "pwd_iv_2_line"));
-        this.f54092h[1] = findViewById(ResUtils.id(context, "pwd_iv_2_line_view"));
-        this.f54090f[2] = (ImageView) findViewById(ResUtils.id(context, "pwd_iv_3"));
-        this.f54091g[2] = findViewById(ResUtils.id(context, "pwd_iv_3_line"));
-        this.f54092h[2] = findViewById(ResUtils.id(context, "pwd_iv_3_line_view"));
-        this.f54090f[3] = (ImageView) findViewById(ResUtils.id(context, "pwd_iv_4"));
-        this.f54091g[3] = findViewById(ResUtils.id(context, "pwd_iv_4_line"));
-        this.f54092h[3] = findViewById(ResUtils.id(context, "pwd_iv_4_line_view"));
-        this.f54090f[4] = (ImageView) findViewById(ResUtils.id(context, "pwd_iv_5"));
-        this.f54091g[4] = findViewById(ResUtils.id(context, "pwd_iv_5_line"));
-        this.f54092h[4] = findViewById(ResUtils.id(context, "pwd_iv_5_line_view"));
-        this.f54090f[5] = (ImageView) findViewById(ResUtils.id(context, "pwd_iv_6"));
-        this.f54091g[5] = findViewById(ResUtils.id(context, "pwd_iv_6_line"));
-        this.f54092h[5] = findViewById(ResUtils.id(context, "pwd_iv_6_line_view"));
-        this.f54089e.addTextChangedListener(this);
+        this.f52575e = (EditText) LayoutInflater.from(context).inflate(ResUtils.layout(context, "dxm_wallet_base_new_view_six_pwd"), this).findViewById(ResUtils.id(context, "pwd_input"));
+        this.f52576f[0] = (ImageView) findViewById(ResUtils.id(context, "pwd_iv_1"));
+        this.f52577g[0] = findViewById(ResUtils.id(context, "pwd_iv_1_line"));
+        this.f52578h[0] = findViewById(ResUtils.id(context, "pwd_iv_1_line_view"));
+        this.f52576f[1] = (ImageView) findViewById(ResUtils.id(context, "pwd_iv_2"));
+        this.f52577g[1] = findViewById(ResUtils.id(context, "pwd_iv_2_line"));
+        this.f52578h[1] = findViewById(ResUtils.id(context, "pwd_iv_2_line_view"));
+        this.f52576f[2] = (ImageView) findViewById(ResUtils.id(context, "pwd_iv_3"));
+        this.f52577g[2] = findViewById(ResUtils.id(context, "pwd_iv_3_line"));
+        this.f52578h[2] = findViewById(ResUtils.id(context, "pwd_iv_3_line_view"));
+        this.f52576f[3] = (ImageView) findViewById(ResUtils.id(context, "pwd_iv_4"));
+        this.f52577g[3] = findViewById(ResUtils.id(context, "pwd_iv_4_line"));
+        this.f52578h[3] = findViewById(ResUtils.id(context, "pwd_iv_4_line_view"));
+        this.f52576f[4] = (ImageView) findViewById(ResUtils.id(context, "pwd_iv_5"));
+        this.f52577g[4] = findViewById(ResUtils.id(context, "pwd_iv_5_line"));
+        this.f52578h[4] = findViewById(ResUtils.id(context, "pwd_iv_5_line_view"));
+        this.f52576f[5] = (ImageView) findViewById(ResUtils.id(context, "pwd_iv_6"));
+        this.f52577g[5] = findViewById(ResUtils.id(context, "pwd_iv_6_line"));
+        this.f52578h[5] = findViewById(ResUtils.id(context, "pwd_iv_6_line_view"));
+        this.f52575e.addTextChangedListener(this);
         this.k = AnimationUtils.loadAnimation(context, ResUtils.anim(context, "dxm_wallet_base_six_number_pwd_view_circle"));
         this.l = AnimationUtils.loadAnimation(context, ResUtils.anim(context, "dxm_wallet_base_new_six_number_pwd_view_line"));
         this.m = ResUtils.getDrawable(context, "dxm_wallet_base_new_six_number_pwd_view_circle");
@@ -116,20 +116,20 @@ public class SixNumberPwdView extends LinearLayout implements TextWatcher {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int length = this.f54089e.getText().length();
+            int length = this.f52575e.getText().length();
             for (int i2 = 0; i2 < 6; i2++) {
                 if (i2 < length) {
-                    this.f54090f[i2].setVisibility(0);
+                    this.f52576f[i2].setVisibility(0);
                     if (i2 == length - 1) {
-                        this.f54090f[i2].setImageDrawable(this.m);
-                        if (this.f54094j) {
-                            this.f54090f[i2].startAnimation(this.k);
+                        this.f52576f[i2].setImageDrawable(this.m);
+                        if (this.f52580j) {
+                            this.f52576f[i2].startAnimation(this.k);
                         }
                     } else {
-                        this.f54090f[i2].setImageDrawable(this.n);
+                        this.f52576f[i2].setImageDrawable(this.n);
                     }
                 } else {
-                    this.f54090f[i2].setVisibility(8);
+                    this.f52576f[i2].setVisibility(8);
                 }
             }
         }
@@ -138,7 +138,7 @@ public class SixNumberPwdView extends LinearLayout implements TextWatcher {
     public void addSixNumberPwdChangedListenter(OnPwdChangedListener onPwdChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onPwdChangedListener) == null) {
-            this.f54093i = onPwdChangedListener;
+            this.f52579i = onPwdChangedListener;
         }
     }
 
@@ -148,7 +148,7 @@ public class SixNumberPwdView extends LinearLayout implements TextWatcher {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, editable) == null) {
             a();
             b(editable.length() - 1);
-            OnPwdChangedListener onPwdChangedListener = this.f54093i;
+            OnPwdChangedListener onPwdChangedListener = this.f52579i;
             if (onPwdChangedListener != null) {
                 onPwdChangedListener.onPwdChanged(editable.length());
             }
@@ -161,12 +161,12 @@ public class SixNumberPwdView extends LinearLayout implements TextWatcher {
             return;
         }
         for (int i3 = 0; i3 < 6; i3++) {
-            this.f54092h[i3].setBackgroundColor(this.o);
+            this.f52578h[i3].setBackgroundColor(this.o);
             if (i3 == i2) {
-                this.f54091g[i3].setVisibility(0);
-                this.f54091g[i3].startAnimation(this.l);
+                this.f52577g[i3].setVisibility(0);
+                this.f52577g[i3].startAnimation(this.l);
             } else {
-                this.f54091g[i3].setVisibility(8);
+                this.f52577g[i3].setVisibility(8);
             }
         }
     }
@@ -181,7 +181,7 @@ public class SixNumberPwdView extends LinearLayout implements TextWatcher {
     public String getPwd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? TextUtils.isEmpty(this.f54089e.getText().toString()) ? "" : SecurePay.getInstance().localEncrypt1(this.f54089e.getText().toString()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? TextUtils.isEmpty(this.f52575e.getText().toString()) ? "" : SecurePay.getInstance().localEncrypt1(this.f52575e.getText().toString()) : (String) invokeV.objValue;
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -209,9 +209,9 @@ public class SixNumberPwdView extends LinearLayout implements TextWatcher {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048583, this, charSequence, i2, i3, i4) == null) {
             if (i4 < i3) {
-                this.f54094j = false;
+                this.f52580j = false;
             } else {
-                this.f54094j = true;
+                this.f52580j = true;
             }
         }
     }
@@ -219,14 +219,14 @@ public class SixNumberPwdView extends LinearLayout implements TextWatcher {
     public void resetPwd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f54089e.setText("");
+            this.f52575e.setText("");
         }
     }
 
     public void setShowInputMethod(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            ((SafeKeyBoardEditText) this.f54089e).setShowInputMethod(z);
+            ((SafeKeyBoardEditText) this.f52575e).setShowInputMethod(z);
         }
     }
 }

@@ -4,14 +4,14 @@ import android.content.Context;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.u0.a4.g;
 import com.baidu.adp.widget.IndicatorView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class BdBaseViewPagerContainerHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,11 +47,11 @@ public class BdBaseViewPagerContainerHolder extends TypeAdapter.ViewHolder {
         this.mIndicatorView = null;
         this.divilerLine = null;
         this.mViewPager = null;
-        this.topArea = (RelativeLayout) view.findViewById(g.top_area);
-        this.title = (TextView) view.findViewById(g.theme_title);
-        this.mMoreView = (TextView) view.findViewById(g.more_textview);
-        this.mIndicatorView = (IndicatorView) view.findViewById(g.tab_indicator);
-        this.divilerLine = view.findViewById(g.bottom_divider_line);
-        this.mViewPager = (BdBaseViewPager) view.findViewById(g.bd_base_view_pager);
+        this.topArea = (RelativeLayout) view.findViewById(R.id.top_area);
+        this.title = (TextView) view.findViewById(R.id.theme_title);
+        this.mMoreView = (TextView) view.findViewById(R.id.more_textview);
+        this.mIndicatorView = (IndicatorView) view.findViewById(R.id.tab_indicator);
+        this.divilerLine = view.findViewById(R.id.bottom_divider_line);
+        this.mViewPager = (BdBaseViewPager) view.findViewById(R.id.bd_base_view_pager);
     }
 }

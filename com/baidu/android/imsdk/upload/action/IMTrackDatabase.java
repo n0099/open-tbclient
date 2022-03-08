@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.PushClientConstants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class IMTrackDatabase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DB_NAME = "im_track.db";
@@ -45,7 +45,7 @@ public class IMTrackDatabase {
     public Context context;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class AckEnum {
         public static final /* synthetic */ AckEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -114,7 +114,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class ConnectionEnum {
         public static final /* synthetic */ ConnectionEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -187,7 +187,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class CrashEnum {
         public static final /* synthetic */ CrashEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -254,7 +254,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class DbEnum {
         public static final /* synthetic */ DbEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -330,7 +330,7 @@ public class IMTrackDatabase {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class DbOpenHelper extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public static final String SQL_TABLE_CREATE_ACK;
@@ -500,7 +500,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class MsgEnum {
         public static final /* synthetic */ MsgEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -573,7 +573,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class RequestEnum {
         public static final /* synthetic */ RequestEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -646,7 +646,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class UiEnum {
         public static final /* synthetic */ UiEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;

@@ -22,7 +22,7 @@ public class f {
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public LinkedList<g<?>> f1893b;
+        public LinkedList<g<?>> f2519b;
 
         public a(int i2) {
             Interceptable interceptable = $ic;
@@ -56,8 +56,8 @@ public class f {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f1893b.clear();
-                this.f1893b = null;
+                this.f2519b.clear();
+                this.f2519b = null;
             }
         }
 
@@ -65,7 +65,7 @@ public class f {
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f1893b = new LinkedList<>();
+                this.f2519b = new LinkedList<>();
             }
         }
 
@@ -81,23 +81,23 @@ public class f {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, gVar)) == null) {
-                if (gVar.f1899f < System.currentTimeMillis()) {
+                if (gVar.f2525f < System.currentTimeMillis()) {
                     return gVar.a;
                 }
-                this.f1893b.add(gVar);
+                this.f2519b.add(gVar);
                 String str = null;
-                if (this.f1893b.size() > getMaxSize()) {
+                if (this.f2519b.size() > getMaxSize()) {
                     long j2 = 0;
                     int i2 = -1;
-                    for (int i3 = 0; i3 < this.f1893b.size(); i3++) {
-                        g<?> gVar2 = this.f1893b.get(i3);
-                        if (i2 == -1 || gVar2.f1898e < j2) {
+                    for (int i3 = 0; i3 < this.f2519b.size(); i3++) {
+                        g<?> gVar2 = this.f2519b.get(i3);
+                        if (i2 == -1 || gVar2.f2524e < j2) {
                             str = gVar2.a;
-                            j2 = gVar2.f1898e;
+                            j2 = gVar2.f2524e;
                             i2 = i3;
                         }
                     }
-                    this.f1893b.remove(i2);
+                    this.f2519b.remove(i2);
                 }
                 return str;
             }
@@ -112,7 +112,7 @@ public class f {
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HashMap<String, Long> f1894b;
+        public HashMap<String, Long> f2520b;
 
         public b(int i2) {
             Interceptable interceptable = $ic;
@@ -129,7 +129,7 @@ public class f {
                     return;
                 }
             }
-            this.f1894b = new HashMap<>();
+            this.f2520b = new HashMap<>();
             this.a = i2;
         }
 
@@ -150,7 +150,7 @@ public class f {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar)) == null) {
                 String i2 = i(gVar.a);
                 synchronized (this) {
-                    this.f1894b.put(gVar.a, Long.valueOf(gVar.f1898e));
+                    this.f2520b.put(gVar.a, Long.valueOf(gVar.f2524e));
                 }
                 return i2;
             }
@@ -176,7 +176,7 @@ public class f {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, gVar)) == null) {
-                if (gVar.f1899f < System.currentTimeMillis()) {
+                if (gVar.f2525f < System.currentTimeMillis()) {
                     return gVar.a;
                 }
                 return d(gVar);
@@ -196,10 +196,10 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
                 String str2 = null;
-                if (!this.f1894b.containsKey(str) && this.f1894b.size() >= this.a) {
+                if (!this.f2520b.containsKey(str) && this.f2520b.size() >= this.a) {
                     synchronized (this) {
                         long j2 = -1;
-                        for (Map.Entry<String, Long> entry : this.f1894b.entrySet()) {
+                        for (Map.Entry<String, Long> entry : this.f2520b.entrySet()) {
                             long longValue = entry.getValue().longValue();
                             if (j2 == -1 || j2 > longValue) {
                                 str2 = entry.getKey();
@@ -207,7 +207,7 @@ public class f {
                             }
                         }
                         if (str2 != null) {
-                            this.f1894b.remove(str2);
+                            this.f2520b.remove(str2);
                         }
                     }
                     return str2;
@@ -222,7 +222,7 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
                 synchronized (this) {
-                    this.f1894b.clear();
+                    this.f2520b.clear();
                 }
             }
         }

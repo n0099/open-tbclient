@@ -13,7 +13,7 @@ import java.io.Closeable;
 import java.io.Flushable;
 import java.io.IOException;
 import java.io.Writer;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class JSONWriter implements Closeable, Flushable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

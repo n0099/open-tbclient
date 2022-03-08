@@ -1,6 +1,6 @@
 package com.baidu.tbadk.distribute;
 
-import c.a.t0.d1.c0;
+import c.a.q0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -14,7 +14,7 @@ import java.util.List;
 import tbclient.LogTogether.AdReq;
 import tbclient.LogTogether.DataReq;
 import tbclient.LogTogether.LogTogetherReqIdl;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class DistributeRequest extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class DistributeRequest extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             LogTogetherReqIdl.Builder builder2 = new LogTogetherReqIdl.Builder();
             builder.Ad = this.adReqList;
-            c0.a(builder, false);
+            b0.a(builder, false);
             builder2.data = builder.build(false);
             return builder2.build(false);
         }

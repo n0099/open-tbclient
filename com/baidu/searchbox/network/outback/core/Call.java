@@ -1,10 +1,10 @@
 package com.baidu.searchbox.network.outback.core;
 
 import java.io.IOException;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public interface Call extends Cloneable {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface Factory {
         Call newCall(Request request);
     }

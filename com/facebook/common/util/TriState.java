@@ -10,9 +10,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.infer.annotation.Functional;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import javax.annotation.Nullable;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class TriState {
     public static final /* synthetic */ TriState[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -22,7 +23,7 @@ public final class TriState {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.common.util.TriState$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$common$util$TriState;
         public static /* synthetic */ Interceptable $ic;
@@ -71,8 +72,8 @@ public final class TriState {
                 return;
             }
         }
-        YES = new TriState("YES", 0);
-        NO = new TriState("NO", 1);
+        YES = new TriState(HlsPlaylistParser.BOOLEAN_TRUE, 0);
+        NO = new TriState(HlsPlaylistParser.BOOLEAN_FALSE, 1);
         TriState triState = new TriState("UNSET", 2);
         UNSET = triState;
         $VALUES = new TriState[]{YES, NO, triState};

@@ -8,13 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.kwad.sdk.R;
-/* loaded from: classes4.dex */
+import com.baidu.tieba.R;
+/* loaded from: classes8.dex */
 public class u {
     public static Handler a = new Handler(Looper.getMainLooper());
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f58171b = false;
+    public static volatile boolean f56521b = false;
 
     public static void a(Context context, String str) {
         b(context, str, R.layout.ksad_content_alliance_toast_2);
@@ -31,10 +31,10 @@ public class u {
     }
 
     public static void a(Context context, String str, int i2, long j2) {
-        if (f58171b) {
+        if (f56521b) {
             return;
         }
-        f58171b = true;
+        f56521b = true;
         View inflate = LayoutInflater.from(context).inflate(i2, (ViewGroup) null);
         ((TextView) inflate.findViewById(R.id.ksad_message_toast_txt)).setText(str);
         Toast toast = new Toast(context.getApplicationContext());
@@ -45,7 +45,7 @@ public class u {
         a.postDelayed(new Runnable() { // from class: com.kwad.sdk.utils.u.1
             @Override // java.lang.Runnable
             public void run() {
-                boolean unused = u.f58171b = false;
+                boolean unused = u.f56521b = false;
             }
         }, j2);
     }

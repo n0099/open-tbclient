@@ -12,7 +12,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class c implements com.yxcorp.kuaishou.addfp.a.b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +108,7 @@ public class c implements com.yxcorp.kuaishou.addfp.a.b.a {
             DataOutputStream dataOutputStream2 = 0;
             try {
                 try {
-                    z = Runtime.getRuntime().exec(z != 0 ? j0.f55302b : "sh");
+                    z = Runtime.getRuntime().exec(z != 0 ? j0.f53652b : "sh");
                 } catch (Throwable th) {
                     th = th;
                 }

@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ExternalCache {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SCENE_ASYNC_CACHE_OVERTIME = 8;
@@ -49,7 +49,7 @@ public class ExternalCache {
     public int mScene;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class NetType {
         public static final /* synthetic */ NetType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -23,7 +23,7 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
     public transient /* synthetic */ FieldHolder $fh;
     public OnSqliteUpdateListener onSqliteUpdateListener;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface OnSqliteUpdateListener {
         void onSqliteUpdateListener(SQLiteDatabase sQLiteDatabase, int i2, int i3);
     }

@@ -1,10 +1,10 @@
 package com.kwad.sdk.pngencrypt;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class l {
     public final k a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f57352b;
+    public final int[] f55702b;
 
     public static h<l> a() {
         return new h<l>() { // from class: com.kwad.sdk.pngencrypt.l.1
@@ -12,6 +12,6 @@ public class l {
     }
 
     public String toString() {
-        return " cols=" + this.a.a + " bpc=" + this.a.f57344c + " size=" + this.f57352b.length;
+        return " cols=" + this.a.a + " bpc=" + this.a.f55694c + " size=" + this.f55702b.length;
     }
 }

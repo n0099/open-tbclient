@@ -10,22 +10,22 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d0.k0.d;
-import c.a.d0.k0.n.a.a;
-import c.a.d0.k0.n.a.b;
-import c.a.d0.k0.p.c;
-import c.a.d0.l.h;
+import c.a.b0.k0.g.a.a;
+import c.a.b0.k0.g.a.b;
+import c.a.b0.k0.i.c;
+import c.a.b0.l.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.appframework.BaseActivity;
 import com.baidu.nadcore.webview.container.base.AbsContainer;
 import com.baidu.nadcore.widget.SlideInterceptor;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class AdWebActivity extends BaseActivity implements SlideInterceptor, a, b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_WEBVIEW_CORE_TYPE = "key_webview_core_type";
@@ -46,7 +46,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, a, 
                 return;
             }
         }
-        this.mBaseBrowserContainer = c.a.d0.k0.a.a.a(this, this, h.b().info().a(KEY_WEBVIEW_CORE_TYPE, 0));
+        this.mBaseBrowserContainer = c.a.b0.k0.a.a.a(this, this, h.b().info().a(KEY_WEBVIEW_CORE_TYPE, 0));
     }
 
     public void addSpeedLogOnCreateBegin(Intent intent) {
@@ -61,7 +61,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, a, 
         }
     }
 
-    @Override // c.a.d0.k0.n.a.a
+    @Override // c.a.b0.k0.g.a.a
     public void doFinish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -78,7 +78,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, a, 
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.d0.k0.n.a.a
+    @Override // c.a.b0.k0.g.a.a
     @NonNull
     public Activity getActivity() {
         InterceptResult invokeV;
@@ -95,7 +95,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, a, 
         return invokeIL.booleanValue;
     }
 
-    @Override // c.a.d0.k0.n.a.b
+    @Override // c.a.b0.k0.g.a.b
     public boolean handleLoadUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -105,7 +105,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, a, 
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.d0.k0.n.a.a
+    @Override // c.a.b0.k0.g.a.a
     public boolean handleSetContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -218,7 +218,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, a, 
                 setPendingTransition(0, 0, 0, 0);
                 forceActivityTransparent(true);
             } else {
-                setPendingTransition(d.nad_slide_in_from_right, d.nad_slide_out_to_left, d.nad_slide_in_from_left, d.nad_slide_out_to_right);
+                setPendingTransition(R.anim.nad_slide_in_from_right, R.anim.nad_slide_out_to_left, R.anim.nad_slide_in_from_left, R.anim.nad_slide_out_to_right);
             }
             if (Build.VERSION.SDK_INT == 26) {
                 setEnableSliding(false);
@@ -237,7 +237,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, a, 
             }
             this.mBaseBrowserContainer.setFrom("1");
             this.mBaseBrowserContainer.onCreate();
-            c.a.d0.k0.p.b.g().a(getActivity());
+            c.a.b0.k0.i.b.g().a(getActivity());
         }
     }
 

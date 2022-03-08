@@ -12,7 +12,7 @@ public class d {
     public static final DisplayMetrics a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final float f4146b;
+    public static final float f3763b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,24 +28,24 @@ public class d {
                 return;
             }
         }
-        DisplayMetrics displayMetrics = c.a.j.h.b.b.f4057c.h().getAppContext().getResources().getDisplayMetrics();
+        DisplayMetrics displayMetrics = c.a.j.h.b.b.f3674c.h().getAppContext().getResources().getDisplayMetrics();
         a = displayMetrics;
-        f4146b = displayMetrics.density;
+        f3763b = displayMetrics.density;
     }
 
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            int identifier = c.a.j.h.b.b.f4057c.h().getAppContext().getResources().getIdentifier("status_bar_height", "dimen", "android");
+            int identifier = c.a.j.h.b.b.f3674c.h().getAppContext().getResources().getIdentifier("status_bar_height", "dimen", "android");
             int i2 = 0;
             if (identifier > 0) {
                 try {
-                    i2 = c.a.j.h.b.b.f4057c.h().getAppContext().getResources().getDimensionPixelSize(identifier);
+                    i2 = c.a.j.h.b.b.f3674c.h().getAppContext().getResources().getDimensionPixelSize(identifier);
                 } catch (Exception unused) {
                 }
             }
-            return i2 == 0 ? (int) (f4146b * 25.0f) : i2;
+            return i2 == 0 ? (int) (f3763b * 25.0f) : i2;
         }
         return invokeV.intValue;
     }

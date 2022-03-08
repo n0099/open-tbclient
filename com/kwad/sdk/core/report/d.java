@@ -12,7 +12,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static boolean a;
 
@@ -49,7 +49,7 @@ public class d {
         reportAction.aW = z;
         reportAction.aX = str;
         if (ksScene instanceof SceneImpl) {
-            reportAction.f56229b = (SceneImpl) ksScene;
+            reportAction.f54579b = (SceneImpl) ksScene;
         }
         f.a(reportAction);
     }
@@ -120,21 +120,21 @@ public class d {
     public static void a(com.kwad.sdk.h.a.b bVar) {
         ReportAction reportAction = new ReportAction(10215L);
         reportAction.bl = bVar.a;
-        reportAction.bp = bVar.f57174b;
-        reportAction.bm = bVar.f57175c;
-        reportAction.bn = bVar.f57176d;
+        reportAction.bp = bVar.f55524b;
+        reportAction.bm = bVar.f55525c;
+        reportAction.bn = bVar.f55526d;
         f.a(reportAction);
     }
 
     public static void a(SceneImpl sceneImpl, com.kwad.sdk.core.network.a.a aVar) {
         ReportAction reportAction = new ReportAction(10214L);
-        reportAction.f56229b = sceneImpl;
-        reportAction.bf = aVar.f56095g;
+        reportAction.f54579b = sceneImpl;
+        reportAction.bf = aVar.f54445g;
         reportAction.bg = aVar.a;
-        reportAction.bh = aVar.f56091c;
-        reportAction.bi = aVar.f56092d;
-        reportAction.bj = aVar.f56093e;
-        reportAction.bk = aVar.f56094f;
+        reportAction.bh = aVar.f54441c;
+        reportAction.bi = aVar.f54442d;
+        reportAction.bj = aVar.f54443e;
+        reportAction.bk = aVar.f54444f;
         f.a(reportAction);
     }
 

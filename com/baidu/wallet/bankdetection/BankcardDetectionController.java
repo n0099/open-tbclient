@@ -26,48 +26,48 @@ import com.dxmpay.wallet.utils.StatHelper;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class BankcardDetectionController extends Observable implements NoProguard, Observer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IDetectionListener a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f50638b;
+    public Context f49057b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f50639c;
+    public int f49058c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f50640d;
+    public String f49059d;
 
     /* renamed from: com.baidu.wallet.bankdetection.BankcardDetectionController$1  reason: invalid class name */
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class AnonymousClass1 implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f50641b;
+        public final /* synthetic */ String f49060b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ BankcardDetectionController f50642c;
+        public final /* synthetic */ BankcardDetectionController f49061c;
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f50642c.f50638b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f49061c.f49057b == null) {
                 return;
             }
-            PayDownloadModule payDownloadModule = new PayDownloadModule(this.f50642c.f50638b, BeanConstants.SDK_DOWNLOAD_FILE_OCR_BANKCARD_MODULE_NAME);
+            PayDownloadModule payDownloadModule = new PayDownloadModule(this.f49061c.f49057b, BeanConstants.SDK_DOWNLOAD_FILE_OCR_BANKCARD_MODULE_NAME);
             payDownloadModule.setPayDownloadCallBack(new PayDownloadModule.PayDownloadCallBack(this, payDownloadModule) { // from class: com.baidu.wallet.bankdetection.BankcardDetectionController.1.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PayDownloadModule a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AnonymousClass1 f50643b;
+                public final /* synthetic */ AnonymousClass1 f49062b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -84,7 +84,7 @@ public class BankcardDetectionController extends Observable implements NoProguar
                             return;
                         }
                     }
-                    this.f50643b = this;
+                    this.f49062b = this;
                     this.a = payDownloadModule;
                 }
 
@@ -98,24 +98,24 @@ public class BankcardDetectionController extends Observable implements NoProguar
                         }
                         if (this.a != null) {
                             if (i2 == 2 || i2 == 3) {
-                                this.a.resetMD5AndDeleteDownloadFiles(this.f50643b.f50642c.f50638b);
+                                this.a.resetMD5AndDeleteDownloadFiles(this.f49062b.f49061c.f49057b);
                             }
                         }
                     }
                 }
             });
-            payDownloadModule.download(this.a, this.f50641b, ".zip");
+            payDownloadModule.download(this.a, this.f49060b, ".zip");
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface IDetectionListener extends NoProguard {
         void onFail(int i2, String str);
 
         void onResult(String str);
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static BankcardDetectionController a;
@@ -160,9 +160,9 @@ public class BankcardDetectionController extends Observable implements NoProguar
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, iDetectionListener) == null) || iDetectionListener == null) {
             return;
         }
-        this.f50638b = context;
+        this.f49057b = context;
         this.a = iDetectionListener;
-        StatHelper.cacheUseOcrBankCard(this.f50639c);
+        StatHelper.cacheUseOcrBankCard(this.f49058c);
         StatHelper.cacheRealityBankCard(0);
         Intent intent = new Intent(context, BankCardDetectionActivity.class);
         StatHelper.bankCardDetction(PayStatServiceEvent.BANKCARD_DETCTION_ENTER, "");
@@ -176,7 +176,7 @@ public class BankcardDetectionController extends Observable implements NoProguar
     public void initBankCardDetect(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.f50638b = context;
+            this.f49057b = context;
             EventBus.getInstance().registerSticky(this, BeanConstants.SDKINIT_EVENTBUS_EVENTKEY, 0, EventBus.ThreadMode.MainThread);
             EventBus.getInstance().registerSticky(this, BeanConstants.SDKINIT_FAIL_EVENTBUS_EVENTKEY, 0, EventBus.ThreadMode.MainThread);
         }
@@ -196,9 +196,9 @@ public class BankcardDetectionController extends Observable implements NoProguar
                 JSONObject jSONObject = new JSONObject(str);
                 LogUtil.d("----d", "obj:" + jSONObject.toString());
                 int optInt = jSONObject.optInt("useOcrBankCard", 0);
-                this.f50639c = optInt;
+                this.f49058c = optInt;
                 StatHelper.cacheUseOcrBankCard(optInt);
-                if (this.f50639c != 1) {
+                if (this.f49058c != 1) {
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -247,7 +247,7 @@ public class BankcardDetectionController extends Observable implements NoProguar
                 return;
             }
         }
-        this.f50639c = 0;
-        this.f50640d = "armeabi-v7a";
+        this.f49058c = 0;
+        this.f49059d = "armeabi-v7a";
     }
 }

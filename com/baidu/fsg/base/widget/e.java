@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class e implements View.OnKeyListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,11 +43,11 @@ public class e implements View.OnKeyListener {
             if (keyEvent.getAction() == 0 && i2 == 4) {
                 z = this.a.o;
                 if (z) {
-                    safeScrollView = this.a.f34175g;
+                    safeScrollView = this.a.f32578g;
                     if (safeScrollView != null) {
-                        safeScrollView2 = this.a.f34175g;
+                        safeScrollView2 = this.a.f32578g;
                         if (safeScrollView2.isPopupWindowShowing()) {
-                            safeScrollView3 = this.a.f34175g;
+                            safeScrollView3 = this.a.f32578g;
                             safeScrollView3.dismissKeyBoard(this.a);
                             return true;
                         }

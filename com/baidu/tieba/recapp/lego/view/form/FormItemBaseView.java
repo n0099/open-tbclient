@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public abstract class FormItemBaseView extends RelativeLayout implements FormCardView.d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String defaultContent = "NEGLIGIBLE";
@@ -49,7 +49,7 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
     public String mTag;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static final class DrawableType {
         public static final /* synthetic */ DrawableType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -108,7 +108,7 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -273,10 +273,10 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, bVar)) == null) {
-            if (bVar != null && bVar.a != -1 && !TextUtils.isEmpty(bVar.f47691b)) {
+            if (bVar != null && bVar.a != -1 && !TextUtils.isEmpty(bVar.f46099b)) {
                 setVisibility(0);
                 reset();
-                this.mTag = bVar.f47692c;
+                this.mTag = bVar.f46100c;
                 return true;
             }
             setVisibility(8);

@@ -26,7 +26,7 @@ public class h implements c {
     public Element a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f1871b;
+    public Set<String> f2497b;
 
     public h(Element element) {
         String nodeName;
@@ -46,14 +46,14 @@ public class h implements c {
             }
         }
         this.a = element;
-        this.f1871b = new HashSet();
+        this.f2497b = new HashSet();
         if (element != null) {
             NamedNodeMap attributes = element.getAttributes();
             int length = attributes.getLength();
             for (int i4 = 0; i4 < length; i4++) {
                 Node item = attributes.item(i4);
                 if (item != null && (nodeName2 = item.getNodeName()) != null) {
-                    this.f1871b.add(nodeName2);
+                    this.f2497b.add(nodeName2);
                 }
             }
             NodeList childNodes = element.getChildNodes();
@@ -61,23 +61,16 @@ public class h implements c {
             for (int i5 = 0; i5 < length2; i5++) {
                 Node item2 = childNodes.item(i5);
                 if (item2 != null && (nodeName = item2.getNodeName()) != null) {
-                    this.f1871b.add(nodeName);
+                    this.f2497b.add(nodeName);
                 }
             }
         }
     }
 
     @Override // c.a.d.f.b.b.a.c.c
-    public Set<String> a() {
-        InterceptResult invokeV;
+    public void a(String str, Object obj) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1871b : (Set) invokeV.objValue;
-    }
-
-    @Override // c.a.d.f.b.b.a.c.c
-    public void b(String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) || obj == null || str == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) || obj == null || str == null) {
             return;
         }
         if (obj instanceof Boolean) {
@@ -105,26 +98,26 @@ public class h implements c {
     }
 
     @Override // c.a.d.f.b.b.a.c.c
-    public Object c(String str, Type type) {
+    public Object b(String str, Type type) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) {
-            Object d2 = d(str);
-            if (d2 != null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, type)) == null) {
+            Object c2 = c(str);
+            if (c2 != null) {
                 c.a.d.f.b.b.a.e.c cVar = new c.a.d.f.b.b.a.e.c(type);
-                c.a.d.f.b.b.a.d.h a = c.a.d.f.b.b.a.e.g.a(d2);
-                return a != null ? a.a(cVar) : d2;
+                c.a.d.f.b.b.a.d.h a = c.a.d.f.b.b.a.e.g.a(c2);
+                return a != null ? a.a(cVar) : c2;
             }
-            return d2;
+            return c2;
         }
         return invokeLL.objValue;
     }
 
-    public Object d(String str) {
+    public Object c(String str) {
         InterceptResult invokeL;
         String nodeName;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             String attribute = this.a.getAttribute(str);
             if (TextUtils.isEmpty(attribute)) {
                 NodeList childNodes = this.a.getChildNodes();
@@ -141,5 +134,12 @@ public class h implements c {
             return attribute;
         }
         return invokeL.objValue;
+    }
+
+    @Override // c.a.d.f.b.b.a.c.c
+    public Set<String> getKeys() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2497b : (Set) invokeV.objValue;
     }
 }

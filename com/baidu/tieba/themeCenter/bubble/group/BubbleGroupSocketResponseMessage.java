@@ -1,7 +1,7 @@
 package com.baidu.tieba.themeCenter.bubble.group;
 
-import c.a.u0.f4.f.b.b;
-import c.a.u0.f4.h.e;
+import c.a.r0.d4.f.b.b;
+import c.a.r0.d4.h.e;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,7 +17,7 @@ import tbclient.Error;
 import tbclient.GetBubbleByCategory.DataRes;
 import tbclient.GetBubbleByCategory.GetBubbleByCategoryResIdl;
 import tbclient.GetBubbleByCategory.ThemeBubbleInMain;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class BubbleGroupSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

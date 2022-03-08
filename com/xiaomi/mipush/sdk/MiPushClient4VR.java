@@ -9,7 +9,7 @@ import com.xiaomi.push.hf;
 import com.xiaomi.push.hp;
 import com.xiaomi.push.hs;
 import com.xiaomi.push.ie;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class MiPushClient4VR {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class MiPushClient4VR {
             ieVar.d(context.getPackageName());
             ieVar.a("data", str);
             ieVar.a(com.xiaomi.push.service.at.a());
-            an.a(context).a((an) ieVar, hf.f61378i, (hs) null);
+            an.a(context).a((an) ieVar, hf.f59728i, (hs) null);
         }
     }
 }

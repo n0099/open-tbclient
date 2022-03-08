@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final n f28724b;
+    public final n f28562b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HashMap<String, p> f28725c;
+    public final HashMap<String, p> f28563c;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public interface a<E> {
         void a(E e2);
 
@@ -38,8 +38,8 @@ public class z {
                 return;
             }
         }
-        this.f28724b = new n();
-        this.f28725c = new HashMap<>();
+        this.f28562b = new n();
+        this.f28563c = new HashMap<>();
     }
 
     public final <E> void a(Set<E> set, Set<E> set2, a<E> aVar) {

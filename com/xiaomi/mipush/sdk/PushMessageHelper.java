@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.hs;
 import com.xiaomi.push.ii;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class PushMessageHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ERROR_MESSAGE = "error_message";

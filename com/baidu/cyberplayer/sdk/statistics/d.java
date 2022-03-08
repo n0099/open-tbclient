@@ -21,17 +21,17 @@ import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f33830b;
+    public String f32233b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f33831c;
+    public String f32234c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -47,9 +47,9 @@ public class d {
             }
         }
         this.a = null;
-        this.f33830b = null;
-        this.f33831c = null;
-        this.f33831c = "video_session";
+        this.f32233b = null;
+        this.f32234c = null;
+        this.f32234c = "video_session";
         a(CyberPlayerManager.getApplicationContext());
     }
 
@@ -69,9 +69,9 @@ public class d {
             }
         }
         this.a = null;
-        this.f33830b = null;
-        this.f33831c = null;
-        this.f33831c = str;
+        this.f32233b = null;
+        this.f32234c = null;
+        this.f32234c = str;
         a(CyberPlayerManager.getApplicationContext());
     }
 
@@ -225,7 +225,7 @@ public class d {
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.f33830b)) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.f32233b)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
@@ -233,7 +233,7 @@ public class d {
         try {
             String str = this.a;
             if (b(str)) {
-                String str2 = this.f33830b;
+                String str2 = this.f32233b;
                 a(str2);
                 if (b(str, str2)) {
                     a(str);
@@ -256,8 +256,8 @@ public class d {
         }
         new File(b2).mkdirs();
         String coreVersionInternal = CyberVersion.getCoreVersionInternal();
-        this.a = b2 + File.separator + this.f33831c + "_" + coreVersionInternal + ".bak";
-        this.f33830b = b2 + File.separator + this.f33831c + "_log_" + coreVersionInternal + ".tmp";
+        this.a = b2 + File.separator + this.f32234c + "_" + coreVersionInternal + ".bak";
+        this.f32233b = b2 + File.separator + this.f32234c + "_log_" + coreVersionInternal + ".tmp";
     }
 
     public void a(byte[] bArr) {
@@ -288,7 +288,7 @@ public class d {
                 FileInputStream fileInputStream = new FileInputStream(str);
                 InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                String a = DpSessionDatasUploader.getInstance().a("sailor_monitor", this.f33831c.equals("live_show_session") ? 24 : 1);
+                String a = DpSessionDatasUploader.getInstance().a("sailor_monitor", this.f32234c.equals("live_show_session") ? 24 : 1);
                 if (TextUtils.isEmpty(a)) {
                     z = true;
                 } else {

@@ -2,7 +2,7 @@ package com.kwad.sdk.core.imageloader.utils;
 
 import android.util.Log;
 import com.kwad.sdk.core.imageloader.core.ImageLoader;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class L {
     public static final String LOG_FORMAT = "%1$s\n%2$s";
     public static volatile boolean writeDebugLogs = false;

@@ -5,7 +5,7 @@ import android.content.Context;
 import com.baidu.apollon.NoProguard;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public interface ILightAppListener extends NoProguard, ILightappInvoker {
     public static final String KEY_SHARE_CONTENT = "key_share_content";
     public static final String KEY_SHARE_EXTRA = "key_share_extra";

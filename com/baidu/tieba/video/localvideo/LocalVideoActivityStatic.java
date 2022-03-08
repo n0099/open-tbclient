@@ -31,12 +31,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class LocalVideoActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class a implements CustomMessageTask.CustomRunnable<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,38 +56,38 @@ public class LocalVideoActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<c.a.u0.k0.b> run(CustomMessage<Object> customMessage) {
+        public CustomResponsedMessage<c.a.r0.j0.b> run(CustomMessage<Object> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage == null || !(customMessage.getData() instanceof c.a.u0.n4.b)) {
+                if (customMessage == null || !(customMessage.getData() instanceof c.a.r0.l4.b)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2921466, new c.a.u0.n4.i.h.b((c.a.u0.n4.b) customMessage.getData()));
+                return new CustomResponsedMessage<>(2921466, new c.a.r0.l4.i.h.b((c.a.r0.l4.b) customMessage.getData()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes13.dex */
+        /* loaded from: classes6.dex */
         public class a extends DefaultDownloadCallback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public String f48776b;
+            public String f47195b;
 
             /* renamed from: c  reason: collision with root package name */
-            public String f48777c;
+            public String f47196c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ CustomResponsedMessage f48778d;
+            public final /* synthetic */ CustomResponsedMessage f47197d;
 
             public a(b bVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
@@ -104,7 +104,7 @@ public class LocalVideoActivityStatic {
                         return;
                     }
                 }
-                this.f48778d = customResponsedMessage;
+                this.f47197d = customResponsedMessage;
             }
 
             @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
@@ -135,13 +135,13 @@ public class LocalVideoActivityStatic {
                     this.a = BdBaseApplication.getInst().getResHashMap().get("libnama.so");
                 }
                 if ("face_beautification.mp3".equals(packageInfo.name)) {
-                    this.f48776b = BdBaseApplication.getInst().getResHashMap().get("face_beautification.mp3");
+                    this.f47195b = BdBaseApplication.getInst().getResHashMap().get("face_beautification.mp3");
                 }
                 if ("v3.mp3".equals(packageInfo.name)) {
-                    this.f48777c = BdBaseApplication.getInst().getResHashMap().get("v3.mp3");
+                    this.f47196c = BdBaseApplication.getInst().getResHashMap().get("v3.mp3");
                 }
-                if (!StringUtils.isNull(this.a) && !StringUtils.isNull(this.f48776b) && !StringUtils.isNull(this.f48777c)) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f48778d.getData()));
+                if (!StringUtils.isNull(this.a) && !StringUtils.isNull(this.f47195b) && !StringUtils.isNull(this.f47196c)) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f47197d.getData()));
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.TRUE));
             }

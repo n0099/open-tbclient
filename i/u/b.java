@@ -11,16 +11,16 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class b implements k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Set<k> f62315e;
+    public Set<k> f60665e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f62316f;
+    public volatile boolean f60666f;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -60,13 +60,13 @@ public final class b implements k {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, kVar) == null) || kVar.isUnsubscribed()) {
             return;
         }
-        if (!this.f62316f) {
+        if (!this.f60666f) {
             synchronized (this) {
-                if (!this.f62316f) {
-                    if (this.f62315e == null) {
-                        this.f62315e = new HashSet(4);
+                if (!this.f60666f) {
+                    if (this.f60665e == null) {
+                        this.f60665e = new HashSet(4);
                     }
-                    this.f62315e.add(kVar);
+                    this.f60665e.add(kVar);
                     return;
                 }
             }
@@ -76,12 +76,12 @@ public final class b implements k {
 
     public void b(k kVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kVar) == null) || this.f62316f) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kVar) == null) || this.f60666f) {
             return;
         }
         synchronized (this) {
-            if (!this.f62316f && this.f62315e != null) {
-                boolean remove = this.f62315e.remove(kVar);
+            if (!this.f60666f && this.f60665e != null) {
+                boolean remove = this.f60665e.remove(kVar);
                 if (remove) {
                     kVar.unsubscribe();
                 }
@@ -93,22 +93,22 @@ public final class b implements k {
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f62316f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f60666f : invokeV.booleanValue;
     }
 
     @Override // i.k
     public void unsubscribe() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f62316f) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f60666f) {
             return;
         }
         synchronized (this) {
-            if (this.f62316f) {
+            if (this.f60666f) {
                 return;
             }
-            this.f62316f = true;
-            Set<k> set = this.f62315e;
-            this.f62315e = null;
+            this.f60666f = true;
+            Set<k> set = this.f60665e;
+            this.f60665e = null;
             c(set);
         }
     }

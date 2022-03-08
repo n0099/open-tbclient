@@ -4,7 +4,7 @@ import android.graphics.Canvas;
 import android.os.Build;
 import android.view.View;
 import androidx.core.view.ViewCompat;
-import androidx.recyclerview.R;
+import androidx.recyclerview.R$id;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -74,11 +74,11 @@ public class ItemTouchUIUtilImpl implements ItemTouchUIUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                Object tag = view.getTag(R.id.item_touch_helper_previous_elevation);
+                Object tag = view.getTag(R$id.item_touch_helper_previous_elevation);
                 if (tag instanceof Float) {
                     ViewCompat.setElevation(view, ((Float) tag).floatValue());
                 }
-                view.setTag(R.id.item_touch_helper_previous_elevation, null);
+                view.setTag(R$id.item_touch_helper_previous_elevation, null);
             }
             view.setTranslationX(0.0f);
             view.setTranslationY(0.0f);
@@ -89,10 +89,10 @@ public class ItemTouchUIUtilImpl implements ItemTouchUIUtil {
     public void onDraw(Canvas canvas, RecyclerView recyclerView, View view, float f2, float f3, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, recyclerView, view, Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            if (Build.VERSION.SDK_INT >= 21 && z && view.getTag(R.id.item_touch_helper_previous_elevation) == null) {
+            if (Build.VERSION.SDK_INT >= 21 && z && view.getTag(R$id.item_touch_helper_previous_elevation) == null) {
                 Float valueOf = Float.valueOf(ViewCompat.getElevation(view));
                 ViewCompat.setElevation(view, findMaxElevation(recyclerView, view) + 1.0f);
-                view.setTag(R.id.item_touch_helper_previous_elevation, valueOf);
+                view.setTag(R$id.item_touch_helper_previous_elevation, valueOf);
             }
             view.setTranslationX(f2);
             view.setTranslationY(f3);

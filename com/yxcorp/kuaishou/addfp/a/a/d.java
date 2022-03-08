@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class d implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class d implements a {
                         th.printStackTrace();
                         try {
                             if (!TextUtils.isEmpty(b.a) && !b.a.startsWith("KWE")) {
-                                eVar2 = this.a.f61685g;
+                                eVar2 = this.a.f60035g;
                                 eVar2.b(b.a);
                             }
                             if (aVar != null) {
@@ -79,7 +79,7 @@ public class d implements a {
                     } finally {
                         try {
                             if (!TextUtils.isEmpty(b.a) && !b.a.startsWith("KWE")) {
-                                eVar = this.a.f61685g;
+                                eVar = this.a.f60035g;
                                 eVar.b(b.a);
                             }
                             if (aVar != null) {

@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f31600b;
+    public int f30003b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f31601c;
+    public int f30004c;
 
     public GridSpaceItemDecoration(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
             }
         }
         this.a = i2;
-        this.f31600b = i3;
-        this.f31601c = i4;
+        this.f30003b = i3;
+        this.f30004c = i4;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -48,11 +48,11 @@ public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
             if (layoutParams.getSpanIndex() != -1) {
                 if (layoutParams.getSpanIndex() % 2 == 0) {
                     rect.left = this.a;
-                    rect.right = this.f31600b;
+                    rect.right = this.f30003b;
                     return;
                 }
-                rect.left = this.f31600b;
-                rect.right = this.f31601c;
+                rect.left = this.f30003b;
+                rect.right = this.f30004c;
             }
         }
     }

@@ -16,21 +16,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Random;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f31141g = "alipay_tid_storage";
+    public static final String f29545g = "alipay_tid_storage";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f31142h = "tidinfo";
+    public static final String f29546h = "tidinfo";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f31143i = "tid";
+    public static final String f29547i = "tid";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f31144j = "client_key";
+    public static final String f29548j = "client_key";
     public static final String k = "timestamp";
     public static final String l = "vimei";
     public static final String m = "vimsi";
@@ -40,19 +40,19 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f31145b;
+    public String f29549b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f31146c;
+    public long f29550c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f31147d;
+    public String f29551d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f31148e;
+    public String f29552e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f31149f;
+    public boolean f29553f;
 
     static {
         InterceptResult invokeClinit;
@@ -82,7 +82,7 @@ public class a {
                 return;
             }
         }
-        this.f31149f = false;
+        this.f29553f = false;
     }
 
     public static synchronized a a(Context context) {
@@ -110,10 +110,10 @@ public class a {
             if (context != null) {
                 n = context.getApplicationContext();
             }
-            if (this.f31149f) {
+            if (this.f29553f) {
                 return;
             }
-            this.f31149f = true;
+            this.f29553f = true;
             l();
         }
     }
@@ -147,7 +147,7 @@ public class a {
         Long valueOf = Long.valueOf(System.currentTimeMillis());
         String str5 = null;
         try {
-            a = C1714a.a(f31141g, f31142h, true);
+            a = C1690a.a(f29545g, f29546h, true);
         } catch (Exception e2) {
             e = e2;
             str = null;
@@ -157,7 +157,7 @@ public class a {
             JSONObject jSONObject = new JSONObject(a);
             str = jSONObject.optString("tid", "");
             try {
-                str2 = jSONObject.optString(f31144j, "");
+                str2 = jSONObject.optString(f29548j, "");
                 try {
                     valueOf = Long.valueOf(jSONObject.optLong("timestamp", System.currentTimeMillis()));
                     str3 = jSONObject.optString(l, "");
@@ -195,10 +195,10 @@ public class a {
                 return;
             }
             this.a = str5;
-            this.f31145b = str2;
-            this.f31146c = valueOf.longValue();
-            this.f31147d = str3;
-            this.f31148e = str4;
+            this.f29549b = str2;
+            this.f29550c = valueOf.longValue();
+            this.f29551d = str3;
+            this.f29552e = str4;
             return;
         }
         str4 = null;
@@ -213,11 +213,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
             this.a = "";
-            this.f31145b = b();
-            this.f31146c = System.currentTimeMillis();
-            this.f31147d = k();
-            this.f31148e = k();
-            C1714a.b(f31141g, f31142h);
+            this.f29549b = b();
+            this.f29550c = System.currentTimeMillis();
+            this.f29551d = k();
+            this.f29552e = k();
+            C1690a.b(f29545g, f29546h);
         }
     }
 
@@ -227,11 +227,11 @@ public class a {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("tid", this.a);
-                jSONObject.put(f31144j, this.f31145b);
-                jSONObject.put("timestamp", this.f31146c);
-                jSONObject.put(l, this.f31147d);
-                jSONObject.put(m, this.f31148e);
-                C1714a.a(f31141g, f31142h, jSONObject.toString(), true);
+                jSONObject.put(f29548j, this.f29549b);
+                jSONObject.put("timestamp", this.f29550c);
+                jSONObject.put(l, this.f29551d);
+                jSONObject.put(m, this.f29552e);
+                C1690a.a(f29545g, f29546h, jSONObject.toString(), true);
             } catch (Exception e2) {
                 c.a(e2);
             }
@@ -247,7 +247,7 @@ public class a {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31145b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29549b : (String) invokeV.objValue;
     }
 
     public String d() {
@@ -259,19 +259,19 @@ public class a {
     public Long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? Long.valueOf(this.f31146c) : (Long) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? Long.valueOf(this.f29550c) : (Long) invokeV.objValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f31147d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f29551d : (String) invokeV.objValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f31148e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f29552e : (String) invokeV.objValue;
     }
 
     public boolean h() {
@@ -283,16 +283,16 @@ public class a {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.f31145b) || TextUtils.isEmpty(this.f31147d) || TextUtils.isEmpty(this.f31148e) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.f29549b) || TextUtils.isEmpty(this.f29551d) || TextUtils.isEmpty(this.f29552e) : invokeV.booleanValue;
     }
 
     /* renamed from: com.alipay.sdk.tid.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C1714a {
+    /* loaded from: classes3.dex */
+    public static class C1690a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1714a() {
+        public C1690a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -437,8 +437,8 @@ public class a {
                 return;
             }
             this.a = str;
-            this.f31145b = str2;
-            this.f31146c = System.currentTimeMillis();
+            this.f29549b = str2;
+            this.f29550c = System.currentTimeMillis();
             n();
             o();
         }
@@ -450,13 +450,13 @@ public class a {
             return;
         }
         this.a = str;
-        this.f31145b = str2;
-        this.f31147d = str3;
-        this.f31148e = str4;
+        this.f29549b = str2;
+        this.f29551d = str3;
+        this.f29552e = str4;
         if (l2 == null) {
-            this.f31146c = System.currentTimeMillis();
+            this.f29550c = System.currentTimeMillis();
         } else {
-            this.f31146c = l2.longValue();
+            this.f29550c = l2.longValue();
         }
         n();
     }

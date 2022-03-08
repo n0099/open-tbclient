@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.library.widget.refresh.RefreshLayout;
 import com.kwai.library.widget.refresh.e;
 import com.tachikoma.core.component.recyclerview.export.ITKPageList;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class LoadMorePresenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

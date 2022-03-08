@@ -36,7 +36,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocket;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class MessageHandler extends IMessageHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final HostnameVerifier HOSTNAME_VERIFIER;

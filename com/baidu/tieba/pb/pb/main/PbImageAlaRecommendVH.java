@@ -6,14 +6,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.t0.s.l0.t.c;
-import c.a.t0.s.r.e2;
-import c.a.t0.s.r.x0;
-import c.a.u0.u2.g;
-import c.a.u0.u2.i;
-import c.a.u0.u2.l;
-import c.a.u0.u2.r.f;
-import c.a.u0.u2.u.f.y;
+import c.a.q0.r.l0.t.c;
+import c.a.q0.r.r.e2;
+import c.a.q0.r.r.x0;
+import c.a.r0.u2.h.f;
+import c.a.r0.u2.k.f.y;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -32,34 +29,35 @@ import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
+import com.baidu.tieba.R;
 import com.baidu.tieba.view.DynamicUserLikeButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class PbImageAlaRecommendVH extends TypeAdapter.ViewHolder implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public y f46722e;
+    public y f45130e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f46723f;
+    public TbPageContext f45131f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f46724g;
+    public View f45132g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f46725h;
+    public TextView f45133h;
 
     /* renamed from: i  reason: collision with root package name */
-    public DynamicUserLikeButton f46726i;
+    public DynamicUserLikeButton f45134i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f46727j;
+    public TextView f45135j;
     public TbImageView k;
     public TextView l;
     public TextView m;
@@ -72,7 +70,7 @@ public class PbImageAlaRecommendVH extends TypeAdapter.ViewHolder implements Vie
     public int skinType;
     public f t;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements NEGFeedBackView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +114,7 @@ public class PbImageAlaRecommendVH extends TypeAdapter.ViewHolder implements Vie
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class b implements DynamicUserLikeButton.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -143,10 +141,10 @@ public class PbImageAlaRecommendVH extends TypeAdapter.ViewHolder implements Vie
         @Override // com.baidu.tieba.view.DynamicUserLikeButton.a
         public void a(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.a.t == null || this.a.t.l() == null || this.a.f46722e == null || this.a.f46722e.k == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.a.t == null || this.a.t.l() == null || this.a.f45130e == null || this.a.f45130e.k == null) {
                 return;
             }
-            TiebaStatic.log(new StatisticItem("c13718").param("fid", this.a.t.l().getId()).param("fname", this.a.t.l().getName()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", this.a.t.Q()).param(TiebaStatic.Params.FRIEND_UID, this.a.f46722e.k != null ? this.a.f46722e.k.getUserId() : "").param("obj_type", !this.a.f46722e.k.getIsLike()));
+            TiebaStatic.log(new StatisticItem("c13718").param("fid", this.a.t.l().getId()).param("fname", this.a.t.l().getName()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", this.a.t.Q()).param(TiebaStatic.Params.FRIEND_UID, this.a.f45130e.k != null ? this.a.f45130e.k.getUserId() : "").param("obj_type", !this.a.f45130e.k.getIsLike()));
         }
     }
 
@@ -169,24 +167,24 @@ public class PbImageAlaRecommendVH extends TypeAdapter.ViewHolder implements Vie
             }
         }
         this.skinType = 3;
-        this.f46723f = tbPageContext;
+        this.f45131f = tbPageContext;
         this.s = bdUniqueId;
         if (view == null) {
             return;
         }
-        this.n = view.findViewById(i.rootLayout);
-        this.f46724g = view.findViewById(i.top_divider_line);
-        this.f46725h = (TextView) view.findViewById(i.titleView);
-        this.f46726i = (DynamicUserLikeButton) view.findViewById(i.followBtn);
-        this.f46727j = (TextView) view.findViewById(i.alaStateView);
-        this.k = (TbImageView) view.findViewById(i.coverView);
-        this.l = (TextView) view.findViewById(i.descView);
-        this.m = (TextView) view.findViewById(i.hotView);
-        this.o = view.findViewById(i.hotPoint);
-        this.p = view.findViewById(i.bottomSpaceView);
-        this.f46726i.setTextSize(g.tbds28);
+        this.n = view.findViewById(R.id.rootLayout);
+        this.f45132g = view.findViewById(R.id.top_divider_line);
+        this.f45133h = (TextView) view.findViewById(R.id.titleView);
+        this.f45134i = (DynamicUserLikeButton) view.findViewById(R.id.followBtn);
+        this.f45135j = (TextView) view.findViewById(R.id.alaStateView);
+        this.k = (TbImageView) view.findViewById(R.id.coverView);
+        this.l = (TextView) view.findViewById(R.id.descView);
+        this.m = (TextView) view.findViewById(R.id.hotView);
+        this.o = view.findViewById(R.id.hotPoint);
+        this.p = view.findViewById(R.id.bottomSpaceView);
+        this.f45134i.setTextSize(R.dimen.tbds28);
         this.k.setPlaceHolder(2);
-        this.k.setRadius(n.f(view.getContext(), g.tbds10));
+        this.k.setRadius(n.f(view.getContext(), R.dimen.tbds10));
         this.k.setConrers(15);
     }
 
@@ -197,19 +195,19 @@ public class PbImageAlaRecommendVH extends TypeAdapter.ViewHolder implements Vie
             if (yVar == null) {
                 return;
             }
-            this.f46722e = yVar;
+            this.f45130e = yVar;
             this.n.setOnClickListener(this);
-            this.k.startLoad(yVar.f23888h, 10, false);
-            if (yVar.f23889i == 1 && yVar.f23890j > 0) {
-                this.f46727j.setVisibility(0);
+            this.k.startLoad(yVar.f23803h, 10, false);
+            if (yVar.f23804i == 1 && yVar.f23805j > 0) {
+                this.f45135j.setVisibility(0);
             } else {
-                this.f46727j.setVisibility(8);
+                this.f45135j.setVisibility(8);
             }
-            this.l.setText(yVar.f23887g);
-            TextView textView = this.f46725h;
-            textView.setText(String.format(textView.getContext().getResources().getString(l.pb_ala_name), StringHelper.getFixedText(yVar.f23885e, 7, true)));
+            this.l.setText(yVar.f23802g);
+            TextView textView = this.f45133h;
+            textView.setText(String.format(textView.getContext().getResources().getString(R.string.pb_ala_name), StringHelper.getFixedText(yVar.f23800e, 7, true)));
             TextView textView2 = this.m;
-            textView2.setText(String.format(textView2.getContext().getResources().getString(l.pb_ala_audience_count), StringHelper.numFormatOverWan(yVar.f23886f)));
+            textView2.setText(String.format(textView2.getContext().getResources().getString(R.string.pb_ala_audience_count), StringHelper.numFormatOverWan(yVar.f23801f)));
             this.p.setVisibility(yVar.r ? 8 : 0);
             f(yVar.s);
             g();
@@ -218,14 +216,14 @@ public class PbImageAlaRecommendVH extends TypeAdapter.ViewHolder implements Vie
 
     public final void c(y yVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yVar) == null) && yVar != null && yVar.f23889i == 1) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yVar) == null) && yVar != null && yVar.f23804i == 1) {
             if (yVar.m) {
                 d(yVar.o, yVar.n);
                 return;
             }
             YyExtData yyExtData = yVar.t;
             if (yyExtData != null) {
-                YYLiveUtil.jumpToYYLiveRoom(this.f46723f, yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "", yyExtData.streamInfo, YYLiveUtil.SOURCE_PB_WORD_RECOMMEND_LIVE_CARD);
+                YYLiveUtil.jumpToYYLiveRoom(this.f45131f, yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "", yyExtData.streamInfo, YYLiveUtil.SOURCE_PB_WORD_RECOMMEND_LIVE_CARD);
             }
         }
     }
@@ -234,7 +232,7 @@ public class PbImageAlaRecommendVH extends TypeAdapter.ViewHolder implements Vie
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
             UrlManager urlManager = UrlManager.getInstance();
-            TbPageContext<?> tbPageContext = this.f46723f;
+            TbPageContext<?> tbPageContext = this.f45131f;
             urlManager.dealOneLink(tbPageContext, new String[]{"tiebachushou://liveroom?roomid=" + str + "&livetype=" + str2});
         }
     }
@@ -273,7 +271,7 @@ public class PbImageAlaRecommendVH extends TypeAdapter.ViewHolder implements Vie
     public final void f(x0 x0Var) {
         TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, x0Var) == null) || (tbPageContext = this.f46723f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, x0Var) == null) || (tbPageContext = this.f45131f) == null) {
             return;
         }
         if (x0Var == null) {
@@ -285,14 +283,14 @@ public class PbImageAlaRecommendVH extends TypeAdapter.ViewHolder implements Vie
             return;
         }
         if (this.q == null) {
-            int f2 = n.f(tbPageContext.getPageActivity(), g.tbds44);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(n.f(this.f46723f.getPageActivity(), g.tbds130), n.f(this.f46723f.getPageActivity(), g.tbds86));
+            int f2 = n.f(tbPageContext.getPageActivity(), R.dimen.tbds44);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(n.f(this.f45131f.getPageActivity(), R.dimen.tbds130), n.f(this.f45131f.getPageActivity(), R.dimen.tbds86));
             layoutParams.addRule(11);
-            layoutParams.addRule(8, i.coverView);
-            NEGFeedBackView nEGFeedBackView2 = new NEGFeedBackView(this.f46723f);
+            layoutParams.addRule(8, R.id.coverView);
+            NEGFeedBackView nEGFeedBackView2 = new NEGFeedBackView(this.f45131f);
             this.q = nEGFeedBackView2;
             nEGFeedBackView2.setPadding(f2, f2, f2, 0);
-            ((RelativeLayout) this.n.findViewById(i.contentLayout)).addView(this.q, layoutParams);
+            ((RelativeLayout) this.n.findViewById(R.id.contentLayout)).addView(this.q, layoutParams);
             this.q.setEventCallback(new a(this));
         }
         this.q.setVisibility(0);
@@ -303,19 +301,19 @@ public class PbImageAlaRecommendVH extends TypeAdapter.ViewHolder implements Vie
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            y yVar = this.f46722e;
+            y yVar = this.f45130e;
             if (yVar != null && yVar.k != null) {
-                this.f46726i.setVisibility(0);
+                this.f45134i.setVisibility(0);
                 if (this.r == null) {
-                    c cVar = new c(this.f46723f, this.f46726i);
+                    c cVar = new c(this.f45131f, this.f45134i);
                     this.r = cVar;
                     cVar.l(this.s);
                 }
-                this.r.n(this.f46722e.k);
-                this.f46726i.setOnClickEvent(new b(this));
+                this.r.n(this.f45130e.k);
+                this.f45134i.setOnClickEvent(new b(this));
                 return;
             }
-            this.f46726i.setVisibility(8);
+            this.f45134i.setVisibility(8);
         }
     }
 
@@ -323,21 +321,21 @@ public class PbImageAlaRecommendVH extends TypeAdapter.ViewHolder implements Vie
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
             if (this.skinType != i2) {
-                c.a.t0.s.v.c.d(this.n).i(c.a.u0.u2.f.CAM_X0205, c.a.u0.u2.f.CAM_X0204);
-                SkinManager.setBackgroundColor(this.f46724g, c.a.u0.u2.f.CAM_X0204);
-                SkinManager.setViewTextColor(this.l, c.a.u0.u2.f.CAM_X0105, 1, i2);
-                SkinManager.setViewTextColor(this.f46725h, c.a.u0.u2.f.CAM_X0105, 1, i2);
-                SkinManager.setViewTextColor(this.m, c.a.u0.u2.f.CAM_X0109, 1, i2);
-                SkinManager.setViewTextColor(this.f46727j, c.a.u0.u2.f.CAM_X0101, 1, i2);
+                c.a.q0.r.v.c.d(this.n).i(R.color.CAM_X0205, R.color.CAM_X0204);
+                SkinManager.setBackgroundColor(this.f45132g, R.color.CAM_X0204);
+                SkinManager.setViewTextColor(this.l, R.color.CAM_X0105, 1, i2);
+                SkinManager.setViewTextColor(this.f45133h, R.color.CAM_X0105, 1, i2);
+                SkinManager.setViewTextColor(this.m, R.color.CAM_X0109, 1, i2);
+                SkinManager.setViewTextColor(this.f45135j, R.color.CAM_X0101, 1, i2);
                 NEGFeedBackView nEGFeedBackView = this.q;
                 if (nEGFeedBackView != null) {
                     nEGFeedBackView.onChangeSkinType();
                 }
                 View view = this.o;
-                view.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(n.f(view.getContext(), g.tbds32), SkinManager.getColor(c.a.u0.u2.f.CAM_X0309)));
-                float f2 = n.f(this.f46727j.getContext(), g.tbds10);
-                TBSelector.makeDrawableSelector().setShape(0).gradientLinear(DrawableSelector.TL_BR, c.a.u0.u2.f.CAM_X0308, c.a.u0.u2.f.CAM_X0301).tlRadius(f2).brRadius(f2).into(this.f46727j);
-                this.f46726i.onChangeSkinType(i2);
+                view.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(n.f(view.getContext(), R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0309)));
+                float f2 = n.f(this.f45135j.getContext(), R.dimen.tbds10);
+                TBSelector.makeDrawableSelector().setShape(0).gradientLinear(DrawableSelector.TL_BR, R.color.CAM_X0308, R.color.CAM_X0301).tlRadius(f2).brRadius(f2).into(this.f45135j);
+                this.f45134i.onChangeSkinType(i2);
             }
             this.skinType = i2;
         }
@@ -348,10 +346,10 @@ public class PbImageAlaRecommendVH extends TypeAdapter.ViewHolder implements Vie
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, view) == null) {
             int id = view.getId();
-            y yVar = this.f46722e;
-            if (yVar != null && id == i.rootLayout) {
+            y yVar = this.f45130e;
+            if (yVar != null && id == R.id.rootLayout) {
                 c(yVar);
-                e(this.f46722e);
+                e(this.f45130e);
             }
         }
     }
@@ -360,12 +358,12 @@ public class PbImageAlaRecommendVH extends TypeAdapter.ViewHolder implements Vie
         y yVar;
         YyExtData yyExtData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar) == null) || fVar == null || fVar.l() == null || (yVar = this.f46722e) == null || yVar.q) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar) == null) || fVar == null || fVar.l() == null || (yVar = this.f45130e) == null || yVar.q) {
             return;
         }
         this.t = fVar;
         StatisticItem param = new StatisticItem("c13708").param("fid", fVar.l().getId()).param("fname", fVar.l().getName()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", fVar.Q());
-        MetaData metaData = this.f46722e.k;
+        MetaData metaData = this.f45130e.k;
         String str = "";
         StatisticItem param2 = param.param("obj_param1", metaData != null ? metaData.getUserId() : "");
         if (fVar.O() != null) {
@@ -374,10 +372,10 @@ public class PbImageAlaRecommendVH extends TypeAdapter.ViewHolder implements Vie
             if (O.p1() != null && O.p1().isLegalYYLiveData()) {
                 TiebaStaticHelper.addYYParam(param2, O.p1().mYyExtData);
             } else {
-                y yVar2 = this.f46722e;
+                y yVar2 = this.f45130e;
                 if (yVar2 != null && (yyExtData = yVar2.t) != null) {
                     TiebaStaticHelper.addYYParam(param2, yyExtData);
-                    calculateLiveType = YYLiveUtil.calculateLiveType(this.f46722e.t);
+                    calculateLiveType = YYLiveUtil.calculateLiveType(this.f45130e.t);
                 }
                 param2.param(TiebaStatic.Params.OBJ_PARAM2, calculateLiveType);
                 param2.param(TiebaStatic.Params.OBJ_PARAM3, str);
@@ -387,13 +385,13 @@ public class PbImageAlaRecommendVH extends TypeAdapter.ViewHolder implements Vie
             param2.param(TiebaStatic.Params.OBJ_PARAM3, str);
         }
         TiebaStatic.log(param2);
-        this.f46722e.q = true;
+        this.f45130e.q = true;
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, tbPageContext) == null) {
-            this.f46723f = tbPageContext;
+            this.f45131f = tbPageContext;
         }
     }
 }

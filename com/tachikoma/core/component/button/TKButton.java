@@ -20,14 +20,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.annotation.TK_EXPORT_CLASS;
 import com.tachikoma.core.component.TKBase;
-import com.tachikoma.core.component.input.TextAlign;
 import com.tachikoma.core.component.text.FontManager;
-import com.tachikoma.core.component.text.SpanItem;
 import com.tachikoma.core.utility.TKColorUtil;
 import java.util.HashMap;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class TKButton extends TKBase<Button> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -159,7 +157,7 @@ public class TKButton extends TKBase<Button> {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            if (TextUtils.equals(str, SpanItem.STYLE_BOLD)) {
+            if (TextUtils.equals(str, "bold")) {
                 view = getView();
                 typeface = getView().getTypeface();
                 i2 = 1;
@@ -207,7 +205,7 @@ public class TKButton extends TKBase<Button> {
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             int hashCode = str.hashCode();
             if (hashCode == -1364013995) {
-                if (str.equals(TextAlign.CENTER)) {
+                if (str.equals("center")) {
                     c2 = 0;
                 }
                 c2 = 65535;

@@ -16,15 +16,15 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final a f4161d;
+    public static final a f3778d;
     public transient /* synthetic */ FieldHolder $fh;
     public final com.baidu.bdtask.strategy.impl.lifecycle.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.baidu.bdtask.strategy.impl.lifecycle.c f4162b;
+    public final com.baidu.bdtask.strategy.impl.lifecycle.c f3779b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.baidu.bdtask.framework.redux.d<com.baidu.bdtask.ctrl.b, c.a.j.f.d> f4163c;
+    public final com.baidu.bdtask.framework.redux.d<com.baidu.bdtask.ctrl.b, c.a.j.f.d> f3780c;
 
     /* loaded from: classes.dex */
     public static final class a {
@@ -69,7 +69,7 @@ public final class d {
                 return;
             }
         }
-        f4161d = new a(null);
+        f3778d = new a(null);
     }
 
     public d(com.baidu.bdtask.framework.redux.d<com.baidu.bdtask.ctrl.b, c.a.j.f.d> dVar) {
@@ -87,16 +87,16 @@ public final class d {
                 return;
             }
         }
-        this.f4163c = dVar;
+        this.f3780c = dVar;
         this.a = new com.baidu.bdtask.strategy.impl.lifecycle.b(dVar);
-        this.f4162b = new com.baidu.bdtask.strategy.impl.lifecycle.c(this.f4163c);
+        this.f3779b = new com.baidu.bdtask.strategy.impl.lifecycle.c(this.f3780c);
     }
 
     public void a(SubTaskState subTaskState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subTaskState) == null) {
             if (f(subTaskState).isPassiveTask()) {
-                this.f4162b.h(subTaskState);
+                this.f3779b.h(subTaskState);
             } else if (f(subTaskState).isInitiActiveTask()) {
                 this.a.h(subTaskState);
             }
@@ -107,7 +107,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subTaskState) == null) {
             if (f(subTaskState).isPassiveTask()) {
-                this.f4162b.i(subTaskState);
+                this.f3779b.i(subTaskState);
             } else if (f(subTaskState).isInitiActiveTask()) {
                 this.a.i(subTaskState);
             }
@@ -118,7 +118,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, subTaskState) == null) {
             if (f(subTaskState).isPassiveTask()) {
-                this.f4162b.j(subTaskState);
+                this.f3779b.j(subTaskState);
             } else if (f(subTaskState).isInitiActiveTask()) {
                 this.a.j(subTaskState);
             }
@@ -129,7 +129,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, subTaskState) == null) {
             if (f(subTaskState).isPassiveTask()) {
-                this.f4162b.k(subTaskState);
+                this.f3779b.k(subTaskState);
             } else if (f(subTaskState).isInitiActiveTask()) {
                 this.a.k(subTaskState);
             }
@@ -140,7 +140,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, subTaskState) == null) {
             if (f(subTaskState).isPassiveTask()) {
-                this.f4162b.l(subTaskState);
+                this.f3779b.l(subTaskState);
             } else if (f(subTaskState).isInitiActiveTask()) {
                 this.a.l(subTaskState);
             }

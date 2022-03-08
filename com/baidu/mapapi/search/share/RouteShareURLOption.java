@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class RouteShareURLOption {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +20,7 @@ public class RouteShareURLOption {
     public PlanNode mTo;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class RouteShareMode {
         public static /* synthetic */ Interceptable $ic;
         public static final RouteShareMode BUS_ROUTE_SHARE_MODE;
@@ -29,7 +29,7 @@ public class RouteShareURLOption {
         public static final RouteShareMode FOOT_ROUTE_SHARE_MODE;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ RouteShareMode[] f35888b;
+        public static final /* synthetic */ RouteShareMode[] f34291b;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
@@ -51,7 +51,7 @@ public class RouteShareURLOption {
             CYCLE_ROUTE_SHARE_MODE = new RouteShareMode("CYCLE_ROUTE_SHARE_MODE", 2, 2);
             RouteShareMode routeShareMode = new RouteShareMode("BUS_ROUTE_SHARE_MODE", 3, 3);
             BUS_ROUTE_SHARE_MODE = routeShareMode;
-            f35888b = new RouteShareMode[]{CAR_ROUTE_SHARE_MODE, FOOT_ROUTE_SHARE_MODE, CYCLE_ROUTE_SHARE_MODE, routeShareMode};
+            f34291b = new RouteShareMode[]{CAR_ROUTE_SHARE_MODE, FOOT_ROUTE_SHARE_MODE, CYCLE_ROUTE_SHARE_MODE, routeShareMode};
         }
 
         public RouteShareMode(String str, int i2, int i3) {
@@ -85,7 +85,7 @@ public class RouteShareURLOption {
         public static RouteShareMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RouteShareMode[]) f35888b.clone() : (RouteShareMode[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RouteShareMode[]) f34291b.clone() : (RouteShareMode[]) invokeV.objValue;
         }
 
         public int getRouteShareMode() {

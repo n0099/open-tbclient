@@ -5,18 +5,18 @@ import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.utils.t;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class j extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
     public int a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f56391b = KsAdSDKImpl.get().isPersonalRecommend() ? 1 : 0;
+    public int f54741b = KsAdSDKImpl.get().isPersonalRecommend() ? 1 : 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f56392c = KsAdSDKImpl.get().isProgrammaticRecommend() ? 1 : 0;
+    public int f54742c = KsAdSDKImpl.get().isProgrammaticRecommend() ? 1 : 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<TaskStat> f56393d = com.kwad.sdk.core.c.a.b();
+    public List<TaskStat> f54743d = com.kwad.sdk.core.c.a.b();
 
     @Override // com.kwad.sdk.core.response.kwai.a
     public void afterParseJson(@Nullable JSONObject jSONObject) {

@@ -8,18 +8,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.Base64;
-import com.baidu.webkit.internal.utils.UtilsBlink;
+import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.kwad.yoga.YogaNodeJNIBase;
 import com.sdk.base.framework.c.f;
 import io.flutter.plugin.common.StandardMessageCodec;
-import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f59477b;
+    public static final byte[] f57827b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,9 +35,9 @@ public final class c {
                 return;
             }
         }
-        boolean z = f.f59448b;
-        a = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
-        f59477b = new byte[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, 63, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, 0, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, YogaNodeJNIBase.HAS_NEW_LAYOUT, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 42, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1};
+        boolean z = f.f57798b;
+        a = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', WebvttCueParser.CHAR_SLASH};
+        f57827b = new byte[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, 63, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, 0, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, YogaNodeJNIBase.HAS_NEW_LAYOUT, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 42, 43, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 45, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, Cea608Decoder.CTRL_END_OF_CAPTION, 48, 49, 50, 51, -1, -1, -1, -1, -1};
     }
 
     public c() {
@@ -73,10 +73,10 @@ public final class c {
                 }
             }
             if (bArr.length % 3 > 0) {
-                stringBuffer.setCharAt(stringBuffer.length() - 1, com.alipay.sdk.encrypt.a.f31099h);
+                stringBuffer.setCharAt(stringBuffer.length() - 1, com.alipay.sdk.encrypt.a.f29503h);
             }
             if (bArr.length % 3 == 1) {
-                stringBuffer.setCharAt(stringBuffer.length() - 2, com.alipay.sdk.encrypt.a.f31099h);
+                stringBuffer.setCharAt(stringBuffer.length() - 2, com.alipay.sdk.encrypt.a.f29503h);
             }
             return stringBuffer.toString();
         }
@@ -107,7 +107,7 @@ public final class c {
                     char charAt2 = str.charAt(i4 + 1);
                     char charAt3 = str.charAt(i4 + 2);
                     char charAt4 = str.charAt(i4 + 3);
-                    byte[] bArr2 = f59477b;
+                    byte[] bArr2 = f57827b;
                     int i6 = (bArr2[charAt] << 18) | (bArr2[charAt2] << StandardMessageCodec.LIST) | (bArr2[charAt3] << 6) | bArr2[charAt4];
                     bArr[i5] = (byte) ((i6 >> 16) & 255);
                     if (i4 < length - 4) {

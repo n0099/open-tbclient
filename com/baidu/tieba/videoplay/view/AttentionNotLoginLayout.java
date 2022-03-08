@@ -8,18 +8,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.u0.p4.c;
-import c.a.u0.p4.d;
-import c.a.u0.p4.e;
-import c.a.u0.p4.f;
-import c.a.u0.p4.g;
-import c.a.u0.p4.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,24 +23,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000P\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\u0018\u00002\u00020\u00012\u00020\u0002:\u0001\u001fB\u000f\b\u0016\u0012\u0006\u0010\u0003\u001a\u00020\u0004¢\u0006\u0002\u0010\u0005B\u0019\b\u0016\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\b\u0010\u0006\u001a\u0004\u0018\u00010\u0007¢\u0006\u0002\u0010\bB!\b\u0016\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\b\u0010\u0006\u001a\u0004\u0018\u00010\u0007\u0012\u0006\u0010\t\u001a\u00020\n¢\u0006\u0002\u0010\u000bJ\u0010\u0010\u0018\u001a\u00020\u00192\u0006\u0010\u0003\u001a\u00020\u0004H\u0002J\u000e\u0010\u001a\u001a\u00020\u00192\u0006\u0010\u001b\u001a\u00020\nJ\u0010\u0010\u001c\u001a\u00020\u00192\u0006\u0010\u001d\u001a\u00020\u001eH\u0016R\u0010\u0010\f\u001a\u0004\u0018\u00010\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000e\u001a\u0004\u0018\u00010\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0010\u001a\u0004\u0018\u00010\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u001c\u0010\u0012\u001a\u0004\u0018\u00010\u0013X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0014\u0010\u0015\"\u0004\b\u0016\u0010\u0017¨\u0006 "}, d2 = {"Lcom/baidu/tieba/videoplay/view/AttentionNotLoginLayout;", "Landroid/widget/LinearLayout;", "Landroid/view/View$OnClickListener;", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "emotionPic", "Landroid/widget/ImageView;", "loginButton", "Lcom/baidu/tbadk/core/view/commonBtn/TBSpecificationBtn;", "notLoginTextView", "Landroid/widget/TextView;", "onAttentionLogin", "Lcom/baidu/tieba/videoplay/view/AttentionNotLoginLayout$OnAttentionLogin;", "getOnAttentionLogin", "()Lcom/baidu/tieba/videoplay/view/AttentionNotLoginLayout$OnAttentionLogin;", "setOnAttentionLogin", "(Lcom/baidu/tieba/videoplay/view/AttentionNotLoginLayout$OnAttentionLogin;)V", "init", "", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "onClick", "v", "Landroid/view/View;", "OnAttentionLogin", "VideoPlay_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public final class AttentionNotLoginLayout extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f49163e;
+    public TextView f47582e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f49164f;
+    public ImageView f47583f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TBSpecificationBtn f49165g;
+    public TBSpecificationBtn f47584g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f49166h;
+    public a f47585h;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(boolean z);
     }
@@ -75,35 +70,35 @@ public final class AttentionNotLoginLayout extends LinearLayout implements View.
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(g.attention_not_login_layout, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.attention_not_login_layout, (ViewGroup) this, true);
             Intrinsics.checkNotNullExpressionValue(inflate, "from(context).inflate(R.…login_layout, this, true)");
-            View findViewById = inflate.findViewById(f.attention_emotion_pic);
+            View findViewById = inflate.findViewById(R.id.attention_emotion_pic);
             if (findViewById != null) {
-                this.f49164f = (ImageView) findViewById;
-                View findViewById2 = inflate.findViewById(f.attention_not_login_text);
+                this.f47583f = (ImageView) findViewById;
+                View findViewById2 = inflate.findViewById(R.id.attention_not_login_text);
                 if (findViewById2 != null) {
-                    this.f49163e = (TextView) findViewById2;
-                    View findViewById3 = inflate.findViewById(f.attention_login_btn);
+                    this.f47582e = (TextView) findViewById2;
+                    View findViewById3 = inflate.findViewById(R.id.attention_login_btn);
                     if (findViewById3 != null) {
-                        this.f49165g = (TBSpecificationBtn) findViewById3;
-                        c.a.t0.s.l0.n.a aVar = new c.a.t0.s.l0.n.a();
-                        TBSpecificationBtn tBSpecificationBtn = this.f49165g;
+                        this.f47584g = (TBSpecificationBtn) findViewById3;
+                        c.a.q0.r.l0.n.a aVar = new c.a.q0.r.l0.n.a();
+                        TBSpecificationBtn tBSpecificationBtn = this.f47584g;
                         if (tBSpecificationBtn != null) {
-                            tBSpecificationBtn.setText(context.getString(i.click_here_to_login));
+                            tBSpecificationBtn.setText(context.getString(R.string.click_here_to_login));
                         }
-                        TBSpecificationBtn tBSpecificationBtn2 = this.f49165g;
+                        TBSpecificationBtn tBSpecificationBtn2 = this.f47584g;
                         if (tBSpecificationBtn2 != null) {
-                            tBSpecificationBtn2.setTextSize(d.T_X06);
+                            tBSpecificationBtn2.setTextSize(R.dimen.T_X06);
                         }
-                        TBSpecificationBtn tBSpecificationBtn3 = this.f49165g;
+                        TBSpecificationBtn tBSpecificationBtn3 = this.f47584g;
                         if (tBSpecificationBtn3 != null) {
                             tBSpecificationBtn3.setTextHorizontalCenter(true);
                         }
-                        TBSpecificationBtn tBSpecificationBtn4 = this.f49165g;
+                        TBSpecificationBtn tBSpecificationBtn4 = this.f47584g;
                         if (tBSpecificationBtn4 != null) {
                             tBSpecificationBtn4.setConfig(aVar);
                         }
-                        TBSpecificationBtn tBSpecificationBtn5 = this.f49165g;
+                        TBSpecificationBtn tBSpecificationBtn5 = this.f47584g;
                         if (tBSpecificationBtn5 == null) {
                             return;
                         }
@@ -121,15 +116,15 @@ public final class AttentionNotLoginLayout extends LinearLayout implements View.
     public final a getOnAttentionLogin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f49166h : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f47585h : (a) invokeV.objValue;
     }
 
     public final void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            SkinManager.setImageResource(this.f49164f, e.new_pic_emotion_09, 4);
-            SkinManager.setViewTextColor(this.f49163e, c.CAM_X0107, 1, 4);
-            TBSpecificationBtn tBSpecificationBtn = this.f49165g;
+            SkinManager.setImageResource(this.f47583f, R.drawable.new_pic_emotion_09, 4);
+            SkinManager.setViewTextColor(this.f47582e, R.color.CAM_X0107, 1, 4);
+            TBSpecificationBtn tBSpecificationBtn = this.f47584g;
             if (tBSpecificationBtn == null) {
                 return;
             }
@@ -142,12 +137,12 @@ public final class AttentionNotLoginLayout extends LinearLayout implements View.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, v) == null) {
             Intrinsics.checkNotNullParameter(v, "v");
-            if (v.getId() == f.attention_login_btn) {
+            if (v.getId() == R.id.attention_login_btn) {
                 boolean checkUpIsLogin = ViewHelper.checkUpIsLogin(getContext());
                 if (!checkUpIsLogin) {
                     TbSingleton.loginFrom = 1;
                 }
-                a aVar = this.f49166h;
+                a aVar = this.f47585h;
                 if (aVar == null) {
                     return;
                 }
@@ -159,7 +154,7 @@ public final class AttentionNotLoginLayout extends LinearLayout implements View.
     public final void setOnAttentionLogin(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f49166h = aVar;
+            this.f47585h = aVar;
         }
     }
 

@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class w implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public z a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f37143b;
+    public Object f35546b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Class<?> f37144c;
+    public Class<?> f35547c;
 
     public w(Object obj) {
         Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public class w implements a {
         this.a = z.a;
         if (obj != null) {
             if ("com.baidu.bottom.remote.BPStretegyController2".equals(obj.getClass().getName())) {
-                this.f37143b = obj;
-                this.f37144c = obj.getClass();
+                this.f35546b = obj;
+                this.f35547c = obj.getClass();
                 return;
             }
             throw new IllegalArgumentException("class isn't com.baidu.bottom.remote.BPStretegyController2");
@@ -132,6 +132,6 @@ public class w implements a {
     private <T> T a(Object[] objArr, String str, Class<?>[] clsArr) throws Exception {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, objArr, str, clsArr)) == null) ? (T) this.f37144c.getMethod(str, clsArr).invoke(this.f37143b, objArr) : (T) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, objArr, str, clsArr)) == null) ? (T) this.f35547c.getMethod(str, clsArr).invoke(this.f35546b, objArr) : (T) invokeLLL.objValue;
     }
 }

@@ -17,14 +17,14 @@ import com.fun.ad.sdk.internal.api.BaseNativeAd2;
 import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
 import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class p implements FunNativeAd2Bridger<TTNativeAd, com.fun.module.csj.e0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TTNativeAd.AdInteractionListener a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ k f28450b;
+    public final /* synthetic */ k f28288b;
 
     public p(k kVar, TTNativeAd tTNativeAd) {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class p implements FunNativeAd2Bridger<TTNativeAd, com.fun.module.csj.e0>
                 return;
             }
         }
-        this.f28450b = kVar;
+        this.f28288b = kVar;
         this.a = new k.b(kVar, tTNativeAd);
     }
 
@@ -60,7 +60,7 @@ public class p implements FunNativeAd2Bridger<TTNativeAd, com.fun.module.csj.e0>
     public void showCustom(Activity activity, CustomInflater customInflater, String str, TTNativeAd tTNativeAd, BaseNativeAd2<TTNativeAd, com.fun.module.csj.e0> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, tTNativeAd, baseNativeAd2, funAdInteractionListener}) == null) {
-            this.f28450b.c(activity, tTNativeAd, str, customInflater.inflate(), customInflater.getClickViews(), customInflater.getCreativeViews(), this.a, funAdInteractionListener);
+            this.f28288b.c(activity, tTNativeAd, str, customInflater.inflate(), customInflater.getClickViews(), customInflater.getCreativeViews(), this.a, funAdInteractionListener);
         }
     }
 
@@ -71,11 +71,11 @@ public class p implements FunNativeAd2Bridger<TTNativeAd, com.fun.module.csj.e0>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, tTNativeAd, baseNativeAd2, funAdInteractionListener}) == null) {
             TTNativeAd tTNativeAd2 = tTNativeAd;
-            k kVar = this.f28450b;
-            FunNativeAdListenerHelper<TTNativeAd, TTNativeAd.AdInteractionListener> funNativeAdListenerHelper = kVar.f28426i;
+            k kVar = this.f28288b;
+            FunNativeAdListenerHelper<TTNativeAd, TTNativeAd.AdInteractionListener> funNativeAdListenerHelper = kVar.f28264i;
             pid = kVar.mPid;
             funNativeAdListenerHelper.startShow(tTNativeAd2, str, pid, this.a, funAdInteractionListener);
-            k kVar2 = this.f28450b;
+            k kVar2 = this.f28288b;
             kVar2.getClass();
             kVar2.b(activity, tTNativeAd2, expressInflater.inflate(), baseNativeAd2.getExpressView(), new n(kVar2, funAdInteractionListener, str, tTNativeAd2));
         }

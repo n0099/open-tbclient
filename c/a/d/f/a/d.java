@@ -17,21 +17,21 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static BdUniqueId f1851d;
+    public static BdUniqueId f2477d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static BdUniqueId f1852e;
+    public static BdUniqueId f2478e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static d f1853f;
+    public static d f2479f;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdAsyncTaskParallel f1854b;
+    public BdAsyncTaskParallel f2480b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdAsyncTaskParallel f1855c;
+    public BdAsyncTaskParallel f2481c;
 
     static {
         InterceptResult invokeClinit;
@@ -46,9 +46,9 @@ public class d {
                 return;
             }
         }
-        f1851d = BdUniqueId.gen();
-        f1852e = BdUniqueId.gen();
-        f1853f = null;
+        f2477d = BdUniqueId.gen();
+        f2478e = BdUniqueId.gen();
+        f2479f = null;
     }
 
     public d() {
@@ -65,10 +65,10 @@ public class d {
             }
         }
         this.a = null;
-        this.f1854b = null;
-        this.f1855c = null;
-        this.f1854b = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
-        this.f1855c = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+        this.f2480b = null;
+        this.f2481c = null;
+        this.f2480b = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+        this.f2481c = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
         this.a = new b();
     }
 
@@ -76,14 +76,14 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f1853f == null) {
+            if (f2479f == null) {
                 synchronized (d.class) {
-                    if (f1853f == null) {
-                        f1853f = new d();
+                    if (f2479f == null) {
+                        f2479f = new d();
                     }
                 }
             }
-            return f1853f;
+            return f2479f;
         }
         return (d) invokeV.objValue;
     }
@@ -96,9 +96,9 @@ public class d {
                 return false;
             }
             if (diskFileOperate.isSdCard()) {
-                return e(diskFileOperate, f1851d, this.f1854b, 10);
+                return e(diskFileOperate, f2477d, this.f2480b, 10);
             }
-            return e(diskFileOperate, f1852e, this.f1855c, 5);
+            return e(diskFileOperate, f2478e, this.f2481c, 5);
         }
         return invokeL.booleanValue;
     }
@@ -153,8 +153,8 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, diskFileOperate) == null) || (c2 = c(diskFileOperate)) == null) {
             return;
         }
-        BdAsyncTask.removeAllTask(f1851d, c2);
-        BdAsyncTask.removeAllTask(f1852e, c2);
+        BdAsyncTask.removeAllTask(f2477d, c2);
+        BdAsyncTask.removeAllTask(f2478e, c2);
     }
 
     public final boolean e(DiskFileOperate diskFileOperate, BdUniqueId bdUniqueId, BdAsyncTaskParallel bdAsyncTaskParallel, int i2) {

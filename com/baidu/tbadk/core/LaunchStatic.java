@@ -2,8 +2,8 @@ package com.baidu.tbadk.core;
 
 import android.content.Intent;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.m.e;
-import c.a.u0.t1.h.i;
+import c.a.q0.l.e;
+import c.a.r0.s1.h.i;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -44,12 +44,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class LaunchStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class a implements CustomMessageTask.CustomRunnable<HashMap<String, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +91,7 @@ public class LaunchStatic {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,7 +126,7 @@ public class LaunchStatic {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -177,17 +177,17 @@ public class LaunchStatic {
         b();
         d();
         c();
-        c.a.u0.z3.p0.a.a();
-        c.a.u0.t1.y.b.a();
-        c.a.u0.t1.b.a();
+        c.a.r0.y3.p0.a.a();
+        c.a.r0.s1.y.b.a();
+        c.a.r0.s1.b.a();
         ImMemoryCacheRegister.j();
         i.i();
         e.f();
         ServiceStaticInit.init();
         WalletStaticInit.init();
-        c.a.t0.s.u.a.d();
-        c.a.t0.s.y.c.a();
-        c.a.t0.p.a.d();
+        c.a.q0.r.u.a.d();
+        c.a.q0.r.y.c.a();
+        c.a.q0.o.a.d();
         a();
     }
 
@@ -240,9 +240,9 @@ public class LaunchStatic {
             CustomMessageTask customMessageTask = new CustomMessageTask(2006002, new a());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
-            c.a.t0.a0.b.d().f();
-            c.a.u0.z3.g0.a.f(303039, ClientConfigSocketResponse.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, c.a.u0.z3.g0.a.a(TbConfig.GET_PAY_CONFIG, 303039));
+            c.a.q0.z.b.d().f();
+            c.a.r0.y3.g0.a.f(303039, ClientConfigSocketResponse.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, c.a.r0.y3.g0.a.a(TbConfig.GET_PAY_CONFIG, 303039));
             tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }

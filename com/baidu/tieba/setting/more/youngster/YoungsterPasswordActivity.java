@@ -5,18 +5,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import c.a.d.f.m.e;
-import c.a.u0.o3.f;
-import c.a.u0.o3.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.YoungsterPasswordActivityConfig;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.youngster.YoungsterPasswordView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class YoungsterPasswordActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,13 +27,13 @@ public class YoungsterPasswordActivity extends BaseActivity {
     public String mPassword;
     public YoungsterPasswordView mYoungsterPasswordView;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ YoungsterPasswordActivity f48021e;
+        public final /* synthetic */ YoungsterPasswordActivity f46438e;
 
         public a(YoungsterPasswordActivity youngsterPasswordActivity) {
             Interceptable interceptable = $ic;
@@ -51,14 +50,14 @@ public class YoungsterPasswordActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f48021e = youngsterPasswordActivity;
+            this.f46438e = youngsterPasswordActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f48021e.finish();
+                this.f46438e.finish();
             }
         }
     }
@@ -85,17 +84,17 @@ public class YoungsterPasswordActivity extends BaseActivity {
             switch (i2) {
                 case 1:
                 case 2:
-                    this.mNavigationBar.setCenterTextTitle(getPageContext().getString(g.youngster_settings_open_title));
+                    this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.youngster_settings_open_title));
                     break;
                 case 3:
-                    this.mNavigationBar.setCenterTextTitle(getPageContext().getString(g.youngster_settings_close_title));
+                    this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.youngster_settings_close_title));
                     break;
                 case 4:
                 case 5:
-                    this.mNavigationBar.setCenterTextTitle(getPageContext().getString(g.youngster_setting));
+                    this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.youngster_setting));
                     break;
                 case 6:
-                    this.mNavigationBar.setCenterTextTitle(getPageContext().getString(g.youngster_setting));
+                    this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.youngster_setting));
                     break;
             }
             this.mYoungsterPasswordView.initByType(i2);
@@ -129,15 +128,15 @@ public class YoungsterPasswordActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(f.activity_youngster);
-            NavigationBar navigationBar = (NavigationBar) findViewById(c.a.u0.o3.e.view_navigation_bar);
+            setContentView(R.layout.activity_youngster);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.mNavigationBar = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mBack = addSystemImageButton;
             addSystemImageButton.setOnClickListener(this);
             YoungsterPasswordView youngsterPasswordView = new YoungsterPasswordView(getPageContext());
             this.mYoungsterPasswordView = youngsterPasswordView;
-            ((FrameLayout) findViewById(c.a.u0.o3.e.youngster_content)).addView(youngsterPasswordView);
+            ((FrameLayout) findViewById(R.id.youngster_content)).addView(youngsterPasswordView);
             Intent intent = getIntent();
             if (intent != null) {
                 int intExtra = intent.getIntExtra(YoungsterPasswordActivityConfig.KEY_YOUNGSTER_PASSWORD_PAGE_TYPE, 0);

@@ -3,17 +3,16 @@ package com.baidu.tieba.frs.accelerator;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
-import c.a.u0.e1.f1;
-import c.a.u0.e1.g1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.R;
 import com.baidu.tieba.frs.accelerator.ui.AcceleratorFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class AcceleratorActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,13 +43,13 @@ public class AcceleratorActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(g1.activity_accelerator);
+            setContentView(R.layout.activity_accelerator);
             UtilHelper.changeStatusBarIconAndTextColor(false, this);
             if (getIntent() != null) {
                 Intent intent = getIntent();
                 AcceleratorFragment acceleratorFragment = new AcceleratorFragment();
                 acceleratorFragment.setIntentConfig(intent);
-                getSupportFragmentManager().beginTransaction().add(f1.main_container, acceleratorFragment).commit();
+                getSupportFragmentManager().beginTransaction().add(R.id.main_container, acceleratorFragment).commit();
                 return;
             }
             finish();

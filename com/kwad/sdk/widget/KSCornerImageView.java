@@ -8,10 +8,10 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import com.kwad.sdk.R;
+import com.baidu.tieba.R;
 import com.kwad.sdk.widget.i;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class KSCornerImageView extends ImageView {
     public i a;
 
@@ -38,11 +38,11 @@ public class KSCornerImageView extends ImageView {
 
     private void a(Context context, @Nullable AttributeSet attributeSet, int i2) {
         i.a aVar = new i.a();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_KSCornerImageView);
-        aVar.a(obtainStyledAttributes.getBoolean(R.styleable.ksad_KSCornerImageView_ksad_leftTopCorner, true));
-        aVar.b(obtainStyledAttributes.getBoolean(R.styleable.ksad_KSCornerImageView_ksad_topRightCorner, true));
-        aVar.c(obtainStyledAttributes.getBoolean(R.styleable.ksad_KSCornerImageView_ksad_rightBottomCorner, true));
-        aVar.d(obtainStyledAttributes.getBoolean(R.styleable.ksad_KSCornerImageView_ksad_bottomLeftCorner, true));
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.ksad_bottomLeftCorner, R.attr.ksad_leftTopCorner, R.attr.ksad_rightBottomCorner, R.attr.ksad_topRightCorner});
+        aVar.a(obtainStyledAttributes.getBoolean(1, true));
+        aVar.b(obtainStyledAttributes.getBoolean(3, true));
+        aVar.c(obtainStyledAttributes.getBoolean(2, true));
+        aVar.d(obtainStyledAttributes.getBoolean(0, true));
         obtainStyledAttributes.recycle();
         i iVar = new i(aVar);
         this.a = iVar;

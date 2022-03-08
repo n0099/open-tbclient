@@ -10,16 +10,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.kwad.sdk.R;
-/* loaded from: classes4.dex */
+import com.baidu.tieba.R;
+/* loaded from: classes8.dex */
 public abstract class a extends com.kwad.sdk.h.d {
     public RecyclerView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f56188b;
+    public d f54538b;
 
     private void g() {
-        this.a.setAdapter(this.f56188b);
+        this.a.setAdapter(this.f54538b);
     }
 
     public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
@@ -33,7 +33,7 @@ public abstract class a extends com.kwad.sdk.h.d {
     public void c() {
         this.a.setItemAnimator(null);
         this.a.setLayoutManager(e());
-        this.f56188b = a(this.a);
+        this.f54538b = a(this.a);
     }
 
     public RecyclerView d() {

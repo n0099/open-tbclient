@@ -11,10 +11,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class TypeCollector {
     public static /* synthetic */ Interceptable $ic;
     public static String JSONType;
@@ -105,7 +106,7 @@ public class TypeCollector {
                 } else {
                     sb.append('L');
                     sb.append(className);
-                    sb.append(';');
+                    sb.append(WebvttCueParser.CHAR_SEMI_COLON);
                     className = sb.toString();
                 }
             }

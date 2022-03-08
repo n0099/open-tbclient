@@ -19,12 +19,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.db.DelayTB;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class MyService extends Service {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f38580b;
+    public static long f36984b;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile int a;
 
@@ -101,13 +101,13 @@ public class MyService extends Service {
             if (TextUtils.isEmpty(stringExtra) && TextUtils.isEmpty(intent.getAction())) {
                 a();
             } else {
-                long j2 = f38580b;
+                long j2 = f36984b;
                 if ("teac".equals(intent.getAction())) {
-                    f38580b = System.currentTimeMillis();
+                    f36984b = System.currentTimeMillis();
                     if (System.currentTimeMillis() - j2 < 3000) {
                         return super.onStartCommand(intent, i2, i3);
                     }
-                    if (com.baidu.sofire.utility.c.f38777j != 0 && f38580b - com.baidu.sofire.utility.c.f38777j > 5000) {
+                    if (com.baidu.sofire.utility.c.f37181j != 0 && f36984b - com.baidu.sofire.utility.c.f37181j > 5000) {
                         return super.onStartCommand(intent, i2, i3);
                     }
                 }
@@ -117,10 +117,10 @@ public class MyService extends Service {
                     public final /* synthetic */ String a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Intent f38581b;
+                    public final /* synthetic */ Intent f36985b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ MyService f38582c;
+                    public final /* synthetic */ MyService f36986c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -137,9 +137,9 @@ public class MyService extends Service {
                                 return;
                             }
                         }
-                        this.f38582c = this;
+                        this.f36986c = this;
                         this.a = stringExtra;
-                        this.f38581b = intent;
+                        this.f36985b = intent;
                     }
 
                     @Override // java.lang.Runnable
@@ -147,36 +147,36 @@ public class MyService extends Service {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
-                                MyService.a(this.f38582c);
-                                if (this.f38582c.getPackageName().equals(this.a)) {
-                                    MyService.a(this.f38582c, this.f38582c.getClassLoader(), this.f38581b);
-                                    this.f38582c.a();
-                                } else if ("teac".equals(this.f38581b.getAction())) {
-                                    int intExtra = this.f38581b.getIntExtra("plugin_id", 100041);
-                                    String stringExtra2 = this.f38581b.getStringExtra("target_method");
+                                MyService.a(this.f36986c);
+                                if (this.f36986c.getPackageName().equals(this.a)) {
+                                    MyService.a(this.f36986c, this.f36986c.getClassLoader(), this.f36985b);
+                                    this.f36986c.a();
+                                } else if ("teac".equals(this.f36985b.getAction())) {
+                                    int intExtra = this.f36985b.getIntExtra("plugin_id", 100041);
+                                    String stringExtra2 = this.f36985b.getStringExtra("target_method");
                                     if (TextUtils.isEmpty(stringExtra2)) {
-                                        this.f38582c.a();
+                                        this.f36986c.a();
                                         return;
                                     }
-                                    com.baidu.sofire.core.d.a(intExtra, stringExtra2, (Callback) null, new Class[]{Intent.class}, this.f38581b);
-                                    this.f38582c.a();
+                                    com.baidu.sofire.core.d.a(intExtra, stringExtra2, (Callback) null, new Class[]{Intent.class}, this.f36985b);
+                                    this.f36986c.a();
                                 } else {
                                     f a = f.a();
                                     if (a == null) {
-                                        this.f38582c.a();
+                                        this.f36986c.a();
                                         return;
                                     }
                                     ApkInfo d2 = a.d(this.a);
                                     if (d2 == null) {
-                                        this.f38582c.a();
+                                        this.f36986c.a();
                                         return;
                                     }
-                                    MyService.a(this.f38582c, d2.classLoader, this.f38581b);
-                                    this.f38582c.a();
+                                    MyService.a(this.f36986c, d2.classLoader, this.f36985b);
+                                    this.f36986c.a();
                                 }
                             } catch (Throwable unused2) {
                                 com.baidu.sofire.utility.c.a();
-                                this.f38582c.a();
+                                this.f36986c.a();
                             }
                         }
                     }

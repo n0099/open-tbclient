@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.dialog.WalletDialog;
 import com.baidu.wallet.base.widget.dialog.binding.MultiBtnDialogBinding;
 import com.baidu.wallet.base.widget.dialog.model.MultiBtnDialogModel;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class MultiBtnDialogAdapter extends WalletDialog.Adapter<BaseHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MultiBtnDialogModel a;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class BaseHolder extends WalletDialog.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

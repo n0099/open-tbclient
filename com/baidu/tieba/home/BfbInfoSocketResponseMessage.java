@@ -12,7 +12,7 @@ import tbclient.Error;
 import tbclient.GetUserBfbInfo.DataRes;
 import tbclient.GetUserBfbInfo.GetUserBfbInfoResIdl;
 import tbclient.UserBfbInfo;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class BfbInfoSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

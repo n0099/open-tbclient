@@ -27,7 +27,7 @@ import okio.BufferedSource;
 import okio.ByteString;
 import okio.Okio;
 import okio.Source;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class Hpack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Map<ByteString, Integer> NAME_TO_FIRST_INDEX;
@@ -38,7 +38,7 @@ public final class Hpack {
     public static final Header[] STATIC_HEADER_TABLE;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class Reader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -353,7 +353,7 @@ public final class Hpack {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class Writer {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int SETTINGS_HEADER_TABLE_SIZE = 4096;

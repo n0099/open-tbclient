@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.R;
+import androidx.fragment.R$styleable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -59,12 +59,12 @@ public class FragmentLayoutInflaterFactory implements LayoutInflater.Factory2 {
             }
             if ("fragment".equals(str)) {
                 String attributeValue = attributeSet.getAttributeValue(null, DealIntentService.KEY_CLASS);
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.Fragment);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.Fragment);
                 if (attributeValue == null) {
-                    attributeValue = obtainStyledAttributes.getString(R.styleable.Fragment_android_name);
+                    attributeValue = obtainStyledAttributes.getString(R$styleable.Fragment_android_name);
                 }
-                int resourceId = obtainStyledAttributes.getResourceId(R.styleable.Fragment_android_id, -1);
-                String string = obtainStyledAttributes.getString(R.styleable.Fragment_android_tag);
+                int resourceId = obtainStyledAttributes.getResourceId(R$styleable.Fragment_android_id, -1);
+                String string = obtainStyledAttributes.getString(R$styleable.Fragment_android_tag);
                 obtainStyledAttributes.recycle();
                 if (attributeValue == null || !FragmentFactory.isFragmentClass(context.getClassLoader(), attributeValue)) {
                     return null;

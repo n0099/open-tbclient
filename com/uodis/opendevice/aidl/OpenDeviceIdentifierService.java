@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface OpenDeviceIdentifierService extends IInterface {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static abstract class Stub extends Binder implements OpenDeviceIdentifierService {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.uodis.opendevice.aidl.OpenDeviceIdentifierService";
@@ -22,7 +22,7 @@ public interface OpenDeviceIdentifierService extends IInterface {
         public static final int TRANSACTION_isOaidTrackLimited = 2;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes8.dex */
         public static class Proxy implements OpenDeviceIdentifierService {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

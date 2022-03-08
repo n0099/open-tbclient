@@ -2,7 +2,7 @@ package com.fun.ad.sdk.internal.api.flavor;
 
 import com.fun.ad.sdk.FunAdInteractionListener;
 import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface CallBackAware {
     boolean needRipper();
 

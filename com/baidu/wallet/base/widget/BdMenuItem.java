@@ -9,42 +9,42 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class BdMenuItem {
     public static /* synthetic */ Interceptable $ic;
     public static final int a = 0;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f50776b;
+    public final int f49195b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f50777c;
+    public boolean f49196c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f50778d;
+    public boolean f49197d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f50779e;
+    public boolean f49198e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CharSequence f50780f;
+    public CharSequence f49199f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Drawable f50781g;
+    public Drawable f49200g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50782h;
+    public int f49201h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f50783i;
+    public String f49202i;
 
     /* renamed from: j  reason: collision with root package name */
-    public OnItemClickListener f50784j;
+    public OnItemClickListener f49203j;
     public Context k;
     public BdMenu l;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface OnItemClickListener {
         void onClick(BdMenuItem bdMenuItem);
     }
@@ -64,27 +64,27 @@ public class BdMenuItem {
                 return;
             }
         }
-        this.f50777c = true;
-        this.f50778d = false;
-        this.f50779e = false;
-        this.f50782h = 0;
+        this.f49196c = true;
+        this.f49197d = false;
+        this.f49198e = false;
+        this.f49201h = 0;
         this.k = context;
-        this.f50776b = i2;
-        this.f50780f = charSequence;
+        this.f49195b = i2;
+        this.f49199f = charSequence;
     }
 
     public Drawable getIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Drawable drawable = this.f50781g;
+            Drawable drawable = this.f49200g;
             if (drawable != null) {
                 return drawable;
             }
-            if (this.f50782h != 0) {
-                Drawable drawable2 = this.k.getResources().getDrawable(this.f50782h);
-                this.f50782h = 0;
-                this.f50781g = drawable2;
+            if (this.f49201h != 0) {
+                Drawable drawable2 = this.k.getResources().getDrawable(this.f49201h);
+                this.f49201h = 0;
+                this.f49200g = drawable2;
                 return drawable2;
             }
             return null;
@@ -95,13 +95,13 @@ public class BdMenuItem {
     public String getIconUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50783i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f49202i : (String) invokeV.objValue;
     }
 
     public int getItemId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f50776b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f49195b : invokeV.intValue;
     }
 
     public BdMenu getMenu() {
@@ -113,38 +113,38 @@ public class BdMenuItem {
     public OnItemClickListener getOnClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f50784j : (OnItemClickListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f49203j : (OnItemClickListener) invokeV.objValue;
     }
 
     public CharSequence getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f50780f : (CharSequence) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f49199f : (CharSequence) invokeV.objValue;
     }
 
     public boolean isChecked() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f50778d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f49197d : invokeV.booleanValue;
     }
 
     public boolean isEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f50777c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f49196c : invokeV.booleanValue;
     }
 
     public void setChecked(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f50778d = z;
+            this.f49197d = z;
         }
     }
 
     public void setEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f50777c = z;
+            this.f49196c = z;
         }
     }
 
@@ -152,8 +152,8 @@ public class BdMenuItem {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, drawable)) == null) {
-            this.f50782h = 0;
-            this.f50781g = drawable;
+            this.f49201h = 0;
+            this.f49200g = drawable;
             return this;
         }
         return (BdMenuItem) invokeL.objValue;
@@ -163,8 +163,8 @@ public class BdMenuItem {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            this.f50782h = 0;
-            this.f50783i = str;
+            this.f49201h = 0;
+            this.f49202i = str;
             return this;
         }
         return (BdMenuItem) invokeL.objValue;
@@ -180,14 +180,14 @@ public class BdMenuItem {
     public void setOnClickListener(OnItemClickListener onItemClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, onItemClickListener) == null) {
-            this.f50784j = onItemClickListener;
+            this.f49203j = onItemClickListener;
         }
     }
 
     public void setShowTip(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.f50779e = z;
+            this.f49198e = z;
         }
     }
 
@@ -195,7 +195,7 @@ public class BdMenuItem {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, charSequence)) == null) {
-            this.f50780f = charSequence;
+            this.f49199f = charSequence;
             return this;
         }
         return (BdMenuItem) invokeL.objValue;
@@ -204,14 +204,14 @@ public class BdMenuItem {
     public boolean showTip() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f50779e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f49198e : invokeV.booleanValue;
     }
 
     public BdMenuItem setTitle(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
-            this.f50780f = this.k.getResources().getText(i2, this.f50780f);
+            this.f49199f = this.k.getResources().getText(i2, this.f49199f);
             return this;
         }
         return (BdMenuItem) invokeI.objValue;
@@ -221,8 +221,8 @@ public class BdMenuItem {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            this.f50781g = null;
-            this.f50782h = i2;
+            this.f49200g = null;
+            this.f49201h = i2;
             return this;
         }
         return (BdMenuItem) invokeI.objValue;
@@ -243,14 +243,14 @@ public class BdMenuItem {
                 return;
             }
         }
-        this.f50777c = true;
-        this.f50778d = false;
-        this.f50779e = false;
-        this.f50782h = 0;
+        this.f49196c = true;
+        this.f49197d = false;
+        this.f49198e = false;
+        this.f49201h = 0;
         this.k = context;
-        this.f50776b = i2;
-        this.f50780f = charSequence;
-        this.f50782h = i3;
+        this.f49195b = i2;
+        this.f49199f = charSequence;
+        this.f49201h = i3;
     }
 
     public BdMenuItem(Context context, int i2, CharSequence charSequence, Drawable drawable) {
@@ -268,14 +268,14 @@ public class BdMenuItem {
                 return;
             }
         }
-        this.f50777c = true;
-        this.f50778d = false;
-        this.f50779e = false;
-        this.f50782h = 0;
+        this.f49196c = true;
+        this.f49197d = false;
+        this.f49198e = false;
+        this.f49201h = 0;
         this.k = context;
-        this.f50776b = i2;
-        this.f50780f = charSequence;
-        this.f50781g = drawable;
+        this.f49195b = i2;
+        this.f49199f = charSequence;
+        this.f49200g = drawable;
     }
 
     public BdMenuItem(Context context, int i2, CharSequence charSequence, String str) {
@@ -293,13 +293,13 @@ public class BdMenuItem {
                 return;
             }
         }
-        this.f50777c = true;
-        this.f50778d = false;
-        this.f50779e = false;
-        this.f50782h = 0;
+        this.f49196c = true;
+        this.f49197d = false;
+        this.f49198e = false;
+        this.f49201h = 0;
         this.k = context;
-        this.f50776b = i2;
-        this.f50780f = charSequence;
-        this.f50783i = str;
+        this.f49195b = i2;
+        this.f49199f = charSequence;
+        this.f49202i = str;
     }
 }

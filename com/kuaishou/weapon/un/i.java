@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -127,7 +127,7 @@ public class i {
                 aVar2.c(jSONObject4.optInt("c", 1));
                 aVar2.m(jSONObject4.optInt("s", 1));
                 aVar2.d(jSONObject4.optInt("d", 1));
-                aVar2.o(jSONObject4.optInt(x.o, 1));
+                aVar2.o(jSONObject4.optInt("u", 1));
                 aVar2.p(jSONObject4.optInt("w", 1));
                 aVar2.j(jSONObject4.optInt("n", 1));
                 aVar2.f(jSONObject4.optInt("ie", 1));

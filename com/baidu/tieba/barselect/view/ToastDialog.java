@@ -15,19 +15,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class ToastDialog extends AlertDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f42527e;
+    public View f40930e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f42528f;
+    public TextView f40931f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f42529g;
+    public String f40932g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ToastDialog(Context context) {
@@ -52,17 +52,14 @@ public class ToastDialog extends AlertDialog {
     public void onSkinChange(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            int f2 = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds5);
-            View view = this.f42527e;
-            int i3 = R.color.cp_cont_b_alpha80;
-            SkinManager.setBackgroundShapeDrawable(view, f2, i3, i3, i2);
+            SkinManager.setBackgroundShapeDrawable(this.f40930e, n.f(TbadkCoreApplication.getInst(), R.dimen.tbds5), R.color.cp_cont_b_alpha80, R.color.cp_cont_b_alpha80, i2);
         }
     }
 
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f42529g = str;
+            this.f40932g = str;
         }
     }
 
@@ -75,10 +72,10 @@ public class ToastDialog extends AlertDialog {
             if (window != null) {
                 window.setDimAmount(0.0f);
                 window.setContentView(R.layout.id_card_dialog);
-                this.f42527e = window.findViewById(R.id.toast_container);
-                this.f42528f = (TextView) window.findViewById(R.id.toast_tv);
-                if (!StringUtils.isNull(this.f42529g)) {
-                    this.f42528f.setText(this.f42529g);
+                this.f40930e = window.findViewById(R.id.toast_container);
+                this.f40931f = (TextView) window.findViewById(R.id.toast_tv);
+                if (!StringUtils.isNull(this.f40932g)) {
+                    this.f40931f.setText(this.f40932g);
                 }
                 onSkinChange(TbadkCoreApplication.getInst().getSkinType());
             }

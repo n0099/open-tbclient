@@ -19,23 +19,23 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<ScanResult> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f35332b;
+    public long f33735b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f35333c;
+    public long f33736c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f35334d;
+    public boolean f33737d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f35335e;
+    public boolean f33738e;
 
     public h(List<ScanResult> list, long j2) {
         Interceptable interceptable = $ic;
@@ -53,12 +53,12 @@ public class h {
             }
         }
         this.a = null;
-        this.f35332b = 0L;
-        this.f35333c = 0L;
-        this.f35334d = false;
-        this.f35332b = j2;
+        this.f33735b = 0L;
+        this.f33736c = 0L;
+        this.f33737d = false;
+        this.f33735b = j2;
         this.a = list;
-        this.f35333c = System.currentTimeMillis();
+        this.f33736c = System.currentTimeMillis();
         try {
             n();
         } catch (Exception e2) {
@@ -349,7 +349,7 @@ public class h {
                                     if (str5 != null) {
                                         str = str5;
                                         if (str.equals(replace)) {
-                                            this.f35335e = a(this.a.get(i4).capabilities);
+                                            this.f33738e = a(this.a.get(i4).capabilities);
                                             i5 = i6;
                                             z5 = true;
                                             if (z5) {
@@ -427,15 +427,15 @@ public class h {
                                 stringBuffer.append(stringBuffer3.toString());
                             }
                             stringBuffer.append("&wf_st=");
-                            stringBuffer.append(this.f35332b);
+                            stringBuffer.append(this.f33735b);
                             stringBuffer.append("&wf_et=");
-                            stringBuffer.append(this.f35333c);
+                            stringBuffer.append(this.f33736c);
                             stringBuffer.append("&wf_vt=");
                             stringBuffer.append(i.a);
                             if (i8 > 0) {
-                                this.f35334d = true;
+                                this.f33737d = true;
                                 stringBuffer.append("&wf_en=");
-                                stringBuffer.append(this.f35335e ? 1 : 0);
+                                stringBuffer.append(this.f33738e ? 1 : 0);
                             }
                             if (str8 != null) {
                                 stringBuffer.append("&wf_gw=");
@@ -815,24 +815,24 @@ public class h {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f35334d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f33737d : invokeV.booleanValue;
     }
 
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? System.currentTimeMillis() - this.f35333c > 0 && System.currentTimeMillis() - this.f35333c < 5000 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? System.currentTimeMillis() - this.f33736c > 0 && System.currentTimeMillis() - this.f33736c < 5000 : invokeV.booleanValue;
     }
 
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? System.currentTimeMillis() - this.f35333c > 0 && System.currentTimeMillis() - this.f35333c < 5000 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? System.currentTimeMillis() - this.f33736c > 0 && System.currentTimeMillis() - this.f33736c < 5000 : invokeV.booleanValue;
     }
 
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? System.currentTimeMillis() - this.f35333c > 0 && System.currentTimeMillis() - this.f35332b < 5000 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? System.currentTimeMillis() - this.f33736c > 0 && System.currentTimeMillis() - this.f33735b < 5000 : invokeV.booleanValue;
     }
 }

@@ -4,15 +4,15 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import com.asus.msa.SupplementaryDID.IDidAidlInterface;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface a extends IInterface {
 
     /* renamed from: com.kwad.sdk.core.f.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static final class C2119a implements a {
+    /* loaded from: classes7.dex */
+    public static final class C2098a implements a {
         public IBinder a;
 
-        public C2119a(IBinder iBinder) {
+        public C2098a(IBinder iBinder) {
         }
 
         public String a() {

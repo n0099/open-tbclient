@@ -8,8 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttDecoder;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public final class ResourceType {
     public static final /* synthetic */ ResourceType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -38,7 +39,7 @@ public final class ResourceType {
         ID = new ResourceType(UserSettingForceListListener.FORCE_LIST_ITEM_ID_KEY, 0, "id");
         ARRAY = new ResourceType("ARRAY", 1, "array");
         LAYOUT = new ResourceType("LAYOUT", 2, "layout");
-        STYLE = new ResourceType("STYLE", 3, "style");
+        STYLE = new ResourceType(WebvttDecoder.STYLE_START, 3, "style");
         STRING = new ResourceType("STRING", 4, "string");
         ResourceType resourceType = new ResourceType("DRAWABLE", 5, "drawable");
         DRAWABLE = resourceType;

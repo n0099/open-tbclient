@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class df implements LoggerInterface {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
@@ -46,10 +46,10 @@ public class df implements LoggerInterface {
     public Handler f239a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61186b;
+    public String f59536b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61187c;
+    public String f59537c;
 
     static {
         InterceptResult invokeClinit;
@@ -84,12 +84,12 @@ public class df implements LoggerInterface {
                 return;
             }
         }
-        this.f61187c = "";
+        this.f59537c = "";
         this.f238a = context;
         if (context.getApplicationContext() != null) {
             this.f238a = context.getApplicationContext();
         }
-        this.f61186b = this.f238a.getPackageName();
+        this.f59536b = this.f238a.getPackageName();
         HandlerThread handlerThread = new HandlerThread("Log2FileHandlerThread");
         handlerThread.start();
         this.f239a = new Handler(handlerThread.getLooper());
@@ -108,10 +108,10 @@ public class df implements LoggerInterface {
         }
         BufferedWriter bufferedWriter = null;
         try {
-            if (TextUtils.isEmpty(this.f61187c) && (externalFilesDir = this.f238a.getExternalFilesDir(null)) != null) {
-                this.f61187c = externalFilesDir.getAbsolutePath() + "";
+            if (TextUtils.isEmpty(this.f59537c) && (externalFilesDir = this.f238a.getExternalFilesDir(null)) != null) {
+                this.f59537c = externalFilesDir.getAbsolutePath() + "";
             }
-            file = new File(this.f61187c + a);
+            file = new File(this.f59537c + a);
         } catch (Exception unused) {
             fileLock = null;
             randomAccessFile = null;
@@ -240,7 +240,7 @@ public class df implements LoggerInterface {
     public final void setTag(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f61186b = str;
+            this.f59536b = str;
         }
     }
 }

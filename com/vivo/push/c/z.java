@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.sdk.PushMessageCallback;
 import java.security.PublicKey;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class z extends com.vivo.push.l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public PushMessageCallback f60896b;
+    public PushMessageCallback f59246b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public z(com.vivo.push.o oVar) {
@@ -41,7 +41,7 @@ public abstract class z extends com.vivo.push.l {
     public final void a(PushMessageCallback pushMessageCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, pushMessageCallback) == null) {
-            this.f60896b = pushMessageCallback;
+            this.f59246b = pushMessageCallback;
         }
     }
 

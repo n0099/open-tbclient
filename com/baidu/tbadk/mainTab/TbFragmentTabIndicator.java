@@ -7,18 +7,17 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
-import c.a.u0.a4.d;
-import c.a.u0.a4.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.MessageRedDotView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ThemeColorInfo;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public abstract class TbFragmentTabIndicator extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,26 +28,26 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public boolean mIsContentSelectBold;
     public ThemeColorInfo mThemeColorInfo;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f41297b;
+        public boolean f39703b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f41298c;
+        public int f39704c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f41299d;
+        public int f39705d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f41300e;
+        public int f39706e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TbFragmentTabIndicator f41301f;
+        public TbFragmentTabIndicator f39707f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -63,8 +62,8 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                     return;
                 }
             }
-            this.f41297b = true;
-            this.f41300e = d.common_color_10225;
+            this.f39703b = true;
+            this.f39706e = R.color.common_color_10225;
         }
 
         public final int a(TextView textView) {
@@ -86,23 +85,23 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
         public void b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                int i3 = this.f41299d;
+                int i3 = this.f39705d;
                 if (i3 != 0) {
                     SkinManager.setBackgroundResource(this.a, i3);
                 }
                 View view = this.a;
                 if (view instanceof TextView) {
-                    int i4 = this.f41300e;
+                    int i4 = this.f39706e;
                     if (i4 != 0) {
                         SkinManager.setViewTextColor(view, i4, 1);
                     }
                     int a = a((TextView) this.a);
                     if (a > 0 && a < 10) {
-                        SkinManager.setBackgroundResource(this.a, f.icon_news_head_prompt_one);
+                        SkinManager.setBackgroundResource(this.a, R.drawable.icon_news_head_prompt_one);
                     } else if (a >= 10 && a < 100) {
-                        SkinManager.setBackgroundResource(this.a, f.icon_news_head_prompt_two);
+                        SkinManager.setBackgroundResource(this.a, R.drawable.icon_news_head_prompt_two);
                     } else if (a >= 100) {
-                        SkinManager.setBackgroundResource(this.a, f.icon_news_head_prompt_more);
+                        SkinManager.setBackgroundResource(this.a, R.drawable.icon_news_head_prompt_more);
                     }
                 }
                 View view2 = this.a;

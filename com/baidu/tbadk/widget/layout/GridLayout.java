@@ -7,14 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.u0.a4.l;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class GridLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HORIZONTAL = 0;
@@ -22,22 +22,22 @@ public class GridLayout extends ViewGroup {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f41609e;
+    public int f40015e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f41610f;
+    public int f40016f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f41611g;
+    public int f40017g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f41612h;
+    public int f40018h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f41613i;
+    public boolean f40019i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f41614j;
+    public boolean f40020j;
     public int k;
     public int l;
 
@@ -67,8 +67,8 @@ public class GridLayout extends ViewGroup {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            this.l = this.f41609e;
-            this.k = this.f41610f;
+            this.l = this.f40015e;
+            this.k = this.f40016f;
             int childCount = getChildCount();
             int childCount2 = getChildCount();
             for (int i3 = 0; i3 < childCount; i3++) {
@@ -94,7 +94,7 @@ public class GridLayout extends ViewGroup {
                         } else {
                             this.l = (childCount / i6) + 1;
                         }
-                    } else if (this.f41613i) {
+                    } else if (this.f40019i) {
                         this.l = childCount;
                         this.k = 1;
                     } else {
@@ -123,13 +123,13 @@ public class GridLayout extends ViewGroup {
     public final void a(Context context, AttributeSet attributeSet, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, context, attributeSet, i2) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, l.GridLayout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.column_count, R.attr.gridHorizontalNum, R.attr.gridHorizontalSpacing, R.attr.gridMainOrientation, R.attr.gridVerticalNum, R.attr.gridVerticalSpacing, R.attr.horizontal_spacing, R.attr.vertical_spacing});
             try {
-                this.f41611g = obtainStyledAttributes.getDimensionPixelSize(l.GridLayout_gridHorizontalSpacing, 0);
-                this.f41612h = obtainStyledAttributes.getDimensionPixelSize(l.GridLayout_gridVerticalSpacing, 0);
-                this.f41609e = obtainStyledAttributes.getInteger(l.GridLayout_gridHorizontalNum, -1);
-                this.f41610f = obtainStyledAttributes.getInteger(l.GridLayout_gridVerticalNum, -1);
-                this.f41613i = obtainStyledAttributes.getInteger(l.GridLayout_gridMainOrientation, 0) == 0;
+                this.f40017g = obtainStyledAttributes.getDimensionPixelSize(2, 0);
+                this.f40018h = obtainStyledAttributes.getDimensionPixelSize(5, 0);
+                this.f40015e = obtainStyledAttributes.getInteger(1, -1);
+                this.f40016f = obtainStyledAttributes.getInteger(4, -1);
+                this.f40019i = obtainStyledAttributes.getInteger(3, 0) == 0;
             } finally {
                 obtainStyledAttributes.recycle();
             }
@@ -146,37 +146,37 @@ public class GridLayout extends ViewGroup {
     public int getHorNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f41609e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f40015e : invokeV.intValue;
     }
 
     public int getHorSpace() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f41611g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f40017g : invokeV.intValue;
     }
 
     public int getVerNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f41610f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f40016f : invokeV.intValue;
     }
 
     public int getVerSpace() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f41612h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f40018h : invokeV.intValue;
     }
 
     public boolean isMeasureAllChild() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f41614j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f40020j : invokeV.booleanValue;
     }
 
     public boolean isOrientionHor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f41613i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f40019i : invokeV.booleanValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:17:0x0075  */
@@ -197,13 +197,13 @@ public class GridLayout extends ViewGroup {
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             View[] needLayoutChild = getNeedLayoutChild();
             int measuredWidth = (getMeasuredWidth() - getPaddingLeft()) - getPaddingRight();
-            int i11 = this.f41609e;
-            int i12 = this.f41611g;
+            int i11 = this.f40015e;
+            int i12 = this.f40017g;
             int i13 = (measuredWidth - (i11 * i12)) + i12;
             int measuredHeight = (getMeasuredHeight() - getPaddingTop()) - getPaddingBottom();
-            int i14 = this.f41610f;
-            int i15 = this.f41612h;
-            int i16 = i13 / this.f41609e;
+            int i14 = this.f40016f;
+            int i15 = this.f40018h;
+            int i16 = i13 / this.f40015e;
             int i17 = ((measuredHeight - (i14 * i15)) + i15) / i14;
             int paddingLeft = getPaddingLeft();
             int paddingTop = getPaddingTop();
@@ -226,23 +226,23 @@ public class GridLayout extends ViewGroup {
                     } else if (i8 != 80) {
                         i10 = i20 + 0;
                         view.layout(paddingLeft + i7, paddingTop + i10, measuredWidth2 + paddingLeft + i7, measuredHeight2 + paddingTop + i10);
-                        paddingLeft += this.f41611g + i16;
+                        paddingLeft += this.f40017g + i16;
                         i18++;
                         if (i18 % this.l == 0 || i18 == needLayoutChild.length) {
                             paddingLeft = getPaddingLeft();
-                            paddingTop += this.f41612h + i17;
+                            paddingTop += this.f40018h + i17;
                         }
                     } else {
                         i9 = i17 - measuredHeight2;
                     }
                     i10 = i20 + i9;
                     view.layout(paddingLeft + i7, paddingTop + i10, measuredWidth2 + paddingLeft + i7, measuredHeight2 + paddingTop + i10);
-                    paddingLeft += this.f41611g + i16;
+                    paddingLeft += this.f40017g + i16;
                     i18++;
                     if (i18 % this.l == 0) {
                     }
                     paddingLeft = getPaddingLeft();
-                    paddingTop += this.f41612h + i17;
+                    paddingTop += this.f40018h + i17;
                 } else {
                     i6 = i16 - measuredWidth2;
                 }
@@ -252,12 +252,12 @@ public class GridLayout extends ViewGroup {
                 }
                 i10 = i20 + i9;
                 view.layout(paddingLeft + i7, paddingTop + i10, measuredWidth2 + paddingLeft + i7, measuredHeight2 + paddingTop + i10);
-                paddingLeft += this.f41611g + i16;
+                paddingLeft += this.f40017g + i16;
                 i18++;
                 if (i18 % this.l == 0) {
                 }
                 paddingLeft = getPaddingLeft();
-                paddingTop += this.f41612h + i17;
+                paddingTop += this.f40018h + i17;
             }
         }
     }
@@ -273,7 +273,7 @@ public class GridLayout extends ViewGroup {
             View.MeasureSpec.getSize(i2);
             View.MeasureSpec.getSize(i3);
             View[] needLayoutChild = getNeedLayoutChild();
-            if (this.f41614j) {
+            if (this.f40020j) {
                 for (int i5 = 0; i5 < getChildCount(); i5++) {
                     measureChild(getChildAt(i5), i2, i3);
                 }
@@ -292,7 +292,7 @@ public class GridLayout extends ViewGroup {
                 while (i7 < needLayoutChild.length) {
                     View view2 = needLayoutChild[i7];
                     LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
-                    paddingLeft = paddingLeft + this.f41611g + view2.getMeasuredWidth() + ((FrameLayout.LayoutParams) layoutParams).leftMargin + ((FrameLayout.LayoutParams) layoutParams).rightMargin;
+                    paddingLeft = paddingLeft + this.f40017g + view2.getMeasuredWidth() + ((FrameLayout.LayoutParams) layoutParams).leftMargin + ((FrameLayout.LayoutParams) layoutParams).rightMargin;
                     i7++;
                     if (i7 % this.l == 0 || i7 == needLayoutChild.length) {
                         i6 = Math.max(getMeasuredWidth(), paddingLeft);
@@ -319,13 +319,13 @@ public class GridLayout extends ViewGroup {
             }
             setMeasuredDimension(i4, paddingTop);
             int measuredWidth = (getMeasuredWidth() - getPaddingLeft()) - getPaddingRight();
-            int i10 = this.f41609e;
-            int i11 = this.f41611g;
+            int i10 = this.f40015e;
+            int i11 = this.f40017g;
             int i12 = (measuredWidth - (i10 * i11)) + i11;
             int measuredHeight = (getMeasuredHeight() - getPaddingTop()) - getPaddingBottom();
-            int i13 = this.f41610f;
-            int i14 = this.f41612h;
-            int i15 = i12 / this.f41609e;
+            int i13 = this.f40016f;
+            int i14 = this.f40018h;
+            int i15 = i12 / this.f40015e;
             int i16 = ((measuredHeight - (i13 * i14)) + i14) / i13;
             for (View view4 : needLayoutChild) {
                 LayoutParams layoutParams3 = (LayoutParams) view4.getLayoutParams();
@@ -345,8 +345,8 @@ public class GridLayout extends ViewGroup {
     public void setHorNum(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            boolean z = this.f41609e != i2;
-            this.f41609e = i2;
+            boolean z = this.f40015e != i2;
+            this.f40015e = i2;
             if (z) {
                 forceLayout();
             }
@@ -356,8 +356,8 @@ public class GridLayout extends ViewGroup {
     public void setHorSpace(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            boolean z = this.f41611g != i2;
-            this.f41611g = i2;
+            boolean z = this.f40017g != i2;
+            this.f40017g = i2;
             if (z) {
                 forceLayout();
             }
@@ -367,22 +367,22 @@ public class GridLayout extends ViewGroup {
     public void setMeasureAllChild(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.f41614j = z;
+            this.f40020j = z;
         }
     }
 
     public void setOrientionHor(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.f41613i = z;
+            this.f40019i = z;
         }
     }
 
     public void setVerNum(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            boolean z = this.f41610f != i2;
-            this.f41610f = i2;
+            boolean z = this.f40016f != i2;
+            this.f40016f = i2;
             if (z) {
                 forceLayout();
             }
@@ -392,15 +392,15 @@ public class GridLayout extends ViewGroup {
     public void setVerSpace(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            boolean z = this.f41612h != i2;
-            this.f41612h = i2;
+            boolean z = this.f40018h != i2;
+            this.f40018h = i2;
             if (z) {
                 forceLayout();
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class LayoutParams extends FrameLayout.LayoutParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -519,12 +519,12 @@ public class GridLayout extends ViewGroup {
                 return;
             }
         }
-        this.f41609e = -1;
-        this.f41610f = -1;
-        this.f41611g = 0;
-        this.f41612h = 0;
-        this.f41613i = true;
-        this.f41614j = false;
+        this.f40015e = -1;
+        this.f40016f = -1;
+        this.f40017g = 0;
+        this.f40018h = 0;
+        this.f40019i = true;
+        this.f40020j = false;
         a(context, attributeSet, i2);
     }
 

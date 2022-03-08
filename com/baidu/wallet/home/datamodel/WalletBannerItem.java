@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.banner.BannerBaseItemInfo;
 import com.baidu.wallet.home.storage.a;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public abstract class WalletBannerItem extends BannerBaseItemInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

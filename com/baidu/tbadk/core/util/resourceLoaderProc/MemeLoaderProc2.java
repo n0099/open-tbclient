@@ -8,7 +8,7 @@ import c.a.d.f.l.b;
 import c.a.d.f.l.e;
 import c.a.d.f.p.n;
 import c.a.d.o.d.a;
-import c.a.t0.s.l;
+import c.a.q0.r.l;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class MemeLoaderProc2 implements e<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -157,7 +157,7 @@ public class MemeLoaderProc2 implements e<a> {
             if (aVar.u()) {
                 aVar.A(i2);
                 aVar.z(i3);
-                c.a.t0.c0.c.k().d(str, aVar);
+                c.a.q0.b0.c.k().d(str, aVar);
             }
         }
     }
@@ -207,7 +207,7 @@ public class MemeLoaderProc2 implements e<a> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), objArr})) == null) {
-            a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, c.a.t0.c0.c.k().m(str), i2, i3);
+            a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, c.a.q0.b0.c.k().m(str), i2, i3);
             if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.p() == null || checkIsValidPicMemoryCache.p().isRecycled()) {
                 return null;
             }
@@ -250,7 +250,7 @@ public class MemeLoaderProc2 implements e<a> {
             byte[] downloadImageBytes = webClient.downloadImageBytes(str4, !this.isFromCDN);
             boolean needCache = webClient.needCache();
             if (downloadImageBytes != null || webClient.getResponse().a) {
-                c.a.t0.c0.c.k().i(TbConfig.getPbImageSize() + (downloadImageBytes != null ? downloadImageBytes.length : 0));
+                c.a.q0.b0.c.k().i(TbConfig.getPbImageSize() + (downloadImageBytes != null ? downloadImageBytes.length : 0));
                 Bitmap Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(downloadImageBytes);
                 if (!webClient.isGif && !n.A(downloadImageBytes)) {
                     z = false;

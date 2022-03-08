@@ -3,7 +3,6 @@ package c.a.d.m;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -29,7 +28,7 @@ public class i {
                 sb.append(split[0]);
                 str2 = sb.toString();
             } else {
-                str2 = str.contains(EmotionResourceProvider.EMOTION_SOUND_SUFFIX) ? "mp3_cache" : "res_cache";
+                str2 = str.contains(".mp3") ? "mp3_cache" : "res_cache";
             }
             return BdBaseApplication.getInst().getFilesDir() + File.separator + str2;
         }

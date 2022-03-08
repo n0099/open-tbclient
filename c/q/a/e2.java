@@ -1,69 +1,42 @@
 package c.q.a;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.PBError;
-import com.win.opensdk.core.Info;
-/* loaded from: classes9.dex */
-public class e2 implements e5 {
+import java.io.File;
+/* loaded from: classes3.dex */
+public class e2 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ u2 a;
 
-    public e2(u2 u2Var) {
+    public static boolean a() {
+        InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            boolean z = a;
+            if (z) {
+                return z;
             }
-        }
-        this.a = u2Var;
-    }
-
-    @Override // c.q.a.e5
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // c.q.a.e5
-    public void a(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            Info info = (Info) obj;
-            try {
-                this.a.f30717c = info;
-                if (this.a.f30720f != null) {
-                    if (info == null || info.getType() != 61) {
-                        this.a.f30720f.onFail(PBError.PID_TYPE_ERROR);
-                    } else if (this.a.e()) {
-                        this.a.f30720f.onLoaded();
-                    }
+            String[] split = System.getenv("PATH").split(":");
+            int length = split.length;
+            int i2 = 0;
+            while (true) {
+                if (i2 >= length) {
+                    str = null;
+                    break;
                 }
-            } catch (Exception unused) {
+                str = split[i2] + "/su";
+                if (new File(str).exists()) {
+                    break;
+                }
+                i2++;
             }
+            boolean z2 = str != null;
+            a = z2;
+            return z2;
         }
-    }
-
-    @Override // c.q.a.e5
-    public void onFail(PBError pBError) {
-        i3 i3Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (i3Var = this.a.f30720f) == null) {
-            return;
-        }
-        i3Var.onFail(pBError);
+        return invokeV.booleanValue;
     }
 }

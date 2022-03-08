@@ -3,7 +3,7 @@ package com.google.common.util.concurrent;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface ListeningScheduledExecutorService extends ScheduledExecutorService, ListeningExecutorService {
     @Override // java.util.concurrent.ScheduledExecutorService
     ListenableScheduledFuture<?> schedule(Runnable runnable, long j2, TimeUnit timeUnit);

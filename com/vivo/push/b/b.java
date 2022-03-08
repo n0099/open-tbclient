@@ -6,23 +6,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class b extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60843b;
+    public String f59193b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f60844c;
+    public String f59194c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f60845d;
+    public String f59195d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f60846e;
+    public boolean f59196e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(boolean z, String str) {
@@ -43,7 +43,7 @@ public final class b extends c {
                 return;
             }
         }
-        this.f60846e = false;
+        this.f59196e = false;
     }
 
     @Override // com.vivo.push.b.c, com.vivo.push.o
@@ -53,23 +53,23 @@ public final class b extends c {
             super.c(aVar);
             aVar.a("sdk_clients", this.a);
             aVar.a("sdk_version", 800L);
-            aVar.a("BaseAppCommand.EXTRA_APPID", this.f60844c);
-            aVar.a("BaseAppCommand.EXTRA_APPKEY", this.f60843b);
-            aVar.a("PUSH_REGID", this.f60845d);
+            aVar.a("BaseAppCommand.EXTRA_APPID", this.f59194c);
+            aVar.a("BaseAppCommand.EXTRA_APPKEY", this.f59193b);
+            aVar.a("PUSH_REGID", this.f59195d);
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f60844c = null;
+            this.f59194c = null;
         }
     }
 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f60843b = null;
+            this.f59193b = null;
         }
     }
 
@@ -89,9 +89,9 @@ public final class b extends c {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             super.d(aVar);
             this.a = aVar.a("sdk_clients");
-            this.f60844c = aVar.a("BaseAppCommand.EXTRA_APPID");
-            this.f60843b = aVar.a("BaseAppCommand.EXTRA_APPKEY");
-            this.f60845d = aVar.a("PUSH_REGID");
+            this.f59194c = aVar.a("BaseAppCommand.EXTRA_APPID");
+            this.f59193b = aVar.a("BaseAppCommand.EXTRA_APPKEY");
+            this.f59195d = aVar.a("PUSH_REGID");
         }
     }
 }

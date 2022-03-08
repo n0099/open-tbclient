@@ -3,8 +3,8 @@ package com.baidu.tieba.ala.alasquare.special_forum.subtab.view;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.u0.a0.f.g.c.e;
-import c.a.u0.g0.b;
+import c.a.r0.a0.f.g.c.e;
+import c.a.r0.f0.b;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class ConcernTabEmptyView extends b<e> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder m;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,18 +77,18 @@ public class ConcernTabEmptyView extends b<e> {
         l(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // c.a.u0.g0.b
+    @Override // c.a.r0.f0.b
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.special_bar_concern_empty : invokeV.intValue;
     }
 
-    @Override // c.a.u0.g0.b
+    @Override // c.a.r0.f0.b
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            SkinManager.setViewTextColor(this.m.textView, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.m.textView, (int) R.color.CAM_X0109);
             SkinManager.setBackgroundColor(this.m.divider, R.color.CAM_X0204);
         }
     }
@@ -101,7 +101,7 @@ public class ConcernTabEmptyView extends b<e> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.u0.g0.b
+    @Override // c.a.r0.f0.b
     /* renamed from: p */
     public void k(e eVar) {
         Interceptable interceptable = $ic;

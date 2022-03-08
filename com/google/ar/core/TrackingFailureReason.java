@@ -1,7 +1,6 @@
 package com.google.ar.core;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class TrackingFailureReason {
     public static final /* synthetic */ TrackingFailureReason[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -36,7 +35,7 @@ public final class TrackingFailureReason {
                 return;
             }
         }
-        NONE = new TrackingFailureReason(PolyActivity.NONE_PANEL_TYPE, 0, 0);
+        NONE = new TrackingFailureReason("NONE", 0, 0);
         BAD_STATE = new TrackingFailureReason("BAD_STATE", 1, 1);
         INSUFFICIENT_LIGHT = new TrackingFailureReason("INSUFFICIENT_LIGHT", 2, 2);
         EXCESSIVE_MOTION = new TrackingFailureReason("EXCESSIVE_MOTION", 3, 3);

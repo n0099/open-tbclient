@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseBean extends NetworkBean {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COMET_BEAN = 1;

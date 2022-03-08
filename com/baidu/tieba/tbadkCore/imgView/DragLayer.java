@@ -7,24 +7,24 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.u0.z3.n0.a;
-import c.a.u0.z3.n0.b;
+import c.a.r0.y3.n0.a;
+import c.a.r0.y3.n0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class DragLayer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f48339e;
+    public a f46755e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f48340f;
+    public b f46756f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DragLayer(Context context) {
@@ -56,15 +56,15 @@ public class DragLayer extends FrameLayout {
     public void destroyDragObject() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.f48340f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.f46756f) == null) {
             return;
         }
-        Bitmap bitmap = bVar.f26293b;
+        Bitmap bitmap = bVar.f25113b;
         if (bitmap != null) {
             bitmap.recycle();
-            this.f48340f.f26293b = null;
+            this.f46756f.f25113b = null;
         }
-        this.f48340f = null;
+        this.f46756f = null;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -72,8 +72,8 @@ public class DragLayer extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.dispatchDraw(canvas);
-            b bVar = this.f48340f;
-            if (bVar == null || !this.f48339e.f26288f) {
+            b bVar = this.f46756f;
+            if (bVar == null || !this.f46755e.f25108f) {
                 return;
             }
             bVar.a(canvas);
@@ -83,13 +83,13 @@ public class DragLayer extends FrameLayout {
     public a getDragController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f48339e : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f46755e : (a) invokeV.objValue;
     }
 
     public b getDragObject() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f48340f : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f46756f : (b) invokeV.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -113,27 +113,27 @@ public class DragLayer extends FrameLayout {
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) ? this.f48339e.c(motionEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) ? this.f46755e.c(motionEvent) : invokeL.booleanValue;
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) ? this.f48339e.d(motionEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) ? this.f46755e.d(motionEvent) : invokeL.booleanValue;
     }
 
     public void setDragController(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
-            this.f48339e = aVar;
+            this.f46755e = aVar;
         }
     }
 
     public void setDragObject(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
-            this.f48340f = bVar;
+            this.f46756f = bVar;
             invalidate();
         }
     }

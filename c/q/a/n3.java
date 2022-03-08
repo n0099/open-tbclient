@@ -2,38 +2,39 @@ package c.q.a;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
-public class n3 {
+/* loaded from: classes3.dex */
+public class n3 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public long f30619b;
+    /* renamed from: e  reason: collision with root package name */
+    public final /* synthetic */ c4 f29047e;
 
-    public n3() {
+    public n3(c4 c4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {c4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f29047e = c4Var;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a + ":" + this.f30619b;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f29047e.a();
         }
-        return (String) invokeV.objValue;
     }
 }

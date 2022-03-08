@@ -1,20 +1,39 @@
 package c.a.t0.m0;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.newFriends.RequestPassFriendMessage;
+import c.a.r0.q3.p;
+import c.a.t0.i;
+import c.a.t0.q;
+import c.a.t0.r;
+import c.a.t0.u;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+@Autowired
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(long j2, String str) {
+    @Inject
+    public static r a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65536, null, j2, str) == null) {
-            RequestPassFriendMessage requestPassFriendMessage = new RequestPassFriendMessage();
-            requestPassFriendMessage.setFriendId(j2, str);
-            MessageManager.getInstance().sendMessage(requestPassFriendMessage);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? c.a.r0.q3.r.a() : (r) invokeV.objValue;
+    }
+
+    @Inject
+    public static q b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? p.a() : (q) invokeV.objValue;
+    }
+
+    @Inject
+    public static u c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? i.a() : (u) invokeV.objValue;
     }
 }

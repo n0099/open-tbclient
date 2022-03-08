@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.MalformedURLException;
 import java.net.URL;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class UrlWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -160,10 +160,7 @@ public class UrlWrapper {
             if (str.equals("http")) {
                 return 80;
             }
-            if (str.equals("https")) {
-                return Constants.SOCKET_PORT_SSL;
-            }
-            return -1;
+            return str.equals("https") ? 443 : -1;
         }
         return invokeL.intValue;
     }

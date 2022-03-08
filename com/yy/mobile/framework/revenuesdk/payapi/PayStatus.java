@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.utils.StatHelper;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class PayStatus {
     public static final /* synthetic */ PayStatus[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

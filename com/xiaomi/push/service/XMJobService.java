@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.er;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class XMJobService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public static Service a;
@@ -30,7 +30,7 @@ public class XMJobService extends Service {
     public IBinder f842a;
 
     @TargetApi(21)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a extends JobService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -40,14 +40,14 @@ public class XMJobService extends Service {
         public Handler f843a;
 
         /* renamed from: com.xiaomi.push.service.XMJobService$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public static class HandlerC2276a extends Handler {
+        /* loaded from: classes8.dex */
+        public static class HandlerC2255a extends Handler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public JobService a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public HandlerC2276a(JobService jobService) {
+            public HandlerC2255a(JobService jobService) {
                 super(jobService.getMainLooper());
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -112,7 +112,7 @@ public class XMJobService extends Service {
                 intent.setPackage(getPackageName());
                 startService(intent);
                 if (this.f843a == null) {
-                    this.f843a = new HandlerC2276a(this);
+                    this.f843a = new HandlerC2255a(this);
                 }
                 Handler handler = this.f843a;
                 handler.sendMessage(Message.obtain(handler, 1, jobParameters));

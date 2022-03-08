@@ -1,6 +1,6 @@
 package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
-import c.a.t0.s.j0.b;
+import c.a.q0.r.j0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.flutter.plugin.tiebautility.TiebaUtilityPreferenceAuto;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class UtilityPreference implements TiebaUtilityPreferenceAuto.HostUtilityPreference {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

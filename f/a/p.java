@@ -12,25 +12,25 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Executor a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Callable<SharedPreferences> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Context f61842e;
+        public final Context f60192e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final String f61843f;
+        public final String f60193f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final b f61844g;
+        public final b f60194g;
 
         public a(Context context, String str, b bVar) {
             Interceptable interceptable = $ic;
@@ -47,9 +47,9 @@ public class p {
                     return;
                 }
             }
-            this.f61842e = context;
-            this.f61843f = str;
-            this.f61844g = bVar;
+            this.f60192e = context;
+            this.f60193f = str;
+            this.f60194g = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -59,8 +59,8 @@ public class p {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                SharedPreferences sharedPreferences = this.f61842e.getSharedPreferences(this.f61843f, 0);
-                b bVar = this.f61844g;
+                SharedPreferences sharedPreferences = this.f60192e.getSharedPreferences(this.f60193f, 0);
+                b bVar = this.f60194g;
                 if (bVar != null) {
                     bVar.a(sharedPreferences);
                 }
@@ -70,7 +70,7 @@ public class p {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void a(SharedPreferences sharedPreferences);
     }

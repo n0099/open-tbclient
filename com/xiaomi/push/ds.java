@@ -18,7 +18,7 @@ import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ds extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -157,7 +157,7 @@ public class ds extends ai.a {
 
     private void a(hn hnVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, this, hnVar) == null) && hnVar.f505a == hh.f61381b && !hnVar.f506a.startsWith("same_")) {
+        if ((interceptable == null || interceptable.invokeL(65539, this, hnVar) == null) && hnVar.f505a == hh.f59731b && !hnVar.f506a.startsWith("same_")) {
             SharedPreferences.Editor edit = this.f247a.edit();
             edit.putLong("dc_job_result_time_4", hnVar.f504a);
             edit.putString("dc_job_result_4", bm.a(hnVar.f506a));
@@ -237,7 +237,7 @@ public class ds extends ai.a {
                     ieVar.a(a2);
                     di m309a = dj.a().m309a();
                     if (m309a != null) {
-                        m309a.a(ieVar, hf.f61378i, null);
+                        m309a.a(ieVar, hf.f59728i, null);
                     }
                     a();
                 }

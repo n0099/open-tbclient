@@ -7,20 +7,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.kwad.sdk.api.KsRewardVideoAd;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class q extends v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f28593b;
+    public boolean f28431b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ KsRewardVideoAd f28594c;
+    public final /* synthetic */ KsRewardVideoAd f28432c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ p f28595d;
+    public final /* synthetic */ p f28433d;
 
     public q(p pVar, KsRewardVideoAd ksRewardVideoAd) {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public class q extends v {
                 return;
             }
         }
-        this.f28595d = pVar;
-        this.f28594c = ksRewardVideoAd;
+        this.f28433d = pVar;
+        this.f28432c = ksRewardVideoAd;
     }
 
     @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
@@ -46,8 +46,8 @@ public class q extends v {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LogPrinter.d();
-            this.f28595d.onAdClicked(this.f28593b);
-            this.f28593b = true;
+            this.f28433d.onAdClicked(this.f28431b);
+            this.f28431b = true;
         }
     }
 
@@ -56,7 +56,7 @@ public class q extends v {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LogPrinter.d();
-            this.f28595d.onAdClose();
+            this.f28433d.onAdClose();
         }
     }
 
@@ -65,7 +65,7 @@ public class q extends v {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LogPrinter.d();
-            this.f28595d.onRewardedVideo();
+            this.f28433d.onRewardedVideo();
         }
     }
 
@@ -82,7 +82,7 @@ public class q extends v {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
             LogPrinter.d();
-            this.f28595d.onAdError(i2, String.valueOf(i3));
+            this.f28433d.onAdError(i2, String.valueOf(i3));
         }
     }
 
@@ -91,7 +91,7 @@ public class q extends v {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             LogPrinter.d();
-            this.f28595d.onAdShow(this.f28594c, this.a);
+            this.f28433d.onAdShow(this.f28432c, this.a);
             this.a = true;
         }
     }

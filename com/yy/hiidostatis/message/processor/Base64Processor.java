@@ -9,7 +9,7 @@ import com.yy.hiidostatis.inner.util.cipher.Base64Util;
 import com.yy.hiidostatis.message.MessageProcessor;
 import com.yy.hiidostatis.message.bean.Message;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class Base64Processor implements MessageProcessor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.ProtocolVersion;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class HttpProtocolParams implements CoreProtocolPNames {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

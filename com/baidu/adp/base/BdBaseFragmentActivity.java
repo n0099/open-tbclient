@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public abstract class BdBaseFragmentActivity<T> extends FragmentActivity implements View.OnClickListener, View.OnLongClickListener, g<T>, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, i {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PRELOAD_DELAY = 100;
@@ -41,13 +41,13 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
     public boolean mIsScroll;
     public final Runnable preLoadRunnable;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdBaseFragmentActivity f31379e;
+        public final /* synthetic */ BdBaseFragmentActivity f29782e;
 
         public a(BdBaseFragmentActivity bdBaseFragmentActivity) {
             Interceptable interceptable = $ic;
@@ -64,14 +64,14 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
                     return;
                 }
             }
-            this.f31379e = bdBaseFragmentActivity;
+            this.f29782e = bdBaseFragmentActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BdBaseFragmentActivity bdBaseFragmentActivity = this.f31379e;
+                BdBaseFragmentActivity bdBaseFragmentActivity = this.f29782e;
                 bdBaseFragmentActivity.onPreLoad(bdBaseFragmentActivity.onGetPreLoadListView());
             }
         }
@@ -177,7 +177,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
             if (this.mId == null) {
                 this.mId = BdUniqueId.gen();
             }
-            b.f().n(getPageContext().getPageActivity());
+            b.g().o(getPageContext().getPageActivity());
             LogUtil.logActivity(this, "onCreate");
         }
     }
@@ -191,7 +191,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
             MessageManager.getInstance().removeMessage(this.mId);
             d.h().b(this.mId);
             this.mHandler.removeCallbacks(this.preLoadRunnable);
-            b.f().l(getPageContext().getPageActivity());
+            b.g().m(getPageContext().getPageActivity());
         }
     }
 

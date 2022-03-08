@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.Date;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class SharedThreadTimer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean canceled;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public class InnerRun implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

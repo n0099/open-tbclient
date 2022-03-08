@@ -6,13 +6,11 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.a.f;
-import c.a.s0.a.g;
-import c.a.s0.a.k;
-import c.a.s0.a.z2.n0;
+import c.a.p0.a.p2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.request.task.ProgressInfo;
 import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,37 +23,37 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class BdMultiPicker extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean p;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f39311e;
+    public LinearLayout f37715e;
 
     /* renamed from: f  reason: collision with root package name */
-    public JSONArray f39312f;
+    public JSONArray f37716f;
 
     /* renamed from: g  reason: collision with root package name */
-    public JSONArray f39313g;
+    public JSONArray f37717g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f39314h;
+    public int f37718h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b f39315i;
+    public b f37719i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f39316j;
+    public boolean f37720j;
     public int k;
     public int l;
     public int m;
     public int n;
-    public c.a.s0.a.c2.a.e.c.b o;
+    public c.a.p0.a.s1.a.e.c.b o;
 
-    /* loaded from: classes11.dex */
-    public class a implements c.a.s0.a.c2.a.e.c.b {
+    /* loaded from: classes5.dex */
+    public class a implements c.a.p0.a.s1.a.e.c.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdMultiPicker a;
@@ -78,7 +76,7 @@ public class BdMultiPicker extends LinearLayout {
             this.a = bdMultiPicker;
         }
 
-        @Override // c.a.s0.a.c2.a.e.c.b
+        @Override // c.a.p0.a.s1.a.e.c.b
         public void a(WheelView3d wheelView3d, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, wheelView3d, i2) == null) {
@@ -86,7 +84,7 @@ public class BdMultiPicker extends LinearLayout {
                 int intValue = ((Integer) wheelView3d.getTag()).intValue();
                 if (!this.a.h(intValue, currentItem)) {
                     boolean unused = BdMultiPicker.p;
-                } else if (this.a.f39315i != null) {
+                } else if (this.a.f37719i != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put(Frame.COLUMN, intValue);
@@ -99,13 +97,13 @@ public class BdMultiPicker extends LinearLayout {
                     if (BdMultiPicker.p) {
                         String str = "onEndFlingListener: params=" + jSONObject.toString();
                     }
-                    this.a.f39315i.a(this.a, jSONObject);
+                    this.a.f37719i.a(this.a, jSONObject);
                 }
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(BdMultiPicker bdMultiPicker, JSONObject jSONObject);
     }
@@ -123,7 +121,7 @@ public class BdMultiPicker extends LinearLayout {
                 return;
             }
         }
-        p = k.a;
+        p = c.a.p0.a.a.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -144,9 +142,9 @@ public class BdMultiPicker extends LinearLayout {
                 return;
             }
         }
-        this.f39312f = new JSONArray();
-        this.f39313g = new JSONArray();
-        this.f39314h = 0;
+        this.f37716f = new JSONArray();
+        this.f37717g = new JSONArray();
+        this.f37718h = 0;
         this.k = 16;
         this.n = 15;
         this.o = new a(this);
@@ -157,8 +155,8 @@ public class BdMultiPicker extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(0);
-            LayoutInflater.from(context).inflate(g.aiapps_multipicker_layout, this);
-            this.f39311e = (LinearLayout) findViewById(f.wheel_container);
+            LayoutInflater.from(context).inflate(R.layout.aiapps_multipicker_layout, this);
+            this.f37715e = (LinearLayout) findViewById(R.id.wheel_container);
             this.k = n0.f(context, this.k);
             this.n = n0.f(context, this.n);
         }
@@ -169,7 +167,7 @@ public class BdMultiPicker extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.l = n0.f(context, 16.0f);
             this.m = n0.f(context, 14.0f);
-            for (int i2 = 0; i2 < this.f39314h; i2++) {
+            for (int i2 = 0; i2 < this.f37718h; i2++) {
                 WheelView3d wheelView3d = new WheelView3d(context);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
                 layoutParams.weight = 1.0f;
@@ -186,21 +184,21 @@ public class BdMultiPicker extends LinearLayout {
                 wheelView3d.setLineSpacingMultiplier(3.0f);
                 wheelView3d.setVisibleItem(7);
                 f(wheelView3d, i2);
-                this.f39311e.addView(wheelView3d, layoutParams);
+                this.f37715e.addView(wheelView3d, layoutParams);
             }
-            this.f39316j = true;
+            this.f37720j = true;
         }
     }
 
     public final void f(WheelView3d wheelView3d, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, wheelView3d, i2) == null) || this.f39314h < 2) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, wheelView3d, i2) == null) || this.f37718h < 2) {
             return;
         }
         if (i2 == 0) {
             wheelView3d.setGravityOffset(-this.n);
         }
-        if (i2 == this.f39314h - 1) {
+        if (i2 == this.f37718h - 1) {
             wheelView3d.setGravityOffset(this.n);
         }
     }
@@ -209,10 +207,10 @@ public class BdMultiPicker extends LinearLayout {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i2, jSONArray)) == null) {
-            JSONArray jSONArray2 = this.f39312f;
+            JSONArray jSONArray2 = this.f37716f;
             if (jSONArray2 != null && i2 >= 0 && i2 <= jSONArray2.length() - 1) {
                 try {
-                    this.f39312f.put(i2, jSONArray);
+                    this.f37716f.put(i2, jSONArray);
                     return true;
                 } catch (JSONException e2) {
                     if (p) {
@@ -229,10 +227,10 @@ public class BdMultiPicker extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (p && this.f39313g != null) {
-                String str = "getCurrentIndex: index=" + this.f39313g.toString();
+            if (p && this.f37717g != null) {
+                String str = "getCurrentIndex: index=" + this.f37717g.toString();
             }
-            return this.f39313g;
+            return this.f37717g;
         }
         return (JSONArray) invokeV.objValue;
     }
@@ -241,11 +239,11 @@ public class BdMultiPicker extends LinearLayout {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i2, i3)) == null) {
-            JSONArray jSONArray = this.f39313g;
+            JSONArray jSONArray = this.f37717g;
             if (jSONArray != null && i2 >= 0 && i2 <= jSONArray.length() - 1) {
                 try {
-                    if (this.f39313g.getInt(i2) != i3) {
-                        this.f39313g.put(i2, i3);
+                    if (this.f37717g.getInt(i2) != i3) {
+                        this.f37717g.put(i2, i3);
                         return true;
                     }
                 } catch (JSONException e2) {
@@ -262,7 +260,7 @@ public class BdMultiPicker extends LinearLayout {
     public final void i(int i2, JSONArray jSONArray, int i3) {
         WheelView3d wheelView3d;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), jSONArray, Integer.valueOf(i3)}) == null) || (wheelView3d = (WheelView3d) this.f39311e.getChildAt(i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), jSONArray, Integer.valueOf(i3)}) == null) || (wheelView3d = (WheelView3d) this.f37715e.getChildAt(i2)) == null) {
             return;
         }
         ArrayList arrayList = new ArrayList();
@@ -278,7 +276,7 @@ public class BdMultiPicker extends LinearLayout {
             String str = "update wheel UI dataArray : " + jSONArray;
         }
         wheelView3d.setCyclic(false);
-        wheelView3d.setAdapter(new c.a.s0.a.c2.a.e.a.a(arrayList));
+        wheelView3d.setAdapter(new c.a.p0.a.s1.a.e.a.a(arrayList));
         wheelView3d.setCurrentItem(i3);
     }
 
@@ -287,8 +285,8 @@ public class BdMultiPicker extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(1048583, this, jSONArray) == null) || jSONArray == null) {
             return;
         }
-        this.f39312f = jSONArray;
-        this.f39314h = jSONArray.length();
+        this.f37716f = jSONArray;
+        this.f37718h = jSONArray.length();
     }
 
     public void setDataIndex(JSONArray jSONArray) {
@@ -296,13 +294,13 @@ public class BdMultiPicker extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONArray) == null) || jSONArray == null) {
             return;
         }
-        this.f39313g = jSONArray;
+        this.f37717g = jSONArray;
     }
 
     public void setMultiSelectedListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
-            this.f39315i = bVar;
+            this.f37719i = bVar;
         }
     }
 
@@ -325,14 +323,14 @@ public class BdMultiPicker extends LinearLayout {
 
     public void updateUI() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.f39314h == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.f37718h == 0) {
             return;
         }
-        if (!this.f39316j) {
+        if (!this.f37720j) {
             e(getContext());
         }
-        for (int i2 = 0; i2 < this.f39314h; i2++) {
-            JSONArray optJSONArray = this.f39312f.optJSONArray(i2);
+        for (int i2 = 0; i2 < this.f37718h; i2++) {
+            JSONArray optJSONArray = this.f37716f.optJSONArray(i2);
             ArrayList arrayList = null;
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 int length = optJSONArray.length();
@@ -349,9 +347,9 @@ public class BdMultiPicker extends LinearLayout {
                 arrayList = new ArrayList();
                 arrayList.add("");
             }
-            WheelView3d wheelView3d = (WheelView3d) this.f39311e.getChildAt(i2);
-            wheelView3d.setAdapter(new c.a.s0.a.c2.a.e.a.a(arrayList));
-            wheelView3d.setCurrentItem(this.f39313g.optInt(i2));
+            WheelView3d wheelView3d = (WheelView3d) this.f37715e.getChildAt(i2);
+            wheelView3d.setAdapter(new c.a.p0.a.s1.a.e.a.a(arrayList));
+            wheelView3d.setCurrentItem(this.f37717g.optInt(i2));
             wheelView3d.setCyclic(false);
         }
     }
@@ -384,9 +382,9 @@ public class BdMultiPicker extends LinearLayout {
                 return;
             }
         }
-        this.f39312f = new JSONArray();
-        this.f39313g = new JSONArray();
-        this.f39314h = 0;
+        this.f37716f = new JSONArray();
+        this.f37717g = new JSONArray();
+        this.f37718h = 0;
         this.k = 16;
         this.n = 15;
         this.o = new a(this);
@@ -412,9 +410,9 @@ public class BdMultiPicker extends LinearLayout {
                 return;
             }
         }
-        this.f39312f = new JSONArray();
-        this.f39313g = new JSONArray();
-        this.f39314h = 0;
+        this.f37716f = new JSONArray();
+        this.f37717g = new JSONArray();
+        this.f37718h = 0;
         this.k = 16;
         this.n = 15;
         this.o = new a(this);

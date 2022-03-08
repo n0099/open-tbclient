@@ -18,19 +18,19 @@ import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class f extends q<TTNativeExpressAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class a implements TTAdNative.NativeExpressAdListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FunAdSlot a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ f f28412b;
+        public final /* synthetic */ f f28250b;
 
         public a(f fVar, FunAdSlot funAdSlot) {
             Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public class f extends q<TTNativeExpressAd> {
                     return;
                 }
             }
-            this.f28412b = fVar;
+            this.f28250b = fVar;
             this.a = funAdSlot;
         }
 
@@ -56,7 +56,7 @@ public class f extends q<TTNativeExpressAd> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
                 LogPrinter.e("onError code: " + i2 + ", message: " + str, new Object[0]);
-                this.f28412b.onError(i2, str);
+                this.f28250b.onError(i2, str);
             }
         }
 
@@ -67,7 +67,7 @@ public class f extends q<TTNativeExpressAd> {
                 LogPrinter.e("CSJBannerExpressAd onNativeExpressAdLoad", new Object[0]);
                 if (list != null && !list.isEmpty()) {
                     TTNativeExpressAd tTNativeExpressAd = list.get(0);
-                    f fVar = this.f28412b;
+                    f fVar = this.f28250b;
                     this.a.getSid();
                     fVar.getClass();
                     tTNativeExpressAd.setExpressInteractionListener(new i(fVar, tTNativeExpressAd));
@@ -75,7 +75,7 @@ public class f extends q<TTNativeExpressAd> {
                     return;
                 }
                 LogPrinter.e("CSJBannerExpressAd onError: adList is null or empty", new Object[0]);
-                this.f28412b.onError(0, "NoFill");
+                this.f28250b.onError(0, "NoFill");
             }
         }
     }
@@ -122,7 +122,7 @@ public class f extends q<TTNativeExpressAd> {
             }
             AdSlot build = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setDownloadType(FunAdSdk.getFunAdConfig().downLoadType).setAdCount(1).setExpressViewAcceptedSize(expressWidth, expressHeight).build();
             onLoadStart(funAdSlot);
-            this.f28451h.loadBannerExpressAd(build, new a(this, funAdSlot));
+            this.f28289h.loadBannerExpressAd(build, new a(this, funAdSlot));
         }
     }
 

@@ -10,7 +10,7 @@ import com.kwad.v8.V8;
 import com.kwad.v8.V8Object;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class V8Inspector {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

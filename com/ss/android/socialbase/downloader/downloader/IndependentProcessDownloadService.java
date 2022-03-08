@@ -1,7 +1,7 @@
 package com.ss.android.socialbase.downloader.downloader;
 
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class IndependentProcessDownloadService extends DownloadService {
     @Override // com.ss.android.socialbase.downloader.downloader.DownloadService, android.app.Service
     public void onCreate() {

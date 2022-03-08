@@ -23,7 +23,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class LottieComposition {
     public Rect bounds;
     public SparseArrayCompat<FontCharacter> characters;
@@ -42,10 +42,10 @@ public class LottieComposition {
     public int maskAndMatteCount = 0;
 
     @Deprecated
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class Factory {
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes3.dex */
         public static final class ListenerAdapter implements LottieListener<LottieComposition>, Cancellable {
             public boolean cancelled;
             public final OnCompositionLoadedListener listener;

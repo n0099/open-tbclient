@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class Sticker extends BaseBeautyItem {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public class Sticker extends BaseBeautyItem {
     public List<AbilityModel> mSoFileList;
     public boolean mTouchAble;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static class AbilityModel implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

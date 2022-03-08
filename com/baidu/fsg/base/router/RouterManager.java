@@ -13,17 +13,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class RouterManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "MaApplication";
 
     /* renamed from: b  reason: collision with root package name */
-    public static RouterManager f33993b;
+    public static RouterManager f32396b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<ApplicationLogicWrapper> f33994c;
+    public ArrayList<ApplicationLogicWrapper> f32397c;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public class RouterManager {
                 return;
             }
         }
-        f33993b = new RouterManager();
+        f32396b = new RouterManager();
     }
 
     public RouterManager() {
@@ -54,17 +54,17 @@ public class RouterManager {
                 return;
             }
         }
-        this.f33994c = new ArrayList<>();
+        this.f32397c = new ArrayList<>();
     }
 
     private void a(Context context, HashMap<String, Object> hashMap) {
         ArrayList<ApplicationLogicWrapper> arrayList;
         BaseApplicationLogic baseApplicationLogic;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, this, context, hashMap) == null) || (arrayList = this.f33994c) == null || arrayList.size() < 1) {
+        if (!(interceptable == null || interceptable.invokeLL(65538, this, context, hashMap) == null) || (arrayList = this.f32397c) == null || arrayList.size() < 1) {
             return;
         }
-        Iterator<ApplicationLogicWrapper> it = this.f33994c.iterator();
+        Iterator<ApplicationLogicWrapper> it = this.f32397c.iterator();
         while (it.hasNext()) {
             ApplicationLogicWrapper next = it.next();
             if (next != null) {
@@ -84,7 +84,7 @@ public class RouterManager {
     public static RouterManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f33993b : (RouterManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f32396b : (RouterManager) invokeV.objValue;
     }
 
     public void init(Context context, HashMap<String, Object> hashMap) {
@@ -108,7 +108,7 @@ public class RouterManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
-            ArrayList<ApplicationLogicWrapper> arrayList = this.f33994c;
+            ArrayList<ApplicationLogicWrapper> arrayList = this.f32397c;
             if (arrayList != null) {
                 Iterator<ApplicationLogicWrapper> it = arrayList.iterator();
                 while (it.hasNext()) {
@@ -116,7 +116,7 @@ public class RouterManager {
                         throw new RuntimeException(cls.getName() + " has registered.");
                     }
                 }
-                this.f33994c.add(new ApplicationLogicWrapper(cls));
+                this.f32397c.add(new ApplicationLogicWrapper(cls));
                 return true;
             }
             return false;

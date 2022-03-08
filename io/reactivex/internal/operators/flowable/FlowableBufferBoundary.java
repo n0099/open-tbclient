@@ -29,7 +29,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Open, Close> extends AbstractFlowableWithUpstream<T, U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
     public final Publisher<? extends Open> bufferOpen;
     public final Callable<U> bufferSupplier;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class BufferBoundarySubscriber<T, C extends Collection<? super T>, Open, Close> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8466418554264089604L;
@@ -57,7 +57,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
         public final CompositeDisposable subscribers;
         public final AtomicReference<Subscription> upstream;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes8.dex */
         public static final class BufferOpenSubscriber<Open> extends AtomicReference<Subscription> implements FlowableSubscriber<Open>, Disposable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -8498650778633225126L;
@@ -402,7 +402,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class BufferCloseSubscriber<T, C extends Collection<? super T>> extends AtomicReference<Subscription> implements FlowableSubscriber<Object>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8498650778633225126L;

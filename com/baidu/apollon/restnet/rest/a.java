@@ -22,19 +22,19 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 import okhttp3.CertificatePinner;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class a implements HostnameVerifier {
     public static /* synthetic */ Interceptable $ic = null;
     public static final a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f32842b;
+    public static final Pattern f31245b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f32843c = 2;
+    public static final int f31246c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f32844d = 7;
+    public static final int f31247d = 7;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -51,7 +51,7 @@ public final class a implements HostnameVerifier {
             }
         }
         a = new a();
-        f32842b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+        f31245b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
     }
 
     public a() {
@@ -130,7 +130,7 @@ public final class a implements HostnameVerifier {
     public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f32842b.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f31245b.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static List<String> a(X509Certificate x509Certificate) {

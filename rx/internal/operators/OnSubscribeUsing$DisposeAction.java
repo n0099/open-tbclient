@@ -10,7 +10,7 @@ import i.k;
 import i.n.a;
 import i.n.b;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class OnSubscribeUsing$DisposeAction<Resource> extends AtomicBoolean implements a, k {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 4262875056400218316L;

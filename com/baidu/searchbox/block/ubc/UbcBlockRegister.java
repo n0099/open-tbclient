@@ -27,7 +27,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class UbcBlockRegister implements IBlockRegister {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_BLOCK_CATCH_ACTIVE_UPLOAD = "key_block_catch_active_upload";

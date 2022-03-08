@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CropAlgo lL;
     public HandlerThread lM;
     public Handler lN;
-    public InterfaceC1778a lO;
+    public InterfaceC1754a lO;
     public boolean lP;
     public boolean lQ;
     public d lR;
@@ -26,12 +26,12 @@ public class a {
     public int mInputWidth;
 
     /* renamed from: com.baidu.ar.child.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC1778a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC1754a {
         void a(long j2, byte[] bArr, int i2);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,12 +69,12 @@ public class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void handleMessage(Message message);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class d implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -233,10 +233,10 @@ public class a {
         return invokeCommon.longValue;
     }
 
-    public void a(InterfaceC1778a interfaceC1778a) {
+    public void a(InterfaceC1754a interfaceC1754a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1778a) == null) {
-            this.lO = interfaceC1778a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1754a) == null) {
+            this.lO = interfaceC1754a;
         }
     }
 

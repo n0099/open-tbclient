@@ -32,6 +32,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.Closeable;
@@ -50,7 +51,7 @@ import java.util.Map;
 import java.util.Set;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class Utility {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Utility";
@@ -133,14 +134,14 @@ public class Utility {
         while (true) {
             Map.Entry<String, String> next = it.next();
             sb.append(next.getKey());
-            sb.append(a.f31099h);
+            sb.append(a.f29503h);
             sb.append(next.getValue());
             if (!it.hasNext()) {
                 sb.append(ExtendedMessageFormat.END_FE);
                 return sb.toString();
             }
             sb.append(',');
-            sb.append(' ');
+            sb.append(WebvttCueParser.CHAR_SPACE);
         }
     }
 
@@ -685,7 +686,7 @@ public class Utility {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x006d */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x006c */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r8v1 */
     /* JADX WARN: Type inference failed for: r8v13 */

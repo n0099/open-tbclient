@@ -1,25 +1,25 @@
 package com.kwad.sdk.fullscreen.kwai;
 
 import android.view.ViewGroup;
-import com.kwad.sdk.R;
+import com.baidu.tieba.R;
 import com.kwad.sdk.contentalliance.detail.video.d;
 import com.kwad.sdk.contentalliance.detail.video.e;
 import com.kwad.sdk.reward.a.f;
 import com.kwad.sdk.reward.g;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a extends g {
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f57145b;
+    public ViewGroup f55495b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f57146c;
+    public ViewGroup f55496c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f57147d;
+    public ViewGroup f55497d;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f57148e = new f() { // from class: com.kwad.sdk.fullscreen.kwai.a.1
+    public f f55498e = new f() { // from class: com.kwad.sdk.fullscreen.kwai.a.1
         @Override // com.kwad.sdk.reward.a.f
         public void a() {
             a.this.e();
@@ -27,7 +27,7 @@ public class a extends g {
     };
 
     /* renamed from: f  reason: collision with root package name */
-    public d f57149f = new e() { // from class: com.kwad.sdk.fullscreen.kwai.a.2
+    public d f55499f = new e() { // from class: com.kwad.sdk.fullscreen.kwai.a.2
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void f() {
             super.f();
@@ -40,8 +40,8 @@ public class a extends g {
         if (((g) this).a.t) {
             return;
         }
-        this.f57145b.setVisibility(8);
-        this.f57146c.setVisibility(0);
+        this.f55495b.setVisibility(8);
+        this.f55496c.setVisibility(0);
     }
 
     @Override // com.kwad.sdk.reward.g, com.kwad.sdk.mvp.Presenter
@@ -49,30 +49,30 @@ public class a extends g {
         ViewGroup viewGroup;
         super.a();
         if (((g) this).a.t) {
-            this.f57147d.setVisibility(0);
-            this.f57145b.setVisibility(8);
-            viewGroup = this.f57146c;
+            this.f55497d.setVisibility(0);
+            this.f55495b.setVisibility(8);
+            viewGroup = this.f55496c;
         } else {
-            this.f57145b.setVisibility(0);
-            viewGroup = this.f57147d;
+            this.f55495b.setVisibility(0);
+            viewGroup = this.f55497d;
         }
         viewGroup.setVisibility(8);
-        ((g) this).a.a(this.f57148e);
-        ((g) this).a.k.a(this.f57149f);
+        ((g) this).a.a(this.f55498e);
+        ((g) this).a.k.a(this.f55499f);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        ((g) this).a.b(this.f57148e);
-        ((g) this).a.k.b(this.f57149f);
+        ((g) this).a.b(this.f55498e);
+        ((g) this).a.k.b(this.f55499f);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.f57145b = (ViewGroup) a(R.id.ksad_play_detail_top_toolbar);
-        this.f57146c = (ViewGroup) a(R.id.ksad_play_end_top_toolbar);
-        this.f57147d = (ViewGroup) a(R.id.ksad_js_top);
+        this.f55495b = (ViewGroup) a(R.id.ksad_play_detail_top_toolbar);
+        this.f55496c = (ViewGroup) a(R.id.ksad_play_end_top_toolbar);
+        this.f55497d = (ViewGroup) a(R.id.ksad_js_top);
     }
 }

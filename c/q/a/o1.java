@@ -1,52 +1,64 @@
 package c.q.a;
 
-import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.PBError;
-import com.win.opensdk.PBInterstitialListener;
-import com.win.opensdk.core.Info;
-/* loaded from: classes9.dex */
-public class o1 implements o0 {
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.Writer;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+import java.util.zip.GZIPInputStream;
+import javax.net.ssl.HttpsURLConnection;
+/* loaded from: classes3.dex */
+public class o1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public URL a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public byte[] f29051b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Map f29052c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Map f29053d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30631e;
+    public String f29054e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f30632f;
+    public int f29055f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f30633g;
+    public boolean f29056g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f30634h;
+    public boolean f29057h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f30635i;
+    public int f29058i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Info f30636j;
-    public j3 k;
-    public PBInterstitialListener l;
-    public a5 m;
-    public long n;
-    public Handler o;
+    public int f29059j;
 
-    public o1(Context context, String str) {
+    public o1(String str, String str2, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {str, str2, map};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -56,82 +68,107 @@ public class o1 implements o0 {
                 return;
             }
         }
-        this.o = new v0(this, Looper.getMainLooper());
-        this.f30632f = context;
-        this.f30631e = str;
+        this.f29054e = "GET";
+        this.f29055f = -1;
+        this.f29056g = false;
+        this.f29057h = true;
+        this.a = new URL(str);
+        this.f29054e = str2;
+        this.f29052c = map;
+        this.f29058i = 20000;
+        this.f29059j = 20000;
     }
 
-    @Override // c.q.a.o0
-    public void a(String str, String str2, Object obj) {
+    public r1 a() {
+        InterceptResult invokeV;
+        HttpURLConnection httpURLConnection;
+        InputStream errorStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, obj) == null) {
-            if (TextUtils.equals(str, this.f30636j.getId() + this.f30631e)) {
-                char c2 = 65535;
-                int hashCode = str2.hashCode();
-                if (hashCode != -1122984843) {
-                    if (hashCode != -1122893139) {
-                        if (hashCode == 109719091 && str2.equals("is_click")) {
-                            c2 = 0;
-                        }
-                    } else if (str2.equals("is_display")) {
-                        c2 = 2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            String url = this.a.toString();
+            if (!TextUtils.isEmpty(url) ? url.startsWith("http") : false) {
+                httpURLConnection = (HttpURLConnection) this.a.openConnection();
+            } else {
+                httpURLConnection = (HttpsURLConnection) this.a.openConnection();
+            }
+            httpURLConnection.setRequestMethod(this.f29054e);
+            httpURLConnection.setInstanceFollowRedirects(this.f29057h);
+            httpURLConnection.setReadTimeout(this.f29059j);
+            httpURLConnection.setConnectTimeout(this.f29058i);
+            httpURLConnection.setDoInput(true);
+            Map map = this.f29052c;
+            if (map != null && map.size() > 0) {
+                for (Map.Entry entry : map.entrySet()) {
+                    String str = (String) entry.getKey();
+                    for (String str2 : (List) entry.getValue()) {
+                        String str3 = "header:" + str + "=" + str2;
+                        httpURLConnection.setRequestProperty(str, str2);
                     }
-                } else if (str2.equals("is_dismiss")) {
-                    c2 = 1;
-                }
-                if (c2 == 0) {
-                    this.l.onClicked();
-                } else if (c2 == 1) {
-                    this.l.onInterstitialDismissed();
-                } else if (c2 != 2) {
-                } else {
-                    this.l.onInterstitialDisplayed();
                 }
             }
+            if (this.f29054e.equals("POST")) {
+                httpURLConnection.setDoInput(true);
+                httpURLConnection.setDoOutput(true);
+                PrintWriter printWriter = null;
+                PrintWriter printWriter2 = null;
+                try {
+                    OutputStream outputStream = httpURLConnection.getOutputStream();
+                    byte[] bArr = this.f29051b;
+                    if (bArr == null) {
+                        PrintWriter printWriter3 = new PrintWriter((Writer) new OutputStreamWriter(outputStream, "UTF-8"), true);
+                        try {
+                            URL url2 = this.a;
+                            printWriter3.print(url2 != null ? url2.getQuery() : null);
+                            printWriter3.flush();
+                            printWriter2 = printWriter3;
+                        } catch (Throwable th) {
+                            th = th;
+                            printWriter = printWriter3;
+                            if (printWriter != null) {
+                                printWriter.close();
+                            }
+                            throw th;
+                        }
+                    } else {
+                        outputStream.write(bArr);
+                        outputStream.flush();
+                    }
+                    if (printWriter2 != null) {
+                        printWriter2.close();
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            }
+            this.f29055f = httpURLConnection.getResponseCode();
+            httpURLConnection.getContentLength();
+            if (httpURLConnection.getHeaderFields() != null) {
+                this.f29053d = httpURLConnection.getHeaderFields();
+            }
+            try {
+                String contentEncoding = httpURLConnection.getContentEncoding();
+                errorStream = (contentEncoding == null || !contentEncoding.contains("gzip")) ? httpURLConnection.getInputStream() : new GZIPInputStream(httpURLConnection.getInputStream());
+            } catch (IOException e2) {
+                errorStream = httpURLConnection.getErrorStream();
+                if (errorStream == null) {
+                    throw new RuntimeException("InputStream is error: " + e2.getMessage());
+                }
+            }
+            BufferedInputStream bufferedInputStream = new BufferedInputStream(errorStream);
+            byte[] bArr2 = new byte[4096];
+            int i2 = 0;
+            while (!this.f29056g && i2 != -1) {
+                i2 = bufferedInputStream.read(bArr2);
+                if (i2 > 0) {
+                    byteArrayOutputStream.write(bArr2, 0, i2);
+                }
+            }
+            httpURLConnection.disconnect();
+            byteArrayOutputStream.flush();
+            errorStream.close();
+            return new r1(this.f29055f, byteArrayOutputStream.toByteArray(), this.f29053d);
         }
-    }
-
-    public final void b(Info info) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, info) == null) {
-            boolean z = false;
-            this.f30635i = false;
-            this.f30636j = info;
-            this.n = System.currentTimeMillis();
-            if (e() && this.f30636j.getType() == 21) {
-                z = true;
-            }
-            if (z) {
-                if (c()) {
-                    this.l.onLoaded();
-                    return;
-                }
-                j3 j3Var = new j3(this.f30632f);
-                this.k = j3Var;
-                j3Var.a = new h1(this);
-                this.k.a(this.f30636j.getLoad(), this.f30636j);
-                this.o.sendEmptyMessageDelayed(11, this.f30636j.getWt() * 1000);
-                return;
-            }
-            this.l.onFail(PBError.PID_TYPE_ERROR);
-        }
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30633g && !this.f30635i && e() && !this.f30636j.isShown() && this.f30636j.isEffective() : invokeV.booleanValue;
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30636j != null : invokeV.booleanValue;
-    }
-
-    public final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? e() && this.f30636j.getType() == 21 : invokeV.booleanValue;
+        return (r1) invokeV.objValue;
     }
 }

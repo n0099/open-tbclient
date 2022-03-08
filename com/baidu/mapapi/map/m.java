@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class m implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,9 +37,9 @@ public class m implements View.OnClickListener {
         com.baidu.mapsdkplatform.comapi.map.j jVar3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            jVar = this.a.f35557e;
-            float f2 = jVar.a().f36093b;
-            jVar2 = this.a.f35557e;
+            jVar = this.a.f33960e;
+            float f2 = jVar.a().f34496b;
+            jVar2 = this.a.f33960e;
             ab E = jVar2.a().E();
             float f3 = E.a - 1.0f;
             E.a = f3;
@@ -48,7 +48,7 @@ public class m implements View.OnClickListener {
             }
             E.a = f2;
             BaiduMap.mapStatusReason |= 16;
-            jVar3 = this.a.f35557e;
+            jVar3 = this.a.f33960e;
             jVar3.a().a(E, 300);
         }
     }

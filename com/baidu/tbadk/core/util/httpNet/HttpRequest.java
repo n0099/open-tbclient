@@ -3,11 +3,11 @@ package com.baidu.tbadk.core.util.httpNet;
 import android.os.Build;
 import android.text.TextUtils;
 import c.a.d.f.p.l;
-import c.a.t0.k0.f;
-import c.a.t0.s.j0.b;
-import c.a.t0.s.m.c;
-import c.a.t0.s.m.e;
-import c.a.t0.t.b.a;
+import c.a.q0.j0.f;
+import c.a.q0.r.j0.b;
+import c.a.q0.r.m.c;
+import c.a.q0.r.m.e;
+import c.a.q0.s.b.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,9 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class HttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ANDROID_ID = "android_id";
@@ -204,20 +202,9 @@ public class HttpRequest {
             iNetWorkCore.addPostData(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, String.valueOf(TbSingleton.getInstance().getAppLastUpdateTime()));
             iNetWorkCore.addPostData("event_day", TbSingleton.getInstance().getData());
             iNetWorkCore.addPostData(CommonUrlParamManager.PARAM_CMODE, PermissionUtil.isAgreePrivacyPolicy() ? "1" : "2");
-            iNetWorkCore.addPostData("is_teenager", c.a.t0.g1.b.c.d() ? "1" : "0");
-            StringBuilder sb = new StringBuilder();
-            sb.append(c.a.t0.s.a0.a.f13402f);
-            String str = "";
-            sb.append("");
-            iNetWorkCore.addPostData("start_type", sb.toString());
-            try {
-                if (!StringUtils.isNull(c.a.t0.s.a0.a.f13401e)) {
-                    str = URLEncoder.encode(c.a.t0.s.a0.a.f13401e, "utf-8");
-                }
-                iNetWorkCore.addPostData("start_scheme", str);
-            } catch (UnsupportedEncodingException e2) {
-                e2.printStackTrace();
-            }
+            iNetWorkCore.addPostData("is_teenager", c.a.q0.f1.b.c.d() ? "1" : "0");
+            iNetWorkCore.addPostData("start_type", c.a.q0.r.a0.a.f12818f + "");
+            iNetWorkCore.addPostData("start_scheme", c.a.q0.r.a0.a.e());
         }
     }
 

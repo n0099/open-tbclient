@@ -11,10 +11,8 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.k.a;
 import c.a.d.f.p.m;
+import c.a.d.m.d;
 import c.a.d.m.e;
-import c.a.u0.a4.d;
-import c.a.u0.a4.f;
-import c.a.u0.a4.k;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -24,6 +22,7 @@ import com.baidu.searchbox.pms.init.PmsManager;
 import com.baidu.searchbox.pms.init.RequestParams;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +31,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class ViewHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARROW = "skin_arrow";
@@ -56,14 +55,14 @@ public class ViewHelper {
     public static int mSkin_1_common_color = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public interface ShareCallback {
         void finishProgressForSharing();
 
         void startProgressForSharing();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public interface ViewCallback {
         boolean onViewFound(View view);
     }
@@ -163,8 +162,8 @@ public class ViewHelper {
         if (!(interceptable == null || interceptable.invokeV(65545, null) == null) || (context = mAppContext) == null || context.getResources() == null) {
             return;
         }
-        mMore_color = mAppContext.getResources().getColor(d.common_color_10097);
-        mSkin_1_common_color = mAppContext.getResources().getColor(d.common_color_10004);
+        mMore_color = mAppContext.getResources().getColor(R.color.common_color_10097);
+        mSkin_1_common_color = mAppContext.getResources().getColor(R.color.common_color_10004);
     }
 
     public static void initSkinDataOnStartup(Context context) {
@@ -277,34 +276,34 @@ public class ViewHelper {
                                 ViewHelper.setTextColor((CheckBox) view, this.val$skinType);
                                 return false;
                             } else if (ViewHelper.SIDE_BAR_CONTENT.equals(tag)) {
-                                ((TextView) view).setTextAppearance(TbadkCoreApplication.getInst().getApp(), this.val$isNight ? k.sidebar_content_1 : k.sidebar_content);
+                                ((TextView) view).setTextAppearance(TbadkCoreApplication.getInst().getApp(), this.val$isNight ? R.style.sidebar_content_1 : R.style.sidebar_content);
                                 return false;
                             } else if (ViewHelper.MORE_UP.equals(tag)) {
                                 if (view instanceof RadioButton) {
                                     ((RadioButton) view).setTextColor(ViewHelper.getCommonColor(this.val$isNight));
                                 }
-                                SkinManager.setBackgroundResource(view, f.more_up);
+                                SkinManager.setBackgroundResource(view, R.drawable.more_up);
                                 return false;
                             } else if (ViewHelper.MORE_MIDDLE.equals(tag)) {
                                 if (view instanceof RadioButton) {
                                     ((RadioButton) view).setTextColor(ViewHelper.getCommonColor(this.val$isNight));
                                 }
-                                SkinManager.setBackgroundResource(view, f.more_middle);
+                                SkinManager.setBackgroundResource(view, R.drawable.more_middle);
                                 return false;
                             } else if (ViewHelper.MORE_DOWN.equals(tag)) {
                                 if (view instanceof RadioButton) {
                                     ((RadioButton) view).setTextColor(ViewHelper.getCommonColor(this.val$isNight));
                                 }
-                                SkinManager.setBackgroundResource(view, f.more_down);
+                                SkinManager.setBackgroundResource(view, R.drawable.more_down);
                                 return false;
                             } else if (ViewHelper.MORE_ALL.equals(tag)) {
                                 if (view instanceof RadioButton) {
                                     ((RadioButton) view).setTextColor(ViewHelper.getCommonColor(this.val$isNight));
                                 }
-                                SkinManager.setBackgroundResource(view, f.more_all);
+                                SkinManager.setBackgroundResource(view, R.drawable.more_all);
                                 return false;
                             } else if (ViewHelper.ARROW.equals(tag)) {
-                                SkinManager.setImageResource((ImageView) view, f.icon_ba_top_arrow_big);
+                                SkinManager.setImageResource((ImageView) view, R.drawable.icon_ba_top_arrow_big);
                                 return false;
                             } else if (ViewHelper.LIST_ITEM_LINE.equals(tag)) {
                                 ViewHelper.setSkinForListDivider(view, this.val$skinType);
@@ -366,11 +365,11 @@ public class ViewHelper {
         }
         view.setBackgroundDrawable(null);
         if (i2 == 0) {
-            SkinManager.setBackgroundResource(view, f.auto_skin_list_item_bg_up);
+            SkinManager.setBackgroundResource(view, R.drawable.auto_skin_list_item_bg_up);
         } else if (i2 == 2) {
-            SkinManager.setBackgroundResource(view, f.auto_skin_list_item_bg_down);
+            SkinManager.setBackgroundResource(view, R.drawable.auto_skin_list_item_bg_down);
         } else {
-            SkinManager.setBackgroundResource(view, f.list_selector_item);
+            SkinManager.setBackgroundResource(view, R.drawable.list_selector_item);
         }
     }
 
@@ -394,7 +393,7 @@ public class ViewHelper {
         if (!(interceptable == null || interceptable.invokeLLL(65560, null, context, str, str2) == null) || context == null) {
             return;
         }
-        c.a.t0.s.d0.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+        c.a.q0.r.d0.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true, str, str2)));
     }
 
@@ -404,7 +403,7 @@ public class ViewHelper {
         if (!(interceptable == null || interceptable.invokeL(65561, null, context) == null) || context == null) {
             return;
         }
-        c.a.t0.s.d0.a.a("account", -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
+        c.a.q0.r.d0.a.a("account", -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
         skipToLoginActivity(context);
     }
 
@@ -434,13 +433,20 @@ public class ViewHelper {
         if (!(interceptable == null || interceptable.invokeLL(65559, null, context, str) == null) || context == null) {
             return;
         }
-        c.a.t0.s.d0.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+        c.a.q0.r.d0.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
         if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libbd_pass_face_sdk.so"))) {
             RequestParams requestParams = new RequestParams();
             requestParams.setRunType(e.a);
             requestParams.setRunNode("aps");
-            requestParams.addChannel(new c.a.d.m.d("com.baidu.tieba.soloader.libbdface", (DefaultDownloadCallback) null));
+            requestParams.addChannel(new d("com.baidu.tieba.soloader.libbdface", (DefaultDownloadCallback) null));
             PmsManager.getInstance().execute(requestParams);
+        }
+        if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libmml_framework.so"))) {
+            RequestParams requestParams2 = new RequestParams();
+            requestParams2.setRunType(e.a);
+            requestParams2.setRunNode("aps");
+            requestParams2.addChannel(new d("com.baidu.tieba.soloader.libmmlframework", (DefaultDownloadCallback) null));
+            PmsManager.getInstance().execute(requestParams2);
         }
         LoginActivityConfig loginActivityConfig = new LoginActivityConfig(context, true);
         if (!m.isEmpty(str)) {

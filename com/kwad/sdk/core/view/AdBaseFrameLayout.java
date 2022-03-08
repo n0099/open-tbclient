@@ -10,11 +10,11 @@ import android.widget.FrameLayout;
 import androidx.annotation.MainThread;
 import com.kwad.sdk.core.d.a;
 import com.kwad.sdk.utils.z;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class AdBaseFrameLayout extends FrameLayout {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final z.a f56521b = new z.a();
+    public static final z.a f54871b = new z.a();
     public View.OnTouchListener a;
 
     public AdBaseFrameLayout(Context context) {
@@ -51,17 +51,17 @@ public class AdBaseFrameLayout extends FrameLayout {
         }
         int action = motionEvent.getAction();
         if (action == 0) {
-            f56521b.a(getWidth(), getHeight());
-            f56521b.a(motionEvent.getX(), motionEvent.getY());
+            f54871b.a(getWidth(), getHeight());
+            f54871b.a(motionEvent.getX(), motionEvent.getY());
         } else if (action == 1) {
-            f56521b.b(motionEvent.getX(), motionEvent.getY());
+            f54871b.b(motionEvent.getX(), motionEvent.getY());
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @MainThread
     public z.a getTouchCoords() {
-        return f56521b;
+        return f54871b;
     }
 
     @Override // android.view.View

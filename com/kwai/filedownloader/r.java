@@ -15,22 +15,22 @@ import com.kwai.filedownloader.a;
 import com.kwai.filedownloader.services.c;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class r {
     public static /* synthetic */ Interceptable $ic;
     public static final Object a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f58548c;
+    public static final Object f56898c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public w f58549b;
+    public w f56899b;
 
     /* renamed from: d  reason: collision with root package name */
-    public v f58550d;
+    public v f56900d;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final r a;
@@ -67,7 +67,7 @@ public class r {
             }
         }
         a = new Object();
-        f58548c = new Object();
+        f56898c = new Object();
     }
 
     public r() {
@@ -183,14 +183,14 @@ public class r {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f58549b == null) {
+            if (this.f56899b == null) {
                 synchronized (a) {
-                    if (this.f58549b == null) {
-                        this.f58549b = new ab();
+                    if (this.f56899b == null) {
+                        this.f56899b = new ab();
                     }
                 }
             }
-            return this.f58549b;
+            return this.f56899b;
         }
         return (w) invokeV.objValue;
     }
@@ -199,16 +199,16 @@ public class r {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f58550d == null) {
-                synchronized (f58548c) {
-                    if (this.f58550d == null) {
+            if (this.f56900d == null) {
+                synchronized (f56898c) {
+                    if (this.f56900d == null) {
                         z zVar = new z();
-                        this.f58550d = zVar;
+                        this.f56900d = zVar;
                         a(zVar);
                     }
                 }
             }
-            return this.f58550d;
+            return this.f56900d;
         }
         return (v) invokeV.objValue;
     }

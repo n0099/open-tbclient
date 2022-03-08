@@ -10,7 +10,7 @@ import com.tachikoma.annotation.TK_EXPORT_CLASS;
 import java.util.HashMap;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class TKBaseEvent implements IBaseEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TK_CLICK_EVENT_NAME = "tap";

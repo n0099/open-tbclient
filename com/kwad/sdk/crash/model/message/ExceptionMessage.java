@@ -11,7 +11,7 @@ import com.kwad.sdk.utils.t;
 import java.io.Serializable;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class ExceptionMessage implements b, Serializable {
     public static final long serialVersionUID = -5338556142957298914L;
     public long mCurrentTimeStamp;

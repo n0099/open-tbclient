@@ -1,25 +1,37 @@
 package c.q.a;
 
-import android.content.Context;
-import android.widget.VideoView;
+import android.graphics.Bitmap;
+import android.os.AsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.PBError;
-/* loaded from: classes9.dex */
-public class p3 implements i3 {
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+/* loaded from: classes3.dex */
+public final class p3 extends AsyncTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ b1 a;
+    public final /* synthetic */ File a;
 
-    public p3(b1 b1Var) {
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ Bitmap f29078b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ Bitmap.CompressFormat f29079c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final /* synthetic */ m5 f29080d;
+
+    public p3(File file, Bitmap bitmap, Bitmap.CompressFormat compressFormat, m5 m5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {b1Var};
+            Object[] objArr = {file, bitmap, compressFormat, m5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -29,96 +41,103 @@ public class p3 implements i3 {
                 return;
             }
         }
-        this.a = b1Var;
+        this.a = file;
+        this.f29078b = bitmap;
+        this.f29079c = compressFormat;
+        this.f29080d = m5Var;
     }
 
-    @Override // c.q.a.i3
-    public void a(boolean z) {
-        VideoView videoView;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x003b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0007 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:9:0x001e */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v10, types: [java.io.FileOutputStream] */
+    /* JADX WARN: Type inference failed for: r0v11 */
+    /* JADX WARN: Type inference failed for: r0v12 */
+    /* JADX WARN: Type inference failed for: r0v13, types: [java.io.OutputStream, java.io.FileOutputStream] */
+    /* JADX WARN: Type inference failed for: r0v16 */
+    /* JADX WARN: Type inference failed for: r0v17 */
+    /* JADX WARN: Type inference failed for: r0v2 */
+    /* JADX WARN: Type inference failed for: r0v3 */
+    /* JADX WARN: Type inference failed for: r0v8 */
+    /* JADX WARN: Type inference failed for: r0v9, types: [java.io.IOException] */
+    /* JADX WARN: Type inference failed for: r1v6, types: [android.graphics.Bitmap] */
+    @Override // android.os.AsyncTask
+    public Object doInBackground(Object[] objArr) {
+        Throwable th;
+        IOException e2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (videoView = this.a.f30521h) == null) {
-            return;
-        }
-        if (!z) {
-            videoView.pause();
-            return;
-        }
-        videoView.start();
-        this.a.a();
-    }
-
-    @Override // com.win.opensdk.PBListener
-    public void onClicked() {
-        c1 c1Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (c1Var = this.a.f30516c) == null) {
-            return;
-        }
-        c1Var.onClicked();
-    }
-
-    @Override // c.q.a.i3
-    public void onDisplayed() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b1 b1Var = this.a;
-            if (b1Var.f30516c != null) {
-                VideoView videoView = b1Var.f30521h;
-                if (videoView != null) {
-                    videoView.start();
-                    this.a.a();
-                }
-                this.a.f30516c.onDisplayed();
+        InterceptResult e3 = interceptable;
+        if (interceptable != null) {
+            InterceptResult invokeL = interceptable.invokeL(1048576, this, objArr);
+            e3 = invokeL;
+            if (invokeL != null) {
+                return invokeL.objValue;
             }
         }
+        Void[] voidArr = (Void[]) objArr;
+        FileOutputStream fileOutputStream = null;
+        try {
+        } catch (Throwable th2) {
+            FileOutputStream fileOutputStream2 = e3;
+            th = th2;
+            fileOutputStream = fileOutputStream2;
+        }
+        try {
+            try {
+                e3 = new FileOutputStream(this.a);
+            } catch (IOException e4) {
+                e3 = e4;
+                e3.printStackTrace();
+            }
+            try {
+                this.f29078b.compress(this.f29079c, 100, e3);
+                e3.flush();
+                e3.close();
+                e3 = e3;
+            } catch (IOException e5) {
+                e2 = e5;
+                new com.win.opensdk.k0(e2);
+                cancel(true);
+                if (e3 != 0) {
+                    e3.flush();
+                    e3.close();
+                    e3 = e3;
+                }
+                return null;
+            }
+        } catch (IOException e6) {
+            e2 = e6;
+            e3 = 0;
+        } catch (Throwable th3) {
+            th = th3;
+            if (fileOutputStream != null) {
+                try {
+                    fileOutputStream.flush();
+                    fileOutputStream.close();
+                } catch (IOException e7) {
+                    e7.printStackTrace();
+                }
+            }
+            throw th;
+        }
+        return null;
     }
 
-    @Override // com.win.opensdk.PBListener
-    public void onFail(PBError pBError) {
+    @Override // android.os.AsyncTask
+    public void onCancelled() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, pBError) == null) {
-            if (pBError == PBError.PID_INVALID) {
-                c1 c1Var = this.a.f30516c;
-                if (c1Var != null) {
-                    c1Var.onFail(PBError.NO_FILL);
-                    return;
-                }
-                return;
-            }
-            b1 b1Var = this.a;
-            c1 c1Var2 = b1Var.f30516c;
-            if (c1Var2 == null || b1Var.f30518e) {
-                return;
-            }
-            c1Var2.onFail(PBError.NO_FILL);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f29080d.a();
         }
     }
 
-    @Override // com.win.opensdk.PBListener
-    public void onLoaded() {
+    @Override // android.os.AsyncTask
+    public void onPostExecute(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            u2 u2Var = this.a.f30515b.a;
-            if (u2Var != null && u2Var.e()) {
-                b1 b1Var = this.a;
-                Context context = b1Var.a;
-                u2 u2Var2 = b1Var.f30515b.a;
-                m2.l(context, (u2Var2 == null || !u2Var2.e()) ? 0L : u2Var2.f30717c.getLo_timeout());
-                u2 u2Var3 = this.a.f30515b.a;
-                String str = "";
-                if (((u2Var3 == null || !u2Var3.e()) ? "" : u2Var3.f30717c.getLoad_type()).equals("video")) {
-                    u2 u2Var4 = this.a.f30515b.a;
-                    if (u2Var4 != null && u2Var4.e()) {
-                        str = u2Var4.f30717c.getLoad();
-                    }
-                    this.a.c(str);
-                    return;
-                }
-                c1 c1Var = this.a.f30516c;
-                if (c1Var != null) {
-                    c1Var.onFail(PBError.LOAD_TYPE_ERROR);
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            Void r5 = (Void) obj;
+            this.f29080d.b();
         }
     }
 }

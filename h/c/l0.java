@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
 import org.webrtc.VideoDecoder;
 import org.webrtc.VideoDecoderFactory;
 /* compiled from: VideoDecoderFactory.java */
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final /* synthetic */ class l0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

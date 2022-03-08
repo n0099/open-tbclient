@@ -21,16 +21,16 @@ public class b extends TaskBuoyViewModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f3992g;
+    public int f3609g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.j.e.c.b f3993h;
+    public c.a.j.e.c.b f3610h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final long f3994i;
+    public final long f3611i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.j.e.c.a f3995j;
+    public c.a.j.e.c.a f3612j;
 
     /* loaded from: classes.dex */
     public static final class a implements c.a.j.e.c.a {
@@ -160,14 +160,14 @@ public class b extends TaskBuoyViewModel {
                 return;
             }
         }
-        this.f3992g = 8;
-        this.f3994i = taskInfo.getTaskRule().getStay();
+        this.f3609g = 8;
+        this.f3611i = taskInfo.getTaskRule().getStay();
     }
 
     public final c.a.j.e.c.a h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3995j : (c.a.j.e.c.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3612j : (c.a.j.e.c.a) invokeV.objValue;
     }
 
     public final long i() {
@@ -177,7 +177,7 @@ public class b extends TaskBuoyViewModel {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             TaskState m = BDPTask.m.m(c().getActionId());
             TaskProcess process = (m == null || (taskStatus = m.getTaskStatus()) == null) ? null : taskStatus.getProcess();
-            long stayDurTimeMs = this.f3994i - (process != null ? process.getStayDurTimeMs() : 0L);
+            long stayDurTimeMs = this.f3611i - (process != null ? process.getStayDurTimeMs() : 0L);
             if (stayDurTimeMs < 0) {
                 return 0L;
             }
@@ -189,26 +189,26 @@ public class b extends TaskBuoyViewModel {
     public final boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.f3992g & 4) == 4 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.f3609g & 4) == 4 : invokeV.booleanValue;
     }
 
     public final boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.f3992g & 2) == 2 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.f3609g & 2) == 2 : invokeV.booleanValue;
     }
 
     public final boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (this.f3992g & 1) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (this.f3609g & 1) == 1 : invokeV.booleanValue;
     }
 
     public void m() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && l()) {
-            this.f3992g |= 4;
-            c.a.j.e.c.b bVar = this.f3993h;
+            this.f3609g |= 4;
+            c.a.j.e.c.b bVar = this.f3610h;
             if (bVar != null) {
                 bVar.e();
             }
@@ -218,7 +218,7 @@ public class b extends TaskBuoyViewModel {
     public void n() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && j()) {
-            this.f3992g |= 2;
+            this.f3609g |= 2;
             r();
         }
     }
@@ -226,14 +226,14 @@ public class b extends TaskBuoyViewModel {
     public final void o(c.a.j.e.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.f3995j = aVar;
+            this.f3612j = aVar;
         }
     }
 
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f3992g = 1;
+            this.f3609g = 1;
             r();
         }
     }
@@ -241,8 +241,8 @@ public class b extends TaskBuoyViewModel {
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f3992g = 8;
-            c.a.j.e.c.b bVar = this.f3993h;
+            this.f3609g = 8;
+            c.a.j.e.c.b bVar = this.f3610h;
             if (bVar != null) {
                 bVar.h();
             }
@@ -252,12 +252,12 @@ public class b extends TaskBuoyViewModel {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            c.a.j.e.c.b bVar = this.f3993h;
+            c.a.j.e.c.b bVar = this.f3610h;
             if (bVar != null) {
                 bVar.j();
             }
             c.a.j.e.c.b bVar2 = new c.a.j.e.c.b(i(), 200L, new a(this));
-            this.f3993h = bVar2;
+            this.f3610h = bVar2;
             if (bVar2 != null) {
                 bVar2.b();
             }

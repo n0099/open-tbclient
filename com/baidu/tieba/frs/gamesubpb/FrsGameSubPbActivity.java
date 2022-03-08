@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import c.a.d.o.e.n;
-import c.a.u0.e1.i2.c;
-import c.a.u0.e1.i2.d.a;
+import c.a.r0.d1.y1.c;
+import c.a.r0.d1.y1.d.a;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COMMENT_PUBLISH_SUCCESS = 1002;
@@ -30,19 +30,19 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
     public boolean isDelComment;
     public View.OnClickListener mCommonClickListener;
     public int mForumId;
-    public c.a.u0.e1.i2.c mHalfToFullScreenController;
+    public c.a.r0.d1.y1.c mHalfToFullScreenController;
     public String mMainTowerId;
-    public c.a.u0.e1.i2.d.a mSubPbModel;
-    public c.a.u0.e1.i2.e.a mSubPbView;
+    public c.a.r0.d1.y1.d.a mSubPbModel;
+    public c.a.r0.d1.y1.e.a mSubPbView;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a implements c.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FrsGameSubPbActivity f43692b;
+        public final /* synthetic */ FrsGameSubPbActivity f42095b;
 
         public a(FrsGameSubPbActivity frsGameSubPbActivity) {
             Interceptable interceptable = $ic;
@@ -59,33 +59,33 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
                     return;
                 }
             }
-            this.f43692b = frsGameSubPbActivity;
+            this.f42095b = frsGameSubPbActivity;
             this.a = false;
         }
 
-        @Override // c.a.u0.e1.i2.c.e
+        @Override // c.a.r0.d1.y1.c.e
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f43692b.mSubPbView.P(false);
+                this.f42095b.mSubPbView.P(false);
                 this.a = true;
             }
         }
 
-        @Override // c.a.u0.e1.i2.c.e
+        @Override // c.a.r0.d1.y1.c.e
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             }
         }
 
-        @Override // c.a.u0.e1.i2.c.e
+        @Override // c.a.r0.d1.y1.c.e
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 if (!this.a) {
-                    return this.f43692b.mSubPbView.y() != null && this.f43692b.mSubPbView.y().getTop() == 0;
+                    return this.f42095b.mSubPbView.y() != null && this.f42095b.mSubPbView.y().getTop() == 0;
                 }
                 this.a = false;
                 return false;
@@ -94,13 +94,13 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class b implements BdListView.p {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsGameSubPbActivity f43693e;
+        public final /* synthetic */ FrsGameSubPbActivity f42096e;
 
         public b(FrsGameSubPbActivity frsGameSubPbActivity) {
             Interceptable interceptable = $ic;
@@ -117,20 +117,20 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
                     return;
                 }
             }
-            this.f43693e = frsGameSubPbActivity;
+            this.f42096e = frsGameSubPbActivity;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f43693e.mSubPbModel == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f42096e.mSubPbModel == null) {
                 return;
             }
-            this.f43693e.mSubPbModel.h(true);
+            this.f42096e.mSubPbModel.h(true);
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class c implements a.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -154,8 +154,8 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
             this.a = frsGameSubPbActivity;
         }
 
-        @Override // c.a.u0.e1.i2.d.a.d
-        public void a(boolean z, int i2, String str, boolean z2, boolean z3, c.a.u0.e1.i2.d.b bVar, List<n> list) {
+        @Override // c.a.r0.d1.y1.d.a.d
+        public void a(boolean z, int i2, String str, boolean z2, boolean z3, c.a.r0.d1.y1.d.b bVar, List<n> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), str, Boolean.valueOf(z2), Boolean.valueOf(z3), bVar, list}) == null) {
                 if (this.a.mHalfToFullScreenController != null && this.a.mHalfToFullScreenController.h()) {
@@ -169,8 +169,8 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
                         return;
                     }
                     n nVar = list.get(list.size() - 1);
-                    if (nVar instanceof c.a.u0.e1.i2.d.d) {
-                        this.a.mSubPbModel.m(((c.a.u0.e1.i2.d.d) nVar).f16683e);
+                    if (nVar instanceof c.a.r0.d1.y1.d.d) {
+                        this.a.mSubPbModel.m(((c.a.r0.d1.y1.d.d) nVar).f16731e);
                     }
                 } else if (z3) {
                 } else {
@@ -189,8 +189,8 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
             }
         }
 
-        @Override // c.a.u0.e1.i2.d.a.d
-        public void b(boolean z, int i2, String str, c.a.u0.e1.i2.d.d dVar) {
+        @Override // c.a.r0.d1.y1.d.a.d
+        public void b(boolean z, int i2, String str, c.a.r0.d1.y1.d.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), str, dVar}) == null) {
                 this.a.mSubPbView.z(z, str, dVar);
@@ -200,8 +200,8 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
             }
         }
 
-        @Override // c.a.u0.e1.i2.d.a.d
-        public void c(boolean z, int i2, String str, c.a.u0.e1.i2.d.d dVar) {
+        @Override // c.a.r0.d1.y1.d.a.d
+        public void c(boolean z, int i2, String str, c.a.r0.d1.y1.d.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), str, dVar}) == null) {
                 this.a.mSubPbView.A(z, str, dVar);
@@ -212,13 +212,13 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsGameSubPbActivity f43694e;
+        public final /* synthetic */ FrsGameSubPbActivity f42097e;
 
         public d(FrsGameSubPbActivity frsGameSubPbActivity) {
             Interceptable interceptable = $ic;
@@ -235,18 +235,18 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
                     return;
                 }
             }
-            this.f43694e = frsGameSubPbActivity;
+            this.f42097e = frsGameSubPbActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (!(view == null && this.f43694e.mSubPbView == null) && view == this.f43694e.mSubPbView.w() && this.f43694e.checkUpIsLogin()) {
-                    if (this.f43694e.mHalfToFullScreenController != null) {
-                        this.f43694e.mHalfToFullScreenController.i();
+                if (!(view == null && this.f42097e.mSubPbView == null) && view == this.f42097e.mSubPbView.w() && this.f42097e.checkUpIsLogin()) {
+                    if (this.f42097e.mHalfToFullScreenController != null) {
+                        this.f42097e.mHalfToFullScreenController.i();
                     }
-                    this.f43694e.mSubPbView.t(null);
+                    this.f42097e.mSubPbView.t(null);
                 }
             }
         }
@@ -332,17 +332,17 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
                 finish();
             }
             initListeners();
-            c.a.u0.e1.i2.e.a aVar = new c.a.u0.e1.i2.e.a(this, this.mCommonClickListener, this.mMainTowerId);
+            c.a.r0.d1.y1.e.a aVar = new c.a.r0.d1.y1.e.a(this, this.mCommonClickListener, this.mMainTowerId);
             this.mSubPbView = aVar;
             setContentView(aVar.x());
-            c.a.u0.e1.i2.c cVar = new c.a.u0.e1.i2.c(this, this.mSubPbView.u(), this.mSubPbView.v());
+            c.a.r0.d1.y1.c cVar = new c.a.r0.d1.y1.c(this, this.mSubPbView.u(), this.mSubPbView.v());
             this.mHalfToFullScreenController = cVar;
             cVar.g();
             this.mHalfToFullScreenController.j(new a(this));
             this.mSubPbView.H(this.mHalfToFullScreenController);
             this.mSubPbView.P(true);
             this.mSubPbView.I(new b(this));
-            c.a.u0.e1.i2.d.a aVar2 = new c.a.u0.e1.i2.d.a(this, this.mForumId, this.mMainTowerId);
+            c.a.r0.d1.y1.d.a aVar2 = new c.a.r0.d1.y1.d.a(this, this.mForumId, this.mMainTowerId);
             this.mSubPbModel = aVar2;
             aVar2.l(new c(this));
             this.mSubPbModel.h(false);
@@ -354,7 +354,7 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            c.a.u0.e1.i2.e.a aVar = this.mSubPbView;
+            c.a.r0.d1.y1.e.a aVar = this.mSubPbView;
             if (aVar != null) {
                 aVar.E();
             }

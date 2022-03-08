@@ -4,38 +4,38 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class Config {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TYPE_NORMAL = "normal_log";
     public static final String a = "wallet_stastics";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f32878b = false;
+    public static final boolean f31281b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f32879c = 204800;
+    public static final int f31282c = 204800;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f32880d = 51200;
+    public static final int f31283d = 51200;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final long f32881e = 604800000;
+    public static final long f31284e = 604800000;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final long f32882f = 86400000;
+    public static final long f31285f = 86400000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f32883g = "publish_data";
+    public static final String f31286g = "publish_data";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f32884h = "sign";
+    public static final String f31287h = "sign";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f32885i = "mk";
+    public static final String f31288i = "mk";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f32886j = "array";
+    public static final String f31289j = "array";
     public static final String k = "exception";
     public static final String l = "dim_excep_time";
     public static final String m = "dim_excep_owner";

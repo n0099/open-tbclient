@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.Thread;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class b implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Thread.UncaughtExceptionHandler f31875b;
+    public final Thread.UncaughtExceptionHandler f30278b;
 
     public b(Context context, Thread.UncaughtExceptionHandler uncaughtExceptionHandler) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class b implements Thread.UncaughtExceptionHandler {
             }
         }
         this.a = context;
-        this.f31875b = uncaughtExceptionHandler;
+        this.f30278b = uncaughtExceptionHandler;
     }
 
     private void a(Throwable th) {
@@ -52,7 +52,7 @@ public class b implements Thread.UncaughtExceptionHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, thread, th) == null) {
             a(th);
-            Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f31875b;
+            Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f30278b;
             if (uncaughtExceptionHandler != null) {
                 uncaughtExceptionHandler.uncaughtException(thread, th);
             }

@@ -7,13 +7,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.common.primitives.ImmutableLongArray;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicLongArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class AtomicDoubleArray implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -151,7 +152,7 @@ public class AtomicDoubleArray implements Serializable {
                 return sb.toString();
             }
             sb.append(',');
-            sb.append(' ');
+            sb.append(WebvttCueParser.CHAR_SPACE);
             i2++;
         }
     }

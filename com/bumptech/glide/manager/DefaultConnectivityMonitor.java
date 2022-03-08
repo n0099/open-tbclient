@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.manager.ConnectivityMonitor;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class DefaultConnectivityMonitor implements ConnectivityMonitor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ConnectivityMonitor";

@@ -26,20 +26,20 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.PriorityBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class NetworkClientImpl implements NetworkClient {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final NetworkClient f59334c;
+    public static final NetworkClient f57684c;
     public transient /* synthetic */ FieldHolder $fh;
     public final ExecutorService a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PriorityBlockingQueue<Runnable> f59335b;
+    public PriorityBlockingQueue<Runnable> f57685b;
 
     /* renamed from: com.qq.e.comm.net.NetworkClientImpl$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -71,7 +71,7 @@ public class NetworkClientImpl implements NetworkClient {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class NetFutureTask<T> extends FutureTask<T> implements Comparable<NetFutureTask<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,14 +128,14 @@ public class NetworkClientImpl implements NetworkClient {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class TaskCallable implements Callable<Response> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Request a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final NetworkCallBack f59336b;
+        public final NetworkCallBack f57686b;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public TaskCallable(Request request) {
@@ -174,7 +174,7 @@ public class NetworkClientImpl implements NetworkClient {
                 }
             }
             this.a = request;
-            this.f59336b = networkCallBack;
+            this.f57686b = networkCallBack;
         }
 
         private Response a() throws Exception {
@@ -243,15 +243,15 @@ public class NetworkClientImpl implements NetworkClient {
                     exc = e2;
                 }
                 if (exc == null) {
-                    NetworkCallBack networkCallBack = this.f59336b;
+                    NetworkCallBack networkCallBack = this.f57686b;
                     if (networkCallBack != null) {
                         networkCallBack.onResponse(this.a, response);
                     }
-                } else if (this.f59336b == null) {
+                } else if (this.f57686b == null) {
                     throw exc;
                 } else {
                     GDTLogger.w("网络异常", exc);
-                    this.f59336b.onException(exc);
+                    this.f57686b.onException(exc);
                 }
                 return response;
             }
@@ -272,7 +272,7 @@ public class NetworkClientImpl implements NetworkClient {
                 return;
             }
         }
-        f59334c = new NetworkClientImpl();
+        f57684c = new NetworkClientImpl();
     }
 
     public NetworkClientImpl() {
@@ -288,8 +288,8 @@ public class NetworkClientImpl implements NetworkClient {
                 return;
             }
         }
-        this.f59335b = new PriorityBlockingQueue<>(15);
-        this.a = new ThreadPoolExecutor(5, 10, 180L, TimeUnit.SECONDS, this.f59335b);
+        this.f57685b = new PriorityBlockingQueue<>(15);
+        this.a = new ThreadPoolExecutor(5, 10, 180L, TimeUnit.SECONDS, this.f57685b);
     }
 
     public static HttpURLConnection followRedirect(HttpURLConnection httpURLConnection) throws IOException {
@@ -334,7 +334,7 @@ public class NetworkClientImpl implements NetworkClient {
     public static NetworkClient getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f59334c : (NetworkClient) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f57684c : (NetworkClient) invokeV.objValue;
     }
 
     @Override // com.qq.e.comm.net.NetworkClient
@@ -351,7 +351,7 @@ public class NetworkClientImpl implements NetworkClient {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, priority)) == null) {
             NetFutureTask netFutureTask = new NetFutureTask(new TaskCallable(request), priority);
             this.a.execute(netFutureTask);
-            GDTLogger.d("QueueSize:" + this.f59335b.size());
+            GDTLogger.d("QueueSize:" + this.f57685b.size());
             return netFutureTask;
         }
         return (Future) invokeLL.objValue;
@@ -382,7 +382,7 @@ public class NetworkClientImpl implements NetworkClient {
                 str = "Submit failed for no executor";
             } else {
                 executor.execute(new NetFutureTask(new TaskCallable(request, networkCallBack), priority));
-                str = "QueueSize:" + this.f59335b.size();
+                str = "QueueSize:" + this.f57685b.size();
             }
             GDTLogger.d(str);
         }

@@ -17,7 +17,7 @@ import java.net.Socket;
 import java.net.URLConnection;
 import java.nio.channels.Selector;
 import java.util.zip.ZipFile;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class CloseableUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

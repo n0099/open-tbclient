@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.webviewbase.AdvancedWebView;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static j f30574b;
+    public static j f28994b;
     public transient /* synthetic */ FieldHolder $fh;
     public AdvancedWebView a;
 
@@ -33,14 +33,14 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f30574b == null) {
+            if (f28994b == null) {
                 synchronized (j.class) {
-                    if (f30574b == null) {
-                        f30574b = new j();
+                    if (f28994b == null) {
+                        f28994b = new j();
                     }
                 }
             }
-            return f30574b;
+            return f28994b;
         }
         return (j) invokeV.objValue;
     }

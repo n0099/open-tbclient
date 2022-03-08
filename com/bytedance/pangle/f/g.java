@@ -16,20 +16,20 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.security.MessageDigest;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class g {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ByteBuffer a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final byte[] f53274b;
+        public final byte[] f51693b;
 
         public a(ByteBuffer byteBuffer, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -47,27 +47,27 @@ public abstract class g {
                 }
             }
             this.a = byteBuffer;
-            this.f53274b = bArr;
+            this.f51693b = bArr;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class b implements j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final ByteBuffer f53275b;
+        public final ByteBuffer f51694b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final MessageDigest f53276c;
+        public final MessageDigest f51695c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final byte[] f53277d;
+        public final byte[] f51696d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final byte[] f53278e;
+        public final byte[] f51697e;
 
         public /* synthetic */ b(byte[] bArr, ByteBuffer byteBuffer, byte b2) {
             this(bArr, byteBuffer);
@@ -82,16 +82,16 @@ public abstract class g {
                 while (remaining > 0) {
                     int min = Math.min(remaining, 4096 - this.a);
                     byteBuffer.limit(byteBuffer.position() + min);
-                    this.f53276c.update(byteBuffer);
+                    this.f51695c.update(byteBuffer);
                     remaining -= min;
                     int i2 = this.a + min;
                     this.a = i2;
                     if (i2 == 4096) {
-                        MessageDigest messageDigest = this.f53276c;
-                        byte[] bArr = this.f53277d;
+                        MessageDigest messageDigest = this.f51695c;
+                        byte[] bArr = this.f51696d;
                         messageDigest.digest(bArr, 0, bArr.length);
-                        this.f53275b.put(this.f53277d);
-                        this.f53276c.update(this.f53278e);
+                        this.f51694b.put(this.f51696d);
+                        this.f51695c.update(this.f51697e);
                         this.a = 0;
                     }
                 }
@@ -101,10 +101,10 @@ public abstract class g {
         public final void b() {
             int position;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (position = this.f53275b.position() % 4096) == 0) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (position = this.f51694b.position() % 4096) == 0) {
                 return;
             }
-            this.f53275b.put(ByteBuffer.allocate(4096 - position));
+            this.f51694b.put(ByteBuffer.allocate(4096 - position));
         }
 
         public b(byte[] bArr, ByteBuffer byteBuffer) {
@@ -122,12 +122,12 @@ public abstract class g {
                     return;
                 }
             }
-            this.f53277d = new byte[32];
-            this.f53278e = bArr;
-            this.f53275b = byteBuffer.slice();
+            this.f51696d = new byte[32];
+            this.f51697e = bArr;
+            this.f51694b = byteBuffer.slice();
             MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
-            this.f53276c = messageDigest;
-            messageDigest.update(this.f53278e);
+            this.f51695c = messageDigest;
+            messageDigest.update(this.f51697e);
             this.a = 0;
         }
 
@@ -160,7 +160,7 @@ public abstract class g {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, randomAccessFile, mVar, iVar)) == null) {
-            int[] a2 = a(randomAccessFile.length() - (mVar.f53283c - mVar.f53282b));
+            int[] a2 = a(randomAccessFile.length() - (mVar.f51702c - mVar.f51701b));
             int i2 = a2[a2.length - 1];
             int i3 = i2 + 4096;
             ByteBuffer a3 = iVar.a(i3);
@@ -172,9 +172,9 @@ public abstract class g {
             byte[] bArr = new byte[32];
             ByteBuffer wrap = ByteBuffer.wrap(bArr);
             wrap.order(ByteOrder.LITTLE_ENDIAN);
-            long j2 = mVar.f53282b;
+            long j2 = mVar.f51701b;
             if (j2 % 4096 == 0) {
-                long j3 = mVar.f53283c;
+                long j3 = mVar.f51702c;
                 if ((j3 - j2) % 4096 == 0) {
                     long j4 = j3 - j2;
                     int[] a7 = a(randomAccessFile.length() - j4);
@@ -211,8 +211,8 @@ public abstract class g {
                     }
                     if (a6 != null) {
                         a6.order(ByteOrder.LITTLE_ENDIAN);
-                        long j5 = mVar.f53282b;
-                        long j6 = mVar.f53284d;
+                        long j5 = mVar.f51701b;
+                        long j6 = mVar.f51703d;
                         a6.putInt(24);
                         a6.putShort((short) 1);
                         a(a6, 2);
@@ -231,9 +231,9 @@ public abstract class g {
                     a3.flip();
                     return new a(a3, bArr);
                 }
-                throw new IllegalArgumentException("Size of APK Signing Block is not a multiple of 4096: " + (mVar.f53283c - mVar.f53282b));
+                throw new IllegalArgumentException("Size of APK Signing Block is not a multiple of 4096: " + (mVar.f51702c - mVar.f51701b));
             }
-            throw new IllegalArgumentException("APK Signing Block does not start at the page  boundary: " + mVar.f53282b);
+            throw new IllegalArgumentException("APK Signing Block does not start at the page  boundary: " + mVar.f51701b);
         }
         return (a) invokeLLL.objValue;
     }
@@ -277,13 +277,13 @@ public abstract class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65541, null, randomAccessFile, mVar, bArr, iArr, byteBuffer)) == null) {
             b bVar = new b(bArr, a(byteBuffer, iArr[iArr.length - 2], iArr[iArr.length - 1]), (byte) 0);
-            a(bVar, new l(randomAccessFile.getFD(), 0L, mVar.f53282b), 1048576);
-            long j2 = mVar.f53284d + 16;
+            a(bVar, new l(randomAccessFile.getFD(), 0L, mVar.f51701b), 1048576);
+            long j2 = mVar.f51703d + 16;
             FileDescriptor fd = randomAccessFile.getFD();
-            long j3 = mVar.f53283c;
+            long j3 = mVar.f51702c;
             a(bVar, new l(fd, j3, j2 - j3), 1048576);
             ByteBuffer order = ByteBuffer.allocate(4).order(ByteOrder.LITTLE_ENDIAN);
-            order.putInt(c(mVar.f53282b));
+            order.putInt(c(mVar.f51701b));
             order.flip();
             bVar.a(order);
             long j4 = j2 + 4;

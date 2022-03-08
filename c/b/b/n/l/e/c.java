@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class c extends c.b.b.n.l.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final long f27434i;
+    public static final long f27338i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f27435h;
+    public float f27339h;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +33,7 @@ public class c extends c.b.b.n.l.a {
                 return;
             }
         }
-        f27434i = c.b.b.n.l.a.d("shininess");
+        f27338i = c.b.b.n.l.a.d("shininess");
         c.b.b.n.l.a.d("alphaTest");
     }
 
@@ -55,7 +55,7 @@ public class c extends c.b.b.n.l.a {
                 return;
             }
         }
-        this.f27435h = f2;
+        this.f27339h = f2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -65,16 +65,16 @@ public class c extends c.b.b.n.l.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            long j2 = this.f27415e;
-            long j3 = aVar.f27415e;
+            long j2 = this.f27319e;
+            long j3 = aVar.f27319e;
             if (j2 != j3) {
                 return (int) (j2 - j3);
             }
-            float f2 = ((c) aVar).f27435h;
-            if (com.badlogic.gdx.math.d.e(this.f27435h, f2)) {
+            float f2 = ((c) aVar).f27339h;
+            if (com.badlogic.gdx.math.d.e(this.f27339h, f2)) {
                 return 0;
             }
-            return this.f27435h < f2 ? -1 : 1;
+            return this.f27339h < f2 ? -1 : 1;
         }
         return invokeL.intValue;
     }
@@ -83,6 +83,6 @@ public class c extends c.b.b.n.l.a {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (super.hashCode() * 977) + t.b(this.f27435h) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (super.hashCode() * 977) + t.b(this.f27339h) : invokeV.intValue;
     }
 }

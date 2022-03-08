@@ -20,14 +20,14 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class HttpUriLoader implements ModelLoader<Uri, InputStream> {
     public static /* synthetic */ Interceptable $ic;
     public static final Set<String> SCHEMES;
     public transient /* synthetic */ FieldHolder $fh;
     public final ModelLoader<GlideUrl, InputStream> urlLoader;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class Factory implements ModelLoaderFactory<Uri, InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

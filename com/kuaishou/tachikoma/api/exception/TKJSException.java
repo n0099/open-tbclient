@@ -7,8 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class TKJSException extends RuntimeException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_SOURCE_LINE_LENGTH = 350;
@@ -85,7 +86,7 @@ public abstract class TKJSException extends RuntimeException {
                 sb.append('\n');
                 int i2 = this.startColumn;
                 if (i2 >= 0) {
-                    sb.append(createCharSequence(i2, ' '));
+                    sb.append(createCharSequence(i2, WebvttCueParser.CHAR_SPACE));
                     sb.append(createCharSequence(this.endColumn - this.startColumn, '^'));
                 }
             }

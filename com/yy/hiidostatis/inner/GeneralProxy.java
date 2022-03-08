@@ -14,7 +14,7 @@ import com.yy.hiidostatis.inner.util.ProcessUtil;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.Enumeration;
 import java.util.Hashtable;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class GeneralProxy {
     public static /* synthetic */ Interceptable $ic;
     public static Object OBJ_KEY;

@@ -3,7 +3,7 @@ package c.a.h.b;
 import android.content.Context;
 import android.view.View;
 import android.widget.LinearLayout;
-import c.a.t0.x.m;
+import c.a.q0.w.m;
 import com.baidu.audiorecorder.lib.voice.SendVoiceView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.editortools.RawLayout;
@@ -36,10 +36,10 @@ public class a extends m {
                 return;
             }
         }
-        this.f14603b = TbadkCoreApplication.getInst().getResources().getString(R.string.switch_to_voice);
-        this.f14605d = R.drawable.icon_pure_post_speak24;
-        this.f14608g = false;
-        this.f14609h = true;
+        this.f13998b = TbadkCoreApplication.getInst().getResources().getString(R.string.switch_to_voice);
+        this.f14000d = R.drawable.icon_pure_post_speak24;
+        this.f14003g = false;
+        this.f14004h = true;
         this.m = true;
         this.l = 5;
         this.k = new SendVoiceView(context);

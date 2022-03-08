@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class StatusBarUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATUS_BAR_DEFAULT_HEIGHT = 25;
@@ -24,54 +24,6 @@ public class StatusBarUtils {
     public static int mStatusBarHeight = 0;
     public static float sBarAlpha = 0.3f;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes3.dex */
-    public static class a implements ViewTreeObserver.OnGlobalLayoutListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f53825e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup.LayoutParams f53826f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f53827g;
-
-        public a(View view, ViewGroup.LayoutParams layoutParams, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view, layoutParams, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f53825e = view;
-            this.f53826f = layoutParams;
-            this.f53827g = context;
-        }
-
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || Build.VERSION.SDK_INT < 19) {
-                return;
-            }
-            this.f53825e.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-            this.f53826f.height = this.f53825e.getHeight() + StatusBarUtils.getStatusBarHeight(this.f53827g);
-            View view = this.f53825e;
-            view.setPadding(view.getPaddingLeft(), this.f53825e.getPaddingTop() + StatusBarUtils.getStatusBarHeight(this.f53827g), this.f53825e.getPaddingRight(), this.f53825e.getPaddingBottom());
-            this.f53825e.setLayoutParams(this.f53826f);
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -174,6 +126,49 @@ public class StatusBarUtils {
             view.setLayoutParams(layoutParams);
             return;
         }
-        view.getViewTreeObserver().addOnGlobalLayoutListener(new a(view, layoutParams, context));
+        view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(view, layoutParams, context) { // from class: com.dxmpay.apollon.statusbar.StatusBarUtils.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ View a;
+
+            /* renamed from: b  reason: collision with root package name */
+            public final /* synthetic */ ViewGroup.LayoutParams f52304b;
+
+            /* renamed from: c  reason: collision with root package name */
+            public final /* synthetic */ Context f52305c;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {view, layoutParams, context};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = view;
+                this.f52304b = layoutParams;
+                this.f52305c = context;
+            }
+
+            @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+            public void onGlobalLayout() {
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || Build.VERSION.SDK_INT < 19) {
+                    return;
+                }
+                this.a.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                this.f52304b.height = this.a.getHeight() + StatusBarUtils.getStatusBarHeight(this.f52305c);
+                View view2 = this.a;
+                view2.setPadding(view2.getPaddingLeft(), this.a.getPaddingTop() + StatusBarUtils.getStatusBarHeight(this.f52305c), this.a.getPaddingRight(), this.a.getPaddingBottom());
+                this.a.setLayoutParams(this.f52304b);
+            }
+        });
     }
 }

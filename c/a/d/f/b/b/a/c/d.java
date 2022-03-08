@@ -34,24 +34,24 @@ public class d implements c {
     }
 
     @Override // c.a.d.f.b.b.a.c.c
-    public Set<String> a() {
-        InterceptResult invokeV;
+    public void a(String str, Object obj) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : (Set) invokeV.objValue;
-    }
-
-    @Override // c.a.d.f.b.b.a.c.c
-    public void b(String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
-            this.a.b(str, obj);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) {
+            this.a.a(str, obj);
         }
     }
 
     @Override // c.a.d.f.b.b.a.c.c
-    public Object c(String str, Type type) {
+    public Object b(String str, Type type) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) ? this.a.c(str, type) : invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, type)) == null) ? this.a.b(str, type) : invokeLL.objValue;
+    }
+
+    @Override // c.a.d.f.b.b.a.c.c
+    public Set<String> getKeys() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getKeys() : (Set) invokeV.objValue;
     }
 }

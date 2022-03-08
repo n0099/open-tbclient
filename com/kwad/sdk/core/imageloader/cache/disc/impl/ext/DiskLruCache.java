@@ -2,6 +2,7 @@ package com.kwad.sdk.core.imageloader.cache.disc.impl.ext;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.BufferedWriter;
 import java.io.Closeable;
 import java.io.EOFException;
@@ -29,7 +30,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class DiskLruCache implements Closeable {
     public static final long ANY_SEQUENCE_NUMBER = -1;
     public static final String CLEAN = "CLEAN";
@@ -89,14 +90,14 @@ public final class DiskLruCache implements Closeable {
         }
     };
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public final class Editor {
         public boolean committed;
         public final Entry entry;
         public boolean hasErrors;
         public final boolean[] written;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes7.dex */
         public class FaultHidingOutputStream extends FilterOutputStream {
             public FaultHidingOutputStream(OutputStream outputStream) {
                 super(outputStream);
@@ -237,7 +238,7 @@ public final class DiskLruCache implements Closeable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public final class Entry {
         public Editor currentEditor;
         public final String key;
@@ -282,14 +283,14 @@ public final class DiskLruCache implements Closeable {
             long[] jArr;
             StringBuilder sb = new StringBuilder();
             for (long j2 : this.lengths) {
-                sb.append(' ');
+                sb.append(WebvttCueParser.CHAR_SPACE);
                 sb.append(j2);
             }
             return sb.toString();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public final class Snapshot implements Closeable {
         public File[] files;
         public final InputStream[] ins;

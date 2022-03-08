@@ -18,7 +18,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ThreadPoolMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ThreadPoolMgr";
@@ -28,7 +28,7 @@ public class ThreadPoolMgr {
     public boolean mReleaseAble;
     public HashMap<String, String> mThreadName;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class CustomThreadPoolExecutor implements ITaskExecutor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,7 +112,7 @@ public class ThreadPoolMgr {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class DefaultThreadFactory implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -157,7 +157,7 @@ public class ThreadPoolMgr {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface ITaskExecutor {
         boolean addTask(Runnable runnable);
 

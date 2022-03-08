@@ -15,7 +15,7 @@ import com.baidu.walletfacesdk.LivenessManager;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class LightInvokerImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CALL_NATIVE_VOICE = "callNativeVoice";
@@ -37,7 +37,7 @@ public class LightInvokerImpl {
     public static final String VOICE_PRODUCTID = "productId";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public interface IResultListener {
         void onResult(int i2, JSONObject jSONObject);
     }
@@ -157,7 +157,7 @@ public class LightInvokerImpl {
                 public final /* synthetic */ JSONObject a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ IResultListener f52947b;
+                public final /* synthetic */ IResultListener f51366b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -175,7 +175,7 @@ public class LightInvokerImpl {
                         }
                     }
                     this.a = jSONObject2;
-                    this.f52947b = iResultListener;
+                    this.f51366b = iResultListener;
                 }
 
                 @Override // com.baidu.walletfacesdk.LivenessManager.IvoiceListener
@@ -191,7 +191,7 @@ public class LightInvokerImpl {
                         }
                         this.a.put("errCode", i3);
                         this.a.put("des", str2);
-                        this.f52947b.onResult(i2, this.a);
+                        this.f51366b.onResult(i2, this.a);
                     }
                 }
             });

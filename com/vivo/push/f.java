@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.util.aa;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class f implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ e f60916b;
+    public final /* synthetic */ e f59266b;
 
     public f(e eVar, String str) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class f implements Runnable {
                 return;
             }
         }
-        this.f60916b = eVar;
+        this.f59266b = eVar;
         this.a = str;
     }
 
@@ -42,14 +42,14 @@ public final class f implements Runnable {
         Context context3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            context = this.f60916b.f60909h;
+            context = this.f59266b.f59259h;
             if (context == null || TextUtils.isEmpty(this.a)) {
                 return;
             }
-            context2 = this.f60916b.f60909h;
-            context3 = this.f60916b.f60909h;
+            context2 = this.f59266b.f59259h;
+            context3 = this.f59266b.f59259h;
             if (aa.a(context2, context3.getPackageName(), this.a)) {
-                this.f60916b.i();
+                this.f59266b.i();
             }
         }
     }

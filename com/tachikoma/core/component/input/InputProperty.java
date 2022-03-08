@@ -21,10 +21,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.tachikoma.core.component.text.FontManager;
 import java.lang.reflect.Field;
 import java.util.LinkedList;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class InputProperty {
     public static /* synthetic */ Interceptable $ic;
     public static final InputFilter[] EMPTY_FILTERS;
@@ -35,7 +36,7 @@ public class InputProperty {
     public final EditText mView;
     public MaxLinesTextWatcher maxLinesTextWatcher;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public class MaxLinesTextWatcher implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -187,7 +188,7 @@ public class InputProperty {
                 }
                 c2 = 65535;
             } else {
-                if (str.equals(TextAlign.CENTER)) {
+                if (str.equals("center")) {
                     c2 = 0;
                 }
                 c2 = 65535;
@@ -448,9 +449,9 @@ public class InputProperty {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             if (z) {
-                setStagedInputTypeFlags(144, 128);
+                setStagedInputTypeFlags(Cea708Decoder.COMMAND_SPA, 128);
             } else {
-                setStagedInputTypeFlags(128, 144);
+                setStagedInputTypeFlags(128, Cea708Decoder.COMMAND_SPA);
             }
         }
     }

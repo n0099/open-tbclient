@@ -6,9 +6,9 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
-import c.a.t0.s.r.e2;
-import c.a.u0.a1.a.j.c;
-import c.a.u0.k0.h;
+import c.a.q0.r.r.e2;
+import c.a.r0.j0.h;
+import c.a.r0.z0.a.j.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTiebaShare {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -198,14 +198,14 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:28:0x00ca  */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x00cc  */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x0158  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x015f  */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x0186  */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x01b2  */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x01ba  */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x01bf  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x00c9  */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x00cb  */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x015a  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x0161  */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x0188  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x01b4  */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x01bc  */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x01c1  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -287,7 +287,7 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
             shareItem.J = str3;
             shareItem.p = str2;
             shareItem.K = str6;
-            shareItem.f41023f = true;
+            shareItem.f39429f = true;
             shareItem.o = 6;
             shareItem.E = 8;
             shareItem.M = stateThreadType;
@@ -343,7 +343,7 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
         shareItem2.J = str3;
         shareItem2.p = str2;
         shareItem2.K = str6;
-        shareItem2.f41023f = true;
+        shareItem2.f39429f = true;
         shareItem2.o = 6;
         shareItem2.E = 8;
         shareItem2.M = stateThreadType2;

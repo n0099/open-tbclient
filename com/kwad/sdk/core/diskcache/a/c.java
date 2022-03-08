@@ -16,11 +16,11 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.concurrent.ExecutorService;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static ExecutorService a = com.kwad.sdk.core.i.b.i();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public String a;
     }
@@ -32,7 +32,7 @@ public class c {
                 OutputStream outputStream = null;
                 try {
                     try {
-                        a.C2114a b2 = com.kwad.sdk.core.diskcache.kwai.a.this.b(str2);
+                        a.C2093a b2 = com.kwad.sdk.core.diskcache.kwai.a.this.b(str2);
                         if (b2 != null) {
                             outputStream = b2.a(0);
                             if (c.b(str, outputStream, new a())) {
@@ -58,7 +58,7 @@ public class c {
         OutputStream outputStream = null;
         try {
             try {
-                a.C2114a b2 = aVar.b(str2);
+                a.C2093a b2 = aVar.b(str2);
                 if (b2 != null) {
                     outputStream = b2.a(0);
                     if (b(str, outputStream, aVar2)) {

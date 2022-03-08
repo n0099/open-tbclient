@@ -18,7 +18,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.animation.PathInterpolatorCompat;
-import com.kwad.sdk.R;
+import com.baidu.tieba.R;
 import com.kwad.sdk.core.response.model.AdProductInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.response.model.CouponInfo;
@@ -27,52 +27,52 @@ import com.kwad.sdk.utils.ax;
 import com.kwad.sdk.utils.bb;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a extends d implements View.OnClickListener {
     public final ViewGroup a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int[] f57513b;
+    public int[] f55863b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f57514c;
+    public View f55864c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f57515d;
+    public ImageView f55865d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f57516e;
+    public TextView f55866e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f57517f;
+    public TextView f55867f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f57518g;
+    public TextView f55868g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Button f57519h;
+    public Button f55869h;
     @Nullable
 
     /* renamed from: i  reason: collision with root package name */
-    public b f57520i;
+    public b f55870i;
 
     /* renamed from: com.kwad.sdk.reward.kwai.a$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public class AnonymousClass1 implements Runnable {
         public final /* synthetic */ AdTemplate a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ long f57521b;
+        public final /* synthetic */ long f55871b;
 
         public AnonymousClass1(AdTemplate adTemplate, long j2) {
             this.a = adTemplate;
-            this.f57521b = j2;
+            this.f55871b = j2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             a aVar = a.this;
-            final Animator a = aVar.a(aVar.f57514c);
+            final Animator a = aVar.a(aVar.f55864c);
             a.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.reward.kwai.a.1.1
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
@@ -80,13 +80,13 @@ public class a extends d implements View.OnClickListener {
                     a.removeListener(this);
                     com.kwad.sdk.core.report.a.c(AnonymousClass1.this.a, 169, null);
                     a aVar2 = a.this;
-                    aVar2.a(aVar2.f57515d, AnonymousClass1.this.f57521b).start();
+                    aVar2.a(aVar2.f55865d, AnonymousClass1.this.f55871b).start();
                     ax.a(new Runnable() { // from class: com.kwad.sdk.reward.kwai.a.1.1.1
                         @Override // java.lang.Runnable
                         public void run() {
                             a.this.b();
                         }
-                    }, null, AnonymousClass1.this.f57521b);
+                    }, null, AnonymousClass1.this.f55871b);
                 }
             });
             a.start();
@@ -94,28 +94,28 @@ public class a extends d implements View.OnClickListener {
     }
 
     /* renamed from: com.kwad.sdk.reward.kwai.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C2155a {
+    /* loaded from: classes8.dex */
+    public static class C2134a {
         public CharSequence a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CharSequence f57525b;
+        public CharSequence f55875b;
 
         /* renamed from: c  reason: collision with root package name */
-        public CharSequence f57526c;
+        public CharSequence f55876c;
 
         /* renamed from: d  reason: collision with root package name */
-        public CharSequence f57527d;
+        public CharSequence f55877d;
 
-        public C2155a(@NonNull CouponInfo couponInfo) {
+        public C2134a(@NonNull CouponInfo couponInfo) {
             this.a = couponInfo.displayTitle;
-            this.f57525b = couponInfo.displayValue;
-            this.f57526c = !TextUtils.isEmpty(couponInfo.displayBase) ? String.format("满%s可用", couponInfo.displayBase) : "";
-            this.f57527d = couponInfo.displayActionWords;
+            this.f55875b = couponInfo.displayValue;
+            this.f55876c = !TextUtils.isEmpty(couponInfo.displayBase) ? String.format("满%s可用", couponInfo.displayBase) : "";
+            this.f55877d = couponInfo.displayActionWords;
         }
 
         @Nullable
-        public static C2155a a(AdTemplate adTemplate) {
+        public static C2134a a(AdTemplate adTemplate) {
             List<CouponInfo> list;
             AdProductInfo aK = com.kwad.sdk.core.response.a.a.aK(com.kwad.sdk.core.response.a.d.j(adTemplate));
             if (aK == null || (list = aK.couponList) == null || list.size() <= 0) {
@@ -125,11 +125,11 @@ public class a extends d implements View.OnClickListener {
         }
 
         @Nullable
-        public static C2155a a(CouponInfo couponInfo) {
+        public static C2134a a(CouponInfo couponInfo) {
             if (couponInfo == null) {
                 return null;
             }
-            return new C2155a(couponInfo);
+            return new C2134a(couponInfo);
         }
 
         public CharSequence a() {
@@ -138,21 +138,21 @@ public class a extends d implements View.OnClickListener {
 
         public CharSequence a(Context context) {
             AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(context.getResources().getDimensionPixelSize(R.dimen.ksad_coupon_dialog_value_prefix_text_size));
-            SpannableString spannableString = new SpannableString("¥" + ((Object) this.f57525b));
+            SpannableString spannableString = new SpannableString("¥" + ((Object) this.f55875b));
             spannableString.setSpan(absoluteSizeSpan, 0, 1, 17);
             return spannableString;
         }
 
         public CharSequence b() {
-            return this.f57526c;
+            return this.f55876c;
         }
 
         public CharSequence c() {
-            return this.f57527d;
+            return this.f55877d;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void a();
 
@@ -160,7 +160,7 @@ public class a extends d implements View.OnClickListener {
     }
 
     public a(Context context, @Nullable ViewGroup viewGroup, @Nullable int[] iArr) {
-        this.f57513b = iArr;
+        this.f55863b = iArr;
         ViewGroup viewGroup2 = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.ksad_reward_coupon_dialog, viewGroup, false);
         this.a = viewGroup2;
         a(context, viewGroup2);
@@ -184,35 +184,35 @@ public class a extends d implements View.OnClickListener {
     }
 
     private void a(Context context, ViewGroup viewGroup) {
-        this.f57514c = viewGroup.findViewById(R.id.ksad_coupon_dialog_card);
-        this.f57515d = (ImageView) viewGroup.findViewById(R.id.ksad_coupon_dialog_bg);
-        this.f57516e = (TextView) viewGroup.findViewById(R.id.ksad_coupon_dialog_title);
-        this.f57517f = (TextView) viewGroup.findViewById(R.id.ksad_coupon_dialog_content);
-        this.f57518g = (TextView) viewGroup.findViewById(R.id.ksad_coupon_dialog_desc);
+        this.f55864c = viewGroup.findViewById(R.id.ksad_coupon_dialog_card);
+        this.f55865d = (ImageView) viewGroup.findViewById(R.id.ksad_coupon_dialog_bg);
+        this.f55866e = (TextView) viewGroup.findViewById(R.id.ksad_coupon_dialog_title);
+        this.f55867f = (TextView) viewGroup.findViewById(R.id.ksad_coupon_dialog_content);
+        this.f55868g = (TextView) viewGroup.findViewById(R.id.ksad_coupon_dialog_desc);
         Button button = (Button) viewGroup.findViewById(R.id.ksad_coupon_dialog_btn_action);
-        this.f57519h = button;
+        this.f55869h = button;
         button.setOnClickListener(this);
     }
 
-    private void a(C2155a c2155a) {
-        if (c2155a == null) {
+    private void a(C2134a c2134a) {
+        if (c2134a == null) {
             return;
         }
-        TextView textView = this.f57516e;
+        TextView textView = this.f55866e;
         if (textView != null) {
-            textView.setText(c2155a.a());
+            textView.setText(c2134a.a());
         }
-        TextView textView2 = this.f57517f;
+        TextView textView2 = this.f55867f;
         if (textView2 != null) {
-            textView2.setText(c2155a.a(this.a.getContext()));
+            textView2.setText(c2134a.a(this.a.getContext()));
         }
-        TextView textView3 = this.f57518g;
+        TextView textView3 = this.f55868g;
         if (textView3 != null) {
-            textView3.setText(c2155a.b());
+            textView3.setText(c2134a.b());
         }
-        Button button = this.f57519h;
+        Button button = this.f55869h;
         if (button != null) {
-            button.setText(c2155a.c());
+            button.setText(c2134a.c());
         }
     }
 
@@ -224,14 +224,14 @@ public class a extends d implements View.OnClickListener {
         ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view, AnimationProperty.SCALE_Y, 1.0f, 0.0f);
         ofFloat.setInterpolator(create);
         ofFloat2.setInterpolator(create);
-        int[] iArr = this.f57513b;
+        int[] iArr = this.f55863b;
         ObjectAnimator objectAnimator2 = null;
         if (iArr == null || iArr.length < 2 || (c2 = bb.c(view)) == null) {
             objectAnimator = null;
         } else {
             Interpolator create2 = PathInterpolatorCompat.create(0.33f, 0.0f, 0.83f, 1.0f);
-            objectAnimator2 = ObjectAnimator.ofFloat(view, AnimationProperty.TRANSLATE_X, this.f57513b[0] - c2[0]);
-            objectAnimator = ObjectAnimator.ofFloat(view, AnimationProperty.TRANSLATE_Y, this.f57513b[1] - c2[1]);
+            objectAnimator2 = ObjectAnimator.ofFloat(view, AnimationProperty.TRANSLATE_X, this.f55863b[0] - c2[0]);
+            objectAnimator = ObjectAnimator.ofFloat(view, AnimationProperty.TRANSLATE_Y, this.f55863b[1] - c2[1]);
             objectAnimator2.setInterpolator(create2);
             objectAnimator.setInterpolator(create2);
         }
@@ -253,14 +253,14 @@ public class a extends d implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        final Animator b2 = b(this.f57514c);
+        final Animator b2 = b(this.f55864c);
         b2.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.reward.kwai.a.2
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
                 b2.removeListener(this);
-                if (a.this.f57520i != null) {
-                    a.this.f57520i.b();
+                if (a.this.f55870i != null) {
+                    a.this.f55870i.b();
                 }
             }
         });
@@ -275,18 +275,18 @@ public class a extends d implements View.OnClickListener {
     @Override // com.kwad.sdk.reward.d.d
     public void a(AdTemplate adTemplate) {
         super.a(adTemplate);
-        a(C2155a.a(adTemplate));
+        a(C2134a.a(adTemplate));
         this.a.post(new AnonymousClass1(adTemplate, com.kwad.sdk.core.config.b.aN()));
     }
 
     public void a(@Nullable b bVar) {
-        this.f57520i = bVar;
+        this.f55870i = bVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         b bVar;
-        if (!view.equals(this.f57519h) || (bVar = this.f57520i) == null) {
+        if (!view.equals(this.f55869h) || (bVar = this.f55870i) == null) {
             return;
         }
         bVar.a();

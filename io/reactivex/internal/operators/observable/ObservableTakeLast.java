@@ -11,13 +11,13 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.ArrayDeque;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class ObservableTakeLast<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int count;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class TakeLastObserver<T> extends ArrayDeque<T> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7240042530241604978L;

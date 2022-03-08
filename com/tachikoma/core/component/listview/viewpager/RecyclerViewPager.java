@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class RecyclerViewPager extends RecyclerView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class RecyclerViewPager extends RecyclerView {
     public ScrollEventAdapter mScrollEventAdapter;
     public PagerSnapHelper mSnapHelper;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static abstract class OnPageChangeCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public class RecyclerViewPager extends RecyclerView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface OnPageChangeListener {
         void onPageScrollStateChanged(int i2);
 
@@ -76,7 +76,7 @@ public class RecyclerViewPager extends RecyclerView {
         void onPageSelected(int i2, int i3);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class SmoothScrollToPosition implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

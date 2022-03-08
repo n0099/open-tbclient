@@ -14,25 +14,25 @@ import kotlin.Unit;
 import kotlin.io.CloseableKt;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "run"}, k = 3, mv = {1, 1, 13}, pn = "", xi = 0, xs = "")
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class SVGAParser$decodeFromInputStream$1 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ SVGAParser f59102e;
+    public final /* synthetic */ SVGAParser f57452e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ InputStream f59103f;
+    public final /* synthetic */ InputStream f57453f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ String f59104g;
+    public final /* synthetic */ String f57454g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final /* synthetic */ SVGAParser.b f59105h;
+    public final /* synthetic */ SVGAParser.b f57455h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final /* synthetic */ boolean f59106i;
+    public final /* synthetic */ boolean f57456i;
 
     public SVGAParser$decodeFromInputStream$1(SVGAParser sVGAParser, InputStream inputStream, String str, SVGAParser.b bVar, boolean z) {
         Interceptable interceptable = $ic;
@@ -49,11 +49,11 @@ public final class SVGAParser$decodeFromInputStream$1 implements Runnable {
                 return;
             }
         }
-        this.f59102e = sVGAParser;
-        this.f59103f = inputStream;
-        this.f59104g = str;
-        this.f59105h = bVar;
-        this.f59106i = z;
+        this.f57452e = sVGAParser;
+        this.f57453f = inputStream;
+        this.f57454g = str;
+        this.f57455h = bVar;
+        this.f57456i = z;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, IGET, INVOKE, IF] complete} */
@@ -67,22 +67,22 @@ public final class SVGAParser$decodeFromInputStream$1 implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
                 try {
-                    x = this.f59102e.x(this.f59103f);
+                    x = this.f57452e.x(this.f57453f);
                     if (x != null) {
                         if (x.length <= 4 || x[0] != 80 || x[1] != 75 || x[2] != 3 || x[3] != 4) {
-                            r = this.f59102e.r(x);
+                            r = this.f57452e.r(x);
                             if (r != null) {
                                 MovieEntity decode = MovieEntity.ADAPTER.decode(r);
                                 Intrinsics.checkExpressionValueIsNotNull(decode, "MovieEntity.ADAPTER.decode(it)");
-                                SVGAVideoEntity sVGAVideoEntity = new SVGAVideoEntity(decode, new File(this.f59104g));
+                                SVGAVideoEntity sVGAVideoEntity = new SVGAVideoEntity(decode, new File(this.f57454g));
                                 sVGAVideoEntity.i(new SVGAParser$decodeFromInputStream$1$$special$$inlined$let$lambda$2(sVGAVideoEntity, this));
                             }
                         } else {
-                            j2 = this.f59102e.j(this.f59104g);
+                            j2 = this.f57452e.j(this.f57454g);
                             if (!j2.exists()) {
                                 ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(x);
                                 try {
-                                    this.f59102e.y(byteArrayInputStream, this.f59104g);
+                                    this.f57452e.y(byteArrayInputStream, this.f57454g);
                                     Unit unit = Unit.INSTANCE;
                                     CloseableKt.closeFinally(byteArrayInputStream, null);
                                 } catch (Throwable th) {
@@ -94,22 +94,22 @@ public final class SVGAParser$decodeFromInputStream$1 implements Runnable {
                                     }
                                 }
                             }
-                            this.f59102e.n(this.f59104g, this.f59105h);
+                            this.f57452e.n(this.f57454g, this.f57455h);
                         }
                     }
-                    if (!this.f59106i) {
+                    if (!this.f57456i) {
                         return;
                     }
                 } catch (Exception e2) {
-                    this.f59102e.t(e2, this.f59105h);
-                    if (!this.f59106i) {
+                    this.f57452e.t(e2, this.f57455h);
+                    if (!this.f57456i) {
                         return;
                     }
                 }
-                this.f59103f.close();
+                this.f57453f.close();
             } catch (Throwable th3) {
-                if (this.f59106i) {
-                    this.f59103f.close();
+                if (this.f57456i) {
+                    this.f57453f.close();
                 }
                 throw th3;
             }

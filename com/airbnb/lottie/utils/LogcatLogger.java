@@ -4,7 +4,7 @@ import com.airbnb.lottie.L;
 import com.airbnb.lottie.LottieLogger;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class LogcatLogger implements LottieLogger {
     public static final Set<String> loggedMessages = new HashSet();
 

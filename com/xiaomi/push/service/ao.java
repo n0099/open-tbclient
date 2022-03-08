@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.WeakHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ao {
     public static /* synthetic */ Interceptable $ic;
     public static Context a;
@@ -42,7 +42,7 @@ public class ao {
     public String f901a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61628b;
+    public String f59978b;
 
     static {
         InterceptResult invokeClinit;
@@ -464,10 +464,10 @@ public class ao {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (TextUtils.isEmpty(this.f61628b)) {
-                this.f61628b = b("default");
+            if (TextUtils.isEmpty(this.f59978b)) {
+                this.f59978b = b("default");
             }
-            return this.f61628b;
+            return this.f59978b;
         }
         return (String) invokeV.objValue;
     }

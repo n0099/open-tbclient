@@ -1,10 +1,10 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.a.g;
-import c.i.d.a.n;
-import c.i.d.a.o;
-import c.i.d.c.o0;
+import c.i.c.a.g;
+import c.i.c.a.n;
+import c.i.c.a.o;
+import c.i.c.c.o0;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -19,7 +19,7 @@ import java.lang.Comparable;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.SortedSet;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class Range<C extends Comparable> extends RangeGwtSerializationDependencies implements o<C>, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final Range<Comparable> ALL;
@@ -28,7 +28,7 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
     public final Cut<C> lowerBound;
     public final Cut<C> upperBound;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class RangeLexOrdering extends Ordering<Range<?>> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final Ordering<Range<?>> INSTANCE;
@@ -70,11 +70,11 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
         public int compare(Range<?> range, Range<?> range2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, range, range2)) == null) ? c.i.d.c.o.f().d(range.lowerBound, range2.lowerBound).d(range.upperBound, range2.upperBound).e() : invokeLL.intValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, range, range2)) == null) ? c.i.c.c.o.f().d(range.lowerBound, range2.lowerBound).d(range.upperBound, range2.upperBound).e() : invokeLL.intValue;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -106,12 +106,12 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class b implements g<Range, Cut> {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final b f55013e;
+        public static final b f53363e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -127,7 +127,7 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
                     return;
                 }
             }
-            f55013e = new b();
+            f53363e = new b();
         }
 
         public b() {
@@ -145,7 +145,7 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.i.d.a.g
+        @Override // c.i.c.a.g
         /* renamed from: a */
         public Cut apply(Range range) {
             InterceptResult invokeL;
@@ -154,12 +154,12 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class c implements g<Range, Cut> {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final c f55014e;
+        public static final c f53364e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -175,7 +175,7 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
                     return;
                 }
             }
-            f55014e = new c();
+            f53364e = new c();
         }
 
         public c() {
@@ -193,7 +193,7 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.i.d.a.g
+        @Override // c.i.c.a.g
         /* renamed from: a */
         public Cut apply(Range range) {
             InterceptResult invokeL;
@@ -350,7 +350,7 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
     public static <C extends Comparable<?>> g<Range<C>, Cut<C>> lowerBoundFn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? b.f55013e : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? b.f53363e : (g) invokeV.objValue;
     }
 
     public static <C extends Comparable<?>> Range<C> open(C c2, C c3) {
@@ -407,12 +407,12 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
     public static <C extends Comparable<?>> g<Range<C>, Cut<C>> upperBoundFn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? c.f55014e : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? c.f53364e : (g) invokeV.objValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.common.collect.Range<C extends java.lang.Comparable> */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // c.i.d.a.o
+    @Override // c.i.c.a.o
     @Deprecated
     public /* bridge */ /* synthetic */ boolean apply(Object obj) {
         return apply((Range<C>) ((Comparable) obj));
@@ -472,7 +472,7 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
         return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, range)) == null) ? this.lowerBound.compareTo((Cut) range.lowerBound) <= 0 && this.upperBound.compareTo((Cut) range.upperBound) >= 0 : invokeL.booleanValue;
     }
 
-    @Override // c.i.d.a.o
+    @Override // c.i.c.a.o
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

@@ -12,7 +12,7 @@ import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import org.json.JSONArray;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class JSONArrayAdapter extends TypeAdapter<JSONArray> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

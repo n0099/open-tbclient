@@ -87,10 +87,8 @@ import com.baidu.wallet.api.IWalletLoginListener;
 import com.baidu.wallet.newbindcard.NewBindCardEntry;
 import com.coremedia.iso.boxes.FreeSpaceBox;
 import com.kuaishou.weapon.un.s;
-import com.kuaishou.weapon.un.x;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import com.tachikoma.core.component.input.InputType;
-import com.tachikoma.core.component.input.TextAlign;
 import com.yy.hiidostatis.defs.controller.SensorController;
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;
@@ -110,7 +108,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class SapiWebView extends WebView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCOUNT_CENTER = "account_center";
@@ -202,17 +200,17 @@ public class SapiWebView extends WebView {
     public WebviewClientCallback webviewClientCallback;
     public View webviewLoadingView;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface AccountChangeCallback {
         void onAccountChange();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static abstract class AccountDestoryCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes4.dex */
         public static class AccountDestoryResult {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -249,12 +247,12 @@ public class SapiWebView extends WebView {
         public abstract void onAccountDestory(AccountDestoryResult accountDestoryResult);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static abstract class AccountFreezeCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes4.dex */
         public static class AccountFreezeResult {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -292,7 +290,7 @@ public class SapiWebView extends WebView {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static final class ActivityLifeCycle {
         public static final /* synthetic */ ActivityLifeCycle[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -354,22 +352,22 @@ public class SapiWebView extends WebView {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface BdussChangeCallback {
         void onBdussChange();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface BindWidgetCallback {
         void onPhoneNumberExist(String str);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface BioScanFaceCallback {
         public static final int BIO_SCAN_FACE_LOGIN = 2;
         public static final int BIO_SCAN_FACE_REG = 1;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes4.dex */
         public static abstract class BioScanFaceResult {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -403,14 +401,14 @@ public class SapiWebView extends WebView {
         void onBioScanFace(BioScanFaceResult bioScanFaceResult);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface BiometricsIdentifyCallback {
         public static final int LIVENESS_RECOG = 1;
 
         void onBiometricsIdentify(BiometricsIdentifyResult biometricsIdentifyResult);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static abstract class BiometricsIdentifyResult {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ERROR_CODE_GET_STOKEN_FAILED = -402;
@@ -446,12 +444,12 @@ public class SapiWebView extends WebView {
         public abstract void setIdentifyToken(String str);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface ChangePwdCallback {
         void onSuccess();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class Command {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -516,12 +514,12 @@ public class SapiWebView extends WebView {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface CoverWebBdussCallback {
         void onCoverBduss(String str, CoverWebBdussResult coverWebBdussResult);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static abstract class CoverWebBdussResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -543,22 +541,22 @@ public class SapiWebView extends WebView {
         public abstract void setWebBduss(String str);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface FileChooserCallback {
         void onFileChooser(ValueCallback<Uri> valueCallback);
 
         void onFileChooserForOSVersion5(ValueCallback<Uri[]> valueCallback);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface HistoryLoginCallback {
         void onSuccess();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface InvokeScAppCallback {
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes4.dex */
         public static abstract class InvokeScAppResult {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -583,7 +581,7 @@ public class SapiWebView extends WebView {
         void onInvokeScApp(String str, String str2, List<PassNameValuePair> list, InvokeScAppResult invokeScAppResult);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface LeftBtnVisibleCallback {
         public static final int LEFT_BTN_INVISIBLE = 0;
         public static final int LEFT_BTN_VISIBLE = 1;
@@ -591,12 +589,12 @@ public class SapiWebView extends WebView {
         void onLeftBtnVisible(int i2);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface LoadExternalWebViewCallback {
         void loadExternalWebview(LoadExternalWebViewResult loadExternalWebViewResult);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class LoadExternalWebViewResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -618,12 +616,12 @@ public class SapiWebView extends WebView {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface LoadSlideWebViewCallback {
         void loadSlideWebview(LoadSlideWebViewResult loadSlideWebViewResult);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class LoadSlideWebViewResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -647,32 +645,32 @@ public class SapiWebView extends WebView {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface LocalConfigCallback {
         List<FastLoginFeature> getFastLoginFeatureList();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface OnBackCallback {
         void onBack();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface OnFinishCallback {
         void onFinish();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface OnNewBackCallback {
         boolean onBack();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface OnSlidePageFinishCallback {
         void onFinish(String str);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface PickPhotoCallback {
         public static final int PICK_IMAGE_ALBUM = 2;
         public static final int PICK_IMAGE_PHOTO = 1;
@@ -680,7 +678,7 @@ public class SapiWebView extends WebView {
         void onPickImage(int i2, int i3, int i4, PickPhotoResult pickPhotoResult);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static abstract class PickPhotoResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -706,12 +704,12 @@ public class SapiWebView extends WebView {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static abstract class PreFillUserNameCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes4.dex */
         public static class PreFillUserNameResult {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -749,24 +747,24 @@ public class SapiWebView extends WebView {
         public abstract void onPreFillUserName(PreFillUserNameResult preFillUserNameResult);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface QrLoginCallback {
         void loginStatusChange(boolean z);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface QuickLoginHandler {
         void handleOtherLogin();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface RealnameAuthenticateCallback {
         void onFailure();
 
         void onSuccess();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public class ReloadConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -806,17 +804,17 @@ public class SapiWebView extends WebView {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface ShareAccountClickCallback {
         void onClick(String str, String str2, String str3, String str4, String str5);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static abstract class SwitchAccountCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes4.dex */
         public static class Result {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -859,7 +857,7 @@ public class SapiWebView extends WebView {
         public abstract void onAccountSwitch(Result result);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public class TimeoutTask implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -905,12 +903,12 @@ public class SapiWebView extends WebView {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface UniteVerifyCallback {
         void onSuccess(String str, String str2, SapiAccount sapiAccount);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface WebChromeClientCallback {
         boolean isSubClassHandleMessage(String str);
 
@@ -919,12 +917,12 @@ public class SapiWebView extends WebView {
         boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface WebViewTitleCallback {
         void onTitleChange(String str);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface WebviewClientCallback {
         void onPageFinished(WebView webView, String str);
 
@@ -1877,7 +1875,7 @@ public class SapiWebView extends WebView {
                                 socialResponse2.bindConflict = "1".equals(newPullParser.nextText());
                                 continue;
                             } else if (name.equalsIgnoreCase("wapsec")) {
-                                socialResponse2.accountCenterFlag = TextAlign.CENTER.equals(newPullParser.nextText());
+                                socialResponse2.accountCenterFlag = "center".equals(newPullParser.nextText());
                                 continue;
                             } else if (name.equalsIgnoreCase("next_url_related")) {
                                 String nextText = newPullParser.nextText();
@@ -2289,7 +2287,7 @@ public class SapiWebView extends WebView {
             return (String) invokeV.objValue;
         }
         TelephonyManager telephonyManager = (TelephonyManager) getContext().getSystemService("phone");
-        if (SapiUtils.checkRequestPermission(s.f55454c, getContext())) {
+        if (SapiUtils.checkRequestPermission(s.f53804c, getContext())) {
             try {
                 line1Number = telephonyManager.getLine1Number();
             } catch (Exception unused) {
@@ -2967,7 +2965,7 @@ public class SapiWebView extends WebView {
                 try {
                     arrayList.add(new PassNameValuePair("token", URLEncoder.encode(str, "UTF-8")));
                     if (str2 != null) {
-                        arrayList.add(new PassNameValuePair(x.o, str2));
+                        arrayList.add(new PassNameValuePair("u", str2));
                     }
                     if (str3 != null) {
                         arrayList.add(new PassNameValuePair("adtext", URLEncoder.encode(str3, "UTF-8")));
@@ -3869,7 +3867,7 @@ public class SapiWebView extends WebView {
         if (interceptable == null || interceptable.invokeL(1048615, this, str) == null) {
             ArrayList arrayList = new ArrayList();
             try {
-                arrayList.add(new PassNameValuePair(x.o, URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + CALLBACK_PARAM_KEY + "=" + ACTION_FORGET_PWD, "UTF-8")));
+                arrayList.add(new PassNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + CALLBACK_PARAM_KEY + "=" + ACTION_FORGET_PWD, "UTF-8")));
                 if (!TextUtils.isEmpty(str)) {
                     arrayList.add(new PassNameValuePair("skin", str));
                 }
@@ -3957,7 +3955,7 @@ public class SapiWebView extends WebView {
     }
 
     /* renamed from: com.baidu.sapi2.SapiWebView$2  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public class AnonymousClass2 extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -4024,7 +4022,7 @@ public class SapiWebView extends WebView {
                     if (!str.contains(parse2.getHost() + parse2.getPath())) {
                     }
                 }
-                if (!TextAlign.CENTER.equals(Uri.parse(str).getQueryParameter("wapsec"))) {
+                if (!"center".equals(Uri.parse(str).getQueryParameter("wapsec"))) {
                     this.this$0.loadUrl("javascript:prompt(JSON.stringify({'action':{'name': 'authorized_response', 'params': [document.body.innerHTML, '1', 'prompt_on_cancel']}}));");
                 }
                 this.this$0.timeoutHandler.removeCallbacks(this.this$0.timeoutTask);
@@ -4135,7 +4133,7 @@ public class SapiWebView extends WebView {
                                         SapiAccountManager.getInstance().getAccountService().getUserInfo(new GetUserInfoCallback(this, cookieBduss, cookiePtoken) { // from class: com.baidu.sapi2.SapiWebView.2.2.1
                                             public static /* synthetic */ Interceptable $ic;
                                             public transient /* synthetic */ FieldHolder $fh;
-                                            public final /* synthetic */ RunnableC18552 this$2;
+                                            public final /* synthetic */ RunnableC18312 this$2;
                                             public final /* synthetic */ String val$bduss;
                                             public final /* synthetic */ String val$ptoken;
 

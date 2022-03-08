@@ -5,7 +5,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.EOFException;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -30,7 +30,7 @@ import okhttp3.ResponseBody;
 import okhttp3.internal.http.HttpHeaders;
 import okio.Buffer;
 import okio.BufferedSource;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class LogInterceptor implements Interceptor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "http";
@@ -39,7 +39,7 @@ public class LogInterceptor implements Interceptor {
     public volatile Level level;
     public final Logger logger;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public class DefaultLogger implements Logger {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public class LogInterceptor implements Interceptor {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static final class Level {
         public static final /* synthetic */ Level[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -100,7 +100,7 @@ public class LogInterceptor implements Interceptor {
                     return;
                 }
             }
-            NONE = new Level(PolyActivity.NONE_PANEL_TYPE, 0);
+            NONE = new Level("NONE", 0);
             BASIC = new Level("BASIC", 1);
             HEADERS = new Level("HEADERS", 2);
             Level level = new Level("BODY", 3);
@@ -140,7 +140,7 @@ public class LogInterceptor implements Interceptor {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface Logger {
         void log(String str);
     }
@@ -231,7 +231,7 @@ public class LogInterceptor implements Interceptor {
                 RequestBody body = request.body();
                 boolean z5 = body != null;
                 Connection connection = chain.connection();
-                String str = "--> " + request.method() + ' ' + request.url() + ' ' + (connection != null ? connection.protocol() : Protocol.HTTP_1_1);
+                String str = "--> " + request.method() + WebvttCueParser.CHAR_SPACE + request.url() + WebvttCueParser.CHAR_SPACE + (connection != null ? connection.protocol() : Protocol.HTTP_1_1);
                 if (!z4 && z5) {
                     str = str + " (" + body.contentLength() + "-byte body)";
                 }
@@ -297,9 +297,9 @@ public class LogInterceptor implements Interceptor {
                 StringBuilder sb = new StringBuilder();
                 sb.append("<-- ");
                 sb.append(proceed.code());
-                sb.append(' ');
+                sb.append(WebvttCueParser.CHAR_SPACE);
                 sb.append(proceed.message());
-                sb.append(' ');
+                sb.append(WebvttCueParser.CHAR_SPACE);
                 sb.append(proceed.request().url());
                 sb.append(" (");
                 sb.append(millis);

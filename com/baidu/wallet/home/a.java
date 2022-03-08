@@ -14,15 +14,15 @@ import com.baidu.wallet.base.widget.SDKJumpManager;
 import com.baidu.wallet.home.beans.HomeCfgBean;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import java.util.Arrays;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: com.baidu.wallet.home.a$a  reason: collision with other inner class name */
-    /* loaded from: classes13.dex */
-    public static class C2004a {
+    /* loaded from: classes6.dex */
+    public static class C1980a {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2004a.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1980a.a : (a) invokeV.objValue;
     }
 
     public a() {
@@ -91,7 +91,7 @@ public class a {
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f51307b;
+                public final /* synthetic */ a f49726b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -108,7 +108,7 @@ public class a {
                             return;
                         }
                     }
-                    this.f51307b = this;
+                    this.f49726b = this;
                     this.a = str5;
                 }
 

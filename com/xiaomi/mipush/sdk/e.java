@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public static final e a;
@@ -17,13 +17,13 @@ public final class e {
     public static final /* synthetic */ e[] f92a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final e f61110b;
+    public static final e f59460b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final e f61111c;
+    public static final e f59461c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final e f61112d;
+    public static final e f59462d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -43,11 +43,11 @@ public final class e {
             }
         }
         a = new e("ASSEMBLE_PUSH_HUAWEI", 0, 1);
-        f61110b = new e("ASSEMBLE_PUSH_FCM", 1, 2);
-        f61111c = new e("ASSEMBLE_PUSH_COS", 2, 3);
+        f59460b = new e("ASSEMBLE_PUSH_FCM", 1, 2);
+        f59461c = new e("ASSEMBLE_PUSH_COS", 2, 3);
         e eVar = new e("ASSEMBLE_PUSH_FTOS", 3, 4);
-        f61112d = eVar;
-        f92a = new e[]{a, f61110b, f61111c, eVar};
+        f59462d = eVar;
+        f92a = new e[]{a, f59460b, f59461c, eVar};
     }
 
     public e(String str, int i2, int i3) {

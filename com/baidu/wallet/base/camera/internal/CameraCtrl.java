@@ -27,7 +27,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.ListIterator;
 import kotlinx.coroutines.DebugKt;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_RAW = 0;
@@ -50,7 +50,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     public int _width;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static final class MethodIndex {
         public static final /* synthetic */ MethodIndex[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -111,7 +111,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static CameraCtrl a;

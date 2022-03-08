@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class m extends ReportAction {
     public static final SparseArray<com.kwad.sdk.core.report.kwai.b> bP;
     public String bN;

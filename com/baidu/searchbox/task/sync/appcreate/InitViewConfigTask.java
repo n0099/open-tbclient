@@ -5,9 +5,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.t0.c0.c;
-import c.a.t0.s0.l;
-import c.a.u0.n4.h;
+import c.a.q0.b0.c;
+import c.a.q0.r.l;
+import c.a.q0.r0.k;
+import c.a.r0.l4.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
@@ -22,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class InitViewConfigTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -93,7 +94,7 @@ public class InitViewConfigTask extends LaunchTask {
                     }
                 };
                 n.H(TbadkCoreApplication.getInst().mToast);
-                l.b().I(System.currentTimeMillis() - currentTimeMillis);
+                k.b().I(System.currentTimeMillis() - currentTimeMillis);
             }
         }
     }
@@ -103,7 +104,7 @@ public class InitViewConfigTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ViewHelper.initSkinDataOnStartup(AppRuntime.getAppContext());
-            c.a.t0.s.l.c().f();
+            l.c().f();
             TbConfig.initBigImageWidth(TbadkCoreApplication.getInst());
             TbConfig.initBigImageMaxUsedMemory(TbadkCoreApplication.getInst().getContext());
             if (TbadkCoreApplication.getInst().isMainProcess(true)) {

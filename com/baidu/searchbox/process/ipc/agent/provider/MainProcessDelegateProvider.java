@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class MainProcessDelegateProvider extends ProcessDelegateBaseProvider {
     public static /* synthetic */ Interceptable $ic;
     public static final String PROVIDER_AUTHORITIES;

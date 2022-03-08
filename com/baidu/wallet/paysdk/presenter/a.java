@@ -25,14 +25,14 @@ import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.base.statistics.StatServiceEvent;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import com.dxmpay.wallet.utils.StatHelper;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class a implements View.OnClickListener, e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AuthorizeSignActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f52307b;
+    public int f50726b;
 
     public a(AuthorizeSignActivity authorizeSignActivity) {
         Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class a implements View.OnClickListener, e {
                 return;
             }
         }
-        this.f52307b = 1;
+        this.f50726b = 1;
         this.a = authorizeSignActivity;
     }
 
@@ -221,7 +221,7 @@ public class a implements View.OnClickListener, e {
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f52307b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f50726b : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -265,7 +265,7 @@ public class a implements View.OnClickListener, e {
                     public final /* synthetic */ CardData.BondCard a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f52308b;
+                    public final /* synthetic */ a f50727b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -282,7 +282,7 @@ public class a implements View.OnClickListener, e {
                                 return;
                             }
                         }
-                        this.f52308b = this;
+                        this.f50727b = this;
                         this.a = bondCard;
                     }
 
@@ -299,7 +299,7 @@ public class a implements View.OnClickListener, e {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
                             PayRequestCache.getInstance().removeBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
-                            BaiduPay.getInstance().completeCardAuth(this.f52308b.a.getActivity(), this.a);
+                            BaiduPay.getInstance().completeCardAuth(this.f50727b.a.getActivity(), this.a);
                             StatHelper.statServiceEvent(StatServiceEvent.EVENT_AuthorizePay_ClickNext, null, StatServiceEvent.VALUE_AuthorizePay_ClickNext_CompleteCard);
                         }
                     }

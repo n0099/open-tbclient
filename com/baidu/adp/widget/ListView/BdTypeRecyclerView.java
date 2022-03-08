@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecyclerView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,13 +31,13 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
     public HashMap<BdUniqueId, c.a.d.o.e.a> y;
     public HashMap<BdUniqueId, h> z;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class a implements BdRecyclerView.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdTypeRecyclerView f31599e;
+        public final /* synthetic */ BdTypeRecyclerView f30002e;
 
         public a(BdTypeRecyclerView bdTypeRecyclerView) {
             Interceptable interceptable = $ic;
@@ -54,21 +54,21 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
                     return;
                 }
             }
-            this.f31599e = bdTypeRecyclerView;
+            this.f30002e = bdTypeRecyclerView;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdRecyclerView.i
         public void b(ViewGroup viewGroup, View view, Object obj, int i2, long j2) {
             RecyclerViewTypeAdapter recyclerViewTypeAdapter;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view, obj, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (recyclerViewTypeAdapter = this.f31599e.x) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view, obj, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (recyclerViewTypeAdapter = this.f30002e.x) == null) {
                 return;
             }
             recyclerViewTypeAdapter.onItemClick(viewGroup, view, i2, j2);
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class b implements BdRecyclerView.j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -139,7 +139,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
                     if (aVar.y() != null) {
                         bdUniqueId = aVar.y();
                         if (!this.z.containsKey(bdUniqueId)) {
-                            h hVar = new h(aVar.f2447e, bdUniqueId, aVar.f2451i);
+                            h hVar = new h(aVar.f3076e, bdUniqueId, aVar.f3080i);
                             hVar.b0(aVar);
                             this.x.addAdapter(hVar);
                             this.z.put(bdUniqueId, hVar);
@@ -148,7 +148,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
                     if (aVar.w() != null) {
                         bdUniqueId = aVar.w();
                         if (!this.z.containsKey(bdUniqueId)) {
-                            h hVar2 = new h(aVar.f2447e, bdUniqueId, aVar.f2451i);
+                            h hVar2 = new h(aVar.f3076e, bdUniqueId, aVar.f3080i);
                             hVar2.b0(aVar);
                             this.x.addAdapter(hVar2);
                             this.z.put(bdUniqueId, hVar2);
@@ -157,7 +157,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
                     if (aVar.x() != null) {
                         bdUniqueId = aVar.x();
                         if (!this.z.containsKey(bdUniqueId)) {
-                            h hVar3 = new h(aVar.f2447e, bdUniqueId, aVar.f2451i);
+                            h hVar3 = new h(aVar.f3076e, bdUniqueId, aVar.f3080i);
                             hVar3.b0(aVar);
                             this.x.addAdapter(hVar3);
                             this.z.put(bdUniqueId, hVar3);
@@ -166,7 +166,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
                     if (aVar.v() != null) {
                         bdUniqueId = aVar.v();
                         if (!this.z.containsKey(bdUniqueId)) {
-                            h hVar4 = new h(aVar.f2447e, bdUniqueId, aVar.f2451i);
+                            h hVar4 = new h(aVar.f3076e, bdUniqueId, aVar.f3080i);
                             hVar4.b0(aVar);
                             this.x.addAdapter(hVar4);
                             this.z.put(bdUniqueId, hVar4);
@@ -175,7 +175,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
                     if (bdUniqueId == null) {
                         this.x.addAdapter(aVar);
                     } else {
-                        this.y.put(aVar.f2450h, aVar);
+                        this.y.put(aVar.f3079h, aVar);
                     }
                 }
             }

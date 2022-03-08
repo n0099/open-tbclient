@@ -1,5 +1,5 @@
 package com.bytedance.pangle.download;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface a {
     void a();
 

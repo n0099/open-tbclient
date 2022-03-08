@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class SmoothProgressBar extends RotateProgressBar {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f39373e;
+    public static final int f37777e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,9 +36,9 @@ public class SmoothProgressBar extends RotateProgressBar {
             }
         }
         if (Build.VERSION.SDK_INT > 15) {
-            f39373e = 36;
+            f37777e = 36;
         } else {
-            f39373e = 25;
+            f37777e = 25;
         }
     }
 
@@ -67,7 +67,7 @@ public class SmoothProgressBar extends RotateProgressBar {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.mFrameDuration = (int) ((((this.mFrameDuration * 12.0f) / f39373e) / 2.0f) + 0.5f);
+            this.mFrameDuration = (int) ((((this.mFrameDuration * 12.0f) / f37777e) / 2.0f) + 0.5f);
         }
     }
 
@@ -81,7 +81,7 @@ public class SmoothProgressBar extends RotateProgressBar {
                     drawable.draw(canvas);
                     if (SystemClock.uptimeMillis() - this.mLastDrawTime >= this.mFrameDuration) {
                         this.mLastDrawTime = SystemClock.uptimeMillis();
-                        int i2 = this.mDegree + (10000 / f39373e);
+                        int i2 = this.mDegree + (10000 / f37777e);
                         this.mDegree = i2;
                         if (i2 >= 10000) {
                             this.mDegree = i2 - 10000;

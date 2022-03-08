@@ -12,7 +12,7 @@ import androidx.annotation.IdRes;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.R;
+import androidx.appcompat.R$attr;
 import androidx.appcompat.view.ActionMode;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.KeyEventDispatcher;
@@ -56,7 +56,7 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i2)) == null) {
             if (i2 == 0) {
                 TypedValue typedValue = new TypedValue();
-                context.getTheme().resolveAttribute(R.attr.dialogTheme, typedValue, true);
+                context.getTheme().resolveAttribute(R$attr.dialogTheme, typedValue, true);
                 return typedValue.resourceId;
             }
             return i2;

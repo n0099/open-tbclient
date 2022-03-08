@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ServiceManagerNative {
     public static /* synthetic */ Interceptable $ic;
     public static volatile ServiceManagerNative sInstance;
@@ -82,7 +82,7 @@ public class ServiceManagerNative {
                     public final /* synthetic */ ServiceConnection a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ ServiceManagerNative f53341b;
+                    public final /* synthetic */ ServiceManagerNative f51760b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -99,7 +99,7 @@ public class ServiceManagerNative {
                                 return;
                             }
                         }
-                        this.f53341b = this;
+                        this.f51760b = this;
                         this.a = serviceConnection;
                     }
 

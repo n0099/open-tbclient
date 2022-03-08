@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class FetchLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -62,7 +62,7 @@ public class FetchLog {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:43:0x00c6  */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x00c2  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

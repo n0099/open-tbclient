@@ -17,12 +17,12 @@ import androidx.core.graphics.BlendModeColorFilterCompat;
 import androidx.core.graphics.BlendModeCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 import com.google.android.material.internal.ContextUtils;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
@@ -30,7 +30,7 @@ import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.Map;
 @RequiresApi(21)
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class MaterialContainerTransformSharedElementCallback extends SharedElementCallback {
     public static /* synthetic */ Interceptable $ic;
     @Nullable
@@ -44,13 +44,13 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
     public boolean sharedElementReenterTransitionEnabled;
     public boolean transparentWindowBackgroundEnabled;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface ShapeProvider {
         @Nullable
         ShapeAppearanceModel provideShape(@NonNull View view);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class ShapeableViewShapeProvider implements ShapeProvider {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

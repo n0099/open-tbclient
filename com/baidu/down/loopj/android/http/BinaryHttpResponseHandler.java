@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;

@@ -1,7 +1,6 @@
 package org.apache.commons.lang3.builder;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.ClassUtils;
 import org.apache.commons.lang3.SystemUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class MultilineRecursiveToStringStyle extends RecursiveToStringStyle {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
@@ -40,7 +39,7 @@ public class MultilineRecursiveToStringStyle extends RecursiveToStringStyle {
     private void resetIndent() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            setArrayStart(StringUtil.ARRAY_START + SystemUtils.LINE_SEPARATOR + ((Object) spacer(this.spaces)));
+            setArrayStart("{" + SystemUtils.LINE_SEPARATOR + ((Object) spacer(this.spaces)));
             setArraySeparator("," + SystemUtils.LINE_SEPARATOR + ((Object) spacer(this.spaces)));
             setArrayEnd(SystemUtils.LINE_SEPARATOR + ((Object) spacer(this.spaces - this.indent)) + "}");
             setContentStart(PreferencesUtil.LEFT_MOUNT + SystemUtils.LINE_SEPARATOR + ((Object) spacer(this.spaces)));

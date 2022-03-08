@@ -1,12 +1,34 @@
 package c.i.b.a;
 
-import com.google.android.exoplayer2.ExoPlaybackException;
-import com.google.android.exoplayer2.Format;
-/* loaded from: classes9.dex */
-public interface s {
-    int a(Format format) throws ExoPlaybackException;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes3.dex */
+public final class s {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int a = 1;
 
-    int e();
+    /* renamed from: b  reason: collision with root package name */
+    public static final int f28649b = 2;
 
-    int r() throws ExoPlaybackException;
+    /* renamed from: c  reason: collision with root package name */
+    public static final int f28650c = 3;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-528839167, "Lc/i/b/a/s;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-528839167, "Lc/i/b/a/s;");
+        }
+    }
 }

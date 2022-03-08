@@ -31,7 +31,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class TextLayer extends BaseLayer {
     public final LongSparseArray<String> codePointCache;
     @Nullable
@@ -65,7 +65,7 @@ public class TextLayer extends BaseLayer {
     public BaseKeyframeAnimation<Float, Float> trackingCallbackAnimation;
 
     /* renamed from: com.airbnb.lottie.model.layer.TextLayer$3  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$DocumentData$Justification;
 

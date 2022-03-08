@@ -41,6 +41,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.internal.StaticLayoutBuilderCompat;
 import g.a.d.b;
@@ -64,7 +65,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class AccessibilityBridge extends AccessibilityNodeProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTION_SHOW_ON_SCREEN = 16908342;
@@ -118,7 +119,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     public final AccessibilityManager.TouchExplorationStateChangeListener touchExplorationStateChangeListener;
 
     /* renamed from: io.flutter.view.AccessibilityBridge$5  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass5 {
         public static final /* synthetic */ int[] $SwitchMap$io$flutter$view$AccessibilityBridge$StringAttributeType;
         public static /* synthetic */ Interceptable $ic;
@@ -151,7 +152,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class AccessibilityFeature {
         public static final /* synthetic */ AccessibilityFeature[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -216,7 +217,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class Action {
         public static final /* synthetic */ Action[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -318,7 +319,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class CustomAccessibilityAction {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -348,7 +349,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class Flag {
         public static final /* synthetic */ Flag[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -454,7 +455,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class LocaleStringAttribute extends StringAttribute {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -479,12 +480,12 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface OnAccessibilityChangeListener {
         void onAccessibilityChanged(boolean z, boolean z2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class SemanticsNode {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -985,7 +986,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class SpellOutStringAttribute extends StringAttribute {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1009,7 +1010,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class StringAttribute {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1033,7 +1034,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class StringAttributeType {
         public static final /* synthetic */ StringAttributeType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -1093,7 +1094,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class TextDirection {
         public static final /* synthetic */ TextDirection[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -2008,15 +2009,15 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
                     }
                     if (!z) {
                         hashMap.put(SchemeCollecter.CLASSIFY_BASE, Integer.valueOf(semanticsNode.textSelectionExtent));
-                        hashMap.put("extent", Integer.valueOf(semanticsNode.textSelectionExtent));
+                        hashMap.put(TtmlNode.ATTR_TTS_EXTENT, Integer.valueOf(semanticsNode.textSelectionExtent));
                     } else {
                         hashMap.put(SchemeCollecter.CLASSIFY_BASE, Integer.valueOf(bundle.getInt(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_SELECTION_START_INT)));
-                        hashMap.put("extent", Integer.valueOf(bundle.getInt(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_SELECTION_END_INT)));
+                        hashMap.put(TtmlNode.ATTR_TTS_EXTENT, Integer.valueOf(bundle.getInt(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_SELECTION_END_INT)));
                     }
                     this.accessibilityChannel.dispatchSemanticsAction(i2, Action.SET_SELECTION, hashMap);
                     SemanticsNode semanticsNode2 = this.flutterSemanticsTree.get(Integer.valueOf(i2));
                     semanticsNode2.textSelectionBase = ((Integer) hashMap.get(SchemeCollecter.CLASSIFY_BASE)).intValue();
-                    semanticsNode2.textSelectionExtent = ((Integer) hashMap.get("extent")).intValue();
+                    semanticsNode2.textSelectionExtent = ((Integer) hashMap.get(TtmlNode.ATTR_TTS_EXTENT)).intValue();
                     return true;
                 case 1048576:
                     this.accessibilityChannel.dispatchSemanticsAction(i2, Action.DISMISS);

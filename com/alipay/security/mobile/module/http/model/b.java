@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,26 +39,26 @@ public class b {
                 return null;
             }
             cVar.a = dataReportResult.success;
-            cVar.f31246b = dataReportResult.resultCode;
+            cVar.f29650b = dataReportResult.resultCode;
             Map<String, String> map = dataReportResult.resultData;
             if (map != null) {
-                cVar.f31247c = map.get("apdid");
-                cVar.f31248d = map.get("apdidToken");
-                cVar.f31251g = map.get("dynamicKey");
-                cVar.f31252h = map.get("timeInterval");
-                cVar.f31253i = map.get("webrtcUrl");
-                cVar.f31254j = "";
+                cVar.f29651c = map.get("apdid");
+                cVar.f29652d = map.get("apdidToken");
+                cVar.f29655g = map.get("dynamicKey");
+                cVar.f29656h = map.get("timeInterval");
+                cVar.f29657i = map.get("webrtcUrl");
+                cVar.f29658j = "";
                 String str = map.get("drmSwitch");
                 if (com.alipay.security.mobile.module.a.a.b(str)) {
                     if (str.length() > 0) {
                         StringBuilder sb = new StringBuilder();
                         sb.append(str.charAt(0));
-                        cVar.f31249e = sb.toString();
+                        cVar.f29653e = sb.toString();
                     }
                     if (str.length() >= 3) {
                         StringBuilder sb2 = new StringBuilder();
                         sb2.append(str.charAt(2));
-                        cVar.f31250f = sb2.toString();
+                        cVar.f29654f = sb2.toString();
                     }
                 }
                 if (map.containsKey("apse_degrade")) {
@@ -79,15 +79,15 @@ public class b {
                 return null;
             }
             dataReportRequest.os = dVar.a;
-            dataReportRequest.rpcVersion = dVar.f31263j;
+            dataReportRequest.rpcVersion = dVar.f29667j;
             dataReportRequest.bizType = "1";
             HashMap hashMap = new HashMap();
             dataReportRequest.bizData = hashMap;
-            hashMap.put("apdid", dVar.f31255b);
-            dataReportRequest.bizData.put("apdidToken", dVar.f31256c);
-            dataReportRequest.bizData.put("umidToken", dVar.f31257d);
-            dataReportRequest.bizData.put("dynamicKey", dVar.f31258e);
-            dataReportRequest.deviceData = dVar.f31259f;
+            hashMap.put("apdid", dVar.f29659b);
+            dataReportRequest.bizData.put("apdidToken", dVar.f29660c);
+            dataReportRequest.bizData.put("umidToken", dVar.f29661d);
+            dataReportRequest.bizData.put("dynamicKey", dVar.f29662e);
+            dataReportRequest.deviceData = dVar.f29663f;
             return dataReportRequest;
         }
         return (DataReportRequest) invokeL.objValue;

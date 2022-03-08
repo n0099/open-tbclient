@@ -19,7 +19,7 @@ import java.util.Iterator;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class co {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,34 +35,34 @@ public class co {
     public ArrayList<cx> f198a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f61167b;
+    public long f59517b;
 
     /* renamed from: b  reason: collision with other field name */
     public String f199b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61168c;
+    public String f59518c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61169d;
+    public String f59519d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f61170e;
+    public String f59520e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f61171f;
+    public String f59521f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f61172g;
+    public String f59522g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f61173h;
+    public String f59523h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f61174i;
+    public String f59524i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f61175j;
+    public String f59525j;
 
     public co(String str) {
         Interceptable interceptable = $ic;
@@ -82,8 +82,8 @@ public class co {
         this.f197a = "";
         this.f198a = new ArrayList<>();
         this.a = 0.1d;
-        this.f61175j = "s.mi1.cc";
-        this.f61167b = 86400000L;
+        this.f59525j = "s.mi1.cc";
+        this.f59517b = 86400000L;
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("the host is empty");
         }
@@ -113,16 +113,16 @@ public class co {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
             synchronized (this) {
                 this.f197a = jSONObject.optString("net");
-                this.f61167b = jSONObject.getLong(ResultTB.TTL);
+                this.f59517b = jSONObject.getLong(ResultTB.TTL);
                 this.a = jSONObject.getDouble("pct");
                 this.f196a = jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
-                this.f61169d = jSONObject.optString("city");
-                this.f61168c = jSONObject.optString("prv");
-                this.f61172g = jSONObject.optString("cty");
-                this.f61170e = jSONObject.optString("isp");
-                this.f61171f = jSONObject.optString("ip");
+                this.f59519d = jSONObject.optString("city");
+                this.f59518c = jSONObject.optString("prv");
+                this.f59522g = jSONObject.optString("cty");
+                this.f59520e = jSONObject.optString("isp");
+                this.f59521f = jSONObject.optString("ip");
                 this.f199b = jSONObject.optString("host");
-                this.f61173h = jSONObject.optString("xf");
+                this.f59523h = jSONObject.optString("xf");
                 JSONArray jSONArray = jSONObject.getJSONArray("fbs");
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                     a(new cx().a(jSONArray.getJSONObject(i2)));
@@ -138,15 +138,15 @@ public class co {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                if (TextUtils.isEmpty(this.f61174i)) {
-                    if (TextUtils.isEmpty(this.f61170e)) {
+                if (TextUtils.isEmpty(this.f59524i)) {
+                    if (TextUtils.isEmpty(this.f59520e)) {
                         return "hardcode_isp";
                     }
-                    String a = bm.a(new String[]{this.f61170e, this.f61168c, this.f61169d, this.f61172g, this.f61171f}, "_");
-                    this.f61174i = a;
+                    String a = bm.a(new String[]{this.f59520e, this.f59518c, this.f59519d, this.f59522g, this.f59521f}, "_");
+                    this.f59524i = a;
                     return a;
                 }
-                return this.f61174i;
+                return this.f59524i;
             }
         }
         return (String) invokeV.objValue;
@@ -225,16 +225,16 @@ public class co {
             synchronized (this) {
                 jSONObject = new JSONObject();
                 jSONObject.put("net", this.f197a);
-                jSONObject.put(ResultTB.TTL, this.f61167b);
+                jSONObject.put(ResultTB.TTL, this.f59517b);
                 jSONObject.put("pct", this.a);
                 jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.f196a);
-                jSONObject.put("city", this.f61169d);
-                jSONObject.put("prv", this.f61168c);
-                jSONObject.put("cty", this.f61172g);
-                jSONObject.put("isp", this.f61170e);
-                jSONObject.put("ip", this.f61171f);
+                jSONObject.put("city", this.f59519d);
+                jSONObject.put("prv", this.f59518c);
+                jSONObject.put("cty", this.f59522g);
+                jSONObject.put("isp", this.f59520e);
+                jSONObject.put("ip", this.f59521f);
                 jSONObject.put("host", this.f199b);
-                jSONObject.put("xf", this.f61173h);
+                jSONObject.put("xf", this.f59523h);
                 JSONArray jSONArray = new JSONArray();
                 Iterator<cx> it = this.f198a.iterator();
                 while (it.hasNext()) {
@@ -258,7 +258,7 @@ public class co {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
             if (j2 > 0) {
-                this.f61167b = j2;
+                this.f59517b = j2;
                 return;
             }
             throw new IllegalArgumentException("the duration is invalid " + j2);
@@ -391,7 +391,7 @@ public class co {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.f61175j = str;
+            this.f59525j = str;
         }
     }
 
@@ -412,20 +412,20 @@ public class co {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? System.currentTimeMillis() - this.f196a < this.f61167b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? System.currentTimeMillis() - this.f196a < this.f59517b : invokeV.booleanValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            long j2 = this.f61167b;
-            if (ImageLoader.f32709d >= j2) {
+            long j2 = this.f59517b;
+            if (ImageLoader.f31112d >= j2) {
                 j2 = 864000000;
             }
             long currentTimeMillis = System.currentTimeMillis();
             long j3 = this.f196a;
-            return currentTimeMillis - j3 > j2 || (currentTimeMillis - j3 > this.f61167b && this.f197a.startsWith("WIFI-"));
+            return currentTimeMillis - j3 > j2 || (currentTimeMillis - j3 > this.f59517b && this.f197a.startsWith("WIFI-"));
         }
         return invokeV.booleanValue;
     }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.memberCenter.memberprivilege;
 
-import c.a.t0.s.m.c;
-import c.a.u0.h2.g.a;
+import c.a.q0.r.m.c;
+import c.a.r0.h2.g.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class ResponseMemberPrivilegeMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,9 +66,9 @@ public class ResponseMemberPrivilegeMessage extends JsonHttpResponsedMessage {
             if (aVar == null || (eVar = aVar.a) == null || (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) == null || eVar == null || currentAccountObj.getID() == null || !currentAccountObj.getID().equals(eVar.a)) {
                 return;
             }
-            a.b bVar = eVar.f18539d;
-            if (bVar != null && bVar.f18532b > bVar.f18533c && !StringUtils.isNull(bVar.f18534d)) {
-                currentAccountObj.setMemberIconUrl(bVar.f18534d);
+            a.b bVar = eVar.f17999d;
+            if (bVar != null && bVar.f17992b > bVar.f17993c && !StringUtils.isNull(bVar.f17994d)) {
+                currentAccountObj.setMemberIconUrl(bVar.f17994d);
             } else {
                 currentAccountObj.setMemberIconUrl(null);
             }

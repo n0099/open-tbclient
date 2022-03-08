@@ -9,17 +9,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.FloatBuffer;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class Frame {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Session a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LightEstimate f54587b;
+    public final LightEstimate f52937b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f54588c;
+    public long f52938c;
 
     static {
         InterceptResult invokeClinit;
@@ -53,10 +53,10 @@ public class Frame {
                 return;
             }
         }
-        this.f54588c = 0L;
+        this.f52938c = 0L;
         this.a = session;
-        this.f54588c = nativeCreateFrame(session.a);
-        this.f54587b = new LightEstimate(session);
+        this.f52938c = nativeCreateFrame(session.a);
+        this.f52937b = new LightEstimate(session);
     }
 
     private native long nativeAcquireCameraImage(long j2, long j3);
@@ -86,7 +86,7 @@ public class Frame {
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j2 = this.f54588c;
+            long j2 = this.f52938c;
             if (j2 != 0) {
                 nativeDestroyFrame(j2);
             }
@@ -115,7 +115,7 @@ public class Frame {
                 return;
             }
         }
-        this.f54588c = 0L;
-        this.f54588c = 0L;
+        this.f52938c = 0L;
+        this.f52938c = 0L;
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class JSONToken {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COLON = 17;
@@ -83,7 +83,7 @@ public class JSONToken {
                 case 11:
                     return SmallTailInfo.EMOTION_SUFFIX;
                 case 12:
-                    return StringUtil.ARRAY_START;
+                    return "{";
                 case 13:
                     return "}";
                 case 14:

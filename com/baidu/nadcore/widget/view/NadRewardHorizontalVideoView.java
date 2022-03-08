@@ -4,22 +4,21 @@ import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import c.a.d0.d.e;
-import c.a.d0.d.g;
-import c.a.d0.s.s;
-import c.a.d0.s.t;
-import c.a.d0.x.c;
+import c.a.b0.s.s;
+import c.a.b0.s.t;
+import c.a.b0.x.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.uitemplate.HorizontalVideoTailView;
 import com.baidu.nadcore.widget.uitemplate.NadRewardOperateView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class NadRewardHorizontalVideoView extends NadRewardVideoView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -62,11 +61,7 @@ public class NadRewardHorizontalVideoView extends NadRewardVideoView {
         Integer num;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutInflater, sVar) == null) {
-            int i2 = g.nad_reward_horizontal_video_view;
-            if (sVar != null && (num = (Integer) c.b(sVar.a, AdBaseModel.STYLE.VIDEO)) != null) {
-                i2 = num.intValue();
-            }
-            layoutInflater.inflate(i2, this);
+            layoutInflater.inflate((sVar == null || (num = (Integer) c.b(sVar.a, AdBaseModel.STYLE.VIDEO)) == null) ? R.layout.nad_reward_horizontal_video_view : num.intValue(), this);
         }
     }
 
@@ -117,7 +112,7 @@ public class NadRewardHorizontalVideoView extends NadRewardVideoView {
         HorizontalVideoTailView horizontalVideoTailView;
         t tVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, adBaseModel) == null) || (horizontalVideoTailView = this.k) == null || adBaseModel == null || (tVar = adBaseModel.f37261i) == null || !tVar.k) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, adBaseModel) == null) || (horizontalVideoTailView = this.k) == null || adBaseModel == null || (tVar = adBaseModel.f35664i) == null || !tVar.k) {
             return;
         }
         horizontalVideoTailView.setAdInfo(tVar);
@@ -184,6 +179,6 @@ public class NadRewardHorizontalVideoView extends NadRewardVideoView {
                 return;
             }
         }
-        this.k = (HorizontalVideoTailView) findViewById(e.nad_horizontal_video_tail_frame_view);
+        this.k = (HorizontalVideoTailView) findViewById(R.id.nad_horizontal_video_tail_frame_view);
     }
 }

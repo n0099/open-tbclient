@@ -1,9 +1,9 @@
 package com.baidu.searchbox.task.async.homeready;
 
 import android.webkit.WebSettings;
-import c.a.c1.c;
-import c.a.t0.m.a;
-import c.a.t0.s.j0.b;
+import c.a.q0.l.a;
+import c.a.q0.r.j0.b;
+import c.a.z0.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class MainTabLoadFinishTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
                 e2.printStackTrace();
             }
             try {
-                b.k().y("key_last_cached_oid", c.a.r.b.f(TbadkCoreApplication.getInst().getContext()).g());
+                b.k().y("key_last_cached_oid", c.a.q.b.f(TbadkCoreApplication.getInst().getContext()).g());
             } catch (Exception e3) {
                 e3.printStackTrace();
             }

@@ -15,31 +15,31 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 10;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f58501b = 5;
+    public static int f56851b = 5;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Executor f58502c;
+    public final Executor f56852c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Handler f58503d;
+    public final Handler f56853d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final LinkedBlockingQueue<t> f58504e;
+    public final LinkedBlockingQueue<t> f56854e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Object f58505f;
+    public final Object f56855f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final ArrayList<t> f58506g;
+    public final ArrayList<t> f56856g;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final j a;
@@ -62,7 +62,7 @@ public class j {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class b implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -138,11 +138,11 @@ public class j {
                 return;
             }
         }
-        this.f58502c = com.kwai.filedownloader.e.b.a(5, "BlockCompleted");
-        this.f58505f = new Object();
-        this.f58506g = new ArrayList<>();
-        this.f58503d = new Handler(Looper.getMainLooper(), new b());
-        this.f58504e = new LinkedBlockingQueue<>();
+        this.f56852c = com.kwai.filedownloader.e.b.a(5, "BlockCompleted");
+        this.f56855f = new Object();
+        this.f56856g = new ArrayList<>();
+        this.f56853d = new Handler(Looper.getMainLooper(), new b());
+        this.f56854e = new LinkedBlockingQueue<>();
     }
 
     public static j a() {
@@ -154,7 +154,7 @@ public class j {
     private void b(t tVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, tVar) == null) {
-            Handler handler = this.f58503d;
+            Handler handler = this.f56853d;
             handler.sendMessage(handler.obtainMessage(1, tVar));
         }
     }
@@ -169,25 +169,25 @@ public class j {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            synchronized (this.f58505f) {
-                if (this.f58506g.isEmpty()) {
-                    if (this.f58504e.isEmpty()) {
+            synchronized (this.f56855f) {
+                if (this.f56856g.isEmpty()) {
+                    if (this.f56854e.isEmpty()) {
                         return;
                     }
                     int i2 = 0;
                     if (b()) {
                         int i3 = a;
-                        int min = Math.min(this.f58504e.size(), f58501b);
+                        int min = Math.min(this.f56854e.size(), f56851b);
                         while (i2 < min) {
-                            this.f58506g.add(this.f58504e.remove());
+                            this.f56856g.add(this.f56854e.remove());
                             i2++;
                         }
                         i2 = i3;
                     } else {
-                        this.f58504e.drainTo(this.f58506g);
+                        this.f56854e.drainTo(this.f56856g);
                     }
-                    Handler handler = this.f58503d;
-                    handler.sendMessageDelayed(handler.obtainMessage(2, this.f58506g), i2);
+                    Handler handler = this.f56853d;
+                    handler.sendMessageDelayed(handler.obtainMessage(2, this.f56856g), i2);
                 }
             }
         }
@@ -196,8 +196,8 @@ public class j {
     private void c(t tVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, tVar) == null) {
-            synchronized (this.f58505f) {
-                this.f58504e.offer(tVar);
+            synchronized (this.f56855f) {
+                this.f56854e.offer(tVar);
             }
             c();
         }
@@ -216,13 +216,13 @@ public class j {
             if (tVar.c()) {
                 tVar.b();
             } else if (tVar.d()) {
-                this.f58502c.execute(new Runnable(this, tVar) { // from class: com.kwai.filedownloader.j.1
+                this.f56852c.execute(new Runnable(this, tVar) { // from class: com.kwai.filedownloader.j.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ t a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ j f58507b;
+                    public final /* synthetic */ j f56857b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -239,7 +239,7 @@ public class j {
                                 return;
                             }
                         }
-                        this.f58507b = this;
+                        this.f56857b = this;
                         this.a = tVar;
                     }
 
@@ -252,15 +252,15 @@ public class j {
                     }
                 });
             } else {
-                if (!b() && !this.f58504e.isEmpty()) {
-                    synchronized (this.f58505f) {
-                        if (!this.f58504e.isEmpty()) {
-                            Iterator<t> it = this.f58504e.iterator();
+                if (!b() && !this.f56854e.isEmpty()) {
+                    synchronized (this.f56855f) {
+                        if (!this.f56854e.isEmpty()) {
+                            Iterator<t> it = this.f56854e.iterator();
                             while (it.hasNext()) {
                                 b(it.next());
                             }
                         }
-                        this.f58504e.clear();
+                        this.f56854e.clear();
                     }
                 }
                 if (!b() || z) {

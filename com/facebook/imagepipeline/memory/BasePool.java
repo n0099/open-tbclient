@@ -26,7 +26,7 @@ import java.util.Set;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.NotThreadSafe;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class BasePool<V> implements Pool<V> {
     public static /* synthetic */ Interceptable $ic;
     public static OnFailedListener mOnFailedListener;
@@ -49,7 +49,7 @@ public abstract class BasePool<V> implements Pool<V> {
 
     @VisibleForTesting
     @NotThreadSafe
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class Counter {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "com.facebook.imagepipeline.memory.BasePool.Counter";
@@ -102,7 +102,7 @@ public abstract class BasePool<V> implements Pool<V> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class InvalidSizeException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,7 +128,7 @@ public abstract class BasePool<V> implements Pool<V> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class InvalidValueException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -154,12 +154,12 @@ public abstract class BasePool<V> implements Pool<V> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface OnFailedListener {
         void onFailed();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class PoolSizeViolationException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -185,7 +185,7 @@ public abstract class BasePool<V> implements Pool<V> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class SizeTooLargeException extends InvalidSizeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

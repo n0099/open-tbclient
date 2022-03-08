@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class NodeJS {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GLOBAL = "global";

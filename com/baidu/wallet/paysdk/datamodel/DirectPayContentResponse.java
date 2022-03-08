@@ -22,7 +22,7 @@ import com.dxmpay.wallet.base.datamodel.UserData;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class DirectPayContentResponse implements IBeanResponse, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HIDDEN_ADD_BANKCARD_BTN = "0";

@@ -5,9 +5,9 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import c.a.d.f.p.n;
-import c.a.t0.s.l;
-import c.a.u0.i2.d;
-import c.a.u0.s;
+import c.a.q0.r.l;
+import c.a.r0.i2.d;
+import c.a.r0.s;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebKitFactory;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class SyncLoginService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
     public static String mStatistics;
@@ -35,13 +35,13 @@ public class SyncLoginService extends BdBaseService {
     public Runnable mRunnable;
     public b mSyncTask;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SyncLoginService f47930e;
+        public final /* synthetic */ SyncLoginService f46347e;
 
         public a(SyncLoginService syncLoginService) {
             Interceptable interceptable = $ic;
@@ -58,14 +58,14 @@ public class SyncLoginService extends BdBaseService {
                     return;
                 }
             }
-            this.f47930e = syncLoginService;
+            this.f46347e = syncLoginService;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f47930e.checkPassV6Switch();
+                this.f46347e.checkPassV6Switch();
             }
         }
     }
@@ -156,14 +156,14 @@ public class SyncLoginService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class b extends BdAsyncTask<String, Integer, d> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SyncLoginService f47931b;
+        public final /* synthetic */ SyncLoginService f46348b;
 
         public b(SyncLoginService syncLoginService) {
             Interceptable interceptable = $ic;
@@ -180,7 +180,7 @@ public class SyncLoginService extends BdBaseService {
                     return;
                 }
             }
-            this.f47931b = syncLoginService;
+            this.f46348b = syncLoginService;
             this.a = null;
         }
 
@@ -207,7 +207,7 @@ public class SyncLoginService extends BdBaseService {
                 this.a.addPostData("scr_h", String.valueOf(n.i(TbadkCoreApplication.getInst().getApp())));
                 this.a.addPostData("scr_dip", String.valueOf(n.h(TbadkCoreApplication.getInst().getApp())));
                 String str = "0";
-                if (c.a.t0.t.d.d.d().e() > 0) {
+                if (c.a.q0.s.d.d.d().e() > 0) {
                     this.a.addPostData("_msg_status", "0");
                 } else {
                     this.a.addPostData("_msg_status", "1");
@@ -266,7 +266,7 @@ public class SyncLoginService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
                 super.onPostExecute(dVar);
-                this.f47931b.mSyncTask = null;
+                this.f46348b.mSyncTask = null;
             }
         }
 
@@ -274,7 +274,7 @@ public class SyncLoginService extends BdBaseService {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f47931b.mSyncTask = null;
+                this.f46348b.mSyncTask = null;
                 NetWork netWork = this.a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();

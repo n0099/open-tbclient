@@ -12,7 +12,7 @@ import com.baidu.wallet.api.WalletServiceBeanConst;
 import com.baidu.wallet.core.NoProguard;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class BaiduWalletServiceProviderMap implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PLUGIN_FASTPAY = "fastpay";
@@ -27,13 +27,13 @@ public class BaiduWalletServiceProviderMap implements NoProguard {
     public Map<Long, String> maps;
 
     /* renamed from: com.baidu.wallet.BaiduWalletServiceProviderMap$1  reason: invalid class name */
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final BaiduWalletServiceProviderMap a;

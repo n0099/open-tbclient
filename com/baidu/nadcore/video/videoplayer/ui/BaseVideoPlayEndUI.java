@@ -15,16 +15,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseVideoPlayEndUI extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f37394e;
+    public boolean f35797e;
     public a mOnItemClickListener;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(View view);
     }
@@ -47,7 +47,7 @@ public abstract class BaseVideoPlayEndUI extends FrameLayout {
                 return;
             }
         }
-        this.f37394e = true;
+        this.f35797e = true;
         a(context);
     }
 
@@ -62,7 +62,7 @@ public abstract class BaseVideoPlayEndUI extends FrameLayout {
     public boolean isShowSharePanel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37394e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35797e : invokeV.booleanValue;
     }
 
     public abstract View onCreateView(Context context);
@@ -87,7 +87,7 @@ public abstract class BaseVideoPlayEndUI extends FrameLayout {
     public void setShowSharePanel(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f37394e = z;
+            this.f35797e = z;
         }
     }
 
@@ -110,7 +110,7 @@ public abstract class BaseVideoPlayEndUI extends FrameLayout {
                 return;
             }
         }
-        this.f37394e = true;
+        this.f35797e = true;
         a(context);
     }
 
@@ -133,7 +133,7 @@ public abstract class BaseVideoPlayEndUI extends FrameLayout {
                 return;
             }
         }
-        this.f37394e = true;
+        this.f35797e = true;
         a(context);
     }
 
@@ -157,7 +157,7 @@ public abstract class BaseVideoPlayEndUI extends FrameLayout {
                 return;
             }
         }
-        this.f37394e = true;
+        this.f35797e = true;
         a(context);
     }
 }

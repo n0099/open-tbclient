@@ -11,35 +11,35 @@ import com.baidu.webkit.internal.monitor.MonitorType;
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLDisplay;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class b implements GLSurfaceView.EGLConfigChooser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27255b;
+    public int f27159b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27256c;
+    public int f27160c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f27257d;
+    public int f27161d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f27258e;
+    public int f27162e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27259f;
+    public int f27163f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27260g;
+    public int f27164g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int[] f27261h;
+    public final int[] f27165h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int[] f27262i;
+    public int[] f27166i;
 
     public b(int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
         Interceptable interceptable = $ic;
@@ -56,19 +56,19 @@ public class b implements GLSurfaceView.EGLConfigChooser {
                 return;
             }
         }
-        this.f27262i = new int[1];
+        this.f27166i = new int[1];
         this.a = i2;
-        this.f27255b = i3;
-        this.f27256c = i4;
-        this.f27257d = i5;
-        this.f27258e = i6;
-        this.f27259f = i7;
-        this.f27260g = i8;
-        this.f27261h = new int[]{MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 4, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 4, 12322, 4, 12352, 4, 12344};
+        this.f27159b = i3;
+        this.f27160c = i4;
+        this.f27161d = i5;
+        this.f27162e = i6;
+        this.f27163f = i7;
+        this.f27164g = i8;
+        this.f27165h = new int[]{MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 4, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 4, 12322, 4, 12352, 4, 12344};
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:58:0x00e6, code lost:
-        if (r5 == r19.f27257d) goto L50;
+        if (r5 == r19.f27161d) goto L50;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -89,7 +89,7 @@ public class b implements GLSurfaceView.EGLConfigChooser {
                 EGLConfig eGLConfig5 = eGLConfigArr2[i3];
                 int b2 = b(egl10, eGLDisplay, eGLConfig5, 12325, 0);
                 int b3 = b(egl10, eGLDisplay, eGLConfig5, 12326, 0);
-                if (b2 < this.f27258e || b3 < this.f27259f) {
+                if (b2 < this.f27162e || b3 < this.f27163f) {
                     i2 = length;
                 } else {
                     int b4 = b(egl10, eGLDisplay, eGLConfig5, MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 0);
@@ -99,9 +99,9 @@ public class b implements GLSurfaceView.EGLConfigChooser {
                     if (eGLConfig2 == null && b4 == 5 && b5 == 6 && b6 == 5 && b7 == 0) {
                         eGLConfig2 = eGLConfig5;
                     }
-                    if (eGLConfig3 == null && b4 == this.a && b5 == this.f27255b && b6 == this.f27256c && b7 == this.f27257d) {
+                    if (eGLConfig3 == null && b4 == this.a && b5 == this.f27159b && b6 == this.f27160c && b7 == this.f27161d) {
                         eGLConfig3 = eGLConfig5;
-                        if (this.f27260g == 0) {
+                        if (this.f27164g == 0) {
                             break;
                         }
                     }
@@ -109,7 +109,7 @@ public class b implements GLSurfaceView.EGLConfigChooser {
                     int b8 = b(egl10, eGLDisplay, eGLConfig5, 12338, 0);
                     EGLConfig eGLConfig6 = eGLConfig2;
                     int b9 = b(egl10, eGLDisplay, eGLConfig5, 12337, 0);
-                    if (eGLConfig4 == null && b8 == 1 && b9 >= this.f27260g && b4 == this.a && b5 == this.f27255b && b6 == this.f27256c && b7 == this.f27257d) {
+                    if (eGLConfig4 == null && b8 == 1 && b9 >= this.f27164g && b4 == this.a && b5 == this.f27159b && b6 == this.f27160c && b7 == this.f27161d) {
                         eGLConfig = eGLConfig3;
                     } else {
                         eGLConfig = eGLConfig3;
@@ -117,10 +117,10 @@ public class b implements GLSurfaceView.EGLConfigChooser {
                         int b11 = b(egl10, eGLDisplay, eGLConfig5, 12513, 0);
                         if (eGLConfig4 == null) {
                             if (b10 == 1) {
-                                if (b11 >= this.f27260g) {
+                                if (b11 >= this.f27164g) {
                                     if (b4 == this.a) {
-                                        if (b5 == this.f27255b) {
-                                            if (b6 == this.f27256c) {
+                                        if (b5 == this.f27159b) {
+                                            if (b6 == this.f27160c) {
                                             }
                                         }
                                     }
@@ -146,7 +146,7 @@ public class b implements GLSurfaceView.EGLConfigChooser {
     public final int b(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{egl10, eGLDisplay, eGLConfig, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? egl10.eglGetConfigAttrib(eGLDisplay, eGLConfig, i2, this.f27262i) ? this.f27262i[0] : i3 : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{egl10, eGLDisplay, eGLConfig, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? egl10.eglGetConfigAttrib(eGLDisplay, eGLConfig, i2, this.f27166i) ? this.f27166i[0] : i3 : invokeCommon.intValue;
     }
 
     @Override // android.opengl.GLSurfaceView.EGLConfigChooser
@@ -155,11 +155,11 @@ public class b implements GLSurfaceView.EGLConfigChooser {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, egl10, eGLDisplay)) == null) {
             int[] iArr = new int[1];
-            egl10.eglChooseConfig(eGLDisplay, this.f27261h, null, 0, iArr);
+            egl10.eglChooseConfig(eGLDisplay, this.f27165h, null, 0, iArr);
             int i2 = iArr[0];
             if (i2 > 0) {
                 EGLConfig[] eGLConfigArr = new EGLConfig[i2];
-                egl10.eglChooseConfig(eGLDisplay, this.f27261h, eGLConfigArr, i2, iArr);
+                egl10.eglChooseConfig(eGLDisplay, this.f27165h, eGLConfigArr, i2, iArr);
                 return a(egl10, eGLDisplay, eGLConfigArr);
             }
             throw new IllegalArgumentException("No configs match configSpec");

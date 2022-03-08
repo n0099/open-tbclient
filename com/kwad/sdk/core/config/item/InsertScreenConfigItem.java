@@ -5,10 +5,10 @@ import androidx.annotation.NonNull;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class InsertScreenConfigItem extends b<InsertScreenConfig> {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class InsertScreenConfig extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = -8956767980880231273L;
         public int firstPosition = 1;

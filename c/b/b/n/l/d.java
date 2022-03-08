@@ -26,28 +26,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.banksign.beans.BankSignFactory;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class d implements h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.b.b.q.a<c> f27422e;
+    public final c.b.b.q.a<c> f27326e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.b.b.q.a<c.b.b.n.l.g.c> f27423f;
+    public final c.b.b.q.a<c.b.b.n.l.g.c> f27327f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c.b.b.q.a<c.b.b.n.l.g.a> f27424g;
+    public final c.b.b.q.a<c.b.b.n.l.g.a> f27328g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.b.b.q.a<Mesh> f27425h;
+    public final c.b.b.q.a<Mesh> f27329h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final c.b.b.q.a<c.b.b.n.l.g.b> f27426i;
+    public final c.b.b.q.a<c.b.b.n.l.g.b> f27330i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final c.b.b.q.a<h> f27427j;
+    public final c.b.b.q.a<h> f27331j;
     public w<f, c.b.b.q.b<String, Matrix4>> k;
 
     public d() {
@@ -63,24 +63,24 @@ public class d implements h {
                 return;
             }
         }
-        this.f27422e = new c.b.b.q.a<>();
-        this.f27423f = new c.b.b.q.a<>();
-        this.f27424g = new c.b.b.q.a<>();
-        this.f27425h = new c.b.b.q.a<>();
-        this.f27426i = new c.b.b.q.a<>();
-        this.f27427j = new c.b.b.q.a<>();
+        this.f27326e = new c.b.b.q.a<>();
+        this.f27327f = new c.b.b.q.a<>();
+        this.f27328g = new c.b.b.q.a<>();
+        this.f27329h = new c.b.b.q.a<>();
+        this.f27330i = new c.b.b.q.a<>();
+        this.f27331j = new c.b.b.q.a<>();
         this.k = new w<>();
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int i2 = this.f27423f.f27595f;
+            int i2 = this.f27327f.f27499f;
             for (int i3 = 0; i3 < i2; i3++) {
-                this.f27423f.get(i3).d(true);
+                this.f27327f.get(i3).d(true);
             }
             for (int i4 = 0; i4 < i2; i4++) {
-                this.f27423f.get(i4).b(true);
+                this.f27327f.get(i4).b(true);
             }
         }
     }
@@ -89,7 +89,7 @@ public class d implements h {
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a.b<h> it = this.f27427j.iterator();
+            a.b<h> it = this.f27331j.iterator();
             while (it.hasNext()) {
                 it.next().dispose();
             }
@@ -102,30 +102,30 @@ public class d implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, modelMaterial, bVar)) == null) {
             c cVar = new c();
-            cVar.f27421h = modelMaterial.a;
-            if (modelMaterial.f31344b != null) {
-                cVar.i(new c.b.b.n.l.e.b(c.b.b.n.l.e.b.k, modelMaterial.f31344b));
+            cVar.f27325h = modelMaterial.a;
+            if (modelMaterial.f29748b != null) {
+                cVar.i(new c.b.b.n.l.e.b(c.b.b.n.l.e.b.k, modelMaterial.f29748b));
             }
-            if (modelMaterial.f31345c != null) {
-                cVar.i(new c.b.b.n.l.e.b(c.b.b.n.l.e.b.f27431i, modelMaterial.f31345c));
+            if (modelMaterial.f29749c != null) {
+                cVar.i(new c.b.b.n.l.e.b(c.b.b.n.l.e.b.f27335i, modelMaterial.f29749c));
             }
-            if (modelMaterial.f31346d != null) {
-                cVar.i(new c.b.b.n.l.e.b(c.b.b.n.l.e.b.f27432j, modelMaterial.f31346d));
+            if (modelMaterial.f29750d != null) {
+                cVar.i(new c.b.b.n.l.e.b(c.b.b.n.l.e.b.f27336j, modelMaterial.f29750d));
             }
-            if (modelMaterial.f31347e != null) {
-                cVar.i(new c.b.b.n.l.e.b(c.b.b.n.l.e.b.l, modelMaterial.f31347e));
+            if (modelMaterial.f29751e != null) {
+                cVar.i(new c.b.b.n.l.e.b(c.b.b.n.l.e.b.l, modelMaterial.f29751e));
             }
-            if (modelMaterial.f31348f != null) {
-                cVar.i(new c.b.b.n.l.e.b(c.b.b.n.l.e.b.m, modelMaterial.f31348f));
+            if (modelMaterial.f29752f != null) {
+                cVar.i(new c.b.b.n.l.e.b(c.b.b.n.l.e.b.m, modelMaterial.f29752f));
             }
-            if (modelMaterial.f31349g > 0.0f) {
-                cVar.i(new c.b.b.n.l.e.c(c.b.b.n.l.e.c.f27434i, modelMaterial.f31349g));
+            if (modelMaterial.f29753g > 0.0f) {
+                cVar.i(new c.b.b.n.l.e.c(c.b.b.n.l.e.c.f27338i, modelMaterial.f29753g));
             }
-            if (modelMaterial.f31350h != 1.0f) {
-                cVar.i(new c.b.b.n.l.e.a(BankSignFactory.BEAN_ID_QUERY, BankSignFactory.BEAN_ID_BIND_CARD, modelMaterial.f31350h));
+            if (modelMaterial.f29754h != 1.0f) {
+                cVar.i(new c.b.b.n.l.e.a(BankSignFactory.BEAN_ID_QUERY, BankSignFactory.BEAN_ID_BIND_CARD, modelMaterial.f29754h));
             }
             w wVar = new w();
-            c.b.b.q.a<i> aVar = modelMaterial.f31351i;
+            c.b.b.q.a<i> aVar = modelMaterial.f29755i;
             if (aVar != null) {
                 a.b<i> it = aVar.iterator();
                 while (it.hasNext()) {
@@ -135,22 +135,22 @@ public class d implements h {
                     } else {
                         load = bVar.load(next.a);
                         wVar.i(next.a, load);
-                        this.f27427j.a(load);
+                        this.f27331j.a(load);
                     }
                     c.b.b.n.l.i.a aVar2 = new c.b.b.n.l.i.a(load);
-                    aVar2.f27513f = load.h();
-                    aVar2.f27514g = load.f();
-                    aVar2.f27515h = load.j();
-                    aVar2.f27516i = load.k();
-                    Vector2 vector2 = next.f27492b;
+                    aVar2.f27417f = load.h();
+                    aVar2.f27418g = load.f();
+                    aVar2.f27419h = load.j();
+                    aVar2.f27420i = load.k();
+                    Vector2 vector2 = next.f27396b;
                     float f2 = vector2 == null ? 0.0f : vector2.x;
-                    Vector2 vector22 = next.f27492b;
+                    Vector2 vector22 = next.f27396b;
                     float f3 = vector22 == null ? 0.0f : vector22.y;
-                    Vector2 vector23 = next.f27493c;
+                    Vector2 vector23 = next.f27397c;
                     float f4 = vector23 == null ? 1.0f : vector23.x;
-                    Vector2 vector24 = next.f27493c;
+                    Vector2 vector24 = next.f27397c;
                     float f5 = vector24 == null ? 1.0f : vector24.y;
-                    int i2 = next.f27494d;
+                    int i2 = next.f27398d;
                     if (i2 == 2) {
                         cVar.i(new c.b.b.n.l.e.d(c.b.b.n.l.e.d.n, aVar2, f2, f3, f4, f5));
                     } else if (i2 == 3) {
@@ -178,33 +178,33 @@ public class d implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
             int i2 = 0;
-            for (c.b.b.n.l.g.g.d dVar : cVar.f27478c) {
-                i2 += dVar.f27479b.length;
+            for (c.b.b.n.l.g.g.d dVar : cVar.f27382c) {
+                i2 += dVar.f27383b.length;
             }
             boolean z = i2 > 0;
             j jVar = new j(cVar.a);
-            int length = cVar.f27477b.length / (jVar.f27333f / 4);
+            int length = cVar.f27381b.length / (jVar.f27237f / 4);
             Mesh mesh = new Mesh(true, length, i2, jVar);
-            this.f27425h.a(mesh);
-            this.f27427j.a(mesh);
-            BufferUtils.a(cVar.f27477b, mesh.m(), cVar.f27477b.length, 0);
+            this.f27329h.a(mesh);
+            this.f27331j.a(mesh);
+            BufferUtils.a(cVar.f27381b, mesh.m(), cVar.f27381b.length, 0);
             mesh.j().clear();
             int i3 = 0;
-            for (c.b.b.n.l.g.g.d dVar2 : cVar.f27478c) {
+            for (c.b.b.n.l.g.g.d dVar2 : cVar.f27382c) {
                 c.b.b.n.l.g.b bVar = new c.b.b.n.l.g.b();
                 bVar.a = dVar2.a;
-                bVar.f27454b = dVar2.f27480c;
-                bVar.f27455c = i3;
-                bVar.f27456d = z ? dVar2.f27479b.length : length;
-                bVar.f27457e = mesh;
+                bVar.f27358b = dVar2.f27384c;
+                bVar.f27359c = i3;
+                bVar.f27360d = z ? dVar2.f27383b.length : length;
+                bVar.f27361e = mesh;
                 if (z) {
-                    mesh.j().put(dVar2.f27479b);
+                    mesh.j().put(dVar2.f27383b);
                 }
-                i3 += bVar.f27456d;
-                this.f27426i.a(bVar);
+                i3 += bVar.f27360d;
+                this.f27330i.a(bVar);
             }
             mesh.j().position(0);
-            a.b<c.b.b.n.l.g.b> it = this.f27426i.iterator();
+            a.b<c.b.b.n.l.g.b> it = this.f27330i.iterator();
             while (it.hasNext()) {
                 it.next().update();
             }
@@ -214,7 +214,7 @@ public class d implements h {
     public Iterable<h> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27427j : (Iterable) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27331j : (Iterable) invokeV.objValue;
     }
 
     public c.b.b.n.l.g.c i(String str) {
@@ -232,16 +232,16 @@ public class d implements h {
     public c.b.b.n.l.g.c k(String str, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? c.b.b.n.l.g.c.f(this.f27423f, str, z, z2) : (c.b.b.n.l.g.c) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? c.b.b.n.l.g.c.f(this.f27327f, str, z, z2) : (c.b.b.n.l.g.c) invokeCommon.objValue;
     }
 
     public void l(c.b.b.n.l.g.g.b bVar, c.b.b.n.l.i.b bVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar, bVar2) == null) {
-            o(bVar.f27473b);
-            n(bVar.f27474c, bVar2);
-            q(bVar.f27475d);
-            m(bVar.f27476e);
+            o(bVar.f27377b);
+            n(bVar.f27378c, bVar2);
+            q(bVar.f27379d);
+            m(bVar.f27380e);
             a();
         }
     }
@@ -254,17 +254,17 @@ public class d implements h {
             for (c.b.b.n.l.g.g.a aVar3 : iterable) {
                 c.b.b.n.l.g.a aVar4 = new c.b.b.n.l.g.a();
                 String str = aVar3.a;
-                a.b<c.b.b.n.l.g.g.f> it = aVar3.f27472b.iterator();
+                a.b<c.b.b.n.l.g.g.f> it = aVar3.f27376b.iterator();
                 while (it.hasNext()) {
                     c.b.b.n.l.g.g.f next = it.next();
                     c.b.b.n.l.g.c i2 = i(next.a);
                     if (i2 != null) {
                         c.b.b.n.l.g.d dVar = new c.b.b.n.l.g.d();
-                        if (next.f27486b != null) {
+                        if (next.f27390b != null) {
                             c.b.b.q.a<e<Vector3>> aVar5 = new c.b.b.q.a<>();
                             dVar.a = aVar5;
-                            aVar5.e(next.f27486b.f27595f);
-                            a.b<g<Vector3>> it2 = next.f27486b.iterator();
+                            aVar5.e(next.f27390b.f27499f);
+                            a.b<g<Vector3>> it2 = next.f27390b.iterator();
                             while (it2.hasNext()) {
                                 g<Vector3> next2 = it2.next();
                                 float f2 = next2.a;
@@ -273,52 +273,52 @@ public class d implements h {
                                 }
                                 c.b.b.q.a<e<Vector3>> aVar6 = dVar.a;
                                 float f3 = next2.a;
-                                Vector3 vector3 = next2.f27489b;
-                                aVar6.a(new e<>(f3, new Vector3(vector3 == null ? i2.f27462d : vector3)));
+                                Vector3 vector3 = next2.f27393b;
+                                aVar6.a(new e<>(f3, new Vector3(vector3 == null ? i2.f27366d : vector3)));
                             }
                         }
-                        if (next.f27487c != null) {
+                        if (next.f27391c != null) {
                             c.b.b.q.a<e<Quaternion>> aVar7 = new c.b.b.q.a<>();
-                            dVar.f27469b = aVar7;
-                            aVar7.e(next.f27487c.f27595f);
-                            a.b<g<Quaternion>> it3 = next.f27487c.iterator();
+                            dVar.f27373b = aVar7;
+                            aVar7.e(next.f27391c.f27499f);
+                            a.b<g<Quaternion>> it3 = next.f27391c.iterator();
                             while (it3.hasNext()) {
                                 g<Quaternion> next3 = it3.next();
                                 float f4 = next3.a;
                                 if (f4 > aVar4.a) {
                                     aVar4.a = f4;
                                 }
-                                c.b.b.q.a<e<Quaternion>> aVar8 = dVar.f27469b;
+                                c.b.b.q.a<e<Quaternion>> aVar8 = dVar.f27373b;
                                 float f5 = next3.a;
-                                Quaternion quaternion = next3.f27489b;
-                                aVar8.a(new e<>(f5, new Quaternion(quaternion == null ? i2.f27463e : quaternion)));
+                                Quaternion quaternion = next3.f27393b;
+                                aVar8.a(new e<>(f5, new Quaternion(quaternion == null ? i2.f27367e : quaternion)));
                             }
                         }
-                        if (next.f27488d != null) {
+                        if (next.f27392d != null) {
                             c.b.b.q.a<e<Vector3>> aVar9 = new c.b.b.q.a<>();
-                            dVar.f27470c = aVar9;
-                            aVar9.e(next.f27488d.f27595f);
-                            a.b<g<Vector3>> it4 = next.f27488d.iterator();
+                            dVar.f27374c = aVar9;
+                            aVar9.e(next.f27392d.f27499f);
+                            a.b<g<Vector3>> it4 = next.f27392d.iterator();
                             while (it4.hasNext()) {
                                 g<Vector3> next4 = it4.next();
                                 float f6 = next4.a;
                                 if (f6 > aVar4.a) {
                                     aVar4.a = f6;
                                 }
-                                c.b.b.q.a<e<Vector3>> aVar10 = dVar.f27470c;
+                                c.b.b.q.a<e<Vector3>> aVar10 = dVar.f27374c;
                                 float f7 = next4.a;
-                                Vector3 vector32 = next4.f27489b;
-                                aVar10.a(new e<>(f7, new Vector3(vector32 == null ? i2.f27464f : vector32)));
+                                Vector3 vector32 = next4.f27393b;
+                                aVar10.a(new e<>(f7, new Vector3(vector32 == null ? i2.f27368f : vector32)));
                             }
                         }
                         c.b.b.q.a<e<Vector3>> aVar11 = dVar.a;
-                        if ((aVar11 != null && aVar11.f27595f > 0) || (((aVar = dVar.f27469b) != null && aVar.f27595f > 0) || ((aVar2 = dVar.f27470c) != null && aVar2.f27595f > 0))) {
-                            aVar4.f27452b.a(dVar);
+                        if ((aVar11 != null && aVar11.f27499f > 0) || (((aVar = dVar.f27373b) != null && aVar.f27499f > 0) || ((aVar2 = dVar.f27374c) != null && aVar2.f27499f > 0))) {
+                            aVar4.f27356b.a(dVar);
                         }
                     }
                 }
-                if (aVar4.f27452b.f27595f > 0) {
-                    this.f27424g.a(aVar4);
+                if (aVar4.f27356b.f27499f > 0) {
+                    this.f27328g.a(aVar4);
                 }
             }
         }
@@ -328,7 +328,7 @@ public class d implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, iterable, bVar) == null) {
             for (ModelMaterial modelMaterial : iterable) {
-                this.f27422e.a(f(modelMaterial, bVar));
+                this.f27326e.a(f(modelMaterial, bVar));
             }
         }
     }
@@ -349,40 +349,40 @@ public class d implements h {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, eVar)) == null) {
             c.b.b.n.l.g.c cVar = new c.b.b.n.l.g.c();
             cVar.a = eVar.a;
-            Vector3 vector3 = eVar.f27481b;
+            Vector3 vector3 = eVar.f27385b;
             if (vector3 != null) {
-                cVar.f27462d.set(vector3);
+                cVar.f27366d.set(vector3);
             }
-            Quaternion quaternion = eVar.f27482c;
+            Quaternion quaternion = eVar.f27386c;
             if (quaternion != null) {
-                cVar.f27463e.set(quaternion);
+                cVar.f27367e.set(quaternion);
             }
-            Vector3 vector32 = eVar.f27483d;
+            Vector3 vector32 = eVar.f27387d;
             if (vector32 != null) {
-                cVar.f27464f.set(vector32);
+                cVar.f27368f.set(vector32);
             }
-            c.b.b.n.l.g.g.h[] hVarArr = eVar.f27484e;
+            c.b.b.n.l.g.g.h[] hVarArr = eVar.f27388e;
             if (hVarArr != null) {
                 for (c.b.b.n.l.g.g.h hVar : hVarArr) {
                     c cVar2 = null;
-                    if (hVar.f27490b != null) {
-                        a.b<c.b.b.n.l.g.b> it = this.f27426i.iterator();
+                    if (hVar.f27394b != null) {
+                        a.b<c.b.b.n.l.g.b> it = this.f27330i.iterator();
                         while (it.hasNext()) {
                             bVar = it.next();
-                            if (hVar.f27490b.equals(bVar.a)) {
+                            if (hVar.f27394b.equals(bVar.a)) {
                                 break;
                             }
                         }
                     }
                     bVar = null;
                     if (hVar.a != null) {
-                        a.b<c> it2 = this.f27422e.iterator();
+                        a.b<c> it2 = this.f27326e.iterator();
                         while (true) {
                             if (!it2.hasNext()) {
                                 break;
                             }
                             c next = it2.next();
-                            if (hVar.a.equals(next.f27421h)) {
+                            if (hVar.a.equals(next.f27325h)) {
                                 cVar2 = next;
                                 break;
                             }
@@ -390,8 +390,8 @@ public class d implements h {
                     }
                     if (bVar != null && cVar2 != null) {
                         f fVar = new f();
-                        cVar.f27467i.a(fVar);
-                        c.b.b.q.b<String, Matrix4> bVar2 = hVar.f27491c;
+                        cVar.f27371i.a(fVar);
+                        c.b.b.q.b<String, Matrix4> bVar2 = hVar.f27395c;
                         if (bVar2 != null) {
                             this.k.i(fVar, bVar2);
                         }
@@ -400,7 +400,7 @@ public class d implements h {
                     }
                 }
             }
-            c.b.b.n.l.g.g.e[] eVarArr = eVar.f27485f;
+            c.b.b.n.l.g.g.e[] eVarArr = eVar.f27389f;
             if (eVarArr != null) {
                 for (c.b.b.n.l.g.g.e eVar2 : eVarArr) {
                     cVar.a(p(eVar2));
@@ -416,7 +416,7 @@ public class d implements h {
         if (interceptable == null || interceptable.invokeL(1048589, this, iterable) == null) {
             this.k.clear();
             for (c.b.b.n.l.g.g.e eVar : iterable) {
-                this.f27423f.a(p(eVar));
+                this.f27327f.a(p(eVar));
             }
             w.a<f, c.b.b.q.b<String, Matrix4>> b2 = this.k.b();
             b2.d();
@@ -427,11 +427,11 @@ public class d implements h {
                     ((f) k).a = new c.b.b.q.b<>(c.b.b.n.l.g.c.class, Matrix4.class);
                 }
                 ((f) next.a).a.clear();
-                b.a b3 = ((c.b.b.q.b) next.f27758b).b();
+                b.a b3 = ((c.b.b.q.b) next.f27662b).b();
                 b3.iterator();
                 while (b3.hasNext()) {
                     w.b next2 = b3.next();
-                    ((f) next.a).a.f(i((String) next2.a), new Matrix4((Matrix4) next2.f27758b).inv());
+                    ((f) next.a).a.f(i((String) next2.a), new Matrix4((Matrix4) next2.f27662b).inv());
                 }
             }
         }
@@ -452,12 +452,12 @@ public class d implements h {
                 return;
             }
         }
-        this.f27422e = new c.b.b.q.a<>();
-        this.f27423f = new c.b.b.q.a<>();
-        this.f27424g = new c.b.b.q.a<>();
-        this.f27425h = new c.b.b.q.a<>();
-        this.f27426i = new c.b.b.q.a<>();
-        this.f27427j = new c.b.b.q.a<>();
+        this.f27326e = new c.b.b.q.a<>();
+        this.f27327f = new c.b.b.q.a<>();
+        this.f27328g = new c.b.b.q.a<>();
+        this.f27329h = new c.b.b.q.a<>();
+        this.f27330i = new c.b.b.q.a<>();
+        this.f27331j = new c.b.b.q.a<>();
         this.k = new w<>();
         l(bVar, bVar2);
     }

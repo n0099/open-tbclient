@@ -20,15 +20,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class ShareSuccessReplyToServerModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f41017e;
+    public HttpMessageListener f39423e;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class ShareSuccessReplySeverResponseMessage extends JsonHttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
                 if (statusCode != 200 || error < 0 || jSONObject == null || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
                     return;
                 }
-                this.mActDialogData = c.a.u0.u2.b.a(optJSONObject);
+                this.mActDialogData = c.a.r0.u2.b.a(optJSONObject);
             }
         }
 
@@ -76,7 +76,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +118,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a();
 
@@ -138,12 +138,12 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
                 return;
             }
         }
-        this.f41017e = new a(this, CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER);
+        this.f39423e = new a(this, CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f41017e.setTag(getUniqueId());
-        this.f41017e.setSelfListener(true);
-        registerListener(this.f41017e);
+        this.f39423e.setTag(getUniqueId());
+        this.f39423e.setSelfListener(true);
+        registerListener(this.f39423e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -151,7 +151,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f41017e);
+            MessageManager.getInstance().unRegisterListener(this.f39423e);
             return false;
         }
         return invokeV.booleanValue;

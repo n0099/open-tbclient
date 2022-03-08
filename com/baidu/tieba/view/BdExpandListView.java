@@ -10,9 +10,9 @@ import android.view.ViewConfiguration;
 import android.widget.AbsListView;
 import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
-import c.a.u0.a4.l;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class BdExpandListView extends BdTypeListView {
     public static /* synthetic */ Interceptable $ic = null;
     public static int ExpandListView_expandDistance = 1;
@@ -43,13 +43,13 @@ public class BdExpandListView extends BdTypeListView {
     public int f0;
     public b mRefreshListener;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdExpandListView f49198e;
+        public final /* synthetic */ BdExpandListView f47617e;
 
         public a(BdExpandListView bdExpandListView) {
             Interceptable interceptable = $ic;
@@ -66,21 +66,21 @@ public class BdExpandListView extends BdTypeListView {
                     return;
                 }
             }
-            this.f49198e = bdExpandListView;
+            this.f47617e = bdExpandListView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f49198e.c0 <= 0) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f47617e.c0 <= 0) {
                 return;
             }
-            this.f49198e.P.setLayoutParams(new AbsListView.LayoutParams(this.f49198e.P.getWidth(), this.f49198e.c0));
-            this.f49198e.invalidate();
+            this.f47617e.P.setLayoutParams(new AbsListView.LayoutParams(this.f47617e.P.getWidth(), this.f47617e.c0));
+            this.f47617e.invalidate();
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(float f2);
 
@@ -89,14 +89,14 @@ public class BdExpandListView extends BdTypeListView {
         void onRefresh();
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f49199b;
+        public int f47618b;
 
         public c(int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
@@ -114,7 +114,7 @@ public class BdExpandListView extends BdTypeListView {
                 }
             }
             this.a = i3;
-            this.f49199b = i5;
+            this.f47618b = i5;
         }
 
         public int a(float f2) {
@@ -168,7 +168,7 @@ public class BdExpandListView extends BdTypeListView {
         this.N = context;
         this.O = new Scroller(this.N);
         this.U = ViewConfiguration.get(context).getScaledTouchSlop();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, l.ExpandListView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.beforeExpandHeight, R.attr.expandDistance});
         this.V = obtainStyledAttributes.getDimensionPixelSize(ExpandListView_expandDistance, 0);
         obtainStyledAttributes.recycle();
     }
@@ -252,7 +252,7 @@ public class BdExpandListView extends BdTypeListView {
                             if (this.P.getParent() == this && this.S != null && this.P.isShown() && this.P.getTop() >= 0 && Math.abs(f2) >= this.U && this.W > 400) {
                                 int a2 = this.S.a(this.R - this.Q);
                                 c cVar = this.S;
-                                if (a2 > cVar.a && a2 <= cVar.f49199b) {
+                                if (a2 > cVar.a && a2 <= cVar.f47618b) {
                                     this.T = true;
                                     setClickEventEnabled(false);
                                     this.P.setLayoutParams(new AbsListView.LayoutParams(this.P.getWidth(), a2));
@@ -261,7 +261,7 @@ public class BdExpandListView extends BdTypeListView {
                                     c cVar2 = this.S;
                                     if (a2 <= cVar2.a) {
                                         this.T = false;
-                                    } else if (a2 > cVar2.f49199b) {
+                                    } else if (a2 > cVar2.f47618b) {
                                         this.T = true;
                                         setClickEventEnabled(false);
                                     } else {
@@ -350,7 +350,7 @@ public class BdExpandListView extends BdTypeListView {
         if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.S == null) {
             return;
         }
-        if (this.P.getHeight() >= this.S.f49199b - (this.V / 2)) {
+        if (this.P.getHeight() >= this.S.f47618b - (this.V / 2)) {
             doRefresh();
         } else {
             b bVar = this.mRefreshListener;

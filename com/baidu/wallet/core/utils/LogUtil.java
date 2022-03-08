@@ -7,26 +7,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public final class LogUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
     public static final String a = "LogUtil";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f51179b = false;
+    public static final boolean f49598b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f51180c = false;
+    public static final boolean f49599c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f51181d = false;
+    public static final boolean f49600d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f51182e = false;
+    public static final boolean f49601e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f51183f = false;
+    public static final boolean f49602f = false;
     public transient /* synthetic */ FieldHolder $fh;
 
     public LogUtil() {

@@ -2,10 +2,10 @@ package com.kwad.sdk.d.kwai;
 
 import android.view.View;
 import android.view.ViewGroup;
-import com.kwad.sdk.R;
+import com.baidu.tieba.R;
 import com.kwad.sdk.compliance.widget.ComplianceTextView;
 import com.kwad.sdk.utils.bb;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a extends b {
     public ComplianceTextView a;
 
@@ -19,7 +19,7 @@ public class a extends b {
     public void a() {
         super.a();
         c cVar = (c) p();
-        if (cVar.f56830f) {
+        if (cVar.f55180f) {
             a((View) this.a);
         }
         this.a.setVisibility(0);

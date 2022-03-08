@@ -1,7 +1,6 @@
 package com.dxmpay.apollon.eventbus;
 
 import androidx.core.view.InputDeviceCompat;
-import c.f.a.c.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class EventBus {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_METHOD_NAME = "onModuleEvent";
@@ -18,7 +17,7 @@ public final class EventBus {
     public static b mEventController;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class Event {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +47,7 @@ public final class EventBus {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class ThreadMode {
         public static final /* synthetic */ ThreadMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -144,35 +143,35 @@ public final class EventBus {
     public void cancelEventDelivery(Event event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
-            mEventController.p(event);
+            mEventController.c(event);
         }
     }
 
     public void post(Event event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
-            mEventController.b(event);
+            mEventController.a(event);
         }
     }
 
     public void postStickyEvent(Event event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, event) == null) {
-            mEventController.n(event);
+            mEventController.b(event);
         }
     }
 
     public void register(Object obj, String str, int i2, ThreadMode threadMode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(1048579, this, obj, str, i2, threadMode) == null) {
-            mEventController.i(obj, str, i2, false, threadMode);
+            mEventController.a(obj, str, i2, false, threadMode);
         }
     }
 
     public void registerSticky(Object obj, String str, int i2, ThreadMode threadMode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(1048581, this, obj, str, i2, threadMode) == null) {
-            mEventController.i(obj, str, i2, true, threadMode);
+            mEventController.a(obj, str, i2, true, threadMode);
         }
     }
 
@@ -186,7 +185,7 @@ public final class EventBus {
     public void removeStickyEvent(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            mEventController.m(str);
+            mEventController.a(str);
         }
     }
 
@@ -194,7 +193,7 @@ public final class EventBus {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj) == null) {
             synchronized (this) {
-                mEventController.g(obj);
+                mEventController.a(obj);
             }
         }
     }
@@ -202,7 +201,7 @@ public final class EventBus {
     public void register(Object obj, String[] strArr, int i2, ThreadMode threadMode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(1048580, this, obj, strArr, i2, threadMode) == null) {
-            mEventController.l(obj, strArr, i2, false, threadMode);
+            mEventController.a(obj, strArr, i2, false, threadMode);
         }
     }
 
@@ -210,7 +209,7 @@ public final class EventBus {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, obj, str) == null) {
             synchronized (this) {
-                mEventController.h(obj, str);
+                mEventController.a(obj, str);
             }
         }
     }
@@ -223,7 +222,7 @@ public final class EventBus {
                     return;
                 }
                 for (String str : strArr) {
-                    mEventController.h(obj, str);
+                    mEventController.a(obj, str);
                 }
             }
         }

@@ -1,12 +1,12 @@
 package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
-import c.a.t0.b.c;
+import com.baidu.tbadk.abtest.UbsABTestDataManager;
 import com.baidu.tieba.flutter.plugin.tiebautility.TiebaUtilityAbtestAuto;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class UtilityABTest implements TiebaUtilityAbtestAuto.HostUtilityABTest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +30,9 @@ public class UtilityABTest implements TiebaUtilityAbtestAuto.HostUtilityABTest {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, result) == null) {
             TiebaUtilityAbtestAuto.ExperimentType experimentType = new TiebaUtilityAbtestAuto.ExperimentType();
-            if (c.d().b("11_8_forum_guide_b") != null) {
+            if (UbsABTestDataManager.getInstance().getABTestSwitchData("11_8_forum_guide_b") != null) {
                 experimentType.setResult(2L);
-            } else if (c.d().b("11_8_forum_guide_a") != null) {
+            } else if (UbsABTestDataManager.getInstance().getABTestSwitchData("11_8_forum_guide_a") != null) {
                 experimentType.setResult(1L);
             } else {
                 experimentType.setResult(1L);

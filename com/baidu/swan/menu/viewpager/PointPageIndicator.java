@@ -14,19 +14,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class PointPageIndicator extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f40193e;
+    public int f38597e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f40194f;
+    public int f38598f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f40195g;
+    public int f38599g;
     public Drawable mNormalDrawable;
     public Rect mNormalPointRect;
     public Drawable mSelectDrawable;
@@ -54,9 +54,9 @@ public class PointPageIndicator extends View {
         this.mSelectDrawable = null;
         this.mNormalPointRect = new Rect();
         this.mSelectPointRect = new Rect();
-        this.f40193e = 0;
-        this.f40194f = 0;
-        this.f40195g = 0;
+        this.f38597e = 0;
+        this.f38598f = 0;
+        this.f38599g = 0;
         a(context);
     }
 
@@ -72,14 +72,14 @@ public class PointPageIndicator extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             super.onDraw(canvas);
-            int i2 = this.f40195g;
+            int i2 = this.f38599g;
             if (i2 <= 0) {
                 return;
             }
-            int i3 = this.f40193e;
+            int i3 = this.f38597e;
             int height = getHeight();
             int width2 = getWidth();
-            int i4 = this.f40194f;
+            int i4 = this.f38598f;
             Rect rect = this.mNormalPointRect;
             Rect rect2 = this.mSelectPointRect;
             Drawable drawable = this.mNormalDrawable;
@@ -111,7 +111,7 @@ public class PointPageIndicator extends View {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            this.f40194f = i2;
+            this.f38598f = i2;
             invalidate();
             return this;
         }
@@ -122,8 +122,8 @@ public class PointPageIndicator extends View {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            if (this.f40195g != i2) {
-                this.f40195g = i2;
+            if (this.f38599g != i2) {
+                this.f38599g = i2;
                 invalidate();
             }
             return this;
@@ -162,7 +162,7 @@ public class PointPageIndicator extends View {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            this.f40193e = i2;
+            this.f38597e = i2;
             return this;
         }
         return (PointPageIndicator) invokeI.objValue;
@@ -202,9 +202,9 @@ public class PointPageIndicator extends View {
         this.mSelectDrawable = null;
         this.mNormalPointRect = new Rect();
         this.mSelectPointRect = new Rect();
-        this.f40193e = 0;
-        this.f40194f = 0;
-        this.f40195g = 0;
+        this.f38597e = 0;
+        this.f38598f = 0;
+        this.f38599g = 0;
         a(context);
     }
 
@@ -231,9 +231,9 @@ public class PointPageIndicator extends View {
         this.mSelectDrawable = null;
         this.mNormalPointRect = new Rect();
         this.mSelectPointRect = new Rect();
-        this.f40193e = 0;
-        this.f40194f = 0;
-        this.f40195g = 0;
+        this.f38597e = 0;
+        this.f38598f = 0;
+        this.f38599g = 0;
         a(context);
     }
 }

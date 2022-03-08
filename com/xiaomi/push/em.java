@@ -14,17 +14,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class em extends ep {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bitmap f61248b;
+    public Bitmap f59598b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Bitmap f61249c;
+    public Bitmap f59599c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public em(Context context, String str) {
@@ -57,7 +57,7 @@ public class em extends ep {
                 if (bitmap.getWidth() != 984 || 184 > bitmap.getHeight() || bitmap.getHeight() > 1678) {
                     com.xiaomi.channel.commonutils.logger.b.m133a("colorful notification banner image resolution error, must belong to [984*184, 984*1678]");
                 } else {
-                    this.f61248b = bitmap;
+                    this.f59598b = bitmap;
                 }
             }
             return this;
@@ -103,7 +103,7 @@ public class em extends ep {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (!m358b() || this.f61248b == null) {
+            if (!m358b() || this.f59598b == null) {
                 m357b();
                 return;
             }
@@ -113,15 +113,15 @@ public class em extends ep {
             int a2 = a(resources, "bg", "id", packageName);
             if (l.a(a()) >= 10) {
                 a = a();
-                bitmap = a(this.f61248b, 30.0f);
+                bitmap = a(this.f59598b, 30.0f);
             } else {
                 a = a();
-                bitmap = this.f61248b;
+                bitmap = this.f59598b;
             }
             a.setImageViewBitmap(a2, bitmap);
             int a3 = a(resources, "icon", "id", packageName);
-            if (this.f61249c != null) {
-                a().setImageViewBitmap(a3, this.f61249c);
+            if (this.f59599c != null) {
+                a().setImageViewBitmap(a3, this.f59599c);
             } else {
                 a(a3);
             }
@@ -161,7 +161,7 @@ public class em extends ep {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bitmap)) == null) {
             if (m358b() && bitmap != null) {
-                this.f61249c = bitmap;
+                this.f59599c = bitmap;
             }
             return this;
         }

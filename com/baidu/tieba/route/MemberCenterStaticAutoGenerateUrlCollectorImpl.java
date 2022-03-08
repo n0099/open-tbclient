@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public final class MemberCenterStaticAutoGenerateUrlCollectorImpl implements ICmdRouter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,6 @@ public final class MemberCenterStaticAutoGenerateUrlCollectorImpl implements ICm
             HashMap hashMap = new HashMap();
             new ArrayList();
             hashMap.put("2002001", "com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic");
-            hashMap.put("2001294", "com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic");
             hashMap.put("2001343", "com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic");
             hashMap.put("2001283", "com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic");
             hashMap.put("2001284", "com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic");

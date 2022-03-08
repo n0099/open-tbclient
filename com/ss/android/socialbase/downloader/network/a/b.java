@@ -10,24 +10,24 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import com.ss.android.socialbase.downloader.network.j;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f60449b;
+    public static long f58799b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final HandlerThread f60450c = new HandlerThread("Downloader-preconnecter");
+    public static final HandlerThread f58800c = new HandlerThread("Downloader-preconnecter");
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Handler f60451d;
+    public static final Handler f58801d;
 
     static {
         b();
-        f60450c.start();
-        Handler handler = new Handler(f60450c.getLooper());
-        f60451d = handler;
+        f58800c.start();
+        Handler handler = new Handler(f58800c.getLooper());
+        f58801d = handler;
         handler.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.network.a.b.1
             @Override // java.lang.Runnable
             public void run() {
@@ -41,16 +41,16 @@ public class b {
 
     public static void b() {
         a = com.ss.android.socialbase.downloader.g.a.c().a("preconnect_connection_outdate_time", 300000L);
-        f60449b = com.ss.android.socialbase.downloader.g.a.c().a("preconnect_head_info_outdate_time", 300000L);
+        f58799b = com.ss.android.socialbase.downloader.g.a.c().a("preconnect_head_info_outdate_time", 300000L);
         a.a().a(com.ss.android.socialbase.downloader.g.a.c().a("preconnect_max_cache_size", 3));
     }
 
     public static Looper a() {
-        return f60450c.getLooper();
+        return f58800c.getLooper();
     }
 
     public static void a(final String str, final j jVar) {
-        f60451d.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.network.a.b.2
+        f58801d.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.network.a.b.2
             @Override // java.lang.Runnable
             public void run() {
                 if (!TextUtils.isEmpty(str)) {

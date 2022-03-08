@@ -1,65 +1,85 @@
 package c.q.a;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
-public class o2 implements r {
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+/* loaded from: classes3.dex */
+public class o2 {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ u2 a;
 
-    public o2(u2 u2Var) {
+    /* renamed from: b  reason: collision with root package name */
+    public static final BlockingQueue f29060b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final ThreadFactory f29061c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static o2 f29062d;
+    public transient /* synthetic */ FieldHolder $fh;
+    public ThreadPoolExecutor a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1646421836, "Lc/q/a/o2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1646421836, "Lc/q/a/o2;");
+                return;
+            }
+        }
+        f29060b = new LinkedBlockingQueue(210);
+        f29061c = new l2();
+    }
+
+    public o2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = u2Var;
+        this.a = new ThreadPoolExecutor(5, 60, 1L, TimeUnit.SECONDS, f29060b, f29061c);
     }
 
-    @Override // c.q.a.r
-    public void a(String str) {
+    public static synchronized o2 a() {
+        InterceptResult invokeV;
+        o2 o2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-        }
-    }
-
-    @Override // c.q.a.r
-    public boolean a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            u2 u2Var = this.a;
-            if (a2.d(u2Var.f30717c, u2Var.f30722h)) {
-                this.a.f30722h = System.currentTimeMillis();
-                u2 u2Var2 = this.a;
-                a2.a(u2Var2.a, str, u2Var2.f30717c, u2Var2.f30721g, str2);
-                y2 a = c3.a(this.a.a);
-                a.h(new g3(this.a.f30717c), str);
-                a.l("desc", str2);
-                a.m();
-                i3 i3Var = this.a.f30720f;
-                if (i3Var != null) {
-                    i3Var.onClicked();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (o2.class) {
+                if (f29062d == null) {
+                    f29062d = new o2();
                 }
-                r0.p(this.a.f30717c, str2);
-                return true;
+                o2Var = f29062d;
             }
-            return true;
+            return o2Var;
         }
-        return invokeLL.booleanValue;
+        return (o2) invokeV.objValue;
+    }
+
+    public static void b(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
+            a().a.execute(runnable);
+        }
     }
 }

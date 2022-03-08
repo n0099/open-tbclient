@@ -13,7 +13,7 @@ import java.net.URLDecoder;
 import java.util.Locale;
 import org.apache.commons.codec.binary4util.Base64;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class DataUri {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;

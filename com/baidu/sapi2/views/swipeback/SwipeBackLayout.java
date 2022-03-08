@@ -16,8 +16,8 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
-import c.a.f0.a.i;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class SwipeBackLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String t = "SwipeBackLayout";
@@ -37,31 +37,31 @@ public class SwipeBackLayout extends ViewGroup {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ViewDragHelper f38445b;
+    public final ViewDragHelper f36849b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f38446c;
+    public View f36850c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f38447d;
+    public View f36851d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f38448e;
+    public int f36852e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f38449f;
+    public int f36853f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f38450g;
+    public int f36854g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f38451h;
+    public float f36855h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f38452i;
+    public float f36856i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f38453j;
+    public int f36857j;
     public boolean k;
     public float l;
     public float m;
@@ -72,7 +72,7 @@ public class SwipeBackLayout extends ViewGroup {
     public d r;
     public d s;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public class a implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,11 +114,11 @@ public class SwipeBackLayout extends ViewGroup {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public @interface b {
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public class c extends ViewDragHelper.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,14 +150,14 @@ public class SwipeBackLayout extends ViewGroup {
                 SwipeBackLayout swipeBackLayout = this.a;
                 swipeBackLayout.n = swipeBackLayout.getPaddingLeft();
                 if (this.a.c()) {
-                    if (this.a.a != 1 || com.baidu.sapi2.views.swipeback.a.a.c(this.a.f38447d, this.a.l, this.a.m, false)) {
-                        if (this.a.a == 2 && !com.baidu.sapi2.views.swipeback.a.a.b(this.a.f38447d, this.a.l, this.a.m, false)) {
+                    if (this.a.a != 1 || com.baidu.sapi2.views.swipeback.a.a.c(this.a.f36851d, this.a.l, this.a.m, false)) {
+                        if (this.a.a == 2 && !com.baidu.sapi2.views.swipeback.a.a.b(this.a.f36851d, this.a.l, this.a.m, false)) {
                             SwipeBackLayout swipeBackLayout2 = this.a;
-                            swipeBackLayout2.n = Math.min(Math.max(i2, -swipeBackLayout2.f38448e), this.a.getPaddingRight());
+                            swipeBackLayout2.n = Math.min(Math.max(i2, -swipeBackLayout2.f36852e), this.a.getPaddingRight());
                         }
                     } else {
                         SwipeBackLayout swipeBackLayout3 = this.a;
-                        swipeBackLayout3.n = Math.min(Math.max(i2, swipeBackLayout3.getPaddingLeft()), this.a.f38448e);
+                        swipeBackLayout3.n = Math.min(Math.max(i2, swipeBackLayout3.getPaddingLeft()), this.a.f36852e);
                     }
                 }
                 return this.a.n;
@@ -173,14 +173,14 @@ public class SwipeBackLayout extends ViewGroup {
                 SwipeBackLayout swipeBackLayout = this.a;
                 swipeBackLayout.o = swipeBackLayout.getPaddingTop();
                 if (this.a.c()) {
-                    if (this.a.a != 4 || com.baidu.sapi2.views.swipeback.a.a.d(this.a.f38447d, this.a.l, this.a.m, false)) {
-                        if (this.a.a == 8 && !com.baidu.sapi2.views.swipeback.a.a.a(this.a.f38447d, this.a.l, this.a.m, false)) {
+                    if (this.a.a != 4 || com.baidu.sapi2.views.swipeback.a.a.d(this.a.f36851d, this.a.l, this.a.m, false)) {
+                        if (this.a.a == 8 && !com.baidu.sapi2.views.swipeback.a.a.a(this.a.f36851d, this.a.l, this.a.m, false)) {
                             SwipeBackLayout swipeBackLayout2 = this.a;
-                            swipeBackLayout2.o = Math.min(Math.max(i2, -swipeBackLayout2.f38449f), this.a.getPaddingBottom());
+                            swipeBackLayout2.o = Math.min(Math.max(i2, -swipeBackLayout2.f36853f), this.a.getPaddingBottom());
                         }
                     } else {
                         SwipeBackLayout swipeBackLayout3 = this.a;
-                        swipeBackLayout3.o = Math.min(Math.max(i2, swipeBackLayout3.getPaddingTop()), this.a.f38449f);
+                        swipeBackLayout3.o = Math.min(Math.max(i2, swipeBackLayout3.getPaddingTop()), this.a.f36853f);
                     }
                 }
                 return this.a.o;
@@ -192,14 +192,14 @@ public class SwipeBackLayout extends ViewGroup {
         public int getViewHorizontalDragRange(View view) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view)) == null) ? this.a.f38448e : invokeL.intValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view)) == null) ? this.a.f36852e : invokeL.intValue;
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public int getViewVerticalDragRange(View view) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view)) == null) ? this.a.f38449f : invokeL.intValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view)) == null) ? this.a.f36853f : invokeL.intValue;
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
@@ -219,10 +219,10 @@ public class SwipeBackLayout extends ViewGroup {
                 if (i2 != 0 || this.a.r == null) {
                     return;
                 }
-                if (this.a.f38452i == 0.0f) {
-                    this.a.r.a(this.a.f38446c, false);
-                } else if (this.a.f38452i == 1.0f) {
-                    this.a.r.a(this.a.f38446c, true);
+                if (this.a.f36856i == 0.0f) {
+                    this.a.r.a(this.a.f36850c, false);
+                } else if (this.a.f36856i == 1.0f) {
+                    this.a.r.a(this.a.f36850c, true);
                 }
             }
         }
@@ -237,13 +237,13 @@ public class SwipeBackLayout extends ViewGroup {
                 int i6 = this.a.a;
                 if (i6 == 1 || i6 == 2) {
                     SwipeBackLayout swipeBackLayout = this.a;
-                    swipeBackLayout.f38452i = (abs * 1.0f) / swipeBackLayout.f38448e;
+                    swipeBackLayout.f36856i = (abs * 1.0f) / swipeBackLayout.f36852e;
                 } else if (i6 == 4 || i6 == 8) {
                     SwipeBackLayout swipeBackLayout2 = this.a;
-                    swipeBackLayout2.f38452i = (abs2 * 1.0f) / swipeBackLayout2.f38449f;
+                    swipeBackLayout2.f36856i = (abs2 * 1.0f) / swipeBackLayout2.f36853f;
                 }
                 if (this.a.r != null) {
-                    this.a.r.a(this.a.f38446c, this.a.f38452i, this.a.f38451h);
+                    this.a.r.a(this.a.f36850c, this.a.f36856i, this.a.f36855h);
                 }
             }
         }
@@ -261,25 +261,25 @@ public class SwipeBackLayout extends ViewGroup {
                     return;
                 }
                 this.a.q = -1;
-                if ((this.a.a(f2, f3) || this.a.f38452i >= this.a.f38451h) ? true : true) {
+                if ((this.a.a(f2, f3) || this.a.f36856i >= this.a.f36855h) ? true : true) {
                     int i2 = this.a.a;
                     if (i2 == 1) {
                         SwipeBackLayout swipeBackLayout2 = this.a;
-                        swipeBackLayout2.a(swipeBackLayout2.f38448e);
+                        swipeBackLayout2.a(swipeBackLayout2.f36852e);
                         return;
                     } else if (i2 == 2) {
                         SwipeBackLayout swipeBackLayout3 = this.a;
-                        swipeBackLayout3.a(-swipeBackLayout3.f38448e);
+                        swipeBackLayout3.a(-swipeBackLayout3.f36852e);
                         return;
                     } else if (i2 == 4) {
                         SwipeBackLayout swipeBackLayout4 = this.a;
-                        swipeBackLayout4.b(swipeBackLayout4.f38449f);
+                        swipeBackLayout4.b(swipeBackLayout4.f36853f);
                         return;
                     } else if (i2 != 8) {
                         return;
                     } else {
                         SwipeBackLayout swipeBackLayout5 = this.a;
-                        swipeBackLayout5.b(-swipeBackLayout5.f38449f);
+                        swipeBackLayout5.b(-swipeBackLayout5.f36853f);
                         return;
                     }
                 }
@@ -298,7 +298,7 @@ public class SwipeBackLayout extends ViewGroup {
         public boolean tryCaptureView(View view, int i2) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, view, i2)) == null) ? view == this.a.f38446c : invokeLI.booleanValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, view, i2)) == null) ? view == this.a.f36850c : invokeLI.booleanValue;
         }
 
         public /* synthetic */ c(SwipeBackLayout swipeBackLayout, a aVar) {
@@ -306,7 +306,7 @@ public class SwipeBackLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface d {
         void a(View view, float f2, float f3);
 
@@ -337,7 +337,7 @@ public class SwipeBackLayout extends ViewGroup {
     @Override // android.view.View
     public void computeScroll() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f38445b.continueSettling(true)) {
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f36849b.continueSettling(true)) {
             ViewCompat.postInvalidateOnAnimation(this);
         }
     }
@@ -357,13 +357,13 @@ public class SwipeBackLayout extends ViewGroup {
     public int getMaskAlpha() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f38453j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f36857j : invokeV.intValue;
     }
 
     public float getSwipeBackFactor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f38451h : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f36855h : invokeV.floatValue;
     }
 
     @Override // android.view.View
@@ -384,19 +384,19 @@ public class SwipeBackLayout extends ViewGroup {
             if (actionMasked == 0) {
                 this.l = motionEvent.getRawX();
                 this.m = motionEvent.getRawY();
-            } else if (actionMasked == 2 && (view = this.f38447d) != null && com.baidu.sapi2.views.swipeback.a.a.a(view, this.l, this.m)) {
+            } else if (actionMasked == 2 && (view = this.f36851d) != null && com.baidu.sapi2.views.swipeback.a.a.a(view, this.l, this.m)) {
                 float abs = Math.abs(motionEvent.getRawX() - this.l);
                 float abs2 = Math.abs(motionEvent.getRawY() - this.m);
                 int i2 = this.a;
                 if (i2 != 1 && i2 != 2) {
-                    if ((i2 == 4 || i2 == 8) && abs > this.f38450g && abs > abs2) {
+                    if ((i2 == 4 || i2 == 8) && abs > this.f36854g && abs > abs2) {
                         return super.onInterceptTouchEvent(motionEvent);
                     }
-                } else if (abs2 > this.f38450g && abs2 > abs) {
+                } else if (abs2 > this.f36854g && abs2 > abs) {
                     return super.onInterceptTouchEvent(motionEvent);
                 }
             }
-            boolean shouldInterceptTouchEvent = this.f38445b.shouldInterceptTouchEvent(motionEvent);
+            boolean shouldInterceptTouchEvent = this.f36849b.shouldInterceptTouchEvent(motionEvent);
             return shouldInterceptTouchEvent ? shouldInterceptTouchEvent : super.onInterceptTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
@@ -410,12 +410,12 @@ public class SwipeBackLayout extends ViewGroup {
         }
         int paddingLeft = getPaddingLeft() + this.n;
         int paddingTop = getPaddingTop() + this.o;
-        this.f38446c.layout(paddingLeft, paddingTop, this.f38446c.getMeasuredWidth() + paddingLeft, this.f38446c.getMeasuredHeight() + paddingTop);
+        this.f36850c.layout(paddingLeft, paddingTop, this.f36850c.getMeasuredWidth() + paddingLeft, this.f36850c.getMeasuredHeight() + paddingTop);
         if (z) {
-            this.f38448e = getWidth();
-            this.f38449f = getHeight();
+            this.f36852e = getWidth();
+            this.f36853f = getHeight();
         }
-        this.f38447d = com.baidu.sapi2.views.swipeback.a.a.a((ViewGroup) this);
+        this.f36851d = com.baidu.sapi2.views.swipeback.a.a.a((ViewGroup) this);
     }
 
     @Override // android.view.View
@@ -430,9 +430,9 @@ public class SwipeBackLayout extends ViewGroup {
                 if (childCount > 0) {
                     measureChildren(i2, i3);
                     View childAt = getChildAt(0);
-                    this.f38446c = childAt;
+                    this.f36850c = childAt;
                     i5 = childAt.getMeasuredWidth();
-                    i4 = this.f38446c.getMeasuredHeight();
+                    i4 = this.f36850c.getMeasuredHeight();
                 } else {
                     i4 = 0;
                 }
@@ -448,7 +448,7 @@ public class SwipeBackLayout extends ViewGroup {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, motionEvent)) == null) {
-            this.f38445b.processTouchEvent(motionEvent);
+            this.f36849b.processTouchEvent(motionEvent);
             return true;
         }
         return invokeL.booleanValue;
@@ -465,7 +465,7 @@ public class SwipeBackLayout extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
             this.a = i2;
-            this.f38445b.setEdgeTrackingEnabled(i2);
+            this.f36849b.setEdgeTrackingEnabled(i2);
         }
     }
 
@@ -477,7 +477,7 @@ public class SwipeBackLayout extends ViewGroup {
             } else if (i2 < 0) {
                 i2 = 0;
             }
-            this.f38453j = i2;
+            this.f36857j = i2;
         }
     }
 
@@ -489,7 +489,7 @@ public class SwipeBackLayout extends ViewGroup {
             } else if (f2 < 0.0f) {
                 f2 = 0.0f;
             }
-            this.f38451h = f2;
+            this.f36855h = f2;
         }
     }
 
@@ -548,8 +548,8 @@ public class SwipeBackLayout extends ViewGroup {
             }
         }
         this.a = 1;
-        this.f38451h = 0.5f;
-        this.f38453j = 125;
+        this.f36855h = 0.5f;
+        this.f36857j = 125;
         this.k = false;
         this.n = 0;
         this.o = 0;
@@ -558,9 +558,9 @@ public class SwipeBackLayout extends ViewGroup {
         this.s = new a(this);
         setWillNotDraw(false);
         ViewDragHelper create = ViewDragHelper.create(this, 1.0f, new c(this, null));
-        this.f38445b = create;
+        this.f36849b = create;
         create.setEdgeTrackingEnabled(this.a);
-        this.f38450g = this.f38445b.getTouchSlop();
+        this.f36854g = this.f36849b.getTouchSlop();
         setSwipeBackListener(this.s);
         a(context, attributeSet);
     }
@@ -581,7 +581,7 @@ public class SwipeBackLayout extends ViewGroup {
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048579, this, i2) == null) && this.f38445b.settleCapturedViewAt(getPaddingLeft(), i2)) {
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i2) == null) && this.f36849b.settleCapturedViewAt(getPaddingLeft(), i2)) {
             ViewCompat.postInvalidateOnAnimation(this);
         }
     }
@@ -589,11 +589,11 @@ public class SwipeBackLayout extends ViewGroup {
     private void a(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, i.sapi_sdk_SwipeBackLayout);
-            setDirectionMode(obtainStyledAttributes.getInt(i.sapi_sdk_SwipeBackLayout_sapi_sdk_directionMode, this.a));
-            setSwipeBackFactor(obtainStyledAttributes.getFloat(i.sapi_sdk_SwipeBackLayout_sapi_sdk_swipeBackFactor, this.f38451h));
-            setMaskAlpha(obtainStyledAttributes.getInteger(i.sapi_sdk_SwipeBackLayout_sapi_sdk_maskAlpha, this.f38453j));
-            this.k = obtainStyledAttributes.getBoolean(i.sapi_sdk_SwipeBackLayout_sapi_sdk_isSwipeFromEdge, this.k);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.sapi_sdk_directionMode, R.attr.sapi_sdk_isSwipeFromEdge, R.attr.sapi_sdk_maskAlpha, R.attr.sapi_sdk_swipeBackFactor});
+            setDirectionMode(obtainStyledAttributes.getInt(0, this.a));
+            setSwipeBackFactor(obtainStyledAttributes.getFloat(3, this.f36855h));
+            setMaskAlpha(obtainStyledAttributes.getInteger(2, this.f36857j));
+            this.k = obtainStyledAttributes.getBoolean(1, this.k);
             obtainStyledAttributes.recycle();
         }
     }
@@ -618,7 +618,7 @@ public class SwipeBackLayout extends ViewGroup {
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && this.f38445b.settleCapturedViewAt(i2, getPaddingTop())) {
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && this.f36849b.settleCapturedViewAt(i2, getPaddingTop())) {
             ViewCompat.postInvalidateOnAnimation(this);
         }
     }

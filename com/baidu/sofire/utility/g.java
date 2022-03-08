@@ -14,7 +14,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -101,10 +101,10 @@ public final class g {
                         hashMap.put("0", Integer.valueOf(a3.h()));
                         hashMap.put("1", Integer.valueOf(a3.i() + 1));
                     }
-                    a3.f38704b.putInt("mo_fa_pu_cl", 0);
-                    a3.f38704b.commit();
-                    a3.f38704b.putInt("wi_fa_pu_cl", 0);
-                    a3.f38704b.commit();
+                    a3.f37108b.putInt("mo_fa_pu_cl", 0);
+                    a3.f37108b.commit();
+                    a3.f37108b.putInt("wi_fa_pu_cl", 0);
+                    a3.f37108b.commit();
                     a3.f();
                     c.a(context, "1003112", (Map<String, Object>) hashMap, false);
                 } else if (c.e(context)) {

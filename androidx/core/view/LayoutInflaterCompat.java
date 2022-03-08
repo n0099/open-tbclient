@@ -6,7 +6,6 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import androidx.annotation.NonNull;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -58,7 +57,7 @@ public final class LayoutInflaterCompat {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return Factory2Wrapper.class.getName() + StringUtil.ARRAY_START + this.mDelegateFactory + "}";
+                return Factory2Wrapper.class.getName() + "{" + this.mDelegateFactory + "}";
             }
             return (String) invokeV.objValue;
         }

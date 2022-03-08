@@ -2,8 +2,7 @@ package com.baidu.swan.apps.core.prefetch.resource.task;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.a.k;
-import com.baidu.poly.widget.PolyActivity;
+import c.a.p0.a.a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,8 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class ResType {
     public static final /* synthetic */ ResType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -36,9 +36,9 @@ public final class ResType {
                 return;
             }
         }
-        NONE = new ResType(PolyActivity.NONE_PANEL_TYPE, 0);
+        NONE = new ResType("NONE", 0);
         TEST = new ResType("TEST", 1);
-        VIDEO = new ResType("VIDEO", 2);
+        VIDEO = new ResType(HlsPlaylistParser.TYPE_VIDEO, 2);
         ResType resType = new ResType("IMAGE", 3);
         IMAGE = resType;
         $VALUES = new ResType[]{NONE, TEST, VIDEO, resType};
@@ -85,7 +85,7 @@ public final class ResType {
                 }
                 i2++;
             }
-            if (k.a) {
+            if (a.a) {
                 String str2 = "res type - " + resType.name();
             }
             return resType;

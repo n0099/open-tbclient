@@ -5,33 +5,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class w {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f55494c = "plc001_c_h_c";
+    public static final String f53844c = "plc001_c_h_c";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f55495d = 1;
+    public static final int f53845d = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f55496e = 2;
+    public static final int f53846e = 2;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f55497f = 4;
+    public static final int f53847f = 4;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f55498g = 8;
+    public static final int f53848g = 8;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f55499h = 16;
+    public static final int f53849h = 16;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f55500i = 32;
+    public static final int f53850i = 32;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f55501j = 64;
+    public static final int f53851j = 64;
     public static final int k = 128;
     public static final int l = 256;
     public static final int m = 512;
@@ -43,7 +43,7 @@ public class w {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f55502b;
+    public d f53852b;
 
     public w(d dVar) {
         Interceptable interceptable = $ic;
@@ -62,8 +62,8 @@ public class w {
         }
         this.a = 0;
         try {
-            this.f55502b = dVar;
-            this.a = dVar.b(f55494c, 0);
+            this.f53852b = dVar;
+            this.a = dVar.b(f53844c, 0);
             a();
         } catch (Throwable th) {
             x0.a(th);
@@ -77,7 +77,7 @@ public class w {
                 int i2 = l1.i();
                 if (this.a != i2) {
                     this.a = i2;
-                    this.f55502b.c(f55494c, i2);
+                    this.f53852b.c(f53844c, i2);
                 }
             } catch (Throwable th) {
                 x0.a(th);

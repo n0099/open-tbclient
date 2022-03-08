@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import org.json.JSONObject;
 /* compiled from: lambda */
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final /* synthetic */ class a implements RippedAd.Acceptor {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ a a = new a();

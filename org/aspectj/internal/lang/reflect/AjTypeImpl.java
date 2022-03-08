@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.dash.manifest.UrlTemplate;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -51,7 +52,7 @@ import org.aspectj.lang.reflect.NoSuchPointcutException;
 import org.aspectj.lang.reflect.PerClause;
 import org.aspectj.lang.reflect.PerClauseKind;
 import org.aspectj.lang.reflect.Pointcut;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class AjTypeImpl<T> implements AjType<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ajcMagic = "ajc$";
@@ -179,7 +180,7 @@ public class AjTypeImpl<T> implements AjType<T> {
             org.aspectj.lang.annotation.Pointcut pointcut = (org.aspectj.lang.annotation.Pointcut) method.getAnnotation(org.aspectj.lang.annotation.Pointcut.class);
             if (pointcut != null) {
                 String name = method.getName();
-                if (name.startsWith(ajcMagic) && (indexOf = (name = name.substring(name.indexOf("$$") + 2, name.length())).indexOf("$")) != -1) {
+                if (name.startsWith(ajcMagic) && (indexOf = (name = name.substring(name.indexOf(UrlTemplate.ESCAPED_DOLLAR) + 2, name.length())).indexOf("$")) != -1) {
                     name = name.substring(0, indexOf);
                 }
                 return new PointcutImpl(name, pointcut.value(), method, AjTypeSystem.getAjType(method.getDeclaringClass()), pointcut.argNames());

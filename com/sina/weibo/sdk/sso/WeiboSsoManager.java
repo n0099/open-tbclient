@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.weibo.ssosdk.WeiboSsoSdk;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class WeiboSsoManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "WeiboSsoManager";
     public transient /* synthetic */ FieldHolder $fh;
     public String aid;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class Instance {
         public static /* synthetic */ Interceptable $ic;
         public static final WeiboSsoManager instance;

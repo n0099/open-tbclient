@@ -14,7 +14,7 @@ import com.baidu.wallet.core.utils.LogUtil;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class NetUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "NetUtils";

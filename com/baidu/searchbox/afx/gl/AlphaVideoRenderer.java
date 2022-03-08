@@ -20,7 +20,7 @@ import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTexture.OnFrameAvailableListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AlphaVideoRenderer";
@@ -44,7 +44,7 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
     public int uMVPMatrixHandle;
     public int uSTMatrixHandle;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface OnSurfacePrepareListener {
         void onSurfacePrepared(Surface surface);
     }

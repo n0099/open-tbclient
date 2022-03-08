@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FlutterNetModel implements NetworkServicePlugin.NetModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TIMOUT_MIN = 10;
@@ -37,7 +37,7 @@ public class FlutterNetModel implements NetworkServicePlugin.NetModel {
     public int timeout;
     public Runnable timeoutRunnable;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class NetAsyncTask extends BdAsyncTask<Object, String, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -131,7 +131,7 @@ public class FlutterNetModel implements NetworkServicePlugin.NetModel {
                     HashMap<String, String> hashMap = new HashMap<>();
                     hashMap.put("server", this.flutterNetModel.getHttpUrl());
                     hashMap.put(RetrieveTaskManager.KEY, this.flutterNetModel.getHttpUrl());
-                    hashMap.put("state", this.httpNetContext.getStat().stat.f1984h);
+                    hashMap.put("state", this.httpNetContext.getStat().stat.f2610h);
                     if (this.httpNetContext.getPerformance() != null && this.flutterNetModel.getStartRequestTime() > 0 && this.httpNetContext.getPerformance().containsKey(FetchLog.START_TIME)) {
                         long g2 = b.g(this.httpNetContext.getPerformance().get(FetchLog.START_TIME), 0L) - this.flutterNetModel.getStartRequestTime();
                         if (g2 > 0) {
@@ -148,7 +148,7 @@ public class FlutterNetModel implements NetworkServicePlugin.NetModel {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public interface NetResponseCallback {
         void onHttpResponseMessage(HashMap<String, String> hashMap, HashMap<String, String> hashMap2, int i2, String str, String str2, String str3);
     }

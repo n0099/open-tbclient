@@ -6,7 +6,7 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface y extends IInterface {
     String a() throws RemoteException;
 
@@ -14,7 +14,7 @@ public interface y extends IInterface {
 
     boolean a(boolean z) throws RemoteException;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static abstract class a extends Binder implements y {
         public a() {
             attachInterface(this, "com.ss.android.socialbase.downloader.depend.IDownloadNotificationEventAidlListener");
@@ -28,11 +28,11 @@ public interface y extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof y)) {
                 return (y) queryLocalInterface;
             }
-            return new C2231a(iBinder);
+            return new C2210a(iBinder);
         }
 
         public static y b() {
-            return C2231a.a;
+            return C2210a.a;
         }
 
         @Override // android.os.IInterface
@@ -69,15 +69,15 @@ public interface y extends IInterface {
         }
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.y$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public static class C2231a implements y {
+        /* loaded from: classes8.dex */
+        public static class C2210a implements y {
             public static y a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f60153b;
+            public IBinder f58503b;
 
-            public C2231a(IBinder iBinder) {
-                this.f60153b = iBinder;
+            public C2210a(IBinder iBinder) {
+                this.f58503b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.y
@@ -95,7 +95,7 @@ public interface y extends IInterface {
                     }
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    if (!this.f60153b.transact(1, obtain, obtain2, 0) && a.b() != null) {
+                    if (!this.f58503b.transact(1, obtain, obtain2, 0) && a.b() != null) {
                         a.b().a(i2, downloadInfo, str, str2);
                     } else {
                         obtain2.readException();
@@ -108,7 +108,7 @@ public interface y extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f60153b;
+                return this.f58503b;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.y
@@ -118,7 +118,7 @@ public interface y extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadNotificationEventAidlListener");
                     obtain.writeInt(z ? 1 : 0);
-                    if (!this.f60153b.transact(2, obtain, obtain2, 0) && a.b() != null) {
+                    if (!this.f58503b.transact(2, obtain, obtain2, 0) && a.b() != null) {
                         return a.b().a(z);
                     }
                     obtain2.readException();
@@ -135,7 +135,7 @@ public interface y extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadNotificationEventAidlListener");
-                    if (!this.f60153b.transact(3, obtain, obtain2, 0) && a.b() != null) {
+                    if (!this.f58503b.transact(3, obtain, obtain2, 0) && a.b() != null) {
                         return a.b().a();
                     }
                     obtain2.readException();

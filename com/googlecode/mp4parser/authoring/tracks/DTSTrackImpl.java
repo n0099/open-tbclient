@@ -29,7 +29,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import kotlin.UShort;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class DTSTrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -732,7 +732,7 @@ public class DTSTrackImpl extends AbstractTrack {
         return false;
      */
     /* JADX WARN: Code restructure failed: missing block: B:239:0x02fe, code lost:
-        r22.samplerate = com.baidu.rtc.record.MediaEncodeParams.AUDIO_SAMPLE_RATE;
+        r22.samplerate = 48000;
      */
     /* JADX WARN: Code restructure failed: missing block: B:23:0x0061, code lost:
         if (r1 == 4096) goto L371;
@@ -802,7 +802,7 @@ public class DTSTrackImpl extends AbstractTrack {
         r22.bitrate = -1;
      */
     /* JADX WARN: Code restructure failed: missing block: B:253:0x033b, code lost:
-        r22.bitrate = org.apache.commons.codec.digest4util.PureJavaCrc32C.T8_6_start;
+        r22.bitrate = 1536;
      */
     /* JADX WARN: Code restructure failed: missing block: B:254:0x0341, code lost:
         r22.bitrate = 1472;
@@ -856,7 +856,7 @@ public class DTSTrackImpl extends AbstractTrack {
         r1 = 3;
      */
     /* JADX WARN: Code restructure failed: missing block: B:270:0x0396, code lost:
-        r22.bitrate = com.kuaishou.weapon.un.w0.Q;
+        r22.bitrate = 224;
      */
     /* JADX WARN: Code restructure failed: missing block: B:271:0x039b, code lost:
         r22.bitrate = 192;

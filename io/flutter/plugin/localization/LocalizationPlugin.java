@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class LocalizationPlugin {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

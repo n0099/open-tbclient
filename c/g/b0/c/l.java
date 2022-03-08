@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.win.opensdk.PBError;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class l extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public f1 a;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class a implements g1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class l extends g {
                 x.a aVar = (x.a) this.a;
                 aVar.getClass();
                 LogPrinter.d();
-                aVar.f28558d.onRewardedVideo();
+                aVar.f28396d.onRewardedVideo();
             }
         }
 
@@ -60,7 +60,7 @@ public class l extends g {
                 x.a aVar = (x.a) this.a;
                 aVar.getClass();
                 LogPrinter.e("onRewardedShowFail: errorCode: 0, , errorMessage: " + str, new Object[0]);
-                aVar.f28558d.onAdError(0, str);
+                aVar.f28396d.onAdError(0, str);
             }
         }
 
@@ -71,7 +71,7 @@ public class l extends g {
                 x.a aVar = (x.a) this.a;
                 aVar.getClass();
                 LogPrinter.d();
-                aVar.f28558d.onAdClose();
+                aVar.f28396d.onAdClose();
             }
         }
 
@@ -82,7 +82,7 @@ public class l extends g {
                 x.a aVar = (x.a) this.a;
                 aVar.getClass();
                 LogPrinter.d();
-                aVar.f28558d.onAdShow(aVar.f28557c, aVar.a);
+                aVar.f28396d.onAdShow(aVar.f28395c, aVar.a);
                 aVar.a = true;
             }
         }

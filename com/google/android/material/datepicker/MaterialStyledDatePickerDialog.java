@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleRes;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,19 +21,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 import com.google.android.material.dialog.InsetDialogOnTouchListener;
 import com.google.android.material.dialog.MaterialDialogs;
 import com.google.android.material.resources.MaterialAttributes;
 import com.google.android.material.shape.MaterialShapeDrawable;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP, RestrictTo.Scope.TESTS})
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class MaterialStyledDatePickerDialog extends DatePickerDialog {
     public static /* synthetic */ Interceptable $ic = null;
     @AttrRes
     public static final int DEF_STYLE_ATTR = 16843612;
     @StyleRes
-    public static final int DEF_STYLE_RES;
+
+    /* renamed from: DEF_STYLE_RES */
+    public static final int MaterialAlertDialog_MaterialComponents_Picker_Date_Spinner = 2131755328;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public final Drawable background;
@@ -42,17 +44,16 @@ public class MaterialStyledDatePickerDialog extends DatePickerDialog {
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-538708394, "Lcom/google/android/material/datepicker/MaterialStyledDatePickerDialog;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-538708394, "Lcom/google/android/material/datepicker/MaterialStyledDatePickerDialog;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-538708394, "Lcom/google/android/material/datepicker/MaterialStyledDatePickerDialog;")) == null) {
+            return;
         }
-        DEF_STYLE_RES = R.style.MaterialAlertDialog_MaterialComponents_Picker_Date_Spinner;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-538708394, "Lcom/google/android/material/datepicker/MaterialStyledDatePickerDialog;");
+        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -149,13 +150,13 @@ public class MaterialStyledDatePickerDialog extends DatePickerDialog {
         }
         Context context2 = getContext();
         int resolveOrThrow = MaterialAttributes.resolveOrThrow(getContext(), R.attr.colorSurface, MaterialStyledDatePickerDialog.class.getCanonicalName());
-        MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(context2, null, DEF_STYLE_ATTR, DEF_STYLE_RES);
+        MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(context2, null, DEF_STYLE_ATTR, MaterialAlertDialog_MaterialComponents_Picker_Date_Spinner);
         if (Build.VERSION.SDK_INT >= 21) {
             materialShapeDrawable.setFillColor(ColorStateList.valueOf(resolveOrThrow));
         } else {
             materialShapeDrawable.setFillColor(ColorStateList.valueOf(0));
         }
-        Rect dialogBackgroundInsets = MaterialDialogs.getDialogBackgroundInsets(context2, DEF_STYLE_ATTR, DEF_STYLE_RES);
+        Rect dialogBackgroundInsets = MaterialDialogs.getDialogBackgroundInsets(context2, DEF_STYLE_ATTR, MaterialAlertDialog_MaterialComponents_Picker_Date_Spinner);
         this.backgroundInsets = dialogBackgroundInsets;
         this.background = MaterialDialogs.insetDrawable(materialShapeDrawable, dialogBackgroundInsets);
     }

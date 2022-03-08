@@ -6,19 +6,19 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class c implements com.kwad.sdk.collector.model.d {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f55749b = new ArrayList();
+    public List<String> f54099b = new ArrayList();
 
     public String a() {
         return this.a;
     }
 
     public List<String> b() {
-        return this.f55749b;
+        return this.f54099b;
     }
 
     @Override // com.kwad.sdk.core.b
@@ -30,10 +30,10 @@ public class c implements com.kwad.sdk.collector.model.d {
             this.a = jSONObject.optString("packageName");
             JSONArray optJSONArray = jSONObject.optJSONArray("paths");
             if (optJSONArray != null) {
-                this.f55749b.clear();
+                this.f54099b.clear();
                 int length = optJSONArray.length();
                 for (int i2 = 0; i2 < length; i2++) {
-                    this.f55749b.add(optJSONArray.getString(i2));
+                    this.f54099b.add(optJSONArray.getString(i2));
                 }
             }
         } catch (Exception e2) {
@@ -46,7 +46,7 @@ public class c implements com.kwad.sdk.collector.model.d {
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
         t.a(jSONObject, "packageName", this.a);
-        t.a(jSONObject, "paths", this.f55749b);
+        t.a(jSONObject, "paths", this.f54099b);
         return jSONObject;
     }
 }

@@ -2,30 +2,30 @@ package com.ss.android.socialbase.downloader.network;
 
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class k {
     public static final String a = "k";
 
     /* renamed from: b  reason: collision with root package name */
-    public final d f60486b;
+    public final d f58836b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f60487c;
+    public volatile boolean f58837c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicReference<l> f60488d;
+    public final AtomicReference<l> f58838d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AtomicReference<l> f60489e;
+    public AtomicReference<l> f58839e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final ArrayList<b> f60490f;
+    public final ArrayList<b> f58840f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f60491g;
+    public int f58841g;
 
     /* renamed from: com.ss.android.socialbase.downloader.network.k$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] a;
 
@@ -51,12 +51,12 @@ public class k {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static final k a = new k(null);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void a(l lVar);
     }
@@ -70,11 +70,11 @@ public class k {
     }
 
     private boolean c() {
-        if (this.f60486b == null) {
+        if (this.f58836b == null) {
             return false;
         }
         try {
-            int i2 = AnonymousClass1.a[this.f60488d.get().ordinal()];
+            int i2 = AnonymousClass1.a[this.f58838d.get().ordinal()];
             double d2 = 2000.0d;
             double d3 = 550.0d;
             if (i2 == 1) {
@@ -90,7 +90,7 @@ public class k {
                 d2 = 3.4028234663852886E38d;
                 d3 = 2000.0d;
             }
-            double a2 = this.f60486b.a();
+            double a2 = this.f58836b.a();
             if (a2 > d2) {
                 if (a2 > d2 * 1.25d) {
                     return true;
@@ -106,9 +106,9 @@ public class k {
 
     private void d() {
         try {
-            int size = this.f60490f.size();
+            int size = this.f58840f.size();
             for (int i2 = 0; i2 < size; i2++) {
-                this.f60490f.get(i2).a(this.f60488d.get());
+                this.f58840f.get(i2).a(this.f58838d.get());
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -116,17 +116,17 @@ public class k {
     }
 
     public synchronized l b() {
-        if (this.f60486b == null) {
+        if (this.f58836b == null) {
             return l.UNKNOWN;
         }
-        return a(this.f60486b.a());
+        return a(this.f58836b.a());
     }
 
     public k() {
-        this.f60486b = new d(0.05d);
-        this.f60487c = false;
-        this.f60488d = new AtomicReference<>(l.UNKNOWN);
-        this.f60490f = new ArrayList<>();
+        this.f58836b = new d(0.05d);
+        this.f58837c = false;
+        this.f58838d = new AtomicReference<>(l.UNKNOWN);
+        this.f58840f = new ArrayList<>();
     }
 
     public synchronized void a(long j2, long j3) {
@@ -136,27 +136,27 @@ public class k {
             return;
         }
         try {
-            this.f60486b.a(d2);
+            this.f58836b.a(d2);
             b2 = b();
         } catch (Throwable unused) {
         }
-        if (this.f60487c) {
-            this.f60491g++;
-            if (b2 != this.f60489e.get()) {
-                this.f60487c = false;
-                this.f60491g = 1;
+        if (this.f58837c) {
+            this.f58841g++;
+            if (b2 != this.f58839e.get()) {
+                this.f58837c = false;
+                this.f58841g = 1;
             }
-            if (this.f60491g >= 5.0d && c()) {
-                this.f60487c = false;
-                this.f60491g = 1;
-                this.f60488d.set(this.f60489e.get());
+            if (this.f58841g >= 5.0d && c()) {
+                this.f58837c = false;
+                this.f58841g = 1;
+                this.f58838d.set(this.f58839e.get());
                 d();
             }
             return;
         }
-        if (this.f60488d.get() != b2) {
-            this.f60487c = true;
-            this.f60489e = new AtomicReference<>(b2);
+        if (this.f58838d.get() != b2) {
+            this.f58837c = true;
+            this.f58839e = new AtomicReference<>(b2);
         }
     }
 

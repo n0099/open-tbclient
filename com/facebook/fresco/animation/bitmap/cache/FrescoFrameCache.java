@@ -24,7 +24,7 @@ import com.facebook.imagepipeline.image.ImmutableQualityInfo;
 import com.facebook.imageutils.BitmapUtil;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class FrescoFrameCache implements BitmapFrameCache {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;

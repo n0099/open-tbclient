@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.identifier.IdentifierManager;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class w extends m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f53146i;
+    public String f51565i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Context f53147j;
+    public Context f51566j;
 
     public w(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public class w extends m {
                 return;
             }
         }
-        this.f53147j = context;
-        this.f53146i = str;
+        this.f51566j = context;
+        this.f51565i = str;
     }
 
     @Override // com.bun.miitmdid.m
@@ -43,13 +43,13 @@ public class w extends m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             g gVar = new g();
-            Context a = a(this.f53147j);
-            this.f53147j = a;
+            Context a = a(this.f51566j);
+            this.f51566j = a;
             gVar.e(new h(IdentifierManager.class, null, "isSupported", new Class[]{Context.class}, new Object[]{a}));
-            gVar.d(new h(IdentifierManager.class, (Object) null, "getOAIDStatus", new Class[]{Context.class}, new Object[]{this.f53147j}, String.class));
-            gVar.b(new h(IdentifierManager.class, null, "getOAID", new Class[]{Context.class}, new Object[]{this.f53147j}));
-            gVar.c(new h(IdentifierManager.class, null, "getVAID", new Class[]{Context.class, String.class}, new Object[]{this.f53147j, this.f53146i}));
-            gVar.a(new h(IdentifierManager.class, null, "getAAID", new Class[]{Context.class}, new Object[]{this.f53147j}));
+            gVar.d(new h(IdentifierManager.class, (Object) null, "getOAIDStatus", new Class[]{Context.class}, new Object[]{this.f51566j}, String.class));
+            gVar.b(new h(IdentifierManager.class, null, "getOAID", new Class[]{Context.class}, new Object[]{this.f51566j}));
+            gVar.c(new h(IdentifierManager.class, null, "getVAID", new Class[]{Context.class, String.class}, new Object[]{this.f51566j, this.f51565i}));
+            gVar.a(new h(IdentifierManager.class, null, "getAAID", new Class[]{Context.class}, new Object[]{this.f51566j}));
             return gVar;
         }
         return (g) invokeV.objValue;

@@ -19,12 +19,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class b {
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f56762b = "";
+    public String f55112b = "";
 
     private String a(String str) {
         return (str == null || !str.contains("-")) ? str : str.substring(0, str.lastIndexOf(45));
@@ -147,7 +147,7 @@ public abstract class b {
                 h.b(file8.getPath());
             }
             h.b(file5.getPath());
-            f.b(com.kwad.sdk.crash.b.b.f56733b);
+            f.b(com.kwad.sdk.crash.b.b.f55083b);
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.b(th);
         }
@@ -241,15 +241,15 @@ public abstract class b {
                     } catch (FileNotFoundException e2) {
                         e = e2;
                         bufferedReader = bufferedReader2;
-                        str = this.f56762b + e + StringUtils.LF;
-                        this.f56762b = str;
+                        str = this.f55112b + e + StringUtils.LF;
+                        this.f55112b = str;
                         com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
                         return;
                     } catch (IOException e3) {
                         e = e3;
                         bufferedReader = bufferedReader2;
-                        str = this.f56762b + e + StringUtils.LF;
-                        this.f56762b = str;
+                        str = this.f55112b + e + StringUtils.LF;
+                        this.f55112b = str;
                         com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
                         return;
                     } catch (Throwable th) {

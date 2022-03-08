@@ -39,7 +39,7 @@ import com.facebook.imagepipeline.image.CloseableAnimatedImage;
 import com.facebook.imagepipeline.image.CloseableImage;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ExperimentalBitmapAnimationDrawableFactory implements DrawableFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CACHING_STRATEGY_FRESCO_CACHE = 1;
@@ -56,7 +56,7 @@ public class ExperimentalBitmapAnimationDrawableFactory implements DrawableFacto
     public final PlatformBitmapFactory mPlatformBitmapFactory;
     public final ScheduledExecutorService mScheduledExecutorServiceForUiThread;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class AnimationFrameCacheKey implements CacheKey {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String URI_PREFIX = "anim://";

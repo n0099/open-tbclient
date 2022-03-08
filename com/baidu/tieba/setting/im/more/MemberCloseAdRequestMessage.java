@@ -1,6 +1,6 @@
 package com.baidu.tieba.setting.im.more;
 
-import c.a.t0.d1.c0;
+import c.a.q0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.CloseAd.CloseAdReqIdl;
 import tbclient.CloseAd.DataReq;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class MemberCloseAdRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class MemberCloseAdRequestMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.vip_close = Integer.valueOf(this.mVipClose);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                c0.a(builder, true);
+                b0.a(builder, true);
             }
             CloseAdReqIdl.Builder builder2 = new CloseAdReqIdl.Builder();
             builder2.data = builder.build(false);

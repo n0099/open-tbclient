@@ -7,7 +7,6 @@ import android.os.Looper;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y.i.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.install.IInstallCallback;
 import com.baidu.nps.main.invoke.IInvokeCallback;
@@ -15,6 +14,7 @@ import com.baidu.nps.main.manager.NPSManager;
 import com.baidu.nps.pm.BundleInfo;
 import com.baidu.nps.pm.BundleInfoGroup;
 import com.baidu.nps.pm.manager.NPSPackageManager;
+import com.baidu.pass.biometrics.face.liveness.b.a;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.searchbox.live.interfaces.callback.ILiveDiskClearCacheCallback;
@@ -23,6 +23,7 @@ import com.baidu.searchbox.live.interfaces.service.AppInfoService;
 import com.baidu.searchbox.live.interfaces.service.ToastService;
 import com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin;
 import com.baidu.searchbox.live.interfaces.yy.YYStatInfo;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +37,7 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class YYLiveNPSPluginManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOAD_FROM_NPS_DOWNLOAD = "nps_download";
@@ -63,12 +64,12 @@ public class YYLiveNPSPluginManager {
     public ToastService toastService;
     public UBCManager ubcManager;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface PluginLoadCallback {
         void onResult(int i2, String str, Object obj, String str2);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static YYLiveNPSPluginManager instance;
@@ -474,10 +475,10 @@ public class YYLiveNPSPluginManager {
                             if (this.val$showLoading) {
                                 if (i2 == 34) {
                                     if (this.this$0.loadingCallback == null) {
-                                        this.this$0.showNormalToast(a.liveshow_plugin_yy_installing, 0);
+                                        this.this$0.showNormalToast(R.string.liveshow_plugin_yy_installing, 0);
                                     }
                                 } else {
-                                    this.this$0.showNormalToast(a.liveshow_plugin_yy_impl_load_fail, 0);
+                                    this.this$0.showNormalToast(R.string.liveshow_plugin_yy_impl_load_fail, 0);
                                 }
                             }
                             if (this.this$0.isDebug()) {
@@ -513,7 +514,7 @@ public class YYLiveNPSPluginManager {
             if (z) {
                 jSONObject.put("value", "suc");
             } else {
-                jSONObject.put("value", com.baidu.pass.biometrics.face.liveness.b.a.g0);
+                jSONObject.put("value", a.g0);
             }
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("pkg", str);
@@ -692,7 +693,7 @@ public class YYLiveNPSPluginManager {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(a.liveshow_plugin_yy_impl_load_fail, 0);
+                                            this.this$1.this$0.showNormalToast(R.string.liveshow_plugin_yy_impl_load_fail, 0);
                                             return;
                                         }
                                         try {
@@ -799,7 +800,7 @@ public class YYLiveNPSPluginManager {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(a.liveshow_plugin_yy_impl_load_fail, 0);
+                                            this.this$1.this$0.showNormalToast(R.string.liveshow_plugin_yy_impl_load_fail, 0);
                                             return;
                                         }
                                         try {
@@ -893,7 +894,7 @@ public class YYLiveNPSPluginManager {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(a.liveshow_plugin_yy_impl_load_fail, 0);
+                                            this.this$1.this$0.showNormalToast(R.string.liveshow_plugin_yy_impl_load_fail, 0);
                                             return;
                                         }
                                         try {
@@ -987,7 +988,7 @@ public class YYLiveNPSPluginManager {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(a.liveshow_plugin_yy_impl_load_fail, 0);
+                                            this.this$1.this$0.showNormalToast(R.string.liveshow_plugin_yy_impl_load_fail, 0);
                                             return;
                                         }
                                         try {
@@ -1153,7 +1154,7 @@ public class YYLiveNPSPluginManager {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(a.liveshow_plugin_yy_impl_load_fail, 0);
+                                            this.this$1.this$0.showNormalToast(R.string.liveshow_plugin_yy_impl_load_fail, 0);
                                             return;
                                         }
                                         try {
@@ -1252,7 +1253,7 @@ public class YYLiveNPSPluginManager {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(a.liveshow_plugin_yy_impl_load_fail, 0);
+                                            this.this$1.this$0.showNormalToast(R.string.liveshow_plugin_yy_impl_load_fail, 0);
                                             return;
                                         }
                                         try {
@@ -1344,7 +1345,7 @@ public class YYLiveNPSPluginManager {
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         String str5 = "finish load class t=" + System.currentTimeMillis();
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(a.liveshow_plugin_yy_impl_load_fail, 0);
+                                            this.this$1.this$0.showNormalToast(R.string.liveshow_plugin_yy_impl_load_fail, 0);
                                             return;
                                         }
                                         try {
@@ -1436,7 +1437,7 @@ public class YYLiveNPSPluginManager {
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         String str5 = "finish load class t=" + System.currentTimeMillis();
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(a.liveshow_plugin_yy_impl_load_fail, 0);
+                                            this.this$1.this$0.showNormalToast(R.string.liveshow_plugin_yy_impl_load_fail, 0);
                                             return;
                                         }
                                         try {
@@ -1537,7 +1538,7 @@ public class YYLiveNPSPluginManager {
                                                 this.this$1.this$0.ubcManager.flowEnd(this.this$1.this$0.pageFlow);
                                                 this.this$1.this$0.pageFlow = null;
                                             }
-                                            this.this$1.this$0.showNormalToast(a.liveshow_plugin_yy_impl_load_fail, 0);
+                                            this.this$1.this$0.showNormalToast(R.string.liveshow_plugin_yy_impl_load_fail, 0);
                                             return;
                                         }
                                         try {

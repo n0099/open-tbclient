@@ -36,7 +36,7 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class Request {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REQUESTFROM_FEED = 1;
@@ -66,7 +66,7 @@ public class Request {
     public final UrlWrapper url;
     public int writeTimeout;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class Builder<R extends Builder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

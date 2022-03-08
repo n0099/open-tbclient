@@ -32,11 +32,11 @@ public class a {
 
     /* renamed from: c.a.d.j.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0058a implements Comparator<Object> {
+    public static class C0118a implements Comparator<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0058a() {
+        public C0118a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,7 +106,7 @@ public class a {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f2390b;
+        public String f3019b;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -450,7 +450,7 @@ public class a {
                         for (String str2 : (String[]) f(dexClassLoader, DexClassLoader.class, "mLibPaths")) {
                             arrayList.add(str2);
                         }
-                        Collections.sort(arrayList, new C0058a());
+                        Collections.sort(arrayList, new C0118a());
                     } catch (Exception unused) {
                         o(pathClassLoader, PathClassLoader.class, "mLibPaths", c(f(pathClassLoader, PathClassLoader.class, "mLibPaths"), f(dexClassLoader, DexClassLoader.class, "mLibPaths")));
                     }
@@ -480,7 +480,7 @@ public class a {
         if (interceptable == null || (invokeZL = interceptable.invokeZL(65550, null, z, th)) == null) {
             c cVar = new c();
             cVar.a = z;
-            cVar.f2390b = th != null ? th.getLocalizedMessage() : null;
+            cVar.f3019b = th != null ? th.getLocalizedMessage() : null;
             return cVar;
         }
         return (c) invokeZL.objValue;

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import org.json.JSONArray;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class ApplicationInfoLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NETWORK_POLICY_METADATA_KEY = "io.flutter.network-policy";

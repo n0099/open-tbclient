@@ -1,6 +1,5 @@
 package com.dxmpay.apollon.restnet.converter;
 
-import c.f.a.g.d.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,8 +7,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.restnet.RestRuntimeException;
+import com.dxmpay.apollon.restnet.rest.e;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class AbstractHttpMessageConverter<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,24 +31,24 @@ public abstract class AbstractHttpMessageConverter<T> {
         this.a = "";
     }
 
-    public final T a(Class<?> cls, e eVar) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cls, eVar)) == null) ? d(cls, eVar) : (T) invokeLL.objValue;
-    }
-
-    public String b() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public void c(String str) {
+    public abstract T b(Class<?> cls, e eVar) throws IOException, RestRuntimeException;
+
+    public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             this.a = str;
         }
     }
 
-    public abstract T d(Class<?> cls, e eVar) throws IOException, RestRuntimeException;
+    public final T a(Class<?> cls, e eVar) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cls, eVar)) == null) ? b(cls, eVar) : (T) invokeLL.objValue;
+    }
 }

@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.voyager.impl.IVoyagerCallback;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public interface IVoyagerService extends IInterface {
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class Default implements IVoyagerService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,7 @@ public interface IVoyagerService extends IInterface {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static abstract class Stub extends Binder implements IVoyagerService {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.voyager.impl.IVoyagerService";
@@ -84,7 +84,7 @@ public interface IVoyagerService extends IInterface {
         public static final int TRANSACTION_uploadZipFileWithCallback = 3;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes13.dex */
+        /* loaded from: classes6.dex */
         public static class Proxy implements IVoyagerService {
             public static /* synthetic */ Interceptable $ic;
             public static IVoyagerService sDefaultImpl;

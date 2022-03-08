@@ -34,7 +34,7 @@ import com.dxmpay.wallet.core.utils.StringUtils;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class PreCashierPayTypePresenter extends PayTypeContract.Presenter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BALANCE = "balance";

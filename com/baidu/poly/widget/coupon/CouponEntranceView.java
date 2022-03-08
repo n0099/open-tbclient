@@ -7,10 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import c.a.i0.g;
-import c.a.i0.h;
-import c.a.i0.t.c.a;
+import c.a.f0.k.c.a;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,25 +18,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.DecimalFormat;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class CouponEntranceView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f38094e;
+    public TextView f36497e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f38095f;
+    public TextView f36498f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f38096g;
+    public View f36499g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f38097h;
+    public a f36500h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a.C0167a f38098i;
+    public a.C0143a f36501i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CouponEntranceView(Context context) {
@@ -69,61 +68,61 @@ public class CouponEntranceView extends FrameLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(h.coupon_entrance, (ViewGroup) this, true);
-            this.f38094e = (TextView) findViewById(g.coupon_title);
-            this.f38095f = (TextView) findViewById(g.coupon_subtitle);
-            this.f38096g = findViewById(g.icon_more);
+            LayoutInflater.from(context).inflate(R.layout.coupon_entrance, (ViewGroup) this, true);
+            this.f36497e = (TextView) findViewById(R.id.coupon_title);
+            this.f36498f = (TextView) findViewById(R.id.coupon_subtitle);
+            this.f36499g = findViewById(R.id.icon_more);
         }
     }
 
-    public a.C0167a getSelectedItem() {
+    public a.C0143a getSelectedItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38098i : (a.C0167a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36501i : (a.C0143a) invokeV.objValue;
     }
 
     public void refreshUI() {
-        List<a.C0167a> list;
+        List<a.C0143a> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f38098i = null;
-            a aVar = this.f38097h;
-            if (!((aVar == null || (list = aVar.f3929b) == null || list.size() <= 0) ? false : true)) {
+            this.f36501i = null;
+            a aVar = this.f36500h;
+            if (!((aVar == null || (list = aVar.f3416b) == null || list.size() <= 0) ? false : true)) {
                 setVisibility(8);
                 return;
             }
-            Iterator<a.C0167a> it = this.f38097h.f3929b.iterator();
+            Iterator<a.C0143a> it = this.f36500h.f3416b.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
-                a.C0167a next = it.next();
-                if (next.f3936h == 1) {
-                    this.f38098i = next;
+                a.C0143a next = it.next();
+                if (next.f3423h == 1) {
+                    this.f36501i = next;
                     break;
                 }
             }
-            if (this.f38098i == null) {
+            if (this.f36501i == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            this.f38094e.setText(this.f38098i.f3931c);
-            a.C0167a c0167a = this.f38098i;
-            if (c0167a.f3930b == -1) {
-                String str = c0167a.f3932d;
-                this.f38095f.setVisibility(8);
+            this.f36497e.setText(this.f36501i.f3418c);
+            a.C0143a c0143a = this.f36501i;
+            if (c0143a.f3417b == -1) {
+                String str = c0143a.f3419d;
+                this.f36498f.setVisibility(8);
             } else {
-                String str2 = "-" + a(this.f38098i.f3935g.longValue()) + "元";
-                this.f38095f.setVisibility(0);
-                this.f38095f.setText(this.f38098i.f3932d);
+                String str2 = "-" + a(this.f36501i.f3422g.longValue()) + "元";
+                this.f36498f.setVisibility(0);
+                this.f36498f.setText(this.f36501i.f3419d);
             }
-            if (this.f38097h.a) {
-                this.f38096g.setVisibility(0);
+            if (this.f36500h.a) {
+                this.f36499g.setVisibility(0);
                 setEnabled(true);
                 return;
             }
-            this.f38096g.setVisibility(8);
+            this.f36499g.setVisibility(8);
             setEnabled(false);
         }
     }
@@ -131,7 +130,7 @@ public class CouponEntranceView extends FrameLayout {
     public void update(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f38097h = aVar;
+            this.f36500h = aVar;
             refreshUI();
         }
     }

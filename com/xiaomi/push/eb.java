@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class eb implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,10 +22,10 @@ public class eb implements Runnable {
     public final /* synthetic */ String f322a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f61243b;
+    public final /* synthetic */ String f59593b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f61244c;
+    public final /* synthetic */ String f59594c;
 
     public eb(ea eaVar, String str, Context context, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -45,8 +45,8 @@ public class eb implements Runnable {
         this.f321a = eaVar;
         this.f322a = str;
         this.a = context;
-        this.f61243b = str2;
-        this.f61244c = str3;
+        this.f59593b = str2;
+        this.f59594c = str3;
     }
 
     @Override // java.lang.Runnable
@@ -76,7 +76,7 @@ public class eb implements Runnable {
                     String optString4 = jSONObject.optString("awake_app");
                     String optString5 = jSONObject.optString("awake_type");
                     int optInt = jSONObject.optInt("awake_foreground", 0);
-                    if (this.f61243b.equals(optString3) && this.f61244c.equals(optString4)) {
+                    if (this.f59593b.equals(optString3) && this.f59594c.equals(optString4)) {
                         if (!TextUtils.isEmpty(optString5) && !TextUtils.isEmpty(optString3) && !TextUtils.isEmpty(optString4) && !TextUtils.isEmpty(optString2)) {
                             this.f321a.b(optString3);
                             this.f321a.a(optString4);
@@ -89,20 +89,20 @@ public class eb implements Runnable {
                                 if (TextUtils.isEmpty(optString)) {
                                     dzVar.c("com.xiaomi.mipush.sdk.PushMessageHandler");
                                     eaVar = this.f321a;
-                                    ecVar = ec.f61246c;
+                                    ecVar = ec.f59596c;
                                     context3 = this.a;
                                 } else {
                                     eaVar = this.f321a;
-                                    ecVar = ec.f61245b;
+                                    ecVar = ec.f59595b;
                                     context3 = this.a;
                                 }
                             } else if (ec.a.f324a.equals(optString5)) {
                                 eaVar = this.f321a;
                                 ecVar = ec.a;
                                 context3 = this.a;
-                            } else if (ec.f61247d.f324a.equals(optString5)) {
+                            } else if (ec.f59597d.f324a.equals(optString5)) {
                                 eaVar = this.f321a;
-                                ecVar = ec.f61247d;
+                                ecVar = ec.f59597d;
                                 context3 = this.a;
                             } else {
                                 context2 = this.a;

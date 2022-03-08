@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class at {
     public static /* synthetic */ Interceptable $ic;
     public static final at a;
@@ -17,19 +17,19 @@ public final class at {
     public static final /* synthetic */ at[] f82a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final at f61098b;
+    public static final at f59448b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final at f61099c;
+    public static final at f59449c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final at f61100d;
+    public static final at f59450d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final at f61101e;
+    public static final at f59451e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final at f61102f;
+    public static final at f59452f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,13 +46,13 @@ public final class at {
             }
         }
         a = new at("DISABLE_PUSH", 0);
-        f61098b = new at("ENABLE_PUSH", 1);
-        f61099c = new at("UPLOAD_HUAWEI_TOKEN", 2);
-        f61100d = new at("UPLOAD_FCM_TOKEN", 3);
-        f61101e = new at("UPLOAD_COS_TOKEN", 4);
+        f59448b = new at("ENABLE_PUSH", 1);
+        f59449c = new at("UPLOAD_HUAWEI_TOKEN", 2);
+        f59450d = new at("UPLOAD_FCM_TOKEN", 3);
+        f59451e = new at("UPLOAD_COS_TOKEN", 4);
         at atVar = new at("UPLOAD_FTOS_TOKEN", 5);
-        f61102f = atVar;
-        f82a = new at[]{a, f61098b, f61099c, f61100d, f61101e, atVar};
+        f59452f = atVar;
+        f82a = new at[]{a, f59448b, f59449c, f59450d, f59451e, atVar};
     }
 
     public at(String str, int i2) {

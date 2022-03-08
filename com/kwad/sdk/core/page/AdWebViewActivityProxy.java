@@ -25,7 +25,7 @@ import com.kwad.sdk.utils.v;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class AdWebViewActivityProxy extends com.kwad.sdk.h.a implements c.a {
     public static final String KEY_LANDING_PAGE_TYPE = "key_landing_page_type";
     public static final String KEY_MINI_WINDOW = "key_mini_window";
@@ -40,51 +40,51 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.h.a implements c.a {
     public boolean mIsVPlusShown = false;
     public boolean mNormalMode;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f56118b;
+        public String f54468b;
 
         /* renamed from: c  reason: collision with root package name */
-        public AdTemplate f56119c;
+        public AdTemplate f54469c;
 
         /* renamed from: com.kwad.sdk.core.page.AdWebViewActivityProxy$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public static class C2123a {
+        /* loaded from: classes8.dex */
+        public static class C2102a {
             public String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public String f56120b;
+            public String f54470b;
 
             /* renamed from: c  reason: collision with root package name */
-            public AdTemplate f56121c;
+            public AdTemplate f54471c;
 
-            public C2123a a(AdTemplate adTemplate) {
-                this.f56121c = adTemplate;
+            public C2102a a(AdTemplate adTemplate) {
+                this.f54471c = adTemplate;
                 return this;
             }
 
-            public C2123a a(String str) {
+            public C2102a a(String str) {
                 this.a = str;
                 return this;
             }
 
             public a a() {
-                return new a(this.a, this.f56120b, this.f56121c);
+                return new a(this.a, this.f54470b, this.f54471c);
             }
 
-            public C2123a b(String str) {
-                this.f56120b = str;
+            public C2102a b(String str) {
+                this.f54470b = str;
                 return this;
             }
         }
 
         public a(String str, String str2, AdTemplate adTemplate) {
             this.a = str;
-            this.f56118b = str2;
-            this.f56119c = adTemplate;
+            this.f54468b = str2;
+            this.f54469c = adTemplate;
         }
     }
 
@@ -100,14 +100,14 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.h.a implements c.a {
     }
 
     public static void launch(Context context, a aVar) {
-        if (context == null || TextUtils.isEmpty(aVar.a) || TextUtils.isEmpty(aVar.f56118b)) {
+        if (context == null || TextUtils.isEmpty(aVar.a) || TextUtils.isEmpty(aVar.f54468b)) {
             return;
         }
         KsAdSDKImpl.putComponentProxy(AdWebViewActivity.class, AdWebViewActivityProxy.class);
         Intent intent = new Intent(context, AdWebViewActivity.class);
         intent.putExtra(KEY_PAGE_TITLE, aVar.a);
-        intent.putExtra(KEY_PAGE_URL, aVar.f56118b);
-        intent.putExtra("key_template_json", aVar.f56119c.toJson().toString());
+        intent.putExtra(KEY_PAGE_URL, aVar.f54468b);
+        intent.putExtra("key_template_json", aVar.f54469c.toJson().toString());
         context.startActivity(intent);
     }
 
@@ -259,10 +259,10 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.h.a implements c.a {
             this.landingPageViewHelper = cVar2;
             cVar2.a(this);
             cVar = this.landingPageViewHelper;
-            a2 = new c.C2124c().b(com.kwad.sdk.core.response.a.b.j(this.mAdTemplate) ? com.kwad.sdk.core.response.a.b.i(this.mAdTemplate) : com.kwad.sdk.core.response.a.a.G(j2)).a();
+            a2 = new c.C2103c().b(com.kwad.sdk.core.response.a.b.j(this.mAdTemplate) ? com.kwad.sdk.core.response.a.b.i(this.mAdTemplate) : com.kwad.sdk.core.response.a.a.G(j2)).a();
         } else {
             this.mNormalMode = true;
-            a2 = new c.C2124c().a(true).b(false).a(stringExtra2).b(stringExtra3).a();
+            a2 = new c.C2103c().a(true).b(false).a(stringExtra2).b(stringExtra3).a();
             c cVar3 = new c(this.mContext, this.mAdTemplate, 1, false);
             this.landingPageViewHelper = cVar3;
             cVar3.a(this);

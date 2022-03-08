@@ -10,13 +10,13 @@ import com.xiaomi.push.gv;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.av;
 import java.util.Hashtable;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class gz {
     public static /* synthetic */ Interceptable $ic;
     public static final int a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static Hashtable<Integer, Long> a;
@@ -52,7 +52,7 @@ public class gz {
                 return;
             }
         }
-        a = ew.f61263c.a();
+        a = ew.f59613c.a();
     }
 
     public static void a() {

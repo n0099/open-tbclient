@@ -18,20 +18,20 @@ import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u00004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\u0018\u00002\u00020\u0001B\u001b\u0012\u0006\u0010\u0013\u001a\u00020\u0012\u0012\n\b\u0002\u0010\u0015\u001a\u0004\u0018\u00010\u0014¢\u0006\u0004\b\u0016\u0010\u0017J\u0019\u0010\u0005\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0014¢\u0006\u0004\b\u0005\u0010\u0006R\u001d\u0010\f\u001a\u00020\u00078B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\b\u0010\t\u001a\u0004\b\n\u0010\u000bR\u001d\u0010\u0011\u001a\u00020\r8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u000e\u0010\t\u001a\u0004\b\u000f\u0010\u0010¨\u0006\u0018"}, d2 = {"Lcom/baidu/nadcore/video/videoplayer/ui/full/BdVideoFullGradientMask;", "Landroid/view/View;", "Landroid/graphics/Canvas;", "canvas", "", "onDraw", "(Landroid/graphics/Canvas;)V", "Landroid/graphics/LinearGradient;", "linearGradient$delegate", "Lkotlin/Lazy;", "getLinearGradient", "()Landroid/graphics/LinearGradient;", "linearGradient", "Landroid/graphics/Paint;", "paint$delegate", "getPaint", "()Landroid/graphics/Paint;", "paint", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attr", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "lib-widget_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes10.dex */
+@Metadata(bv = {1, 0, 3}, d1 = {"\u00004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\u0018\u00002\u00020\u0001B\u001b\u0012\u0006\u0010\u0013\u001a\u00020\u0012\u0012\n\b\u0002\u0010\u0015\u001a\u0004\u0018\u00010\u0014¢\u0006\u0004\b\u0016\u0010\u0017J\u0019\u0010\u0005\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0014¢\u0006\u0004\b\u0005\u0010\u0006R\u001d\u0010\f\u001a\u00020\u00078B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\b\u0010\t\u001a\u0004\b\n\u0010\u000bR\u001d\u0010\u0011\u001a\u00020\r8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u000e\u0010\t\u001a\u0004\b\u000f\u0010\u0010¨\u0006\u0018"}, d2 = {"Lcom/baidu/nadcore/video/videoplayer/ui/full/BdVideoFullGradientMask;", "Landroid/view/View;", "Landroid/graphics/Canvas;", "canvas", "", "onDraw", "(Landroid/graphics/Canvas;)V", "Landroid/graphics/LinearGradient;", "linearGradient$delegate", "Lkotlin/Lazy;", "getLinearGradient", "()Landroid/graphics/LinearGradient;", "linearGradient", "Landroid/graphics/Paint;", "paint$delegate", "getPaint", "()Landroid/graphics/Paint;", "paint", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attr", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "nadcore-lib-widget"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+/* loaded from: classes4.dex */
 public final class BdVideoFullGradientMask extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Lazy f37415e;
+    public final Lazy f35818e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Lazy f37416f;
+    public final Lazy f35819f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HashMap f37417g;
+    public HashMap f35820g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdVideoFullGradientMask(Context context, AttributeSet attributeSet) {
@@ -53,26 +53,26 @@ public final class BdVideoFullGradientMask extends View {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        this.f37415e = LazyKt__LazyJVMKt.lazy(BdVideoFullGradientMask$paint$2.INSTANCE);
-        this.f37416f = LazyKt__LazyJVMKt.lazy(new BdVideoFullGradientMask$linearGradient$2(this));
+        this.f35818e = LazyKt__LazyJVMKt.lazy(BdVideoFullGradientMask$paint$2.INSTANCE);
+        this.f35819f = LazyKt__LazyJVMKt.lazy(new BdVideoFullGradientMask$linearGradient$2(this));
     }
 
     private final LinearGradient getLinearGradient() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? (LinearGradient) this.f37416f.getValue() : (LinearGradient) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? (LinearGradient) this.f35819f.getValue() : (LinearGradient) invokeV.objValue;
     }
 
     private final Paint getPaint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? (Paint) this.f37415e.getValue() : (Paint) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? (Paint) this.f35818e.getValue() : (Paint) invokeV.objValue;
     }
 
     public void _$_clearFindViewByIdCache() {
         HashMap hashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (hashMap = this.f37417g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (hashMap = this.f35820g) == null) {
             return;
         }
         hashMap.clear();
@@ -82,13 +82,13 @@ public final class BdVideoFullGradientMask extends View {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (this.f37417g == null) {
-                this.f37417g = new HashMap();
+            if (this.f35820g == null) {
+                this.f35820g = new HashMap();
             }
-            View view = (View) this.f37417g.get(Integer.valueOf(i2));
+            View view = (View) this.f35820g.get(Integer.valueOf(i2));
             if (view == null) {
                 View findViewById = findViewById(i2);
-                this.f37417g.put(Integer.valueOf(i2), findViewById);
+                this.f35820g.put(Integer.valueOf(i2), findViewById);
                 return findViewById;
             }
             return view;

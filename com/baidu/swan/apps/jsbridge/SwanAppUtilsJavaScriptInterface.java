@@ -6,12 +6,11 @@ import android.text.TextUtils;
 import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.a.c1.d.j;
-import c.a.s0.a.k;
-import c.a.s0.a.n2.g;
-import c.a.s0.a.u1.k.f;
-import c.a.s0.a.z2.q0;
-import c.a.s0.a.z2.w;
+import c.a.p0.a.d2.g;
+import c.a.p0.a.k1.k.f;
+import c.a.p0.a.p2.q0;
+import c.a.p0.a.p2.w;
+import c.a.p0.a.s0.d.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -24,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class SwanAppUtilsJavaScriptInterface {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -37,18 +36,18 @@ public class SwanAppUtilsJavaScriptInterface {
     public Context mActivity;
     public boolean mIsForceLight;
     public String mSource;
-    public c.a.s0.a.h0.f.a mWebView;
+    public c.a.p0.a.x.f.a mWebView;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f39078e;
+        public final /* synthetic */ String f37482e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanAppUtilsJavaScriptInterface f39079f;
+        public final /* synthetic */ SwanAppUtilsJavaScriptInterface f37483f;
 
         public a(SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface, String str) {
             Interceptable interceptable = $ic;
@@ -65,37 +64,37 @@ public class SwanAppUtilsJavaScriptInterface {
                     return;
                 }
             }
-            this.f39079f = swanAppUtilsJavaScriptInterface;
-            this.f39078e = str;
+            this.f37483f = swanAppUtilsJavaScriptInterface;
+            this.f37482e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = this.f39078e;
+                String str = this.f37482e;
                 if (!str.startsWith("javascript:")) {
                     str = "javascript:" + str;
                 }
                 if (SwanAppUtilsJavaScriptInterface.DEBUG) {
                     String str2 = "share result:" + str;
                 }
-                this.f39079f.mWebView.evaluateJavascript(str, null);
+                this.f37483f.mWebView.evaluateJavascript(str, null);
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class b implements j.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f39080b;
+        public final /* synthetic */ String f37484b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SwanAppUtilsJavaScriptInterface f39081c;
+        public final /* synthetic */ SwanAppUtilsJavaScriptInterface f37485c;
 
         public b(SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -112,38 +111,38 @@ public class SwanAppUtilsJavaScriptInterface {
                     return;
                 }
             }
-            this.f39081c = swanAppUtilsJavaScriptInterface;
+            this.f37485c = swanAppUtilsJavaScriptInterface;
             this.a = str;
-            this.f39080b = str2;
+            this.f37484b = str2;
         }
 
-        @Override // c.a.s0.a.c1.d.j.a
+        @Override // c.a.p0.a.s0.d.j.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f39081c.notifyCallback(this.f39080b, String.valueOf(false));
+                this.f37485c.notifyCallback(this.f37484b, String.valueOf(false));
             }
         }
 
-        @Override // c.a.s0.a.c1.d.j.a
+        @Override // c.a.p0.a.s0.d.j.a
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f39081c.notifyCallback(this.a, String.valueOf(true));
+                this.f37485c.notifyCallback(this.a, String.valueOf(true));
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f39082e;
+        public final /* synthetic */ String f37486e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanAppUtilsJavaScriptInterface f39083f;
+        public final /* synthetic */ SwanAppUtilsJavaScriptInterface f37487f;
 
         public c(SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface, String str) {
             Interceptable interceptable = $ic;
@@ -160,8 +159,8 @@ public class SwanAppUtilsJavaScriptInterface {
                     return;
                 }
             }
-            this.f39083f = swanAppUtilsJavaScriptInterface;
-            this.f39082e = str;
+            this.f37487f = swanAppUtilsJavaScriptInterface;
+            this.f37486e = str;
         }
 
         @Override // java.lang.Runnable
@@ -169,7 +168,7 @@ public class SwanAppUtilsJavaScriptInterface {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 boolean unused = SwanAppUtilsJavaScriptInterface.DEBUG;
-                this.f39083f.doUbcEvent(this.f39082e);
+                this.f37487f.doUbcEvent(this.f37486e);
             }
         }
     }
@@ -187,10 +186,10 @@ public class SwanAppUtilsJavaScriptInterface {
                 return;
             }
         }
-        DEBUG = k.a;
+        DEBUG = c.a.p0.a.a.a;
     }
 
-    public SwanAppUtilsJavaScriptInterface(Context context, c.a.s0.a.h0.f.a aVar) {
+    public SwanAppUtilsJavaScriptInterface(Context context, c.a.p0.a.x.f.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -221,7 +220,7 @@ public class SwanAppUtilsJavaScriptInterface {
                 if ((TextUtils.isEmpty(optString) ? 0L : Long.valueOf(optString).longValue()) < UBC_MIN_VERSION) {
                     return;
                 }
-                c.a.s0.a.n2.b.l(jSONObject.optString("actionId"), jSONObject.optString("value"));
+                c.a.p0.a.d2.b.l(jSONObject.optString("actionId"), jSONObject.optString("value"));
                 f.j().i().d(jSONObject);
             } catch (NumberFormatException | JSONException e2) {
                 if (DEBUG) {
@@ -274,7 +273,7 @@ public class SwanAppUtilsJavaScriptInterface {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            c.a.s0.a.c1.a.f0().a(context, d2, new b(this, str3, str4));
+            c.a.p0.a.s0.a.f0().a(context, d2, new b(this, str3, str4));
         }
     }
 
@@ -305,8 +304,8 @@ public class SwanAppUtilsJavaScriptInterface {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || TextUtils.isEmpty(str) || g.b(str)) {
             return;
         }
-        c.a.s0.a.h0.f.a aVar = this.mWebView;
-        if (c.a.s0.a.h0.l.g.f.a(aVar, "ubcEvent - " + str)) {
+        c.a.p0.a.x.f.a aVar = this.mWebView;
+        if (c.a.p0.a.x.l.g.f.a(aVar, "ubcEvent - " + str)) {
             return;
         }
         ExecutorUtilsExt.postOnElastic(new c(this, str), "ubcEvent", 3);

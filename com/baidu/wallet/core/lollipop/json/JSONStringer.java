@@ -1,7 +1,6 @@
 package com.baidu.wallet.core.lollipop.json;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,12 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.tachikoma.core.utility.FileUtil;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class JSONStringer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public class JSONStringer {
     public final List<Scope> stack;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static final class Scope {
         public static final /* synthetic */ Scope[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -271,7 +271,7 @@ public class JSONStringer {
     public JSONStringer object() throws JSONException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? open(Scope.EMPTY_OBJECT, StringUtil.ARRAY_START) : (JSONStringer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? open(Scope.EMPTY_OBJECT, "{") : (JSONStringer) invokeV.objValue;
     }
 
     public JSONStringer open(Scope scope, String str) throws JSONException {
@@ -349,7 +349,7 @@ public class JSONStringer {
         this.out = new StringBuilder();
         this.stack = new ArrayList();
         char[] cArr = new char[i2];
-        Arrays.fill(cArr, ' ');
+        Arrays.fill(cArr, (char) WebvttCueParser.CHAR_SPACE);
         this.indent = new String(cArr);
     }
 

@@ -1,7 +1,7 @@
 package com.ss.android.socialbase.downloader.d;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface b {
     void a(String str, JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3);
 }

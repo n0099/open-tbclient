@@ -14,7 +14,7 @@ import com.meizu.cloud.pushsdk.notification.model.NotificationStyle;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class b {
             }
             ModelMaterial modelMaterial = new ModelMaterial();
             modelMaterial.a = str;
-            modelMaterial.f31345c = new c.b.b.n.a(c.b.b.n.a.f27315e);
+            modelMaterial.f29749c = new c.b.b.n.a(c.b.b.n.a.f27219e);
             this.a.a(modelMaterial);
             return modelMaterial;
         }
@@ -59,7 +59,7 @@ public class b {
     public void b(c.b.b.m.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            c.b.b.n.a aVar2 = c.b.b.n.a.f27315e;
+            c.b.b.n.a aVar2 = c.b.b.n.a.f27219e;
             if (aVar == null || !aVar.c()) {
                 return;
             }
@@ -84,23 +84,23 @@ public class b {
                         if (lowerCase.equals("newmtl")) {
                             ModelMaterial modelMaterial = new ModelMaterial();
                             modelMaterial.a = str;
-                            modelMaterial.f31345c = new c.b.b.n.a(aVar2);
-                            modelMaterial.f31346d = new c.b.b.n.a(aVar3);
-                            modelMaterial.f31350h = f2;
-                            modelMaterial.f31349g = f3;
+                            modelMaterial.f29749c = new c.b.b.n.a(aVar2);
+                            modelMaterial.f29750d = new c.b.b.n.a(aVar3);
+                            modelMaterial.f29754h = f2;
+                            modelMaterial.f29753g = f3;
                             if (str2 != null) {
                                 i iVar = new i();
-                                iVar.f27494d = 2;
+                                iVar.f27398d = 2;
                                 iVar.a = new String(str2);
-                                if (modelMaterial.f31351i == null) {
-                                    modelMaterial.f31351i = new c.b.b.q.a<>(1);
+                                if (modelMaterial.f29755i == null) {
+                                    modelMaterial.f29755i = new c.b.b.q.a<>(1);
                                 }
-                                modelMaterial.f31351i.a(iVar);
+                                modelMaterial.f29755i.a(iVar);
                             }
                             this.a.a(modelMaterial);
                             str = split.length > 1 ? split[1].replace('.', '_') : "default";
-                            aVar2 = c.b.b.n.a.f27315e;
-                            aVar3 = c.b.b.n.a.f27315e;
+                            aVar2 = c.b.b.n.a.f27219e;
+                            aVar3 = c.b.b.n.a.f27219e;
                             f2 = 1.0f;
                             f3 = 0.0f;
                         } else {
@@ -134,18 +134,18 @@ public class b {
             bufferedReader.close();
             ModelMaterial modelMaterial2 = new ModelMaterial();
             modelMaterial2.a = str;
-            modelMaterial2.f31345c = new c.b.b.n.a(aVar2);
-            modelMaterial2.f31346d = new c.b.b.n.a(aVar3);
-            modelMaterial2.f31350h = f2;
-            modelMaterial2.f31349g = f3;
+            modelMaterial2.f29749c = new c.b.b.n.a(aVar2);
+            modelMaterial2.f29750d = new c.b.b.n.a(aVar3);
+            modelMaterial2.f29754h = f2;
+            modelMaterial2.f29753g = f3;
             if (str2 != null) {
                 i iVar2 = new i();
-                iVar2.f27494d = 2;
+                iVar2.f27398d = 2;
                 iVar2.a = new String(str2);
-                if (modelMaterial2.f31351i == null) {
-                    modelMaterial2.f31351i = new c.b.b.q.a<>(1);
+                if (modelMaterial2.f29755i == null) {
+                    modelMaterial2.f29755i = new c.b.b.q.a<>(1);
                 }
-                modelMaterial2.f31351i.a(iVar2);
+                modelMaterial2.f29755i.a(iVar2);
             }
             this.a.a(modelMaterial2);
         }

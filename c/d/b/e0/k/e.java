@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.duxiaoman.okhttp3.internal.http2.ConnectionShutdownException;
 import com.duxiaoman.okhttp3.internal.http2.ErrorCode;
+import com.google.android.exoplayer2.C;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InterruptedIOException;
@@ -33,7 +34,7 @@ import okio.Buffer;
 import okio.BufferedSink;
 import okio.BufferedSource;
 import okio.ByteString;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class e implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public static final ExecutorService C;
@@ -42,22 +43,22 @@ public final class e implements Closeable {
     public final Set<Integer> B;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f28042e;
+    public final boolean f27946e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final j f28043f;
+    public final j f27947f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Map<Integer, c.d.b.e0.k.g> f28044g;
+    public final Map<Integer, c.d.b.e0.k.g> f27948g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f28045h;
+    public final String f27949h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f28046i;
+    public int f27950i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f28047j;
+    public int f27951j;
     public boolean k;
     public final ScheduledExecutorService l;
     public final ExecutorService m;
@@ -75,19 +76,19 @@ public final class e implements Closeable {
     public final Socket y;
     public final c.d.b.e0.k.h z;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class a extends c.d.b.e0.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f28048f;
+        public final /* synthetic */ int f27952f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ErrorCode f28049g;
+        public final /* synthetic */ ErrorCode f27953g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ e f28050h;
+        public final /* synthetic */ e f27954h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(e eVar, String str, Object[] objArr, int i2, ErrorCode errorCode) {
@@ -108,9 +109,9 @@ public final class e implements Closeable {
                     return;
                 }
             }
-            this.f28050h = eVar;
-            this.f28048f = i2;
-            this.f28049g = errorCode;
+            this.f27954h = eVar;
+            this.f27952f = i2;
+            this.f27953g = errorCode;
         }
 
         @Override // c.d.b.e0.c
@@ -118,27 +119,27 @@ public final class e implements Closeable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f28050h.I(this.f28048f, this.f28049g);
+                    this.f27954h.I(this.f27952f, this.f27953g);
                 } catch (IOException unused) {
-                    this.f28050h.o();
+                    this.f27954h.o();
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class b extends c.d.b.e0.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f28051f;
+        public final /* synthetic */ int f27955f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f28052g;
+        public final /* synthetic */ long f27956g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ e f28053h;
+        public final /* synthetic */ e f27957h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(e eVar, String str, Object[] objArr, int i2, long j2) {
@@ -159,9 +160,9 @@ public final class e implements Closeable {
                     return;
                 }
             }
-            this.f28053h = eVar;
-            this.f28051f = i2;
-            this.f28052g = j2;
+            this.f27957h = eVar;
+            this.f27955f = i2;
+            this.f27956g = j2;
         }
 
         @Override // c.d.b.e0.c
@@ -169,21 +170,21 @@ public final class e implements Closeable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f28053h.z.p(this.f28051f, this.f28052g);
+                    this.f27957h.z.p(this.f27955f, this.f27956g);
                 } catch (IOException unused) {
-                    this.f28053h.o();
+                    this.f27957h.o();
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class c extends c.d.b.e0.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f28054f;
+        public final /* synthetic */ e f27958f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(e eVar, String str, Object... objArr) {
@@ -204,31 +205,31 @@ public final class e implements Closeable {
                     return;
                 }
             }
-            this.f28054f = eVar;
+            this.f27958f = eVar;
         }
 
         @Override // c.d.b.e0.c
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f28054f.H(false, 2, 0);
+                this.f27958f.H(false, 2, 0);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class d extends c.d.b.e0.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f28055f;
+        public final /* synthetic */ int f27959f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ List f28056g;
+        public final /* synthetic */ List f27960g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ e f28057h;
+        public final /* synthetic */ e f27961h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(e eVar, String str, Object[] objArr, int i2, List list) {
@@ -249,19 +250,19 @@ public final class e implements Closeable {
                     return;
                 }
             }
-            this.f28057h = eVar;
-            this.f28055f = i2;
-            this.f28056g = list;
+            this.f27961h = eVar;
+            this.f27959f = i2;
+            this.f27960g = list;
         }
 
         @Override // c.d.b.e0.c
         public void d() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f28057h.n.onRequest(this.f28055f, this.f28056g)) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f27961h.n.onRequest(this.f27959f, this.f27960g)) {
                 try {
-                    this.f28057h.z.m(this.f28055f, ErrorCode.CANCEL);
-                    synchronized (this.f28057h) {
-                        this.f28057h.B.remove(Integer.valueOf(this.f28055f));
+                    this.f27961h.z.m(this.f27959f, ErrorCode.CANCEL);
+                    synchronized (this.f27961h) {
+                        this.f27961h.B.remove(Integer.valueOf(this.f27959f));
                     }
                 } catch (IOException unused) {
                 }
@@ -270,25 +271,25 @@ public final class e implements Closeable {
     }
 
     /* renamed from: c.d.b.e0.k.e$e  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public class C1638e extends c.d.b.e0.c {
+    /* loaded from: classes3.dex */
+    public class C1649e extends c.d.b.e0.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f28058f;
+        public final /* synthetic */ int f27962f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ List f28059g;
+        public final /* synthetic */ List f27963g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ boolean f28060h;
+        public final /* synthetic */ boolean f27964h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ e f28061i;
+        public final /* synthetic */ e f27965i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1638e(e eVar, String str, Object[] objArr, int i2, List list, boolean z) {
+        public C1649e(e eVar, String str, Object[] objArr, int i2, List list, boolean z) {
             super(str, objArr);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -306,52 +307,52 @@ public final class e implements Closeable {
                     return;
                 }
             }
-            this.f28061i = eVar;
-            this.f28058f = i2;
-            this.f28059g = list;
-            this.f28060h = z;
+            this.f27965i = eVar;
+            this.f27962f = i2;
+            this.f27963g = list;
+            this.f27964h = z;
         }
 
         @Override // c.d.b.e0.c
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean onHeaders = this.f28061i.n.onHeaders(this.f28058f, this.f28059g, this.f28060h);
+                boolean onHeaders = this.f27965i.n.onHeaders(this.f27962f, this.f27963g, this.f27964h);
                 if (onHeaders) {
                     try {
-                        this.f28061i.z.m(this.f28058f, ErrorCode.CANCEL);
+                        this.f27965i.z.m(this.f27962f, ErrorCode.CANCEL);
                     } catch (IOException unused) {
                         return;
                     }
                 }
-                if (onHeaders || this.f28060h) {
-                    synchronized (this.f28061i) {
-                        this.f28061i.B.remove(Integer.valueOf(this.f28058f));
+                if (onHeaders || this.f27964h) {
+                    synchronized (this.f27965i) {
+                        this.f27965i.B.remove(Integer.valueOf(this.f27962f));
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class f extends c.d.b.e0.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f28062f;
+        public final /* synthetic */ int f27966f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Buffer f28063g;
+        public final /* synthetic */ Buffer f27967g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f28064h;
+        public final /* synthetic */ int f27968h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ boolean f28065i;
+        public final /* synthetic */ boolean f27969i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ e f28066j;
+        public final /* synthetic */ e f27970j;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(e eVar, String str, Object[] objArr, int i2, Buffer buffer, int i3, boolean z) {
@@ -372,11 +373,11 @@ public final class e implements Closeable {
                     return;
                 }
             }
-            this.f28066j = eVar;
-            this.f28062f = i2;
-            this.f28063g = buffer;
-            this.f28064h = i3;
-            this.f28065i = z;
+            this.f27970j = eVar;
+            this.f27966f = i2;
+            this.f27967g = buffer;
+            this.f27968h = i3;
+            this.f27969i = z;
         }
 
         @Override // c.d.b.e0.c
@@ -384,13 +385,13 @@ public final class e implements Closeable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    boolean onData = this.f28066j.n.onData(this.f28062f, this.f28063g, this.f28064h, this.f28065i);
+                    boolean onData = this.f27970j.n.onData(this.f27966f, this.f27967g, this.f27968h, this.f27969i);
                     if (onData) {
-                        this.f28066j.z.m(this.f28062f, ErrorCode.CANCEL);
+                        this.f27970j.z.m(this.f27966f, ErrorCode.CANCEL);
                     }
-                    if (onData || this.f28065i) {
-                        synchronized (this.f28066j) {
-                            this.f28066j.B.remove(Integer.valueOf(this.f28062f));
+                    if (onData || this.f27969i) {
+                        synchronized (this.f27970j) {
+                            this.f27970j.B.remove(Integer.valueOf(this.f27966f));
                         }
                     }
                 } catch (IOException unused) {
@@ -399,19 +400,19 @@ public final class e implements Closeable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class g extends c.d.b.e0.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f28067f;
+        public final /* synthetic */ int f27971f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ErrorCode f28068g;
+        public final /* synthetic */ ErrorCode f27972g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ e f28069h;
+        public final /* synthetic */ e f27973h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(e eVar, String str, Object[] objArr, int i2, ErrorCode errorCode) {
@@ -432,49 +433,49 @@ public final class e implements Closeable {
                     return;
                 }
             }
-            this.f28069h = eVar;
-            this.f28067f = i2;
-            this.f28068g = errorCode;
+            this.f27973h = eVar;
+            this.f27971f = i2;
+            this.f27972g = errorCode;
         }
 
         @Override // c.d.b.e0.c
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f28069h.n.a(this.f28067f, this.f28068g);
-                synchronized (this.f28069h) {
-                    this.f28069h.B.remove(Integer.valueOf(this.f28067f));
+                this.f27973h.n.a(this.f27971f, this.f27972g);
+                synchronized (this.f27973h) {
+                    this.f27973h.B.remove(Integer.valueOf(this.f27971f));
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Socket a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f28070b;
+        public String f27974b;
 
         /* renamed from: c  reason: collision with root package name */
-        public BufferedSource f28071c;
+        public BufferedSource f27975c;
 
         /* renamed from: d  reason: collision with root package name */
-        public BufferedSink f28072d;
+        public BufferedSink f27976d;
 
         /* renamed from: e  reason: collision with root package name */
-        public j f28073e;
+        public j f27977e;
 
         /* renamed from: f  reason: collision with root package name */
-        public c.d.b.e0.k.j f28074f;
+        public c.d.b.e0.k.j f27978f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f28075g;
+        public boolean f27979g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f28076h;
+        public int f27980h;
 
         public h(boolean z) {
             Interceptable interceptable = $ic;
@@ -491,9 +492,9 @@ public final class e implements Closeable {
                     return;
                 }
             }
-            this.f28073e = j.a;
-            this.f28074f = c.d.b.e0.k.j.a;
-            this.f28075g = z;
+            this.f27977e = j.a;
+            this.f27978f = c.d.b.e0.k.j.a;
+            this.f27979g = z;
         }
 
         public e a() {
@@ -506,7 +507,7 @@ public final class e implements Closeable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jVar)) == null) {
-                this.f28073e = jVar;
+                this.f27977e = jVar;
                 return this;
             }
             return (h) invokeL.objValue;
@@ -516,7 +517,7 @@ public final class e implements Closeable {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                this.f28076h = i2;
+                this.f27980h = i2;
                 return this;
             }
             return (h) invokeI.objValue;
@@ -527,26 +528,26 @@ public final class e implements Closeable {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, socket, str, bufferedSource, bufferedSink)) == null) {
                 this.a = socket;
-                this.f28070b = str;
-                this.f28071c = bufferedSource;
-                this.f28072d = bufferedSink;
+                this.f27974b = str;
+                this.f27975c = bufferedSource;
+                this.f27976d = bufferedSink;
                 return this;
             }
             return (h) invokeLLLL.objValue;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public final class i extends c.d.b.e0.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f28077f;
+        public final /* synthetic */ e f27981f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public i(e eVar) {
-            super("OkHttp %s ping", eVar.f28045h);
+            super("OkHttp %s ping", eVar.f27949h);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -563,7 +564,7 @@ public final class e implements Closeable {
                     return;
                 }
             }
-            this.f28077f = eVar;
+            this.f27981f = eVar;
         }
 
         @Override // c.d.b.e0.c
@@ -571,30 +572,30 @@ public final class e implements Closeable {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f28077f) {
-                    if (this.f28077f.p < this.f28077f.o) {
+                synchronized (this.f27981f) {
+                    if (this.f27981f.p < this.f27981f.o) {
                         z = true;
                     } else {
-                        e.e(this.f28077f);
+                        e.e(this.f27981f);
                         z = false;
                     }
                 }
                 if (z) {
-                    this.f28077f.o();
+                    this.f27981f.o();
                 } else {
-                    this.f28077f.H(false, 1, 0);
+                    this.f27981f.H(false, 1, 0);
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static abstract class j {
         public static /* synthetic */ Interceptable $ic;
         public static final j a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes3.dex */
         public class a extends j {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -661,26 +662,26 @@ public final class e implements Closeable {
         public abstract void b(c.d.b.e0.k.g gVar) throws IOException;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public final class k extends c.d.b.e0.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final boolean f28078f;
+        public final boolean f27982f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f28079g;
+        public final int f27983g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f28080h;
+        public final int f27984h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ e f28081i;
+        public final /* synthetic */ e f27985i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public k(e eVar, boolean z, int i2, int i3) {
-            super("OkHttp %s ping %08x%08x", eVar.f28045h, Integer.valueOf(i2), Integer.valueOf(i3));
+            super("OkHttp %s ping %08x%08x", eVar.f27949h, Integer.valueOf(i2), Integer.valueOf(i3));
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -697,42 +698,42 @@ public final class e implements Closeable {
                     return;
                 }
             }
-            this.f28081i = eVar;
-            this.f28078f = z;
-            this.f28079g = i2;
-            this.f28080h = i3;
+            this.f27985i = eVar;
+            this.f27982f = z;
+            this.f27983g = i2;
+            this.f27984h = i3;
         }
 
         @Override // c.d.b.e0.c
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f28081i.H(this.f28078f, this.f28079g, this.f28080h);
+                this.f27985i.H(this.f27982f, this.f27983g, this.f27984h);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class l extends c.d.b.e0.c implements f.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final c.d.b.e0.k.f f28082f;
+        public final c.d.b.e0.k.f f27986f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f28083g;
+        public final /* synthetic */ e f27987g;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes3.dex */
         public class a extends c.d.b.e0.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ c.d.b.e0.k.g f28084f;
+            public final /* synthetic */ c.d.b.e0.k.g f27988f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ l f28085g;
+            public final /* synthetic */ l f27989g;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public a(l lVar, String str, Object[] objArr, c.d.b.e0.k.g gVar) {
@@ -753,8 +754,8 @@ public final class e implements Closeable {
                         return;
                     }
                 }
-                this.f28085g = lVar;
-                this.f28084f = gVar;
+                this.f27989g = lVar;
+                this.f27988f = gVar;
             }
 
             @Override // c.d.b.e0.c
@@ -762,12 +763,12 @@ public final class e implements Closeable {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     try {
-                        this.f28085g.f28083g.f28043f.b(this.f28084f);
+                        this.f27989g.f27987g.f27947f.b(this.f27988f);
                     } catch (IOException e2) {
                         c.d.b.e0.n.g m = c.d.b.e0.n.g.m();
-                        m.u(4, "Http2Connection.Listener failure for " + this.f28085g.f28083g.f28045h, e2);
+                        m.u(4, "Http2Connection.Listener failure for " + this.f27989g.f27987g.f27949h, e2);
                         try {
-                            this.f28084f.f(ErrorCode.PROTOCOL_ERROR);
+                            this.f27988f.f(ErrorCode.PROTOCOL_ERROR);
                         } catch (IOException unused) {
                         }
                     }
@@ -775,19 +776,19 @@ public final class e implements Closeable {
             }
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes3.dex */
         public class b extends c.d.b.e0.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ boolean f28086f;
+            public final /* synthetic */ boolean f27990f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ c.d.b.e0.k.k f28087g;
+            public final /* synthetic */ c.d.b.e0.k.k f27991g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ l f28088h;
+            public final /* synthetic */ l f27992h;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public b(l lVar, String str, Object[] objArr, boolean z, c.d.b.e0.k.k kVar) {
@@ -808,27 +809,27 @@ public final class e implements Closeable {
                         return;
                     }
                 }
-                this.f28088h = lVar;
-                this.f28086f = z;
-                this.f28087g = kVar;
+                this.f27992h = lVar;
+                this.f27990f = z;
+                this.f27991g = kVar;
             }
 
             @Override // c.d.b.e0.c
             public void d() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f28088h.e(this.f28086f, this.f28087g);
+                    this.f27992h.e(this.f27990f, this.f27991g);
                 }
             }
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes3.dex */
         public class c extends c.d.b.e0.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ l f28089f;
+            public final /* synthetic */ l f27993f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public c(l lVar, String str, Object... objArr) {
@@ -849,22 +850,22 @@ public final class e implements Closeable {
                         return;
                     }
                 }
-                this.f28089f = lVar;
+                this.f27993f = lVar;
             }
 
             @Override // c.d.b.e0.c
             public void d() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    e eVar = this.f28089f.f28083g;
-                    eVar.f28043f.a(eVar);
+                    e eVar = this.f27993f.f27987g;
+                    eVar.f27947f.a(eVar);
                 }
             }
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public l(e eVar, c.d.b.e0.k.f fVar) {
-            super("OkHttp %s", eVar.f28045h);
+            super("OkHttp %s", eVar.f27949h);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -881,19 +882,19 @@ public final class e implements Closeable {
                     return;
                 }
             }
-            this.f28083g = eVar;
-            this.f28082f = fVar;
+            this.f27987g = eVar;
+            this.f27986f = fVar;
         }
 
         @Override // c.d.b.e0.k.f.b
         public void a(int i2, ErrorCode errorCode) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, errorCode) == null) {
-                if (this.f28083g.z(i2)) {
-                    this.f28083g.y(i2, errorCode);
+                if (this.f27987g.z(i2)) {
+                    this.f27987g.y(i2, errorCode);
                     return;
                 }
-                c.d.b.e0.k.g A = this.f28083g.A(i2);
+                c.d.b.e0.k.g A = this.f27987g.A(i2);
                 if (A != null) {
                     A.r(errorCode);
                 }
@@ -913,14 +914,14 @@ public final class e implements Closeable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, errorCode, byteString) == null) {
                 byteString.size();
-                synchronized (this.f28083g) {
-                    gVarArr = (c.d.b.e0.k.g[]) this.f28083g.f28044g.values().toArray(new c.d.b.e0.k.g[this.f28083g.f28044g.size()]);
-                    this.f28083g.k = true;
+                synchronized (this.f27987g) {
+                    gVarArr = (c.d.b.e0.k.g[]) this.f27987g.f27948g.values().toArray(new c.d.b.e0.k.g[this.f27987g.f27948g.size()]);
+                    this.f27987g.k = true;
                 }
                 for (c.d.b.e0.k.g gVar : gVarArr) {
                     if (gVar.i() > i2 && gVar.l()) {
                         gVar.r(ErrorCode.REFUSED_STREAM);
-                        this.f28083g.A(gVar.i());
+                        this.f27987g.A(gVar.i());
                     }
                 }
             }
@@ -931,7 +932,7 @@ public final class e implements Closeable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048579, this, z, kVar) == null) {
                 try {
-                    this.f28083g.l.execute(new b(this, "OkHttp %s ACK Settings", new Object[]{this.f28083g.f28045h}, z, kVar));
+                    this.f27987g.l.execute(new b(this, "OkHttp %s ACK Settings", new Object[]{this.f27987g.f27949h}, z, kVar));
                 } catch (RejectedExecutionException unused) {
                 }
             }
@@ -947,28 +948,28 @@ public final class e implements Closeable {
                 ErrorCode errorCode3 = ErrorCode.INTERNAL_ERROR;
                 try {
                     try {
-                        this.f28082f.c(this);
-                        while (this.f28082f.b(false, this)) {
+                        this.f27986f.c(this);
+                        while (this.f27986f.b(false, this)) {
                         }
                         errorCode = ErrorCode.NO_ERROR;
                         try {
                             try {
                                 errorCode2 = ErrorCode.CANCEL;
-                                eVar = this.f28083g;
+                                eVar = this.f27987g;
                             } catch (IOException unused) {
                                 errorCode = ErrorCode.PROTOCOL_ERROR;
                                 errorCode2 = ErrorCode.PROTOCOL_ERROR;
-                                eVar = this.f28083g;
+                                eVar = this.f27987g;
                                 eVar.n(errorCode, errorCode2);
-                                c.d.b.e0.e.f(this.f28082f);
+                                c.d.b.e0.e.f(this.f27986f);
                             }
                         } catch (Throwable th) {
                             th = th;
                             try {
-                                this.f28083g.n(errorCode, errorCode3);
+                                this.f27987g.n(errorCode, errorCode3);
                             } catch (IOException unused2) {
                             }
-                            c.d.b.e0.e.f(this.f28082f);
+                            c.d.b.e0.e.f(this.f27986f);
                             throw th;
                         }
                     } catch (IOException unused3) {
@@ -977,12 +978,12 @@ public final class e implements Closeable {
                 } catch (Throwable th2) {
                     th = th2;
                     errorCode = errorCode3;
-                    this.f28083g.n(errorCode, errorCode3);
-                    c.d.b.e0.e.f(this.f28082f);
+                    this.f27987g.n(errorCode, errorCode3);
+                    c.d.b.e0.e.f(this.f27986f);
                     throw th;
                 }
                 eVar.n(errorCode, errorCode2);
-                c.d.b.e0.e.f(this.f28082f);
+                c.d.b.e0.e.f(this.f27986f);
             }
         }
 
@@ -990,15 +991,15 @@ public final class e implements Closeable {
         public void data(boolean z, int i2, BufferedSource bufferedSource, int i3) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), bufferedSource, Integer.valueOf(i3)}) == null) {
-                if (this.f28083g.z(i2)) {
-                    this.f28083g.u(i2, bufferedSource, i3, z);
+                if (this.f27987g.z(i2)) {
+                    this.f27987g.u(i2, bufferedSource, i3, z);
                     return;
                 }
-                c.d.b.e0.k.g p = this.f28083g.p(i2);
+                c.d.b.e0.k.g p = this.f27987g.p(i2);
                 if (p == null) {
-                    this.f28083g.J(i2, ErrorCode.PROTOCOL_ERROR);
+                    this.f27987g.J(i2, ErrorCode.PROTOCOL_ERROR);
                     long j2 = i3;
-                    this.f28083g.F(j2);
+                    this.f27987g.F(j2);
                     bufferedSource.skip(j2);
                     return;
                 }
@@ -1014,28 +1015,28 @@ public final class e implements Closeable {
             long j2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048582, this, z, kVar) == null) {
-                synchronized (this.f28083g.z) {
-                    synchronized (this.f28083g) {
-                        int d2 = this.f28083g.x.d();
+                synchronized (this.f27987g.z) {
+                    synchronized (this.f27987g) {
+                        int d2 = this.f27987g.x.d();
                         if (z) {
-                            this.f28083g.x.a();
+                            this.f27987g.x.a();
                         }
-                        this.f28083g.x.h(kVar);
-                        int d3 = this.f28083g.x.d();
+                        this.f27987g.x.h(kVar);
+                        int d3 = this.f27987g.x.d();
                         gVarArr = null;
                         if (d3 == -1 || d3 == d2) {
                             j2 = 0;
                         } else {
                             j2 = d3 - d2;
-                            if (!this.f28083g.f28044g.isEmpty()) {
-                                gVarArr = (c.d.b.e0.k.g[]) this.f28083g.f28044g.values().toArray(new c.d.b.e0.k.g[this.f28083g.f28044g.size()]);
+                            if (!this.f27987g.f27948g.isEmpty()) {
+                                gVarArr = (c.d.b.e0.k.g[]) this.f27987g.f27948g.values().toArray(new c.d.b.e0.k.g[this.f27987g.f27948g.size()]);
                             }
                         }
                     }
                     try {
-                        this.f28083g.z.a(this.f28083g.x);
+                        this.f27987g.z.a(this.f27987g.x);
                     } catch (IOException unused) {
-                        this.f28083g.o();
+                        this.f27987g.o();
                     }
                 }
                 if (gVarArr != null) {
@@ -1045,7 +1046,7 @@ public final class e implements Closeable {
                         }
                     }
                 }
-                e.C.execute(new c(this, "OkHttp %s settings", this.f28083g.f28045h));
+                e.C.execute(new c(this, "OkHttp %s settings", this.f27987g.f27949h));
             }
         }
 
@@ -1053,26 +1054,26 @@ public final class e implements Closeable {
         public void headers(boolean z, int i2, int i3, List<c.d.b.e0.k.a> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), list}) == null) {
-                if (this.f28083g.z(i2)) {
-                    this.f28083g.w(i2, list, z);
+                if (this.f27987g.z(i2)) {
+                    this.f27987g.w(i2, list, z);
                     return;
                 }
-                synchronized (this.f28083g) {
-                    c.d.b.e0.k.g p = this.f28083g.p(i2);
+                synchronized (this.f27987g) {
+                    c.d.b.e0.k.g p = this.f27987g.p(i2);
                     if (p == null) {
-                        if (this.f28083g.k) {
+                        if (this.f27987g.k) {
                             return;
                         }
-                        if (i2 <= this.f28083g.f28046i) {
+                        if (i2 <= this.f27987g.f27950i) {
                             return;
                         }
-                        if (i2 % 2 == this.f28083g.f28047j % 2) {
+                        if (i2 % 2 == this.f27987g.f27951j % 2) {
                             return;
                         }
-                        c.d.b.e0.k.g gVar = new c.d.b.e0.k.g(i2, this.f28083g, false, z, c.d.b.e0.e.G(list));
-                        this.f28083g.f28046i = i2;
-                        this.f28083g.f28044g.put(Integer.valueOf(i2), gVar);
-                        e.C.execute(new a(this, "OkHttp %s stream %d", new Object[]{this.f28083g.f28045h, Integer.valueOf(i2)}, gVar));
+                        c.d.b.e0.k.g gVar = new c.d.b.e0.k.g(i2, this.f27987g, false, z, c.d.b.e0.e.G(list));
+                        this.f27987g.f27950i = i2;
+                        this.f27987g.f27948g.put(Integer.valueOf(i2), gVar);
+                        e.C.execute(new a(this, "OkHttp %s stream %d", new Object[]{this.f27987g.f27949h, Integer.valueOf(i2)}, gVar));
                         return;
                     }
                     p.q(list);
@@ -1088,15 +1089,15 @@ public final class e implements Closeable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
                 if (z) {
-                    synchronized (this.f28083g) {
+                    synchronized (this.f27987g) {
                         try {
                             if (i2 == 1) {
-                                e.c(this.f28083g);
+                                e.c(this.f27987g);
                             } else if (i2 == 2) {
-                                e.l(this.f28083g);
+                                e.l(this.f27987g);
                             } else if (i2 == 3) {
-                                e.m(this.f28083g);
-                                this.f28083g.notifyAll();
+                                e.m(this.f27987g);
+                                this.f27987g.notifyAll();
                             }
                         } finally {
                         }
@@ -1104,7 +1105,7 @@ public final class e implements Closeable {
                     return;
                 }
                 try {
-                    this.f28083g.l.execute(new k(this.f28083g, true, i2, i3));
+                    this.f27987g.l.execute(new k(this.f27987g, true, i2, i3));
                 } catch (RejectedExecutionException unused) {
                 }
             }
@@ -1121,7 +1122,7 @@ public final class e implements Closeable {
         public void pushPromise(int i2, int i3, List<c.d.b.e0.k.a> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(1048586, this, i2, i3, list) == null) {
-                this.f28083g.x(i3, list);
+                this.f27987g.x(i3, list);
             }
         }
 
@@ -1130,13 +1131,13 @@ public final class e implements Closeable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
                 if (i2 == 0) {
-                    synchronized (this.f28083g) {
-                        this.f28083g.v += j2;
-                        this.f28083g.notifyAll();
+                    synchronized (this.f27987g) {
+                        this.f27987g.v += j2;
+                        this.f27987g.notifyAll();
                     }
                     return;
                 }
-                c.d.b.e0.k.g p = this.f28083g.p(i2);
+                c.d.b.e0.k.g p = this.f27987g.p(i2);
                 if (p != null) {
                     synchronized (p) {
                         p.c(j2);
@@ -1177,7 +1178,7 @@ public final class e implements Closeable {
                 return;
             }
         }
-        this.f28044g = new LinkedHashMap();
+        this.f27948g = new LinkedHashMap();
         this.o = 0L;
         this.p = 0L;
         this.q = 0L;
@@ -1188,33 +1189,33 @@ public final class e implements Closeable {
         this.w = new c.d.b.e0.k.k();
         this.x = new c.d.b.e0.k.k();
         this.B = new LinkedHashSet();
-        this.n = hVar.f28074f;
-        boolean z = hVar.f28075g;
-        this.f28042e = z;
-        this.f28043f = hVar.f28073e;
+        this.n = hVar.f27978f;
+        boolean z = hVar.f27979g;
+        this.f27946e = z;
+        this.f27947f = hVar.f27977e;
         int i4 = z ? 1 : 2;
-        this.f28047j = i4;
-        if (hVar.f28075g) {
-            this.f28047j = i4 + 2;
+        this.f27951j = i4;
+        if (hVar.f27979g) {
+            this.f27951j = i4 + 2;
         }
-        if (hVar.f28075g) {
+        if (hVar.f27979g) {
             this.w.i(7, 16777216);
         }
-        this.f28045h = hVar.f28070b;
-        ScheduledThreadPoolExecutor scheduledThreadPoolExecutor = new ScheduledThreadPoolExecutor(1, c.d.b.e0.e.F(c.d.b.e0.e.q("OkHttp %s Writer", this.f28045h), false));
+        this.f27949h = hVar.f27974b;
+        ScheduledThreadPoolExecutor scheduledThreadPoolExecutor = new ScheduledThreadPoolExecutor(1, c.d.b.e0.e.F(c.d.b.e0.e.q("OkHttp %s Writer", this.f27949h), false));
         this.l = scheduledThreadPoolExecutor;
-        if (hVar.f28076h != 0) {
+        if (hVar.f27980h != 0) {
             i iVar = new i(this);
-            int i5 = hVar.f28076h;
+            int i5 = hVar.f27980h;
             scheduledThreadPoolExecutor.scheduleAtFixedRate(iVar, i5, i5, TimeUnit.MILLISECONDS);
         }
-        this.m = new ThreadPoolExecutor(0, 1, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), c.d.b.e0.e.F(c.d.b.e0.e.q("OkHttp %s Push Observer", this.f28045h), true));
+        this.m = new ThreadPoolExecutor(0, 1, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), c.d.b.e0.e.F(c.d.b.e0.e.q("OkHttp %s Push Observer", this.f27949h), true));
         this.x.i(7, 65535);
         this.x.i(5, 16384);
         this.v = this.x.d();
         this.y = hVar.a;
-        this.z = new c.d.b.e0.k.h(hVar.f28072d, this.f28042e);
-        this.A = new l(this, new c.d.b.e0.k.f(hVar.f28071c, this.f28042e));
+        this.z = new c.d.b.e0.k.h(hVar.f27976d, this.f27946e);
+        this.A = new l(this, new c.d.b.e0.k.f(hVar.f27975c, this.f27946e));
     }
 
     public static /* synthetic */ long c(e eVar) {
@@ -1247,7 +1248,7 @@ public final class e implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             synchronized (this) {
-                remove = this.f28044g.remove(Integer.valueOf(i2));
+                remove = this.f27948g.remove(Integer.valueOf(i2));
                 notifyAll();
             }
             return remove;
@@ -1263,9 +1264,9 @@ public final class e implements Closeable {
                     return;
                 }
                 this.q++;
-                this.t = System.nanoTime() + 1000000000;
+                this.t = System.nanoTime() + C.NANOS_PER_SECOND;
                 try {
-                    this.l.execute(new c(this, "OkHttp %s ping", this.f28045h));
+                    this.l.execute(new c(this, "OkHttp %s ping", this.f27949h));
                 } catch (RejectedExecutionException unused) {
                 }
             }
@@ -1281,7 +1282,7 @@ public final class e implements Closeable {
                         return;
                     }
                     this.k = true;
-                    this.z.g(this.f28046i, errorCode, c.d.b.e0.e.a);
+                    this.z.g(this.f27950i, errorCode, c.d.b.e0.e.a);
                 }
             }
         }
@@ -1336,7 +1337,7 @@ public final class e implements Closeable {
                 synchronized (this) {
                     while (this.v <= 0) {
                         try {
-                            if (this.f28044g.containsKey(Integer.valueOf(i2))) {
+                            if (this.f27948g.containsKey(Integer.valueOf(i2))) {
                                 wait();
                             } else {
                                 throw new IOException("stream closed");
@@ -1378,7 +1379,7 @@ public final class e implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048585, this, i2, errorCode) == null) {
             try {
-                this.l.execute(new a(this, "OkHttp %s stream %d", new Object[]{this.f28045h, Integer.valueOf(i2)}, i2, errorCode));
+                this.l.execute(new a(this, "OkHttp %s stream %d", new Object[]{this.f27949h, Integer.valueOf(i2)}, i2, errorCode));
             } catch (RejectedExecutionException unused) {
             }
         }
@@ -1388,7 +1389,7 @@ public final class e implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
             try {
-                this.l.execute(new b(this, "OkHttp Window Update %s stream %d", new Object[]{this.f28045h, Integer.valueOf(i2)}, i2, j2));
+                this.l.execute(new b(this, "OkHttp Window Update %s stream %d", new Object[]{this.f27949h, Integer.valueOf(i2)}, i2, j2));
             } catch (RejectedExecutionException unused) {
             }
         }
@@ -1420,9 +1421,9 @@ public final class e implements Closeable {
                 e = e2;
             }
             synchronized (this) {
-                if (!this.f28044g.isEmpty()) {
-                    gVarArr = (c.d.b.e0.k.g[]) this.f28044g.values().toArray(new c.d.b.e0.k.g[this.f28044g.size()]);
-                    this.f28044g.clear();
+                if (!this.f27948g.isEmpty()) {
+                    gVarArr = (c.d.b.e0.k.g[]) this.f27948g.values().toArray(new c.d.b.e0.k.g[this.f27948g.size()]);
+                    this.f27948g.clear();
                 }
             }
             if (gVarArr != null) {
@@ -1472,7 +1473,7 @@ public final class e implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) {
             synchronized (this) {
-                gVar = this.f28044g.get(Integer.valueOf(i2));
+                gVar = this.f27948g.get(Integer.valueOf(i2));
             }
             return gVar;
         }
@@ -1525,17 +1526,17 @@ public final class e implements Closeable {
             boolean z3 = !z;
             synchronized (this.z) {
                 synchronized (this) {
-                    if (this.f28047j > 1073741823) {
+                    if (this.f27951j > 1073741823) {
                         C(ErrorCode.REFUSED_STREAM);
                     }
                     if (!this.k) {
-                        i3 = this.f28047j;
-                        this.f28047j += 2;
+                        i3 = this.f27951j;
+                        this.f27951j += 2;
                         gVar = new c.d.b.e0.k.g(i3, this, z3, false, null);
-                        if (z && this.v != 0 && gVar.f28101b != 0) {
+                        if (z && this.v != 0 && gVar.f28005b != 0) {
                             z2 = false;
                             if (gVar.m()) {
-                                this.f28044g.put(Integer.valueOf(i3), gVar);
+                                this.f27948g.put(Integer.valueOf(i3), gVar);
                             }
                         }
                         z2 = true;
@@ -1547,7 +1548,7 @@ public final class e implements Closeable {
                 }
                 if (i2 == 0) {
                     this.z.o(z3, i3, i2, list);
-                } else if (!this.f28042e) {
+                } else if (!this.f27946e) {
                     this.z.l(i2, i3, list);
                 } else {
                     throw new IllegalArgumentException("client streams shouldn't have associated stream IDs");
@@ -1575,7 +1576,7 @@ public final class e implements Closeable {
             bufferedSource.require(j2);
             bufferedSource.read(buffer, j2);
             if (buffer.size() == j2) {
-                v(new f(this, "OkHttp %s Push Data[%s]", new Object[]{this.f28045h, Integer.valueOf(i2)}, i2, buffer, i3, z));
+                v(new f(this, "OkHttp %s Push Data[%s]", new Object[]{this.f27949h, Integer.valueOf(i2)}, i2, buffer, i3, z));
                 return;
             }
             throw new IOException(buffer.size() + " != " + i3);
@@ -1597,7 +1598,7 @@ public final class e implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i2), list, Boolean.valueOf(z)}) == null) {
             try {
-                v(new C1638e(this, "OkHttp %s Push Headers[%s]", new Object[]{this.f28045h, Integer.valueOf(i2)}, i2, list, z));
+                v(new C1649e(this, "OkHttp %s Push Headers[%s]", new Object[]{this.f27949h, Integer.valueOf(i2)}, i2, list, z));
             } catch (RejectedExecutionException unused) {
             }
         }
@@ -1613,7 +1614,7 @@ public final class e implements Closeable {
                 }
                 this.B.add(Integer.valueOf(i2));
                 try {
-                    v(new d(this, "OkHttp %s Push Request[%s]", new Object[]{this.f28045h, Integer.valueOf(i2)}, i2, list));
+                    v(new d(this, "OkHttp %s Push Request[%s]", new Object[]{this.f27949h, Integer.valueOf(i2)}, i2, list));
                 } catch (RejectedExecutionException unused) {
                 }
             }
@@ -1623,7 +1624,7 @@ public final class e implements Closeable {
     public void y(int i2, ErrorCode errorCode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048600, this, i2, errorCode) == null) {
-            v(new g(this, "OkHttp %s Push Reset[%s]", new Object[]{this.f28045h, Integer.valueOf(i2)}, i2, errorCode));
+            v(new g(this, "OkHttp %s Push Reset[%s]", new Object[]{this.f27949h, Integer.valueOf(i2)}, i2, errorCode));
         }
     }
 

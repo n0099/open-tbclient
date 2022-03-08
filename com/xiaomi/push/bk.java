@@ -12,8 +12,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
-import kotlin.text.Typography;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class bk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +55,7 @@ public class bk {
             StringBuilder sb = new StringBuilder();
             for (String str4 : arrayList) {
                 if (!z) {
-                    sb.append(Typography.amp);
+                    sb.append('&');
                 }
                 sb.append(str4);
                 z = false;

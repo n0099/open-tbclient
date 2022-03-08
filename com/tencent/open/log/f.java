@@ -11,14 +11,14 @@ import java.io.Writer;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class f implements Iterable<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ConcurrentLinkedQueue<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicInteger f60788b;
+    public AtomicInteger f59138b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -34,9 +34,9 @@ public class f implements Iterable<String> {
             }
         }
         this.a = null;
-        this.f60788b = null;
+        this.f59138b = null;
         this.a = new ConcurrentLinkedQueue<>();
-        this.f60788b = new AtomicInteger(0);
+        this.f59138b = new AtomicInteger(0);
     }
 
     public int a(String str) {
@@ -45,7 +45,7 @@ public class f implements Iterable<String> {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             int length = str.length();
             this.a.add(str);
-            return this.f60788b.addAndGet(length);
+            return this.f59138b.addAndGet(length);
         }
         return invokeL.intValue;
     }
@@ -54,7 +54,7 @@ public class f implements Iterable<String> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.a.clear();
-            this.f60788b.set(0);
+            this.f59138b.set(0);
         }
     }
 
@@ -139,6 +139,6 @@ public class f implements Iterable<String> {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60788b.get() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59138b.get() : invokeV.intValue;
     }
 }

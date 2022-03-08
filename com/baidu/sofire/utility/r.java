@@ -19,7 +19,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.UUID;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class r {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "";
@@ -193,7 +193,7 @@ public final class r {
                 com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
                 String o = a2.o();
                 if (TextUtils.isEmpty(o)) {
-                    String string = a2.f38705c.getString("rpnewuid", "");
+                    String string = a2.f37109c.getString("rpnewuid", "");
                     if (TextUtils.isEmpty(string)) {
                         return "";
                     }
@@ -231,7 +231,7 @@ public final class r {
             } catch (Throwable unused) {
                 c.a();
             }
-            if (u.c(context) && b(context, com.kuaishou.weapon.un.s.f55460i)) {
+            if (u.c(context) && b(context, com.kuaishou.weapon.un.s.f53810i)) {
                 File file = new File(Environment.getExternalStorageDirectory(), ".zp/.icosc");
                 if (file.exists()) {
                     return a(file);

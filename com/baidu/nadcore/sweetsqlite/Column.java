@@ -1,14 +1,14 @@
 package com.baidu.nadcore.sweetsqlite;
 
-import c.a.d0.c0.b;
-import c.a.d0.c0.h;
+import c.a.b0.c0.b;
+import c.a.b0.c0.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public abstract class Column implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 10929877886821294L;

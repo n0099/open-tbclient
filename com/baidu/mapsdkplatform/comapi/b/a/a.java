@@ -16,21 +16,21 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.Thread;
 import java.net.URLEncoder;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class a implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f36012b;
+    public static volatile boolean f34415b;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f36013c;
+    public Thread.UncaughtExceptionHandler f34416c;
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.b.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C1836a {
+    /* loaded from: classes4.dex */
+    public static class C1812a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public class a implements Thread.UncaughtExceptionHandler {
             }
         }
         this.a = "";
-        this.f36013c = Thread.getDefaultUncaughtExceptionHandler();
+        this.f34416c = Thread.getDefaultUncaughtExceptionHandler();
     }
 
     public /* synthetic */ a(b bVar) {
@@ -91,7 +91,7 @@ public class a implements Thread.UncaughtExceptionHandler {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1836a.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1812a.a : (a) invokeV.objValue;
     }
 
     private void a(Throwable th) {
@@ -141,12 +141,12 @@ public class a implements Thread.UncaughtExceptionHandler {
     @Override // java.lang.Thread.UncaughtExceptionHandler
     public void uncaughtException(Thread thread, Throwable th) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thread, th) == null) || f36012b) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thread, th) == null) || f34415b) {
             return;
         }
-        f36012b = true;
+        f34415b = true;
         a(th);
-        Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f36013c;
+        Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f34416c;
         if (uncaughtExceptionHandler != null) {
             uncaughtExceptionHandler.uncaughtException(thread, th);
         }

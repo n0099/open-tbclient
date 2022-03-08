@@ -1,5 +1,5 @@
 package com.kuaishou.weapon;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface RequestCallback {
     void onRequestFail();
 }

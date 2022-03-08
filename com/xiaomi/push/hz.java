@@ -16,7 +16,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class hz implements iq<hz, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final iy a;
@@ -25,31 +25,31 @@ public class hz implements iq<hz, Object>, Serializable, Cloneable {
     public static final jg f609a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f61475b;
+    public static final iy f59825b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f61476c;
+    public static final iy f59826c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f61477d;
+    public static final iy f59827d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f61478e;
+    public static final iy f59828e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f61479f;
+    public static final iy f59829f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f61480g;
+    public static final iy f59830g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final iy f61481h;
+    public static final iy f59831h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final iy f61482i;
+    public static final iy f59832i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final iy f61483j;
+    public static final iy f59833j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -100,15 +100,15 @@ public class hz implements iq<hz, Object>, Serializable, Cloneable {
         }
         f609a = new jg("XmPushActionCommand");
         a = new iy("", StandardMessageCodec.LIST, (short) 2);
-        f61475b = new iy("", (byte) 11, (short) 3);
-        f61476c = new iy("", (byte) 11, (short) 4);
-        f61477d = new iy("", (byte) 11, (short) 5);
-        f61478e = new iy("", (byte) 15, (short) 6);
-        f61479f = new iy("", (byte) 11, (short) 7);
-        f61480g = new iy("", (byte) 11, (short) 9);
-        f61481h = new iy("", (byte) 2, (short) 10);
-        f61482i = new iy("", (byte) 2, (short) 11);
-        f61483j = new iy("", (byte) 10, (short) 12);
+        f59825b = new iy("", (byte) 11, (short) 3);
+        f59826c = new iy("", (byte) 11, (short) 4);
+        f59827d = new iy("", (byte) 11, (short) 5);
+        f59828e = new iy("", (byte) 15, (short) 6);
+        f59829f = new iy("", (byte) 11, (short) 7);
+        f59830g = new iy("", (byte) 11, (short) 9);
+        f59831h = new iy("", (byte) 2, (short) 10);
+        f59832i = new iy("", (byte) 2, (short) 11);
+        f59833j = new iy("", (byte) 10, (short) 12);
     }
 
     public hz() {
@@ -477,22 +477,22 @@ public class hz implements iq<hz, Object>, Serializable, Cloneable {
                 jbVar.b();
             }
             if (this.f612a != null) {
-                jbVar.a(f61475b);
+                jbVar.a(f59825b);
                 jbVar.a(this.f612a);
                 jbVar.b();
             }
             if (this.f616b != null) {
-                jbVar.a(f61476c);
+                jbVar.a(f59826c);
                 jbVar.a(this.f616b);
                 jbVar.b();
             }
             if (this.f618c != null) {
-                jbVar.a(f61477d);
+                jbVar.a(f59827d);
                 jbVar.a(this.f618c);
                 jbVar.b();
             }
             if (this.f614a != null && e()) {
-                jbVar.a(f61478e);
+                jbVar.a(f59828e);
                 jbVar.a(new iz((byte) 11, this.f614a.size()));
                 for (String str : this.f614a) {
                     jbVar.a(str);
@@ -501,27 +501,27 @@ public class hz implements iq<hz, Object>, Serializable, Cloneable {
                 jbVar.b();
             }
             if (this.f619d != null && f()) {
-                jbVar.a(f61479f);
+                jbVar.a(f59829f);
                 jbVar.a(this.f619d);
                 jbVar.b();
             }
             if (this.f620e != null && g()) {
-                jbVar.a(f61480g);
+                jbVar.a(f59830g);
                 jbVar.a(this.f620e);
                 jbVar.b();
             }
             if (h()) {
-                jbVar.a(f61481h);
+                jbVar.a(f59831h);
                 jbVar.a(this.f615a);
                 jbVar.b();
             }
             if (i()) {
-                jbVar.a(f61482i);
+                jbVar.a(f59832i);
                 jbVar.a(this.f617b);
                 jbVar.b();
             }
             if (j()) {
-                jbVar.a(f61483j);
+                jbVar.a(f59833j);
                 jbVar.a(this.f610a);
                 jbVar.b();
             }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.auth.WbAuthListener;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class WeiboCallbackManager {
     public static /* synthetic */ Interceptable $ic;
     public static WeiboCallbackManager sInstance;

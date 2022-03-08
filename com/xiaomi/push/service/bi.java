@@ -18,7 +18,7 @@ import java.io.BufferedOutputStream;
 import java.io.Closeable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class bi {
     public static /* synthetic */ Interceptable $ic;
     public static bi a;
@@ -36,7 +36,7 @@ public class bi {
     /* renamed from: a  reason: collision with other field name */
     public List<a> f937a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

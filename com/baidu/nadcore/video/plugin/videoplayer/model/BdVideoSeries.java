@@ -6,14 +6,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.Px;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d0.l0.o;
-import c.a.d0.v.m0.d;
-import c.a.d0.v.v0.h;
-import c.a.d0.v.w.c;
-import c.a.d0.x.b;
+import c.a.b0.v.m0.d;
+import c.a.b0.v.v0.h;
+import c.a.b0.v.w.c;
+import c.a.b0.x.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList;
 import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"KotlinPropertyAccess"})
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class BdVideoSeries implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FORMAT_FLV = "flv";
@@ -400,7 +400,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
     public String getClarityTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? TextUtils.isEmpty(this.mClarityTitle) ? c.a.d0.v.d.b().getResources().getString(o.nad_clarity_sd) : this.mClarityTitle : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? TextUtils.isEmpty(this.mClarityTitle) ? c.a.b0.v.d.b().getResources().getString(R.string.nad_clarity_sd) : this.mClarityTitle : (String) invokeV.objValue;
     }
 
     public long getCreateTime() {
@@ -1183,7 +1183,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
             try {
                 setClarityUrlList(new JSONArray(str));
             } catch (JSONException e2) {
-                if (c.a.d0.v.d.f()) {
+                if (c.a.b0.v.d.f()) {
                     e2.printStackTrace();
                 }
                 this.mClarityList = new ClarityUrlList();
@@ -1773,11 +1773,11 @@ public class BdVideoSeries implements Serializable, Cloneable {
             if (!z || clarityUrlList == null || clarityUrlList.size() <= 0) {
                 return;
             }
-            ClarityUrlList.c clarityByOriginRank = this.mClarityList.getClarityByOriginRank(clarityUrlList.getCurrentClarityUrl().f37389f);
+            ClarityUrlList.c clarityByOriginRank = this.mClarityList.getClarityByOriginRank(clarityUrlList.getCurrentClarityUrl().f35792f);
             if (clarityByOriginRank != null) {
                 this.mClarityList.setCurrentClarityUrl(clarityByOriginRank);
-                if (c.a.d0.v.w.d.b()) {
-                    this.mClarityList.setMultiRateSwitchRank(clarityByOriginRank.f37390g);
+                if (c.a.b0.v.w.d.b()) {
+                    this.mClarityList.setMultiRateSwitchRank(clarityByOriginRank.f35793g);
                     return;
                 }
                 return;
@@ -1789,7 +1789,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
     public void updateClarityUrlListFromMPD() {
         JSONArray b2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048773, this) == null) || (b2 = c.a.d0.v.n0.a.b.b(this.mMPD)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048773, this) == null) || (b2 = c.a.b0.v.n0.a.b.b(this.mMPD)) == null) {
             return;
         }
         updateClarityUrlList(b2, true);
@@ -1849,7 +1849,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048691, this, str, z) == null) {
             if (z) {
-                JSONArray b2 = c.a.d0.v.n0.a.b.b(str);
+                JSONArray b2 = c.a.b0.v.n0.a.b.b(str);
                 if (b2 != null) {
                     setClarityUrlList(b2);
                     return;
@@ -1871,7 +1871,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048771, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (z2) {
-                JSONArray b2 = c.a.d0.v.n0.a.b.b(str);
+                JSONArray b2 = c.a.b0.v.n0.a.b.b(str);
                 if (b2 != null) {
                     updateClarityUrlList(b2, z);
                     return;

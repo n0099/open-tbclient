@@ -1,6 +1,6 @@
 package com.baidu.nadcore.sweetsqlite;
 
-import c.a.d0.c0.b;
+import c.a.b0.c0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class StringColumn extends Column implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -1864671329325341265L;
@@ -86,7 +86,7 @@ public class StringColumn extends Column implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.field.f2572b + ":" + this.value + ":" + this.field.f2572b + ":" + this.field.f2574d;
+            return this.field.f1401b + ":" + this.value + ":" + this.field.f1401b + ":" + this.field.f1403d;
         }
         return (String) invokeV.objValue;
     }

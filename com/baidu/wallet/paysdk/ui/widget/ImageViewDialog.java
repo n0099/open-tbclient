@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.base.widget.NetImageView;
 import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.apollon.utils.support.ViewHelper;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class ImageViewDialog extends Dialog implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public class ImageViewDialog extends Dialog implements View.OnClickListener {
     public NetImageView mContentImgageView;
     public a mListener;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a();
 

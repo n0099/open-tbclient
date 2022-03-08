@@ -35,7 +35,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.GetOrder.DataRes;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class WalletPayViewController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEF_CHANNEL_TITLE = "NaN";
@@ -72,7 +72,7 @@ public class WalletPayViewController {
     public View mTopSpaceView;
     public TextView mUnfoldTv;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class ChannelItemViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,9 +120,9 @@ public class WalletPayViewController {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 SkinManager.setBackgroundResource(this.rootView, R.drawable.list_item_selector);
-                SkinManager.setViewTextColor(this.titleTv, R.color.CAM_X0105);
-                SkinManager.setViewTextColor(this.promptTv, R.color.CAM_X0109);
-                SkinManager.setViewTextColor(this.tagTv, R.color.CAM_X0109);
+                SkinManager.setViewTextColor(this.titleTv, (int) R.color.CAM_X0105);
+                SkinManager.setViewTextColor(this.promptTv, (int) R.color.CAM_X0109);
+                SkinManager.setViewTextColor(this.tagTv, (int) R.color.CAM_X0109);
             }
         }
 
@@ -195,7 +195,7 @@ public class WalletPayViewController {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface ClickCallback {
         void doFinish();
 
@@ -631,14 +631,14 @@ public class WalletPayViewController {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             SkinManager.setImageResource(this.mCloseBtn, R.drawable.icon_topbar_close_n);
             SkinManager.setBackgroundResource(this.mChannelLayout, R.drawable.wallet_pay_content_bg);
-            SkinManager.setViewTextColor(this.mTitle, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.mMoneyTv, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.mGoodDesc, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.mGoodCount, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.mGoodName, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.mTitle, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.mMoneyTv, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.mGoodDesc, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.mGoodCount, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.mGoodName, (int) R.color.CAM_X0107);
             SkinManager.setBackgroundColor(this.mGoodDivider, R.color.CAM_X0110);
-            SkinManager.setViewTextColor(this.mUnfoldTv, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.mPayBtn, R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.mUnfoldTv, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.mPayBtn, (int) R.color.CAM_X0101);
             SkinManager.setBackgroundResource(this.mPayBtnLayout, R.drawable.wallet_go_pay_btn_bg);
         }
     }

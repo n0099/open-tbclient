@@ -22,10 +22,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.IOException;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class VideoPlayerProxy extends PlayerProxy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "VideoPlayerProxy";
@@ -34,7 +35,7 @@ public class VideoPlayerProxy extends PlayerProxy {
     public final VideoPlayer mVideoPlayer;
 
     /* renamed from: com.baidu.searchbox.afx.proxy.VideoPlayerProxy$6  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass6 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$afx$proxy$PlayerProxy$PlayerState;
         public static /* synthetic */ Interceptable $ic;
@@ -325,7 +326,7 @@ public class VideoPlayerProxy extends PlayerProxy {
             long currentTimeMillis = System.currentTimeMillis();
             File file = new File(str);
             File parentFile = file.getParentFile();
-            new Mp4Composer().start(str, new File(parentFile, file.getName().replace(".mp4", "") + "_processed.mp4").getPath(), new Mp4Composer.Listener(this, currentTimeMillis, onVideoPreparedListener) { // from class: com.baidu.searchbox.afx.proxy.VideoPlayerProxy.5
+            new Mp4Composer().start(str, new File(parentFile, file.getName().replace(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION, "") + "_processed.mp4").getPath(), new Mp4Composer.Listener(this, currentTimeMillis, onVideoPreparedListener) { // from class: com.baidu.searchbox.afx.proxy.VideoPlayerProxy.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ VideoPlayerProxy this$0;

@@ -1,8 +1,8 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import c.i.d.c.k;
-import c.i.d.c.m;
+import c.i.c.c.k;
+import c.i.c.c.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.ImmutableMap;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class ImmutableBiMap<K, V> extends ImmutableMap<K, V> implements k<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class SerializedForm extends ImmutableMap.SerializedForm {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -51,7 +51,7 @@ public abstract class ImmutableBiMap<K, V> extends ImmutableMap<K, V> implements
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class a<K, V> extends ImmutableMap.b<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,12 +104,12 @@ public abstract class ImmutableBiMap<K, V> extends ImmutableMap<K, V> implements
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                if (this.f54830c == 0) {
+                if (this.f53180c == 0) {
                     return ImmutableBiMap.of();
                 }
                 g();
-                this.f54831d = true;
-                return new RegularImmutableBiMap(this.f54829b, this.f54830c);
+                this.f53181d = true;
+                return new RegularImmutableBiMap(this.f53179b, this.f53180c);
             }
             return (ImmutableBiMap) invokeV.objValue;
         }
@@ -226,7 +226,7 @@ public abstract class ImmutableBiMap<K, V> extends ImmutableMap<K, V> implements
         return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? RegularImmutableBiMap.EMPTY : (ImmutableBiMap) invokeV.objValue;
     }
 
-    @Override // c.i.d.c.k
+    @Override // c.i.c.c.k
     @Deprecated
     public V forcePut(K k, V v) {
         InterceptResult invokeLL;
@@ -238,7 +238,7 @@ public abstract class ImmutableBiMap<K, V> extends ImmutableMap<K, V> implements
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.i.d.c.k
+    @Override // c.i.c.c.k
     public abstract ImmutableBiMap<V, K> inverse();
 
     @Override // com.google.common.collect.ImmutableMap
@@ -281,7 +281,7 @@ public abstract class ImmutableBiMap<K, V> extends ImmutableMap<K, V> implements
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.ImmutableMap, java.util.Map, c.i.d.c.k
+    @Override // com.google.common.collect.ImmutableMap, java.util.Map, c.i.c.c.k
     public ImmutableSet<V> values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

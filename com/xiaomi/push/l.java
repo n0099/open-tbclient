@@ -8,11 +8,12 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic = null;
     public static volatile int a = 0;
@@ -21,7 +22,7 @@ public class l {
     public static Map<String, o> f824a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f61610b = -1;
+    public static int f59960b = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -94,7 +95,7 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             o b2 = b(str);
-            return b2 == null ? o.f61611b : b2;
+            return b2 == null ? o.f59961b : b2;
         }
         return (o) invokeL.objValue;
     }
@@ -136,48 +137,48 @@ public class l {
             HashMap hashMap = new HashMap();
             f824a = hashMap;
             hashMap.put("CN", o.a);
-            f824a.put("FI", o.f61612c);
-            f824a.put("SE", o.f61612c);
-            f824a.put("NO", o.f61612c);
-            f824a.put("FO", o.f61612c);
-            f824a.put("EE", o.f61612c);
-            f824a.put("LV", o.f61612c);
-            f824a.put("LT", o.f61612c);
-            f824a.put("BY", o.f61612c);
-            f824a.put("MD", o.f61612c);
-            f824a.put("UA", o.f61612c);
-            f824a.put("PL", o.f61612c);
-            f824a.put("CZ", o.f61612c);
-            f824a.put("SK", o.f61612c);
-            f824a.put("HU", o.f61612c);
-            f824a.put("DE", o.f61612c);
-            f824a.put("AT", o.f61612c);
-            f824a.put("CH", o.f61612c);
-            f824a.put("LI", o.f61612c);
-            f824a.put("GB", o.f61612c);
-            f824a.put("IE", o.f61612c);
-            f824a.put("NL", o.f61612c);
-            f824a.put("BE", o.f61612c);
-            f824a.put("LU", o.f61612c);
-            f824a.put("FR", o.f61612c);
-            f824a.put("RO", o.f61612c);
-            f824a.put("BG", o.f61612c);
-            f824a.put("RS", o.f61612c);
-            f824a.put("MK", o.f61612c);
-            f824a.put("AL", o.f61612c);
-            f824a.put("GR", o.f61612c);
-            f824a.put("SI", o.f61612c);
-            f824a.put("HR", o.f61612c);
-            f824a.put("IT", o.f61612c);
-            f824a.put("SM", o.f61612c);
-            f824a.put("MT", o.f61612c);
-            f824a.put("ES", o.f61612c);
-            f824a.put("PT", o.f61612c);
-            f824a.put("AD", o.f61612c);
-            f824a.put("CY", o.f61612c);
-            f824a.put("DK", o.f61612c);
-            f824a.put("RU", o.f61613d);
-            f824a.put("IN", o.f61614e);
+            f824a.put("FI", o.f59962c);
+            f824a.put("SE", o.f59962c);
+            f824a.put(HlsPlaylistParser.BOOLEAN_FALSE, o.f59962c);
+            f824a.put("FO", o.f59962c);
+            f824a.put("EE", o.f59962c);
+            f824a.put("LV", o.f59962c);
+            f824a.put("LT", o.f59962c);
+            f824a.put("BY", o.f59962c);
+            f824a.put("MD", o.f59962c);
+            f824a.put("UA", o.f59962c);
+            f824a.put("PL", o.f59962c);
+            f824a.put("CZ", o.f59962c);
+            f824a.put("SK", o.f59962c);
+            f824a.put("HU", o.f59962c);
+            f824a.put("DE", o.f59962c);
+            f824a.put("AT", o.f59962c);
+            f824a.put("CH", o.f59962c);
+            f824a.put("LI", o.f59962c);
+            f824a.put("GB", o.f59962c);
+            f824a.put("IE", o.f59962c);
+            f824a.put("NL", o.f59962c);
+            f824a.put("BE", o.f59962c);
+            f824a.put("LU", o.f59962c);
+            f824a.put("FR", o.f59962c);
+            f824a.put("RO", o.f59962c);
+            f824a.put("BG", o.f59962c);
+            f824a.put("RS", o.f59962c);
+            f824a.put("MK", o.f59962c);
+            f824a.put("AL", o.f59962c);
+            f824a.put("GR", o.f59962c);
+            f824a.put("SI", o.f59962c);
+            f824a.put("HR", o.f59962c);
+            f824a.put("IT", o.f59962c);
+            f824a.put("SM", o.f59962c);
+            f824a.put("MT", o.f59962c);
+            f824a.put("ES", o.f59962c);
+            f824a.put("PT", o.f59962c);
+            f824a.put("AD", o.f59962c);
+            f824a.put("CY", o.f59962c);
+            f824a.put("DK", o.f59962c);
+            f824a.put("RU", o.f59963d);
+            f824a.put("IN", o.f59964e);
         }
     }
 
@@ -268,14 +269,14 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            if (f61610b < 0) {
+            if (f59960b < 0) {
                 Object a2 = bh.a("miui.external.SdkHelper", "isMiuiSystem", new Object[0]);
-                f61610b = 0;
+                f59960b = 0;
                 if (a2 != null && (a2 instanceof Boolean) && !((Boolean) Boolean.class.cast(a2)).booleanValue()) {
-                    f61610b = 1;
+                    f59960b = 1;
                 }
             }
-            return f61610b > 0;
+            return f59960b > 0;
         }
         return invokeV.booleanValue;
     }

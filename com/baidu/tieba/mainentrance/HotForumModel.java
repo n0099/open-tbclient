@@ -2,7 +2,7 @@ package com.baidu.tieba.mainentrance;
 
 import android.text.TextUtils;
 import c.a.d.a.f;
-import c.a.u0.e2.c;
+import c.a.r0.e2.c;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,30 +14,30 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public class HotForumModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f45886e;
+    public f f44294e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f45887f;
+    public b f44295f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<c.a.u0.e2.b> f45888g;
+    public List<c.a.r0.e2.b> f44296g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HotSearchInfoData f45889h;
+    public HotSearchInfoData f44297h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<c> f45890i;
+    public List<c> f44298i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f45891j;
+    public String f44299j;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,40 +71,40 @@ public class HotForumModel extends BdBaseModel {
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 boolean z = responsedMessage instanceof HotForumSocketResponseMessage;
                 if (!z && !(responsedMessage instanceof HotForumHttpResponseMessage)) {
-                    this.a.f45887f.onHotForumDataFailed(this.a.f45886e.getString(R.string.neterror));
+                    this.a.f44295f.onHotForumDataFailed(this.a.f44294e.getString(R.string.neterror));
                 } else if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof HotForumNetMessage)) {
-                    this.a.f45887f.onHotForumDataFailed(this.a.f45886e.getString(R.string.neterror));
+                    this.a.f44295f.onHotForumDataFailed(this.a.f44294e.getString(R.string.neterror));
                 } else if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
                     if (responsedMessage instanceof HotForumHttpResponseMessage) {
                         HotForumHttpResponseMessage hotForumHttpResponseMessage = (HotForumHttpResponseMessage) responsedMessage;
-                        this.a.f45888g = hotForumHttpResponseMessage.getForumInfoList();
-                        this.a.f45890i = hotForumHttpResponseMessage.getTopicInfoList();
-                        this.a.f45889h = hotForumHttpResponseMessage.getHotSearchInfo();
-                        this.a.f45891j = hotForumHttpResponseMessage.getTopicInfoTitle();
-                        this.a.f45887f.onHotForumDataSuccess(this.a.f45888g, this.a.f45890i, this.a.f45889h, this.a.f45891j);
+                        this.a.f44296g = hotForumHttpResponseMessage.getForumInfoList();
+                        this.a.f44298i = hotForumHttpResponseMessage.getTopicInfoList();
+                        this.a.f44297h = hotForumHttpResponseMessage.getHotSearchInfo();
+                        this.a.f44299j = hotForumHttpResponseMessage.getTopicInfoTitle();
+                        this.a.f44295f.onHotForumDataSuccess(this.a.f44296g, this.a.f44298i, this.a.f44297h, this.a.f44299j);
                     }
                     if (z) {
                         HotForumSocketResponseMessage hotForumSocketResponseMessage = (HotForumSocketResponseMessage) responsedMessage;
-                        this.a.f45888g = hotForumSocketResponseMessage.getForumInfoList();
-                        this.a.f45890i = hotForumSocketResponseMessage.getTopicInfoList();
-                        this.a.f45889h = hotForumSocketResponseMessage.getSearchInfo();
-                        this.a.f45891j = hotForumSocketResponseMessage.getTopicInfoTitle();
-                        this.a.f45887f.onHotForumDataSuccess(this.a.f45888g, this.a.f45890i, this.a.f45889h, this.a.f45891j);
+                        this.a.f44296g = hotForumSocketResponseMessage.getForumInfoList();
+                        this.a.f44298i = hotForumSocketResponseMessage.getTopicInfoList();
+                        this.a.f44297h = hotForumSocketResponseMessage.getSearchInfo();
+                        this.a.f44299j = hotForumSocketResponseMessage.getTopicInfoTitle();
+                        this.a.f44295f.onHotForumDataSuccess(this.a.f44296g, this.a.f44298i, this.a.f44297h, this.a.f44299j);
                     }
                 } else if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                    this.a.f45887f.onHotForumDataFailed(responsedMessage.getErrorString());
+                    this.a.f44295f.onHotForumDataFailed(responsedMessage.getErrorString());
                 } else {
-                    this.a.f45887f.onHotForumDataFailed(this.a.f45886e.getString(R.string.neterror));
+                    this.a.f44295f.onHotForumDataFailed(this.a.f44294e.getString(R.string.neterror));
                 }
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void onHotForumDataFailed(String str);
 
-        void onHotForumDataSuccess(List<c.a.u0.e2.b> list, List<c> list2, HotSearchInfoData hotSearchInfoData, String str);
+        void onHotForumDataSuccess(List<c.a.r0.e2.b> list, List<c> list2, HotSearchInfoData hotSearchInfoData, String str);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -125,8 +125,8 @@ public class HotForumModel extends BdBaseModel {
                 return;
             }
         }
-        this.f45886e = fVar;
-        this.f45887f = bVar;
+        this.f44294e = fVar;
+        this.f44295f = bVar;
         G();
     }
 

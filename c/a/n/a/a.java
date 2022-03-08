@@ -3,11 +3,11 @@ package c.a.n.a;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.n.c.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,18 +23,18 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f4587d;
+    public static boolean f4258d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static a f4588e;
+    public static a f4259e;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4589b;
+    public String f4260b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SharedPreferences f4590c;
+    public SharedPreferences f4261c;
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +49,7 @@ public class a {
                 return;
             }
         }
-        f4587d = AppConfig.isDebug();
+        f4258d = AppConfig.isDebug();
     }
 
     public a() {
@@ -72,14 +72,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f4588e == null) {
+            if (f4259e == null) {
                 synchronized (a.class) {
-                    if (f4588e == null) {
-                        f4588e = new a();
+                    if (f4259e == null) {
+                        f4259e = new a();
                     }
                 }
             }
-            return f4588e;
+            return f4259e;
         }
         return (a) invokeV.objValue;
     }
@@ -87,7 +87,7 @@ public class a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4589b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4260b : (String) invokeV.objValue;
     }
 
     public String c() {
@@ -99,7 +99,7 @@ public class a {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f4590c = AppRuntime.getAppContext().getSharedPreferences(ChannelManager.PREFS_NAME, 0);
+            this.f4261c = AppRuntime.getAppContext().getSharedPreferences(ChannelManager.PREFS_NAME, 0);
             f();
             e();
         }
@@ -109,11 +109,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             String g2 = g();
-            this.f4589b = g2;
+            this.f4260b = g2;
             if (!TextUtils.isEmpty(g2) || TextUtils.isEmpty(this.a)) {
                 return;
             }
-            this.f4589b = this.a;
+            this.f4260b = this.a;
             j();
         }
     }
@@ -132,7 +132,7 @@ public class a {
     public final String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f4590c.getString("channel", null) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f4261c.getString("channel", null) : (String) invokeV.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:26:0x0048, code lost:
@@ -162,16 +162,16 @@ public class a {
                                 try {
                                     inputStream.close();
                                 } catch (Exception unused) {
-                                    boolean z = f4587d;
+                                    boolean z = f4258d;
                                 }
                             }
                         } catch (Exception unused2) {
-                            boolean z2 = f4587d;
+                            boolean z2 = f4258d;
                             if (inputStream != null) {
                                 try {
                                     inputStream.close();
                                 } catch (Exception unused3) {
-                                    boolean z3 = f4587d;
+                                    boolean z3 = f4258d;
                                 }
                             }
                         }
@@ -181,14 +181,14 @@ public class a {
                             try {
                                 inputStream.close();
                             } catch (Exception unused4) {
-                                boolean z4 = f4587d;
+                                boolean z4 = f4258d;
                             }
                         }
                         if (bufferedReader != null) {
                             try {
                                 bufferedReader.close();
                             } catch (Exception unused5) {
-                                boolean z5 = f4587d;
+                                boolean z5 = f4258d;
                             }
                         }
                         throw th;
@@ -215,21 +215,21 @@ public class a {
             try {
                 bufferedReader.close();
             } catch (Exception unused8) {
-                boolean z6 = f4587d;
+                boolean z6 = f4258d;
             }
             return str;
         }
         return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:9:0x0028 -> B:28:0x0043). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:9:0x0029 -> B:28:0x0044). Please submit an issue!!! */
     public final String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             String str = null;
             try {
-                InputStream openRawResource = AppRuntime.getAppContext().getResources().openRawResource(h.tnconfig);
+                InputStream openRawResource = AppRuntime.getAppContext().getResources().openRawResource(R.raw.tnconfig);
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(openRawResource));
                 try {
                     try {
@@ -237,15 +237,15 @@ public class a {
                         openRawResource.close();
                         bufferedReader.close();
                     } catch (Exception unused) {
-                        boolean z = f4587d;
+                        boolean z = f4258d;
                         openRawResource.close();
                         bufferedReader.close();
                     }
                 } catch (Exception unused2) {
-                    boolean z2 = f4587d;
+                    boolean z2 = f4258d;
                 }
             } catch (Exception unused3) {
-                boolean z3 = f4587d;
+                boolean z3 = f4258d;
             }
             return str;
         }
@@ -255,7 +255,7 @@ public class a {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f4590c.edit().putString("channel", this.f4589b).apply();
+            this.f4261c.edit().putString("channel", this.f4260b).apply();
         }
     }
 }

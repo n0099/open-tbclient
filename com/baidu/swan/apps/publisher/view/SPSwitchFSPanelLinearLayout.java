@@ -4,21 +4,21 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
-import c.a.s0.a.z1.i.a;
-import c.a.s0.a.z1.j.g;
-import c.a.s0.a.z1.k.b;
+import c.a.p0.a.p1.i.a;
+import c.a.p0.a.p1.j.g;
+import c.a.p0.a.p1.k.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class SPSwitchFSPanelLinearLayout extends LinearLayout implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f39293e;
+    public a f37697e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SPSwitchFSPanelLinearLayout(Context context) {
@@ -44,19 +44,19 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout implements b {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f39293e = new a(this);
+            this.f37697e = new a(this);
         }
     }
 
-    @Override // c.a.s0.a.z1.k.b
+    @Override // c.a.p0.a.p1.k.b
     public void onSoftInputShowing(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f39293e.a(z);
+            this.f37697e.a(z);
         }
     }
 
-    @Override // c.a.s0.a.z1.k.b
+    @Override // c.a.p0.a.p1.k.b
     public void refreshHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {

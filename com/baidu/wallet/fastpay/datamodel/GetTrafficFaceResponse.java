@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class GetTrafficFaceResponse implements IBeanResponse, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -9111183651727955558L;
@@ -23,7 +23,7 @@ public class GetTrafficFaceResponse implements IBeanResponse, Serializable {
     public TrafficFaceModel[][] dmts;
     public String showMsg;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class ContentDto implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4162913658702268232L;
@@ -53,20 +53,20 @@ public class GetTrafficFaceResponse implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GetTrafficFaceResponse a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f51220b;
+        public String f49639b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f51221c;
+        public String f49640c;
 
         /* renamed from: d  reason: collision with root package name */
-        public ArrayList<TrafficFaceModel> f51222d;
+        public ArrayList<TrafficFaceModel> f49641d;
 
         public a(GetTrafficFaceResponse getTrafficFaceResponse) {
             Interceptable interceptable = $ic;
@@ -84,28 +84,28 @@ public class GetTrafficFaceResponse implements IBeanResponse, Serializable {
                 }
             }
             this.a = getTrafficFaceResponse;
-            this.f51220b = "";
-            this.f51221c = "";
+            this.f49639b = "";
+            this.f49640c = "";
         }
 
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f51220b = str;
+                this.f49639b = str;
             }
         }
 
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f51221c = str;
+                this.f49640c = str;
             }
         }
 
         public void a(ArrayList<TrafficFaceModel> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-                this.f51222d = arrayList;
+                this.f49641d = arrayList;
             }
         }
     }

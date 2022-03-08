@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class CmdConfigHttp {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AGREE_ME_HTTP_CMD = 1002211;
@@ -164,6 +164,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_RECOMMEND_TOPIC = 1003515;
     public static final int CMD_GET_REPOST_RECOMMEND_FORUM = 1003323;
     public static final int CMD_GET_RN_SYNC = 1003409;
+    public static final int CMD_GET_SEARCH_BACK_INTEREST_FORUM = 1003526;
     public static final int CMD_GET_SELECT_CLASS = 1003506;
     public static final int CMD_GET_SPLASH_INFO = 1003192;
     public static final int CMD_GET_STICKERS = 1003368;

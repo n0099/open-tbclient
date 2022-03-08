@@ -3,7 +3,7 @@ package com.baidu.searchbox.live.interfaces.pay;
 import android.app.Activity;
 import android.content.Context;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public interface IPayChannel {
     PayChannelType getType();
 

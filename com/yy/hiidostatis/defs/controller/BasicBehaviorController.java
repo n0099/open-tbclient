@@ -22,7 +22,7 @@ import com.yy.hiidostatis.inner.util.DefaultPreference;
 import com.yy.hiidostatis.inner.util.ThreadPool;
 import com.yy.hiidostatis.inner.util.Util;
 import com.yy.hiidostatis.inner.util.log.L;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class BasicBehaviorController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean EMPTY_DATA_FORBIDDEN = false;
@@ -45,7 +45,7 @@ public class BasicBehaviorController {
     public IStatisAPI mStatisAPI;
     public int mbehaviorSendThreshold;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public class AppActionReporter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -318,7 +318,7 @@ public class BasicBehaviorController {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public class PageActionReporter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

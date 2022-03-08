@@ -5,8 +5,7 @@ import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.u0.a4.j;
-import c.a.u0.z3.t0.b;
+import c.a.r0.y3.t0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
@@ -15,6 +14,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,36 +22,36 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class WorkPostNotifyFlutterData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40399b;
+    public String f38803b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f40400c;
+    public String f38804c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public String f40401d;
+    public String f38805d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public String f40402e;
+    public String f38806e;
     @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public NewWriteThreadData4Flutter f40403f;
+    public NewWriteThreadData4Flutter f38807f;
     @NonNull
 
     /* renamed from: g  reason: collision with root package name */
-    public String f40404g;
+    public String f38808g;
 
     @Keep
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class NewWriteThreadData4Flutter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class WorkPostNotifyFlutterData {
         public VideoInfo videoInfo;
 
         @Keep
-        /* loaded from: classes11.dex */
+        /* loaded from: classes5.dex */
         public static class Author {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +91,7 @@ public class WorkPostNotifyFlutterData {
         }
 
         @Keep
-        /* loaded from: classes11.dex */
+        /* loaded from: classes5.dex */
         public static class Location {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -113,7 +113,7 @@ public class WorkPostNotifyFlutterData {
         }
 
         @Keep
-        /* loaded from: classes11.dex */
+        /* loaded from: classes5.dex */
         public static class VideoInfo {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -168,7 +168,7 @@ public class WorkPostNotifyFlutterData {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -190,8 +190,8 @@ public class WorkPostNotifyFlutterData {
             }
         }
         this.a = str;
-        this.f40399b = str2;
-        this.f40400c = str3;
+        this.f38803b = str2;
+        this.f38804c = str3;
     }
 
     public static WorkPostNotifyFlutterData e(String str) {
@@ -231,7 +231,7 @@ public class WorkPostNotifyFlutterData {
             videoInfo.postType = writeData.getType();
             videoInfo.videoUrl = videoInfo2.getVideoUrl();
             NewWriteThreadData4Flutter.Location location = new NewWriteThreadData4Flutter.Location();
-            location.name = TbadkCoreApplication.getInst().getString(j.video_is_checking_novisible);
+            location.name = TbadkCoreApplication.getInst().getString(R.string.video_is_checking_novisible);
             NewWriteThreadData4Flutter.Author author = new NewWriteThreadData4Flutter.Author();
             AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
             if (currentAccountInfo != null) {
@@ -256,21 +256,21 @@ public class WorkPostNotifyFlutterData {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40404g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38808g : (String) invokeV.objValue;
     }
 
     @Nullable
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40401d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38805d : (String) invokeV.objValue;
     }
 
     @Nullable
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40402e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38806e : (String) invokeV.objValue;
     }
 
     @Nullable
@@ -278,7 +278,7 @@ public class WorkPostNotifyFlutterData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            NewWriteThreadData4Flutter newWriteThreadData4Flutter = this.f40403f;
+            NewWriteThreadData4Flutter newWriteThreadData4Flutter = this.f38807f;
             if (newWriteThreadData4Flutter == null) {
                 return null;
             }
@@ -290,28 +290,28 @@ public class WorkPostNotifyFlutterData {
     public void i(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f40404g = str;
+            this.f38808g = str;
         }
     }
 
     public void j(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f40401d = str;
+            this.f38805d = str;
         }
     }
 
     public void k(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f40402e = str;
+            this.f38806e = str;
         }
     }
 
     public void l(@NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, writeData) == null) {
-            this.f40403f = h(writeData);
+            this.f38807f = h(writeData);
         }
     }
 }

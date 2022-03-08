@@ -4,15 +4,15 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class h extends b<a> {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public String a = "";
 
         /* renamed from: b  reason: collision with root package name */
-        public String f55858b = "";
+        public String f54208b = "";
     }
 
     public h() {
@@ -68,6 +68,6 @@ public class h extends b<a> {
 
     public String e() {
         a a2 = a();
-        return (a2 == null || TextUtils.isEmpty(a2.f55858b)) ? "" : a2.f55858b;
+        return (a2 == null || TextUtils.isEmpty(a2.f54208b)) ? "" : a2.f54208b;
     }
 }

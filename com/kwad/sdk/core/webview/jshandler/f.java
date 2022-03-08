@@ -12,17 +12,17 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class f implements com.kwad.sdk.core.webview.kwai.a {
     public final com.kwad.sdk.core.webview.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f56588b = false;
+    public final boolean f54938b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.network.i<com.kwad.sdk.core.request.a, AdResultData> f56589c;
+    public com.kwad.sdk.core.network.i<com.kwad.sdk.core.request.a, AdResultData> f54939c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class a implements com.kwad.sdk.core.b {
         public List<AdTemplate> a;
 
@@ -60,7 +60,7 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     public void a(final com.kwad.sdk.core.request.model.f fVar, final com.kwad.sdk.core.webview.kwai.c cVar) {
-        com.kwad.sdk.core.network.i<com.kwad.sdk.core.request.a, AdResultData> iVar = this.f56589c;
+        com.kwad.sdk.core.network.i<com.kwad.sdk.core.request.a, AdResultData> iVar = this.f54939c;
         if (iVar != null) {
             iVar.e();
         }
@@ -84,7 +84,7 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
                 return adResultData;
             }
         };
-        this.f56589c = iVar2;
+        this.f54939c = iVar2;
         iVar2.a(new com.kwad.sdk.core.network.j<com.kwad.sdk.core.request.a, AdResultData>() { // from class: com.kwad.sdk.core.webview.jshandler.f.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
@@ -105,7 +105,7 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
             public void a(@NonNull com.kwad.sdk.core.request.a aVar, @NonNull final AdResultData adResultData) {
                 Runnable runnable;
                 if (adResultData.isAdResultDataEmpty()) {
-                    com.kwad.sdk.core.d.a.a("WebCardGetKsAdDataHandler", "onError:" + String.format("code:%s__msg:%s", Integer.valueOf(com.kwad.sdk.core.network.f.f56107e.n), com.kwad.sdk.core.network.f.f56107e.o));
+                    com.kwad.sdk.core.d.a.a("WebCardGetKsAdDataHandler", "onError:" + String.format("code:%s__msg:%s", Integer.valueOf(com.kwad.sdk.core.network.f.f54457e.n), com.kwad.sdk.core.network.f.f54457e.o));
                     runnable = new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.f.2.1
                         @Override // java.lang.Runnable
                         public void run() {
@@ -131,7 +131,7 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
-        if (!this.f56588b) {
+        if (!this.f54938b) {
             if (this.a.c()) {
                 cVar.a(-1, "native adTemplate is null");
                 return;
@@ -145,17 +145,17 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
         com.kwad.sdk.core.request.model.f fVar = new com.kwad.sdk.core.request.model.f(a2.mAdScene);
         SceneImpl sceneImpl = a2.mAdScene;
         if (sceneImpl != null) {
-            fVar.f56373b = sceneImpl.getPageScene();
+            fVar.f54723b = sceneImpl.getPageScene();
         }
-        fVar.f56374c = 106L;
+        fVar.f54724c = 106L;
         fVar.a.setAdNum(12);
-        fVar.f56375d = com.kwad.sdk.core.response.a.d.x(a2);
+        fVar.f54725d = com.kwad.sdk.core.response.a.d.x(a2);
         a(fVar, cVar);
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void b() {
-        com.kwad.sdk.core.network.i<com.kwad.sdk.core.request.a, AdResultData> iVar = this.f56589c;
+        com.kwad.sdk.core.network.i<com.kwad.sdk.core.request.a, AdResultData> iVar = this.f54939c;
         if (iVar != null) {
             iVar.e();
         }

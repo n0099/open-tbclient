@@ -22,7 +22,7 @@ import java.util.Scanner;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class CpuMonitor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CPU_STAT_LOG_PERIOD_MS = 6000;
@@ -47,7 +47,7 @@ public class CpuMonitor {
     public final MovingAverage totalCpuUsage;
     public final MovingAverage userCpuUsage;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class MovingAverage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,7 +122,7 @@ public class CpuMonitor {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class ProcStat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

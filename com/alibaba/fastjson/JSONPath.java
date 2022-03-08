@@ -47,7 +47,7 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class JSONPath implements JSONAware {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long LENGTH = -1580386065683472715L;
@@ -61,7 +61,7 @@ public class JSONPath implements JSONAware {
     public SerializeConfig serializeConfig;
 
     /* renamed from: com.alibaba.fastjson.JSONPath$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$alibaba$fastjson$JSONPath$Operator;
         public static /* synthetic */ Interceptable $ic;
@@ -109,7 +109,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class ArrayAccessSegment implements Segment {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -161,7 +161,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class Context {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -189,7 +189,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class DoubleOpSegement extends PropertyFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -250,12 +250,12 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public interface Filter {
         boolean apply(JSONPath jSONPath, Object obj, Object obj2, Object obj3);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class FilterGroup implements Filter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -308,7 +308,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class FilterSegment implements Segment {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -385,7 +385,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class FloorSegment implements Segment {
         public static /* synthetic */ Interceptable $ic;
         public static final FloorSegment instance;
@@ -475,7 +475,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class IntBetweenSegement extends PropertyFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -528,7 +528,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class IntInSegement extends PropertyFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -581,7 +581,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class IntObjInSegement extends PropertyFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -647,7 +647,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class IntOpSegement extends PropertyFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -776,7 +776,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class JSONPathParser {
         public static /* synthetic */ Interceptable $ic = null;
         public static final Pattern strArrayPatternx;
@@ -1756,7 +1756,7 @@ public class JSONPath implements JSONAware {
                     }
                 } else if (c2 == '!') {
                     next();
-                    accept(a.f31099h);
+                    accept(a.f29503h);
                     operator = Operator.NE;
                 } else if (c2 == '<') {
                     next();
@@ -1974,7 +1974,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class KeySetSegment implements Segment {
         public static /* synthetic */ Interceptable $ic;
         public static final KeySetSegment instance;
@@ -2026,7 +2026,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class MatchSegement extends PropertyFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2111,7 +2111,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class MaxSegment implements Segment {
         public static /* synthetic */ Interceptable $ic;
         public static final MaxSegment instance;
@@ -2175,7 +2175,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class MinSegment implements Segment {
         public static /* synthetic */ Interceptable $ic;
         public static final MinSegment instance;
@@ -2239,7 +2239,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class MultiIndexSegment implements Segment {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2310,7 +2310,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class MultiPropertySegment implements Segment {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2405,7 +2405,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class NotNullSegement extends PropertyFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2439,7 +2439,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class NullSegement extends PropertyFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2474,7 +2474,7 @@ public class JSONPath implements JSONAware {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class Operator {
         public static final /* synthetic */ Operator[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -2563,7 +2563,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static abstract class PropertyFilter implements Filter {
         public static /* synthetic */ Interceptable $ic;
         public static long TYPE;
@@ -2633,7 +2633,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class PropertySegment implements Segment {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2847,7 +2847,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class RangeSegment implements Segment {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2912,7 +2912,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class RefOpSegement extends PropertyFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2998,7 +2998,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class RegMatchSegement extends PropertyFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3043,7 +3043,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class RlikeSegement extends PropertyFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3089,14 +3089,14 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public interface Segment {
         Object eval(JSONPath jSONPath, Object obj, Object obj2);
 
         void extract(JSONPath jSONPath, DefaultJSONParser defaultJSONParser, Context context);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class SizeSegment implements Segment {
         public static /* synthetic */ Interceptable $ic;
         public static final SizeSegment instance;
@@ -3149,7 +3149,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class StringInSegement extends PropertyFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3200,7 +3200,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class StringOpSegement extends PropertyFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3254,7 +3254,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class TypeSegment implements Segment {
         public static /* synthetic */ Interceptable $ic;
         public static final TypeSegment instance;
@@ -3307,7 +3307,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class ValueSegment extends PropertyFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3354,7 +3354,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class WildCardSegment implements Segment {
         public static /* synthetic */ Interceptable $ic;
         public static final WildCardSegment instance;

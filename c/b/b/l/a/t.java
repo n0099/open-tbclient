@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class t {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -161,11 +161,11 @@ public class t {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{zVar, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Long.valueOf(j2)}) == null) {
             z.f e2 = zVar.k.e();
             e2.a = j2;
-            e2.f27313h = i5;
-            e2.f27308c = i3;
-            e2.f27309d = i4;
-            e2.f27307b = i2;
-            e2.f27312g = i6;
+            e2.f27217h = i5;
+            e2.f27212c = i3;
+            e2.f27213d = i4;
+            e2.f27211b = i2;
+            e2.f27216g = i6;
             zVar.n.add(e2);
         }
     }

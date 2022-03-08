@@ -2,10 +2,6 @@ package com.dxmpay.apollon.restnet;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.f.a.g.d.d;
-import c.f.a.g.d.e;
-import c.f.a.g.d.f;
-import c.f.a.g.d.h.c;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -16,57 +12,65 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.ApollonConstants;
 import com.dxmpay.apollon.restnet.converter.AbstractHttpMessageConverter;
-import com.dxmpay.apollon.restnet.http.HttpDefines$HttpMethod;
+import com.dxmpay.apollon.restnet.http.HttpDefines;
 import com.dxmpay.apollon.restnet.http.HttpStatus;
 import com.dxmpay.apollon.restnet.rest.RestHttpRequestInterceptor;
+import com.dxmpay.apollon.restnet.rest.d;
+import com.dxmpay.apollon.restnet.rest.e;
+import com.dxmpay.apollon.restnet.rest.f;
 import com.dxmpay.apollon.restnet.rest.httpurlconnection.RestUrlConnectionRequest;
+import com.dxmpay.apollon.restnet.rest.httpurlconnection.c;
 import com.dxmpay.apollon.utils.LogUtil;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class RestTemplate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AbstractHttpMessageConverter<?> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<RestHttpRequestInterceptor> f53803b;
+    public List<RestHttpRequestInterceptor> f52262b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f53804c;
+    public Context f52263c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f53805d;
+    public String f52264d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f53806e;
+    public String f52265e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f53807f;
+    public boolean f52266f;
 
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
+    /* renamed from: com.dxmpay.apollon.restnet.RestTemplate$1  reason: invalid class name */
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
-    public final class b implements RestHttpRequestInterceptor {
+    /* loaded from: classes7.dex */
+    public final class a implements RestHttpRequestInterceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Class<?> a;
+        public final /* synthetic */ RestTemplate a;
 
-        public /* synthetic */ b(RestTemplate restTemplate, Class cls, a aVar) {
+        /* renamed from: b  reason: collision with root package name */
+        public final Class<?> f52267b;
+
+        public /* synthetic */ a(RestTemplate restTemplate, Class cls, AnonymousClass1 anonymousClass1) {
             this(restTemplate, cls);
         }
 
         @Override // com.dxmpay.apollon.restnet.rest.RestHttpRequestInterceptor
         public void a(Context context, d dVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, dVar) == null) || this.a == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, dVar) == null) || this.f52267b == null) {
                 return;
             }
             ArrayList arrayList = new ArrayList();
@@ -82,10 +86,10 @@ public class RestTemplate {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 }
             }
-            dVar.a().d(sb.toString());
+            dVar.a().a(sb.toString());
         }
 
-        public b(RestTemplate restTemplate, Class<?> cls) {
+        public a(RestTemplate restTemplate, Class<?> cls) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,7 +104,8 @@ public class RestTemplate {
                     return;
                 }
             }
-            this.a = cls;
+            this.a = restTemplate;
+            this.f52267b = cls;
         }
     }
 
@@ -125,11 +130,227 @@ public class RestTemplate {
         }
     }
 
-    public final d a(String str, List<RestNameValuePair> list, RestMultipartEntity restMultipartEntity, String str2, HttpDefines$HttpMethod httpDefines$HttpMethod, boolean z) {
+    public List<RestHttpRequestInterceptor> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f52262b : (List) invokeV.objValue;
+    }
+
+    public AbstractHttpMessageConverter<?> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (AbstractHttpMessageConverter) invokeV.objValue;
+    }
+
+    public <T> T c(String str, List<RestNameValuePair> list, String str2, Class<T> cls, boolean z) throws RestRuntimeException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, list, restMultipartEntity, str2, httpDefines$HttpMethod, Boolean.valueOf(z)})) == null) {
-            if (str == null || httpDefines$HttpMethod == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, list, str2, cls, Boolean.valueOf(z)})) == null) {
+            a().add(new a(this, cls, null));
+            f<T> fVar = new f<>(cls, b());
+            d a2 = a(str, list, null, str2, HttpDefines.HttpMethod.POST, z);
+            e a3 = a(a2);
+            a(HttpDefines.HttpMethod.POST, str, a3);
+            return (T) a(a2, a3, fVar);
+        }
+        return (T) invokeCommon.objValue;
+    }
+
+    public <T> RestResponseEntity<T> d(String str, List<RestNameValuePair> list, String str2, Class<T> cls, boolean z) throws RestRuntimeException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, list, str2, cls, Boolean.valueOf(z)})) == null) {
+            LogUtil.d("#####. postForEntity. url = " + str);
+            a().add(new a(this, cls, null));
+            f<T> fVar = new f<>(cls, b());
+            d a2 = a(str, list, null, str2, HttpDefines.HttpMethod.POST, z);
+            e a3 = a(a2);
+            a(HttpDefines.HttpMethod.POST, str, a3);
+            return b(a2, a3, fVar);
+        }
+        return (RestResponseEntity) invokeCommon.objValue;
+    }
+
+    public <T> T postMultipartForObject(String str, RestMultipartEntity restMultipartEntity, String str2, Class<T> cls) throws RestRuntimeException {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048586, this, str, restMultipartEntity, str2, cls)) == null) {
+            a().add(new a(this, cls, null));
+            f<T> fVar = new f<>(cls, b());
+            d a2 = a(str, null, restMultipartEntity, str2, HttpDefines.HttpMethod.POST, false);
+            e a3 = a(a2);
+            a(HttpDefines.HttpMethod.POST, str, a3);
+            return (T) a(a2, a3, fVar);
+        }
+        return (T) invokeLLLL.objValue;
+    }
+
+    public void setMessageConverter(AbstractHttpMessageConverter<?> abstractHttpMessageConverter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, abstractHttpMessageConverter) == null) {
+            this.a = abstractHttpMessageConverter;
+        }
+    }
+
+    public void setRequestInterceptor(List<RestHttpRequestInterceptor> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
+            this.f52262b = list;
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public RestTemplate(Context context, String str, String str2) {
+        this(true, context, str, str2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Boolean) objArr2[0]).booleanValue(), (Context) objArr2[1], (String) objArr2[2], (String) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public <T> T a(String str, List<RestNameValuePair> list, String str2, Class<T> cls, boolean z) throws RestRuntimeException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, list, str2, cls, Boolean.valueOf(z)})) == null) {
+            a().add(new a(this, cls, null));
+            f<T> fVar = new f<>(cls, b());
+            d a2 = a(str, list, null, str2, HttpDefines.HttpMethod.GET, z);
+            e a3 = a(a2);
+            a(HttpDefines.HttpMethod.GET, str, a3);
+            return (T) a(a2, a3, fVar);
+        }
+        return (T) invokeCommon.objValue;
+    }
+
+    public <T> RestResponseEntity<T> b(String str, List<RestNameValuePair> list, String str2, Class<T> cls, boolean z) throws RestRuntimeException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, list, str2, cls, Boolean.valueOf(z)})) == null) {
+            a().add(new a(this, cls, null));
+            f<T> fVar = new f<>(cls, b());
+            d a2 = a(str, list, null, str2, HttpDefines.HttpMethod.GET, z);
+            e a3 = a(a2);
+            a(HttpDefines.HttpMethod.GET, str, a3);
+            return b(a2, a3, fVar);
+        }
+        return (RestResponseEntity) invokeCommon.objValue;
+    }
+
+    public RestTemplate(boolean z, Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), context, str, str2};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.f52262b = new ArrayList();
+        this.f52263c = null;
+        this.f52264d = null;
+        this.f52265e = "";
+        this.f52266f = true;
+        this.f52265e = str2;
+        this.f52263c = context.getApplicationContext();
+        this.f52264d = str;
+    }
+
+    public <T> RestResponseEntity<T> b(String str, List<RestNameValuePair> list, String str2, Class<T> cls) throws RestRuntimeException {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, str, list, str2, cls)) == null) ? b(str, list, str2, cls, false) : (RestResponseEntity) invokeLLLL.objValue;
+    }
+
+    public <T> T c(String str, List<RestNameValuePair> list, String str2, Class<T> cls) throws RestRuntimeException {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, str, list, str2, cls)) == null) ? (T) c(str, list, str2, cls, false) : (T) invokeLLLL.objValue;
+    }
+
+    public <T> RestResponseEntity<T> d(String str, List<RestNameValuePair> list, String str2, Class<T> cls) throws RestRuntimeException {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, list, str2, cls)) == null) ? d(str, list, str2, cls, false) : (RestResponseEntity) invokeLLLL.objValue;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE, INVOKE, IF] complete} */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x0081, code lost:
+        r5.e();
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private <T> RestResponseEntity<T> b(d dVar, e eVar, f<T> fVar) {
+        InterceptResult invokeLLL;
+        RestResponseEntity<T> restResponseEntity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, this, dVar, eVar, fVar)) == null) {
+            if (fVar == null) {
+                return null;
+            }
+            try {
+                if (eVar != null) {
+                    try {
+                        if (eVar.d().series() != HttpStatus.Series.CLIENT_ERROR && eVar.d().series() != HttpStatus.Series.SERVER_ERROR) {
+                            T a2 = fVar.a(eVar);
+                            if (a2 != null) {
+                                restResponseEntity = new RestResponseEntity<>(a2, eVar.c(), eVar.d());
+                            } else {
+                                restResponseEntity = new RestResponseEntity<>(eVar.c(), eVar.d());
+                            }
+                            restResponseEntity.b(fVar.a());
+                            return restResponseEntity;
+                        }
+                    } catch (Exception e2) {
+                        throw new RestRuntimeException("error: " + e2.getMessage(), e2);
+                    }
+                }
+                if (eVar != null) {
+                    eVar.e();
+                }
+                return null;
+            } finally {
+                if (dVar != null) {
+                    dVar.e();
+                }
+                if (eVar != null) {
+                    eVar.e();
+                }
+            }
+        }
+        return (RestResponseEntity) invokeLLL.objValue;
+    }
+
+    public <T> T a(String str, List<RestNameValuePair> list, String str2, Class<T> cls) throws RestRuntimeException {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, str, list, str2, cls)) == null) ? (T) a(str, list, str2, cls, false) : (T) invokeLLLL.objValue;
+    }
+
+    private d a(String str, List<RestNameValuePair> list, RestMultipartEntity restMultipartEntity, String str2, HttpDefines.HttpMethod httpMethod, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{str, list, restMultipartEntity, str2, httpMethod, Boolean.valueOf(z)})) == null) {
+            if (str == null || httpMethod == null) {
                 return null;
             }
             if (ApollonConstants.DEBUG) {
@@ -143,19 +364,19 @@ public class RestTemplate {
                 }
                 LogUtil.d("RestTemplate", sb.toString());
             }
-            d a2 = c.b().a(this.f53804c, this.f53806e, this.f53805d, str, httpDefines$HttpMethod, list, restMultipartEntity, str2, z);
-            for (RestHttpRequestInterceptor restHttpRequestInterceptor : f()) {
-                restHttpRequestInterceptor.a(this.f53804c, a2);
+            d a2 = c.a().a(this.f52263c, this.f52265e, this.f52264d, str, httpMethod, list, restMultipartEntity, str2, z);
+            for (RestHttpRequestInterceptor restHttpRequestInterceptor : a()) {
+                restHttpRequestInterceptor.a(this.f52263c, a2);
             }
             return a2;
         }
         return (d) invokeCommon.objValue;
     }
 
-    public final e b(d dVar) throws RestRuntimeException {
+    private e a(d dVar) throws RestRuntimeException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, dVar)) == null) {
             try {
                 URL url = new URL(dVar.b());
                 String host = url.getHost();
@@ -163,19 +384,19 @@ public class RestTemplate {
                 if (port > 0) {
                     String str = host + ":" + port;
                 }
-                if (this.f53807f) {
-                    ((RestUrlConnectionRequest) dVar).c(RestHttpDNSEnabler.a(url));
+                if (this.f52266f) {
+                    ((RestUrlConnectionRequest) dVar).b(RestHttpDNSEnabler.a(url));
                 }
                 dVar.a(url.toString());
                 e c2 = dVar.c();
                 if (ApollonConstants.DEBUG) {
-                    LogUtil.v(ApollonConstants.APOLLON_REST_TAG, "rtt:" + c2.c().k());
+                    LogUtil.v(ApollonConstants.APOLLON_REST_TAG, "rtt:" + c2.c().e());
                 }
                 return c2;
             } catch (Exception e2) {
                 e2.printStackTrace();
                 try {
-                    RestHttpDNSEnabler.e(new URL(dVar.b()).getHost());
+                    RestHttpDNSEnabler.b(new URL(dVar.b()).getHost());
                 } catch (MalformedURLException e3) {
                     e3.printStackTrace();
                 }
@@ -195,10 +416,10 @@ public class RestTemplate {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final <T> T c(d dVar, e eVar, f<T> fVar) {
+    private <T> T a(d dVar, e eVar, f<T> fVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, dVar, eVar, fVar)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, this, dVar, eVar, fVar)) == null) {
             if (fVar == null) {
                 return null;
             }
@@ -238,231 +459,15 @@ public class RestTemplate {
         return (T) invokeLLL.objValue;
     }
 
-    public <T> T d(String str, List<RestNameValuePair> list, String str2, Class<T> cls) throws RestRuntimeException {
-        InterceptResult invokeLLLL;
+    private void a(HttpDefines.HttpMethod httpMethod, String str, e eVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, str, list, str2, cls)) == null) ? (T) e(str, list, str2, cls, false) : (T) invokeLLLL.objValue;
-    }
-
-    public <T> T e(String str, List<RestNameValuePair> list, String str2, Class<T> cls, boolean z) throws RestRuntimeException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, list, str2, cls, Boolean.valueOf(z)})) == null) {
-            f().add(new b(this, cls, null));
-            f<T> fVar = new f<>(cls, k());
-            d a2 = a(str, list, null, str2, HttpDefines$HttpMethod.GET, z);
-            e b2 = b(a2);
-            g(HttpDefines$HttpMethod.GET, str, b2);
-            return (T) c(a2, b2, fVar);
-        }
-        return (T) invokeCommon.objValue;
-    }
-
-    public List<RestHttpRequestInterceptor> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f53803b : (List) invokeV.objValue;
-    }
-
-    public final void g(HttpDefines$HttpMethod httpDefines$HttpMethod, String str, e eVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048582, this, httpDefines$HttpMethod, str, eVar) == null) || eVar == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65542, this, httpMethod, str, eVar) == null) || eVar == null) {
             return;
         }
         try {
-            LogUtil.d("RestTemplate", httpDefines$HttpMethod.name() + " request for \"" + str + "\" resulted in " + eVar.d() + " (" + eVar.a() + SmallTailInfo.EMOTION_SUFFIX);
+            LogUtil.d("RestTemplate", httpMethod.name() + " request for \"" + str + "\" resulted in " + eVar.d() + " (" + eVar.a() + SmallTailInfo.EMOTION_SUFFIX);
         } catch (Exception e2) {
             LogUtil.d("RestTemplate", "IOException : " + e2.getMessage());
         }
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE, INVOKE, IF] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x0081, code lost:
-        r5.e();
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final <T> RestResponseEntity<T> h(d dVar, e eVar, f<T> fVar) {
-        InterceptResult invokeLLL;
-        RestResponseEntity<T> restResponseEntity;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, dVar, eVar, fVar)) == null) {
-            if (fVar == null) {
-                return null;
-            }
-            try {
-                if (eVar != null) {
-                    try {
-                        if (eVar.d().series() != HttpStatus.Series.CLIENT_ERROR && eVar.d().series() != HttpStatus.Series.SERVER_ERROR) {
-                            T a2 = fVar.a(eVar);
-                            if (a2 != null) {
-                                restResponseEntity = new RestResponseEntity<>(a2, eVar.c(), eVar.d());
-                            } else {
-                                restResponseEntity = new RestResponseEntity<>(eVar.c(), eVar.d());
-                            }
-                            restResponseEntity.c(fVar.b());
-                            return restResponseEntity;
-                        }
-                    } catch (Exception e2) {
-                        throw new RestRuntimeException("error: " + e2.getMessage(), e2);
-                    }
-                }
-                if (eVar != null) {
-                    eVar.e();
-                }
-                return null;
-            } finally {
-                if (dVar != null) {
-                    dVar.e();
-                }
-                if (eVar != null) {
-                    eVar.e();
-                }
-            }
-        }
-        return (RestResponseEntity) invokeLLL.objValue;
-    }
-
-    public <T> RestResponseEntity<T> i(String str, List<RestNameValuePair> list, String str2, Class<T> cls) throws RestRuntimeException {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, list, str2, cls)) == null) ? j(str, list, str2, cls, false) : (RestResponseEntity) invokeLLLL.objValue;
-    }
-
-    public <T> RestResponseEntity<T> j(String str, List<RestNameValuePair> list, String str2, Class<T> cls, boolean z) throws RestRuntimeException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, list, str2, cls, Boolean.valueOf(z)})) == null) {
-            f().add(new b(this, cls, null));
-            f<T> fVar = new f<>(cls, k());
-            d a2 = a(str, list, null, str2, HttpDefines$HttpMethod.GET, z);
-            e b2 = b(a2);
-            g(HttpDefines$HttpMethod.GET, str, b2);
-            return h(a2, b2, fVar);
-        }
-        return (RestResponseEntity) invokeCommon.objValue;
-    }
-
-    public AbstractHttpMessageConverter<?> k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a : (AbstractHttpMessageConverter) invokeV.objValue;
-    }
-
-    public <T> T l(String str, List<RestNameValuePair> list, String str2, Class<T> cls) throws RestRuntimeException {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048587, this, str, list, str2, cls)) == null) ? (T) m(str, list, str2, cls, false) : (T) invokeLLLL.objValue;
-    }
-
-    public <T> T m(String str, List<RestNameValuePair> list, String str2, Class<T> cls, boolean z) throws RestRuntimeException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{str, list, str2, cls, Boolean.valueOf(z)})) == null) {
-            f().add(new b(this, cls, null));
-            f<T> fVar = new f<>(cls, k());
-            d a2 = a(str, list, null, str2, HttpDefines$HttpMethod.POST, z);
-            e b2 = b(a2);
-            g(HttpDefines$HttpMethod.POST, str, b2);
-            return (T) c(a2, b2, fVar);
-        }
-        return (T) invokeCommon.objValue;
-    }
-
-    public <T> RestResponseEntity<T> n(String str, List<RestNameValuePair> list, String str2, Class<T> cls) throws RestRuntimeException {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048589, this, str, list, str2, cls)) == null) ? o(str, list, str2, cls, false) : (RestResponseEntity) invokeLLLL.objValue;
-    }
-
-    public <T> RestResponseEntity<T> o(String str, List<RestNameValuePair> list, String str2, Class<T> cls, boolean z) throws RestRuntimeException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{str, list, str2, cls, Boolean.valueOf(z)})) == null) {
-            LogUtil.d("#####. postForEntity. url = " + str);
-            f().add(new b(this, cls, null));
-            f<T> fVar = new f<>(cls, k());
-            d a2 = a(str, list, null, str2, HttpDefines$HttpMethod.POST, z);
-            e b2 = b(a2);
-            g(HttpDefines$HttpMethod.POST, str, b2);
-            return h(a2, b2, fVar);
-        }
-        return (RestResponseEntity) invokeCommon.objValue;
-    }
-
-    public <T> T postMultipartForObject(String str, RestMultipartEntity restMultipartEntity, String str2, Class<T> cls) throws RestRuntimeException {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048591, this, str, restMultipartEntity, str2, cls)) == null) {
-            f().add(new b(this, cls, null));
-            f<T> fVar = new f<>(cls, k());
-            d a2 = a(str, null, restMultipartEntity, str2, HttpDefines$HttpMethod.POST, false);
-            e b2 = b(a2);
-            g(HttpDefines$HttpMethod.POST, str, b2);
-            return (T) c(a2, b2, fVar);
-        }
-        return (T) invokeLLLL.objValue;
-    }
-
-    public void setMessageConverter(AbstractHttpMessageConverter<?> abstractHttpMessageConverter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, abstractHttpMessageConverter) == null) {
-            this.a = abstractHttpMessageConverter;
-        }
-    }
-
-    public void setRequestInterceptor(List<RestHttpRequestInterceptor> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, list) == null) {
-            this.f53803b = list;
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public RestTemplate(Context context, String str, String str2) {
-        this(true, context, str, str2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Boolean) objArr2[0]).booleanValue(), (Context) objArr2[1], (String) objArr2[2], (String) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public RestTemplate(boolean z, Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), context, str, str2};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.f53803b = new ArrayList();
-        this.f53804c = null;
-        this.f53805d = null;
-        this.f53806e = "";
-        this.f53807f = true;
-        this.f53806e = str2;
-        this.f53804c = context.getApplicationContext();
-        this.f53805d = str;
     }
 }

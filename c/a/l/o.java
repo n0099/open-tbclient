@@ -22,7 +22,7 @@ public class o extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NewGridImageLayout l;
-    public c.a.t0.s.r.a m;
+    public c.a.q0.r.r.a m;
     public int n;
     public String o;
     public int p;
@@ -33,7 +33,7 @@ public class o extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ o f4416e;
+        public final /* synthetic */ o f4070e;
 
         public a(o oVar) {
             Interceptable interceptable = $ic;
@@ -50,18 +50,18 @@ public class o extends h {
                     return;
                 }
             }
-            this.f4416e = oVar;
+            this.f4070e = oVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             o oVar;
-            a.InterfaceC0208a interfaceC0208a;
+            a.InterfaceC0201a interfaceC0201a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0208a = (oVar = this.f4416e).f4356i) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0201a = (oVar = this.f4070e).f4010i) == null) {
                 return;
             }
-            interfaceC0208a.a(oVar.m);
+            interfaceC0201a.a(oVar.m);
         }
     }
 
@@ -90,14 +90,14 @@ public class o extends h {
         }
 
         @Override // c.a.l.w0.a.b
-        public boolean a(a.C0210a c0210a) {
+        public boolean a(a.C0203a c0203a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0210a)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0203a)) == null) {
                 if (this.a.m != null && this.a.m.getThreadData() != null && !this.a.e().booleanValue()) {
-                    c.a.u0.g0.m.a(this.a.m.getThreadData().h0());
-                    c.a.u0.g0.m.l(this.a.l.mTitle, this.a.m.getThreadData().h0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    c.a.u0.g0.m.l(this.a.l.mAbstract, this.a.m.getThreadData().h0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    c.a.r0.f0.m.a(this.a.m.getThreadData().h0());
+                    c.a.r0.f0.m.l(this.a.l.mTitle, this.a.m.getThreadData().h0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    c.a.r0.f0.m.l(this.a.l.mAbstract, this.a.m.getThreadData().h0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -183,7 +183,7 @@ public class o extends h {
     }
 
     @Override // c.a.l.a
-    public void k(c.a.u0.g0.b0<c.a.t0.s.r.a> b0Var) {
+    public void k(c.a.r0.f0.b0<c.a.q0.r.r.a> b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, b0Var) == null) {
             this.l.setSubClickListener(b0Var);
@@ -208,7 +208,7 @@ public class o extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: t */
-    public void onBindDataToView(c.a.t0.s.r.a aVar) {
+    public void onBindDataToView(c.a.q0.r.r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
             this.m = aVar;
@@ -257,10 +257,10 @@ public class o extends h {
         }
     }
 
-    public void z(a.InterfaceC0208a interfaceC0208a) {
+    public void z(a.InterfaceC0201a interfaceC0201a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, interfaceC0208a) == null) {
-            this.f4356i = interfaceC0208a;
+        if (interceptable == null || interceptable.invokeL(1048592, this, interfaceC0201a) == null) {
+            this.f4010i = interfaceC0201a;
         }
     }
 }

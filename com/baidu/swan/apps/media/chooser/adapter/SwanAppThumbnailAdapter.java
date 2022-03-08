@@ -7,12 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.s0.a.d;
-import c.a.s0.a.f;
-import c.a.s0.a.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.swan.apps.media.chooser.model.VideoModel;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,29 +25,29 @@ import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<MediaModel> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MediaModel f39162b;
+    public MediaModel f37566b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f39163c;
+    public int f37567c;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class a extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public SimpleDraweeView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f39164b;
+        public View f37568b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f39165c;
+        public View f37569c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SwanAppThumbnailAdapter swanAppThumbnailAdapter, View view) {
@@ -69,9 +67,9 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
                     return;
                 }
             }
-            this.a = (SimpleDraweeView) view.findViewById(f.drag_photo_view);
-            this.f39164b = view.findViewById(f.album_thumbnail_video);
-            this.f39165c = view.findViewById(f.album_thumbnail_selected);
+            this.a = (SimpleDraweeView) view.findViewById(R.id.drag_photo_view);
+            this.f37568b = view.findViewById(R.id.album_thumbnail_video);
+            this.f37569c = view.findViewById(R.id.album_thumbnail_selected);
         }
     }
 
@@ -90,7 +88,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
                 return;
             }
         }
-        this.f39163c = context.getResources().getDimensionPixelSize(d.swanapp_preview_thumbnail);
+        this.f37567c = context.getResources().getDimensionPixelSize(R.dimen.swanapp_preview_thumbnail);
     }
 
     public MediaModel getItem(int i2) {
@@ -134,8 +132,8 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
             if (arrayList == null) {
                 return 0;
             }
-            MediaModel mediaModel2 = this.f39162b;
-            this.f39162b = mediaModel;
+            MediaModel mediaModel2 = this.f37566b;
+            this.f37566b = mediaModel;
             int size = arrayList.size();
             int i2 = 0;
             int i3 = -1;
@@ -163,7 +161,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
             this.a = arrayList;
             if (arrayList != null && arrayList.size() == 1) {
-                this.f39162b = arrayList.get(0);
+                this.f37566b = arrayList.get(0);
             }
             notifyDataSetChanged();
         }
@@ -179,17 +177,17 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
         }
         MediaModel mediaModel = arrayList.get(i2);
         aVar.a.setImageURI(Uri.fromFile(new File(mediaModel.getPath())));
-        aVar.f39164b.setVisibility(mediaModel instanceof VideoModel ? 0 : 8);
-        aVar.f39165c.setVisibility(mediaModel.equals(this.f39162b) ? 0 : 8);
+        aVar.f37568b.setVisibility(mediaModel instanceof VideoModel ? 0 : 8);
+        aVar.f37569c.setVisibility(mediaModel.equals(this.f37566b) ? 0 : 8);
         ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(Uri.fromFile(new File(mediaModel.getPath())));
-        int i3 = this.f39163c;
+        int i3 = this.f37567c;
         newBuilderWithSource.setResizeOptions(new ResizeOptions(i3, i3));
         newBuilderWithSource.setLocalThumbnailPreviewsEnabled(true);
         AbstractDraweeController build = Fresco.newDraweeControllerBuilder().setOldController(aVar.a.getController()).setAutoPlayAnimations(false).setImageRequest(newBuilderWithSource.build()).build();
         aVar.a.setController(build);
         DraweeHierarchy hierarchy = build.getHierarchy();
         if (hierarchy instanceof GenericDraweeHierarchy) {
-            c.a.s0.a.c1.a.C().c((GenericDraweeHierarchy) hierarchy, false);
+            c.a.p0.a.s0.a.C().c((GenericDraweeHierarchy) hierarchy, false);
         }
     }
 
@@ -198,6 +196,6 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
     public a onCreateViewHolder(ViewGroup viewGroup, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i2)) == null) ? new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(g.swanapp_thumbnail_drag_item, viewGroup, false)) : (a) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i2)) == null) ? new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.swanapp_thumbnail_drag_item, viewGroup, false)) : (a) invokeLI.objValue;
     }
 }

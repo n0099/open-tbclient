@@ -5,7 +5,7 @@ import com.airbnb.lottie.model.content.ShapeTrimPath;
 import com.airbnb.lottie.model.layer.BaseLayer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class TrimPathContent implements Content, BaseKeyframeAnimation.AnimationListener {
     public final BaseKeyframeAnimation<?, Float> endAnimation;
     public final boolean hidden;

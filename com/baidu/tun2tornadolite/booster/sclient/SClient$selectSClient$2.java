@@ -10,6 +10,7 @@ import com.baidu.tun2tornadolite.booster.LogTo;
 import com.baidu.tun2tornadolite.booster.Utils;
 import com.baidu.tun2tornadolite.booster.data.SClientConfig;
 import com.baidu.tun2tornadolite.booster.sclient.SClient;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.ar.core.InstallActivity;
 import java.util.ArrayList;
 import kotlin.Metadata;
@@ -26,7 +27,7 @@ import kotlinx.coroutines.CoroutineScope;
 import kotlinx.coroutines.Deferred;
 @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "Lcom/baidu/tun2tornadolite/booster/sclient/SClient$ConnectResult;", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 5, 1}, xi = 48)
 @DebugMetadata(c = "com.baidu.tun2tornadolite.booster.sclient.SClient$selectSClient$2", f = "SClient.kt", i = {}, l = {InstallActivity.BOX_SIZE_DP}, m = "invokeSuspend", n = {}, s = {})
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public final class SClient$selectSClient$2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super SClient.ConnectResult>, Object> {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ SClientConfig $config;
@@ -97,7 +98,7 @@ public final class SClient$selectSClient$2 extends SuspendLambda implements Func
                     arrayList.add(async$default);
                 }
                 LogTo logTo = LogTo.INSTANCE;
-                logTo.d("*****", "[Select SClient] nodes:" + arrayList.size() + ' ' + CollectionsKt___CollectionsKt.toList(this.$config.getSclients()));
+                logTo.d("*****", "[Select SClient] nodes:" + arrayList.size() + WebvttCueParser.CHAR_SPACE + CollectionsKt___CollectionsKt.toList(this.$config.getSclients()));
                 Utils utils = Utils.INSTANCE;
                 this.label = 1;
                 obj = utils.amb(arrayList, this);

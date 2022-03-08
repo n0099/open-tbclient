@@ -18,8 +18,9 @@ import com.baidu.wallet.base.widget.GridLayout;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.wallet.home.ui.widget.BaseItemLayout;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
+import com.google.android.exoplayer2.extractor.ts.PsExtractor;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class UMHGuideGroup extends BaseItemLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LEAST_ITEM = 3;
@@ -69,7 +70,7 @@ public class UMHGuideGroup extends BaseItemLayout {
             NetImageView netImageView = (NetImageView) findViewById(ResUtils.id(getContext(), "guide_group_pic"));
             this.mPicture = netImageView;
             ViewGroup.LayoutParams layoutParams = netImageView.getLayoutParams();
-            layoutParams.height = (DisplayUtils.getDisplayWidth(getContext()) * 189) / 750;
+            layoutParams.height = (DisplayUtils.getDisplayWidth(getContext()) * PsExtractor.PRIVATE_STREAM_1) / 750;
             this.mPicture.setLayoutParams(layoutParams);
             this.mGridLayout = (GridLayout) findViewById(ResUtils.id(getContext(), "guide_group_grid"));
             this.mPicture.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.home.ui.widget.umoneyhome.UMHGuideGroup.1

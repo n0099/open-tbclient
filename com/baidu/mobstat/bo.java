@@ -23,13 +23,13 @@ import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.URL;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public final class bo {
     public static /* synthetic */ Interceptable $ic;
     public static final Proxy a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Proxy f36791b;
+    public static final Proxy f35194b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,7 +46,7 @@ public final class bo {
             }
         }
         a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
-        f36791b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
+        f35194b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
     }
 
     public static String a() {
@@ -276,7 +276,7 @@ public final class bo {
                     String lowerCase = extraInfo != null ? extraInfo.toLowerCase() : "";
                     if (!lowerCase.startsWith(ConectivityUtils.APN_CMWAP) && !lowerCase.startsWith(ConectivityUtils.APN_UNIWAP) && !lowerCase.startsWith(ConectivityUtils.APN_3GWAP)) {
                         if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
-                            httpURLConnection = (HttpURLConnection) url.openConnection(f36791b);
+                            httpURLConnection = (HttpURLConnection) url.openConnection(f35194b);
                         }
                     } else {
                         httpURLConnection = (HttpURLConnection) url.openConnection(a);

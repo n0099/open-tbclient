@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.adModel;
 
-import c.a.u0.e1.s1.c;
+import c.a.r0.d1.i1.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.Error;
 import tbclient.GetADList.GetADListResIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class ADHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -41,13 +41,13 @@ import com.baidu.pass.ecommerce.presenter.OnceLocationManager;
 import com.baidu.pass.ecommerce.view.ScrollLayout;
 import com.baidu.pass.ecommerce.view.ScrollRecyclerView;
 import com.baidu.sapi2.activity.BaseOptionActivity;
-import com.baidu.sapi2.ecommerce.R;
 import com.baidu.sapi2.ecommerce.result.AddressSelectedBean;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.SoftKeyBoardListener;
 import com.baidu.sapi2.views.SweepLightLoadingView;
 import com.baidu.sapi2.views.ViewUtility;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,7 +55,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiPresenter> implements ScrollLayout.OnScrollChangedListener, BaiduMap.OnMapStatusChangeListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_BDSTOKEN_FROM_ADDR_EDIT = "key_bdstoken_from_addr_edit";

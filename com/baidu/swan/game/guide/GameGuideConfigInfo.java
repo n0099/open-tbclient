@@ -2,8 +2,7 @@ package com.baidu.swan.game.guide;
 
 import android.graphics.Bitmap;
 import android.text.TextUtils;
-import c.a.s0.a.k;
-import c.a.s0.h.j.o.a;
+import c.a.p0.a.a;
 import com.airbnb.lottie.LottieComposition;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +14,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class GameGuideConfigInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_APP_KEY = "app_key";
@@ -79,7 +78,7 @@ public class GameGuideConfigInfo implements Serializable {
     public String targetAppPackageId;
     public ViewInfo viewInfo;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class CloseInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TARGET_TYPE_GAME = 1;
@@ -160,7 +159,7 @@ public class GameGuideConfigInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class DialogInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -221,7 +220,7 @@ public class GameGuideConfigInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class RecommendGameInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -260,7 +259,7 @@ public class GameGuideConfigInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class ViewInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -339,13 +338,13 @@ public class GameGuideConfigInfo implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             if (jSONObject == null) {
-                boolean z = k.a;
+                boolean z = a.a;
                 return null;
             }
             GameGuideConfigInfo gameGuideConfigInfo = new GameGuideConfigInfo();
             int optInt = jSONObject.optInt("status", 0);
             gameGuideConfigInfo.status = optInt;
-            a.p(Boolean.valueOf(jSONObject.optBoolean(KEY_OPEN_INSTALL_BOOT, false)).booleanValue());
+            c.a.p0.h.b.g.a.p(Boolean.valueOf(jSONObject.optBoolean(KEY_OPEN_INSTALL_BOOT, false)).booleanValue());
             gameGuideConfigInfo.expirationTime = jSONObject.optLong(KEY_EXPIRATION_TIME, 0L);
             gameGuideConfigInfo.packageExpire = jSONObject.optLong(KEY_PACKAGE_EXPIRE, 0L);
             gameGuideConfigInfo.install_result = jSONObject.optBoolean(KEY_INSTALL_RESULT, true);
@@ -359,7 +358,7 @@ public class GameGuideConfigInfo implements Serializable {
             }
             gameGuideConfigInfo.popupSelection = jSONObject.optInt(KEY_POPUP_SELECTION, 0);
             if (optInt == 0) {
-                boolean z2 = k.a;
+                boolean z2 = a.a;
                 return gameGuideConfigInfo;
             }
             gameGuideConfigInfo.perCoinNum = jSONObject.optInt(KEY_PER_COIN_NUM, 0);

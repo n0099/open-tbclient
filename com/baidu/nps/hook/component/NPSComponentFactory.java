@@ -8,7 +8,7 @@ import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.os.Process;
-import c.a.e0.i.b;
+import c.a.c0.h.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.manager.NPSManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @TargetApi(28)
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class NPSComponentFactory extends AppComponentFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

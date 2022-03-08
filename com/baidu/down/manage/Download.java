@@ -17,7 +17,7 @@ import java.io.File;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class Download {
     public static /* synthetic */ Interceptable $ic;
     public static final DecimalFormat DFOEMAT;
@@ -54,7 +54,7 @@ public class Download {
     public String mUrl;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class DownloadState {
         public static final /* synthetic */ DownloadState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

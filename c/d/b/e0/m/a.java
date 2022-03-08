@@ -2,7 +2,7 @@ package c.d.b.e0.m;
 
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public interface a {
     void delete(File file) throws IOException;
 

@@ -1,7 +1,6 @@
 package com.baidu.tbadk.clientConfig;
 
 import c.a.d.a.f;
-import c.a.u0.a4.j;
 import com.baidu.adp.base.BdBaseFragmentActivity;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
@@ -9,24 +8,25 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetClientConfig.DataRes;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class ClientConfigModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.t0.q.a f40355e;
+    public c.a.q0.p.a f38759e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.a.d.c.g.a f40356f;
+    public final c.a.d.c.g.a f38760f;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,25 +59,25 @@ public class ClientConfigModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 if (!this.a.z(responsedMessage)) {
-                    if (this.a.f40355e != null) {
-                        this.a.f40355e.onError("");
+                    if (this.a.f38759e != null) {
+                        this.a.f38759e.onError("");
                     }
                 } else if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
                     if (responsedMessage instanceof ClientConfigHttpProtoResponse) {
                         this.a.A(((ClientConfigHttpProtoResponse) responsedMessage).getData());
                     } else if (responsedMessage instanceof ClientConfigSocketResponse) {
                         this.a.A(((ClientConfigSocketResponse) responsedMessage).getData());
-                    } else if (this.a.f40355e != null) {
-                        this.a.f40355e.onError("");
+                    } else if (this.a.f38759e != null) {
+                        this.a.f38759e.onError("");
                     }
                 } else {
                     String errorString = responsedMessage.getErrorString();
-                    String string = TbadkCoreApplication.getInst().getString(j.neterror);
+                    String string = TbadkCoreApplication.getInst().getString(R.string.neterror);
                     if (StringUtils.isNull(errorString)) {
                         errorString = string;
                     }
-                    if (this.a.f40355e != null) {
-                        this.a.f40355e.onError(errorString);
+                    if (this.a.f38759e != null) {
+                        this.a.f38759e.onError(errorString);
                     }
                 }
             }
@@ -85,7 +85,7 @@ public class ClientConfigModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ClientConfigModel(BdBaseFragmentActivity<?> bdBaseFragmentActivity, c.a.t0.q.a aVar) {
+    public ClientConfigModel(BdBaseFragmentActivity<?> bdBaseFragmentActivity, c.a.q0.p.a aVar) {
         super(bdBaseFragmentActivity.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -103,8 +103,8 @@ public class ClientConfigModel extends BdBaseModel {
             }
         }
         a aVar2 = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
-        this.f40356f = aVar2;
-        this.f40355e = aVar;
+        this.f38760f = aVar2;
+        this.f38759e = aVar;
         registerListener(aVar2);
     }
 
@@ -112,13 +112,13 @@ public class ClientConfigModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) {
             if (dataRes == null) {
-                if (this.f40355e != null) {
-                    this.f40355e.onError(TbadkCoreApplication.getInst().getString(j.data_load_error));
+                if (this.f38759e != null) {
+                    this.f38759e.onError(TbadkCoreApplication.getInst().getString(R.string.data_load_error));
                     return;
                 }
                 return;
             }
-            c.a.t0.q.a aVar = this.f40355e;
+            c.a.q0.p.a aVar = this.f38759e;
             if (aVar != null) {
                 aVar.a(dataRes);
             }

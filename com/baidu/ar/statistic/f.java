@@ -1,5 +1,5 @@
 package com.baidu.ar.statistic;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public interface f {
     void onFrameIn();
 

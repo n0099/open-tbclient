@@ -2,7 +2,7 @@ package com.ss.android.downloadlib.addownload.d;
 
 import android.content.Context;
 import com.ss.android.downloadlib.addownload.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class g implements d {
     @Override // com.ss.android.downloadlib.addownload.d.d
     public boolean a(com.ss.android.downloadad.api.a.b bVar, int i2, c cVar) {

@@ -38,48 +38,48 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public static volatile d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f32005b;
+    public static final Object f30408b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.pushservice.c.c$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f32006b;
+        public static final a f30409b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f32007c;
+        public static final a f30410c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f32008d;
+        public static final a f30411d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f32009e;
+        public static final a f30412e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final a f32010f;
+        public static final a f30413f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final a f32011g;
+        public static final a f30414g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final /* synthetic */ a[] f32012h;
+        public static final /* synthetic */ a[] f30415h;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -96,14 +96,14 @@ public class c {
                 }
             }
             a = new a("actionId", 0);
-            f32006b = new a("actionName", 1);
-            f32007c = new a(PmsConstant.Statistic.Key.REV_TIMESTAMP, 2);
-            f32008d = new a("pkgName", 3);
-            f32009e = new a(PushManager.APP_VERSION_CODE, 4);
-            f32010f = new a(PushManager.APP_VERSION_NAME, 5);
+            f30409b = new a("actionName", 1);
+            f30410c = new a(PmsConstant.Statistic.Key.REV_TIMESTAMP, 2);
+            f30411d = new a("pkgName", 3);
+            f30412e = new a(PushManager.APP_VERSION_CODE, 4);
+            f30413f = new a(PushManager.APP_VERSION_NAME, 5);
             a aVar = new a("status", 6);
-            f32011g = aVar;
-            f32012h = new a[]{a, f32006b, f32007c, f32008d, f32009e, f32010f, aVar};
+            f30414g = aVar;
+            f30415h = new a[]{a, f30409b, f30410c, f30411d, f30412e, f30413f, aVar};
         }
 
         public a(String str, int i2) {
@@ -127,16 +127,16 @@ public class c {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final b f32013b;
+        public static final b f30416b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final /* synthetic */ b[] f32014c;
+        public static final /* synthetic */ b[] f30417c;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -154,8 +154,8 @@ public class c {
             }
             a = new b("timeStamps", 0);
             b bVar = new b("clickData", 1);
-            f32013b = bVar;
-            f32014c = new b[]{a, bVar};
+            f30416b = bVar;
+            f30417c = new b[]{a, bVar};
         }
 
         public b(String str, int i2) {
@@ -179,12 +179,12 @@ public class c {
     }
 
     /* renamed from: com.baidu.android.pushservice.c.c$c  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C1733c implements DatabaseErrorHandler {
+    /* loaded from: classes3.dex */
+    public static class C1709c implements DatabaseErrorHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1733c() {
+        public C1709c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -198,7 +198,7 @@ public class c {
             }
         }
 
-        public /* synthetic */ C1733c(AnonymousClass1 anonymousClass1) {
+        public /* synthetic */ C1709c(AnonymousClass1 anonymousClass1) {
             this();
         }
 
@@ -248,34 +248,34 @@ public class c {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class d extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public static final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f32015b;
+        public static final String f30418b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String f32016c;
+        public static final String f30419c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final String f32017d;
+        public static final String f30420d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final String f32018e;
+        public static final String f30421e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final String f32019f;
+        public static final String f30422f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final String f32020g;
+        public static final String f30423g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final String f32021h;
+        public static final String f30424h;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final String f32022i;
+        public static final String f30425i;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -291,55 +291,55 @@ public class c {
                     return;
                 }
             }
-            a = "CREATE TABLE PushShareInfo (" + g.a.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + g.f32039b.name() + " LONG NOT NULL DEFAULT ((0)), " + g.f32040c.name() + " INTEGER DEFAULT ((0)), " + g.f32041d.name() + " TEXT, " + g.f32042e.name() + " TEXT, " + g.f32043f.name() + " TEXT, " + g.f32044g.name() + " TEXT, " + g.f32045h.name() + " TEXT, " + g.f32046i.name() + " TEXT, " + g.f32047j.name() + " TEXT, " + g.k.name() + " TEXT, " + g.l.name() + " TEXT);";
+            a = "CREATE TABLE PushShareInfo (" + g.a.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + g.f30442b.name() + " LONG NOT NULL DEFAULT ((0)), " + g.f30443c.name() + " INTEGER DEFAULT ((0)), " + g.f30444d.name() + " TEXT, " + g.f30445e.name() + " TEXT, " + g.f30446f.name() + " TEXT, " + g.f30447g.name() + " TEXT, " + g.f30448h.name() + " TEXT, " + g.f30449i.name() + " TEXT, " + g.f30450j.name() + " TEXT, " + g.k.name() + " TEXT, " + g.l.name() + " TEXT);";
             StringBuilder sb = new StringBuilder();
             sb.append("CREATE TABLE PushVerifInfo (");
             sb.append(h.a.name());
             sb.append(" INTEGER PRIMARY KEY AUTOINCREMENT, ");
-            sb.append(h.f32048b.name());
+            sb.append(h.f30451b.name());
             sb.append(" TEXT NOT NULL, ");
-            sb.append(h.f32049c.name());
+            sb.append(h.f30452c.name());
             sb.append(" TEXT NOT NULL, ");
-            sb.append(h.f32050d.name());
+            sb.append(h.f30453d.name());
             sb.append(" TEXT, ");
-            sb.append(h.f32051e.name());
+            sb.append(h.f30454e.name());
             sb.append(" TEXT);");
-            f32015b = sb.toString();
-            f32016c = "CREATE TABLE PushMsgInfos (" + e.a.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + e.f32023b.name() + "  TEXT, " + e.f32024c.name() + "  INTEGER NOT NULL, " + e.f32025d.name() + " LONG NOT NULL, " + e.f32027f.name() + " TEXT, " + e.f32028g.name() + "  TEXT, " + e.f32029h.name() + "  LONG, " + e.f32030i.name() + "  INTEGER, " + e.f32026e.name() + " LONG NOT NULL, " + e.f32031j.name() + "  INTEGER);";
+            f30418b = sb.toString();
+            f30419c = "CREATE TABLE PushMsgInfos (" + e.a.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + e.f30426b.name() + "  TEXT, " + e.f30427c.name() + "  INTEGER NOT NULL, " + e.f30428d.name() + " LONG NOT NULL, " + e.f30430f.name() + " TEXT, " + e.f30431g.name() + "  TEXT, " + e.f30432h.name() + "  LONG, " + e.f30433i.name() + "  INTEGER, " + e.f30429e.name() + " LONG NOT NULL, " + e.f30434j.name() + "  INTEGER);";
             StringBuilder sb2 = new StringBuilder();
             sb2.append("CREATE TABLE PushDataInfo (");
             sb2.append(f.a.name());
             sb2.append(" TEXT NOT NULL, ");
-            sb2.append(f.f32032b.name());
+            sb2.append(f.f30435b.name());
             sb2.append(" INTEGER NOT NULL DEFAULT ((0)), ");
-            sb2.append(f.f32033c.name());
+            sb2.append(f.f30436c.name());
             sb2.append(" INTEGER NOT NULL DEFAULT ((0)), ");
-            sb2.append(f.f32034d.name());
+            sb2.append(f.f30437d.name());
             sb2.append("  LONG NOT NULL, ");
-            sb2.append(f.f32035e.name());
+            sb2.append(f.f30438e.name());
             sb2.append(" TEXT,");
-            sb2.append(f.f32036f.name());
+            sb2.append(f.f30439f.name());
             sb2.append(" LONG,");
-            sb2.append(f.f32037g.name());
+            sb2.append(f.f30440g.name());
             sb2.append(" INTEGER DEFAULT ((0)));");
-            f32017d = sb2.toString();
-            f32018e = "CREATE TABLE ClickMsgUploadInfo (" + b.a.name() + " LONG NOT NULL," + b.f32013b.name() + " TEXT NOT NULL);";
-            f32019f = "CREATE TABLE PushAppStatus (" + a.a.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + a.f32006b.name() + " TEXT NOT NULL, " + a.f32007c.name() + " LONG NOT NULL, " + a.f32008d.name() + " TEXT, " + a.f32009e.name() + " INTEGER, " + a.f32010f.name() + " TEXT, " + a.f32011g.name() + " INTEGER);";
+            f30420d = sb2.toString();
+            f30421e = "CREATE TABLE ClickMsgUploadInfo (" + b.a.name() + " LONG NOT NULL," + b.f30416b.name() + " TEXT NOT NULL);";
+            f30422f = "CREATE TABLE PushAppStatus (" + a.a.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + a.f30409b.name() + " TEXT NOT NULL, " + a.f30410c.name() + " LONG NOT NULL, " + a.f30411d.name() + " TEXT, " + a.f30412e.name() + " INTEGER, " + a.f30413f.name() + " TEXT, " + a.f30414g.name() + " INTEGER);";
             StringBuilder sb3 = new StringBuilder();
             sb3.append("ALTER TABLE PushShareInfo ADD COLUMN ");
-            sb3.append(g.f32042e.name());
+            sb3.append(g.f30445e.name());
             sb3.append(" TEXT");
-            f32020g = sb3.toString();
+            f30423g = sb3.toString();
             StringBuilder sb4 = new StringBuilder();
             sb4.append("ALTER TABLE PushShareInfo ADD COLUMN ");
-            sb4.append(g.f32043f.name());
+            sb4.append(g.f30446f.name());
             sb4.append(" TEXT");
-            f32021h = sb4.toString();
+            f30424h = sb4.toString();
             StringBuilder sb5 = new StringBuilder();
             sb5.append("ALTER TABLE PushMsgInfos ADD COLUMN ");
-            sb5.append(e.f32031j.name());
+            sb5.append(e.f30434j.name());
             sb5.append(" INTEGER");
-            f32022i = sb5.toString();
+            f30425i = sb5.toString();
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -402,11 +402,11 @@ public class c {
             if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
                 try {
                     sQLiteDatabase.execSQL(a);
-                    sQLiteDatabase.execSQL(f32015b);
-                    sQLiteDatabase.execSQL(f32016c);
-                    sQLiteDatabase.execSQL(f32019f);
-                    sQLiteDatabase.execSQL(f32017d);
-                    sQLiteDatabase.execSQL(f32018e);
+                    sQLiteDatabase.execSQL(f30418b);
+                    sQLiteDatabase.execSQL(f30419c);
+                    sQLiteDatabase.execSQL(f30422f);
+                    sQLiteDatabase.execSQL(f30420d);
+                    sQLiteDatabase.execSQL(f30421e);
                 } catch (Exception unused) {
                 }
             }
@@ -425,85 +425,85 @@ public class c {
                     return;
                 }
                 if (i2 == 2) {
-                    sQLiteDatabase.execSQL(f32016c);
+                    sQLiteDatabase.execSQL(f30419c);
                 } else if (i2 != 3) {
                     if (i2 != 4) {
                         if (i2 == 5) {
-                            sQLiteDatabase.execSQL(f32017d);
-                            str3 = f32018e;
+                            sQLiteDatabase.execSQL(f30420d);
+                            str3 = f30421e;
                             sQLiteDatabase.execSQL(str3);
-                            str2 = f32021h;
+                            str2 = f30424h;
                             sQLiteDatabase.execSQL(str2);
-                            str = f32022i;
+                            str = f30425i;
                             sQLiteDatabase.execSQL(str);
                         } else if (i2 == 6) {
-                            sQLiteDatabase.execSQL(f32017d);
-                            str2 = f32018e;
+                            sQLiteDatabase.execSQL(f30420d);
+                            str2 = f30421e;
                             sQLiteDatabase.execSQL(str2);
-                            str = f32022i;
+                            str = f30425i;
                             sQLiteDatabase.execSQL(str);
                         } else if (i2 == 7) {
-                            sQLiteDatabase.execSQL(f32017d);
-                            str = f32018e;
+                            sQLiteDatabase.execSQL(f30420d);
+                            str = f30421e;
                             sQLiteDatabase.execSQL(str);
                         } else {
                             return;
                         }
                     }
-                    sQLiteDatabase.execSQL(f32017d);
-                    sQLiteDatabase.execSQL(f32018e);
-                    str3 = f32020g;
+                    sQLiteDatabase.execSQL(f30420d);
+                    sQLiteDatabase.execSQL(f30421e);
+                    str3 = f30423g;
                     sQLiteDatabase.execSQL(str3);
-                    str2 = f32021h;
+                    str2 = f30424h;
                     sQLiteDatabase.execSQL(str2);
-                    str = f32022i;
+                    str = f30425i;
                     sQLiteDatabase.execSQL(str);
                 }
-                sQLiteDatabase.execSQL(f32019f);
-                sQLiteDatabase.execSQL(f32017d);
-                sQLiteDatabase.execSQL(f32018e);
-                str3 = f32020g;
+                sQLiteDatabase.execSQL(f30422f);
+                sQLiteDatabase.execSQL(f30420d);
+                sQLiteDatabase.execSQL(f30421e);
+                str3 = f30423g;
                 sQLiteDatabase.execSQL(str3);
-                str2 = f32021h;
+                str2 = f30424h;
                 sQLiteDatabase.execSQL(str2);
-                str = f32022i;
+                str = f30425i;
                 sQLiteDatabase.execSQL(str);
             }
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class e {
         public static /* synthetic */ Interceptable $ic;
         public static final e a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final e f32023b;
+        public static final e f30426b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final e f32024c;
+        public static final e f30427c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final e f32025d;
+        public static final e f30428d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final e f32026e;
+        public static final e f30429e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final e f32027f;
+        public static final e f30430f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final e f32028g;
+        public static final e f30431g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final e f32029h;
+        public static final e f30432h;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final e f32030i;
+        public static final e f30433i;
 
         /* renamed from: j  reason: collision with root package name */
-        public static final e f32031j;
+        public static final e f30434j;
         public static final /* synthetic */ e[] k;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -521,17 +521,17 @@ public class c {
                 }
             }
             a = new e("MsgInfoId", 0);
-            f32023b = new e(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, 1);
-            f32024c = new e("msgType", 2);
-            f32025d = new e("msgId", 3);
-            f32026e = new e("arriveTime", 4);
-            f32027f = new e("secureInfo", 5);
-            f32028g = new e("msgBody", 6);
-            f32029h = new e("expireTime", 7);
-            f32030i = new e("ackRet", 8);
+            f30426b = new e(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, 1);
+            f30427c = new e("msgType", 2);
+            f30428d = new e("msgId", 3);
+            f30429e = new e("arriveTime", 4);
+            f30430f = new e("secureInfo", 5);
+            f30431g = new e("msgBody", 6);
+            f30432h = new e("expireTime", 7);
+            f30433i = new e("ackRet", 8);
             e eVar = new e(MiPushMessage.KEY_NOTIFY_ID, 9);
-            f32031j = eVar;
-            k = new e[]{a, f32023b, f32024c, f32025d, f32026e, f32027f, f32028g, f32029h, f32030i, eVar};
+            f30434j = eVar;
+            k = new e[]{a, f30426b, f30427c, f30428d, f30429e, f30430f, f30431g, f30432h, f30433i, eVar};
         }
 
         public e(String str, int i2) {
@@ -555,31 +555,31 @@ public class c {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class f {
         public static /* synthetic */ Interceptable $ic;
         public static final f a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final f f32032b;
+        public static final f f30435b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final f f32033c;
+        public static final f f30436c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final f f32034d;
+        public static final f f30437d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final f f32035e;
+        public static final f f30438e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final f f32036f;
+        public static final f f30439f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final f f32037g;
+        public static final f f30440g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final /* synthetic */ f[] f32038h;
+        public static final /* synthetic */ f[] f30441h;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -596,14 +596,14 @@ public class c {
                 }
             }
             a = new f("dataKey", 0);
-            f32032b = new f("dataSensitive", 1);
-            f32033c = new f("canUpload", 2);
-            f32034d = new f("timeInterval", 3);
-            f32035e = new f("dataValue", 4);
-            f32036f = new f("lastUpdateStamp", 5);
+            f30435b = new f("dataSensitive", 1);
+            f30436c = new f("canUpload", 2);
+            f30437d = new f("timeInterval", 3);
+            f30438e = new f("dataValue", 4);
+            f30439f = new f("lastUpdateStamp", 5);
             f fVar = new f("bindCanUpload", 6);
-            f32037g = fVar;
-            f32038h = new f[]{a, f32032b, f32033c, f32034d, f32035e, f32036f, fVar};
+            f30440g = fVar;
+            f30441h = new f[]{a, f30435b, f30436c, f30437d, f30438e, f30439f, fVar};
         }
 
         public f(String str, int i2) {
@@ -627,37 +627,37 @@ public class c {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class g {
         public static /* synthetic */ Interceptable $ic;
         public static final g a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final g f32039b;
+        public static final g f30442b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final g f32040c;
+        public static final g f30443c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final g f32041d;
+        public static final g f30444d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final g f32042e;
+        public static final g f30445e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final g f32043f;
+        public static final g f30446f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final g f32044g;
+        public static final g f30447g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final g f32045h;
+        public static final g f30448h;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final g f32046i;
+        public static final g f30449i;
 
         /* renamed from: j  reason: collision with root package name */
-        public static final g f32047j;
+        public static final g f30450j;
         public static final g k;
         public static final g l;
         public static final /* synthetic */ g[] m;
@@ -677,19 +677,19 @@ public class c {
                 }
             }
             a = new g("PushInfoId", 0);
-            f32039b = new g("PushPriority", 1);
-            f32040c = new g("PushVersion", 2);
-            f32041d = new g("PushChannelID", 3);
-            f32042e = new g("PushNewChannelID", 4);
-            f32043f = new g("PushChannelToken", 5);
-            f32044g = new g("PushCurPkgName", 6);
-            f32045h = new g("PushWebAppBindInfo", 7);
-            f32046i = new g("PushLightAppBindInfo", 8);
-            f32047j = new g("PushSDKClientBindInfo", 9);
+            f30442b = new g("PushPriority", 1);
+            f30443c = new g("PushVersion", 2);
+            f30444d = new g("PushChannelID", 3);
+            f30445e = new g("PushNewChannelID", 4);
+            f30446f = new g("PushChannelToken", 5);
+            f30447g = new g("PushCurPkgName", 6);
+            f30448h = new g("PushWebAppBindInfo", 7);
+            f30449i = new g("PushLightAppBindInfo", 8);
+            f30450j = new g("PushSDKClientBindInfo", 9);
             k = new g("PushClientsBindInfo", 10);
             g gVar = new g("PushSelfBindInfo", 11);
             l = gVar;
-            m = new g[]{a, f32039b, f32040c, f32041d, f32042e, f32043f, f32044g, f32045h, f32046i, f32047j, k, gVar};
+            m = new g[]{a, f30442b, f30443c, f30444d, f30445e, f30446f, f30447g, f30448h, f30449i, f30450j, k, gVar};
         }
 
         public g(String str, int i2) {
@@ -713,25 +713,25 @@ public class c {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class h {
         public static /* synthetic */ Interceptable $ic;
         public static final h a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final h f32048b;
+        public static final h f30451b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final h f32049c;
+        public static final h f30452c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final h f32050d;
+        public static final h f30453d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final h f32051e;
+        public static final h f30454e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final /* synthetic */ h[] f32052f;
+        public static final /* synthetic */ h[] f30455f;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -748,12 +748,12 @@ public class c {
                 }
             }
             a = new h("verifId", 0);
-            f32048b = new h("msgId", 1);
-            f32049c = new h("md5Infos", 2);
-            f32050d = new h(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, 3);
+            f30451b = new h("msgId", 1);
+            f30452c = new h("md5Infos", 2);
+            f30453d = new h(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, 3);
             h hVar = new h("time", 4);
-            f32051e = hVar;
-            f32052f = new h[]{a, f32048b, f32049c, f32050d, hVar};
+            f30454e = hVar;
+            f30455f = new h[]{a, f30451b, f30452c, f30453d, hVar};
         }
 
         public h(String str, int i2) {
@@ -789,7 +789,7 @@ public class c {
                 return;
             }
         }
-        f32005b = new Object();
+        f30408b = new Object();
     }
 
     public static synchronized long a(Context context, com.baidu.android.pushservice.c.b bVar) {
@@ -800,23 +800,23 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, bVar)) == null) {
             synchronized (c.class) {
-                synchronized (f32005b) {
+                synchronized (f30408b) {
                     SQLiteDatabase a2 = a(context);
                     long j2 = -1;
                     if (a2 == null) {
                         return -1L;
                     }
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put(g.f32039b.name(), Long.valueOf(bVar.a));
-                    contentValues.put(g.f32040c.name(), Long.valueOf(bVar.f31996b));
-                    contentValues.put(g.f32041d.name(), bVar.f31997c);
-                    contentValues.put(g.f32042e.name(), bVar.f31998d);
-                    contentValues.put(g.f32044g.name(), bVar.f31999e);
-                    contentValues.put(g.f32046i.name(), bVar.f32001g);
-                    contentValues.put(g.f32045h.name(), bVar.f32000f);
-                    contentValues.put(g.f32047j.name(), bVar.f32002h);
-                    contentValues.put(g.k.name(), bVar.f32003i);
-                    contentValues.put(g.l.name(), bVar.f32004j);
+                    contentValues.put(g.f30442b.name(), Long.valueOf(bVar.a));
+                    contentValues.put(g.f30443c.name(), Long.valueOf(bVar.f30399b));
+                    contentValues.put(g.f30444d.name(), bVar.f30400c);
+                    contentValues.put(g.f30445e.name(), bVar.f30401d);
+                    contentValues.put(g.f30447g.name(), bVar.f30402e);
+                    contentValues.put(g.f30449i.name(), bVar.f30404g);
+                    contentValues.put(g.f30448h.name(), bVar.f30403f);
+                    contentValues.put(g.f30450j.name(), bVar.f30405h);
+                    contentValues.put(g.k.name(), bVar.f30406i);
+                    contentValues.put(g.l.name(), bVar.f30407j);
                     Cursor cursor2 = null;
                     try {
                         cursor = a2.query("PushShareInfo", null, null, null, null, null, null);
@@ -885,7 +885,7 @@ public class c {
     public static Object a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f32005b : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f30408b : invokeV.objValue;
     }
 
     public static String a(Context context, boolean z) {
@@ -893,7 +893,7 @@ public class c {
         Cursor cursor;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, z)) == null) {
-            synchronized (f32005b) {
+            synchronized (f30408b) {
                 SQLiteDatabase a2 = a(context);
                 Cursor cursor2 = null;
                 r9 = null;
@@ -904,10 +904,10 @@ public class c {
                     return null;
                 }
                 try {
-                    cursor = a2.query("PushShareInfo", new String[]{g.f32041d.name(), g.f32042e.name()}, null, null, null, null, null);
+                    cursor = a2.query("PushShareInfo", new String[]{g.f30444d.name(), g.f30445e.name()}, null, null, null, null, null);
                     try {
                         if (cursor.moveToFirst()) {
-                            str = cursor.getString(cursor.getColumnIndex((z ? g.f32042e : g.f32041d).name()));
+                            str = cursor.getString(cursor.getColumnIndex((z ? g.f30445e : g.f30444d).name()));
                         }
                         if (cursor != null && !cursor.isClosed()) {
                             cursor.close();
@@ -944,7 +944,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65541, null, context, j2) == null) {
             synchronized (c.class) {
-                synchronized (f32005b) {
+                synchronized (f30408b) {
                     SQLiteDatabase a2 = a(context);
                     if (a2 == null) {
                         return;
@@ -975,7 +975,7 @@ public class c {
                         }
                         if (query.getCount() != 0) {
                             ContentValues contentValues = new ContentValues();
-                            contentValues.put(g.f32039b.name(), Long.valueOf(j2));
+                            contentValues.put(g.f30442b.name(), Long.valueOf(j2));
                             a2.update("PushShareInfo", contentValues, g.a.name() + "=1", null);
                             if (query != null && !query.isClosed()) {
                                 query.close();
@@ -985,15 +985,15 @@ public class c {
                     }
                     com.baidu.android.pushservice.c.b bVar = new com.baidu.android.pushservice.c.b();
                     bVar.a = j2;
-                    bVar.f31996b = 0L;
-                    bVar.f31997c = null;
-                    bVar.f31998d = null;
-                    bVar.f31999e = null;
-                    bVar.f32001g = null;
-                    bVar.f32000f = null;
-                    bVar.f32002h = null;
-                    bVar.f32003i = null;
-                    bVar.f32004j = null;
+                    bVar.f30399b = 0L;
+                    bVar.f30400c = null;
+                    bVar.f30401d = null;
+                    bVar.f30402e = null;
+                    bVar.f30404g = null;
+                    bVar.f30403f = null;
+                    bVar.f30405h = null;
+                    bVar.f30406i = null;
+                    bVar.f30407j = null;
                     a(context, bVar);
                     if (query != null) {
                         query.close();
@@ -1009,7 +1009,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, context, str) == null) {
             synchronized (c.class) {
-                synchronized (f32005b) {
+                synchronized (f30408b) {
                     SQLiteDatabase a2 = a(context);
                     if (a2 == null) {
                         return;
@@ -1040,7 +1040,7 @@ public class c {
                         }
                         if (query.getCount() != 0) {
                             ContentValues contentValues = new ContentValues();
-                            contentValues.put(g.f32043f.name(), str);
+                            contentValues.put(g.f30446f.name(), str);
                             a2.update("PushShareInfo", contentValues, g.a.name() + "=1", null);
                             if (query != null && !query.isClosed()) {
                                 query.close();
@@ -1050,15 +1050,15 @@ public class c {
                     }
                     com.baidu.android.pushservice.c.b bVar = new com.baidu.android.pushservice.c.b();
                     bVar.a = 0L;
-                    bVar.f31996b = 0L;
-                    bVar.f31997c = null;
-                    bVar.f31998d = null;
-                    bVar.f31999e = null;
-                    bVar.f32001g = null;
-                    bVar.f32000f = null;
-                    bVar.f32002h = null;
-                    bVar.f32003i = null;
-                    bVar.f32004j = null;
+                    bVar.f30399b = 0L;
+                    bVar.f30400c = null;
+                    bVar.f30401d = null;
+                    bVar.f30402e = null;
+                    bVar.f30404g = null;
+                    bVar.f30403f = null;
+                    bVar.f30405h = null;
+                    bVar.f30406i = null;
+                    bVar.f30407j = null;
                     a(context, bVar);
                     if (query != null) {
                         query.close();
@@ -1072,7 +1072,7 @@ public class c {
     public static void a(Context context, String str, int i2, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, str, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            synchronized (f32005b) {
+            synchronized (f30408b) {
                 SQLiteDatabase a2 = a(context);
                 if (a2 == null) {
                     return;
@@ -1080,9 +1080,9 @@ public class c {
                 try {
                     ContentValues contentValues = new ContentValues();
                     contentValues.put(f.a.name(), str);
-                    contentValues.put(f.f32032b.name(), Integer.valueOf(i2));
-                    contentValues.put(f.f32034d.name(), Long.valueOf(j2));
-                    contentValues.put(f.f32033c.name(), (Integer) 1);
+                    contentValues.put(f.f30435b.name(), Integer.valueOf(i2));
+                    contentValues.put(f.f30437d.name(), Long.valueOf(j2));
+                    contentValues.put(f.f30436c.name(), (Integer) 1);
                     if (a2.update("PushDataInfo", contentValues, f.a.name() + " =? ", new String[]{String.valueOf(str)}) == 0) {
                         a2.insertWithOnConflict("PushDataInfo", null, contentValues, 5);
                     }
@@ -1099,24 +1099,24 @@ public class c {
     public static void a(Context context, String str, int i2, long j2, byte[] bArr, byte[] bArr2, long j3, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, str, Integer.valueOf(i2), Long.valueOf(j2), bArr, bArr2, Long.valueOf(j3), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            synchronized (f32005b) {
+            synchronized (f30408b) {
                 SQLiteDatabase a2 = a(context);
                 if (a2 == null) {
                     return;
                 }
                 try {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put(e.f32023b.name(), str);
-                    contentValues.put(e.f32025d.name(), Long.valueOf(j2));
-                    contentValues.put(e.f32024c.name(), Integer.valueOf(i2));
+                    contentValues.put(e.f30426b.name(), str);
+                    contentValues.put(e.f30428d.name(), Long.valueOf(j2));
+                    contentValues.put(e.f30427c.name(), Integer.valueOf(i2));
                     if (bArr != null && bArr.length > 0) {
-                        contentValues.put(e.f32028g.name(), BaiduAppSSOJni.a(context, str, bArr));
-                        contentValues.put(e.f32027f.name(), bArr2);
-                        contentValues.put(e.f32029h.name(), Long.valueOf(j3));
+                        contentValues.put(e.f30431g.name(), BaiduAppSSOJni.a(context, str, bArr));
+                        contentValues.put(e.f30430f.name(), bArr2);
+                        contentValues.put(e.f30432h.name(), Long.valueOf(j3));
                     }
-                    contentValues.put(e.f32026e.name(), Long.valueOf(System.currentTimeMillis()));
-                    contentValues.put(e.f32030i.name(), Integer.valueOf(i3));
-                    contentValues.put(e.f32031j.name(), Integer.valueOf(i4));
+                    contentValues.put(e.f30429e.name(), Long.valueOf(System.currentTimeMillis()));
+                    contentValues.put(e.f30433i.name(), Integer.valueOf(i3));
+                    contentValues.put(e.f30434j.name(), Integer.valueOf(i4));
                     a2.insert("PushMsgInfos", null, contentValues);
                 } catch (Exception unused) {
                 } catch (Throwable th) {
@@ -1133,7 +1133,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65545, null, context, str, str2) == null) {
             synchronized (c.class) {
-                synchronized (f32005b) {
+                synchronized (f30408b) {
                     SQLiteDatabase a2 = a(context);
                     if (a2 == null) {
                         return;
@@ -1164,9 +1164,9 @@ public class c {
                         }
                         if (query.getCount() != 0) {
                             ContentValues contentValues = new ContentValues();
-                            contentValues.put(g.f32041d.name(), str);
+                            contentValues.put(g.f30444d.name(), str);
                             if (!TextUtils.isEmpty(str2)) {
-                                contentValues.put(g.f32042e.name(), str2);
+                                contentValues.put(g.f30445e.name(), str2);
                             }
                             a2.update("PushShareInfo", contentValues, g.a.name() + "=1", null);
                             if (query != null && !query.isClosed()) {
@@ -1177,15 +1177,15 @@ public class c {
                     }
                     com.baidu.android.pushservice.c.b bVar = new com.baidu.android.pushservice.c.b();
                     bVar.a = 0L;
-                    bVar.f31996b = 0L;
-                    bVar.f31997c = str;
-                    bVar.f31998d = str2;
-                    bVar.f31999e = null;
-                    bVar.f32001g = null;
-                    bVar.f32000f = null;
-                    bVar.f32002h = null;
-                    bVar.f32003i = null;
-                    bVar.f32004j = null;
+                    bVar.f30399b = 0L;
+                    bVar.f30400c = str;
+                    bVar.f30401d = str2;
+                    bVar.f30402e = null;
+                    bVar.f30404g = null;
+                    bVar.f30403f = null;
+                    bVar.f30405h = null;
+                    bVar.f30406i = null;
+                    bVar.f30407j = null;
                     a(context, bVar);
                     if (query != null) {
                         query.close();
@@ -1199,16 +1199,16 @@ public class c {
     public static void a(Context context, String str, String str2, Long l) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65546, null, context, str, str2, l) == null) {
-            synchronized (f32005b) {
+            synchronized (f30408b) {
                 SQLiteDatabase a2 = a(context);
                 if (a2 == null) {
                     return;
                 }
                 try {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put(f.f32035e.name(), str2);
+                    contentValues.put(f.f30438e.name(), str2);
                     if (l != null) {
-                        contentValues.put(f.f32036f.name(), l);
+                        contentValues.put(f.f30439f.name(), l);
                     }
                     a2.update("PushDataInfo", contentValues, f.a.name() + " =? ", new String[]{String.valueOf(str)});
                 } catch (Exception unused) {
@@ -1224,7 +1224,7 @@ public class c {
     public static void a(Context context, ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65547, null, context, arrayList) == null) {
-            synchronized (f32005b) {
+            synchronized (f30408b) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("(");
                 for (int i2 = 0; i2 < arrayList.size(); i2++) {
@@ -1241,7 +1241,7 @@ public class c {
                     return;
                 }
                 try {
-                    a2.execSQL("UPDATE PushDataInfo SET " + f.f32033c.name() + "=0 WHERE " + f.a.name() + " NOT IN " + sb.toString());
+                    a2.execSQL("UPDATE PushDataInfo SET " + f.f30436c.name() + "=0 WHERE " + f.a.name() + " NOT IN " + sb.toString());
                 } catch (Exception unused) {
                 }
                 a2.close();
@@ -1252,7 +1252,7 @@ public class c {
     public static void a(Context context, JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65548, null, context, jSONArray) == null) {
-            synchronized (f32005b) {
+            synchronized (f30408b) {
                 SQLiteDatabase a2 = a(context);
                 if (a2 == null) {
                     return;
@@ -1264,7 +1264,7 @@ public class c {
                                 ContentValues contentValues = new ContentValues();
                                 JSONObject jSONObject = jSONArray.getJSONObject(i2);
                                 long j2 = jSONObject.getLong("event_time");
-                                contentValues.put(b.f32013b.name(), jSONObject.toString());
+                                contentValues.put(b.f30416b.name(), jSONObject.toString());
                                 contentValues.put(b.a.name(), Long.valueOf(j2));
                                 a2.insert("ClickMsgUploadInfo", null, contentValues);
                             }
@@ -1285,14 +1285,14 @@ public class c {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, context, i2)) == null) {
-            synchronized (f32005b) {
+            synchronized (f30408b) {
                 SQLiteDatabase a2 = a(context);
                 Cursor cursor = null;
                 if (a2 == null) {
                     return false;
                 }
                 try {
-                    cursor = a2.query("PushMsgInfos", new String[]{e.f32031j.name()}, e.f32031j.name() + "=?", new String[]{String.valueOf(i2)}, null, null, null);
+                    cursor = a2.query("PushMsgInfos", new String[]{e.f30434j.name()}, e.f30434j.name() + "=?", new String[]{String.valueOf(i2)}, null, null, null);
                     if (cursor != null) {
                         if (cursor.getCount() > 0) {
                             if (cursor != null && !cursor.isClosed()) {
@@ -1335,16 +1335,16 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, context, fVar)) == null) {
             synchronized (c.class) {
-                synchronized (f32005b) {
+                synchronized (f30408b) {
                     SQLiteDatabase a2 = a(context);
                     if (a2 == null) {
                         return false;
                     }
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put(h.f32048b.name(), fVar.a);
-                    contentValues.put(h.f32049c.name(), fVar.f32098b);
-                    contentValues.put(h.f32050d.name(), fVar.f32099c);
-                    contentValues.put(h.f32051e.name(), System.currentTimeMillis() + "");
+                    contentValues.put(h.f30451b.name(), fVar.a);
+                    contentValues.put(h.f30452c.name(), fVar.f30501b);
+                    contentValues.put(h.f30453d.name(), fVar.f30502c);
+                    contentValues.put(h.f30454e.name(), System.currentTimeMillis() + "");
                     Cursor cursor = null;
                     try {
                         j2 = a2.insert("PushVerifInfo", null, contentValues);
@@ -1381,15 +1381,15 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
-            synchronized (f32005b) {
+            synchronized (f30408b) {
                 SQLiteDatabase a2 = a(context);
                 if (a2 == null) {
                     return 0;
                 }
                 Cursor cursor = null;
                 try {
-                    cursor = a2.query("PushShareInfo", new String[]{g.f32040c.name()}, null, null, null, null, null);
-                    r9 = cursor.moveToFirst() ? cursor.getInt(cursor.getColumnIndex(g.f32040c.name())) : 0;
+                    cursor = a2.query("PushShareInfo", new String[]{g.f30443c.name()}, null, null, null, null, null);
+                    r9 = cursor.moveToFirst() ? cursor.getInt(cursor.getColumnIndex(g.f30443c.name())) : 0;
                     if (cursor != null && !cursor.isClosed()) {
                         cursor.close();
                     }
@@ -1426,9 +1426,9 @@ public class c {
                 str3 = null;
             } else {
                 Uri parse = Uri.parse("content://" + str + ".bdpush/verif");
-                String[] strArr = {h.f32049c.name()};
+                String[] strArr = {h.f30452c.name()};
                 StringBuilder sb = new StringBuilder();
-                sb.append(h.f32048b.name());
+                sb.append(h.f30451b.name());
                 sb.append("=?");
                 cursor = contentResolver.query(parse, strArr, sb.toString(), new String[]{str2}, null);
                 if (cursor != null) {
@@ -1469,7 +1469,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65553, null, context, j2) == null) {
             synchronized (c.class) {
-                synchronized (f32005b) {
+                synchronized (f30408b) {
                     SQLiteDatabase a2 = a(context);
                     if (a2 == null) {
                         return;
@@ -1500,7 +1500,7 @@ public class c {
                         }
                         if (query.getCount() != 0) {
                             ContentValues contentValues = new ContentValues();
-                            contentValues.put(g.f32040c.name(), Long.valueOf(j2));
+                            contentValues.put(g.f30443c.name(), Long.valueOf(j2));
                             a2.update("PushShareInfo", contentValues, g.a.name() + "=1", null);
                             if (query != null && !query.isClosed()) {
                                 query.close();
@@ -1510,15 +1510,15 @@ public class c {
                     }
                     com.baidu.android.pushservice.c.b bVar = new com.baidu.android.pushservice.c.b();
                     bVar.a = 0L;
-                    bVar.f31996b = j2;
-                    bVar.f31997c = null;
-                    bVar.f31998d = null;
-                    bVar.f31999e = null;
-                    bVar.f32001g = null;
-                    bVar.f32000f = null;
-                    bVar.f32002h = null;
-                    bVar.f32003i = null;
-                    bVar.f32004j = null;
+                    bVar.f30399b = j2;
+                    bVar.f30400c = null;
+                    bVar.f30401d = null;
+                    bVar.f30402e = null;
+                    bVar.f30404g = null;
+                    bVar.f30403f = null;
+                    bVar.f30405h = null;
+                    bVar.f30406i = null;
+                    bVar.f30407j = null;
                     a(context, bVar);
                     if (query != null) {
                         query.close();
@@ -1534,7 +1534,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65554, null, context, str) == null) {
             synchronized (c.class) {
-                synchronized (f32005b) {
+                synchronized (f30408b) {
                     SQLiteDatabase a2 = a(context);
                     if (a2 == null || str == null) {
                         return;
@@ -1575,15 +1575,15 @@ public class c {
                     }
                     com.baidu.android.pushservice.c.b bVar = new com.baidu.android.pushservice.c.b();
                     bVar.a = 0L;
-                    bVar.f31996b = 0L;
-                    bVar.f31997c = null;
-                    bVar.f31998d = null;
-                    bVar.f31999e = null;
-                    bVar.f32001g = null;
-                    bVar.f32000f = null;
-                    bVar.f32002h = null;
-                    bVar.f32003i = str;
-                    bVar.f32004j = null;
+                    bVar.f30399b = 0L;
+                    bVar.f30400c = null;
+                    bVar.f30401d = null;
+                    bVar.f30402e = null;
+                    bVar.f30404g = null;
+                    bVar.f30403f = null;
+                    bVar.f30405h = null;
+                    bVar.f30406i = str;
+                    bVar.f30407j = null;
                     a(context, bVar);
                     if (query != null) {
                         query.close();
@@ -1598,7 +1598,7 @@ public class c {
         String obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65555, null, context, jSONArray) == null) {
-            synchronized (f32005b) {
+            synchronized (f30408b) {
                 SQLiteDatabase a2 = a(context);
                 if (a2 == null) {
                     return;
@@ -1620,9 +1620,9 @@ public class c {
                 sb.append(SmallTailInfo.EMOTION_SUFFIX);
                 try {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put(f.f32037g.name(), (Integer) 0);
+                    contentValues.put(f.f30440g.name(), (Integer) 0);
                     a2.update("PushDataInfo", contentValues, null, null);
-                    a2.execSQL("UPDATE PushDataInfo SET " + f.f32037g.name() + "=1 WHERE " + f.a.name() + " IN " + sb.toString());
+                    a2.execSQL("UPDATE PushDataInfo SET " + f.f30440g.name() + "=1 WHERE " + f.a.name() + " IN " + sb.toString());
                 } catch (Exception unused2) {
                 } catch (Throwable th) {
                     a2.close();
@@ -1638,7 +1638,7 @@ public class c {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65556, null, context, i2)) == null) {
-            synchronized (f32005b) {
+            synchronized (f30408b) {
                 SQLiteDatabase a2 = a(context);
                 Cursor cursor = null;
                 if (a2 == null) {
@@ -1646,12 +1646,12 @@ public class c {
                 }
                 int i3 = -1;
                 try {
-                    cursor = a2.query("PushMsgInfos", null, e.f32031j.name() + "=?", new String[]{String.valueOf(i2)}, null, null, null);
+                    cursor = a2.query("PushMsgInfos", null, e.f30434j.name() + "=?", new String[]{String.valueOf(i2)}, null, null, null);
                     if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                        i3 = cursor.getInt(cursor.getColumnIndex(e.f32024c.name()));
+                        i3 = cursor.getInt(cursor.getColumnIndex(e.f30427c.name()));
                     }
-                    if (i3 != k.f32522g.b() && i3 != k.f32518c.b() && i3 != k.f32517b.b()) {
-                        if (i3 != k.f32524i.b()) {
+                    if (i3 != k.f30925g.b() && i3 != k.f30921c.b() && i3 != k.f30920b.b()) {
+                        if (i3 != k.f30927i.b()) {
                             if (cursor != null && !cursor.isClosed()) {
                                 cursor.close();
                             }
@@ -1687,7 +1687,7 @@ public class c {
         Cursor cursor;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, context)) == null) {
-            synchronized (f32005b) {
+            synchronized (f30408b) {
                 SQLiteDatabase a2 = a(context);
                 Cursor cursor2 = null;
                 r9 = null;
@@ -1697,9 +1697,9 @@ public class c {
                     return null;
                 }
                 try {
-                    cursor = a2.query("PushShareInfo", new String[]{g.f32043f.name()}, null, null, null, null, null);
+                    cursor = a2.query("PushShareInfo", new String[]{g.f30446f.name()}, null, null, null, null, null);
                     try {
-                        str = cursor.moveToFirst() ? cursor.getString(cursor.getColumnIndex(g.f32043f.name())) : null;
+                        str = cursor.moveToFirst() ? cursor.getString(cursor.getColumnIndex(g.f30446f.name())) : null;
                         if (cursor != null && !cursor.isClosed()) {
                             cursor.close();
                         }
@@ -1745,9 +1745,9 @@ public class c {
                 str3 = null;
             } else {
                 Uri parse = Uri.parse("content://" + str + ".bdpush/verif");
-                String[] strArr = {h.f32049c.name()};
+                String[] strArr = {h.f30452c.name()};
                 StringBuilder sb = new StringBuilder();
-                sb.append(h.f32049c.name());
+                sb.append(h.f30452c.name());
                 sb.append("=?");
                 cursor = contentResolver.query(parse, strArr, sb.toString(), new String[]{str2}, null);
                 if (cursor != null) {
@@ -1788,7 +1788,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65559, null, context, str) == null) {
             synchronized (c.class) {
-                synchronized (f32005b) {
+                synchronized (f30408b) {
                     SQLiteDatabase a2 = a(context);
                     if (a2 == null || str == null) {
                         return;
@@ -1829,15 +1829,15 @@ public class c {
                     }
                     com.baidu.android.pushservice.c.b bVar = new com.baidu.android.pushservice.c.b();
                     bVar.a = 0L;
-                    bVar.f31996b = 0L;
-                    bVar.f31997c = null;
-                    bVar.f31998d = null;
-                    bVar.f31999e = null;
-                    bVar.f32001g = null;
-                    bVar.f32000f = null;
-                    bVar.f32002h = null;
-                    bVar.f32003i = null;
-                    bVar.f32004j = str;
+                    bVar.f30399b = 0L;
+                    bVar.f30400c = null;
+                    bVar.f30401d = null;
+                    bVar.f30402e = null;
+                    bVar.f30404g = null;
+                    bVar.f30403f = null;
+                    bVar.f30405h = null;
+                    bVar.f30406i = null;
+                    bVar.f30407j = str;
                     a(context, bVar);
                     if (query != null) {
                         query.close();
@@ -1853,14 +1853,14 @@ public class c {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65560, null, context, j2)) == null) {
-            synchronized (f32005b) {
+            synchronized (f30408b) {
                 SQLiteDatabase a2 = a(context);
                 Cursor cursor = null;
                 if (a2 == null) {
                     return false;
                 }
                 try {
-                    cursor = a2.query("PushMsgInfos", new String[]{e.f32025d.name()}, e.f32025d.name() + " =? ", new String[]{String.valueOf(j2)}, null, null, null);
+                    cursor = a2.query("PushMsgInfos", new String[]{e.f30428d.name()}, e.f30428d.name() + " =? ", new String[]{String.valueOf(j2)}, null, null, null);
                     if (cursor != null) {
                         if (cursor.getCount() > 0) {
                             if (cursor != null && !cursor.isClosed()) {
@@ -1898,7 +1898,7 @@ public class c {
         Cursor cursor;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, context)) == null) {
-            synchronized (f32005b) {
+            synchronized (f30408b) {
                 SQLiteDatabase a2 = a(context);
                 Cursor cursor2 = null;
                 r9 = null;
@@ -1946,7 +1946,7 @@ public class c {
         Cursor cursor;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, context, str)) == null) {
-            synchronized (f32005b) {
+            synchronized (f30408b) {
                 SQLiteDatabase a2 = a(context);
                 Cursor cursor2 = null;
                 r9 = null;
@@ -1962,8 +1962,8 @@ public class c {
                     cursor = a2.query("PushDataInfo", null, f.a.name() + " =? ", new String[]{String.valueOf(str)}, null, null, null);
                     if (cursor != null) {
                         try {
-                            if (cursor.moveToFirst() && cursor.getInt(cursor.getColumnIndex(f.f32037g.name())) == 1) {
-                                str2 = cursor.getString(cursor.getColumnIndex(f.f32035e.name()));
+                            if (cursor.moveToFirst() && cursor.getInt(cursor.getColumnIndex(f.f30440g.name())) == 1) {
+                                str2 = cursor.getString(cursor.getColumnIndex(f.f30438e.name()));
                             }
                         } catch (Exception unused) {
                             if (cursor != null && !cursor.isClosed()) {
@@ -2009,7 +2009,7 @@ public class c {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65563, null, context, str, str2)) == null) {
-            synchronized (f32005b) {
+            synchronized (f30408b) {
                 SQLiteDatabase a2 = a(context);
                 if (a2 == null) {
                     return false;
@@ -2023,9 +2023,9 @@ public class c {
                     }
                 }
                 if (cursor != null && cursor.moveToFirst()) {
-                    int i2 = cursor.getInt(cursor.getColumnIndex(f.f32032b.name()));
-                    String string = cursor.getString(cursor.getColumnIndex(f.f32035e.name()));
-                    if (cursor.getInt(cursor.getColumnIndex(f.f32033c.name())) != 1) {
+                    int i2 = cursor.getInt(cursor.getColumnIndex(f.f30435b.name()));
+                    String string = cursor.getString(cursor.getColumnIndex(f.f30438e.name()));
+                    if (cursor.getInt(cursor.getColumnIndex(f.f30436c.name())) != 1) {
                         if (cursor != null && !cursor.isClosed()) {
                             cursor.close();
                         }
@@ -2037,7 +2037,7 @@ public class c {
                         }
                         a2.close();
                         return false;
-                    } else if (System.currentTimeMillis() - cursor.getLong(cursor.getColumnIndex(f.f32036f.name())) > cursor.getLong(cursor.getColumnIndex(f.f32034d.name())) * 1000) {
+                    } else if (System.currentTimeMillis() - cursor.getLong(cursor.getColumnIndex(f.f30439f.name())) > cursor.getLong(cursor.getColumnIndex(f.f30437d.name())) * 1000) {
                         if (cursor != null && !cursor.isClosed()) {
                             cursor.close();
                         }
@@ -2063,7 +2063,7 @@ public class c {
         Cursor cursor;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, context)) == null) {
-            synchronized (f32005b) {
+            synchronized (f30408b) {
                 SQLiteDatabase a2 = a(context);
                 Cursor cursor2 = null;
                 r9 = null;
@@ -2111,7 +2111,7 @@ public class c {
         Cursor cursor;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65565, null, context, str)) == null) {
-            synchronized (f32005b) {
+            synchronized (f30408b) {
                 SQLiteDatabase a2 = a(context);
                 Cursor cursor2 = null;
                 r9 = null;
@@ -2127,7 +2127,7 @@ public class c {
                     if (cursor != null) {
                         try {
                             if (cursor.moveToFirst()) {
-                                str2 = cursor.getString(cursor.getColumnIndex(f.f32035e.name()));
+                                str2 = cursor.getString(cursor.getColumnIndex(f.f30438e.name()));
                             }
                         } catch (Exception unused) {
                             if (cursor != null && !cursor.isClosed()) {
@@ -2167,7 +2167,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, context)) == null) {
             JSONArray jSONArray = new JSONArray();
-            synchronized (f32005b) {
+            synchronized (f30408b) {
                 SQLiteDatabase a2 = a(context);
                 if (a2 == null) {
                     return jSONArray;
@@ -2188,7 +2188,7 @@ public class c {
                     try {
                         if (query.moveToFirst()) {
                             do {
-                                String string = query.getString(query.getColumnIndex(b.f32013b.name()));
+                                String string = query.getString(query.getColumnIndex(b.f30416b.name()));
                                 j2 = query.getLong(query.getColumnIndex(b.a.name()));
                                 jSONArray.put(new JSONObject(string));
                             } while (query.moveToNext());
@@ -2226,7 +2226,7 @@ public class c {
     public static void g(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65567, null, context) == null) {
-            synchronized (f32005b) {
+            synchronized (f30408b) {
                 SQLiteDatabase a2 = a(context);
                 if (a2 == null) {
                     return;
@@ -2245,7 +2245,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, context)) == null) {
             if (a == null) {
-                synchronized (f32005b) {
+                synchronized (f30408b) {
                     if (a == null) {
                         File file = new File(Environment.getDataDirectory().getAbsolutePath() + "/data" + File.separator + context.getPackageName() + "/database");
                         if (!file.exists()) {
@@ -2254,14 +2254,14 @@ public class c {
                         String str = file.getAbsolutePath() + File.separator + "pushinfo.db";
                         SQLiteDatabase sQLiteDatabase = null;
                         if (Build.VERSION.SDK_INT >= 11) {
-                            a = new d(context, str, 8, new C1733c(null));
+                            a = new d(context, str, 8, new C1709c(null));
                         } else {
                             a = new d(context, str, (SQLiteDatabase.CursorFactory) null, 8);
                         }
                         try {
                             SQLiteDatabase writableDatabase = a.getWritableDatabase();
                             try {
-                                writableDatabase.delete("PushMsgInfos", e.f32026e.name() + " < " + (System.currentTimeMillis() - 259200000), null);
+                                writableDatabase.delete("PushMsgInfos", e.f30429e.name() + " < " + (System.currentTimeMillis() - 259200000), null);
                                 if (writableDatabase != null) {
                                     writableDatabase.close();
                                 }

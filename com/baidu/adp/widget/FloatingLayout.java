@@ -6,31 +6,31 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import com.baidu.adp.R;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.utils.enums.ShareDirectionType;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class FloatingLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f31501e;
+    public int f29904e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f31502f;
+    public int f29905f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f31503g;
+    public int f29906g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f31504h;
+    public int f29907h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FloatingLayout(Context context) {
@@ -129,7 +129,7 @@ public class FloatingLayout extends LinearLayout {
     public final void c(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            this.f31502f = 0;
+            this.f29905f = 0;
             int i4 = i2 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK;
             int childCount = getChildCount();
             int i5 = 0;
@@ -141,30 +141,30 @@ public class FloatingLayout extends LinearLayout {
                         layoutParams = generateDefaultLayoutParams();
                     }
                     LayoutParams layoutParams2 = layoutParams;
-                    if (i4 <= this.f31501e || (layoutParams2.a & 1) == 1) {
-                        this.f31501e = 0;
+                    if (i4 <= this.f29904e || (layoutParams2.a & 1) == 1) {
+                        this.f29904e = 0;
                     }
-                    measureChildWithMargins(childAt, i2, this.f31501e, i3, this.f31502f);
+                    measureChildWithMargins(childAt, i2, this.f29904e, i3, this.f29905f);
                     int measuredWidth = childAt.getMeasuredWidth() + ((LinearLayout.LayoutParams) layoutParams2).leftMargin + ((LinearLayout.LayoutParams) layoutParams2).rightMargin;
                     int measuredHeight = childAt.getMeasuredHeight() + ((LinearLayout.LayoutParams) layoutParams2).topMargin + ((LinearLayout.LayoutParams) layoutParams2).bottomMargin;
                     if ((layoutParams2.a & 1) == 1) {
-                        this.f31502f += i5;
+                        this.f29905f += i5;
                         i5 = 0;
                     }
                     i5 = Math.max(measuredHeight, i5);
-                    int i7 = this.f31501e + measuredWidth;
-                    this.f31501e = i7;
-                    this.f31503g = Math.max(this.f31503g, i7);
+                    int i7 = this.f29904e + measuredWidth;
+                    this.f29904e = i7;
+                    this.f29906g = Math.max(this.f29906g, i7);
                     if ((layoutParams2.a & 2) == 2) {
-                        this.f31501e = 0;
-                        this.f31502f += i5;
+                        this.f29904e = 0;
+                        this.f29905f += i5;
                         i5 = 0;
                     }
                 }
             }
-            int i8 = this.f31502f + i5;
-            this.f31502f = i8;
-            this.f31504h = i8;
+            int i8 = this.f29905f + i5;
+            this.f29905f = i8;
+            this.f29907h = i8;
         }
     }
 
@@ -182,27 +182,27 @@ public class FloatingLayout extends LinearLayout {
                         layoutParams = generateDefaultLayoutParams();
                     }
                     LayoutParams layoutParams2 = layoutParams;
-                    if (i4 <= this.f31502f || (layoutParams2.a & 1) == 1) {
-                        this.f31502f = 0;
+                    if (i4 <= this.f29905f || (layoutParams2.a & 1) == 1) {
+                        this.f29905f = 0;
                     }
-                    measureChildWithMargins(childAt, i2, this.f31501e, i3, this.f31502f);
+                    measureChildWithMargins(childAt, i2, this.f29904e, i3, this.f29905f);
                     i5 = Math.max(childAt.getMeasuredWidth() + ((LinearLayout.LayoutParams) layoutParams2).leftMargin + ((LinearLayout.LayoutParams) layoutParams2).rightMargin, i5);
-                    this.f31501e = i5;
-                    int measuredHeight = this.f31502f + childAt.getMeasuredHeight() + ((LinearLayout.LayoutParams) layoutParams2).topMargin + ((LinearLayout.LayoutParams) layoutParams2).bottomMargin;
-                    this.f31502f = measuredHeight;
-                    this.f31504h = Math.max(measuredHeight, this.f31504h);
+                    this.f29904e = i5;
+                    int measuredHeight = this.f29905f + childAt.getMeasuredHeight() + ((LinearLayout.LayoutParams) layoutParams2).topMargin + ((LinearLayout.LayoutParams) layoutParams2).bottomMargin;
+                    this.f29905f = measuredHeight;
+                    this.f29907h = Math.max(measuredHeight, this.f29907h);
                     if ((layoutParams2.a & 2) != 2) {
                         if ((layoutParams2.a & 1) == 1) {
-                            this.f31501e += i5;
+                            this.f29904e += i5;
                         }
                     } else {
-                        this.f31502f = 0;
-                        this.f31501e += i5;
+                        this.f29905f = 0;
+                        this.f29904e += i5;
                     }
                     i5 = 0;
                 }
             }
-            this.f31503g = this.f31501e;
+            this.f29906g = this.f29904e;
         }
     }
 
@@ -223,14 +223,14 @@ public class FloatingLayout extends LinearLayout {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048590, this, i2, i3) == null) {
-            this.f31501e = 0;
-            this.f31502f = 0;
+            this.f29904e = 0;
+            this.f29905f = 0;
             if (getOrientation() == 1) {
                 d(i2, i3);
             } else if (getOrientation() == 0) {
                 c(i2, i3);
             }
-            setMeasuredDimension(this.f31503g + getPaddingLeft() + getPaddingRight(), this.f31504h + getPaddingTop() + getPaddingBottom());
+            setMeasuredDimension(this.f29906g + getPaddingLeft() + getPaddingRight(), this.f29907h + getPaddingTop() + getPaddingBottom());
         }
     }
 
@@ -279,7 +279,7 @@ public class FloatingLayout extends LinearLayout {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, attributeSet)) == null) ? new LayoutParams(getContext(), attributeSet) : (LayoutParams) invokeL.objValue;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class LayoutParams extends LinearLayout.LayoutParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -305,8 +305,8 @@ public class FloatingLayout extends LinearLayout {
                 }
             }
             this.a = 0;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.FloatingLayout_Layout);
-            String string = obtainStyledAttributes.getString(R.styleable.FloatingLayout_Layout_layout_clear);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.layout_clear});
+            String string = obtainStyledAttributes.getString(0);
             if (string != null) {
                 if ("before".equals(string)) {
                     this.a = 1;

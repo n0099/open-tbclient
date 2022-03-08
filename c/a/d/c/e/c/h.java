@@ -2,10 +2,10 @@ package c.a.d.c.e.c;
 
 import android.app.Application;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.R;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.fsg.face.liveness.result.LivenessRecogResult;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkCode;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,31 +25,31 @@ public class h {
     public static int a = -100000000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f1787b;
+    public static final int f2413b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f1788c;
+    public static final int f2414c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f1789d;
+    public static final int f2415d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f1790e;
+    public static final int f2416e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f1791f;
+    public static final int f2417f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f1792g;
+    public static final int f2418g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f1793h;
+    public static final int f2419h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f1794i;
+    public static final int f2420i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f1795j;
+    public static final int f2421j;
     public static final int k;
     public static final int l;
     public static final int m;
@@ -81,15 +81,15 @@ public class h {
                 return;
             }
         }
-        f1787b = (-100000000) + DeepLinkCode.ERROR_LINK_NOT_MATCH;
-        f1788c = (-100000000) + com.baidu.fsg.face.base.c.a.ERROR_CODE_CAMERA_EXCEPTION;
-        f1789d = (-100000000) - 213;
-        f1790e = (-100000000) - 214;
-        f1791f = (-100000000) - 221;
-        f1792g = (-100000000) - 230;
-        f1793h = (-100000000) - 232;
-        f1794i = (-100000000) - 233;
-        f1795j = (-100000000) - 234;
+        f2413b = (-100000000) + DeepLinkCode.ERROR_LINK_NOT_MATCH;
+        f2414c = (-100000000) + com.baidu.fsg.face.base.c.a.ERROR_CODE_CAMERA_EXCEPTION;
+        f2415d = (-100000000) - 213;
+        f2416e = (-100000000) - 214;
+        f2417f = (-100000000) - 221;
+        f2418g = (-100000000) - 230;
+        f2419h = (-100000000) - 232;
+        f2420i = (-100000000) - 233;
+        f2421j = (-100000000) - 234;
         k = (-100000000) - 235;
         l = (-100000000) - 236;
         m = (-100000000) - 301;

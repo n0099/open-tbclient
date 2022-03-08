@@ -3,23 +3,23 @@ package com.kwad.sdk.g;
 import android.content.Context;
 import com.bun.miitmdid.core.MdidSdkHelper;
 import com.bun.miitmdid.interfaces.IIdentifierListener;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f57168b;
+    public static boolean f55518b;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface a {
     }
 
     public static void a(Context context, final a aVar) {
-        if (context == null || f57168b) {
+        if (context == null || f55518b) {
             return;
         }
         if (!a()) {
-            f57168b = true;
+            f55518b = true;
         } else if (a) {
         } else {
             a = true;
@@ -30,7 +30,7 @@ public class b {
             } catch (Throwable th) {
                 String str2 = "[OADIDSDKHelper26]:oaid sdk not find " + th.getMessage();
                 a = false;
-                f57168b = true;
+                f55518b = true;
             }
         }
     }

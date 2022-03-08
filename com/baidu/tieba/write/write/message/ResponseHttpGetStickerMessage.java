@@ -12,7 +12,7 @@ import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.GetSticker.DataRes;
 import tbclient.GetSticker.GetStickerResIdl;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class ResponseHttpGetStickerMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -4,11 +4,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import c.a.s0.a.d2.d;
-import c.a.s0.a.k;
-import c.a.s0.i.b.a;
-import c.a.s0.i.b.d.b;
-import c.a.s0.i.b.d.e;
+import c.a.p0.a.a;
+import c.a.p0.a.t1.d;
+import c.a.p0.i.a.d.b;
+import c.a.p0.i.a.d.e;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class AppDownloadNetworkStateReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -38,7 +37,7 @@ public class AppDownloadNetworkStateReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        DEBUG = k.a;
+        DEBUG = a.a;
     }
 
     public AppDownloadNetworkStateReceiver() {
@@ -64,19 +63,19 @@ public class AppDownloadNetworkStateReceiver extends BroadcastReceiver {
         boolean z = DEBUG;
         if (SwanAppNetworkUtils.NetType.WIFI == SwanAppNetworkUtils.f() && b.a().b()) {
             if (ProcessUtils.isMainProcess()) {
-                a.n().D();
+                c.a.p0.i.a.a.n().D();
                 return;
             }
-            c.a.s0.a.y1.c.e.a z2 = d.J().z();
+            c.a.p0.a.o1.c.e.a z2 = d.J().z();
             if (z2 != null) {
                 Bundle bundle = new Bundle();
                 bundle.putString(KEY_OPERATION, "resumeAllDownload");
                 z2.V(bundle, e.class);
             }
         } else if (ProcessUtils.isMainProcess()) {
-            a.n().u();
+            c.a.p0.i.a.a.n().u();
         } else {
-            c.a.s0.a.y1.c.e.a z3 = d.J().z();
+            c.a.p0.a.o1.c.e.a z3 = d.J().z();
             if (z3 != null) {
                 Bundle bundle2 = new Bundle();
                 bundle2.putString(KEY_OPERATION, "pauseAllDownload");

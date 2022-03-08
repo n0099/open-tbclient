@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import com.airbnb.lottie.L;
 import com.airbnb.lottie.LottieComposition;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class LottieValueAnimator extends BaseLottieAnimator implements Choreographer.FrameCallback {
     @Nullable
     public LottieComposition composition;

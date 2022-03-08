@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
-public class c extends a.AbstractBinderC1812a {
+/* loaded from: classes4.dex */
+public class c extends a.AbstractBinderC1788a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CyberExtractor a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RemotePlayerService f33721b;
+    public RemotePlayerService f32124b;
 
     public c(RemotePlayerService remotePlayerService) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class c extends a.AbstractBinderC1812a {
                 return;
             }
         }
-        this.f33721b = remotePlayerService;
+        this.f32124b = remotePlayerService;
     }
 
     private CyberExtractor c() {
@@ -90,7 +90,7 @@ public class c extends a.AbstractBinderC1812a {
                     this.a = null;
                 }
             }
-            this.f33721b = null;
+            this.f32124b = null;
         }
     }
 }

@@ -1,12 +1,12 @@
 package c.b.b.k;
 
 import c.b.b.q.h;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public interface a extends h {
 
     /* renamed from: c.b.b.k.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public interface InterfaceC1622a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC1633a {
         void a(a aVar);
     }
 }

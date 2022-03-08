@@ -35,28 +35,28 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public class WebViewCardView extends BaseCardView<WebViewCard> {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean k = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f45804f;
+    public boolean f44212f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f45805g;
+    public LinearLayout f44213g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BaseWebView f45806h;
+    public BaseWebView f44214h;
 
     /* renamed from: i  reason: collision with root package name */
-    public XiubaTbJsBridge f45807i;
+    public XiubaTbJsBridge f44215i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final CustomMessageListener f45808j;
+    public final CustomMessageListener f44216j;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public class a extends WebChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,13 +88,13 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WebViewCardView f45809e;
+        public final /* synthetic */ WebViewCardView f44217e;
 
         public b(WebViewCardView webViewCardView) {
             Interceptable interceptable = $ic;
@@ -111,7 +111,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
                     return;
                 }
             }
-            this.f45809e = webViewCardView;
+            this.f44217e = webViewCardView;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -119,7 +119,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
-                if (!this.f45809e.f45804f && !WebViewCardView.k) {
+                if (!this.f44217e.f44212f && !WebViewCardView.k) {
                     ((WebView) view).requestDisallowInterceptTouchEvent(true);
                 }
                 return false;
@@ -128,13 +128,13 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public class c implements BaseWebView.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WebViewCardView f45810e;
+        public final /* synthetic */ WebViewCardView f44218e;
 
         public c(WebViewCardView webViewCardView) {
             Interceptable interceptable = $ic;
@@ -151,7 +151,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
                     return;
                 }
             }
-            this.f45810e = webViewCardView;
+            this.f44218e = webViewCardView;
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
@@ -159,14 +159,14 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
-                UrlManager.getInstance().dealOneLink(this.f45810e.mContext, new String[]{str}, true);
+                UrlManager.getInstance().dealOneLink(this.f44218e.mContext, new String[]{str}, true);
                 return true;
             }
             return invokeLL.booleanValue;
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -237,37 +237,37 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
                 return;
             }
         }
-        this.f45804f = true;
-        this.f45808j = new d(this, 2002503);
+        this.f44212f = true;
+        this.f44216j = new d(this, 2002503);
         this.mContext = tbPageContext;
     }
 
     private void setWebviewHeight(int i2) {
         BaseWebView baseWebView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65542, this, i2) == null) || (baseWebView = this.f45806h) == null || i2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeI(65542, this, i2) == null) || (baseWebView = this.f44214h) == null || i2 <= 0) {
             return;
         }
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) baseWebView.getLayoutParams();
         layoutParams.height = i2;
-        this.f45806h.setLayoutParams(layoutParams);
+        this.f44214h.setLayoutParams(layoutParams);
     }
 
     @SuppressLint({"ClickableViewAccessibility"})
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f45806h = new BaseWebView(TbadkCoreApplication.getInst());
-            if (this.f45807i == null) {
-                this.f45807i = new XiubaTbJsBridge(this.mContext);
+            this.f44214h = new BaseWebView(TbadkCoreApplication.getInst());
+            if (this.f44215i == null) {
+                this.f44215i = new XiubaTbJsBridge(this.mContext);
             }
-            this.f45807i.setBaseWebView(this.f45806h);
-            this.f45806h.setHorizontalScrollBarEnabled(false);
-            this.f45806h.setWebChromeClient(new a(this));
-            this.f45806h.setOnTouchListener(new b(this));
-            this.f45806h.setOnLoadUrlListener(new c(this));
+            this.f44215i.setBaseWebView(this.f44214h);
+            this.f44214h.setHorizontalScrollBarEnabled(false);
+            this.f44214h.setWebChromeClient(new a(this));
+            this.f44214h.setOnTouchListener(new b(this));
+            this.f44214h.setOnLoadUrlListener(new c(this));
             registerListener(this.mContext.getUniqueId());
-            this.f45805g.addView(this.f45806h);
+            this.f44213g.addView(this.f44214h);
         }
     }
 
@@ -281,7 +281,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
                 String optString2 = jSONObject.optString("methodName");
                 String optString3 = jSONObject.optString("param");
                 if (!StringUtils.isNull(optString) && !StringUtils.isNull(optString2) && !StringUtils.isNull(optString3)) {
-                    return this.f45807i.dealJsInterface(optString, optString2, optString3, jsPromptResult);
+                    return this.f44215i.dealJsInterface(optString, optString2, optString3, jsPromptResult);
                 }
                 return false;
             } catch (JSONException e2) {
@@ -297,28 +297,28 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            this.f45805g = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.card_webview, (ViewGroup) null);
+            this.f44213g = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.card_webview, (ViewGroup) null);
             g();
-            return this.f45805g;
+            return this.f44213g;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, c.a.u0.z1.o.l.e
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, c.a.r0.z1.o.l.e
     public void registerListener(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) || bdUniqueId == null) {
             return;
         }
-        this.f45808j.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f45808j);
+        this.f44216j.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.f44216j);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
     public void onChangeSkinType(WebViewCard webViewCard, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048580, this, webViewCard, i2) != null) || TextUtils.isEmpty(webViewCard.getPageUrl()) || this.f45806h == null) {
+        if ((interceptable != null && interceptable.invokeLI(1048580, this, webViewCard, i2) != null) || TextUtils.isEmpty(webViewCard.getPageUrl()) || this.f44214h == null) {
         }
     }
 
@@ -326,10 +326,10 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
     public void onUpdateCardView(WebViewCard webViewCard) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, webViewCard) == null) || this.f45806h == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, webViewCard) == null) || this.f44214h == null) {
             return;
         }
-        this.f45804f = webViewCard.isEnableTouchFromNet();
+        this.f44212f = webViewCard.isEnableTouchFromNet();
         if (webViewCard.getHeight() > 0) {
             setWebviewHeight(webViewCard.getHeight());
         } else if (webViewCard.getContainer() > 0) {
@@ -344,6 +344,6 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         if (TextUtils.isEmpty(webViewCard.getPageUrl())) {
             return;
         }
-        CompatibleUtile.getInstance().loadUrl(this.f45806h, webViewCard.getPageUrl());
+        CompatibleUtile.getInstance().loadUrl(this.f44214h, webViewCard.getPageUrl());
     }
 }

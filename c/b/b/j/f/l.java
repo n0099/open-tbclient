@@ -6,21 +6,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class l extends b<c.b.b.p.a.a.j, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class a extends c.b.b.j.c<c.b.b.p.a.a.j> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f27230b;
+        public final String f27134b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final w<String, Object> f27231c;
+        public final w<String, Object> f27135c;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public a() {
@@ -56,8 +56,8 @@ public class l extends b<c.b.b.p.a.a.j, a> {
                     return;
                 }
             }
-            this.f27230b = str;
-            this.f27231c = wVar;
+            this.f27134b = str;
+            this.f27135c = wVar;
         }
     }
 
@@ -90,7 +90,7 @@ public class l extends b<c.b.b.p.a.a.j, a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, aVar, aVar2)) == null) {
             c.b.b.q.a<c.b.b.j.a> aVar3 = new c.b.b.q.a<>();
-            if (aVar2 == null || (str2 = aVar2.f27230b) == null) {
+            if (aVar2 == null || (str2 = aVar2.f27134b) == null) {
                 aVar3.a(new c.b.b.j.a(aVar.k() + ".atlas", c.b.b.n.k.h.class));
             } else if (str2 != null) {
                 aVar3.a(new c.b.b.j.a(str2, c.b.b.n.k.h.class));
@@ -119,11 +119,11 @@ public class l extends b<c.b.b.p.a.a.j, a> {
             String str2 = aVar.k() + ".atlas";
             w<String, Object> wVar = null;
             if (aVar2 != null) {
-                String str3 = aVar2.f27230b;
+                String str3 = aVar2.f27134b;
                 if (str3 != null) {
                     str2 = str3;
                 }
-                w<String, Object> wVar2 = aVar2.f27231c;
+                w<String, Object> wVar2 = aVar2.f27135c;
                 if (wVar2 != null) {
                     wVar = wVar2;
                 }
@@ -134,7 +134,7 @@ public class l extends b<c.b.b.p.a.a.j, a> {
                 b2.d();
                 while (b2.hasNext()) {
                     w.b next = b2.next();
-                    i2.a((String) next.a, next.f27758b);
+                    i2.a((String) next.a, next.f27662b);
                 }
             }
             i2.o(aVar);

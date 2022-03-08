@@ -2,14 +2,14 @@ package com.ss.android.downloadlib.addownload.compliance;
 
 import com.ss.android.downloadlib.addownload.b.f;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class e {
     public static void a(String str, long j2) {
         com.ss.android.downloadlib.addownload.b.e e2 = f.a().e(j2);
         if (e2.x()) {
             return;
         }
-        e2.f59677c.setRefer(str);
+        e2.f58027c.setRefer(str);
         com.ss.android.downloadlib.d.a.a().b("lp_app_dialog_click", e2);
     }
 

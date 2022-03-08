@@ -10,7 +10,6 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
-import c.a.f0.a.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.pass.common.SecurityUtil;
@@ -24,6 +23,7 @@ import com.baidu.sapi2.callback.ImageCropCallback;
 import com.baidu.sapi2.provider.FileProvider;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.views.ClipBoxView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IMG_RESULT_OK_CODE = 10000;
@@ -44,7 +44,7 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
     public static final String NO_STORAGE_PERM_MSG = "请开启存储权限";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f38249j = "camera_temp_image.jpg";
+    public static final String f36653j = "camera_temp_image.jpg";
     public static final int k = 1001;
     public static final int l = 1002;
     public static long lastClickTime = 0;
@@ -55,7 +55,7 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
     public long enterTimeMills;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageCropCallback.ImageCropResult f38250i;
+    public ImageCropCallback.ImageCropResult f36654i;
 
     static {
         InterceptResult invokeClinit;
@@ -116,7 +116,7 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
             public void onImageCrop(Context context, Uri uri, int i2, int i3, ImageCropCallback.ImageCropResult imageCropResult) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{context, uri, Integer.valueOf(i2), Integer.valueOf(i3), imageCropResult}) == null) {
-                    this.a.f38250i = imageCropResult;
+                    this.a.f36654i = imageCropResult;
                     Intent intent = new Intent(context, ImageClipActivity.class);
                     if (i2 == ClipBoxView.H) {
                         intent.putExtra(ImageClipActivity.EXTRA_PARAM_FROM_BUSINESS, 0);
@@ -362,7 +362,7 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                         try {
                             if (!"mounted".equals(Environment.getExternalStorageState())) {
-                                Toast.makeText(this.a, g.sapi_sdk_user_profile_sdcard_unavailable, 0).show();
+                                Toast.makeText(this.a, (int) R.string.sapi_sdk_user_profile_sdcard_unavailable, 0).show();
                                 return;
                             }
                             File file = new File(this.a.getExternalCacheDir(), "camera_temp_image.jpg");
@@ -421,12 +421,12 @@ public class BaseOptionActivity extends NaSlideActiviy implements View.OnClickLi
                 if ((interceptable2 == null || interceptable2.invokeIIL(1048576, this, i2, i3, intent) == null) && i2 == 1003) {
                     if (i3 == -1) {
                         byte[] byteArrayExtra = intent.getByteArrayExtra(ImageClipActivity.EXTRA_IMAGE);
-                        if (byteArrayExtra == null || this.a.f38250i == null) {
+                        if (byteArrayExtra == null || this.a.f36654i == null) {
                             return;
                         }
-                        this.a.f38250i.onImageResult(SecurityUtil.base64Encode(byteArrayExtra));
-                    } else if (this.a.f38250i != null) {
-                        this.a.f38250i.onImageResult(null);
+                        this.a.f36654i.onImageResult(SecurityUtil.base64Encode(byteArrayExtra));
+                    } else if (this.a.f36654i != null) {
+                        this.a.f36654i.onImageResult(null);
                     }
                 }
             }

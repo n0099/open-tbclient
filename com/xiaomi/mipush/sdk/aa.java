@@ -6,18 +6,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.mipush.sdk.MiTinyDataClient;
 import java.util.concurrent.ScheduledFuture;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class aa implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ MiTinyDataClient.a.C2275a a;
+    public final /* synthetic */ MiTinyDataClient.a.C2254a a;
 
-    public aa(MiTinyDataClient.a.C2275a c2275a) {
+    public aa(MiTinyDataClient.a.C2254a c2254a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c2275a};
+            Object[] objArr = {c2254a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -27,7 +27,7 @@ public class aa implements Runnable {
                 return;
             }
         }
-        this.a = c2275a;
+        this.a = c2254a;
     }
 
     @Override // java.lang.Runnable

@@ -1,5 +1,5 @@
 package com.kwad.sdk.pngencrypt;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class PngjException extends RuntimeException {
     public static final long serialVersionUID = 1;
 

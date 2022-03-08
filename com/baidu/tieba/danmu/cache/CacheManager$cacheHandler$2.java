@@ -12,7 +12,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00060\u0001R\u00020\u0002H\n"}, d2 = {"<anonymous>", "Lcom/baidu/tieba/danmu/cache/CacheManager$CacheHandler;", "Lcom/baidu/tieba/danmu/cache/CacheManager;"}, k = 3, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public final class CacheManager$cacheHandler$2 extends Lambda implements Function0<CacheManager.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -1,5 +1,5 @@
 package com.facebook.drawee.backends.pipeline.info;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface ImagePerfDataListener {
     void onImageLoadStatusUpdated(ImagePerfData imagePerfData, int i2);
 

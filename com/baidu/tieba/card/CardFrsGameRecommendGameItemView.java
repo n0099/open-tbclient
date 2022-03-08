@@ -20,31 +20,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class CardFrsGameRecommendGameItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f42564e;
+    public TbImageView f40967e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f42565f;
+    public TextView f40968f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f42566g;
+    public TextView f40969g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f42567h;
+    public String f40970h;
     public int mSkinType;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CardFrsGameRecommendGameItemView f42568e;
+        public final /* synthetic */ CardFrsGameRecommendGameItemView f40971e;
 
         public a(CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView) {
             Interceptable interceptable = $ic;
@@ -61,15 +61,15 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
                     return;
                 }
             }
-            this.f42568e = cardFrsGameRecommendGameItemView;
+            this.f40971e = cardFrsGameRecommendGameItemView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (view.getTag() instanceof String)) {
-                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 10).param("fid", this.f42568e.f42567h));
-                c.a.t0.m.a.m(this.f42568e.getContext(), (String) view.getTag());
+                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 10).param("fid", this.f40971e.f40970h));
+                c.a.q0.l.a.m(this.f40971e.getContext(), (String) view.getTag());
             }
         }
     }
@@ -101,17 +101,17 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.card_frs_game_recommend_game_view_item, (ViewGroup) this, true);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.card_frs_game_recommend_game_pic);
-            this.f42564e = tbImageView;
+            this.f40967e = tbImageView;
             tbImageView.setAutoChangeStyle(true);
-            this.f42564e.setDefaultResource(17170445);
-            this.f42564e.setDefaultBgResource(R.color.CAM_X0205);
-            this.f42564e.setDrawerType(1);
-            this.f42564e.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds26));
-            this.f42564e.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f42564e.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-            this.f42564e.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds2));
-            this.f42565f = (TextView) findViewById(R.id.card_frs_game_recommend_game_name);
-            this.f42566g = (TextView) findViewById(R.id.card_frs_game_recommend_game_dec);
+            this.f40967e.setDefaultResource(17170445);
+            this.f40967e.setDefaultBgResource(R.color.CAM_X0205);
+            this.f40967e.setDrawerType(1);
+            this.f40967e.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds26));
+            this.f40967e.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f40967e.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
+            this.f40967e.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds2));
+            this.f40968f = (TextView) findViewById(R.id.card_frs_game_recommend_game_name);
+            this.f40969g = (TextView) findViewById(R.id.card_frs_game_recommend_game_dec);
             setOrientation(1);
             setFocusable(true);
             setClickable(true);
@@ -123,19 +123,19 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
     public TextView getGameDscView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42566g : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40969g : (TextView) invokeV.objValue;
     }
 
     public TextView getGameNameView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42565f : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40968f : (TextView) invokeV.objValue;
     }
 
     public TbImageView getGamePicView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42564e : (TbImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f40967e : (TbImageView) invokeV.objValue;
     }
 
     public void onChangeSkinType(int i2) {
@@ -144,14 +144,14 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
             return;
         }
         this.mSkinType = i2;
-        SkinManager.setViewTextColor(this.f42565f, R.color.CAM_X0106, 1);
-        SkinManager.setViewTextColor(this.f42566g, R.color.CAM_X0109, 1);
+        SkinManager.setViewTextColor(this.f40968f, R.color.CAM_X0106, 1);
+        SkinManager.setViewTextColor(this.f40969g, R.color.CAM_X0109, 1);
     }
 
     public void setForumId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f42567h = str;
+            this.f40970h = str;
         }
     }
 

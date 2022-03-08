@@ -16,15 +16,15 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.view.addressdialog.ElementNode;
-import com.baidu.sapi2.ecommerce.R;
 import com.baidu.sapi2.ecommerce.result.AddressBean;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class AddressSelectorAdapter extends RecyclerView.Adapter<AddressSelectorHolder> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String VALUE_NOT_SELECTED_ID = "-1";
@@ -36,7 +36,7 @@ public class AddressSelectorAdapter extends RecyclerView.Adapter<AddressSelector
     public OnAddressSelectedListener mOnAddressSelectedListener;
     public OnHotCitySelectedListener mOnHotCitySelectedListener;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class AddressSelectorHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,12 +85,12 @@ public class AddressSelectorAdapter extends RecyclerView.Adapter<AddressSelector
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface OnAddressSelectedListener {
         void onAddressSelected(int i2, AddressBean addressBean);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public interface OnHotCitySelectedListener {
         void onHotCitySelected(AddressBean addressBean);
     }

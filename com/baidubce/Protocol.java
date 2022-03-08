@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.HttpVersion;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class Protocol {
     public static final /* synthetic */ Protocol[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -34,7 +34,7 @@ public final class Protocol {
             }
         }
         HTTP = new Protocol(HttpVersion.HTTP, 0, "http", 80);
-        Protocol protocol = new Protocol("HTTPS", 1, "https", Constants.SOCKET_PORT_SSL);
+        Protocol protocol = new Protocol("HTTPS", 1, "https", 443);
         HTTPS = protocol;
         $VALUES = new Protocol[]{HTTP, protocol};
     }

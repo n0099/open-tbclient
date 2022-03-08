@@ -14,7 +14,7 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class GetMediaResourceResponse extends AbstractBceResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public class GetMediaResourceResponse extends AbstractBceResponse {
                 getMediaResourceResponse.setStatus(jSONObject.getString("status"));
                 getMediaResourceResponse.setAttributes(Attributes.formatFromJson(jSONObject.getJSONObject("attributes")));
                 getMediaResourceResponse.setMeta(MediaMeta.formatFromJson(jSONObject.getJSONObject("meta")));
-                if (getMediaResourceResponse.getStatus().equalsIgnoreCase(f.f31162j)) {
+                if (getMediaResourceResponse.getStatus().equalsIgnoreCase(f.f29566j)) {
                     getMediaResourceResponse.setError(VodError.formatFromJson(jSONObject.getJSONObject("error")));
                 }
                 getMediaResourceResponse.setPublishTime(jSONObject.optString("publishTime"));

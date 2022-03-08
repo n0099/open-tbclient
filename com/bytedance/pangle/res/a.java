@@ -27,14 +27,14 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static Map<String, Integer> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinkedHashMap<String, Integer> f53319b;
+    public LinkedHashMap<String, Integer> f51738b;
 
     static {
         InterceptResult invokeClinit;
@@ -73,7 +73,7 @@ public final class a {
             }
         }
         LinkedHashMap<String, Integer> linkedHashMap = new LinkedHashMap<>();
-        this.f53319b = linkedHashMap;
+        this.f51738b = linkedHashMap;
         linkedHashMap.put(Zeus.getAppApplication().getApplicationInfo().sourceDir, 0);
     }
 
@@ -191,8 +191,8 @@ public final class a {
             } else {
                 a2 = a(assetManager, str);
             }
-            synchronized (this.f53319b) {
-                this.f53319b.put(str, 0);
+            synchronized (this.f51738b) {
+                this.f51738b.put(str, 0);
             }
             ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor updateAssetManager, newAssetManager=" + a2 + ", assets=" + h.b(a2));
             return a2;
@@ -209,7 +209,7 @@ public final class a {
             ArrayList<String> arrayList = new ArrayList();
             StringBuilder sb = new StringBuilder();
             for (String str2 : a2) {
-                if (!a.containsKey(str2) && !this.f53319b.containsKey(str2) && !str2.equals(str)) {
+                if (!a.containsKey(str2) && !this.f51738b.containsKey(str2) && !str2.equals(str)) {
                     arrayList.add(str2);
                 }
             }
@@ -221,8 +221,8 @@ public final class a {
                     assetManager2 = (AssetManager) AssetManager.class.newInstance();
                 }
                 ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor newAssetManager = ".concat(String.valueOf(assetManager2)));
-                synchronized (this.f53319b) {
-                    for (Map.Entry<String, Integer> entry : this.f53319b.entrySet()) {
+                synchronized (this.f51738b) {
+                    for (Map.Entry<String, Integer> entry : this.f51738b.entrySet()) {
                         if (!a.containsKey(entry.getKey())) {
                             sb.append(entry.getKey());
                             b(assetManager2, entry.getKey(), false);

@@ -7,8 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.text.Typography;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class SMSParsedResult extends ParsedResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +96,7 @@ public final class SMSParsedResult extends ParsedResult {
                 }
                 if (z3) {
                     if (z2) {
-                        sb.append(Typography.amp);
+                        sb.append('&');
                     }
                     sb.append("subject=");
                     sb.append(this.subject);

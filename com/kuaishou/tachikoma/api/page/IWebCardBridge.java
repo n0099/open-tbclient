@@ -2,7 +2,7 @@ package com.kuaishou.tachikoma.api.page;
 
 import com.kwad.v8.V8Function;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface IWebCardBridge {
     void close();
 

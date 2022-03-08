@@ -6,11 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.util.Formattable;
 import java.util.Formatter;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.Validate;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class FormattableUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SIMPLEST_FORMAT = "%s";
@@ -33,7 +34,7 @@ public class FormattableUtils {
     public static Formatter append(CharSequence charSequence, Formatter formatter, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{charSequence, formatter, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) ? append(charSequence, formatter, i2, i3, i4, ' ', null) : (Formatter) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{charSequence, formatter, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) ? append(charSequence, formatter, i2, i3, i4, WebvttCueParser.CHAR_SPACE, null) : (Formatter) invokeCommon.objValue;
     }
 
     public static String toString(Formattable formattable) {
@@ -51,7 +52,7 @@ public class FormattableUtils {
     public static Formatter append(CharSequence charSequence, Formatter formatter, int i2, int i3, int i4, CharSequence charSequence2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{charSequence, formatter, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), charSequence2})) == null) ? append(charSequence, formatter, i2, i3, i4, ' ', charSequence2) : (Formatter) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{charSequence, formatter, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), charSequence2})) == null) ? append(charSequence, formatter, i2, i3, i4, WebvttCueParser.CHAR_SPACE, charSequence2) : (Formatter) invokeCommon.objValue;
     }
 
     public static Formatter append(CharSequence charSequence, Formatter formatter, int i2, int i3, int i4, char c2, CharSequence charSequence2) {

@@ -1,5 +1,5 @@
 package com.baidu.ar.arplay.core.engine.engine3d;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public interface IARPCamera extends IARPNode {
     float getFieldOfView();
 

@@ -15,14 +15,14 @@ import kotlin.jvm.internal.Intrinsics;
 import tv.athena.revenue.api.IMiddleRevenue;
 import tv.athena.revenue.api.MiddleRevenueConfig;
 import tv.athena.revenue.api.pay.IMiddlePayService;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class b implements IMiddleRevenue {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final IRevenue f62421b;
+    public final IRevenue f60771b;
 
     public b(MiddleRevenueConfig middleRevenueConfig, IRevenue iRevenue) {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public final class b implements IMiddleRevenue {
                 return;
             }
         }
-        this.f62421b = iRevenue;
-        IAppPayService appPayService = this.f62421b.getAppPayService();
+        this.f60771b = iRevenue;
+        IAppPayService appPayService = this.f60771b.getAppPayService();
         Intrinsics.checkExpressionValueIsNotNull(appPayService, "revenue.appPayService");
         this.a = new a(middleRevenueConfig, appPayService);
     }
@@ -83,7 +83,7 @@ public final class b implements IMiddleRevenue {
     public void updateConfig(RevenueConfig revenueConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, revenueConfig) == null) {
-            this.f62421b.updateConfig(revenueConfig);
+            this.f60771b.updateConfig(revenueConfig);
         }
     }
 }

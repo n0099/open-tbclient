@@ -27,8 +27,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
-public class FollowUserSpinnerBtn extends LinearLayout implements c.a.t0.s.l0.t.b {
+/* loaded from: classes6.dex */
+public class FollowUserSpinnerBtn extends LinearLayout implements c.a.q0.r.l0.t.b {
     public static /* synthetic */ Interceptable $ic;
     public static final int t;
     public static final int u;
@@ -36,22 +36,22 @@ public class FollowUserSpinnerBtn extends LinearLayout implements c.a.t0.s.l0.t.
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public FrameLayout f49252e;
+    public FrameLayout f47671e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f49253f;
+    public FrameLayout f47672f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f49254g;
+    public TextView f47673g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f49255h;
+    public ImageView f47674h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f49256i;
+    public Paint f47675i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f49257j;
+    public int f47676j;
     public int k;
     public RectF l;
     public Path m;
@@ -62,16 +62,16 @@ public class FollowUserSpinnerBtn extends LinearLayout implements c.a.t0.s.l0.t.
     public boolean r;
     public b s;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f49258e;
+        public final /* synthetic */ b f47677e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FollowUserSpinnerBtn f49259f;
+        public final /* synthetic */ FollowUserSpinnerBtn f47678f;
 
         public a(FollowUserSpinnerBtn followUserSpinnerBtn, b bVar) {
             Interceptable interceptable = $ic;
@@ -88,22 +88,22 @@ public class FollowUserSpinnerBtn extends LinearLayout implements c.a.t0.s.l0.t.
                     return;
                 }
             }
-            this.f49259f = followUserSpinnerBtn;
-            this.f49258e = bVar;
+            this.f47678f = followUserSpinnerBtn;
+            this.f47677e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             b bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (bVar = this.f49258e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (bVar = this.f47677e) == null) {
                 return;
             }
-            bVar.a(!this.f49259f.p, false);
+            bVar.a(!this.f47678f.p, false);
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(boolean z, boolean z2);
     }
@@ -152,25 +152,25 @@ public class FollowUserSpinnerBtn extends LinearLayout implements c.a.t0.s.l0.t.
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.follow_user_spinner_btn_layout, this);
             setOrientation(0);
-            this.f49252e = (FrameLayout) findViewById(R.id.leftBox);
-            this.f49253f = (FrameLayout) findViewById(R.id.rightBox);
-            this.f49254g = (TextView) findViewById(R.id.title);
-            this.f49255h = (ImageView) findViewById(R.id.arrow);
+            this.f47671e = (FrameLayout) findViewById(R.id.leftBox);
+            this.f47672f = (FrameLayout) findViewById(R.id.rightBox);
+            this.f47673g = (TextView) findViewById(R.id.title);
+            this.f47674h = (ImageView) findViewById(R.id.arrow);
             Paint paint = new Paint(1);
-            this.f49256i = paint;
+            this.f47675i = paint;
             paint.setStyle(Paint.Style.STROKE);
-            this.f49256i.setStrokeCap(Paint.Cap.ROUND);
-            this.f49256i.setStrokeWidth(n.f(context, R.dimen.tbds3));
+            this.f47675i.setStrokeCap(Paint.Cap.ROUND);
+            this.f47675i.setStrokeWidth(n.f(context, R.dimen.tbds3));
             this.l = new RectF();
             this.m = new Path();
-            this.f49257j = R.color.CAM_X0105;
-            Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_unfold12_svg, this.f49257j, null);
+            this.f47676j = R.color.CAM_X0105;
+            Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_unfold12_svg, this.f47676j, null);
             this.o = pureDrawable;
-            this.f49255h.setImageDrawable(pureDrawable);
+            this.f47674h.setImageDrawable(pureDrawable);
         }
     }
 
-    @Override // c.a.t0.s.l0.t.b
+    @Override // c.a.q0.r.l0.t.b
     public void bindOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -188,9 +188,9 @@ public class FollowUserSpinnerBtn extends LinearLayout implements c.a.t0.s.l0.t.
             canvas.clipPath(this.m);
             super.draw(canvas);
             if (this.r) {
-                this.f49256i.setColor(SkinManager.getColor(this.f49257j));
-                float right = this.f49252e.getRight();
-                canvas.drawLine(right, this.f49255h.getTop(), right, this.f49255h.getBottom(), this.f49256i);
+                this.f47675i.setColor(SkinManager.getColor(this.f47676j));
+                float right = this.f47671e.getRight();
+                canvas.drawLine(right, this.f47674h.getTop(), right, this.f47674h.getBottom(), this.f47675i);
             }
         }
     }
@@ -198,22 +198,22 @@ public class FollowUserSpinnerBtn extends LinearLayout implements c.a.t0.s.l0.t.
     public ImageView getArrow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f49255h : (ImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f47674h : (ImageView) invokeV.objValue;
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             setBackgroundColor(SkinManager.getColor(this.k));
-            SkinManager.setViewTextColor(this.f49254g, this.f49257j);
-            Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_unfold12_svg, this.f49257j, null);
+            SkinManager.setViewTextColor(this.f47673g, this.f47676j);
+            Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_unfold12_svg, this.f47676j, null);
             this.o = pureDrawable;
-            this.f49255h.setImageDrawable(pureDrawable);
+            this.f47674h.setImageDrawable(pureDrawable);
             invalidate();
         }
     }
 
-    @Override // c.a.t0.s.l0.t.b
+    @Override // c.a.q0.r.l0.t.b
     public void onClickEvent(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view) == null) {
@@ -238,7 +238,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements c.a.t0.s.l0.t.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
             this.s = bVar;
-            this.f49253f.setOnClickListener(new a(this, bVar));
+            this.f47672f.setOnClickListener(new a(this, bVar));
         }
     }
 
@@ -246,26 +246,26 @@ public class FollowUserSpinnerBtn extends LinearLayout implements c.a.t0.s.l0.t.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             this.r = z;
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f49254g.getLayoutParams();
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f47673g.getLayoutParams();
             if (z) {
-                this.f49253f.setVisibility(0);
+                this.f47672f.setVisibility(0);
                 layoutParams.leftMargin = u;
                 layoutParams.rightMargin = v;
                 layoutParams.gravity = 16;
                 layoutParams.width = -2;
             } else {
-                this.f49253f.setVisibility(8);
+                this.f47672f.setVisibility(8);
                 layoutParams.leftMargin = 0;
                 layoutParams.rightMargin = 0;
                 layoutParams.gravity = 17;
                 layoutParams.width = t;
             }
-            this.f49254g.setLayoutParams(layoutParams);
+            this.f47673g.setLayoutParams(layoutParams);
             requestLayout();
         }
     }
 
-    @Override // c.a.t0.s.l0.t.b
+    @Override // c.a.q0.r.l0.t.b
     public void updateFansNum(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
@@ -278,14 +278,14 @@ public class FollowUserSpinnerBtn extends LinearLayout implements c.a.t0.s.l0.t.
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             if (z) {
                 this.n = getResources().getString(R.string.followed);
-                this.f49257j = R.color.CAM_X0101;
+                this.f47676j = R.color.CAM_X0101;
                 this.k = R.color.CAM_X0904;
             } else {
                 this.n = getResources().getString(R.string.attention);
-                this.f49257j = R.color.CAM_X0105;
+                this.f47676j = R.color.CAM_X0105;
                 this.k = R.color.CAM_X0901;
             }
-            this.f49254g.setText(this.n);
+            this.f47673g.setText(this.n);
             requestLayout();
             onChangeSkinType(0);
             if (this.r && !this.q && z && !this.p && (bVar = this.s) != null) {
@@ -339,7 +339,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements c.a.t0.s.l0.t.
         b(context);
     }
 
-    @Override // c.a.t0.s.l0.t.b
+    @Override // c.a.q0.r.l0.t.b
     public void updateLikeStatus(boolean z, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
@@ -347,7 +347,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements c.a.t0.s.l0.t.
         }
     }
 
-    @Override // c.a.t0.s.l0.t.b
+    @Override // c.a.q0.r.l0.t.b
     public void updateLikeStatus(boolean z, int i2, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {

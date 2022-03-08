@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PROFESSION_THREAD_ID = "5977226324";
@@ -50,13 +50,13 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
     public View mTopCorner;
     public View.OnClickListener onClickListener;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsProfessionIntroActivity f43935e;
+        public final /* synthetic */ FrsProfessionIntroActivity f42338e;
 
         public a(FrsProfessionIntroActivity frsProfessionIntroActivity) {
             Interceptable interceptable = $ic;
@@ -73,35 +73,35 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
                     return;
                 }
             }
-            this.f43935e = frsProfessionIntroActivity;
+            this.f42338e = frsProfessionIntroActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view != this.f43935e.mBack) {
-                    if (view != this.f43935e.mGoPublishButton) {
-                        if (view == this.f43935e.mGotItButton) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f43935e.getActivity()).createNormalCfg(FrsProfessionIntroActivity.PROFESSION_THREAD_ID, null, "frs")));
+                if (view != this.f42338e.mBack) {
+                    if (view != this.f42338e.mGoPublishButton) {
+                        if (view == this.f42338e.mGotItButton) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f42338e.getActivity()).createNormalCfg(FrsProfessionIntroActivity.PROFESSION_THREAD_ID, null, "frs")));
                             Intent intent = new Intent();
                             intent.putExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, -1);
-                            this.f43935e.setResult(-1, intent);
-                            this.f43935e.finish();
+                            this.f42338e.setResult(-1, intent);
+                            this.f42338e.finish();
                             return;
                         }
                         return;
                     }
                     Intent intent2 = new Intent();
                     intent2.putExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, 1);
-                    this.f43935e.setResult(-1, intent2);
-                    this.f43935e.finish();
+                    this.f42338e.setResult(-1, intent2);
+                    this.f42338e.finish();
                     return;
                 }
                 Intent intent3 = new Intent();
                 intent3.putExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, -1);
-                this.f43935e.setResult(-1, intent3);
-                this.f43935e.finish();
+                this.f42338e.setResult(-1, intent3);
+                this.f42338e.finish();
             }
         }
     }
@@ -148,20 +148,20 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             super.onChangeSkinType(i2);
-            SkinManager.setViewTextColor(this.mNavigationBar.mCenterText, R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.mProfessionDesc, R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.mFirstIndex, R.color.CAM_X0111);
-            SkinManager.setViewTextColor(this.mFirstTitle, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.mFirstIntro, R.color.CAM_X0106);
-            SkinManager.setViewTextColor(this.mSecondIndex, R.color.CAM_X0111);
-            SkinManager.setViewTextColor(this.mSecondTitle, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.mSecondIntro, R.color.CAM_X0106);
-            SkinManager.setViewTextColor(this.mGotItButton, R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.mNavigationBar.mCenterText, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.mProfessionDesc, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.mFirstIndex, (int) R.color.CAM_X0111);
+            SkinManager.setViewTextColor(this.mFirstTitle, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.mFirstIntro, (int) R.color.CAM_X0106);
+            SkinManager.setViewTextColor(this.mSecondIndex, (int) R.color.CAM_X0111);
+            SkinManager.setViewTextColor(this.mSecondTitle, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.mSecondIntro, (int) R.color.CAM_X0106);
+            SkinManager.setViewTextColor(this.mGotItButton, (int) R.color.CAM_X0101);
             SkinManager.setBackgroundColor(this.mContainer, R.color.CAM_X0201);
             SkinManager.setBackgroundResource(this.mTopCorner, R.drawable.bg_top_corner_white);
             SkinManager.setImageResource(this.mNavigationBar.getBackImageView(), R.drawable.btn_sml_back_selector_s);
             SkinManager.setBackgroundResource(this.mGotItButton, R.drawable.frs_profession_button_bg);
-            SkinManager.setViewTextColor(this.mGoPublishButton, R.color.CAM_X0302);
+            SkinManager.setViewTextColor(this.mGoPublishButton, (int) R.color.CAM_X0302);
             SkinManager.setBackgroundColor(this.mBottomView, R.color.CAM_X0201);
             this.mGradientView.changeSkinType(i2);
         }

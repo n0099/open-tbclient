@@ -2,7 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class cs implements com.kwad.sdk.core.d<com.kwad.sdk.c.kwai.d> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
@@ -14,29 +14,29 @@ public class cs implements com.kwad.sdk.core.d<com.kwad.sdk.c.kwai.d> {
         if (jSONObject.opt("packageId") == JSONObject.NULL) {
             dVar.a = "";
         }
-        dVar.f55679b = jSONObject.optString("zipFileName");
+        dVar.f54029b = jSONObject.optString("zipFileName");
         if (jSONObject.opt("zipFileName") == JSONObject.NULL) {
-            dVar.f55679b = "";
+            dVar.f54029b = "";
         }
-        dVar.f55680c = jSONObject.optString(FileMetaUtil.ZIP_PATH);
+        dVar.f54030c = jSONObject.optString(FileMetaUtil.ZIP_PATH);
         if (jSONObject.opt(FileMetaUtil.ZIP_PATH) == JSONObject.NULL) {
-            dVar.f55680c = "";
+            dVar.f54030c = "";
         }
-        dVar.f55681d = jSONObject.optString("packageUrl");
+        dVar.f54031d = jSONObject.optString("packageUrl");
         if (jSONObject.opt("packageUrl") == JSONObject.NULL) {
-            dVar.f55681d = "";
+            dVar.f54031d = "";
         }
-        dVar.f55682e = jSONObject.optString("version");
+        dVar.f54032e = jSONObject.optString("version");
         if (jSONObject.opt("version") == JSONObject.NULL) {
-            dVar.f55682e = "";
+            dVar.f54032e = "";
         }
-        dVar.f55683f = jSONObject.optString("checksum");
+        dVar.f54033f = jSONObject.optString("checksum");
         if (jSONObject.opt("checksum") == JSONObject.NULL) {
-            dVar.f55683f = "";
+            dVar.f54033f = "";
         }
-        dVar.f55684g = jSONObject.optInt("loadType");
-        dVar.f55685h = jSONObject.optInt("packageType");
-        dVar.f55686i = jSONObject.optBoolean("isPublic");
+        dVar.f54034g = jSONObject.optInt("loadType");
+        dVar.f54035h = jSONObject.optInt("packageType");
+        dVar.f54036i = jSONObject.optBoolean("isPublic");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,14 +46,14 @@ public class cs implements com.kwad.sdk.core.d<com.kwad.sdk.c.kwai.d> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "packageId", dVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "zipFileName", dVar.f55679b);
-        com.kwad.sdk.utils.t.a(jSONObject, FileMetaUtil.ZIP_PATH, dVar.f55680c);
-        com.kwad.sdk.utils.t.a(jSONObject, "packageUrl", dVar.f55681d);
-        com.kwad.sdk.utils.t.a(jSONObject, "version", dVar.f55682e);
-        com.kwad.sdk.utils.t.a(jSONObject, "checksum", dVar.f55683f);
-        com.kwad.sdk.utils.t.a(jSONObject, "loadType", dVar.f55684g);
-        com.kwad.sdk.utils.t.a(jSONObject, "packageType", dVar.f55685h);
-        com.kwad.sdk.utils.t.a(jSONObject, "isPublic", dVar.f55686i);
+        com.kwad.sdk.utils.t.a(jSONObject, "zipFileName", dVar.f54029b);
+        com.kwad.sdk.utils.t.a(jSONObject, FileMetaUtil.ZIP_PATH, dVar.f54030c);
+        com.kwad.sdk.utils.t.a(jSONObject, "packageUrl", dVar.f54031d);
+        com.kwad.sdk.utils.t.a(jSONObject, "version", dVar.f54032e);
+        com.kwad.sdk.utils.t.a(jSONObject, "checksum", dVar.f54033f);
+        com.kwad.sdk.utils.t.a(jSONObject, "loadType", dVar.f54034g);
+        com.kwad.sdk.utils.t.a(jSONObject, "packageType", dVar.f54035h);
+        com.kwad.sdk.utils.t.a(jSONObject, "isPublic", dVar.f54036i);
         return jSONObject;
     }
 }

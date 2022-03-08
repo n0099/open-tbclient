@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class a implements ThreadFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final AtomicInteger a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ d f33911b;
+    public final /* synthetic */ d f32314b;
 
     public a(d dVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class a implements ThreadFactory {
                 return;
             }
         }
-        this.f33911b = dVar;
+        this.f32314b = dVar;
         this.a = new AtomicInteger(1);
     }
 

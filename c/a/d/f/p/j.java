@@ -36,19 +36,19 @@ public class j {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f2179b;
+        public String f2808b;
 
         /* renamed from: c  reason: collision with root package name */
-        public StringBuilder f2180c;
+        public StringBuilder f2809c;
 
         /* renamed from: d  reason: collision with root package name */
-        public k f2181d;
+        public k f2810d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f2182e;
+        public boolean f2811e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ j f2183f;
+        public final /* synthetic */ j f2812f;
 
         public a(j jVar, String str, String str2, StringBuilder sb, k kVar) {
             Interceptable interceptable = $ic;
@@ -65,12 +65,12 @@ public class j {
                     return;
                 }
             }
-            this.f2183f = jVar;
+            this.f2812f = jVar;
             this.a = str;
-            this.f2179b = str2;
-            this.f2180c = sb;
-            this.f2181d = kVar;
-            this.f2182e = false;
+            this.f2808b = str2;
+            this.f2809c = sb;
+            this.f2810d = kVar;
+            this.f2811e = false;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -78,12 +78,12 @@ public class j {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                boolean g2 = this.f2183f.g(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.a, this.f2180c);
-                this.f2182e = g2;
+                boolean g2 = this.f2812f.g(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.a, this.f2809c);
+                this.f2811e = g2;
                 if (g2) {
                     return null;
                 }
-                this.f2183f.c(this.f2179b, "".getBytes(), this.f2180c);
+                this.f2812f.c(this.f2808b, "".getBytes(), this.f2809c);
                 return null;
             }
             return invokeL.objValue;
@@ -94,13 +94,13 @@ public class j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
                 super.onPostExecute(obj);
-                if (this.f2180c.length() > 0) {
+                if (this.f2809c.length() > 0) {
                     BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
-                    bdStatisticsManager.error("so", "load_" + this.a + ".so", "", -9101, this.f2180c.toString(), new Object[0]);
+                    bdStatisticsManager.error("so", "load_" + this.a + ".so", "", -9101, this.f2809c.toString(), new Object[0]);
                 }
-                k kVar = this.f2181d;
+                k kVar = this.f2810d;
                 if (kVar != null) {
-                    kVar.a(this.f2182e);
+                    kVar.a(this.f2811e);
                 }
             }
         }
@@ -201,7 +201,7 @@ public class j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + com.baidu.fsg.face.base.b.c.f34235g + File.separator + "lib" + str + ".so";
+            return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + com.baidu.fsg.face.base.b.c.f32638g + File.separator + "lib" + str + ".so";
         }
         return (String) invokeL.objValue;
     }

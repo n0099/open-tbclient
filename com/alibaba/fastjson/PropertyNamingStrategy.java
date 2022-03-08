@@ -7,9 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import org.aspectj.runtime.reflect.SignatureImpl;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class PropertyNamingStrategy {
     public static final /* synthetic */ PropertyNamingStrategy[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -21,7 +22,7 @@ public final class PropertyNamingStrategy {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.alibaba.fastjson.PropertyNamingStrategy$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$alibaba$fastjson$PropertyNamingStrategy;
         public static /* synthetic */ Interceptable $ic;
@@ -130,7 +131,7 @@ public final class PropertyNamingStrategy {
                 while (i3 < str.length()) {
                     char charAt2 = str.charAt(i3);
                     if (charAt2 >= 'A' && charAt2 <= 'Z') {
-                        char c2 = (char) (charAt2 + ' ');
+                        char c2 = (char) (charAt2 + WebvttCueParser.CHAR_SPACE);
                         if (i3 > 0) {
                             sb.append('_');
                         }
@@ -146,7 +147,7 @@ public final class PropertyNamingStrategy {
                 while (i3 < str.length()) {
                     char charAt3 = str.charAt(i3);
                     if (charAt3 >= 'A' && charAt3 <= 'Z') {
-                        char c3 = (char) (charAt3 + ' ');
+                        char c3 = (char) (charAt3 + WebvttCueParser.CHAR_SPACE);
                         if (i3 > 0) {
                             sb2.append(SignatureImpl.SEP);
                         }
@@ -160,7 +161,7 @@ public final class PropertyNamingStrategy {
             } else if (i2 != 3) {
                 if (i2 == 4 && (charAt = str.charAt(0)) >= 'A' && charAt <= 'Z') {
                     char[] charArray = str.toCharArray();
-                    charArray[0] = (char) (charArray[0] + ' ');
+                    charArray[0] = (char) (charArray[0] + WebvttCueParser.CHAR_SPACE);
                     return new String(charArray);
                 }
                 return str;

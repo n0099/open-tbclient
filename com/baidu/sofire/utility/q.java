@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class q {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] a;

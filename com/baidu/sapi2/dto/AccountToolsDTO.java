@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class AccountToolsDTO extends SapiWebDTO {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_APPEAL_ACCOUNT = 4;

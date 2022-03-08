@@ -80,12 +80,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.input.TextAlign;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class SapiAccountService implements ISAccountService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BUSINESS_FROM_ONE_KEY_LOGIN = "business_from_one_key_login";
@@ -300,7 +300,7 @@ public final class SapiAccountService implements ISAccountService {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new PassNameValuePair("adapter", "3"));
-            arrayList.add(new PassNameValuePair("wapsec", TextAlign.CENTER));
+            arrayList.add(new PassNameValuePair("wapsec", "center"));
             if (this.configuration.accountCenterRealAutnen) {
                 arrayList.add(new PassNameValuePair("realName", "1"));
             } else {
@@ -358,7 +358,7 @@ public final class SapiAccountService implements ISAccountService {
                 arrayList.add(new PassNameValuePair("connect", "1"));
             }
             if (this.configuration.language == Language.ENGLISH) {
-                arrayList.add(new PassNameValuePair("lang", h.a));
+                arrayList.add(new PassNameValuePair(WebvttCueParser.TAG_LANG, h.a));
             }
             arrayList.add(new PassNameValuePair("suppcheck", "1"));
             if (this.configuration.supportFaceLogin) {
@@ -934,7 +934,7 @@ public final class SapiAccountService implements ISAccountService {
                 arrayList.add(new PassNameValuePair("connect", "1"));
             }
             if (this.configuration.language == Language.ENGLISH) {
-                arrayList.add(new PassNameValuePair("lang", h.a));
+                arrayList.add(new PassNameValuePair(WebvttCueParser.TAG_LANG, h.a));
             }
             arrayList.add(new PassNameValuePair("suppcheck", "1"));
             if (this.configuration.supportFaceLogin) {

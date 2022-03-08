@@ -28,12 +28,12 @@ import com.kwad.sdk.api.KsFeedAd;
 import com.kwad.sdk.api.KsLoadManager;
 import com.kwad.sdk.api.KsScene;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class k extends ReporterPidLoader<KsFeedAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class a implements KsLoadManager.FeedAdListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,29 +81,29 @@ public class k extends ReporterPidLoader<KsFeedAd> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class b extends u {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final KsFeedAd a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final View f28577b;
+        public final View f28415b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f28578c;
+        public final String f28416c;
 
         /* renamed from: d  reason: collision with root package name */
-        public FunAdInteractionListener f28579d;
+        public FunAdInteractionListener f28417d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f28580e;
+        public boolean f28418e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f28581f;
+        public boolean f28419f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ k f28582g;
+        public final /* synthetic */ k f28420g;
 
         public b(k kVar, KsFeedAd ksFeedAd, View view, String str) {
             Interceptable interceptable = $ic;
@@ -120,10 +120,10 @@ public class k extends ReporterPidLoader<KsFeedAd> {
                     return;
                 }
             }
-            this.f28582g = kVar;
+            this.f28420g = kVar;
             this.a = ksFeedAd;
-            this.f28577b = view;
-            this.f28578c = str;
+            this.f28415b = view;
+            this.f28416c = str;
         }
 
         @Override // com.kwad.sdk.api.KsFeedAd.AdInteractionListener
@@ -131,11 +131,11 @@ public class k extends ReporterPidLoader<KsFeedAd> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 LogPrinter.d();
-                this.f28582g.onAdClicked(this.f28581f);
-                this.f28581f = true;
-                FunAdInteractionListener funAdInteractionListener = this.f28579d;
+                this.f28420g.onAdClicked(this.f28419f);
+                this.f28419f = true;
+                FunAdInteractionListener funAdInteractionListener = this.f28417d;
                 if (funAdInteractionListener != null) {
-                    funAdInteractionListener.onAdClicked(this.f28578c, this.f28582g.mPid.ssp.type, this.f28582g.mPid.pid);
+                    funAdInteractionListener.onAdClicked(this.f28416c, this.f28420g.mPid.ssp.type, this.f28420g.mPid.pid);
                 }
             }
         }
@@ -145,11 +145,11 @@ public class k extends ReporterPidLoader<KsFeedAd> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 LogPrinter.d();
-                this.f28582g.onAdShow(this.a, this.f28580e);
-                this.f28580e = true;
-                FunAdInteractionListener funAdInteractionListener = this.f28579d;
+                this.f28420g.onAdShow(this.a, this.f28418e);
+                this.f28418e = true;
+                FunAdInteractionListener funAdInteractionListener = this.f28417d;
                 if (funAdInteractionListener != null) {
-                    funAdInteractionListener.onAdShow(this.f28578c, this.f28582g.mPid.ssp.type, this.f28582g.mPid.pid);
+                    funAdInteractionListener.onAdShow(this.f28416c, this.f28420g.mPid.ssp.type, this.f28420g.mPid.pid);
                 }
             }
         }
@@ -159,14 +159,14 @@ public class k extends ReporterPidLoader<KsFeedAd> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 LogPrinter.d();
-                View view = this.f28577b;
+                View view = this.f28415b;
                 if (view != null && view.getParent() != null) {
-                    ((ViewGroup) this.f28577b.getParent()).removeView(this.f28577b);
+                    ((ViewGroup) this.f28415b.getParent()).removeView(this.f28415b);
                 }
-                this.f28582g.onAdClose();
-                FunAdInteractionListener funAdInteractionListener = this.f28579d;
+                this.f28420g.onAdClose();
+                FunAdInteractionListener funAdInteractionListener = this.f28417d;
                 if (funAdInteractionListener != null) {
-                    funAdInteractionListener.onAdClose(this.f28578c);
+                    funAdInteractionListener.onAdClose(this.f28416c);
                 }
             }
         }

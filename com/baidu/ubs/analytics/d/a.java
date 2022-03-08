@@ -7,26 +7,26 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f50494b;
+    public static final String f48913b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f50495c;
+    public static final String f48914c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f50496d;
+    public static int f48915d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.ubs.analytics.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes13.dex */
-    public static final class EnumC1988a {
+    /* loaded from: classes6.dex */
+    public static final class EnumC1964a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int aV = 1;
         public static final int aW = 2;
@@ -64,16 +64,16 @@ public final class a {
             }
         }
         a = Environment.getExternalStorageDirectory().getPath();
-        f50494b = a + "/baidu/ab/crash/";
-        f50495c = a + "/baidu/ab/sdklog/";
+        f48913b = a + "/baidu/ab/crash/";
+        f48914c = a + "/baidu/ab/sdklog/";
         String str = a + "/baidu/ab/sdkupdata/" + b() + "/";
-        f50496d = EnumC1988a.aV;
+        f48915d = EnumC1964a.aV;
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f50496d == EnumC1988a.aV : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f48915d == EnumC1964a.aV : invokeV.booleanValue;
     }
 
     public static int b() {

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class q implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,10 +16,10 @@ public class q implements Runnable {
     public final /* synthetic */ String f833a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f61615b;
+    public final /* synthetic */ String f59965b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f61616c;
+    public final /* synthetic */ String f59966c;
 
     public q(p pVar, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public class q implements Runnable {
         }
         this.a = pVar;
         this.f833a = str;
-        this.f61615b = str2;
-        this.f61616c = str3;
+        this.f59965b = str2;
+        this.f59966c = str3;
     }
 
     @Override // java.lang.Runnable
@@ -49,7 +49,7 @@ public class q implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             context = this.a.f826a;
             SharedPreferences.Editor edit = context.getSharedPreferences(this.f833a, 4).edit();
-            edit.putString(this.f61615b, this.f61616c);
+            edit.putString(this.f59965b, this.f59966c);
             edit.commit();
         }
     }

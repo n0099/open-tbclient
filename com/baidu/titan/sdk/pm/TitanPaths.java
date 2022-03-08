@@ -3,9 +3,10 @@ package com.baidu.titan.sdk.pm;
 import com.baidu.searchbox.launch.stats.AppBeforeCreateSpeedStats;
 import com.baidu.titan.sdk.initer.TitanIniter;
 import com.baidu.titan.sdk.runtime.annotation.DisableIntercept;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import java.io.File;
 @DisableIntercept
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class TitanPaths {
     public static final String TITAN_SANDBOX_PROCESS_NAME_SUFFIX = ":titanSandbox";
 
@@ -14,7 +15,7 @@ public class TitanPaths {
     }
 
     public static File getHeadFile() {
-        return new File(getBaseDir(), "head");
+        return new File(getBaseDir(), TtmlNode.TAG_HEAD);
     }
 
     public static File getPatchDir(String str) {

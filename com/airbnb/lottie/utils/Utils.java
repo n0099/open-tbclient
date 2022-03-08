@@ -26,7 +26,7 @@ import java.net.UnknownHostException;
 import java.net.UnknownServiceException;
 import java.nio.channels.ClosedChannelException;
 import javax.net.ssl.SSLException;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class Utils {
     public static final int SECOND_IN_NANOS = 1000000000;
     public static final ThreadLocal<PathMeasure> threadLocalPathMeasure = new ThreadLocal<PathMeasure>() { // from class: com.airbnb.lottie.utils.Utils.1

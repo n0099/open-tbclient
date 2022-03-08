@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.kwad.sdk.R;
+import com.baidu.tieba.R;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.response.model.AdProductInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
@@ -18,46 +18,46 @@ import com.kwad.sdk.utils.w;
 import com.kwad.sdk.widget.KSCornerImageView;
 import com.kwad.sdk.widget.KSCouponLabelTextView;
 import com.kwad.sdk.widget.KsPriceView;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class g extends d implements View.OnClickListener {
     public ViewGroup a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f57479b;
+    public ViewGroup f55829b;
 
     /* renamed from: c  reason: collision with root package name */
-    public KSCornerImageView f57480c;
+    public KSCornerImageView f55830c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f57481d;
+    public TextView f55831d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f57482e;
+    public LinearLayout f55832e;
 
     /* renamed from: f  reason: collision with root package name */
-    public KsPriceView f57483f;
+    public KsPriceView f55833f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f57484g;
+    public TextView f55834g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f57485h;
+    public View f55835h;
 
     /* renamed from: i  reason: collision with root package name */
-    public KSCornerImageView f57486i;
+    public KSCornerImageView f55836i;
 
     /* renamed from: j  reason: collision with root package name */
-    public b f57487j;
+    public b f55837j;
     public a k;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a();
     }
 
     public g(ViewGroup viewGroup, b bVar) {
         this.a = viewGroup;
-        this.f57487j = bVar;
+        this.f55837j = bVar;
         b();
     }
 
@@ -69,19 +69,19 @@ public class g extends d implements View.OnClickListener {
     }
 
     private void a(final AdProductInfo adProductInfo, AdTemplate adTemplate) {
-        KSImageLoader.loadImage(this.f57480c, adProductInfo.getIcon(), adTemplate);
-        this.f57481d.setText(adProductInfo.getName());
+        KSImageLoader.loadImage(this.f55830c, adProductInfo.getIcon(), adTemplate);
+        this.f55831d.setText(adProductInfo.getName());
         if (adProductInfo.isCouponListEmpty()) {
-            this.f57482e.setVisibility(8);
+            this.f55832e.setVisibility(8);
             this.k.a();
         } else {
-            this.f57482e.setVisibility(0);
-            this.f57482e.post(new Runnable() { // from class: com.kwad.sdk.reward.d.g.1
+            this.f55832e.setVisibility(0);
+            this.f55832e.post(new Runnable() { // from class: com.kwad.sdk.reward.d.g.1
                 @Override // java.lang.Runnable
                 public void run() {
                     for (CouponInfo couponInfo : adProductInfo.getCouponList()) {
                         g gVar = g.this;
-                        View a2 = gVar.a(gVar.f57482e.getContext(), couponInfo, g.this.f57482e);
+                        View a2 = gVar.a(gVar.f55832e.getContext(), couponInfo, g.this.f55832e);
                         ViewGroup.LayoutParams layoutParams = a2.getLayoutParams();
                         if (layoutParams == null) {
                             layoutParams = new ViewGroup.LayoutParams(-2, -1);
@@ -89,12 +89,12 @@ public class g extends d implements View.OnClickListener {
                             layoutParams.width = -2;
                             layoutParams.height = -1;
                         }
-                        g.this.f57482e.addView(a2, layoutParams);
-                        w.a(new com.kwad.sdk.widget.c(com.kwad.sdk.core.config.b.aL()), g.this.f57482e);
+                        g.this.f55832e.addView(a2, layoutParams);
+                        w.a(new com.kwad.sdk.widget.c(com.kwad.sdk.core.config.b.aL()), g.this.f55832e);
                     }
                     if (g.this.k != null) {
-                        if (g.this.f57482e.getChildCount() > 0) {
-                            g.this.f57482e.getChildAt(0).post(new Runnable() { // from class: com.kwad.sdk.reward.d.g.1.1
+                        if (g.this.f55832e.getChildCount() > 0) {
+                            g.this.f55832e.getChildAt(0).post(new Runnable() { // from class: com.kwad.sdk.reward.d.g.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     g.this.k.a();
@@ -107,27 +107,27 @@ public class g extends d implements View.OnClickListener {
                 }
             });
         }
-        this.f57483f.a(adProductInfo.getPrice(), adProductInfo.getOriginPrice());
+        this.f55833f.a(adProductInfo.getPrice(), adProductInfo.getOriginPrice());
         String aF = com.kwad.sdk.core.config.b.aF();
         if (at.a(aF)) {
             return;
         }
-        KSImageLoader.loadImage(this.f57486i, aF, adTemplate);
+        KSImageLoader.loadImage(this.f55836i, aF, adTemplate);
     }
 
     private void b() {
-        this.f57479b = (ViewGroup) this.a.findViewById(R.id.ksad_reward_order_root);
-        this.f57480c = (KSCornerImageView) this.a.findViewById(R.id.ksad_reward_order_icon);
-        this.f57481d = (TextView) this.a.findViewById(R.id.ksad_reward_order_title);
-        this.f57482e = (LinearLayout) this.a.findViewById(R.id.ksad_reward_order_coupon_list);
-        this.f57483f = (KsPriceView) this.a.findViewById(R.id.ksad_reward_order_price);
-        this.f57484g = (TextView) this.a.findViewById(R.id.ksad_reward_order_btn_buy);
-        this.f57485h = this.a.findViewById(R.id.ksad_reward_order_text_area);
-        this.f57486i = (KSCornerImageView) this.a.findViewById(R.id.ksad_reward_order_kwai_logo);
-        this.f57484g.setText(com.kwad.sdk.core.config.b.aE());
-        this.f57484g.setOnClickListener(this);
-        this.f57480c.setOnClickListener(this);
-        this.f57485h.setOnClickListener(this);
+        this.f55829b = (ViewGroup) this.a.findViewById(R.id.ksad_reward_order_root);
+        this.f55830c = (KSCornerImageView) this.a.findViewById(R.id.ksad_reward_order_icon);
+        this.f55831d = (TextView) this.a.findViewById(R.id.ksad_reward_order_title);
+        this.f55832e = (LinearLayout) this.a.findViewById(R.id.ksad_reward_order_coupon_list);
+        this.f55833f = (KsPriceView) this.a.findViewById(R.id.ksad_reward_order_price);
+        this.f55834g = (TextView) this.a.findViewById(R.id.ksad_reward_order_btn_buy);
+        this.f55835h = this.a.findViewById(R.id.ksad_reward_order_text_area);
+        this.f55836i = (KSCornerImageView) this.a.findViewById(R.id.ksad_reward_order_kwai_logo);
+        this.f55834g.setText(com.kwad.sdk.core.config.b.aE());
+        this.f55834g.setOnClickListener(this);
+        this.f55830c.setOnClickListener(this);
+        this.f55835h.setOnClickListener(this);
         Context context = this.a.getContext();
         if (af.e(context)) {
             return;
@@ -142,7 +142,7 @@ public class g extends d implements View.OnClickListener {
 
     @Override // com.kwad.sdk.reward.d.d
     public ViewGroup a() {
-        return this.f57479b;
+        return this.f55829b;
     }
 
     @Override // com.kwad.sdk.reward.d.d
@@ -157,15 +157,15 @@ public class g extends d implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f57487j == null) {
+        if (this.f55837j == null) {
             return;
         }
-        if (view.equals(this.f57484g)) {
-            this.f57487j.c();
-        } else if (view.equals(this.f57480c)) {
-            this.f57487j.a();
-        } else if (view.equals(this.f57485h)) {
-            this.f57487j.b();
+        if (view.equals(this.f55834g)) {
+            this.f55837j.c();
+        } else if (view.equals(this.f55830c)) {
+            this.f55837j.a();
+        } else if (view.equals(this.f55835h)) {
+            this.f55837j.b();
         }
     }
 }

@@ -3,10 +3,10 @@ package com.baidu.swan.bdprivate.api;
 import android.util.Pair;
 import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
-import c.a.s0.a.h0.l.g.f;
-import c.a.s0.a.u.c.b;
-import c.a.s0.b.n.a;
-import c.a.s0.b.n.c;
+import c.a.p0.a.k.c.b;
+import c.a.p0.a.x.l.g.f;
+import c.a.p0.b.e.a;
+import c.a.p0.b.e.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @Keep
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class SwanApi$$ModulesProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -81,14 +81,14 @@ public class SwanApi$$ModulesProvider {
                             aVar = new a(this.mSwanApiContext);
                             this.mApis.put("446653951", aVar);
                         }
-                        Pair<Boolean, c.a.s0.a.u.h.a> a = c.a.s0.a.u.i.a.a(aVar, "swanAPI/getBDUSS");
+                        Pair<Boolean, c.a.p0.a.k.h.a> a = c.a.p0.a.k.i.a.a(aVar, "swanAPI/getBDUSS");
                         if (((Boolean) a.first).booleanValue()) {
-                            return ((c.a.s0.a.u.h.a) a.second).a();
+                            return ((c.a.p0.a.k.h.a) a.second).a();
                         }
                         if (f.a(this.mSwanApiContext.g(), "PrivateAccount.getBDUSS")) {
-                            return new c.a.s0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                            return new c.a.p0.a.k.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
                         }
-                        c.a.s0.a.u.h.b y = aVar.y(str);
+                        c.a.p0.a.k.h.b y = aVar.y(str);
                         return y == null ? "" : y.a();
                     }
                     return (String) invokeL2.objValue;
@@ -123,25 +123,25 @@ public class SwanApi$$ModulesProvider {
 
                 @JavascriptInterface
                 public String getOpenBDUSS(String str) {
-                    c.a.s0.b.n.b bVar2;
+                    c.a.p0.b.e.b bVar2;
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, str)) == null) {
                         Object obj = this.mApis.get("-404108695");
-                        if (obj != null && (obj instanceof c.a.s0.b.n.b)) {
-                            bVar2 = (c.a.s0.b.n.b) obj;
+                        if (obj != null && (obj instanceof c.a.p0.b.e.b)) {
+                            bVar2 = (c.a.p0.b.e.b) obj;
                         } else {
-                            bVar2 = new c.a.s0.b.n.b(this.mSwanApiContext);
+                            bVar2 = new c.a.p0.b.e.b(this.mSwanApiContext);
                             this.mApis.put("-404108695", bVar2);
                         }
-                        Pair<Boolean, c.a.s0.a.u.h.a> a = c.a.s0.a.u.i.a.a(bVar2, "swanAPI/getOpenBDUSS");
+                        Pair<Boolean, c.a.p0.a.k.h.a> a = c.a.p0.a.k.i.a.a(bVar2, "swanAPI/getOpenBDUSS");
                         if (((Boolean) a.first).booleanValue()) {
-                            return ((c.a.s0.a.u.h.a) a.second).a();
+                            return ((c.a.p0.a.k.h.a) a.second).a();
                         }
                         if (f.a(this.mSwanApiContext.g(), "PrivateBusiness.getOpenBDUSS")) {
-                            return new c.a.s0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                            return new c.a.p0.a.k.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
                         }
-                        c.a.s0.a.u.h.b y = bVar2.y(str);
+                        c.a.p0.a.k.h.b y = bVar2.y(str);
                         return y == null ? "" : y.a();
                     }
                     return (String) invokeL2.objValue;
@@ -160,14 +160,14 @@ public class SwanApi$$ModulesProvider {
                             cVar = new c(this.mSwanApiContext);
                             this.mApis.put("1495818240", cVar);
                         }
-                        Pair<Boolean, c.a.s0.a.u.h.a> a = c.a.s0.a.u.i.a.a(cVar, "swanAPI/queryQuickLoginInfo");
+                        Pair<Boolean, c.a.p0.a.k.h.a> a = c.a.p0.a.k.i.a.a(cVar, "swanAPI/queryQuickLoginInfo");
                         if (((Boolean) a.first).booleanValue()) {
-                            return ((c.a.s0.a.u.h.a) a.second).a();
+                            return ((c.a.p0.a.k.h.a) a.second).a();
                         }
                         if (f.a(this.mSwanApiContext.g(), "PrivateBusiness.queryQuickLoginInfo")) {
-                            return new c.a.s0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                            return new c.a.p0.a.k.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
                         }
-                        c.a.s0.a.u.h.b F = cVar.F(str);
+                        c.a.p0.a.k.h.b F = cVar.F(str);
                         return F == null ? "" : F.a();
                     }
                     return (String) invokeL2.objValue;
@@ -186,14 +186,14 @@ public class SwanApi$$ModulesProvider {
                             cVar = new c(this.mSwanApiContext);
                             this.mApis.put("1495818240", cVar);
                         }
-                        Pair<Boolean, c.a.s0.a.u.h.a> a = c.a.s0.a.u.i.a.a(cVar, "swanAPI/quickLogin");
+                        Pair<Boolean, c.a.p0.a.k.h.a> a = c.a.p0.a.k.i.a.a(cVar, "swanAPI/quickLogin");
                         if (((Boolean) a.first).booleanValue()) {
-                            return ((c.a.s0.a.u.h.a) a.second).a();
+                            return ((c.a.p0.a.k.h.a) a.second).a();
                         }
                         if (f.a(this.mSwanApiContext.g(), "PrivateBusiness.quickLogin")) {
-                            return new c.a.s0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                            return new c.a.p0.a.k.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
                         }
-                        c.a.s0.a.u.h.b G = cVar.G(str);
+                        c.a.p0.a.k.h.b G = cVar.G(str);
                         return G == null ? "" : G.a();
                     }
                     return (String) invokeL2.objValue;
@@ -249,14 +249,14 @@ public class SwanApi$$ModulesProvider {
                             aVar = new a(this.mSwanApiContext);
                             this.mApis.put("446653951", aVar);
                         }
-                        Pair<Boolean, c.a.s0.a.u.h.a> a = c.a.s0.a.u.i.a.a(aVar, "swanAPI/getBDUSS");
+                        Pair<Boolean, c.a.p0.a.k.h.a> a = c.a.p0.a.k.i.a.a(aVar, "swanAPI/getBDUSS");
                         if (((Boolean) a.first).booleanValue()) {
-                            return ((c.a.s0.a.u.h.a) a.second).a();
+                            return ((c.a.p0.a.k.h.a) a.second).a();
                         }
                         if (f.a(this.mSwanApiContext.g(), "PrivateAccount.getBDUSS")) {
-                            return new c.a.s0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                            return new c.a.p0.a.k.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
                         }
-                        c.a.s0.a.u.h.b y = aVar.y(str);
+                        c.a.p0.a.k.h.b y = aVar.y(str);
                         return y == null ? "" : y.a();
                     }
                     return (String) invokeL2.objValue;
@@ -291,25 +291,25 @@ public class SwanApi$$ModulesProvider {
 
                 @JavascriptInterface
                 public String getOpenBDUSS(String str) {
-                    c.a.s0.b.n.b bVar2;
+                    c.a.p0.b.e.b bVar2;
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, str)) == null) {
                         Object obj = this.mApis.get("-404108695");
-                        if (obj != null && (obj instanceof c.a.s0.b.n.b)) {
-                            bVar2 = (c.a.s0.b.n.b) obj;
+                        if (obj != null && (obj instanceof c.a.p0.b.e.b)) {
+                            bVar2 = (c.a.p0.b.e.b) obj;
                         } else {
-                            bVar2 = new c.a.s0.b.n.b(this.mSwanApiContext);
+                            bVar2 = new c.a.p0.b.e.b(this.mSwanApiContext);
                             this.mApis.put("-404108695", bVar2);
                         }
-                        Pair<Boolean, c.a.s0.a.u.h.a> a = c.a.s0.a.u.i.a.a(bVar2, "swanAPI/getOpenBDUSS");
+                        Pair<Boolean, c.a.p0.a.k.h.a> a = c.a.p0.a.k.i.a.a(bVar2, "swanAPI/getOpenBDUSS");
                         if (((Boolean) a.first).booleanValue()) {
-                            return ((c.a.s0.a.u.h.a) a.second).a();
+                            return ((c.a.p0.a.k.h.a) a.second).a();
                         }
                         if (f.a(this.mSwanApiContext.g(), "PrivateBusiness.getOpenBDUSS")) {
-                            return new c.a.s0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                            return new c.a.p0.a.k.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
                         }
-                        c.a.s0.a.u.h.b y = bVar2.y(str);
+                        c.a.p0.a.k.h.b y = bVar2.y(str);
                         return y == null ? "" : y.a();
                     }
                     return (String) invokeL2.objValue;
@@ -328,14 +328,14 @@ public class SwanApi$$ModulesProvider {
                             cVar = new c(this.mSwanApiContext);
                             this.mApis.put("1495818240", cVar);
                         }
-                        Pair<Boolean, c.a.s0.a.u.h.a> a = c.a.s0.a.u.i.a.a(cVar, "swanAPI/queryQuickLoginInfo");
+                        Pair<Boolean, c.a.p0.a.k.h.a> a = c.a.p0.a.k.i.a.a(cVar, "swanAPI/queryQuickLoginInfo");
                         if (((Boolean) a.first).booleanValue()) {
-                            return ((c.a.s0.a.u.h.a) a.second).a();
+                            return ((c.a.p0.a.k.h.a) a.second).a();
                         }
                         if (f.a(this.mSwanApiContext.g(), "PrivateBusiness.queryQuickLoginInfo")) {
-                            return new c.a.s0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                            return new c.a.p0.a.k.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
                         }
-                        c.a.s0.a.u.h.b F = cVar.F(str);
+                        c.a.p0.a.k.h.b F = cVar.F(str);
                         return F == null ? "" : F.a();
                     }
                     return (String) invokeL2.objValue;
@@ -354,14 +354,14 @@ public class SwanApi$$ModulesProvider {
                             cVar = new c(this.mSwanApiContext);
                             this.mApis.put("1495818240", cVar);
                         }
-                        Pair<Boolean, c.a.s0.a.u.h.a> a = c.a.s0.a.u.i.a.a(cVar, "swanAPI/quickLogin");
+                        Pair<Boolean, c.a.p0.a.k.h.a> a = c.a.p0.a.k.i.a.a(cVar, "swanAPI/quickLogin");
                         if (((Boolean) a.first).booleanValue()) {
-                            return ((c.a.s0.a.u.h.a) a.second).a();
+                            return ((c.a.p0.a.k.h.a) a.second).a();
                         }
                         if (f.a(this.mSwanApiContext.g(), "PrivateBusiness.quickLogin")) {
-                            return new c.a.s0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                            return new c.a.p0.a.k.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
                         }
-                        c.a.s0.a.u.h.b G = cVar.G(str);
+                        c.a.p0.a.k.h.b G = cVar.G(str);
                         return G == null ? "" : G.a();
                     }
                     return (String) invokeL2.objValue;

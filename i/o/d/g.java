@@ -8,21 +8,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import i.g;
 import i.h;
 import i.i;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class g<T> extends i.h<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final T f62234b;
+    public final T f60584b;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public class a implements h.c<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Object f62235e;
+        public final /* synthetic */ Object f60585e;
 
         public a(Object obj) {
             Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public final class g<T> extends i.h<T> {
                     return;
                 }
             }
-            this.f62235e = obj;
+            this.f60585e = obj;
         }
 
         @Override // i.h.c, i.n.b
@@ -50,21 +50,21 @@ public final class g<T> extends i.h<T> {
         public void call(i<? super T> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                iVar.c((Object) this.f62235e);
+                iVar.c((Object) this.f60585e);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class b<T> implements h.c<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final i.o.c.b f62236e;
+        public final i.o.c.b f60586e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final T f62237f;
+        public final T f60587f;
 
         public b(i.o.c.b bVar, T t) {
             Interceptable interceptable = $ic;
@@ -81,8 +81,8 @@ public final class g<T> extends i.h<T> {
                     return;
                 }
             }
-            this.f62236e = bVar;
-            this.f62237f = t;
+            this.f60586e = bVar;
+            this.f60587f = t;
         }
 
         @Override // i.h.c, i.n.b
@@ -93,21 +93,21 @@ public final class g<T> extends i.h<T> {
         public void call(i<? super T> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                iVar.a(this.f62236e.a(new d(iVar, this.f62237f)));
+                iVar.a(this.f60586e.a(new d(iVar, this.f60587f)));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class c<T> implements h.c<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final i.g f62238e;
+        public final i.g f60588e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final T f62239f;
+        public final T f60589f;
 
         public c(i.g gVar, T t) {
             Interceptable interceptable = $ic;
@@ -124,8 +124,8 @@ public final class g<T> extends i.h<T> {
                     return;
                 }
             }
-            this.f62238e = gVar;
-            this.f62239f = t;
+            this.f60588e = gVar;
+            this.f60589f = t;
         }
 
         @Override // i.h.c, i.n.b
@@ -136,23 +136,23 @@ public final class g<T> extends i.h<T> {
         public void call(i<? super T> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                g.a createWorker = this.f62238e.createWorker();
+                g.a createWorker = this.f60588e.createWorker();
                 iVar.a(createWorker);
-                createWorker.b(new d(iVar, this.f62239f));
+                createWorker.b(new d(iVar, this.f60589f));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class d<T> implements i.n.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final i<? super T> f62240e;
+        public final i<? super T> f60590e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final T f62241f;
+        public final T f60591f;
 
         public d(i<? super T> iVar, T t) {
             Interceptable interceptable = $ic;
@@ -169,8 +169,8 @@ public final class g<T> extends i.h<T> {
                     return;
                 }
             }
-            this.f62240e = iVar;
-            this.f62241f = t;
+            this.f60590e = iVar;
+            this.f60591f = t;
         }
 
         /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
@@ -179,9 +179,9 @@ public final class g<T> extends i.h<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f62240e.c((T) this.f62241f);
+                    this.f60590e.c((T) this.f60591f);
                 } catch (Throwable th) {
-                    this.f62240e.b(th);
+                    this.f60590e.b(th);
                 }
             }
         }
@@ -205,7 +205,7 @@ public final class g<T> extends i.h<T> {
                 return;
             }
         }
-        this.f62234b = t;
+        this.f60584b = t;
     }
 
     public static <T> g<T> m(T t) {
@@ -219,9 +219,9 @@ public final class g<T> extends i.h<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
             if (gVar instanceof i.o.c.b) {
-                return i.h.b(new b((i.o.c.b) gVar, this.f62234b));
+                return i.h.b(new b((i.o.c.b) gVar, this.f60584b));
             }
-            return i.h.b(new c(gVar, this.f62234b));
+            return i.h.b(new c(gVar, this.f60584b));
         }
         return (i.h) invokeL.objValue;
     }

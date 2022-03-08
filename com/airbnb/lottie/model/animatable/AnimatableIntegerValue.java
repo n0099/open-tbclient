@@ -4,7 +4,7 @@ import com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation;
 import com.airbnb.lottie.animation.keyframe.IntegerKeyframeAnimation;
 import com.airbnb.lottie.value.Keyframe;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class AnimatableIntegerValue extends BaseAnimatableValue<Integer, Integer> {
     public AnimatableIntegerValue() {
         super(100);

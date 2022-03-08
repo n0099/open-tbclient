@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class DiskEmotionOperate extends DiskFileOperate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public class DiskEmotionOperate extends DiskFileOperate {
     public DiskPicHeader mDiskPicHeader;
     public BitmapFactory.Options mOptions;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class DiskPicHeader {
         public static /* synthetic */ Interceptable $ic = null;
         public static byte GIF_FLAG = Byte.MIN_VALUE;

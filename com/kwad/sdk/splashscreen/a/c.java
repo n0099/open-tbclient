@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import com.kwad.sdk.R;
+import com.baidu.tieba.R;
 import com.kwad.sdk.api.KsSplashScreenAd;
 import com.kwad.sdk.core.page.AdLandPageActivityProxy;
 import com.kwad.sdk.core.response.model.AdInfo;
@@ -18,36 +18,36 @@ import com.kwad.sdk.utils.at;
 import com.kwad.sdk.widget.SkipView;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class c extends Presenter implements com.kwad.sdk.core.j.d {
     public com.kwad.sdk.splashscreen.g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f57978b;
+    public Handler f56328b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f57979c;
+    public TextView f56329c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SkipView f57980d;
+    public SkipView f56330d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f57981e;
+    public int f56331e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f57982f;
+    public boolean f56332f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AdInfo.AdPreloadInfo f57983g;
+    public AdInfo.AdPreloadInfo f56333g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f57984h;
+    public long f56334h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AdInfo f57985i;
+    public AdInfo f56335i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f57986j = false;
+    public boolean f56336j = false;
     public View k;
     public ViewTreeObserver.OnGlobalLayoutListener l;
 
@@ -57,7 +57,7 @@ public class c extends Presenter implements com.kwad.sdk.core.j.d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
-        if (a(this.f57985i)) {
+        if (a(this.f56335i)) {
             this.k.setVisibility(z ? 0 : 8);
         }
     }
@@ -72,23 +72,23 @@ public class c extends Presenter implements com.kwad.sdk.core.j.d {
         String str;
         KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener;
         com.kwad.sdk.splashscreen.g gVar = this.a;
-        if (gVar.a == null || gVar.f58085b) {
+        if (gVar.a == null || gVar.f56435b) {
             str = null;
         } else {
             str = gVar.d();
             if (str != null) {
                 this.a.a.onSkippedAd();
                 com.kwad.sdk.splashscreen.g gVar2 = this.a;
-                gVar2.f58085b = true;
-                gVar2.f58087d.mMiniWindowId = str;
+                gVar2.f56435b = true;
+                gVar2.f56437d.mMiniWindowId = str;
             }
-            com.kwad.sdk.splashscreen.b.a aVar = this.a.f58089f;
-            com.kwad.sdk.core.report.a.a(this.a.f58087d, 114, com.kwad.sdk.core.config.b.ao(), aVar != null ? (int) (aVar.c() / 1000) : 0);
+            com.kwad.sdk.splashscreen.b.a aVar = this.a.f56439f;
+            com.kwad.sdk.core.report.a.a(this.a.f56437d, 114, com.kwad.sdk.core.config.b.ao(), aVar != null ? (int) (aVar.c() / 1000) : 0);
         }
-        if (str == null && this.f57982f && (splashScreenAdInteractionListener = this.a.a) != null) {
+        if (str == null && this.f56332f && (splashScreenAdInteractionListener = this.a.a) != null) {
             splashScreenAdInteractionListener.onSkippedAd();
             JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.splashscreen.b.a aVar2 = this.a.f58089f;
+            com.kwad.sdk.splashscreen.b.a aVar2 = this.a.f56439f;
             if (aVar2 != null) {
                 try {
                     jSONObject.put("duration", aVar2.c());
@@ -96,7 +96,7 @@ public class c extends Presenter implements com.kwad.sdk.core.j.d {
                     com.kwad.sdk.core.d.a.a(e2);
                 }
             }
-            com.kwad.sdk.core.report.a.a(this.a.f58087d, 1, jSONObject);
+            com.kwad.sdk.core.report.a.a(this.a.f56437d, 1, jSONObject);
         }
     }
 
@@ -106,8 +106,8 @@ public class c extends Presenter implements com.kwad.sdk.core.j.d {
     }
 
     private void r() {
-        if (a(this.f57985i)) {
-            this.f57980d.getViewTreeObserver().addOnGlobalLayoutListener(s());
+        if (a(this.f56335i)) {
+            this.f56330d.getViewTreeObserver().addOnGlobalLayoutListener(s());
         }
     }
 
@@ -115,15 +115,15 @@ public class c extends Presenter implements com.kwad.sdk.core.j.d {
         ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.kwad.sdk.splashscreen.a.c.4
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
-                ViewGroup.LayoutParams layoutParams = c.this.f57980d.getLayoutParams();
-                layoutParams.height = com.kwad.sdk.a.kwai.a.a(c.this.f57980d.getContext(), 35.0f);
-                int width = c.this.f57980d.getWidth();
-                c.this.f57980d.setLayoutParams(layoutParams);
+                ViewGroup.LayoutParams layoutParams = c.this.f56330d.getLayoutParams();
+                layoutParams.height = com.kwad.sdk.a.kwai.a.a(c.this.f56330d.getContext(), 35.0f);
+                int width = c.this.f56330d.getWidth();
+                c.this.f56330d.setLayoutParams(layoutParams);
                 ViewGroup.LayoutParams layoutParams2 = c.this.k.getLayoutParams();
-                layoutParams2.width = width + com.kwad.sdk.a.kwai.a.a(c.this.f57980d.getContext(), 66.0f);
+                layoutParams2.width = width + com.kwad.sdk.a.kwai.a.a(c.this.f56330d.getContext(), 66.0f);
                 c.this.k.setLayoutParams(layoutParams2);
                 if (c.this.l != null) {
-                    c.this.f57980d.getViewTreeObserver().removeOnGlobalLayoutListener(c.this.l);
+                    c.this.f56330d.getViewTreeObserver().removeOnGlobalLayoutListener(c.this.l);
                 }
             }
         };
@@ -133,10 +133,10 @@ public class c extends Presenter implements com.kwad.sdk.core.j.d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void t() {
-        if (!this.f57986j && this.f57980d != null) {
-            if (this.f57980d.f()) {
-                com.kwad.sdk.core.report.a.c(this.a.f58087d, 124, null);
-                this.f57986j = true;
+        if (!this.f56336j && this.f56330d != null) {
+            if (this.f56330d.f()) {
+                com.kwad.sdk.core.report.a.c(this.a.f56437d, 124, null);
+                this.f56336j = true;
             }
         }
     }
@@ -148,50 +148,50 @@ public class c extends Presenter implements com.kwad.sdk.core.j.d {
         com.kwad.sdk.core.d.a.a("SkipAdPresenter", "onBind");
         com.kwad.sdk.splashscreen.g gVar = (com.kwad.sdk.splashscreen.g) p();
         this.a = gVar;
-        this.f57979c = (TextView) gVar.f58088e.findViewById(R.id.ksad_splash_preload_tips);
-        this.f57980d = (SkipView) this.a.f58088e.findViewById(R.id.ksad_splash_skip_view);
-        this.k = this.a.f58088e.findViewById(R.id.ksad_skip_view_area);
-        this.f57978b = new Handler(Looper.getMainLooper());
-        AdInfo j2 = com.kwad.sdk.core.response.a.d.j(this.a.f58087d);
-        this.f57985i = j2;
+        this.f56329c = (TextView) gVar.f56438e.findViewById(R.id.ksad_splash_preload_tips);
+        this.f56330d = (SkipView) this.a.f56438e.findViewById(R.id.ksad_splash_skip_view);
+        this.k = this.a.f56438e.findViewById(R.id.ksad_skip_view_area);
+        this.f56328b = new Handler(Looper.getMainLooper());
+        AdInfo j2 = com.kwad.sdk.core.response.a.d.j(this.a.f56437d);
+        this.f56335i = j2;
         int i2 = j2.adSplashInfo.imageDisplaySecond;
-        this.f57980d.setTimerPrefixText(com.kwad.sdk.core.config.b.at());
-        this.f57980d.setTimerSecond(i2);
-        if (!com.kwad.sdk.core.response.a.a.P(this.f57985i)) {
-            this.f57980d.a();
+        this.f56330d.setTimerPrefixText(com.kwad.sdk.core.config.b.at());
+        this.f56330d.setTimerSecond(i2);
+        if (!com.kwad.sdk.core.response.a.a.P(this.f56335i)) {
+            this.f56330d.a();
         }
-        if (!this.a.f58087d.adInfoList.isEmpty()) {
-            AdInfo adInfo = this.f57985i;
-            this.f57983g = adInfo.adPreloadInfo;
+        if (!this.a.f56437d.adInfoList.isEmpty()) {
+            AdInfo adInfo = this.f56335i;
+            this.f56333g = adInfo.adPreloadInfo;
             AdInfo.AdSplashInfo adSplashInfo = adInfo.adSplashInfo;
             int i3 = adSplashInfo.skipSecond;
-            this.f57981e = i3;
+            this.f56331e = i3;
             if (i3 == 5) {
-                this.f57981e = 0;
+                this.f56331e = 0;
             }
             if (this.a.b()) {
                 adSplashInfo.skipSecond = 0;
-                this.f57981e = 0;
+                this.f56331e = 0;
             }
         }
-        this.f57979c.setVisibility(8);
-        AdInfo.AdPreloadInfo adPreloadInfo = this.f57983g;
+        this.f56329c.setVisibility(8);
+        AdInfo.AdPreloadInfo adPreloadInfo = this.f56333g;
         if (adPreloadInfo == null || at.a(adPreloadInfo.preloadTips)) {
-            this.f57979c.setVisibility(8);
+            this.f56329c.setVisibility(8);
         } else {
-            this.f57979c.setVisibility(0);
-            this.f57979c.setText(this.f57983g.preloadTips);
+            this.f56329c.setVisibility(0);
+            this.f56329c.setText(this.f56333g.preloadTips);
         }
-        this.f57984h = SystemClock.elapsedRealtime();
-        this.a.f58092i.a(this);
+        this.f56334h = SystemClock.elapsedRealtime();
+        this.a.f56442i.a(this);
         if (!this.a.b() || at.a(com.kwad.sdk.core.config.b.am())) {
-            this.f57980d.setSkipText(com.kwad.sdk.core.response.a.a.av(this.f57985i));
+            this.f56330d.setSkipText(com.kwad.sdk.core.response.a.a.av(this.f56335i));
         } else {
-            SkipView skipView = this.f57980d;
+            SkipView skipView = this.f56330d;
             skipView.setSkipText(com.kwad.sdk.core.config.b.am() + " " + com.kwad.sdk.core.config.b.ao());
         }
-        this.f57980d.setVisibility(4);
-        if (a(this.f57985i)) {
+        this.f56330d.setVisibility(4);
+        if (a(this.f56335i)) {
             this.k.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.splashscreen.a.c.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
@@ -199,7 +199,7 @@ public class c extends Presenter implements com.kwad.sdk.core.j.d {
                 }
             });
         }
-        this.f57980d.setOnViewListener(new SkipView.a() { // from class: com.kwad.sdk.splashscreen.a.c.2
+        this.f56330d.setOnViewListener(new SkipView.a() { // from class: com.kwad.sdk.splashscreen.a.c.2
             @Override // com.kwad.sdk.widget.SkipView.a
             public void a() {
                 c.this.h();
@@ -210,14 +210,14 @@ public class c extends Presenter implements com.kwad.sdk.core.j.d {
                 c.this.g();
             }
         });
-        a(this.f57980d, this.f57985i);
+        a(this.f56330d, this.f56335i);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.a.f58092i.b(this);
-        Handler handler = this.f57978b;
+        this.a.f56442i.b(this);
+        Handler handler = this.f56328b;
         if (handler != null) {
             handler.removeCallbacksAndMessages(null);
         }
@@ -226,26 +226,26 @@ public class c extends Presenter implements com.kwad.sdk.core.j.d {
     @Override // com.kwad.sdk.core.j.d
     public void e() {
         com.kwad.sdk.core.d.a.a("SkipAdPresenter", "onPageVisible");
-        this.f57978b.removeCallbacksAndMessages(null);
-        AdInfo j2 = com.kwad.sdk.core.response.a.d.j(this.a.f58087d);
+        this.f56328b.removeCallbacksAndMessages(null);
+        AdInfo j2 = com.kwad.sdk.core.response.a.d.j(this.a.f56437d);
         if (j2.adSplashInfo.skipSecond == -1) {
-            this.f57980d.e();
+            this.f56330d.e();
             a(false);
-        } else if (this.f57981e >= 0 && !this.f57982f) {
-            this.f57978b.postDelayed(new Runnable() { // from class: com.kwad.sdk.splashscreen.a.c.3
+        } else if (this.f56331e >= 0 && !this.f56332f) {
+            this.f56328b.postDelayed(new Runnable() { // from class: com.kwad.sdk.splashscreen.a.c.3
                 @Override // java.lang.Runnable
                 @SuppressLint({"SetTextI18n"})
                 public void run() {
-                    c.this.f57980d.b();
+                    c.this.f56330d.b();
                     c.this.a(true);
                     c.this.t();
-                    c.this.f57981e = 0;
-                    c.this.f57982f = true;
+                    c.this.f56331e = 0;
+                    c.this.f56332f = true;
                 }
-            }, this.f57981e * 1000);
+            }, this.f56331e * 1000);
         }
         if (!com.kwad.sdk.core.response.a.a.P(j2)) {
-            this.f57980d.d();
+            this.f56330d.d();
         }
         r();
     }
@@ -253,18 +253,18 @@ public class c extends Presenter implements com.kwad.sdk.core.j.d {
     @Override // com.kwad.sdk.core.j.d
     public void f() {
         com.kwad.sdk.core.d.a.a("SkipAdPresenter", "onPageInvisible");
-        if (com.kwad.sdk.core.response.a.a.P(this.f57985i)) {
+        if (com.kwad.sdk.core.response.a.a.P(this.f56335i)) {
             return;
         }
-        this.f57980d.c();
+        this.f56330d.c();
     }
 
     public void g() {
-        this.f57978b.post(new Runnable() { // from class: com.kwad.sdk.splashscreen.a.c.5
+        this.f56328b.post(new Runnable() { // from class: com.kwad.sdk.splashscreen.a.c.5
             @Override // java.lang.Runnable
             public void run() {
                 if (com.kwad.sdk.core.download.kwai.b.a() || AdLandPageActivityProxy.isDownloadDialogShowing()) {
-                    c.this.f57978b.postDelayed(this, 1000L);
+                    c.this.f56328b.postDelayed(this, 1000L);
                     return;
                 }
                 KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener = c.this.a.a;

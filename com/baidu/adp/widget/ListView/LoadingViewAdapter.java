@@ -8,20 +8,20 @@ import android.widget.RelativeLayout;
 import c.a.d.f.p.n;
 import c.a.d.o.e.a;
 import c.a.d.o.e.t;
-import c.a.t0.g0.g;
-import c.a.u0.a4.e;
+import c.a.q0.f0.g;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
     public int n;
     public int o;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class TabLoadingViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingViewAdapter(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), t.f2537e);
+        super(tbPageContext.getPageActivity(), t.f3166e);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,8 +76,8 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
             }
         }
         this.m = new LinkedList<>();
-        this.n = Z(e.tbds304);
-        this.o = Z(e.tbds198);
+        this.n = Z(R.dimen.tbds304);
+        this.o = Z(R.dimen.tbds198);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
@@ -100,13 +100,13 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            RelativeLayout relativeLayout = new RelativeLayout(this.f2447e);
+            RelativeLayout relativeLayout = new RelativeLayout(this.f3076e);
             ViewGroup.LayoutParams u = u(viewGroup);
             u.width = -1;
             u.height = -1;
             relativeLayout.setLayoutParams(u);
             relativeLayout.setGravity(1);
-            g gVar = new g(this.f2447e, 0);
+            g gVar = new g(this.f3076e, 0);
             gVar.attachView(relativeLayout);
             gVar.s(this.n);
             gVar.p(this.o);

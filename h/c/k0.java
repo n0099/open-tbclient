@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import org.webrtc.CalledByNative;
 import org.webrtc.VideoDecoder;
 /* compiled from: VideoDecoder.java */
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final /* synthetic */ class k0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

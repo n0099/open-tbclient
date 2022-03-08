@@ -7,47 +7,47 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.ByteBuffer;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class RequestBodyOutputStream extends OutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final PipedOutputStreamAndroid25 f50433e;
+    public final PipedOutputStreamAndroid25 f48852e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final PipedInputStreamAndroid25 f50434f;
+    public final PipedInputStreamAndroid25 f48853f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f50435g;
+    public String f48854g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50436h;
+    public int f48855h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f50437i;
+    public int f48856i;
 
     /* renamed from: j  reason: collision with root package name */
-    public byte[] f50438j;
+    public byte[] f48857j;
 
     public int b(ByteBuffer byteBuffer) throws IOException {
         InterceptResult invokeL;
         int read;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, byteBuffer)) == null) {
-            int min = Math.min(byteBuffer.remaining(), this.f50436h);
+            int min = Math.min(byteBuffer.remaining(), this.f48855h);
             int i2 = 0;
             do {
-                read = this.f50434f.read(this.f50438j, i2, min - i2);
+                read = this.f48853f.read(this.f48857j, i2, min - i2);
                 if (read > 0) {
                     i2 += read;
                 }
-                if (i2 >= this.f50437i) {
+                if (i2 >= this.f48856i) {
                     break;
                 }
             } while (read >= 0);
             if (i2 > 0) {
-                byteBuffer.put(this.f50438j, 0, i2);
+                byteBuffer.put(this.f48857j, 0, i2);
             }
             return i2;
         }
@@ -57,26 +57,26 @@ public class RequestBodyOutputStream extends OutputStream {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50436h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48855h : invokeV.intValue;
     }
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (!"".equals(this.f50435g)) {
-                String str = "\r\n--" + this.f50435g + "--\r\n";
+            if (!"".equals(this.f48854g)) {
+                String str = "\r\n--" + this.f48854g + "--\r\n";
                 write(str.getBytes(), 0, str.getBytes().length);
             }
-            this.f50433e.close();
+            this.f48852e.close();
         }
     }
 
     public void e() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f50434f.close();
-            this.f50433e.close();
+            this.f48853f.close();
+            this.f48852e.close();
         }
     }
 
@@ -84,8 +84,8 @@ public class RequestBodyOutputStream extends OutputStream {
     public void write(int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f50433e.write(i2);
-            this.f50433e.flush();
+            this.f48852e.write(i2);
+            this.f48852e.flush();
         }
     }
 
@@ -93,8 +93,8 @@ public class RequestBodyOutputStream extends OutputStream {
     public void write(byte[] bArr, int i2, int i3) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048581, this, bArr, i2, i3) == null) {
-            this.f50433e.write(bArr, i2, i3);
-            this.f50433e.flush();
+            this.f48852e.write(bArr, i2, i3);
+            this.f48852e.flush();
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
-import c.a.t0.b.d;
-import c.a.t0.s.j0.b;
+import c.a.q0.r.j0.b;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class LaunchUpSpeedSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LAUNCH_UP_SPEED_ENABLE = "launch_up_speed_1218";
@@ -55,7 +55,7 @@ public class LaunchUpSpeedSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 1) {
-                if (d.M()) {
+                if (UbsABTestHelper.isLaunchUpA()) {
                     type = 0;
                 } else {
                     type = b.k().l("key_launch_up_speed", 1);

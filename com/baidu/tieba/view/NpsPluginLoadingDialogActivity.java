@@ -4,17 +4,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import c.a.u0.c2.e;
-import c.a.u0.c2.f;
-import c.a.u0.g2.a;
+import c.a.r0.g2.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class NpsPluginLoadingDialogActivity extends BaseActivity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +90,7 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view) == null) && view.getId() == e.loading_cancel_text) {
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view) == null) && view.getId() == R.id.loading_cancel_text) {
             finish();
             hideDialog();
         }
@@ -106,17 +105,17 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setActivityBgTransparent();
-            setContentView(f.widget_loading_plugin);
+            setContentView(R.layout.widget_loading_plugin);
             Intent intent = getIntent();
             this.showHideView = intent.getBooleanExtra("showHideView", false);
             this.mDialogId = intent.getLongExtra("dialogId", -1L);
-            PluginRoundProgressBar pluginRoundProgressBar = (PluginRoundProgressBar) findViewById(e.progress_bar);
+            PluginRoundProgressBar pluginRoundProgressBar = (PluginRoundProgressBar) findViewById(R.id.progress_bar);
             this.mRoundProgressBar = pluginRoundProgressBar;
             pluginRoundProgressBar.setMax(100);
             this.mRoundProgressBar.setRoundColor(0);
             this.mRoundProgressBar.setTextColor(-1);
             this.mRoundProgressBar.setRoundProgressColor(-1);
-            TextView textView = (TextView) findViewById(e.loading_cancel_text);
+            TextView textView = (TextView) findViewById(R.id.loading_cancel_text);
             this.mCancel = textView;
             if (this.showHideView) {
                 textView.setVisibility(8);

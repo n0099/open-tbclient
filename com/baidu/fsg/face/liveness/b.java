@@ -9,38 +9,38 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f34436b;
+    public int f32839b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f34437c;
+    public int f32840c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f34438d;
+    public String f32841d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f34439e;
+    public String f32842e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f34440f;
+    public long f32843f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f34441g;
+    public long f32844g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f34442h;
+    public long f32845h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f34443i;
+    public long f32846i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f34444j;
+    public long f32847j;
     public long k;
     public long l;
     public long m;
@@ -64,13 +64,13 @@ public class b {
                 return;
             }
         }
-        this.f34440f = 0L;
-        this.f34441g = 0L;
-        this.f34442h = 0L;
+        this.f32843f = 0L;
+        this.f32844g = 0L;
+        this.f32845h = 0L;
         this.p = new ArrayList<>();
         this.q = new StringBuilder();
-        this.f34438d = "";
-        this.f34439e = "";
+        this.f32841d = "";
+        this.f32842e = "";
     }
 
     private ArrayList<String> c() {
@@ -78,8 +78,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            arrayList.add(String.valueOf(this.f34443i));
-            arrayList.add(String.valueOf(this.f34444j));
+            arrayList.add(String.valueOf(this.f32846i));
+            arrayList.add(String.valueOf(this.f32847j));
             arrayList.add(String.valueOf(this.k));
             arrayList.add(String.valueOf(this.l));
             arrayList.add(String.valueOf(this.m));
@@ -99,8 +99,8 @@ public class b {
             ArrayList arrayList = new ArrayList();
             if (d.t.equals(str)) {
                 ArrayList arrayList2 = new ArrayList();
-                arrayList2.add(this.f34436b + "");
-                arrayList2.add(this.f34437c + "");
+                arrayList2.add(this.f32839b + "");
+                arrayList2.add(this.f32840c + "");
                 arrayList2.add(spno);
                 RimStatisticsUtil.onEventWithValues(d.t, arrayList2);
             } else if (d.r.equals(str)) {
@@ -109,10 +109,10 @@ public class b {
                 arrayList.add(b() + "");
                 arrayList.add(spno);
                 RimStatisticsUtil.onEventWithValues(d.s, arrayList);
-            } else if (d.f34548f.equals(str)) {
+            } else if (d.f32951f.equals(str)) {
                 arrayList.add(((System.currentTimeMillis() - this.a) / 1000) + "");
                 arrayList.add(spno);
-                RimStatisticsUtil.onEventWithValues(d.f34548f, arrayList);
+                RimStatisticsUtil.onEventWithValues(d.f32951f, arrayList);
             } else if (d.u.equals(str)) {
                 if (this.o > 0) {
                     str2 = (this.n / this.o) + "";
@@ -132,13 +132,13 @@ public class b {
                     } else {
                         this.p.add("");
                     }
-                    this.p.add(this.f34436b + "*" + this.f34437c);
+                    this.p.add(this.f32839b + "*" + this.f32840c);
                     this.p.add(spno);
                     RimStatisticsUtil.onEventWithValues(str, this.p);
                 }
             } else if (d.l.equals(str)) {
-                arrayList.add(this.f34439e);
-                arrayList.add(this.f34438d);
+                arrayList.add(this.f32842e);
+                arrayList.add(this.f32841d);
                 arrayList.add(spno);
                 RimStatisticsUtil.onEventWithValues(str, arrayList);
             } else if (d.o.equals(str)) {
@@ -165,9 +165,9 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            long j2 = this.f34442h;
+            long j2 = this.f32845h;
             if (j2 >= 2) {
-                return (this.f34441g - this.f34440f) / j2;
+                return (this.f32844g - this.f32843f) / j2;
             }
             return 0L;
         }
@@ -177,7 +177,7 @@ public class b {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f34438d += str;
+            this.f32841d += str;
         }
     }
 
@@ -196,24 +196,24 @@ public class b {
                 return;
             }
         }
-        this.f34440f = 0L;
-        this.f34441g = 0L;
-        this.f34442h = 0L;
+        this.f32843f = 0L;
+        this.f32844g = 0L;
+        this.f32845h = 0L;
         this.p = new ArrayList<>();
         this.q = new StringBuilder();
-        this.f34438d = "";
-        this.f34439e = "";
+        this.f32841d = "";
+        this.f32842e = "";
         this.s = livenessRecogDTO;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f34440f == 0) {
-                this.f34440f = System.currentTimeMillis();
+            if (this.f32843f == 0) {
+                this.f32843f = System.currentTimeMillis();
             }
-            this.f34441g = System.currentTimeMillis();
-            this.f34442h++;
+            this.f32844g = System.currentTimeMillis();
+            this.f32845h++;
         }
     }
 

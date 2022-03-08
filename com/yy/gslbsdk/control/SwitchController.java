@@ -15,7 +15,7 @@ import com.yy.gslbsdk.util.LogTools;
 import java.util.Locale;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class SwitchController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HTTPS_LEVEL_CLOSE_SWITCH = -1;

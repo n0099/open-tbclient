@@ -11,17 +11,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f60947c;
+    public static volatile a f59297c;
     public transient /* synthetic */ FieldHolder $fh;
     public byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f60948b;
+    public byte[] f59298b;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -41,21 +41,21 @@ public class a {
         x.b().a(ContextDelegate.getContext(context));
         x b2 = x.b();
         this.a = b2.c();
-        this.f60948b = b2.d();
+        this.f59298b = b2.d();
     }
 
     public static a a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f60947c == null) {
+            if (f59297c == null) {
                 synchronized (a.class) {
-                    if (f60947c == null) {
-                        f60947c = new a(context.getApplicationContext());
+                    if (f59297c == null) {
+                        f59297c = new a(context.getApplicationContext());
                     }
                 }
             }
-            return f60947c;
+            return f59297c;
         }
         return (a) invokeL.objValue;
     }
@@ -70,7 +70,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            byte[] bArr = this.f60948b;
+            byte[] bArr = this.f59298b;
             return (bArr == null || bArr.length <= 0) ? x.b().d() : bArr;
         }
         return (byte[]) invokeV.objValue;

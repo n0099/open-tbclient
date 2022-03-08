@@ -15,14 +15,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.qq.e.ads.nativ.widget.NativeAdContainer;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class FunNativeView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NativeAdContainer a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f54289b;
+    public boolean f52775b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FunNativeView(@NonNull Context context) {
@@ -69,7 +69,7 @@ public final class FunNativeView extends FrameLayout {
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f54289b) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f52775b) {
             IllegalStateException illegalStateException = new IllegalStateException("Forbid add/rm view from FunNativeAdView.");
             if (FunAdSdk.isLogEnabled()) {
                 throw illegalStateException;
@@ -84,7 +84,7 @@ public final class FunNativeView extends FrameLayout {
             NativeAdContainer nativeAdContainer = new NativeAdContainer(context);
             this.a = nativeAdContainer;
             addView(nativeAdContainer);
-            this.f54289b = true;
+            this.f52775b = true;
         }
     }
 

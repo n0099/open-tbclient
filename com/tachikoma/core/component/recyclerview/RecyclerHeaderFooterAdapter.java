@@ -19,7 +19,7 @@ import com.tachikoma.core.component.listview.TKRecyclerAdapter;
 import com.tachikoma.core.yoga.layout.YogaLayout;
 import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class RecyclerHeaderFooterAdapter extends RecyclerView.Adapter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BASE_FOOTER_VIEW_TYPE = -2048;
@@ -42,7 +42,7 @@ public class RecyclerHeaderFooterAdapter extends RecyclerView.Adapter {
     public int mMaxHeaderViewType;
     public boolean mSmoothNotifyChange;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class HeaderFooterViewGroup {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -6,12 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.security.NoSuchAlgorithmException;
 import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class AES {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ENCODING = "UTF-8";
@@ -120,7 +121,7 @@ public class AES {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             int length = 16 - (str.length() % 16);
             for (int i2 = 0; i2 < length; i2++) {
-                str = str + ' ';
+                str = str + WebvttCueParser.CHAR_SPACE;
             }
             return str;
         }

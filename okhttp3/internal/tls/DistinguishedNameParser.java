@@ -6,8 +6,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import javax.security.auth.x500.X500Principal;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class DistinguishedNameParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +67,7 @@ public final class DistinguishedNameParser {
                     this.cur = i5;
                     this.pos = i3 + 1;
                     this.end = i5 + 1;
-                    cArr2[i5] = ' ';
+                    cArr2[i5] = WebvttCueParser.CHAR_SPACE;
                     while (true) {
                         int i6 = this.pos;
                         if (i6 >= this.length) {
@@ -78,7 +79,7 @@ public final class DistinguishedNameParser {
                         }
                         int i7 = this.end;
                         this.end = i7 + 1;
-                        cArr3[i7] = ' ';
+                        cArr3[i7] = WebvttCueParser.CHAR_SPACE;
                         this.pos = i6 + 1;
                     }
                     int i8 = this.pos;
@@ -252,7 +253,7 @@ public final class DistinguishedNameParser {
                         }
                     } else {
                         if (cArr[i3] >= 'A' && cArr[i3] <= 'F') {
-                            cArr[i3] = (char) (cArr[i3] + ' ');
+                            cArr[i3] = (char) (cArr[i3] + WebvttCueParser.CHAR_SPACE);
                         }
                         this.pos++;
                     }

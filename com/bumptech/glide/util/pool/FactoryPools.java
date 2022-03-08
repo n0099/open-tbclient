@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class FactoryPools {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_POOL_SIZE = 20;
@@ -22,12 +22,12 @@ public final class FactoryPools {
     public static final String TAG = "FactoryPools";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface Factory<T> {
         T create();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class FactoryPool<T> implements Pools.Pool<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,13 +90,13 @@ public final class FactoryPools {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface Poolable {
         @NonNull
         StateVerifier getVerifier();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface Resetter<T> {
         void reset(@NonNull T t);
     }

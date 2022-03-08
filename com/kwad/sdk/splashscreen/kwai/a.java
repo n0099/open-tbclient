@@ -3,7 +3,7 @@ package com.kwad.sdk.splashscreen.kwai;
 import android.content.Context;
 import androidx.annotation.Nullable;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static void a(Context context) {
         b b2 = b(context);
@@ -11,10 +11,10 @@ public class a {
         if (b2 == null) {
             b2 = new b(currentTimeMillis, 1);
         } else if (b2.a(currentTimeMillis)) {
-            b2.f58099b++;
+            b2.f56449b++;
         } else {
             b2.a = currentTimeMillis;
-            b2.f58099b = 1;
+            b2.f56449b = 1;
         }
         a(context, b2);
     }

@@ -21,7 +21,7 @@ import java.math.BigInteger;
 import javax.money.Monetary;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.javamoney.moneta.Money;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class MonetaCodec implements ObjectSerializer, ObjectDeserializer {
     public static /* synthetic */ Interceptable $ic;
     public static final MonetaCodec instance;

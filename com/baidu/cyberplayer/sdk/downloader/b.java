@@ -20,12 +20,12 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(String str, long j2);
 
@@ -149,10 +149,10 @@ public class b {
                     public final /* synthetic */ String a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f33710b;
+                    public final /* synthetic */ String f32113b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ a f33711c;
+                    public final /* synthetic */ a f32114c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -170,15 +170,15 @@ public class b {
                             }
                         }
                         this.a = str4;
-                        this.f33710b = str;
-                        this.f33711c = aVar;
+                        this.f32113b = str;
+                        this.f32114c = aVar;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            b.b(this.a, this.f33710b, this.f33711c);
+                            b.b(this.a, this.f32113b, this.f32114c);
                         }
                     }
                 });

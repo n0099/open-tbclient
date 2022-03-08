@@ -30,7 +30,7 @@ import java.util.Map;
 import tv.athena.revenue.api.IMiddleRevenue;
 import tv.athena.revenue.api.MiddleReportConfig;
 import tv.athena.revenue.api.MiddleRevenueConfig;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class b implements j.a.a.b.a {
     public static /* synthetic */ Interceptable $ic;
     public static Map<String, MiddleRevenueConfig> a;

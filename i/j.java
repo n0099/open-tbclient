@@ -6,22 +6,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class j<T> implements e<T>, k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i.o.d.h f62020e;
+    public final i.o.d.h f60370e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final j<?> f62021f;
+    public final j<?> f60371f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f62022g;
+    public f f60372g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f62023h;
+    public long f60373h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public j() {
@@ -45,23 +45,23 @@ public abstract class j<T> implements e<T>, k {
     public final void b(k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, kVar) == null) {
-            this.f62020e.a(kVar);
+            this.f60370e.a(kVar);
         }
     }
 
     public final void c(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            long j3 = this.f62023h;
+            long j3 = this.f60373h;
             if (j3 == Long.MIN_VALUE) {
-                this.f62023h = j2;
+                this.f60373h = j2;
                 return;
             }
             long j4 = j3 + j2;
             if (j4 < 0) {
-                this.f62023h = Long.MAX_VALUE;
+                this.f60373h = Long.MAX_VALUE;
             } else {
-                this.f62023h = j4;
+                this.f60373h = j4;
             }
         }
     }
@@ -77,8 +77,8 @@ public abstract class j<T> implements e<T>, k {
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
             if (j2 >= 0) {
                 synchronized (this) {
-                    if (this.f62022g != null) {
-                        this.f62022g.request(j2);
+                    if (this.f60372g != null) {
+                        this.f60372g.request(j2);
                         return;
                     }
                     c(j2);
@@ -95,16 +95,16 @@ public abstract class j<T> implements e<T>, k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
             synchronized (this) {
-                j2 = this.f62023h;
-                this.f62022g = fVar;
-                z = this.f62021f != null && j2 == Long.MIN_VALUE;
+                j2 = this.f60373h;
+                this.f60372g = fVar;
+                z = this.f60371f != null && j2 == Long.MIN_VALUE;
             }
             if (z) {
-                this.f62021f.f(this.f62022g);
+                this.f60371f.f(this.f60372g);
             } else if (j2 == Long.MIN_VALUE) {
-                this.f62022g.request(Long.MAX_VALUE);
+                this.f60372g.request(Long.MAX_VALUE);
             } else {
-                this.f62022g.request(j2);
+                this.f60372g.request(j2);
             }
         }
     }
@@ -113,14 +113,14 @@ public abstract class j<T> implements e<T>, k {
     public final boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f62020e.isUnsubscribed() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f60370e.isUnsubscribed() : invokeV.booleanValue;
     }
 
     @Override // i.k
     public final void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f62020e.unsubscribe();
+            this.f60370e.unsubscribe();
         }
     }
 
@@ -160,8 +160,8 @@ public abstract class j<T> implements e<T>, k {
                 return;
             }
         }
-        this.f62023h = Long.MIN_VALUE;
-        this.f62021f = jVar;
-        this.f62020e = (!z || jVar == null) ? new i.o.d.h() : jVar.f62020e;
+        this.f60373h = Long.MIN_VALUE;
+        this.f60371f = jVar;
+        this.f60370e = (!z || jVar == null) ? new i.o.d.h() : jVar.f60370e;
     }
 }

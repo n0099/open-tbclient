@@ -11,56 +11,52 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.u0.e1.c0;
-import c.a.u0.e1.o1;
-import c.a.u0.s4.d;
-import c.a.u0.s4.e;
-import c.a.u0.s4.f;
-import c.a.u0.s4.g;
-import c.a.u0.s4.h;
+import c.a.r0.d1.c0;
+import c.a.r0.d1.e1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.KeyEventDealContainerView;
 import com.baidu.tbadk.core.view.MorePopupWindow;
+import com.baidu.tieba.R;
 import com.baidu.tieba.frs.TabMenuPopView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class PostCategoryView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f49903e;
+    public Context f48322e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f49904f;
+    public boolean f48323f;
 
     /* renamed from: g  reason: collision with root package name */
-    public MorePopupWindow f49905g;
+    public MorePopupWindow f48324g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f49906h;
+    public LinearLayout f48325h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearLayout f49907i;
+    public LinearLayout f48326i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TabMenuPopView f49908j;
+    public TabMenuPopView f48327j;
     public View k;
     public Drawable l;
     public Drawable m;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PostCategoryView f49909e;
+        public final /* synthetic */ PostCategoryView f48328e;
 
         public a(PostCategoryView postCategoryView) {
             Interceptable interceptable = $ic;
@@ -77,19 +73,19 @@ public class PostCategoryView extends TextView {
                     return;
                 }
             }
-            this.f49909e = postCategoryView;
+            this.f48328e = postCategoryView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f49909e.dismissPopWindow();
+                this.f48328e.dismissPopWindow();
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class b implements KeyEventDealContainerView.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -123,23 +119,23 @@ public class PostCategoryView extends TextView {
         @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
         public void b() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.f49905g == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.f48324g == null) {
                 return;
             }
-            this.a.f49905g.dismiss();
+            this.a.f48324g.dismiss();
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class c implements PopupWindow.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PostCategoryView f49910e;
+        public final /* synthetic */ PostCategoryView f48329e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PostCategoryView f49911f;
+        public final /* synthetic */ PostCategoryView f48330f;
 
         public c(PostCategoryView postCategoryView, PostCategoryView postCategoryView2) {
             Interceptable interceptable = $ic;
@@ -156,15 +152,15 @@ public class PostCategoryView extends TextView {
                     return;
                 }
             }
-            this.f49911f = postCategoryView;
-            this.f49910e = postCategoryView2;
+            this.f48330f = postCategoryView;
+            this.f48329e = postCategoryView2;
         }
 
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
             PostCategoryView postCategoryView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (postCategoryView = this.f49910e) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (postCategoryView = this.f48329e) == null) {
                 return;
             }
             postCategoryView.processClick();
@@ -190,31 +186,31 @@ public class PostCategoryView extends TextView {
                 return;
             }
         }
-        this.f49903e = context;
-        this.f49904f = false;
-        Drawable drawable = SkinManager.getDrawable(f.icon_title_down);
+        this.f48322e = context;
+        this.f48323f = false;
+        Drawable drawable = SkinManager.getDrawable(R.drawable.icon_title_down);
         this.l = drawable;
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), this.l.getIntrinsicHeight());
-        Drawable drawable2 = SkinManager.getDrawable(f.icon_title_up);
+        Drawable drawable2 = SkinManager.getDrawable(R.drawable.icon_title_up);
         this.m = drawable2;
         drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), this.l.getIntrinsicHeight());
         setCompoundDrawables(null, null, this.l, null);
-        setPadding(0, 0, n.f(getContext(), e.ds50), 0);
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f49903e).inflate(h.pop_category, (ViewGroup) null);
-        this.f49906h = linearLayout;
-        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(g.pop_category_layout);
-        this.f49907i = linearLayout2;
-        this.f49908j = (TabMenuPopView) linearLayout2.findViewById(g.pop_category_view);
-        View findViewById = this.f49906h.findViewById(g.pop_category_grav);
+        setPadding(0, 0, n.f(getContext(), R.dimen.ds50), 0);
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f48322e).inflate(R.layout.pop_category, (ViewGroup) null);
+        this.f48325h = linearLayout;
+        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.pop_category_layout);
+        this.f48326i = linearLayout2;
+        this.f48327j = (TabMenuPopView) linearLayout2.findViewById(R.id.pop_category_view);
+        View findViewById = this.f48325h.findViewById(R.id.pop_category_grav);
         this.k = findViewById;
         findViewById.setOnClickListener(new a(this));
     }
 
     public final void b(PostCategoryView postCategoryView) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, postCategoryView) == null) && this.f49905g == null) {
-            MorePopupWindow morePopupWindow = new MorePopupWindow((Activity) this.f49903e, this.f49906h, this, SkinManager.getDrawable(f.transparent_bg), new b(this));
-            this.f49905g = morePopupWindow;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, postCategoryView) == null) && this.f48324g == null) {
+            MorePopupWindow morePopupWindow = new MorePopupWindow((Activity) this.f48322e, this.f48325h, this, SkinManager.getDrawable(R.drawable.transparent_bg), new b(this));
+            this.f48324g = morePopupWindow;
             morePopupWindow.setOnDismissListener(new c(this, postCategoryView));
         }
     }
@@ -222,13 +218,13 @@ public class PostCategoryView extends TextView {
     public void changeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundColor(this, d.CAM_X0201);
-            SkinManager.setViewTextColor(this, d.CAM_X0105, 1);
-            LinearLayout linearLayout = this.f49907i;
+            SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this, R.color.CAM_X0105, 1);
+            LinearLayout linearLayout = this.f48326i;
             if (linearLayout != null) {
-                SkinManager.setBackgroundColor(linearLayout, d.CAM_X0201);
+                SkinManager.setBackgroundColor(linearLayout, R.color.CAM_X0201);
             }
-            TabMenuPopView tabMenuPopView = this.f49908j;
+            TabMenuPopView tabMenuPopView = this.f48327j;
             if (tabMenuPopView != null) {
                 tabMenuPopView.changeSkinType();
             }
@@ -238,7 +234,7 @@ public class PostCategoryView extends TextView {
     public void dismissPopWindow() {
         MorePopupWindow morePopupWindow;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (morePopupWindow = this.f49905g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (morePopupWindow = this.f48324g) == null) {
             return;
         }
         morePopupWindow.dismiss();
@@ -247,19 +243,19 @@ public class PostCategoryView extends TextView {
     public void processClick() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.f49904f) {
+            if (this.f48323f) {
                 setCompoundDrawables(null, null, this.l, null);
-                this.f49904f = false;
+                this.f48323f = false;
             } else {
                 b(this);
-                MorePopupWindow morePopupWindow = this.f49905g;
+                MorePopupWindow morePopupWindow = this.f48324g;
                 if (morePopupWindow != null) {
                     morePopupWindow.refresh();
-                    this.f49905g.setWidthAsWidthOfDeviceScreen((Activity) this.f49903e);
-                    this.f49905g.setHeight(-1);
-                    this.f49905g.showWindowInCustomPosition(0, 0);
+                    this.f48324g.setWidthAsWidthOfDeviceScreen((Activity) this.f48322e);
+                    this.f48324g.setHeight(-1);
+                    this.f48324g.showWindowInCustomPosition(0, 0);
                     setCompoundDrawables(null, null, this.m, null);
-                    this.f49904f = true;
+                    this.f48323f = true;
                 }
             }
             invalidate();
@@ -269,21 +265,21 @@ public class PostCategoryView extends TextView {
     public void setCategoryContainerClickCallback(TabMenuPopView.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f49908j.setOnItemClickCallBack(cVar);
+            this.f48327j.setOnItemClickCallBack(cVar);
         }
     }
 
-    public void setCategoryContainerData(List<o1> list, o1 o1Var) {
+    public void setCategoryContainerData(List<e1> list, e1 e1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, list, o1Var) == null) {
-            this.f49908j.setData(list, o1Var);
+        if (interceptable == null || interceptable.invokeLL(1048582, this, list, e1Var) == null) {
+            this.f48327j.setData(list, e1Var);
         }
     }
 
     public void setCategoryContainerData(List<c0> list, c0 c0Var, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048581, this, list, c0Var, i2) == null) {
-            this.f49908j.setData(list, c0Var, i2);
+            this.f48327j.setData(list, c0Var, i2);
         }
     }
 }

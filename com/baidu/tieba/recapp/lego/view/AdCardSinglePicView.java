@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import c.a.u0.l3.i0.b.d;
-import c.a.u0.z1.o.k.a;
+import c.a.r0.j3.j0.b.e;
+import c.a.r0.z1.o.k.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
@@ -16,12 +16,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class AdCardSinglePicView extends AdCardBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public XfremodeRoundLayout x;
-    public TbImageView y;
+    public XfremodeRoundLayout y;
+    public TbImageView z;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdCardSinglePicView(TbPageContext tbPageContext) {
@@ -47,13 +47,13 @@ public class AdCardSinglePicView extends AdCardBaseView {
     public void fillCustomView(AdCard adCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adCard) == null) {
-            d dVar = adCard.picInfo;
-            if (dVar != null && !a.e(dVar.f19311c)) {
-                String str = dVar.f19311c.get(0);
-                boolean resizeImage = resizeImage(this.y, adCard, dVar);
+            e eVar = adCard.picInfo;
+            if (eVar != null && !a.e(eVar.f18459c)) {
+                String str = eVar.f18459c.get(0);
+                boolean resizeImage = resizeImage(this.z, adCard, eVar);
                 if (!TextUtils.isEmpty(str) && resizeImage) {
                     this.mCustomRoot.setVisibility(0);
-                    this.y.startLoad(str, 17, false);
+                    this.z.startLoad(str, 17, false);
                     return;
                 }
                 this.mCustomRoot.setVisibility(8);
@@ -85,18 +85,18 @@ public class AdCardSinglePicView extends AdCardBaseView {
             if (view instanceof XfremodeRoundLayout) {
                 ((XfremodeRoundLayout) view).setRoundLayoutRadius(new float[]{ratioByResString, ratioByResString, ratioByResString, ratioByResString, ratioByResString, ratioByResString, ratioByResString, ratioByResString});
             }
-            this.x = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
+            this.y = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
             TbImageView tbImageView = (TbImageView) view.findViewById(R.id.ad_img);
-            this.y = tbImageView;
+            this.z = tbImageView;
             tbImageView.setPlaceHolder(3);
-            this.x.setRoundLayoutRadius(new float[]{ratioByResString, ratioByResString, ratioByResString, ratioByResString, ratioByResString, ratioByResString, ratioByResString, ratioByResString});
+            this.y.setRoundLayoutRadius(new float[]{ratioByResString, ratioByResString, ratioByResString, ratioByResString, ratioByResString, ratioByResString, ratioByResString, ratioByResString});
         }
     }
 
-    public boolean resizeImage(TbImageView tbImageView, AdCard adCard, @NonNull d dVar) {
+    public boolean resizeImage(TbImageView tbImageView, AdCard adCard, @NonNull e eVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, tbImageView, adCard, dVar)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, tbImageView, adCard, eVar)) == null) {
             if (adCard == null || tbImageView == null) {
                 return false;
             }
@@ -106,13 +106,13 @@ public class AdCardSinglePicView extends AdCardBaseView {
             }
             int i2 = this.mMaxWidth;
             int i3 = (int) (i2 * d2);
-            int b2 = (int) (c.a.u0.l3.i0.c.a.b(i2) * d2);
+            int b2 = (int) (c.a.r0.j3.j0.c.a.b(i2) * d2);
             if (!adCard.isNeedResize()) {
                 setImageViewSize(tbImageView, b2, i3);
                 return true;
             }
-            int i4 = dVar.f19313e;
-            int i5 = dVar.f19312d;
+            int i4 = eVar.f18461e;
+            int i5 = eVar.f18460d;
             if (i3 > 0 && i4 > 0 && i5 > 0) {
                 int i6 = (i4 * i3) / i5;
                 if (i6 > i3) {
@@ -140,7 +140,7 @@ public class AdCardSinglePicView extends AdCardBaseView {
             layoutParams.height = i2;
             layoutParams.width = i3;
         }
-        this.x.setLayoutParams(layoutParams);
+        this.y.setLayoutParams(layoutParams);
         tbImageView.setLayoutParams(layoutParams);
     }
 }

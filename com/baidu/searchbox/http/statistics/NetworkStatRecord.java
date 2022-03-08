@@ -21,7 +21,7 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class NetworkStatRecord {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_FROM_ID = 0;

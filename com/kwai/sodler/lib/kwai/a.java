@@ -12,35 +12,35 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.sodler.lib.j;
 import java.io.File;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public File a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f58627b;
+    public String f56977b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwai.sodler.lib.ext.c f58628c;
+    public com.kwai.sodler.lib.ext.c f56978c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f58629d;
+    public String f56979d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f58630e;
+    public String f56980e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwai.sodler.lib.a.b f58631f;
+    public com.kwai.sodler.lib.a.b f56981f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f58632g;
+    public boolean f56982g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final byte[] f58633h;
+    public final byte[] f56983h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final String f58634i;
+    public final String f56984i;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -57,18 +57,18 @@ public abstract class a {
                 return;
             }
         }
-        this.f58633h = new byte[0];
-        this.f58632g = false;
-        this.f58634i = str;
-        this.f58627b = str;
-        this.f58628c = j.a().b();
+        this.f56983h = new byte[0];
+        this.f56982g = false;
+        this.f56984i = str;
+        this.f56977b = str;
+        this.f56978c = j.a().b();
     }
 
     public a a(@NonNull com.kwai.sodler.lib.a.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
-            this.f58631f = bVar;
+            this.f56981f = bVar;
             return this;
         }
         return (a) invokeL.objValue;
@@ -77,7 +77,7 @@ public abstract class a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f58630e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56980e : (String) invokeV.objValue;
     }
 
     public abstract void a(Context context, String str);
@@ -85,14 +85,14 @@ public abstract class a {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f58630e = str;
+            this.f56980e = str;
         }
     }
 
     public final void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f58629d = str;
+            this.f56979d = str;
         }
     }
 
@@ -101,11 +101,11 @@ public abstract class a {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f58632g) {
+            if (this.f56982g) {
                 return true;
             }
-            synchronized (this.f58633h) {
-                z = this.f58632g;
+            synchronized (this.f56983h) {
+                z = this.f56982g;
             }
             return z;
         }
@@ -115,37 +115,37 @@ public abstract class a {
     public final String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f58629d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f56979d : (String) invokeV.objValue;
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f58627b = str;
+            this.f56977b = str;
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f58632g) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f56982g) {
             return;
         }
-        synchronized (this.f58633h) {
-            this.f58632g = true;
+        synchronized (this.f56983h) {
+            this.f56982g = true;
         }
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f58634i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f56984i : (String) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "Plugin{, ApkPath = '" + this.f58634i + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "Plugin{, ApkPath = '" + this.f56984i + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

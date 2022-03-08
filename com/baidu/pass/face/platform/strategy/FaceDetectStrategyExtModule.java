@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class FaceDetectStrategyExtModule implements a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "com.baidu.pass.face.platform.strategy.FaceDetectStrategyExtModule";
@@ -58,7 +58,7 @@ public class FaceDetectStrategyExtModule implements a {
     public final SoundPoolHelper mSoundPlayHelper;
     public Map<FaceStatusNewEnum, String> mTipsMap;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public class FaceProcessRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class ea {
     public static /* synthetic */ Interceptable $ic;
     public static volatile ea a;
@@ -34,7 +34,7 @@ public final class ea {
     public HashMap<ec, ed> f320a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61242b;
+    public String f59592b;
 
     public ea(Context context) {
         Interceptable interceptable = $ic;
@@ -54,10 +54,10 @@ public final class ea {
         HashMap<ec, ed> hashMap = new HashMap<>();
         this.f320a = hashMap;
         this.f317a = context;
-        hashMap.put(ec.f61245b, new eg());
-        this.f320a.put(ec.f61246c, new eh());
+        hashMap.put(ec.f59595b, new eg());
+        this.f320a.put(ec.f59596c, new eh());
         this.f320a.put(ec.a, new dy());
-        this.f320a.put(ec.f61247d, new ef());
+        this.f320a.put(ec.f59597d, new ef());
     }
 
     public static ea a(Context context) {
@@ -168,13 +168,13 @@ public final class ea {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f61242b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f59592b : (String) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f61242b = str;
+            this.f59592b = str;
         }
     }
 }

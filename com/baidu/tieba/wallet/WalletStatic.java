@@ -7,10 +7,11 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.b;
 import c.a.d.f.p.m;
 import c.a.d.f.p.n;
-import c.a.t0.e.a;
-import c.a.t0.r0.e;
-import c.a.t0.r0.f;
-import c.a.t0.r0.g;
+import c.a.q0.d.a;
+import c.a.q0.q0.c;
+import c.a.q0.q0.e;
+import c.a.q0.q0.f;
+import c.a.q0.q0.g;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -19,6 +20,8 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.fsg.base.router.LocalRouter;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.callback.AccountRealNameCallback;
@@ -48,10 +51,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IAlipayProxyCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IAlipaySdkServiceProxy;
+import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmProxyCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmSdkServiceProxy;
+import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatProxyCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatSdkServiceProxy;
 import java.util.HashMap;
 import java.util.Map;
 import tbclient.UserBfbInfo;
-/* loaded from: classes13.dex */
+import tv.athena.revenue.payui.YYPayUIKit;
+/* loaded from: classes6.dex */
 public class WalletStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -129,28 +139,28 @@ public class WalletStatic {
                     Activity activity;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
-                        if (customMessage == null || (data = customMessage.getData()) == null || (activity = data.f13379d) == null) {
+                        if (customMessage == null || (data = customMessage.getData()) == null || (activity = data.f12795d) == null) {
                             return null;
                         }
                         BdUniqueId bdUniqueId = data.a;
-                        String str = data.f13378c;
-                        int i2 = data.f13377b;
+                        String str = data.f12794c;
+                        int i2 = data.f12793b;
                         if (i2 == 1) {
-                            WalletPluginManager.getInstance().doBaiduPay(data.f13379d, str, bdUniqueId);
+                            WalletPluginManager.getInstance().doBaiduPay(data.f12795d, str, bdUniqueId);
                         } else if (i2 == 2) {
-                            WalletPluginManager.getInstance().doAliPay(data.f13379d, str, bdUniqueId);
+                            WalletPluginManager.getInstance().doAliPay(data.f12795d, str, bdUniqueId);
                         } else if (i2 == 3) {
-                            WalletPluginManager.getInstance().doBaiduLBSPay(data.f13379d, data.f13380e, data.f13378c, bdUniqueId);
-                        } else if (i2 == 4 && data.f13381f != null) {
+                            WalletPluginManager.getInstance().doBaiduLBSPay(data.f12795d, data.f12796e, data.f12794c, bdUniqueId);
+                        } else if (i2 == 4 && data.f12797f != null) {
                             IWXAPI createWXAPI = WXAPIFactory.createWXAPI(activity, TbConfig.WEIXIN_SHARE_APP_ID);
                             PayReq payReq = new PayReq();
-                            payReq.appId = data.f13381f.get("appid");
-                            payReq.partnerId = data.f13381f.get("partnerid");
-                            payReq.prepayId = data.f13381f.get("prepayid");
-                            payReq.packageValue = data.f13381f.get("packagealias");
-                            payReq.nonceStr = data.f13381f.get("noncestr");
-                            payReq.timeStamp = data.f13381f.get("timestamp");
-                            payReq.sign = data.f13381f.get("sign");
+                            payReq.appId = data.f12797f.get("appid");
+                            payReq.partnerId = data.f12797f.get("partnerid");
+                            payReq.prepayId = data.f12797f.get("prepayid");
+                            payReq.packageValue = data.f12797f.get("packagealias");
+                            payReq.nonceStr = data.f12797f.get("noncestr");
+                            payReq.timeStamp = data.f12797f.get("timestamp");
+                            payReq.sign = data.f12797f.get("sign");
                             createWXAPI.registerApp(payReq.appId);
                             createWXAPI.sendReq(payReq);
                         }
@@ -193,8 +203,7 @@ public class WalletStatic {
                         if (customMessage.getData() == null) {
                             return null;
                         }
-                        WalletPluginManager.getInstance().invokePlugin(null);
-                        return new CustomResponsedMessage<>(2921539, WalletPluginManager.getInstance().doAliPay(customMessage.getData().a, customMessage.getData().f12840b, customMessage.getData().f12841c));
+                        return new CustomResponsedMessage<>(2921539, WalletPluginManager.getInstance().doAliPay(customMessage.getData().a, customMessage.getData().f12248b, customMessage.getData().f12249c));
                     }
                     return (CustomResponsedMessage) invokeL.objValue;
                 }
@@ -246,7 +255,7 @@ public class WalletStatic {
     public static void registerBindCardListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            MessageManager.getInstance().registerListener(new CustomMessageListener(2016457) { // from class: com.baidu.tieba.wallet.WalletStatic.14
+            MessageManager.getInstance().registerListener(new CustomMessageListener(2016457) { // from class: com.baidu.tieba.wallet.WalletStatic.18
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -341,8 +350,8 @@ public class WalletStatic {
     public static void registerHttpAndSocketTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            c.a.u0.z3.g0.a.f(303043, ResponsedGetOrderSocketMessage.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_ORDER, c.a.u0.z3.g0.a.a(TbConfig.GET_ORDER, 303043));
+            c.a.r0.y3.g0.a.f(303043, ResponsedGetOrderSocketMessage.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_ORDER, c.a.r0.y3.g0.a.a(TbConfig.GET_ORDER, 303043));
             tbHttpMessageTask.setResponsedClass(ResponsedGetOrderHttpMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
@@ -351,7 +360,7 @@ public class WalletStatic {
     public static void registerIntentListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            MessageManager.getInstance().registerListener(new CustomMessageListener(2921565) { // from class: com.baidu.tieba.wallet.WalletStatic.15
+            MessageManager.getInstance().registerListener(new CustomMessageListener(2921565) { // from class: com.baidu.tieba.wallet.WalletStatic.19
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -549,7 +558,7 @@ public class WalletStatic {
     public static void registerOpenWallteBalanceTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, null) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2001452, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.wallet.WalletStatic.13
+            CustomMessageTask customMessageTask = new CustomMessageTask(2001452, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.wallet.WalletStatic.17
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -806,11 +815,7 @@ public class WalletStatic {
                 public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
-                        WalletPluginManager.getInstance().invokePlugin(null);
-                        return new CustomResponsedMessage<>(2921432, WalletPluginManager.getInstance().doTiebaPay(b.f().b()));
-                    }
-                    return (CustomResponsedMessage) invokeL.objValue;
+                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2921432, WalletPluginManager.getInstance().doTiebaPay(b.g().b())) : (CustomResponsedMessage) invokeL.objValue;
                 }
             });
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -847,7 +852,7 @@ public class WalletStatic {
                         if (customMessage.getData() == null) {
                             return null;
                         }
-                        WalletPluginManager.getInstance().doYYPay(customMessage.getData());
+                        YYPayManager.doYYPayTask(customMessage.getData());
                         return null;
                     }
                     return (CustomResponsedMessage) invokeL.objValue;
@@ -855,6 +860,138 @@ public class WalletStatic {
             });
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
+            YYPayUIKit.setAlipaySdkProxy(new IAlipaySdkServiceProxy() { // from class: com.baidu.tieba.wallet.WalletStatic.13
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                        }
+                    }
+                }
+
+                @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IAlipaySdkServiceProxy
+                public void sendPay(long j2, Activity activity, String str, IAlipayProxyCallback iAlipayProxyCallback) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), activity, str, iAlipayProxyCallback}) == null) {
+                        try {
+                            a aVar = new a();
+                            aVar.a = activity;
+                            aVar.f12248b = str;
+                            aVar.f12249c = false;
+                            iAlipayProxyCallback.onSuccess((String) MessageManager.getInstance().runTask(2921539, String.class, aVar).getData());
+                        } catch (Exception e2) {
+                            iAlipayProxyCallback.onFail(e2.getMessage());
+                        }
+                    }
+                }
+            });
+            YYPayUIKit.setWechatSdkProxy(new IWechatSdkServiceProxy() { // from class: com.baidu.tieba.wallet.WalletStatic.14
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                        }
+                    }
+                }
+
+                @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatSdkServiceProxy
+                public void onWxPayResult(int i2, String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
+                    }
+                }
+
+                @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatSdkServiceProxy
+                public void sendPay(long j2, Activity activity, String str, IWechatProxyCallback iWechatProxyCallback) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), activity, str, iWechatProxyCallback}) == null) {
+                        YYPayManager.registerYYPayUIKitProxy(str, iWechatProxyCallback);
+                    }
+                }
+            });
+            YYPayUIKit.setDxmPaySdkProxy(new IDxmSdkServiceProxy() { // from class: com.baidu.tieba.wallet.WalletStatic.15
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                        }
+                    }
+                }
+
+                @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmSdkServiceProxy
+                public void sendPay(long j2, Activity activity, String str, IDxmProxyCallback iDxmProxyCallback) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), activity, str, iDxmProxyCallback}) == null) {
+                        WalletPluginManager.getInstance().doYYPay(str, iDxmProxyCallback);
+                    }
+                }
+            });
+            try {
+                LocalRouter.init(TbadkCoreApplication.getInst());
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
+            CustomMessageTask customMessageTask2 = new CustomMessageTask(2921661, new CustomMessageTask.CustomRunnable<c>() { // from class: com.baidu.tieba.wallet.WalletStatic.16
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                        }
+                    }
+                }
+
+                @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+                public CustomResponsedMessage<?> run(CustomMessage<c> customMessage) {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
+                        if (customMessage == null || customMessage.getData() == null) {
+                            return null;
+                        }
+                        YYPayManager.destoryYyPayCallback(customMessage.getData());
+                        return null;
+                    }
+                    return (CustomResponsedMessage) invokeL.objValue;
+                }
+            });
+            customMessageTask2.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+            MessageManager.getInstance().registerTask(customMessageTask2);
         }
     }
 }

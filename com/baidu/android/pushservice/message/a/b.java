@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class b extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.pushservice.message.a.b$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -73,7 +73,7 @@ public class b extends c {
             if (AnonymousClass1.a[com.baidu.android.pushservice.a.d.a(this.a, kVar.e()).a().ordinal()] != 1) {
                 i2 = 7;
             } else {
-                if (kVar.i() == k.f32523h.b()) {
+                if (kVar.i() == k.f30926h.b()) {
                     if (kVar.b() != 0 && com.baidu.android.pushservice.c.c.a(this.a, b2)) {
                         com.baidu.android.pushservice.i.h.a(this.a, b2);
                         if (com.baidu.android.pushservice.c.c.b(this.a, b2)) {

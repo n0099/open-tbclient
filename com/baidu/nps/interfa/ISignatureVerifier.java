@@ -1,7 +1,7 @@
 package com.baidu.nps.interfa;
 
 import android.content.pm.Signature;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public interface ISignatureVerifier {
     boolean checkSignature(String str, Signature[] signatureArr);
 }

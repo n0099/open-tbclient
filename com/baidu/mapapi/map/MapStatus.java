@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public final class MapStatus implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<MapStatus> CREATOR;
@@ -26,11 +26,11 @@ public final class MapStatus implements Parcelable {
     public ab a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f35535b;
+    public double f33938b;
     public final LatLngBounds bound;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f35536c;
+    public double f33939c;
     public final float overlook;
     public final float rotate;
     public final LatLng target;
@@ -38,35 +38,35 @@ public final class MapStatus implements Parcelable {
     public WinRound winRound;
     public final float zoom;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float a;
 
         /* renamed from: b  reason: collision with root package name */
-        public LatLng f35537b;
+        public LatLng f33940b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f35538c;
+        public float f33941c;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f35539d;
+        public float f33942d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Point f35540e;
+        public Point f33943e;
 
         /* renamed from: f  reason: collision with root package name */
-        public LatLngBounds f35541f;
+        public LatLngBounds f33944f;
 
         /* renamed from: g  reason: collision with root package name */
-        public double f35542g;
+        public double f33945g;
 
         /* renamed from: h  reason: collision with root package name */
-        public double f35543h;
+        public double f33946h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final float f35544i;
+        public final float f33947i;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -82,14 +82,14 @@ public final class MapStatus implements Parcelable {
                 }
             }
             this.a = -2.1474836E9f;
-            this.f35537b = null;
-            this.f35538c = -2.1474836E9f;
-            this.f35539d = -2.1474836E9f;
-            this.f35540e = null;
-            this.f35541f = null;
-            this.f35542g = 0.0d;
-            this.f35543h = 0.0d;
-            this.f35544i = 15.0f;
+            this.f33940b = null;
+            this.f33941c = -2.1474836E9f;
+            this.f33942d = -2.1474836E9f;
+            this.f33943e = null;
+            this.f33944f = null;
+            this.f33945g = 0.0d;
+            this.f33946h = 0.0d;
+            this.f33947i = 15.0f;
         }
 
         public Builder(MapStatus mapStatus) {
@@ -108,21 +108,21 @@ public final class MapStatus implements Parcelable {
                 }
             }
             this.a = -2.1474836E9f;
-            this.f35537b = null;
-            this.f35538c = -2.1474836E9f;
-            this.f35539d = -2.1474836E9f;
-            this.f35540e = null;
-            this.f35541f = null;
-            this.f35542g = 0.0d;
-            this.f35543h = 0.0d;
-            this.f35544i = 15.0f;
+            this.f33940b = null;
+            this.f33941c = -2.1474836E9f;
+            this.f33942d = -2.1474836E9f;
+            this.f33943e = null;
+            this.f33944f = null;
+            this.f33945g = 0.0d;
+            this.f33946h = 0.0d;
+            this.f33947i = 15.0f;
             this.a = mapStatus.rotate;
-            this.f35537b = mapStatus.target;
-            this.f35538c = mapStatus.overlook;
-            this.f35539d = mapStatus.zoom;
-            this.f35540e = mapStatus.targetScreen;
-            this.f35542g = mapStatus.a();
-            this.f35543h = mapStatus.b();
+            this.f33940b = mapStatus.target;
+            this.f33941c = mapStatus.overlook;
+            this.f33942d = mapStatus.zoom;
+            this.f33943e = mapStatus.targetScreen;
+            this.f33945g = mapStatus.a();
+            this.f33946h = mapStatus.b();
         }
 
         private float a(float f2) {
@@ -140,14 +140,14 @@ public final class MapStatus implements Parcelable {
         public MapStatus build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new MapStatus(this.a, this.f35537b, this.f35538c, this.f35539d, this.f35540e, this.f35541f) : (MapStatus) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new MapStatus(this.a, this.f33940b, this.f33941c, this.f33942d, this.f33943e, this.f33944f) : (MapStatus) invokeV.objValue;
         }
 
         public Builder overlook(float f2) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) {
-                this.f35538c = f2;
+                this.f33941c = f2;
                 return this;
             }
             return (Builder) invokeF.objValue;
@@ -167,7 +167,7 @@ public final class MapStatus implements Parcelable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, latLng)) == null) {
-                this.f35537b = latLng;
+                this.f33940b = latLng;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -177,7 +177,7 @@ public final class MapStatus implements Parcelable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, point)) == null) {
-                this.f35540e = point;
+                this.f33943e = point;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -187,7 +187,7 @@ public final class MapStatus implements Parcelable {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f2)) == null) {
-                this.f35539d = a(f2);
+                this.f33942d = a(f2);
                 return this;
             }
             return (Builder) invokeF.objValue;
@@ -230,8 +230,8 @@ public final class MapStatus implements Parcelable {
         this.overlook = f3;
         this.zoom = f4;
         this.targetScreen = point;
-        this.f35535b = d2;
-        this.f35536c = d3;
+        this.f33938b = d2;
+        this.f33939c = d3;
         this.bound = latLngBounds;
     }
 
@@ -256,8 +256,8 @@ public final class MapStatus implements Parcelable {
         this.zoom = f4;
         this.targetScreen = point;
         if (latLng != null) {
-            this.f35535b = CoordUtil.ll2mc(latLng).getLongitudeE6();
-            this.f35536c = CoordUtil.ll2mc(this.target).getLatitudeE6();
+            this.f33938b = CoordUtil.ll2mc(latLng).getLongitudeE6();
+            this.f33939c = CoordUtil.ll2mc(this.target).getLatitudeE6();
         }
         this.bound = latLngBounds;
     }
@@ -283,8 +283,8 @@ public final class MapStatus implements Parcelable {
         this.zoom = f4;
         this.targetScreen = point;
         this.a = abVar;
-        this.f35535b = d2;
-        this.f35536c = d3;
+        this.f33938b = d2;
+        this.f33939c = d3;
         this.bound = latLngBounds;
         this.winRound = winRound;
     }
@@ -310,8 +310,8 @@ public final class MapStatus implements Parcelable {
         this.zoom = parcel.readFloat();
         this.targetScreen = (Point) parcel.readParcelable(Point.class.getClassLoader());
         this.bound = (LatLngBounds) parcel.readParcelable(LatLngBounds.class.getClassLoader());
-        this.f35535b = parcel.readDouble();
-        this.f35536c = parcel.readDouble();
+        this.f33938b = parcel.readDouble();
+        this.f33939c = parcel.readDouble();
     }
 
     public static MapStatus a(ab abVar) {
@@ -321,27 +321,27 @@ public final class MapStatus implements Parcelable {
             if (abVar == null) {
                 return null;
             }
-            float f2 = abVar.f36051b;
-            double d2 = abVar.f36054e;
-            double d3 = abVar.f36053d;
+            float f2 = abVar.f34454b;
+            double d2 = abVar.f34457e;
+            double d3 = abVar.f34456d;
             LatLng mc2ll = CoordUtil.mc2ll(new GeoPoint(d2, d3));
-            float f3 = abVar.f36052c;
+            float f3 = abVar.f34455c;
             float f4 = abVar.a;
-            Point point = new Point(abVar.f36055f, abVar.f36056g);
-            com.baidu.mapapi.model.inner.Point point2 = abVar.k.f36063e;
+            Point point = new Point(abVar.f34458f, abVar.f34459g);
+            com.baidu.mapapi.model.inner.Point point2 = abVar.k.f34466e;
             LatLng mc2ll2 = CoordUtil.mc2ll(new GeoPoint(point2.y, point2.x));
-            com.baidu.mapapi.model.inner.Point point3 = abVar.k.f36064f;
+            com.baidu.mapapi.model.inner.Point point3 = abVar.k.f34467f;
             LatLng mc2ll3 = CoordUtil.mc2ll(new GeoPoint(point3.y, point3.x));
-            com.baidu.mapapi.model.inner.Point point4 = abVar.k.f36066h;
+            com.baidu.mapapi.model.inner.Point point4 = abVar.k.f34469h;
             LatLng mc2ll4 = CoordUtil.mc2ll(new GeoPoint(point4.y, point4.x));
-            com.baidu.mapapi.model.inner.Point point5 = abVar.k.f36065g;
+            com.baidu.mapapi.model.inner.Point point5 = abVar.k.f34468g;
             LatLng mc2ll5 = CoordUtil.mc2ll(new GeoPoint(point5.y, point5.x));
             LatLngBounds.Builder builder = new LatLngBounds.Builder();
             builder.include(mc2ll2);
             builder.include(mc2ll3);
             builder.include(mc2ll4);
             builder.include(mc2ll5);
-            return new MapStatus(f2, mc2ll, f3, f4, point, abVar, d3, d2, builder.build(), abVar.f36059j);
+            return new MapStatus(f2, mc2ll, f3, f4, point, abVar, d3, d2, builder.build(), abVar.f34462j);
         }
         return (MapStatus) invokeL.objValue;
     }
@@ -349,13 +349,13 @@ public final class MapStatus implements Parcelable {
     public double a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35535b : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33938b : invokeV.doubleValue;
     }
 
     public double b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35536c : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33939c : invokeV.doubleValue;
     }
 
     public ab b(ab abVar) {
@@ -367,7 +367,7 @@ public final class MapStatus implements Parcelable {
             }
             float f2 = this.rotate;
             if (f2 != -2.1474836E9f) {
-                abVar.f36051b = (int) f2;
+                abVar.f34454b = (int) f2;
             }
             float f3 = this.zoom;
             if (f3 != -2.1474836E9f) {
@@ -375,16 +375,16 @@ public final class MapStatus implements Parcelable {
             }
             float f4 = this.overlook;
             if (f4 != -2.1474836E9f) {
-                abVar.f36052c = (int) f4;
+                abVar.f34455c = (int) f4;
             }
             if (this.target != null) {
-                abVar.f36053d = this.f35535b;
-                abVar.f36054e = this.f35536c;
+                abVar.f34456d = this.f33938b;
+                abVar.f34457e = this.f33939c;
             }
             Point point = this.targetScreen;
             if (point != null) {
-                abVar.f36055f = point.x;
-                abVar.f36056g = point.y;
+                abVar.f34458f = point.x;
+                abVar.f34459g = point.y;
             }
             return abVar;
         }
@@ -438,8 +438,8 @@ public final class MapStatus implements Parcelable {
             parcel.writeFloat(this.zoom);
             parcel.writeParcelable(this.targetScreen, i2);
             parcel.writeParcelable(this.bound, i2);
-            parcel.writeDouble(this.f35535b);
-            parcel.writeDouble(this.f35536c);
+            parcel.writeDouble(this.f33938b);
+            parcel.writeDouble(this.f33939c);
         }
     }
 }

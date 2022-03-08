@@ -12,7 +12,7 @@ import com.tencent.connect.common.BaseApi;
 import com.tencent.open.utils.HttpUtils;
 import com.tencent.open.utils.f;
 import com.tencent.tauth.IUiListener;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class UserInfo extends BaseApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GRAPH_OPEN_ID = "oauth2.0/m_me";
@@ -41,14 +41,14 @@ public class UserInfo extends BaseApi {
     public void getOpenId(IUiListener iUiListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iUiListener) == null) {
-            HttpUtils.requestAsync(this.f60643c, f.a(), GRAPH_OPEN_ID, a(), "GET", new BaseApi.TempRequestListener(this, iUiListener));
+            HttpUtils.requestAsync(this.f58993c, f.a(), GRAPH_OPEN_ID, a(), "GET", new BaseApi.TempRequestListener(this, iUiListener));
         }
     }
 
     public void getUserInfo(IUiListener iUiListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iUiListener) == null) {
-            HttpUtils.requestAsync(this.f60643c, f.a(), "user/get_simple_userinfo", a(), "GET", new BaseApi.TempRequestListener(this, iUiListener));
+            HttpUtils.requestAsync(this.f58993c, f.a(), "user/get_simple_userinfo", a(), "GET", new BaseApi.TempRequestListener(this, iUiListener));
         }
     }
 

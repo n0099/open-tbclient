@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.lightapp.business.LightappBusinessClient;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
 import com.kuaishou.weapon.un.w0;
-import kotlin.text.Typography;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class GeneralAppIdDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public final class GeneralAppIdDecoder {
                     c2 = '.';
                     break;
                 case 62:
-                    c2 = '/';
+                    c2 = WebvttCueParser.CHAR_SLASH;
                     break;
                 default:
                     throw new IllegalStateException("Decoding invalid alphanumeric value: " + extractNumericValueFromBitArray2);
@@ -114,7 +114,7 @@ public final class GeneralAppIdDecoder {
                         c2 = '%';
                         break;
                     case w0.k0 /* 235 */:
-                        c2 = Typography.amp;
+                        c2 = '&';
                         break;
                     case 236:
                         c2 = ExtendedMessageFormat.QUOTE;
@@ -141,31 +141,31 @@ public final class GeneralAppIdDecoder {
                         c2 = '.';
                         break;
                     case 244:
-                        c2 = '/';
+                        c2 = WebvttCueParser.CHAR_SLASH;
                         break;
                     case 245:
                         c2 = ':';
                         break;
                     case 246:
-                        c2 = ';';
+                        c2 = WebvttCueParser.CHAR_SEMI_COLON;
                         break;
                     case GDiffPatcher.DATA_USHORT /* 247 */:
-                        c2 = Typography.less;
+                        c2 = '<';
                         break;
                     case 248:
-                        c2 = a.f31099h;
+                        c2 = a.f29503h;
                         break;
                     case 249:
-                        c2 = Typography.greater;
+                        c2 = '>';
                         break;
                     case 250:
                         c2 = '?';
                         break;
-                    case GDiffPatcher.COPY_USHORT_INT /* 251 */:
+                    case 251:
                         c2 = '_';
                         break;
                     case 252:
-                        c2 = ' ';
+                        c2 = WebvttCueParser.CHAR_SPACE;
                         break;
                     default:
                         throw FormatException.getFormatInstance();

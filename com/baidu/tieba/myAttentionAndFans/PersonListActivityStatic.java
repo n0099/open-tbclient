@@ -5,9 +5,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.t0.e.c;
-import c.a.t0.e.d;
-import c.a.t0.e.e;
+import c.a.q0.d.c;
+import c.a.q0.d.d;
+import c.a.q0.d.e;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MyForbiddenFansActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
@@ -21,12 +21,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class PersonListActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class a implements e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class PersonListActivityStatic {
             }
         }
 
-        @Override // c.a.t0.e.e
+        @Override // c.a.q0.d.e
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class PersonListActivityStatic {
                 TextView a = d.a(context);
                 if (a != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                    SkinManager.setViewTextColor(a, R.color.CAM_X0302);
+                    SkinManager.setViewTextColor(a, (int) R.color.CAM_X0302);
                     layoutParams.setMargins(n.f(context, R.dimen.ds8), 0, n.f(context, R.dimen.ds8), 0);
                     layoutParams.gravity = 16;
                     a.setLayoutParams(layoutParams);

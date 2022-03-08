@@ -5,14 +5,14 @@ import android.graphics.Bitmap;
 import android.webkit.URLUtil;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.t0.c0.c;
-import c.a.u0.a4.e;
+import c.a.q0.b0.c;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.dimen.TbDimenManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class TbConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ABSTRACT_AUTO = 0;
@@ -316,7 +316,6 @@ public class TbConfig {
     public static final int MAX_FRS_ICON_NUM = 3;
     public static final int MAX_HOME_ICON_NUM = 3;
     public static final int MAX_PB_ICON_NUM = 4;
-    public static final int MAX_PB_PIC_ONEPOST = 10;
     public static final int MAX_PERSON_INFO_ICON_NUM = 9;
     public static int MAX_PHOTO_MEMORY_CACHE = 0;
     public static int MAX_PHOTO_MEMORY_CACHE_REMOTE_PROCESS = 0;
@@ -722,7 +721,7 @@ public class TbConfig {
     public static boolean sThreadImageMaxInited;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class DownFlowCmd {
         public static /* synthetic */ Interceptable $ic;
         public static HashSet<Integer> sInterruptCMDs;
@@ -796,7 +795,7 @@ public class TbConfig {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static final class PassConfig {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String APP_ID = "1";
@@ -873,43 +872,43 @@ public class TbConfig {
         NOVEL_PAY = "c/s/adNovelPay";
         COULD_UPDATE = true;
         FORCE_UPDATE = false;
-        VALUE_COMMON_FONT_SIZE_XLAGER = getDimens(e.T_X04);
-        VALUE_COMMON_FONT_SIZE_BIG = getDimens(e.T_X13);
-        VALUE_COMMON_FONT_SIZE_MID = getDimens(e.T_X05);
-        VALUE_COMMON_FONT_SIZE_SMALL = getDimens(e.T_X06);
-        VALUE_OUTTER_SUBPB_FONT_SIZE_XLAGER = getDimens(e.T_X13);
-        VALUE_OUTTER_SUBPB_FONT_SIZE_BIG = getDimens(e.T_X05);
-        VALUE_OUTTER_SUBPB_FONT_SIZE_MID = getDimens(e.T_X06);
-        VALUE_OUTTER_SUBPB_FONT_SIZE_SMALL = getDimens(e.T_X07);
-        VALUE_COMMON_EMOTION_SIZE_XLAGER = getDimens(e.tbds62);
-        VALUE_COMMON_EMOTION_SIZE_BIG = getDimens(e.tbds54);
-        VALUE_COMMON_EMOTION_SIZE_MID = getDimens(e.tbds52);
-        VALUE_COMMON_EMOTION_SIZE_SMALL = getDimens(e.tbds49);
-        VALUE_COMMON_FONT_LINE_SPACE_XLAGRE = getDimens(e.tbds25);
-        VALUE_COMMON_FONT_LINE_SPACE_BIG = getDimens(e.tbds25);
-        VALUE_COMMON_FONT_LINE_SPACE_MID = getDimens(e.tbds25);
-        VALUE_COMMON_FONT_LINE_SPACE_SMALL = getDimens(e.tbds25);
-        VALUE_COMMON_FONT_LINE_SPACE_XLONG = getDimens(e.tbds17);
-        VALUE_POST_FONT_LINE_SPACE_XLAGRE = getDimens(e.tbds21);
-        VALUE_POST_FONT_LINE_SPACE_BIG = getDimens(e.tbds21);
-        VALUE_POST_FONT_LINE_SPACE_MID = getDimens(e.tbds21);
-        VALUE_POST_FONT_LINE_SPACE_SMALL = getDimens(e.tbds21);
-        VALUE_SUBPB_FONT_SIZE_XLAGER = getDimens(e.T_X04);
-        VALUE_SUBPB_FONT_SIZE_BIG = getDimens(e.T_X13);
-        VALUE_SUBPB_FONT_SIZE_MID = getDimens(e.T_X05);
-        VALUE_SUBPB_FONT_SIZE_SMALL = getDimens(e.T_X06);
-        VALUE_SUBPB_EMOTION_SIZE_XLAGER = getDimens(e.tbds54);
-        VALUE_SUBPB_EMOTION_SIZE_BIG = getDimens(e.tbds49);
-        VALUE_SUBPB_EMOTION_SIZE_MID = getDimens(e.tbds49);
-        VALUE_SUBPB_EMOTION_SIZE_SMALL = getDimens(e.tbds44);
-        SUBPB_FONT_SIZE_XLAGER = getDimens(e.T_X04);
-        SUBPB_FONT_SIZE_BIG = getDimens(e.T_X06);
-        SUBPB_FONT_SIZE_MID = getDimens(e.T_X06);
-        SUBPB_FONT_SIZE_SMALL = getDimens(e.T_X07);
-        VALUE_SUBPB_FONT_LINE_SPACE_XLAGRE = getDimens(e.tbds29);
-        VALUE_SUBPB_FONT_LINE_SPACE_BIG = getDimens(e.tbds29);
-        VALUE_SUBPB_FONT_LINE_SPACE_MID = getDimens(e.tbds20);
-        VALUE_SUBPB_FONT_LINE_SPACE_SMALL = getDimens(e.tbds20);
+        VALUE_COMMON_FONT_SIZE_XLAGER = getDimens(R.dimen.T_X04);
+        VALUE_COMMON_FONT_SIZE_BIG = getDimens(R.dimen.T_X13);
+        VALUE_COMMON_FONT_SIZE_MID = getDimens(R.dimen.T_X05);
+        VALUE_COMMON_FONT_SIZE_SMALL = getDimens(R.dimen.T_X06);
+        VALUE_OUTTER_SUBPB_FONT_SIZE_XLAGER = getDimens(R.dimen.T_X13);
+        VALUE_OUTTER_SUBPB_FONT_SIZE_BIG = getDimens(R.dimen.T_X05);
+        VALUE_OUTTER_SUBPB_FONT_SIZE_MID = getDimens(R.dimen.T_X06);
+        VALUE_OUTTER_SUBPB_FONT_SIZE_SMALL = getDimens(R.dimen.T_X07);
+        VALUE_COMMON_EMOTION_SIZE_XLAGER = getDimens(R.dimen.tbds62);
+        VALUE_COMMON_EMOTION_SIZE_BIG = getDimens(R.dimen.tbds54);
+        VALUE_COMMON_EMOTION_SIZE_MID = getDimens(R.dimen.tbds52);
+        VALUE_COMMON_EMOTION_SIZE_SMALL = getDimens(R.dimen.tbds49);
+        VALUE_COMMON_FONT_LINE_SPACE_XLAGRE = getDimens(R.dimen.tbds25);
+        VALUE_COMMON_FONT_LINE_SPACE_BIG = getDimens(R.dimen.tbds25);
+        VALUE_COMMON_FONT_LINE_SPACE_MID = getDimens(R.dimen.tbds25);
+        VALUE_COMMON_FONT_LINE_SPACE_SMALL = getDimens(R.dimen.tbds25);
+        VALUE_COMMON_FONT_LINE_SPACE_XLONG = getDimens(R.dimen.tbds17);
+        VALUE_POST_FONT_LINE_SPACE_XLAGRE = getDimens(R.dimen.tbds21);
+        VALUE_POST_FONT_LINE_SPACE_BIG = getDimens(R.dimen.tbds21);
+        VALUE_POST_FONT_LINE_SPACE_MID = getDimens(R.dimen.tbds21);
+        VALUE_POST_FONT_LINE_SPACE_SMALL = getDimens(R.dimen.tbds21);
+        VALUE_SUBPB_FONT_SIZE_XLAGER = getDimens(R.dimen.T_X04);
+        VALUE_SUBPB_FONT_SIZE_BIG = getDimens(R.dimen.T_X13);
+        VALUE_SUBPB_FONT_SIZE_MID = getDimens(R.dimen.T_X05);
+        VALUE_SUBPB_FONT_SIZE_SMALL = getDimens(R.dimen.T_X06);
+        VALUE_SUBPB_EMOTION_SIZE_XLAGER = getDimens(R.dimen.tbds54);
+        VALUE_SUBPB_EMOTION_SIZE_BIG = getDimens(R.dimen.tbds49);
+        VALUE_SUBPB_EMOTION_SIZE_MID = getDimens(R.dimen.tbds49);
+        VALUE_SUBPB_EMOTION_SIZE_SMALL = getDimens(R.dimen.tbds44);
+        SUBPB_FONT_SIZE_XLAGER = getDimens(R.dimen.T_X04);
+        SUBPB_FONT_SIZE_BIG = getDimens(R.dimen.T_X06);
+        SUBPB_FONT_SIZE_MID = getDimens(R.dimen.T_X06);
+        SUBPB_FONT_SIZE_SMALL = getDimens(R.dimen.T_X07);
+        VALUE_SUBPB_FONT_LINE_SPACE_XLAGRE = getDimens(R.dimen.tbds29);
+        VALUE_SUBPB_FONT_LINE_SPACE_BIG = getDimens(R.dimen.tbds29);
+        VALUE_SUBPB_FONT_LINE_SPACE_MID = getDimens(R.dimen.tbds20);
+        VALUE_SUBPB_FONT_LINE_SPACE_SMALL = getDimens(R.dimen.tbds20);
         MAX_PHOTO_MEMORY_CACHE = 60;
         MAX_PHOTO_MEMORY_CACHE_REMOTE_PROCESS = 10;
         PREFETCH_NEXT_VIDEO_SIZE = 512000;

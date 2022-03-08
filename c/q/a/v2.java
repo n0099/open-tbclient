@@ -1,35 +1,23 @@
 package c.q.a;
 
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.comm.constants.Constants;
-import java.io.UnsupportedEncodingException;
-import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes9.dex */
-public class v2 implements Runnable {
+import com.win.opensdk.PBError;
+/* loaded from: classes3.dex */
+public class v2 implements d3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ z2 a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ boolean f30730e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ String f30731f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ y2 f30732g;
-
-    public v2(y2 y2Var, boolean z, String str) {
+    public v2(z2 z2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {y2Var, Boolean.valueOf(z), str};
+            Object[] objArr = {z2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -39,47 +27,56 @@ public class v2 implements Runnable {
                 return;
             }
         }
-        this.f30732g = y2Var;
-        this.f30730e = z;
-        this.f30731f = str;
+        this.a = z2Var;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        String x;
+    @Override // c.q.a.d3
+    public void a(boolean z) {
+        d3 d3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            String str = this.f30730e ? x5.f30751b : x5.f30752c;
-            HashMap b2 = h5.b(this.f30732g.a);
-            try {
-                str = str + h5.a(b2);
-            } catch (UnsupportedEncodingException unused) {
-            }
-            String str2 = this.f30731f;
-            try {
-                t1 t1Var = new t1(str, "POST", r0.k(null));
-                t1Var.f30686b = r0.L(str2);
-                w1 a = t1Var.a();
-                byte[] bArr = a.f30738b;
-                if (a.a == 200) {
-                    JSONObject jSONObject = new JSONObject(new String(bArr, "UTF-8"));
-                    jSONObject.optInt(Constants.KEYS.RET);
-                    jSONObject.optString("msg");
-                    try {
-                        x = r0.x(jSONObject.optString("data"));
-                    } catch (Exception unused2) {
-                    }
-                    if (TextUtils.isEmpty(x)) {
-                        new JSONObject();
-                    } else {
-                        new JSONObject(x);
-                    }
-                }
-            } catch (JSONException e2) {
-                e2.getMessage();
-            } catch (Exception e3) {
-                e3.getMessage();
-            }
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (d3Var = this.a.f29177b) == null) {
+            return;
         }
+        d3Var.a(z);
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onClicked() {
+        d3 d3Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (d3Var = this.a.f29177b) == null) {
+            return;
+        }
+        d3Var.onClicked();
+    }
+
+    @Override // c.q.a.d3
+    public void onDisplayed() {
+        d3 d3Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (d3Var = this.a.f29177b) == null) {
+            return;
+        }
+        d3Var.onDisplayed();
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onFail(PBError pBError) {
+        d3 d3Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, pBError) == null) || (d3Var = this.a.f29177b) == null) {
+            return;
+        }
+        d3Var.onFail(pBError);
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onLoaded() {
+        d3 d3Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (d3Var = this.a.f29177b) == null) {
+            return;
+        }
+        d3Var.onLoaded();
     }
 }

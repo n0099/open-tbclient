@@ -1,7 +1,7 @@
 package com.baidu.tieba.wallet.pay;
 
 import c.a.d.f.m.b;
-import c.a.t0.d1.c0;
+import c.a.q0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetOrder.DataReq;
 import tbclient.GetOrder.GetOrderReqIdl;
 import tbclient.Wares;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class GetOrderNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public class GetOrderNetMessage extends NetMessage {
                 builder.click_zone = this.mClickZone;
             }
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                c0.a(builder, true);
+                b0.a(builder, true);
             }
             builder.wallet_sdk_ua = this.mWalletSdkUa;
             GetOrderReqIdl.Builder builder2 = new GetOrderReqIdl.Builder();

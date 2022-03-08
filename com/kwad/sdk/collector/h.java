@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.collector.AppStatusRules;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class h {
     public static String a(AppStatusRules.Strategy strategy) {
         String name = strategy.getName() == null ? "defaultStrategy" : strategy.getName();

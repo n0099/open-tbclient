@@ -11,9 +11,9 @@ import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.LBSPayResult;
-import com.baidu.android.lbspay.R;
 import com.baidu.android.lbspay.beans.LbsPayBeanFactory;
 import com.baidu.android.lbspay.beans.SignResultBean;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -29,7 +29,7 @@ import com.tencent.mm.opensdk.modelbiz.WXOpenBusinessWebview;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class WXSignActivity extends BeanActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SIGN_REQUEST_URL = "sign_request_url";

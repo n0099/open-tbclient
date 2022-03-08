@@ -12,7 +12,7 @@ import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.AjTypeSystem;
 import org.aspectj.lang.reflect.Pointcut;
 import org.aspectj.lang.reflect.PointcutExpression;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class PointcutImpl implements Pointcut {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

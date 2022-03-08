@@ -19,17 +19,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.channels.FileChannel;
-import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 /* loaded from: classes.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "baidu";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final File f2177b;
+    public static final File f2806b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final char f2178c;
+    public static final char f2807c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,8 +44,8 @@ public class h {
                 return;
             }
         }
-        f2177b = Environment.getExternalStorageDirectory();
-        f2178c = File.separatorChar;
+        f2806b = Environment.getExternalStorageDirectory();
+        f2807c = File.separatorChar;
     }
 
     public static int A(String str) {
@@ -82,13 +81,13 @@ public class h {
     public static boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f2178c == '\\' : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f2807c == '\\' : invokeV.booleanValue;
     }
 
     public static void D(OutputStream outputStream) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, outputStream) == null) {
-            outputStream.write(new byte[]{Base64.INTERNAL_PADDING, PublicSuffixDatabase.EXCEPTION_MARKER, 65, 77, 82, 10}, 0, 6);
+            outputStream.write(new byte[]{Base64.INTERNAL_PADDING, 33, 65, 77, 82, 10}, 0, 6);
         }
     }
 
@@ -135,7 +134,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             try {
-                StatFs statFs = new StatFs(f2177b.getPath());
+                StatFs statFs = new StatFs(f2806b.getPath());
                 return ((((long) statFs.getAvailableBlocks()) * ((long) statFs.getBlockSize())) / 1024) / 1024 > 2;
             } catch (Exception unused) {
                 return false;
@@ -518,9 +517,9 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65561, null, str, str2)) == null) {
             if (str != null) {
-                return f2177b + "/" + a + "/" + str + "/" + str2;
+                return f2806b + "/" + a + "/" + str + "/" + str2;
             }
-            return f2177b + "/" + a + "/" + str2;
+            return f2806b + "/" + a + "/" + str2;
         }
         return (String) invokeLL.objValue;
     }
@@ -576,9 +575,9 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, str)) == null) {
             if (str != null) {
-                return f2177b + "/" + a + "/" + str + "/";
+                return f2806b + "/" + a + "/" + str + "/";
             }
-            return f2177b + "/" + a + "/";
+            return f2806b + "/" + a + "/";
         }
         return (String) invokeL.objValue;
     }

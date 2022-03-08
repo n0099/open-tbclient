@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ForumRecommend.HotSearch;
 import tbclient.ForumRecommend.SearchValue;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class HotSearchInfoData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f42791e;
+    public String f41194e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f42792f;
+    public long f41195f;
 
     public HotSearchInfoData() {
         Interceptable interceptable = $ic;
@@ -37,13 +37,13 @@ public class HotSearchInfoData extends OrmObject {
     public long getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42792f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41195f : invokeV.longValue;
     }
 
     public String w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42791e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41194e : (String) invokeV.objValue;
     }
 
     public void x(HotSearch hotSearch) {
@@ -52,10 +52,10 @@ public class HotSearchInfoData extends OrmObject {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hotSearch) == null) || hotSearch == null || (searchValue = hotSearch.search_value) == null) {
             return;
         }
-        this.f42791e = hotSearch.search_title;
+        this.f41194e = hotSearch.search_title;
         searchValue.id.longValue();
         SearchValue searchValue2 = hotSearch.search_value;
         String str = searchValue2.name;
-        this.f42792f = searchValue2.type.longValue();
+        this.f41195f = searchValue2.type.longValue();
     }
 }

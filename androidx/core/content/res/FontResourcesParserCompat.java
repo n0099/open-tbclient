@@ -10,7 +10,7 @@ import androidx.annotation.ArrayRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-import androidx.core.R;
+import androidx.core.R$styleable;
 import androidx.core.provider.FontRequest;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,6 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.CssParser;
 import java.io.IOException;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -288,8 +289,8 @@ public class FontResourcesParserCompat {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, xmlPullParser, resources)) == null) {
-            xmlPullParser.require(2, null, "font-family");
-            if (xmlPullParser.getName().equals("font-family")) {
+            xmlPullParser.require(2, null, CssParser.PROPERTY_FONT_FAMILY);
+            if (xmlPullParser.getName().equals(CssParser.PROPERTY_FONT_FAMILY)) {
                 return readFamily(xmlPullParser, resources);
             }
             skip(xmlPullParser);
@@ -303,13 +304,13 @@ public class FontResourcesParserCompat {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, xmlPullParser, resources)) == null) {
-            TypedArray obtainAttributes = resources.obtainAttributes(Xml.asAttributeSet(xmlPullParser), R.styleable.FontFamily);
-            String string = obtainAttributes.getString(R.styleable.FontFamily_fontProviderAuthority);
-            String string2 = obtainAttributes.getString(R.styleable.FontFamily_fontProviderPackage);
-            String string3 = obtainAttributes.getString(R.styleable.FontFamily_fontProviderQuery);
-            int resourceId = obtainAttributes.getResourceId(R.styleable.FontFamily_fontProviderCerts, 0);
-            int integer = obtainAttributes.getInteger(R.styleable.FontFamily_fontProviderFetchStrategy, 1);
-            int integer2 = obtainAttributes.getInteger(R.styleable.FontFamily_fontProviderFetchTimeout, 500);
+            TypedArray obtainAttributes = resources.obtainAttributes(Xml.asAttributeSet(xmlPullParser), R$styleable.FontFamily);
+            String string = obtainAttributes.getString(R$styleable.FontFamily_fontProviderAuthority);
+            String string2 = obtainAttributes.getString(R$styleable.FontFamily_fontProviderPackage);
+            String string3 = obtainAttributes.getString(R$styleable.FontFamily_fontProviderQuery);
+            int resourceId = obtainAttributes.getResourceId(R$styleable.FontFamily_fontProviderCerts, 0);
+            int integer = obtainAttributes.getInteger(R$styleable.FontFamily_fontProviderFetchStrategy, 1);
+            int integer2 = obtainAttributes.getInteger(R$styleable.FontFamily_fontProviderFetchTimeout, 500);
             obtainAttributes.recycle();
             if (string != null && string2 != null && string3 != null) {
                 while (xmlPullParser.next() != 3) {
@@ -344,35 +345,35 @@ public class FontResourcesParserCompat {
         int i6;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, xmlPullParser, resources)) == null) {
-            TypedArray obtainAttributes = resources.obtainAttributes(Xml.asAttributeSet(xmlPullParser), R.styleable.FontFamilyFont);
-            if (obtainAttributes.hasValue(R.styleable.FontFamilyFont_fontWeight)) {
-                i2 = R.styleable.FontFamilyFont_fontWeight;
+            TypedArray obtainAttributes = resources.obtainAttributes(Xml.asAttributeSet(xmlPullParser), R$styleable.FontFamilyFont);
+            if (obtainAttributes.hasValue(R$styleable.FontFamilyFont_fontWeight)) {
+                i2 = R$styleable.FontFamilyFont_fontWeight;
             } else {
-                i2 = R.styleable.FontFamilyFont_android_fontWeight;
+                i2 = R$styleable.FontFamilyFont_android_fontWeight;
             }
             int i7 = obtainAttributes.getInt(i2, 400);
-            if (obtainAttributes.hasValue(R.styleable.FontFamilyFont_fontStyle)) {
-                i3 = R.styleable.FontFamilyFont_fontStyle;
+            if (obtainAttributes.hasValue(R$styleable.FontFamilyFont_fontStyle)) {
+                i3 = R$styleable.FontFamilyFont_fontStyle;
             } else {
-                i3 = R.styleable.FontFamilyFont_android_fontStyle;
+                i3 = R$styleable.FontFamilyFont_android_fontStyle;
             }
             boolean z = 1 == obtainAttributes.getInt(i3, 0);
-            if (obtainAttributes.hasValue(R.styleable.FontFamilyFont_ttcIndex)) {
-                i4 = R.styleable.FontFamilyFont_ttcIndex;
+            if (obtainAttributes.hasValue(R$styleable.FontFamilyFont_ttcIndex)) {
+                i4 = R$styleable.FontFamilyFont_ttcIndex;
             } else {
-                i4 = R.styleable.FontFamilyFont_android_ttcIndex;
+                i4 = R$styleable.FontFamilyFont_android_ttcIndex;
             }
-            if (obtainAttributes.hasValue(R.styleable.FontFamilyFont_fontVariationSettings)) {
-                i5 = R.styleable.FontFamilyFont_fontVariationSettings;
+            if (obtainAttributes.hasValue(R$styleable.FontFamilyFont_fontVariationSettings)) {
+                i5 = R$styleable.FontFamilyFont_fontVariationSettings;
             } else {
-                i5 = R.styleable.FontFamilyFont_android_fontVariationSettings;
+                i5 = R$styleable.FontFamilyFont_android_fontVariationSettings;
             }
             String string = obtainAttributes.getString(i5);
             int i8 = obtainAttributes.getInt(i4, 0);
-            if (obtainAttributes.hasValue(R.styleable.FontFamilyFont_font)) {
-                i6 = R.styleable.FontFamilyFont_font;
+            if (obtainAttributes.hasValue(R$styleable.FontFamilyFont_font)) {
+                i6 = R$styleable.FontFamilyFont_font;
             } else {
-                i6 = R.styleable.FontFamilyFont_android_font;
+                i6 = R$styleable.FontFamilyFont_android_font;
             }
             int resourceId = obtainAttributes.getResourceId(i6, 0);
             String string2 = obtainAttributes.getString(i6);

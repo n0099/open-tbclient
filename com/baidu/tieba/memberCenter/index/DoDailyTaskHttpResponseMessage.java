@@ -14,7 +14,7 @@ import tbclient.DoDailyTask.DialogItem;
 import tbclient.DoDailyTask.DoDailyTaskResIdl;
 import tbclient.DoDailyTask.RetDataList;
 import tbclient.Error;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public class DoDailyTaskHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

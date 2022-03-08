@@ -25,27 +25,27 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class r0 extends o0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final /* synthetic */ boolean f28684f;
+    public static final /* synthetic */ boolean f28522f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f28685b;
+    public final String f28523b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Handler f28686c;
+    public final Handler f28524c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final LinkedList<d> f28687d;
+    public final LinkedList<d> f28525d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f28688e;
+    public boolean f28526e;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,14 +94,14 @@ public class r0 extends o0 {
                         return;
                     }
                     LogPrinter.v("turn on report switch", new Object[0]);
-                    this.a.f28688e = true;
+                    this.a.f28526e = true;
                 }
                 r0.e(this.a);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public class b implements p0.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -130,22 +130,22 @@ public class r0 extends o0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, networkInfo) == null) {
                 if (networkInfo != null && networkInfo.isConnected()) {
-                    this.a.f28686c.removeMessages(1);
-                    this.a.f28686c.sendEmptyMessage(1);
+                    this.a.f28524c.removeMessages(1);
+                    this.a.f28524c.sendEmptyMessage(1);
                     return;
                 }
-                this.a.f28686c.removeMessages(1);
+                this.a.f28524c.removeMessages(1);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class c extends f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final JSONArray f28689b;
+        public final JSONArray f28527b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(e eVar) {
@@ -165,7 +165,7 @@ public class r0 extends o0 {
                     return;
                 }
             }
-            this.f28689b = new JSONArray();
+            this.f28527b = new JSONArray();
             a(eVar);
         }
 
@@ -179,15 +179,15 @@ public class r0 extends o0 {
                 }
                 if (dVar instanceof e) {
                     e eVar = (e) dVar;
-                    this.f28689b.put(eVar.f28692d);
-                    eVar.f28692d = null;
+                    this.f28527b.put(eVar.f28530d);
+                    eVar.f28530d = null;
                     return this;
                 } else if (!(dVar instanceof c)) {
                     throw new IllegalArgumentException("Unknown Event type:" + dVar);
                 } else {
                     c cVar = (c) dVar;
-                    while (!a() && cVar.f28689b.length() > 0) {
-                        this.f28689b.put(cVar.f28689b.remove(0));
+                    while (!a() && cVar.f28527b.length() > 0) {
+                        this.f28527b.put(cVar.f28527b.remove(0));
                     }
                     return this;
                 }
@@ -199,15 +199,15 @@ public class r0 extends o0 {
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28689b.length() >= 10 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28527b.length() >= 10 : invokeV.booleanValue;
         }
 
         @Override // c.g.r0.d
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.v("ArrayEvent reported succeed with len:%d", Integer.valueOf(this.f28689b.length()));
-                a0.e("key_rpt_suc_c", a0.h() + this.f28689b.length());
+                LogPrinter.v("ArrayEvent reported succeed with len:%d", Integer.valueOf(this.f28527b.length()));
+                a0.e("key_rpt_suc_c", a0.h() + this.f28527b.length());
             }
         }
 
@@ -215,7 +215,7 @@ public class r0 extends o0 {
         public JSONArray d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28689b : (JSONArray) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28527b : (JSONArray) invokeV.objValue;
         }
 
         @Override // c.g.r0.f
@@ -223,8 +223,8 @@ public class r0 extends o0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 int i2 = 0;
-                while (this.f28689b.length() > 0 && i2 < 1) {
-                    this.f28689b.remove(0);
+                while (this.f28527b.length() > 0 && i2 < 1) {
+                    this.f28527b.remove(0);
                     i2++;
                 }
                 a0.e("key_rpt_fai_c", a0.a() + i2);
@@ -236,11 +236,11 @@ public class r0 extends o0 {
         public boolean isEmpty() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28689b.length() <= 0 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28527b.length() <= 0 : invokeV.booleanValue;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public interface d {
         d a(d dVar);
 
@@ -255,19 +255,19 @@ public class r0 extends o0 {
         boolean isEmpty();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class e extends f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f28690b;
+        public final String f28528b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final JSONObject f28691c;
+        public final JSONObject f28529c;
 
         /* renamed from: d  reason: collision with root package name */
-        public JSONObject f28692d;
+        public JSONObject f28530d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(String str, JSONObject jSONObject) {
@@ -287,9 +287,9 @@ public class r0 extends o0 {
                     return;
                 }
             }
-            this.f28690b = str;
-            this.f28691c = jSONObject;
-            this.f28692d = m0.b(str, jSONObject, System.currentTimeMillis());
+            this.f28528b = str;
+            this.f28529c = jSONObject;
+            this.f28530d = m0.b(str, jSONObject, System.currentTimeMillis());
             if (FunAdSdk.isLogEnabled()) {
                 LogPrinter.v("report Event:" + this, new Object[0]);
             }
@@ -330,7 +330,7 @@ public class r0 extends o0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 LogPrinter.v("JSONEvent reported succeed", new Object[0]);
-                if (this.f28692d != null) {
+                if (this.f28530d != null) {
                     a0.e("key_rpt_suc_c", a0.h() + 1);
                 }
             }
@@ -341,11 +341,11 @@ public class r0 extends o0 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.f28692d == null) {
+                if (this.f28530d == null) {
                     return null;
                 }
                 JSONArray jSONArray = new JSONArray();
-                jSONArray.put(this.f28692d);
+                jSONArray.put(this.f28530d);
                 return jSONArray;
             }
             return (JSONArray) invokeV.objValue;
@@ -356,7 +356,7 @@ public class r0 extends o0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 LogPrinter.v("give up report JSONEvent", new Object[0]);
-                this.f28692d = null;
+                this.f28530d = null;
                 a0.e("key_rpt_fai_c", a0.a() + 1);
             }
         }
@@ -365,20 +365,20 @@ public class r0 extends o0 {
         public boolean isEmpty() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28692d == null : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28530d == null : invokeV.booleanValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return "{key='" + this.f28690b + ExtendedMessageFormat.QUOTE + ", content=" + this.f28691c + ExtendedMessageFormat.END_FE;
+                return "{key='" + this.f28528b + ExtendedMessageFormat.QUOTE + ", content=" + this.f28529c + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static abstract class f implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -437,7 +437,7 @@ public class r0 extends o0 {
                 return;
             }
         }
-        f28684f = !r0.class.desiredAssertionStatus();
+        f28522f = !r0.class.desiredAssertionStatus();
     }
 
     public r0(String str) {
@@ -455,13 +455,13 @@ public class r0 extends o0 {
                 return;
             }
         }
-        this.f28687d = new LinkedList<>();
-        this.f28688e = true;
-        this.f28685b = str;
+        this.f28525d = new LinkedList<>();
+        this.f28526e = true;
+        this.f28523b = str;
         HandlerThread handlerThread = new HandlerThread("reporter2");
         handlerThread.start();
         a aVar = new a(this, handlerThread.getLooper());
-        this.f28686c = aVar;
+        this.f28524c = aVar;
         aVar.obtainMessage(3, a0.g(), 0).sendToTarget();
         com.fun.p0.b(new b(this));
     }
@@ -472,17 +472,17 @@ public class r0 extends o0 {
         d peekFirst;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, r0Var) == null) {
-            while (r0Var.f28688e) {
-                synchronized (r0Var.f28687d) {
-                    pollFirst = r0Var.f28687d.pollFirst();
+            while (r0Var.f28526e) {
+                synchronized (r0Var.f28525d) {
+                    pollFirst = r0Var.f28525d.pollFirst();
                     if (pollFirst == null) {
                         return;
                     }
-                    while (!pollFirst.a() && !r0Var.f28687d.isEmpty() && (peekFirst = r0Var.f28687d.peekFirst()) != null) {
+                    while (!pollFirst.a() && !r0Var.f28525d.isEmpty() && (peekFirst = r0Var.f28525d.peekFirst()) != null) {
                         pollFirst = pollFirst.a(peekFirst);
                         if (peekFirst.isEmpty()) {
-                            r0Var.f28687d.removeFirst();
-                        } else if (!f28684f && !pollFirst.a()) {
+                            r0Var.f28525d.removeFirst();
+                        } else if (!f28522f && !pollFirst.a()) {
                             throw new AssertionError();
                         }
                     }
@@ -501,11 +501,11 @@ public class r0 extends o0 {
                         } catch (JSONException unused) {
                         }
                         e eVar = new e("k_rpt", jSONObject);
-                        if (eVar.f28692d == null) {
+                        if (eVar.f28530d == null) {
                             jSONArray = null;
                         } else {
                             jSONArray = new JSONArray();
-                            jSONArray.put(eVar.f28692d);
+                            jSONArray.put(eVar.f28530d);
                         }
                         if (r0Var.g(jSONArray)) {
                             a0.d(a2, h2, f2);
@@ -514,15 +514,15 @@ public class r0 extends o0 {
                 } else {
                     long c2 = pollFirst.c();
                     if (!pollFirst.isEmpty()) {
-                        synchronized (r0Var.f28687d) {
-                            r0Var.f28687d.addFirst(pollFirst);
+                        synchronized (r0Var.f28525d) {
+                            r0Var.f28525d.addFirst(pollFirst);
                         }
                     }
                     if (c2 > 0) {
                         LogPrinter.v("turn off report switch, reScheduleReport delay:%dms", Long.valueOf(c2));
-                        r0Var.f28688e = false;
-                        if (!r0Var.f28686c.hasMessages(2)) {
-                            r0Var.f28686c.sendEmptyMessageDelayed(2, c2);
+                        r0Var.f28526e = false;
+                        if (!r0Var.f28524c.hasMessages(2)) {
+                            r0Var.f28524c.sendEmptyMessageDelayed(2, c2);
                         }
                     }
                 }
@@ -557,16 +557,16 @@ public class r0 extends o0 {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject) == null) {
             e eVar = new e(str, jSONObject);
             a0.j();
-            synchronized (this.f28687d) {
-                this.f28687d.add(eVar);
+            synchronized (this.f28525d) {
+                this.f28525d.add(eVar);
             }
             NetworkInfo networkInfo = com.fun.p0.a;
             boolean z = false;
-            if (!(networkInfo != null && networkInfo.isConnected()) || this.f28686c.hasMessages(1)) {
+            if (!(networkInfo != null && networkInfo.isConnected()) || this.f28524c.hasMessages(1)) {
                 return;
             }
-            Handler handler = this.f28686c;
-            long j2 = a0.f28396b.getLong("key_flt", 0L);
+            Handler handler = this.f28524c;
+            long j2 = a0.f28234b.getLong("key_flt", 0L);
             if (j2 > 0 && System.currentTimeMillis() - j2 >= 86400000) {
                 z = true;
             }
@@ -580,7 +580,7 @@ public class r0 extends o0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
             try {
-                p0Var = new j0(this.f28685b, new n0(jSONArray.toString(), f0.f28634b), true).a();
+                p0Var = new j0(this.f28523b, new n0(jSONArray.toString(), f0.f28472b), true).a();
             } catch (IOException e2) {
                 LogPrinter.e(e2);
                 p0Var = null;

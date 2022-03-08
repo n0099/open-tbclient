@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 @NotProguard
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class V8NetFunctionTable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "V8NetFunctionTable";

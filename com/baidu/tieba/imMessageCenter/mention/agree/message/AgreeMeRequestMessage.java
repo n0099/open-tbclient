@@ -1,8 +1,8 @@
 package com.baidu.tieba.imMessageCenter.mention.agree.message;
 
 import c.a.d.f.p.n;
-import c.a.t0.d1.c0;
-import c.a.t0.s.l;
+import c.a.q0.c1.b0;
+import c.a.q0.r.l;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.AgreeMe.AgreeMeReqIdl;
 import tbclient.AgreeMe.DataReq;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class AgreeMeRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class AgreeMeRequestMessage extends NetMessage {
                 builder.scr_h = Integer.valueOf(n.i(TbadkCoreApplication.getInst().getApp()));
                 builder.scr_w = Integer.valueOf(n.k(TbadkCoreApplication.getInst().getApp()));
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    c0.a(builder, true);
+                    b0.a(builder, true);
                 }
                 AgreeMeReqIdl.Builder builder2 = new AgreeMeReqIdl.Builder();
                 builder2.data = builder.build(false);

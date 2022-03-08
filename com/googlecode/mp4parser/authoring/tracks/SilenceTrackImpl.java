@@ -23,8 +23,7 @@ import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class SilenceTrackImpl implements Track {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +58,7 @@ public class SilenceTrackImpl implements Track {
                 if (l2i <= 0) {
                     return;
                 }
-                this.samples.add(new SampleImpl((ByteBuffer) ByteBuffer.wrap(new byte[]{PublicSuffixDatabase.EXCEPTION_MARKER, YogaNodeJNIBase.HAS_NEW_LAYOUT, 4, 96, -116, 28}).rewind()));
+                this.samples.add(new SampleImpl((ByteBuffer) ByteBuffer.wrap(new byte[]{33, YogaNodeJNIBase.HAS_NEW_LAYOUT, 4, 96, -116, 28}).rewind()));
                 l2i = i4;
             }
         } else {

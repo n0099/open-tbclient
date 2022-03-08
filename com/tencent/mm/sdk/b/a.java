@@ -10,18 +10,18 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static int level = 6;
-    public static InterfaceC2268a n;
-    public static InterfaceC2268a o;
+    public static InterfaceC2247a n;
+    public static InterfaceC2247a o;
     public static final String p;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.tencent.mm.sdk.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC2268a {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC2247a {
         int b();
 
         void d(String str, String str2);
@@ -73,9 +73,9 @@ public final class a {
     }
 
     public static void a(String str, String str2, Object... objArr) {
-        InterfaceC2268a interfaceC2268a;
+        InterfaceC2247a interfaceC2247a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65539, null, str, str2, objArr) == null) || (interfaceC2268a = o) == null || interfaceC2268a.b() > 4) {
+        if (!(interceptable == null || interceptable.invokeLLL(65539, null, str, str2, objArr) == null) || (interfaceC2247a = o) == null || interfaceC2247a.b() > 4) {
             return;
         }
         if (objArr != null) {
@@ -84,42 +84,42 @@ public final class a {
         if (str2 == null) {
             str2 = "";
         }
-        InterfaceC2268a interfaceC2268a2 = o;
+        InterfaceC2247a interfaceC2247a2 = o;
         Process.myPid();
         Thread.currentThread().getId();
         Looper.getMainLooper().getThread().getId();
-        interfaceC2268a2.f(str, str2);
+        interfaceC2247a2.f(str, str2);
     }
 
     public static void b(String str, String str2) {
-        InterfaceC2268a interfaceC2268a;
+        InterfaceC2247a interfaceC2247a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || (interfaceC2268a = o) == null || interfaceC2268a.b() > 2) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || (interfaceC2247a = o) == null || interfaceC2247a.b() > 2) {
             return;
         }
         if (str2 == null) {
             str2 = "";
         }
-        InterfaceC2268a interfaceC2268a2 = o;
+        InterfaceC2247a interfaceC2247a2 = o;
         Process.myPid();
         Thread.currentThread().getId();
         Looper.getMainLooper().getThread().getId();
-        interfaceC2268a2.d(str, str2);
+        interfaceC2247a2.d(str, str2);
     }
 
     public static void c(String str, String str2) {
-        InterfaceC2268a interfaceC2268a;
+        InterfaceC2247a interfaceC2247a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) || (interfaceC2268a = o) == null || interfaceC2268a.b() > 1) {
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) || (interfaceC2247a = o) == null || interfaceC2247a.b() > 1) {
             return;
         }
         if (str2 == null) {
             str2 = "";
         }
-        InterfaceC2268a interfaceC2268a2 = o;
+        InterfaceC2247a interfaceC2247a2 = o;
         Process.myPid();
         Thread.currentThread().getId();
         Looper.getMainLooper().getThread().getId();
-        interfaceC2268a2.e(str, str2);
+        interfaceC2247a2.e(str, str2);
     }
 }

@@ -24,13 +24,12 @@ import com.kwad.v8.V8Object;
 import com.tachikoma.annotation.TK_EXPORT_CLASS;
 import com.tachikoma.core.bridge.JSContext;
 import com.tachikoma.core.component.TKBase;
-import com.tachikoma.core.component.input.TextAlign;
 import com.tachikoma.core.utility.TKColorUtil;
 import com.tachikoma.core.utility.TKConverter;
 import java.util.HashMap;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class TKText extends TKBase<AppCompatTextView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -129,7 +128,7 @@ public class TKText extends TKBase<AppCompatTextView> {
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             int hashCode = str.hashCode();
             if (hashCode != -1039745817) {
-                if (hashCode == 3029637 && str.equals(SpanItem.STYLE_BOLD)) {
+                if (hashCode == 3029637 && str.equals("bold")) {
                     c2 = 0;
                 }
                 c2 = 65535;
@@ -220,7 +219,7 @@ public class TKText extends TKBase<AppCompatTextView> {
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
             int hashCode = str.hashCode();
             if (hashCode == -1364013995) {
-                if (str.equals(TextAlign.CENTER)) {
+                if (str.equals("center")) {
                     c2 = 0;
                 }
                 c2 = 65535;

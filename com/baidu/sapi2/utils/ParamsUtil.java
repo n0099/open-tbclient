@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.input.TextAlign;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.net.HttpCookie;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class ParamsUtil implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -173,7 +173,7 @@ public class ParamsUtil implements NoProguard {
                 hashMap.put("supportGuestAccount", "1");
             }
             if (z) {
-                hashMap.put("wapsec", TextAlign.CENTER);
+                hashMap.put("wapsec", "center");
                 hashMap.put("adapter", "3");
             }
             hashMap.put("appid", sapiConfiguration.wxAppID);
@@ -224,7 +224,7 @@ public class ParamsUtil implements NoProguard {
                 hashMap.put("connect", "1");
             }
             if (sapiConfiguration.language == Language.ENGLISH) {
-                hashMap.put("lang", h.a);
+                hashMap.put(WebvttCueParser.TAG_LANG, h.a);
             }
             hashMap.put("suppcheck", "1");
             if (sapiConfiguration.supportFaceLogin) {

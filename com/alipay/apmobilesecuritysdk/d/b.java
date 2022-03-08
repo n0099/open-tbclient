@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +20,7 @@ public final class b {
             synchronized (b.class) {
                 hashMap = new HashMap();
                 String a = com.alipay.security.mobile.module.a.a.a(map, "tid", "");
-                String a2 = com.alipay.security.mobile.module.a.a.a(map, com.alipay.sdk.cons.b.f31058g, "");
+                String a2 = com.alipay.security.mobile.module.a.a.a(map, com.alipay.sdk.cons.b.f29462g, "");
                 String a3 = com.alipay.security.mobile.module.a.a.a(map, "userId", "");
                 String a4 = com.alipay.security.mobile.module.a.a.a(map, "appName", "");
                 String a5 = com.alipay.security.mobile.module.a.a.a(map, "appKeyClient", "");

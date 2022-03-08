@@ -12,43 +12,43 @@ import android.os.Build;
 import android.util.AttributeSet;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.kwad.sdk.R;
+import com.baidu.tieba.R;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class i {
     public float[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f58302b;
+    public float f56652b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Path f58303c;
+    public Path f56653c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Paint f58304d;
+    public Paint f56654d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RectF f58305e;
+    public RectF f56655e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f58306f;
+    public boolean f56656f;
     @NonNull
 
     /* renamed from: g  reason: collision with root package name */
-    public a f58307g;
+    public a f56657g;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public boolean a = true;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f58308b = true;
+        public boolean f56658b = true;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f58309c = true;
+        public boolean f56659c = true;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f58310d = true;
+        public boolean f56660d = true;
 
         public void a(boolean z) {
             this.a = z;
@@ -59,90 +59,88 @@ public class i {
         }
 
         public void b(boolean z) {
-            this.f58308b = z;
+            this.f56658b = z;
         }
 
         public boolean b() {
-            return this.f58308b;
+            return this.f56658b;
         }
 
         public void c(boolean z) {
-            this.f58309c = z;
+            this.f56659c = z;
         }
 
         public boolean c() {
-            return this.f58309c;
+            return this.f56659c;
         }
 
         public void d(boolean z) {
-            this.f58310d = z;
+            this.f56660d = z;
         }
 
         public boolean d() {
-            return this.f58310d;
+            return this.f56660d;
         }
     }
 
     public i() {
         this.a = new float[8];
-        this.f58307g = new a();
+        this.f56657g = new a();
     }
 
     public i(a aVar) {
         this.a = new float[8];
-        this.f58307g = aVar == null ? new a() : aVar;
+        this.f56657g = aVar == null ? new a() : aVar;
     }
 
     private float[] a() {
-        this.a[0] = this.f58307g.a() ? this.f58302b : 0.0f;
-        this.a[1] = this.f58307g.a() ? this.f58302b : 0.0f;
-        this.a[2] = this.f58307g.b() ? this.f58302b : 0.0f;
-        this.a[3] = this.f58307g.b() ? this.f58302b : 0.0f;
-        this.a[4] = this.f58307g.c() ? this.f58302b : 0.0f;
-        this.a[5] = this.f58307g.c() ? this.f58302b : 0.0f;
-        this.a[6] = this.f58307g.d() ? this.f58302b : 0.0f;
-        this.a[7] = this.f58307g.d() ? this.f58302b : 0.0f;
+        this.a[0] = this.f56657g.a() ? this.f56652b : 0.0f;
+        this.a[1] = this.f56657g.a() ? this.f56652b : 0.0f;
+        this.a[2] = this.f56657g.b() ? this.f56652b : 0.0f;
+        this.a[3] = this.f56657g.b() ? this.f56652b : 0.0f;
+        this.a[4] = this.f56657g.c() ? this.f56652b : 0.0f;
+        this.a[5] = this.f56657g.c() ? this.f56652b : 0.0f;
+        this.a[6] = this.f56657g.d() ? this.f56652b : 0.0f;
+        this.a[7] = this.f56657g.d() ? this.f56652b : 0.0f;
         return this.a;
     }
 
     private Path b() {
         try {
-            this.f58303c.reset();
+            this.f56653c.reset();
         } catch (Exception unused) {
         }
-        this.f58303c.addRoundRect(this.f58305e, this.f58302b == 0.0f ? this.a : a(), Path.Direction.CW);
-        return this.f58303c;
+        this.f56653c.addRoundRect(this.f56655e, this.f56652b == 0.0f ? this.a : a(), Path.Direction.CW);
+        return this.f56653c;
     }
 
     public void a(float f2) {
-        this.f58302b = f2;
+        this.f56652b = f2;
     }
 
     public void a(int i2, int i3) {
-        this.f58305e.set(0.0f, 0.0f, i2, i3);
+        this.f56655e.set(0.0f, 0.0f, i2, i3);
     }
 
     public void a(Context context, @Nullable AttributeSet attributeSet) {
         if (attributeSet != null) {
-            int i2 = R.attr.ksad_radius;
-            int i3 = R.attr.ksad_clipBackground;
-            int[] iArr = {i2, i3};
+            int[] iArr = {R.attr.ksad_radius, R.attr.ksad_clipBackground};
             Arrays.sort(iArr);
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
-            this.f58302b = obtainStyledAttributes.getDimensionPixelOffset(Arrays.binarySearch(iArr, i2), 0);
-            this.f58306f = obtainStyledAttributes.getBoolean(Arrays.binarySearch(iArr, i3), true);
+            this.f56652b = obtainStyledAttributes.getDimensionPixelOffset(Arrays.binarySearch(iArr, (int) R.attr.ksad_radius), 0);
+            this.f56656f = obtainStyledAttributes.getBoolean(Arrays.binarySearch(iArr, (int) R.attr.ksad_clipBackground), true);
             obtainStyledAttributes.recycle();
         }
-        this.f58303c = new Path();
-        this.f58304d = new Paint(1);
-        this.f58305e = new RectF();
-        this.f58304d.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+        this.f56653c = new Path();
+        this.f56654d = new Paint(1);
+        this.f56655e = new RectF();
+        this.f56654d.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
     }
 
     public void a(Canvas canvas) {
-        if (this.f58306f) {
+        if (this.f56656f) {
             if (Build.VERSION.SDK_INT < 28) {
-                canvas.saveLayer(this.f58305e, null, 31);
+                canvas.saveLayer(this.f56655e, null, 31);
                 return;
             }
             canvas.save();
@@ -155,9 +153,9 @@ public class i {
     }
 
     public void b(Canvas canvas) {
-        if (this.f58306f) {
+        if (this.f56656f) {
             if (Build.VERSION.SDK_INT < 28) {
-                canvas.drawPath(b(), this.f58304d);
+                canvas.drawPath(b(), this.f56654d);
             }
             canvas.restore();
         }
@@ -165,7 +163,7 @@ public class i {
 
     public void c(Canvas canvas) {
         if (Build.VERSION.SDK_INT < 28) {
-            canvas.saveLayer(this.f58305e, null, 31);
+            canvas.saveLayer(this.f56655e, null, 31);
             return;
         }
         canvas.save();
@@ -174,7 +172,7 @@ public class i {
 
     public void d(Canvas canvas) {
         if (Build.VERSION.SDK_INT < 28) {
-            canvas.drawPath(b(), this.f58304d);
+            canvas.drawPath(b(), this.f56654d);
         }
         canvas.restore();
     }

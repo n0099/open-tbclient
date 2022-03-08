@@ -27,38 +27,38 @@ import java.io.IOException;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f32684b = "heartbeatcfg.cfg";
+    public static final String f31087b = "heartbeatcfg.cfg";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f32685c = "stastics bean http request";
+    public static final String f31088c = "stastics bean http request";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f32686d = "publish_data";
+    public static final String f31089d = "publish_data";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f32687e = "sign";
+    public static final String f31090e = "sign";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f32688f = "/odp/wireless/sdk/heartbeat";
+    public static final String f31091f = "/odp/wireless/sdk/heartbeat";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f32689h = "utf-8";
+    public static final String f31092h = "utf-8";
 
     /* renamed from: i  reason: collision with root package name */
-    public static a f32690i;
+    public static a f31093i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f32691g;
+    public String f31094g;
 
     /* renamed from: j  reason: collision with root package name */
-    public HeartBeatCfgEntity f32692j;
+    public HeartBeatCfgEntity f31095j;
     public Context k;
     public String l;
     public String m;
@@ -91,8 +91,8 @@ public final class a {
                 return;
             }
         }
-        this.f32691g = "https://www.baifubao.com";
-        this.f32692j = null;
+        this.f31094g = "https://www.baifubao.com";
+        this.f31095j = null;
         this.k = null;
     }
 
@@ -102,10 +102,10 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             synchronized (a.class) {
-                if (f32690i == null) {
-                    f32690i = new a();
+                if (f31093i == null) {
+                    f31093i = new a();
                 }
-                aVar = f32690i;
+                aVar = f31093i;
             }
             return aVar;
         }
@@ -189,7 +189,7 @@ public final class a {
             });
             restTemplate.setMessageConverter(new com.baidu.apollon.restnet.converter.b());
             restTemplate.setRequestInterceptor(arrayList2);
-            return (String) restTemplate.a(this.f32691g + f32688f, arrayList, "utf-8", String.class);
+            return (String) restTemplate.a(this.f31094g + f31091f, arrayList, "utf-8", String.class);
         }
         return (String) invokeV.objValue;
     }
@@ -199,7 +199,7 @@ public final class a {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f32691g = str;
+        this.f31094g = str;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x00bd */
@@ -219,7 +219,7 @@ public final class a {
         ?? sb = new StringBuilder();
         sb.append(context.getCacheDir());
         sb.append(File.separator);
-        sb.append(f32684b);
+        sb.append(f31087b);
         File file = new File(sb.toString());
         FileReader fileReader2 = null;
         HeartBeatCfgEntity heartBeatCfgEntity2 = null;
@@ -309,7 +309,7 @@ public final class a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32691g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31094g : (String) invokeV.objValue;
     }
 
     public void b(Context context) {
@@ -348,7 +348,7 @@ public final class a {
                     a aVar = this.a;
                     HeartBeatCfgEntity c2 = aVar.c(aVar.k);
                     if (c2 != null) {
-                        long b2 = c.b(this.a.k, c.f32701b, 300L);
+                        long b2 = c.b(this.a.k, c.f31104b, 300L);
                         if (!c2.isValidRequestTime(b2)) {
                             this.a.a(c2);
                             return;
@@ -371,10 +371,10 @@ public final class a {
             if (context == null) {
                 return null;
             }
-            if (this.f32692j == null) {
-                this.f32692j = c(context);
+            if (this.f31095j == null) {
+                this.f31095j = c(context);
             }
-            return this.f32692j;
+            return this.f31095j;
         }
         return (HeartBeatCfgEntity) invokeL.objValue;
     }
@@ -401,9 +401,9 @@ public final class a {
             return;
         }
         if (heartBeatCfgEntity != null) {
-            HeartBeatCfgEntity heartBeatCfgEntity2 = this.f32692j;
+            HeartBeatCfgEntity heartBeatCfgEntity2 = this.f31095j;
             if ((heartBeatCfgEntity2 == null || (heartBeatCfgEntity2 != null && !TextUtils.equals(heartBeatCfgEntity2.toString(), heartBeatCfgEntity.toString()))) && heartBeatCfgEntity.checkResponseValidity()) {
-                this.f32692j = heartBeatCfgEntity;
+                this.f31095j = heartBeatCfgEntity;
                 heartBeatCfgEntity.storeResponse(this.k);
                 z = true;
                 String str = a;

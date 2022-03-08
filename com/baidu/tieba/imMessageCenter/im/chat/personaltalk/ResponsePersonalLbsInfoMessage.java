@@ -1,6 +1,6 @@
 package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 
-import c.a.t0.t.f.b;
+import c.a.q0.s.f.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,7 @@ import com.squareup.wire.Wire;
 import protobuf.SetLocation.DataRes;
 import protobuf.SetLocation.LbsInfo;
 import protobuf.SetLocation.SetLocationResIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class ResponsePersonalLbsInfoMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

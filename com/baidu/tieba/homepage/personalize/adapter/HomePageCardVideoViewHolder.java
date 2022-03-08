@@ -2,9 +2,9 @@ package com.baidu.tieba.homepage.personalize.adapter;
 
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.u0.b3.e;
-import c.a.u0.g0.b;
-import c.a.u0.g0.l;
+import c.a.r0.a3.e;
+import c.a.r0.f0.b;
+import c.a.r0.f0.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class HomePageCardVideoViewHolder<T extends l> extends CardViewHolder<T> implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class HomePageCardVideoViewHolder<T extends l> extends CardViewHolder<T> 
         }
     }
 
-    @Override // c.a.u0.b3.e
+    @Override // c.a.r0.a3.e
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public class HomePageCardVideoViewHolder<T extends l> extends CardViewHolder<T> 
         return invokeV.intValue;
     }
 
-    @Override // c.a.u0.b3.e
+    @Override // c.a.r0.a3.e
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public class HomePageCardVideoViewHolder<T extends l> extends CardViewHolder<T> 
         return (String) invokeV.objValue;
     }
 
-    @Override // c.a.u0.b3.e
+    @Override // c.a.r0.a3.e
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -79,7 +79,7 @@ public class HomePageCardVideoViewHolder<T extends l> extends CardViewHolder<T> 
         return (View) invokeV.objValue;
     }
 
-    @Override // c.a.u0.b3.e
+    @Override // c.a.r0.a3.e
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -89,7 +89,7 @@ public class HomePageCardVideoViewHolder<T extends l> extends CardViewHolder<T> 
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.u0.b3.e
+    @Override // c.a.r0.a3.e
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -103,7 +103,7 @@ public class HomePageCardVideoViewHolder<T extends l> extends CardViewHolder<T> 
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.u0.b3.e
+    @Override // c.a.r0.a3.e
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -117,7 +117,7 @@ public class HomePageCardVideoViewHolder<T extends l> extends CardViewHolder<T> 
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.u0.b3.e
+    @Override // c.a.r0.a3.e
     public void startPlay() {
         T t;
         Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public class HomePageCardVideoViewHolder<T extends l> extends CardViewHolder<T> 
         ((l) t).startPlay();
     }
 
-    @Override // c.a.u0.b3.e
+    @Override // c.a.r0.a3.e
     public void stopPlay() {
         T t;
         Interceptable interceptable = $ic;

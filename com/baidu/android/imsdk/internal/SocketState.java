@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class SocketState {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -30,7 +30,7 @@ import androidx.collection.ArraySet;
 import androidx.core.os.CancellationSignal;
 import androidx.core.util.LogWriter;
 import androidx.core.view.InputDeviceCompat;
-import androidx.fragment.R;
+import androidx.fragment.R$id;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentAnim;
 import androidx.fragment.app.FragmentTransition;
@@ -983,7 +983,7 @@ public abstract class FragmentManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, view)) == null) {
-            Object tag = view.getTag(R.id.fragment_container_view_tag);
+            Object tag = view.getTag(R$id.fragment_container_view_tag);
             if (tag instanceof Fragment) {
                 return (Fragment) tag;
             }
@@ -1132,10 +1132,10 @@ public abstract class FragmentManager {
         if (!(interceptable == null || interceptable.invokeL(65570, this, fragment) == null) || (fragmentContainer = getFragmentContainer(fragment)) == null) {
             return;
         }
-        if (fragmentContainer.getTag(R.id.visible_removing_fragment_view_tag) == null) {
-            fragmentContainer.setTag(R.id.visible_removing_fragment_view_tag, fragment);
+        if (fragmentContainer.getTag(R$id.visible_removing_fragment_view_tag) == null) {
+            fragmentContainer.setTag(R$id.visible_removing_fragment_view_tag, fragment);
         }
-        ((Fragment) fragmentContainer.getTag(R.id.visible_removing_fragment_view_tag)).setNextAnim(fragment.getNextAnim());
+        ((Fragment) fragmentContainer.getTag(R$id.visible_removing_fragment_view_tag)).setNextAnim(fragment.getNextAnim());
     }
 
     private void startPendingDeferredFragments() {
@@ -2644,14 +2644,14 @@ public abstract class FragmentManager {
             Fragment fragment = this.mParent;
             if (fragment != null) {
                 sb.append(fragment.getClass().getSimpleName());
-                sb.append(StringUtil.ARRAY_START);
+                sb.append("{");
                 sb.append(Integer.toHexString(System.identityHashCode(this.mParent)));
                 sb.append("}");
             } else {
                 FragmentHostCallback<?> fragmentHostCallback = this.mHost;
                 if (fragmentHostCallback != null) {
                     sb.append(fragmentHostCallback.getClass().getSimpleName());
-                    sb.append(StringUtil.ARRAY_START);
+                    sb.append("{");
                     sb.append(Integer.toHexString(System.identityHashCode(this.mHost)));
                     sb.append("}");
                 } else {

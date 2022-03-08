@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class HandlerMessenger extends AbsMessenger {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int KEY_MESSAGE_EVENT = 153;
@@ -24,7 +24,7 @@ public class HandlerMessenger extends AbsMessenger {
     public PrivateHandler mHandler;
     public final HandlerThread mHandlerThread;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public class PrivateHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

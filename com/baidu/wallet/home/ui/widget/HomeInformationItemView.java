@@ -15,20 +15,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class HomeInformationItemView extends BaseItemView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NetImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f51342b;
+    public TextView f49761b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f51343c;
+    public TextView f49762c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f51344d;
+    public TextView f49763d;
     public View mLine;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -58,9 +58,9 @@ public class HomeInformationItemView extends BaseItemView {
             removeAllViews();
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_information_item_view"), this);
             this.a = (NetImageView) findViewById(ResUtils.id(getContext(), "home_info_item_logo"));
-            this.f51342b = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_title"));
-            this.f51343c = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_date"));
-            this.f51344d = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_source"));
+            this.f49761b = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_title"));
+            this.f49762c = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_date"));
+            this.f49763d = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_source"));
             this.mLine = findViewById(ResUtils.id(getContext(), "home_info_item_line"));
         }
     }
@@ -87,22 +87,22 @@ public class HomeInformationItemView extends BaseItemView {
                 this.a.setImageUrl(str);
             }
         }
-        if (this.f51342b != null) {
+        if (this.f49761b != null) {
             String str2 = getData().name;
             if (!TextUtils.isEmpty(str2)) {
-                this.f51342b.setText(str2);
+                this.f49761b.setText(str2);
             }
         }
-        if (this.f51343c != null) {
+        if (this.f49762c != null) {
             String str3 = getData().value2;
             if (!TextUtils.isEmpty(str3)) {
-                this.f51343c.setText(str3);
+                this.f49762c.setText(str3);
             }
         }
-        if (this.f51344d != null) {
+        if (this.f49763d != null) {
             String str4 = getData().value1;
             if (!TextUtils.isEmpty(str4)) {
-                this.f51344d.setText(str4);
+                this.f49763d.setText(str4);
             }
         }
         if (TextUtils.isEmpty(getData().link_addr)) {

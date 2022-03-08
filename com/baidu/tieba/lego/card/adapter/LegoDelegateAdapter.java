@@ -3,9 +3,9 @@ package com.baidu.tieba.lego.card.adapter;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.u0.z1.o.b;
-import c.a.u0.z1.o.g.a;
-import c.a.u0.z1.o.l.e;
+import c.a.r0.z1.o.b;
+import c.a.r0.z1.o.g.a;
+import c.a.r0.z1.o.l.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
     public TbPageContext<?> o;
     public ICardInfo p;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public static class LegoDelegateViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +120,7 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
         return (View) invokeCommon.objValue;
     }
 
-    @Override // c.a.u0.z1.f
+    @Override // c.a.r0.z1.f
     public final void setUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) {

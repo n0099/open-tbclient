@@ -35,7 +35,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class IMFetchMsgByIdMsg extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMFetchMsgByIdMsg";
@@ -52,7 +52,7 @@ public class IMFetchMsgByIdMsg extends Message {
     public JSONObject mMessageExt;
     public long mTriggerReason;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class FetchTask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

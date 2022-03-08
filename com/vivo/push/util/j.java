@@ -12,37 +12,37 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Method;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f60967b;
+    public static final String f59317b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f60968c;
+    public static final boolean f59318c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f60969d;
+    public static final boolean f59319d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f60970e;
+    public static final boolean f59320e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f60971f;
+    public static final boolean f59321f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f60972g;
+    public static final boolean f59322g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f60973h;
+    public static final boolean f59323h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static Method f60974i;
+    public static Method f59324i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f60975j;
+    public static String f59325j;
     public static String k;
     public static String l;
     public static String m;
@@ -68,14 +68,14 @@ public final class j {
         } else {
             b2 = aa.b("ro.product.customize.bbk", "N");
         }
-        f60967b = b2;
-        f60968c = "RU".equals(b2);
-        f60969d = "IN".equals(f60967b);
-        f60970e = b("rom_1.0");
-        f60971f = b("rom_2.0");
-        f60972g = b("rom_2.5");
-        f60973h = b("rom_3.0");
-        f60975j = null;
+        f59317b = b2;
+        f59318c = "RU".equals(b2);
+        f59319d = "IN".equals(f59317b);
+        f59320e = b("rom_1.0");
+        f59321f = b("rom_2.0");
+        f59322g = b("rom_2.5");
+        f59323h = b("rom_3.0");
+        f59325j = null;
         k = null;
         l = "";
         m = "";
@@ -117,19 +117,19 @@ public final class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (j.class) {
-                if (f60975j == null && k == null) {
+                if (f59325j == null && k == null) {
                     try {
                         Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class, String.class);
-                        f60974i = declaredMethod;
+                        f59324i = declaredMethod;
                         declaredMethod.setAccessible(true);
-                        f60975j = (String) f60974i.invoke(null, "ro.vivo.rom", "@><@");
-                        k = (String) f60974i.invoke(null, "ro.vivo.rom.version", "@><@");
+                        f59325j = (String) f59324i.invoke(null, "ro.vivo.rom", "@><@");
+                        k = (String) f59324i.invoke(null, "ro.vivo.rom.version", "@><@");
                     } catch (Exception unused) {
                         p.b("Device", "getRomCode error");
                     }
                 }
-                p.d("Device", "sRomProperty1 : " + f60975j + " ; sRomProperty2 : " + k);
-                String a2 = a(f60975j);
+                p.d("Device", "sRomProperty1 : " + f59325j + " ; sRomProperty2 : " + k);
+                String a2 = a(f59325j);
                 if (TextUtils.isEmpty(a2)) {
                     String a3 = a(k);
                     if (TextUtils.isEmpty(a3)) {

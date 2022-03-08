@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.topic.local;
 
 import c.a.d.a.f;
-import c.a.u0.p1.l.a.c.c;
+import c.a.r0.o1.l.a.c.c;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -14,18 +14,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicListModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f44776e;
+    public b f43182e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f44777f;
+    public final HttpMessageListener f43183f;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,21 +58,21 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof LocalChannelTopicListResponseMessage)) {
                 if (httpResponsedMessage.getError() != 0) {
-                    if (this.a.f44776e != null) {
-                        this.a.f44776e.onFail(httpResponsedMessage.getErrorString());
+                    if (this.a.f43182e != null) {
+                        this.a.f43182e.onFail(httpResponsedMessage.getErrorString());
                         return;
                     }
                     return;
                 }
                 c cVar = ((LocalChannelTopicListResponseMessage) httpResponsedMessage).data;
-                if (this.a.f44776e != null) {
-                    this.a.f44776e.a(cVar);
+                if (this.a.f43182e != null) {
+                    this.a.f43182e.a(cVar);
                 }
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(c cVar);
 
@@ -98,7 +98,7 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_GET_LOCAL_CHANNEL_TOPIC_LIST);
-        this.f44777f = aVar;
+        this.f43183f = aVar;
         registerListener(aVar);
     }
 
@@ -126,7 +126,7 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
     public void x(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f44776e = bVar;
+            this.f43182e = bVar;
         }
     }
 }

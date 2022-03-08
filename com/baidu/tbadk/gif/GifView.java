@@ -20,25 +20,25 @@ import c.a.d.a.j;
 import c.a.d.d.a;
 import c.a.d.f.p.n;
 import c.a.d.h.a.h;
-import c.a.t0.d1.t;
-import c.a.u0.a4.e;
-import c.a.u0.a4.f;
+import c.a.q0.c1.t;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.gif.NSGif;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class GifView extends TbImageView implements Runnable, View.OnClickListener, h {
     public static /* synthetic */ Interceptable $ic;
     public static Bitmap loadingBm;
@@ -68,7 +68,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
     public final Rect h0;
     public final Rect i0;
     public boolean k0;
-    public c.a.t0.n.d q0;
+    public c.a.q0.m.d q0;
     public View.OnClickListener r0;
     public boolean s0;
     public boolean t0;
@@ -79,7 +79,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
     public int y0;
     public Handler z0;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,7 +144,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -172,7 +172,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class c extends c.a.d.f.l.c<c.a.d.o.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -216,7 +216,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public interface d {
         void onStop();
     }
@@ -250,7 +250,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
             if (bitmap != null && !bitmap.isRecycled()) {
                 return loadingBm;
             }
-            BitmapDrawable bitmapDrawable = (BitmapDrawable) gifView.getResources().getDrawable(f.img_loading);
+            BitmapDrawable bitmapDrawable = (BitmapDrawable) gifView.getResources().getDrawable(R.drawable.img_loading);
             if (bitmapDrawable != null) {
                 loadingBm = bitmapDrawable.getBitmap();
             }
@@ -395,7 +395,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
     public float[] getRadius() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? c.a.t0.s.v.d.a.b(this.x0) : (float[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? c.a.q0.r.v.d.a.b(this.x0) : (float[]) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView
@@ -409,7 +409,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, view) == null) {
-            c.a.t0.n.d dVar = this.q0;
+            c.a.q0.m.d dVar = this.q0;
             if (dVar == null || !dVar.onClickEvent(view)) {
                 if (this.B0 != null) {
                     boolean f2 = t.f();
@@ -667,7 +667,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
     public void resetDefaultNoImageDay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            this.P = f.pic_expression_upload_selector;
+            this.P = R.drawable.pic_expression_upload_selector;
         }
     }
 
@@ -800,6 +800,17 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
         }
     }
 
+    public void setGifFile(String str) {
+        byte[] GetFileData;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048612, this, str) == null) || (GetFileData = FileHelper.GetFileData(str)) == null) {
+            return;
+        }
+        c.a.d.o.d.a a2 = a.C0101a.b().a(GetFileData, 0, GetFileData.length);
+        this.t0 = true;
+        setGif(a2);
+    }
+
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:11:0x0028 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:13:0x002a */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x0047 */
@@ -828,7 +839,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
         Interceptable interceptable2 = $ic;
         if (interceptable2 != null) {
             interceptable = interceptable2;
-            if (interceptable.invokeI(1048612, this, i2) != null) {
+            if (interceptable.invokeI(1048613, this, i2) != null) {
                 return;
             }
         }
@@ -874,7 +885,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
             if (bArr == null || bArr.length < interceptable) {
                 return;
             }
-            c.a.d.o.d.a a2 = a.C0042a.b().a(bArr, 0, interceptable);
+            c.a.d.o.d.a a2 = a.C0101a.b().a(bArr, 0, interceptable);
             this.t0 = true;
             setGif(a2);
         } catch (Throwable th) {
@@ -889,7 +900,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
 
     public void setHasNoImage(boolean z, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
             this.e0 = z;
             if (z) {
                 this.b0 = false;
@@ -921,14 +932,14 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
 
     public void setIsKeepLastFrame(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048614, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048615, this, z) == null) {
             this.s0 = z;
         }
     }
 
     public void setIsLoading(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048615, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048616, this, z) == null) {
             if (z) {
                 startLoading();
             } else {
@@ -940,15 +951,15 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View
     public void setOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048617, this, onClickListener) == null) {
             super.setOnClickListener(this);
             this.r0 = onClickListener;
         }
     }
 
-    public void setOnInterceptClickListener(c.a.t0.n.d dVar) {
+    public void setOnInterceptClickListener(c.a.q0.m.d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, dVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048618, this, dVar) == null) {
             super.setOnClickListener(this);
             this.q0 = dVar;
         }
@@ -956,14 +967,14 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
 
     public void setPlayCallback(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, dVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048619, this, dVar) == null) {
             this.T = dVar;
         }
     }
 
     public void setShowStaticDrawable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048619, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048620, this, z) == null) {
             this.V = z;
         }
     }
@@ -971,7 +982,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
     @Override // com.baidu.tbadk.widget.TbImageView
     public void setSupportNoImage(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048620, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048621, this, z) == null) {
             super.setSupportNoImage(z);
             this.D0 = z;
         }
@@ -979,7 +990,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
 
     public void setType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048622, this, i2) == null) {
             this.C0 = i2;
         }
     }
@@ -989,7 +1000,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
         boolean z;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, gifInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048623, this, gifInfo) == null) {
             this.C0 = 20;
             if (gifInfo == null) {
                 this.B0 = null;
@@ -1040,7 +1051,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
 
     public void startLoadGifOrBitmapByByte(byte[] bArr, Bitmap bitmap, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048624, this, bArr, bitmap, z) == null) || bArr == null || bArr.length <= 0 || bitmap == null) {
+        if (!(interceptable == null || interceptable.invokeLLZ(1048625, this, bArr, bitmap, z) == null) || bArr == null || bArr.length <= 0 || bitmap == null) {
             return;
         }
         if (!c.a.d.f.l.d.h().j(this.C0) && this.D0) {
@@ -1069,7 +1080,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
     @Override // com.baidu.tbadk.widget.TbImageView
     public void startLoading() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048625, this) == null) || this.b0) {
+        if (!(interceptable == null || interceptable.invokeV(1048626, this) == null) || this.b0) {
             return;
         }
         this.b0 = true;
@@ -1079,7 +1090,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
     public void stop() {
         c.a.d.d.b gif;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048626, this) == null) || (gif = getGif()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048627, this) == null) || (gif = getGif()) == null) {
             return;
         }
         this.z0.removeMessages(1);
@@ -1092,7 +1103,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
     @Override // com.baidu.tbadk.widget.TbImageView
     public void stopLoad() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048627, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048628, this) == null) {
             stopLoading();
             this.a0 = false;
             this.e0 = false;
@@ -1109,7 +1120,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
     @Override // com.baidu.tbadk.widget.TbImageView
     public void stopLoading() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048628, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048629, this) == null) {
             this.b0 = false;
             removeCallbacks(this);
             invalidate();
@@ -1120,7 +1131,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
         InterceptResult invokeV;
         GifInfo gifInfo;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this.a0 || ((gifInfo = this.B0) != null && gifInfo.mLoadFailed) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.a0 || ((gifInfo = this.B0) != null && gifInfo.mLoadFailed) : invokeV.booleanValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -1164,7 +1175,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
                 return;
             }
         }
-        this.P = f.pic_expression_upload_selector;
+        this.P = R.drawable.pic_expression_upload_selector;
         this.U = false;
         this.V = true;
         this.h0 = new Rect();
@@ -1173,17 +1184,17 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
         this.s0 = false;
         this.t0 = false;
         this.u0 = false;
-        this.y0 = f.image_group_load_f;
+        this.y0 = R.drawable.image_group_load_f;
         this.z0 = new a(this, Looper.getMainLooper());
         this.C0 = 20;
         this.D0 = true;
         this.F0 = new c(this);
-        BitmapDrawable bitmapDrawable2 = (BitmapDrawable) getResources().getDrawable(f.icon_content_animation);
+        BitmapDrawable bitmapDrawable2 = (BitmapDrawable) getResources().getDrawable(R.drawable.icon_content_animation);
         this.W = bitmapDrawable2;
         bitmapDrawable2.setBounds(0, 0, bitmapDrawable2.getIntrinsicWidth(), this.W.getIntrinsicHeight());
         this.d0 = 30.0f;
         try {
-            bitmapDrawable = (BitmapDrawable) getResources().getDrawable(f.img_loading);
+            bitmapDrawable = (BitmapDrawable) getResources().getDrawable(R.drawable.img_loading);
         } catch (Throwable th) {
             th.printStackTrace();
             bitmapDrawable = null;
@@ -1193,14 +1204,14 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
             loadingBm = loadingBitmap;
             this.i0.set(0, 0, loadingBitmap.getWidth(), loadingBm.getHeight());
         }
-        this.x0 = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.tbds20);
+        this.x0 = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20);
     }
 
     public void startLoad(String str, int i2) {
         BdUniqueId bdUniqueId;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048623, this, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048624, this, str, i2) == null) {
             this.C0 = i2;
             this.B0 = null;
             if (TextUtils.isEmpty(str)) {

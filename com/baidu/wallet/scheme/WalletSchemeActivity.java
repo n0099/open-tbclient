@@ -15,20 +15,20 @@ import com.dxmpay.apollon.utils.Base64Utils;
 import com.dxmpay.apollon.utils.JsonUtils;
 import com.dxmpay.wallet.core.NoProguard;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class WalletSchemeActivity extends PayBaseBeanActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String order;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class SchemeOrder implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -237137357302783447L;
         public transient /* synthetic */ FieldHolder $fh;
         public Orderinfo kBWParameters;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes6.dex */
         public static class Orderinfo implements NoProguard, Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 7620618282105798227L;

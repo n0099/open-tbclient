@@ -13,7 +13,7 @@ import com.yy.hiidostatis.inner.BaseStatisContent;
 import com.yy.hiidostatis.inner.util.StringUtil;
 import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class StatisContent extends BaseStatisContent {
     public static /* synthetic */ Interceptable $ic;
     public static AtomicInteger TMP_START_ID;
@@ -30,7 +30,7 @@ public class StatisContent extends BaseStatisContent {
     public int tmpId;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class Priority {
         public static final /* synthetic */ Priority[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

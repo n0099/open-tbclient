@@ -12,17 +12,17 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class i implements Executor {
     public static /* synthetic */ Interceptable $ic;
     public static final ThreadFactory a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BlockingQueue<Runnable> f59380b;
+    public final BlockingQueue<Runnable> f57730b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ThreadPoolExecutor f59381c;
+    public final ThreadPoolExecutor f57731c;
 
     static {
         InterceptResult invokeClinit;
@@ -73,15 +73,15 @@ public final class i implements Executor {
                 return;
             }
         }
-        this.f59380b = new l();
-        this.f59381c = new ThreadPoolExecutor(5, 256, 1L, TimeUnit.SECONDS, this.f59380b, a);
+        this.f57730b = new l();
+        this.f57731c = new ThreadPoolExecutor(5, 256, 1L, TimeUnit.SECONDS, this.f57730b, a);
     }
 
     @Override // java.util.concurrent.Executor
     public final void execute(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            this.f59381c.execute(runnable);
+            this.f57731c.execute(runnable);
         }
     }
 }

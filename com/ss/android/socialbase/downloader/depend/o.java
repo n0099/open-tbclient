@@ -5,22 +5,22 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface o extends IInterface {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static abstract class a extends Binder implements o {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.o$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public static class C2227a implements o {
+        /* loaded from: classes8.dex */
+        public static class C2206a implements o {
             public static o a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f60149b;
+            public IBinder f58499b;
 
-            public C2227a(IBinder iBinder) {
-                this.f60149b = iBinder;
+            public C2206a(IBinder iBinder) {
+                this.f58499b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.o
@@ -29,7 +29,7 @@ public interface o extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadDiskSpaceAidlCallback");
-                    if (!this.f60149b.transact(1, obtain, obtain2, 0) && a.b() != null) {
+                    if (!this.f58499b.transact(1, obtain, obtain2, 0) && a.b() != null) {
                         a.b().a();
                     } else {
                         obtain2.readException();
@@ -42,7 +42,7 @@ public interface o extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f60149b;
+                return this.f58499b;
             }
         }
 
@@ -58,11 +58,11 @@ public interface o extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof o)) {
                 return (o) queryLocalInterface;
             }
-            return new C2227a(iBinder);
+            return new C2206a(iBinder);
         }
 
         public static o b() {
-            return C2227a.a;
+            return C2206a.a;
         }
 
         @Override // android.os.IInterface

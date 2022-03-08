@@ -1,11 +1,11 @@
 package c.r.b;
 
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public interface b {
     void onCancel();
 
     void onComplete(JSONObject jSONObject);
 
-    void onError(d dVar);
+    void onError(c cVar);
 }

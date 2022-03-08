@@ -2,9 +2,6 @@ package com.dxmpay.apollon.restnet.rest.httpurlconnection;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.f.a.g.c.a;
-import c.f.a.g.d.d;
-import c.f.a.g.d.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,48 +10,48 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.restnet.RestMultipartEntity;
 import com.dxmpay.apollon.restnet.RestNameValuePair;
-import com.dxmpay.apollon.restnet.http.HttpDefines$HttpMethod;
+import com.dxmpay.apollon.restnet.http.HttpDefines;
 import com.dxmpay.apollon.restnet.rest.RestHttpNetwork;
+import com.dxmpay.apollon.restnet.rest.e;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.List;
-import kotlin.text.Typography;
-/* loaded from: classes3.dex */
-public class RestUrlConnectionRequest implements d {
+/* loaded from: classes7.dex */
+public class RestUrlConnectionRequest implements com.dxmpay.apollon.restnet.rest.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final RestHttpNetwork a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f53810b;
+    public final com.dxmpay.apollon.restnet.http.a f52279b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f53811c;
+    public String f52280c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HttpDefines$HttpMethod f53812d;
+    public HttpDefines.HttpMethod f52281d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f53813e;
+    public String f52282e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f53814f;
+    public String f52283f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<RestNameValuePair> f53815g;
+    public List<RestNameValuePair> f52284g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RestMultipartEntity f53816h;
+    public RestMultipartEntity f52285h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f53817i;
+    public int f52286i;
 
-    public RestUrlConnectionRequest(RestHttpNetwork restHttpNetwork, String str, HttpDefines$HttpMethod httpDefines$HttpMethod, List<RestNameValuePair> list, RestMultipartEntity restMultipartEntity, String str2) {
+    public RestUrlConnectionRequest(RestHttpNetwork restHttpNetwork, String str, HttpDefines.HttpMethod httpMethod, List<RestNameValuePair> list, RestMultipartEntity restMultipartEntity, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {restHttpNetwork, str, httpDefines$HttpMethod, list, restMultipartEntity, str2};
+            Object[] objArr = {restHttpNetwork, str, httpMethod, list, restMultipartEntity, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -64,45 +61,51 @@ public class RestUrlConnectionRequest implements d {
                 return;
             }
         }
-        this.f53810b = new a();
-        this.f53817i = -1;
+        this.f52279b = new com.dxmpay.apollon.restnet.http.a();
+        this.f52286i = -1;
         this.a = restHttpNetwork;
-        this.f53811c = str2;
-        this.f53812d = httpDefines$HttpMethod;
-        this.f53813e = str;
-        this.f53815g = list;
-        this.f53816h = restMultipartEntity;
+        this.f52280c = str2;
+        this.f52281d = httpMethod;
+        this.f52282e = str;
+        this.f52284g = list;
+        this.f52285h = restMultipartEntity;
     }
 
-    @Override // c.f.a.g.d.d
-    public a a() {
+    @Override // com.dxmpay.apollon.restnet.rest.d
+    public com.dxmpay.apollon.restnet.http.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53810b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52279b : (com.dxmpay.apollon.restnet.http.a) invokeV.objValue;
     }
 
-    @Override // c.f.a.g.d.d
+    @Override // com.dxmpay.apollon.restnet.rest.d
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f53813e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f52282e : (String) invokeV.objValue;
     }
 
-    public void c(String str) {
+    @Override // com.dxmpay.apollon.restnet.rest.d
+    public e c() throws Exception {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f53813e = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (Thread.currentThread().isInterrupted()) {
+                return null;
+            }
+            return this.a.a(this);
         }
+        return (e) invokeV.objValue;
     }
 
-    @Override // c.f.a.g.d.d
+    @Override // com.dxmpay.apollon.restnet.rest.d
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f53811c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f52280c : (String) invokeV.objValue;
     }
 
-    @Override // c.f.a.g.d.d
+    @Override // com.dxmpay.apollon.restnet.rest.d
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -110,29 +113,29 @@ public class RestUrlConnectionRequest implements d {
         }
     }
 
-    @Override // c.f.a.g.d.d
+    @Override // com.dxmpay.apollon.restnet.rest.d
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f53814f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f52283f : (String) invokeV.objValue;
     }
 
     public RestMultipartEntity g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f53816h : (RestMultipartEntity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f52285h : (RestMultipartEntity) invokeV.objValue;
     }
 
     public String getProcessedParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            List<RestNameValuePair> list = this.f53815g;
+            List<RestNameValuePair> list = this.f52284g;
             if (list == null || list.size() == 0) {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
-            for (RestNameValuePair restNameValuePair : this.f53815g) {
+            for (RestNameValuePair restNameValuePair : this.f52284g) {
                 String name = restNameValuePair.getName();
                 String value = restNameValuePair.getValue();
                 if (!TextUtils.isEmpty(name)) {
@@ -140,10 +143,10 @@ public class RestUrlConnectionRequest implements d {
                         value = "";
                     }
                     try {
-                        sb.append(URLEncoder.encode(name, this.f53811c));
-                        sb.append(com.alipay.sdk.encrypt.a.f31099h);
-                        sb.append(URLEncoder.encode(value, this.f53811c));
-                        sb.append(Typography.amp);
+                        sb.append(URLEncoder.encode(name, this.f52280c));
+                        sb.append(com.alipay.sdk.encrypt.a.f29503h);
+                        sb.append(URLEncoder.encode(value, this.f52280c));
+                        sb.append('&');
                     } catch (UnsupportedEncodingException e2) {
                         e2.printStackTrace();
                     }
@@ -157,56 +160,50 @@ public class RestUrlConnectionRequest implements d {
         return (String) invokeV.objValue;
     }
 
-    public HttpDefines$HttpMethod h() {
+    public HttpDefines.HttpMethod h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f53812d : (HttpDefines$HttpMethod) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f52281d : (HttpDefines.HttpMethod) invokeV.objValue;
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f53817i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f52286i : invokeV.intValue;
     }
 
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? h() == HttpDefines$HttpMethod.POST : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? h() == HttpDefines.HttpMethod.POST : invokeV.booleanValue;
     }
 
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? h() == HttpDefines$HttpMethod.GET : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? h() == HttpDefines.HttpMethod.GET : invokeV.booleanValue;
     }
 
-    @Override // c.f.a.g.d.d
+    @Override // com.dxmpay.apollon.restnet.rest.d
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f53817i = i2;
+            this.f52286i = i2;
         }
     }
 
-    @Override // c.f.a.g.d.d
-    public e c() throws Exception {
-        InterceptResult invokeV;
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (Thread.currentThread().isInterrupted()) {
-                return null;
-            }
-            return this.a.a(this);
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.f52282e = str;
         }
-        return (e) invokeV.objValue;
     }
 
-    @Override // c.f.a.g.d.d
+    @Override // com.dxmpay.apollon.restnet.rest.d
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f53814f = str;
+            this.f52283f = str;
         }
     }
 }

@@ -4,10 +4,7 @@ import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.channelpay.IChannelPay;
-import com.baidu.apollon.a;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
-import com.baidu.tieba.advert.sdk.stretagy.SplashNativePolicy;
-import com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity;
 import com.baidu.tieba.write.write.WriteActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,16 +14,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.lightapp.business.LightappBusinessClient;
-import com.baidu.wallet.utils.ContactPermissionUtil;
 import com.coremedia.iso.Hex;
-import com.facebook.imageutils.JfifUtil;
+import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
+import com.google.android.exoplayer2.extractor.ts.PsExtractor;
+import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.kuaishou.weapon.un.w0;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.logging.Logger;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-@Descriptor(tags = {19, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, SplashNativePolicy.SPLASH_CMD_SHOW_PLG, 130, 131, 132, SplashNativePolicy.SPLASH_CMD_ERROR, 134, 135, 136, ContactPermissionUtil.DIALOG_NO_PERMISSION_CONTACTS, 138, w0.o, PbFullScreenEditorActivity.REPLY_MAX_SIZE, 141, 142, w0.x0, 144, w0.n, 146, 147, 148, Opcodes.FCMPL, 150, Opcodes.DCMPL, 152, 153, Opcodes.IFNE, a.f32571e, 156, w0.p0, 158, 159, 160, 161, 162, 163, IChannelPay.ID_IPAY_PAY_GAME, 165, 166, 167, w0.d0, 169, Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID, Constants.METHOD_IM_GET_USERS_PROFILE_BATCH_BY_BAIDU_UID, 172, w0.f55510i, 174, 175, Opcodes.ARETURN, 177, 178, 179, 180, 181, Opcodes.INVOKEVIRTUAL, 183, Opcodes.INVOKESTATIC, 185, w0.e0, Opcodes.NEW, Opcodes.NEWARRAY, 189, 190, w0.M, 192, 193, 194, 195, 196, Constants.METHOD_IM_DELIVER_CONFIG_MSG, Opcodes.IFNULL, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, w0.A, w0.f55509h, 213, w0.c0, JfifUtil.MARKER_RST7, 216, 217, 218, 219, 220, w0.h0, w0.k, 223, w0.Q, 225, Constants.METHOD_MEDIA_NOTIFY, w0.z, 228, 229, 230, 231, w0.c1, WriteActivity.CONTENT_MAX_COUNT, 234, w0.k0, 236, 237, 238, 239, 240, 241, 242, LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK, 244, 245, 246, GDiffPatcher.DATA_USHORT, 248, 249, 250, GDiffPatcher.COPY_USHORT_INT, 252, GDiffPatcher.COPY_INT_USHORT})
-/* loaded from: classes3.dex */
+@Descriptor(tags = {19, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, Cea708Decoder.COMMAND_DLY, Cea708Decoder.COMMAND_DLC, 143, Cea708Decoder.COMMAND_SPA, 145, Cea708Decoder.COMMAND_SPL, 147, 148, Opcodes.FCMPL, 150, 151, Cea708Decoder.COMMAND_DF0, 153, 154, 155, Cea708Decoder.COMMAND_DS4, 157, 158, 159, 160, 161, 162, 163, IChannelPay.ID_IPAY_PAY_GAME, 165, 166, 167, w0.d0, 169, Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID, Constants.METHOD_IM_GET_USERS_PROFILE_BATCH_BY_BAIDU_UID, 172, w0.f53860i, MatroskaExtractor.ID_TRACK_ENTRY, 175, 176, 177, 178, 179, 180, 181, Opcodes.INVOKEVIRTUAL, 183, 184, 185, 186, 187, 188, PsExtractor.PRIVATE_STREAM_1, 190, w0.M, 192, 193, 194, 195, 196, Constants.METHOD_IM_DELIVER_CONFIG_MSG, Opcodes.IFNULL, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, w0.A, w0.f53859h, 213, w0.c0, 215, 216, 217, 218, 219, 220, w0.h0, w0.k, 223, 224, 225, Constants.METHOD_MEDIA_NOTIFY, w0.z, 228, 229, 230, 231, w0.c1, WriteActivity.CONTENT_MAX_COUNT, 234, w0.k0, 236, 237, 238, 239, 240, 241, 242, LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK, 244, 245, 246, GDiffPatcher.DATA_USHORT, 248, 249, 250, 251, 252, GDiffPatcher.COPY_INT_USHORT})
+/* loaded from: classes7.dex */
 public class ExtensionDescriptor extends BaseDescriptor {
     public static /* synthetic */ Interceptable $ic;
     public static Logger log;

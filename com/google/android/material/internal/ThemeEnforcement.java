@@ -12,6 +12,7 @@ import androidx.annotation.StyleRes;
 import androidx.annotation.StyleableRes;
 import androidx.appcompat.widget.TintTypedArray;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,9 +20,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class ThemeEnforcement {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] APPCOMPAT_CHECK_ATTRS;
@@ -71,8 +71,8 @@ public final class ThemeEnforcement {
     public static void checkCompatibleTheme(@NonNull Context context, AttributeSet attributeSet, @AttrRes int i2, @StyleRes int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(65539, null, context, attributeSet, i2, i3) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ThemeEnforcement, i2, i3);
-            boolean z = obtainStyledAttributes.getBoolean(R.styleable.ThemeEnforcement_enforceMaterialTheme, false);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16842804, R.attr.enforceMaterialTheme, R.attr.enforceTextAppearance}, i2, i3);
+            boolean z = obtainStyledAttributes.getBoolean(1, false);
             obtainStyledAttributes.recycle();
             if (z) {
                 TypedValue typedValue = new TypedValue();
@@ -95,15 +95,15 @@ public final class ThemeEnforcement {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, attributeSet, iArr, Integer.valueOf(i2), Integer.valueOf(i3), iArr2}) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ThemeEnforcement, i2, i3);
-            if (!obtainStyledAttributes.getBoolean(R.styleable.ThemeEnforcement_enforceTextAppearance, false)) {
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16842804, R.attr.enforceMaterialTheme, R.attr.enforceTextAppearance}, i2, i3);
+            if (!obtainStyledAttributes.getBoolean(2, false)) {
                 obtainStyledAttributes.recycle();
                 return;
             }
             if (iArr2 != null && iArr2.length != 0) {
                 z = isCustomTextAppearanceValid(context, attributeSet, iArr, i2, i3, iArr2);
             } else {
-                z = obtainStyledAttributes.getResourceId(R.styleable.ThemeEnforcement_android_textAppearance, -1) != -1;
+                z = obtainStyledAttributes.getResourceId(0, -1) != -1;
             }
             obtainStyledAttributes.recycle();
             if (!z) {

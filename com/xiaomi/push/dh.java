@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class dh implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +20,7 @@ public class dh implements Application.ActivityLifecycleCallbacks {
     public String f242a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61188b;
+    public String f59538b;
 
     public dh(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -75,14 +75,14 @@ public class dh implements Application.ActivityLifecycleCallbacks {
             if (TextUtils.isEmpty(this.f242a) || TextUtils.isEmpty(localClassName)) {
                 return;
             }
-            this.f61188b = "";
-            if (!TextUtils.isEmpty("") && !TextUtils.equals(this.f61188b, localClassName)) {
+            this.f59538b = "";
+            if (!TextUtils.isEmpty("") && !TextUtils.equals(this.f59538b, localClassName)) {
                 this.f242a = "";
                 return;
             }
             a(this.a.getPackageName() + "|" + localClassName + ":" + this.f242a + "," + String.valueOf(System.currentTimeMillis() / 1000));
             this.f242a = "";
-            this.f61188b = "";
+            this.f59538b = "";
         }
     }
 
@@ -90,8 +90,8 @@ public class dh implements Application.ActivityLifecycleCallbacks {
     public void onActivityResumed(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            if (TextUtils.isEmpty(this.f61188b)) {
-                this.f61188b = activity.getLocalClassName();
+            if (TextUtils.isEmpty(this.f59538b)) {
+                this.f59538b = activity.getLocalClassName();
             }
             this.f242a = String.valueOf(System.currentTimeMillis() / 1000);
         }

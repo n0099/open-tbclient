@@ -2,7 +2,7 @@ package com.baidu.tieba.nearby.model;
 
 import android.content.Intent;
 import c.a.d.o.e.n;
-import c.a.u0.n2.b.b;
+import c.a.r0.n2.b.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -21,30 +21,30 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes13.dex */
-public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implements c.a.u0.n2.c.a {
+/* loaded from: classes6.dex */
+public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implements c.a.r0.n2.c.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.u0.n2.d.a f46228e;
+    public c.a.r0.n2.d.a f44636e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f46229f;
+    public int f44637f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<n> f46230g;
+    public List<n> f44638g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f46231h;
+    public boolean f44639h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f46232i;
+    public boolean f44640i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final HttpMessageListener f46233j;
+    public final HttpMessageListener f44641j;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,46 +75,46 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003520 && (httpResponsedMessage instanceof NearbyFriendsHttpResponseMessage) && this.a.f46228e != null) {
-                this.a.f46228e.hideLoadingView();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003520 && (httpResponsedMessage instanceof NearbyFriendsHttpResponseMessage) && this.a.f44636e != null) {
+                this.a.f44636e.hideLoadingView();
                 if (httpResponsedMessage.getError() != 0) {
-                    if (this.a.f46229f == 1) {
-                        if (this.a.f46228e != null) {
-                            this.a.f46228e.l(httpResponsedMessage.getErrorString());
+                    if (this.a.f44637f == 1) {
+                        if (this.a.f44636e != null) {
+                            this.a.f44636e.l(httpResponsedMessage.getErrorString());
                             return;
                         }
                         return;
-                    } else if (this.a.f46228e != null) {
-                        this.a.f46228e.e(httpResponsedMessage.getErrorString());
+                    } else if (this.a.f44636e != null) {
+                        this.a.f44636e.e(httpResponsedMessage.getErrorString());
                         return;
                     } else {
                         return;
                     }
                 }
-                if (this.a.f46230g == null) {
-                    this.a.f46230g = new ArrayList();
+                if (this.a.f44638g == null) {
+                    this.a.f44638g = new ArrayList();
                 }
-                if (this.a.f46229f == 1) {
-                    this.a.f46230g.clear();
+                if (this.a.f44637f == 1) {
+                    this.a.f44638g.clear();
                 }
                 b nearbyFriendData = ((NearbyFriendsHttpResponseMessage) httpResponsedMessage).getNearbyFriendData();
                 if (!ListUtils.isEmpty(nearbyFriendData.a)) {
-                    this.a.f46230g.addAll(nearbyFriendData.a);
+                    this.a.f44638g.addAll(nearbyFriendData.a);
                 }
-                this.a.f46231h = nearbyFriendData.f19733b;
-                this.a.f46228e.hideLoadingView();
-                this.a.f46228e.b(false);
-                this.a.f46228e.h(0);
-                this.a.f46228e.d(this.a.f46232i, this.a.f46230g);
-                this.a.f46228e.i(this.a.f46231h);
-                if (this.a.f46231h) {
+                this.a.f44639h = nearbyFriendData.f19372b;
+                this.a.f44636e.hideLoadingView();
+                this.a.f44636e.b(false);
+                this.a.f44636e.h(0);
+                this.a.f44636e.d(this.a.f44640i, this.a.f44638g);
+                this.a.f44636e.i(this.a.f44639h);
+                if (this.a.f44639h) {
                     NearbyFriendsModel.y(this.a);
                 }
             }
         }
     }
 
-    public NearbyFriendsModel(c.a.u0.n2.d.a aVar, BdUniqueId bdUniqueId) {
+    public NearbyFriendsModel(c.a.r0.n2.d.a aVar, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,17 +129,17 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
                 return;
             }
         }
-        this.f46229f = 1;
+        this.f44637f = 1;
         a aVar2 = new a(this, CmdConfigHttp.CMD_GET_NEARBY_FRIENDS);
-        this.f46233j = aVar2;
-        this.f46228e = aVar;
+        this.f44641j = aVar2;
+        this.f44636e = aVar;
         aVar2.setTag(bdUniqueId);
-        registerListener(this.f46233j);
+        registerListener(this.f44641j);
     }
 
     public static /* synthetic */ int y(NearbyFriendsModel nearbyFriendsModel) {
-        int i2 = nearbyFriendsModel.f46229f;
-        nearbyFriendsModel.f46229f = i2 + 1;
+        int i2 = nearbyFriendsModel.f44637f;
+        nearbyFriendsModel.f44637f = i2 + 1;
         return i2;
     }
 
@@ -148,7 +148,7 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
         if (!(interceptable == null || interceptable.invokeL(1048576, this, intent) == null) || intent == null) {
             return;
         }
-        this.f46232i = intent.getBooleanExtra(NearbyFriendsActivityConfig.KEY_NEED_COMPLETE_PROFILE, false);
+        this.f44640i = intent.getBooleanExtra(NearbyFriendsActivityConfig.KEY_NEED_COMPLETE_PROFILE, false);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -161,11 +161,11 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.u0.n2.c.a
+    @Override // c.a.r0.n2.c.a
     public boolean hasMore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f46231h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f44639h : invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -174,16 +174,16 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_NEARBY_FRIENDS);
-            httpMessage.addParam("pn", this.f46229f);
+            httpMessage.addParam("pn", this.f44637f);
             httpMessage.addParam("rn", 20);
-            httpMessage.addParam("app_pos", c.a.u0.l3.j0.a.e().b());
+            httpMessage.addParam("app_pos", c.a.r0.j3.k0.a.e().b());
             MessageManager.getInstance().sendMessage(httpMessage);
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.u0.n2.c.a
+    @Override // c.a.r0.n2.c.a
     public void loadMore() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -194,33 +194,33 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f46228e = null;
+            this.f44636e = null;
         }
     }
 
-    @Override // c.a.u0.n2.c.a
+    @Override // c.a.r0.n2.c.a
     public void refresh() {
-        c.a.u0.n2.d.a aVar;
+        c.a.r0.n2.d.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (aVar = this.f46228e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (aVar = this.f44636e) == null) {
             return;
         }
         aVar.k();
-        this.f46228e.hideLoadingView();
-        this.f46229f = 1;
+        this.f44636e.hideLoadingView();
+        this.f44637f = 1;
         loadData();
     }
 
-    @Override // c.a.u0.n2.c.a
+    @Override // c.a.r0.n2.c.a
     public void reload() {
-        c.a.u0.n2.d.a aVar;
+        c.a.r0.n2.d.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (aVar = this.f46228e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (aVar = this.f44636e) == null) {
             return;
         }
         aVar.k();
-        this.f46228e.a();
-        this.f46229f = 1;
+        this.f44636e.a();
+        this.f44637f = 1;
         loadData();
     }
 }

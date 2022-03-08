@@ -1,7 +1,7 @@
 package com.baidu.ugc.editvideo.subtitle;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.b1.t.h;
+import c.a.y0.r.h;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.RichStickerBaseUnit;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public final class SubtitleLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;

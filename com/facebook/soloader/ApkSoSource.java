@@ -13,7 +13,7 @@ import com.facebook.soloader.UnpackingSoSource;
 import java.io.File;
 import java.io.IOException;
 import java.util.zip.ZipEntry;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class ApkSoSource extends ExtractFromZipSoSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte APK_SO_SOURCE_SIGNATURE_VERSION = 2;
@@ -25,7 +25,7 @@ public class ApkSoSource extends ExtractFromZipSoSource {
     public transient /* synthetic */ FieldHolder $fh;
     public final int mFlags;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public class ApkUnpacker extends ExtractFromZipSoSource.ZipUnpacker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

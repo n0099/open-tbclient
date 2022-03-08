@@ -39,7 +39,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class ARPRenderer implements d, IARPRenderer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_FRAME_COUNT = 100;

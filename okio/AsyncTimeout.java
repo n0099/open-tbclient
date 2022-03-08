@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class AsyncTimeout extends Timeout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long IDLE_TIMEOUT_MILLIS;
@@ -29,7 +29,7 @@ public class AsyncTimeout extends Timeout {
     public AsyncTimeout next;
     public long timeoutAt;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class Watchdog extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

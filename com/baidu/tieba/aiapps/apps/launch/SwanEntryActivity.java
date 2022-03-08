@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import c.a.s0.a.z2.v;
-import c.a.s0.g.m.b;
+import c.a.p0.a.p2.v;
+import c.a.p0.g.h.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.tbadk.core.util.PermissionUtil;
@@ -15,20 +15,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class SwanEntryActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LAUNCHER_URI = "SWAN_URI";
     public static final String SWAN_ACTION = "com.baidu.swan.launcher";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanEntryActivity f42082e;
+        public final /* synthetic */ SwanEntryActivity f40485e;
 
         public a(SwanEntryActivity swanEntryActivity) {
             Interceptable interceptable = $ic;
@@ -45,14 +45,14 @@ public class SwanEntryActivity extends Activity {
                     return;
                 }
             }
-            this.f42082e = swanEntryActivity;
+            this.f40485e = swanEntryActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f42082e.finish();
+                this.f40485e.finish();
             }
         }
     }
@@ -88,10 +88,11 @@ public class SwanEntryActivity extends Activity {
             return;
         }
         if (!PermissionUtil.isAgreePrivacyPolicy()) {
-            SwanAppAbTestStatic.f42079b = uri;
-        } else {
-            b.a(uri);
+            SwanAppAbTestStatic.a = uri;
+            return;
         }
+        c.a.r0.z.b.a.a();
+        b.a(uri);
     }
 
     @Override // android.app.Activity

@@ -22,7 +22,7 @@ import java.util.Random;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class FileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PUBLIC_SUCCESS_TEMP_DIR = "public_succes_temp";

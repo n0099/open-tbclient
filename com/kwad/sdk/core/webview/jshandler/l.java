@@ -10,32 +10,32 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.webview.jshandler.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class l implements com.kwad.sdk.core.webview.kwai.a {
     public final com.kwad.sdk.core.webview.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Handler f56620b;
+    public final Handler f54970b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public final b f56621c;
+    public final b f54971c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f56625b;
+        public String f54975b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f56626c;
+        public int f54976c;
 
         /* renamed from: d  reason: collision with root package name */
-        public b.C2133b f56627d;
+        public b.C2112b f54977d;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         @MainThread
         void a();
@@ -54,38 +54,38 @@ public class l implements com.kwad.sdk.core.webview.kwai.a {
         final AdTemplate adTemplate = new AdTemplate();
         try {
             aVar.parseJson(new JSONObject(str));
-            adTemplate.parseJson(new JSONObject(aVar.f56625b));
+            adTemplate.parseJson(new JSONObject(aVar.f54975b));
         } catch (JSONException e2) {
             com.kwad.sdk.core.d.a.a(e2);
         }
         if (com.kwad.sdk.core.response.a.d.c(adTemplate)) {
-            if (this.a.f56544g != null) {
-                bVar = this.a.f56544g.a(com.kwad.sdk.core.response.a.d.j(adTemplate).downloadId);
+            if (this.a.f54894g != null) {
+                bVar = this.a.f54894g.a(com.kwad.sdk.core.response.a.d.j(adTemplate).downloadId);
             } else {
                 bVar = null;
             }
-            if (this.a.f56545h) {
-                this.f56620b.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.l.1
+            if (this.a.f54895h) {
+                this.f54970b.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.l.1
                     @Override // java.lang.Runnable
                     public void run() {
                         p.a aVar2 = new p.a();
-                        aVar2.f56279h = aVar.f56627d.a;
-                        com.kwad.sdk.core.download.a.a.a(new a.C2116a(l.this.a.f56541d.getContext()).a(adTemplate).a(bVar).a(aVar.f56626c).a(true).a(aVar2).c(true).a(new a.b() { // from class: com.kwad.sdk.core.webview.jshandler.l.1.1
+                        aVar2.f54629h = aVar.f54977d.a;
+                        com.kwad.sdk.core.download.a.a.a(new a.C2095a(l.this.a.f54891d.getContext()).a(adTemplate).a(bVar).a(aVar.f54976c).a(true).a(aVar2).c(true).a(new a.b() { // from class: com.kwad.sdk.core.webview.jshandler.l.1.1
                             @Override // com.kwad.sdk.core.download.a.a.b
                             public void a() {
-                                if (l.this.f56621c != null) {
-                                    l.this.f56621c.a();
+                                if (l.this.f54971c != null) {
+                                    l.this.f54971c.a();
                                 }
                             }
                         }));
                     }
                 });
-            } else if (this.f56621c != null) {
-                this.f56620b.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.l.2
+            } else if (this.f54971c != null) {
+                this.f54970b.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.l.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (l.this.f56621c != null) {
-                            l.this.f56621c.a();
+                        if (l.this.f54971c != null) {
+                            l.this.f54971c.a();
                         }
                     }
                 });
@@ -96,6 +96,6 @@ public class l implements com.kwad.sdk.core.webview.kwai.a {
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void b() {
-        this.f56620b.removeCallbacksAndMessages(null);
+        this.f54970b.removeCallbacksAndMessages(null);
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.adBillingLog;
 
-import c.a.t0.d.c;
-import c.a.t0.d1.c0;
+import c.a.q0.c.c;
+import c.a.q0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.AdNewLog.AdNewLogReqIdl;
 import tbclient.AdNewLog.DataReq;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class AdBillingLogReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,18 +44,18 @@ public class AdBillingLogReqMsg extends NetMessage {
         if (!(interceptable == null || interceptable.invokeL(65537, this, builder) == null) || (cVar = this.mReqData) == null) {
             return;
         }
-        builder.token = cVar.f12688d;
-        int i2 = cVar.f12690f;
+        builder.token = cVar.f12105d;
+        int i2 = cVar.f12107f;
         if (i2 >= 0) {
             builder.da_locate = String.valueOf(i2);
         }
-        int i3 = this.mReqData.f12686b;
+        int i3 = this.mReqData.f12103b;
         if (i3 >= 0) {
             builder.da_from = Integer.valueOf(i3);
         }
         c cVar2 = this.mReqData;
-        builder.extra_param = cVar2.f12689e;
-        builder.order_id = cVar2.f12687c;
+        builder.extra_param = cVar2.f12106e;
+        builder.order_id = cVar2.f12104c;
         int i4 = cVar2.a;
         if (i4 >= 0) {
             builder.da_type = String.valueOf(i4);
@@ -70,7 +70,7 @@ public class AdBillingLogReqMsg extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 fillReqData(builder);
-                c0.b(builder, true, true);
+                b0.b(builder, true, true);
                 AdNewLogReqIdl.Builder builder2 = new AdNewLogReqIdl.Builder();
                 builder2.data = builder.build(false);
                 return builder2.build(false);

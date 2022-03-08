@@ -5,10 +5,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface IObjectWrapper extends IInterface {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a extends com.google.a.a.b implements IObjectWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -11,7 +11,7 @@ import com.airbnb.lottie.utils.Logger;
 import com.tachikoma.core.component.text.FontManager;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class FontAssetManager {
     public final AssetManager assetManager;
     @Nullable

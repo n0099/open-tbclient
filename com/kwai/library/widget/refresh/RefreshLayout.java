@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class RefreshLayout extends ViewGroup implements NestedScrollingChild, NestedScrollingParent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANIMATE_TO_REFRESH_DURATION = 500;
@@ -101,7 +101,7 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
     public boolean mUsingCustomRefreshTargetOffset;
 
     /* renamed from: com.kwai.library.widget.refresh.RefreshLayout$6  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass6 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -134,7 +134,7 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class RefreshStyle {
         public static final /* synthetic */ RefreshStyle[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -195,7 +195,7 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class a extends ViewGroup.MarginLayoutParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -263,12 +263,12 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void onRefresh();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface c {
         void a();
 
@@ -279,7 +279,7 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
         void c();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface d {
         boolean a(float f2, boolean z);
     }

@@ -2,8 +2,7 @@ package com.baidu.tieba.setting.privacy;
 
 import android.os.Bundle;
 import c.a.d.f.p.l;
-import c.a.t0.s.j0.b;
-import c.a.u0.o3.g;
+import c.a.q0.r.j0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -13,19 +12,20 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PrivacyMarkActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.R;
 import com.baidu.tieba.setting.im.more.PrivacySettingMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.u0.o3.n.a privacyMarkView;
+    public c.a.r0.n3.e.a privacyMarkView;
     public HttpMessageListener setPrivateHttpListener;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,9 +74,9 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
                     this.a.privacyMarkView.l();
                 }
                 if (httpResponsedMessage.getError() != -1 && l.z()) {
-                    this.a.showToast(g.privacy_setting_failed);
+                    this.a.showToast(R.string.privacy_setting_failed);
                 } else {
-                    this.a.showToast(g.neterror);
+                    this.a.showToast(R.string.neterror);
                 }
             }
         }
@@ -120,7 +120,7 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
             if (intExtra2 != 1 && intExtra2 != 3) {
                 intExtra2 = 1;
             }
-            c.a.u0.o3.n.a aVar = new c.a.u0.o3.n.a(getPageContext(), (intExtra << 2) | intExtra2);
+            c.a.r0.n3.e.a aVar = new c.a.r0.n3.e.a(getPageContext(), (intExtra << 2) | intExtra2);
             this.privacyMarkView = aVar;
             setContentView(aVar.h());
             registerListener(this.setPrivateHttpListener);

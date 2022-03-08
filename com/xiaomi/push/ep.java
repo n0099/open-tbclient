@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class ep extends en {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public abstract class ep extends en {
     public boolean f335a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CharSequence f61252b;
+    public CharSequence f59602b;
 
     /* renamed from: b  reason: collision with other field name */
     public boolean f336b;
@@ -148,7 +148,7 @@ public abstract class ep extends en {
             return;
         }
         super.setContentTitle(this.f332a);
-        super.setContentText(this.f61252b);
+        super.setContentText(this.f59602b);
     }
 
     /* renamed from: d  reason: collision with other method in class */
@@ -327,7 +327,7 @@ public abstract class ep extends en {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, charSequence)) == null) {
-            this.f61252b = charSequence;
+            this.f59602b = charSequence;
             return this;
         }
         return (ep) invokeL.objValue;
@@ -342,7 +342,7 @@ public abstract class ep extends en {
             return;
         }
         super.setContentTitle(this.f332a);
-        super.setContentText(this.f61252b);
+        super.setContentText(this.f59602b);
         Bitmap bitmap = this.f330a;
         if (bitmap != null) {
             super.setLargeIcon(bitmap);

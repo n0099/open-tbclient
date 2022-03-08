@@ -10,20 +10,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.kwad.sdk.api.KsNativeAd;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class n extends t {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f28588b;
+    public boolean f28426b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ KsNativeAd f28589c;
+    public final /* synthetic */ KsNativeAd f28427c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ m f28590d;
+    public final /* synthetic */ m f28428d;
 
     public n(m mVar, KsNativeAd ksNativeAd) {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class n extends t {
                 return;
             }
         }
-        this.f28590d = mVar;
-        this.f28589c = ksNativeAd;
+        this.f28428d = mVar;
+        this.f28427c = ksNativeAd;
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
@@ -59,8 +59,8 @@ public class n extends t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, ksNativeAd) == null) {
             LogPrinter.d();
-            this.f28590d.onAdClicked(this.f28588b);
-            this.f28588b = true;
+            this.f28428d.onAdClicked(this.f28426b);
+            this.f28426b = true;
         }
     }
 
@@ -69,7 +69,7 @@ public class n extends t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ksNativeAd) == null) {
             LogPrinter.d();
-            this.f28590d.onAdShow(this.f28589c, this.a);
+            this.f28428d.onAdShow(this.f28427c, this.a);
             this.a = true;
         }
     }

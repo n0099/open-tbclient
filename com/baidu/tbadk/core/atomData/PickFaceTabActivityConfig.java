@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class PickFaceTabActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHOOSED_LIST = "choosed_list";

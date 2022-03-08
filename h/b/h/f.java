@@ -13,31 +13,31 @@ import java.nio.ByteBuffer;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class f implements Framedata {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Framedata.Opcode f61923b;
+    public Framedata.Opcode f60273b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ByteBuffer f61924c;
+    public ByteBuffer f60274c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f61925d;
+    public boolean f60275d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f61926e;
+    public boolean f60276e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f61927f;
+    public boolean f60277f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f61928g;
+    public boolean f60278g;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -100,13 +100,13 @@ public abstract class f implements Framedata {
                 return;
             }
         }
-        this.f61923b = opcode;
-        this.f61924c = h.b.k.b.a();
+        this.f60273b = opcode;
+        this.f60274c = h.b.k.b.a();
         this.a = true;
-        this.f61925d = false;
-        this.f61926e = false;
-        this.f61927f = false;
-        this.f61928g = false;
+        this.f60275d = false;
+        this.f60276e = false;
+        this.f60277f = false;
+        this.f60278g = false;
     }
 
     public static f g(Framedata.Opcode opcode) {
@@ -140,35 +140,35 @@ public abstract class f implements Framedata {
     public ByteBuffer a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61924c : (ByteBuffer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60274c : (ByteBuffer) invokeV.objValue;
     }
 
     @Override // org.java_websocket.framing.Framedata
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61926e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60276e : invokeV.booleanValue;
     }
 
     @Override // org.java_websocket.framing.Framedata
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f61927f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f60277f : invokeV.booleanValue;
     }
 
     @Override // org.java_websocket.framing.Framedata
     public Framedata.Opcode d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f61923b : (Framedata.Opcode) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f60273b : (Framedata.Opcode) invokeV.objValue;
     }
 
     @Override // org.java_websocket.framing.Framedata
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f61928g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f60278g : invokeV.booleanValue;
     }
 
     public boolean equals(Object obj) {
@@ -182,9 +182,9 @@ public abstract class f implements Framedata {
                 return false;
             }
             f fVar = (f) obj;
-            if (this.a == fVar.a && this.f61925d == fVar.f61925d && this.f61926e == fVar.f61926e && this.f61927f == fVar.f61927f && this.f61928g == fVar.f61928g && this.f61923b == fVar.f61923b) {
-                ByteBuffer byteBuffer = this.f61924c;
-                ByteBuffer byteBuffer2 = fVar.f61924c;
+            if (this.a == fVar.a && this.f60275d == fVar.f60275d && this.f60276e == fVar.f60276e && this.f60277f == fVar.f60277f && this.f60278g == fVar.f60278g && this.f60273b == fVar.f60273b) {
+                ByteBuffer byteBuffer = this.f60274c;
+                ByteBuffer byteBuffer2 = fVar.f60274c;
                 return byteBuffer != null ? byteBuffer.equals(byteBuffer2) : byteBuffer2 == null;
             }
             return false;
@@ -205,9 +205,9 @@ public abstract class f implements Framedata {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            int hashCode = (((this.a ? 1 : 0) * 31) + this.f61923b.hashCode()) * 31;
-            ByteBuffer byteBuffer = this.f61924c;
-            return ((((((((hashCode + (byteBuffer != null ? byteBuffer.hashCode() : 0)) * 31) + (this.f61925d ? 1 : 0)) * 31) + (this.f61926e ? 1 : 0)) * 31) + (this.f61927f ? 1 : 0)) * 31) + (this.f61928g ? 1 : 0);
+            int hashCode = (((this.a ? 1 : 0) * 31) + this.f60273b.hashCode()) * 31;
+            ByteBuffer byteBuffer = this.f60274c;
+            return ((((((((hashCode + (byteBuffer != null ? byteBuffer.hashCode() : 0)) * 31) + (this.f60275d ? 1 : 0)) * 31) + (this.f60276e ? 1 : 0)) * 31) + (this.f60277f ? 1 : 0)) * 31) + (this.f60278g ? 1 : 0);
         }
         return invokeV.intValue;
     }
@@ -222,35 +222,35 @@ public abstract class f implements Framedata {
     public void j(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, byteBuffer) == null) {
-            this.f61924c = byteBuffer;
+            this.f60274c = byteBuffer;
         }
     }
 
     public void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f61926e = z;
+            this.f60276e = z;
         }
     }
 
     public void l(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.f61927f = z;
+            this.f60277f = z;
         }
     }
 
     public void m(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.f61928g = z;
+            this.f60278g = z;
         }
     }
 
     public void n(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.f61925d = z;
+            this.f60275d = z;
         }
     }
 
@@ -270,11 +270,11 @@ public abstract class f implements Framedata {
             sb.append(", rsv3:");
             sb.append(e());
             sb.append(", payloadlength:[pos:");
-            sb.append(this.f61924c.position());
+            sb.append(this.f60274c.position());
             sb.append(", len:");
-            sb.append(this.f61924c.remaining());
+            sb.append(this.f60274c.remaining());
             sb.append("], payload:");
-            sb.append(this.f61924c.remaining() > 1000 ? "(too big to display)" : new String(this.f61924c.array()));
+            sb.append(this.f60274c.remaining() > 1000 ? "(too big to display)" : new String(this.f60274c.array()));
             sb.append(ExtendedMessageFormat.END_FE);
             return sb.toString();
         }

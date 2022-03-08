@@ -11,8 +11,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class BussinessUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,13 +70,13 @@ public final class BussinessUtils {
                 sb.append('_');
                 sb.append(displayMetrics.heightPixels);
                 sb.append('_');
-                sb.append((Build.MODEL + SignatureImpl.SEP + Build.DEVICE).replace(' ', SignatureImpl.SEP).replace('_', SignatureImpl.SEP));
+                sb.append((Build.MODEL + SignatureImpl.SEP + Build.DEVICE).replace(WebvttCueParser.CHAR_SPACE, SignatureImpl.SEP).replace('_', SignatureImpl.SEP));
                 sb.append('_');
                 sb.append(Build.VERSION.SDK);
                 sb.append('_');
                 str3 = Build.VERSION.RELEASE;
                 if (!TextUtils.isEmpty(str3)) {
-                    str3 = str3.replace(' ', SignatureImpl.SEP).replace('_', SignatureImpl.SEP);
+                    str3 = str3.replace(WebvttCueParser.CHAR_SPACE, SignatureImpl.SEP).replace('_', SignatureImpl.SEP);
                 }
                 sb.append(str3);
                 sb.append('_');
@@ -93,7 +94,7 @@ public final class BussinessUtils {
             sb2.append('_');
             sb2.append(displayMetrics2.heightPixels);
             sb2.append('_');
-            sb2.append((Build.MODEL + SignatureImpl.SEP + Build.DEVICE).replace(' ', SignatureImpl.SEP).replace('_', SignatureImpl.SEP));
+            sb2.append((Build.MODEL + SignatureImpl.SEP + Build.DEVICE).replace(WebvttCueParser.CHAR_SPACE, SignatureImpl.SEP).replace('_', SignatureImpl.SEP));
             sb2.append('_');
             sb2.append(Build.VERSION.SDK);
             sb2.append('_');

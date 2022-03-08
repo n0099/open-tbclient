@@ -1,9 +1,9 @@
 package com.baidu.ugc.editvideo.record.source.multimedia;
 
 import android.text.TextUtils;
-import c.a.b1.t.h;
-import c.a.b1.t.w;
-import c.a.c0.b.a.k.c;
+import c.a.a0.b.a.k.c;
+import c.a.y0.r.h;
+import c.a.y0.r.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffectConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class VlogPkgManager {
     public static /* synthetic */ Interceptable $ic;
     public static VlogPkgManager mManager;

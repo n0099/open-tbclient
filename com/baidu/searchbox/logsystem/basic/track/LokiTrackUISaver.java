@@ -3,7 +3,7 @@ package com.baidu.searchbox.logsystem.basic.track;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.l0.b.a.a;
+import c.a.i0.b.a.a;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.logsystem.logsys.LogPipelineSingleton;
@@ -22,7 +22,7 @@ import java.util.LinkedList;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class LokiTrackUISaver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SEPERATOR = "\t";

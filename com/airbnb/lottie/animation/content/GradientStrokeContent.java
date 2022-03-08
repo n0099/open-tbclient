@@ -19,7 +19,7 @@ import com.airbnb.lottie.model.content.GradientType;
 import com.airbnb.lottie.model.layer.BaseLayer;
 import com.airbnb.lottie.value.LottieValueCallback;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class GradientStrokeContent extends BaseStrokeContent {
     public static final int CACHE_STEPS_MS = 32;
     public final RectF boundsRect;

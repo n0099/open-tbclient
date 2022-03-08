@@ -44,7 +44,7 @@ public class TypefaceCompatApi28Impl extends TypefaceCompatApi26Impl {
             try {
                 Object newInstance = Array.newInstance(this.mFontFamily, 1);
                 Array.set(newInstance, 0, obj);
-                return (Typeface) this.mCreateFromFamiliesWithDefault.invoke(null, newInstance, DEFAULT_FAMILY, -1, -1);
+                return (Typeface) this.mCreateFromFamiliesWithDefault.invoke(null, newInstance, "sans-serif", -1, -1);
             } catch (IllegalAccessException | InvocationTargetException e2) {
                 throw new RuntimeException(e2);
             }

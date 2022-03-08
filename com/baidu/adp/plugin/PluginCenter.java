@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class PluginCenter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NAME_MOTUSDK = "com.baidu.tieba.pluginMotu";
@@ -39,13 +39,13 @@ public class PluginCenter {
     public Runnable mRetryRunnable;
     public Runnable mRunnable;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginCenter f31449e;
+        public final /* synthetic */ PluginCenter f29852e;
 
         public a(PluginCenter pluginCenter) {
             Interceptable interceptable = $ic;
@@ -62,25 +62,25 @@ public class PluginCenter {
                     return;
                 }
             }
-            this.f31449e = pluginCenter;
+            this.f29852e = pluginCenter;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f31449e.retryLaunchPlugins();
+                this.f29852e.retryLaunchPlugins();
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginCenter f31450e;
+        public final /* synthetic */ PluginCenter f29853e;
 
         public b(PluginCenter pluginCenter) {
             Interceptable interceptable = $ic;
@@ -97,14 +97,14 @@ public class PluginCenter {
                     return;
                 }
             }
-            this.f31450e = pluginCenter;
+            this.f29853e = pluginCenter;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f31450e.retryLaunchAllPlugins();
+                this.f29853e.retryLaunchAllPlugins();
             }
         }
     }
@@ -198,7 +198,7 @@ public class PluginCenter {
                                             c.a.d.j.h.a.b().g("plugin_load_retry_succ");
                                         }
                                     } else if (PluginPackageManager.u().B()) {
-                                        c.a.d.j.h.a.b().n("plugin_loaded_failed", key, cVar.f31446b, cVar.f31447c);
+                                        c.a.d.j.h.a.b().n("plugin_loaded_failed", key, cVar.f29849b, cVar.f29850c);
                                     }
                                 }
                             }
@@ -238,9 +238,9 @@ public class PluginCenter {
                                         }
                                         if (cVar != null) {
                                             sb.append("-");
-                                            sb.append(cVar.f31446b);
+                                            sb.append(cVar.f29849b);
                                             sb.append("-");
-                                            sb.append(cVar.f31447c);
+                                            sb.append(cVar.f29850c);
                                         } else {
                                             sb.append("-ret==null");
                                         }
@@ -334,9 +334,9 @@ public class PluginCenter {
                                         sb.append(value.getPluginApkFilePath());
                                     }
                                     sb.append("-");
-                                    sb.append(initWithBroadcast.f31446b);
+                                    sb.append(initWithBroadcast.f29849b);
                                     sb.append("-");
-                                    sb.append(initWithBroadcast.f31447c);
+                                    sb.append(initWithBroadcast.f29850c);
                                 }
                             }
                         }
@@ -585,7 +585,7 @@ public class PluginCenter {
             Plugin.c cVar = new Plugin.c();
             if (TextUtils.isEmpty(str)) {
                 if (!BdBaseApplication.getInst().isDebugMode()) {
-                    cVar.f31446b = "pluginName_is_null";
+                    cVar.f29849b = "pluginName_is_null";
                     cVar.a = false;
                     return cVar;
                 }
@@ -593,11 +593,11 @@ public class PluginCenter {
             }
             PluginSetting h2 = c.j().h(str);
             if (h2 == null) {
-                cVar.f31446b = "pluginSetting_is_null";
+                cVar.f29849b = "pluginSetting_is_null";
                 cVar.a = false;
                 return cVar;
             } else if (h2.versionCode < PluginPackageManager.t()) {
-                cVar.f31446b = "launch_lowversion";
+                cVar.f29849b = "launch_lowversion";
                 cVar.a = false;
                 c.a.d.j.h.a.b().i("plugincenter_launch_lowversion", str);
                 c.a.d.j.h.a b2 = c.a.d.j.h.a.b();

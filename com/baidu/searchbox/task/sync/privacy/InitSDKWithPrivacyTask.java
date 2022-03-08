@@ -1,8 +1,8 @@
 package com.baidu.searchbox.task.sync.privacy;
 
-import c.a.d0.h.b;
-import c.a.r.g.a.a;
-import c.a.w0.c0;
+import c.a.b0.h.b;
+import c.a.q.g.a.a;
+import c.a.t0.c0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.common.config.AppIdentityManager;
 import com.baidu.searchbox.cloudcontrol.CloudControlManager;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class InitSDKWithPrivacyTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
     private void initAxeSdk() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            a.C0262a.c(TbadkCoreApplication.getInst()).b().t();
+            a.C0799a.c(TbadkCoreApplication.getInst()).b().t();
         }
     }
 
@@ -53,7 +53,7 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65539, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             AppIdentityManager.getInstance().setAppName("tieba");
-            if (c.a.l0.b.a.a.g()) {
+            if (c.a.i0.b.a.a.g()) {
                 c0.a();
                 CloudControlManager.getInstance().requestCloudControl("0");
             }

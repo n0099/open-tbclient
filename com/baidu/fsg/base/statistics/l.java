@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class l implements IBeanResponseCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ n f34051b;
+    public final /* synthetic */ n f32454b;
 
     public l(n nVar, String str) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class l implements IBeanResponseCallback {
                 return;
             }
         }
-        this.f34051b = nVar;
+        this.f32454b = nVar;
         this.a = str;
     }
 

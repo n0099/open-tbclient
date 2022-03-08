@@ -3,7 +3,7 @@ package com.baidu.tieba.qrcode.lib.zxing;
 import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
-import c.a.u0.i3.b.b.a;
+import c.a.r0.g3.b.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.qrcode.lib.core.QRCodeView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,13 +16,13 @@ import com.google.zxing.MultiFormatReader;
 import com.google.zxing.PlanarYUVLuminanceSource;
 import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class ZXingView extends QRCodeView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public MultiFormatReader f47664g;
+    public MultiFormatReader f46072g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ZXingView(Context context, AttributeSet attributeSet) {
@@ -49,12 +49,12 @@ public class ZXingView extends QRCodeView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             MultiFormatReader multiFormatReader = new MultiFormatReader();
-            this.f47664g = multiFormatReader;
+            this.f46072g = multiFormatReader;
             multiFormatReader.setHints(a.a);
         }
     }
 
-    @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView, c.a.u0.i3.b.a.c.a
+    @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView, c.a.r0.g3.b.a.c.a
     public String processData(byte[] bArr, int i2, int i3, boolean z) {
         InterceptResult invokeCommon;
         Result result;
@@ -69,10 +69,10 @@ public class ZXingView extends QRCodeView {
                     } else {
                         planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i2, i3, 0, 0, i2, i3, false);
                     }
-                    result = this.f47664g.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
+                    result = this.f46072g.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
                 } catch (Exception e2) {
                     e2.printStackTrace();
-                    this.f47664g.reset();
+                    this.f46072g.reset();
                     result = null;
                 }
                 if (result != null) {
@@ -80,7 +80,7 @@ public class ZXingView extends QRCodeView {
                 }
                 return null;
             } finally {
-                this.f47664g.reset();
+                this.f46072g.reset();
             }
         }
         return (String) invokeCommon.objValue;

@@ -12,38 +12,38 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.w0;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final c f31023c;
+    public static final c f29427c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final c f31024d;
+    public static final c f29428d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final c f31025e;
+    public static final c f29429e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final c f31026f;
+    public static final c f29430f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final c f31027g;
+    public static final c f29431g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final c f31028h;
+    public static final c f29432h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final c f31029i;
+    public static final c f29433i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final /* synthetic */ c[] f31030j;
+    public static final /* synthetic */ c[] f29434j;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f31031b;
+    public String f29435b;
 
     static {
         InterceptResult invokeClinit;
@@ -58,15 +58,15 @@ public final class c {
                 return;
             }
         }
-        f31023c = new c("SUCCEEDED", 0, 9000, "处理成功");
-        f31024d = new c("FAILED", 1, 4000, "系统繁忙，请稍后再试");
-        f31025e = new c("CANCELED", 2, 6001, "用户取消");
-        f31026f = new c("NETWORK_ERROR", 3, w0.p6, "网络连接异常");
-        f31027g = new c("PARAMS_ERROR", 4, 4001, PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
-        f31028h = new c("DOUBLE_REQUEST", 5, 5000, "重复请求");
+        f29427c = new c("SUCCEEDED", 0, 9000, "处理成功");
+        f29428d = new c("FAILED", 1, 4000, "系统繁忙，请稍后再试");
+        f29429e = new c("CANCELED", 2, 6001, "用户取消");
+        f29430f = new c("NETWORK_ERROR", 3, w0.p6, "网络连接异常");
+        f29431g = new c("PARAMS_ERROR", 4, 4001, PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
+        f29432h = new c("DOUBLE_REQUEST", 5, 5000, "重复请求");
         c cVar = new c("PAY_WAITTING", 6, 8000, "支付结果确认中");
-        f31029i = cVar;
-        f31030j = new c[]{f31023c, f31024d, f31025e, f31026f, f31027g, f31028h, cVar};
+        f29433i = cVar;
+        f29434j = new c[]{f29427c, f29428d, f29429e, f29430f, f29431g, f29432h, cVar};
     }
 
     public c(String str, int i2, int i3, String str2) {
@@ -88,7 +88,7 @@ public final class c {
             }
         }
         this.a = i3;
-        this.f31031b = str2;
+        this.f29435b = str2;
     }
 
     public static c valueOf(String str) {
@@ -100,7 +100,7 @@ public final class c {
     public static c[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (c[]) f31030j.clone() : (c[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (c[]) f29434j.clone() : (c[]) invokeV.objValue;
     }
 
     public void a(int i2) {
@@ -126,19 +126,19 @@ public final class c {
                         if (i2 != 9000) {
                             if (i2 != 6001) {
                                 if (i2 != 6002) {
-                                    return f31024d;
+                                    return f29428d;
                                 }
-                                return f31026f;
+                                return f29430f;
                             }
-                            return f31025e;
+                            return f29429e;
                         }
-                        return f31023c;
+                        return f29427c;
                     }
-                    return f31029i;
+                    return f29433i;
                 }
-                return f31028h;
+                return f29432h;
             }
-            return f31027g;
+            return f29431g;
         }
         return (c) invokeI.objValue;
     }
@@ -146,13 +146,13 @@ public final class c {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f31031b = str;
+            this.f29435b = str;
         }
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31031b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29435b : (String) invokeV.objValue;
     }
 }

@@ -25,7 +25,7 @@ import com.tachikoma.core.utility.TKColorUtil;
 import com.tachikoma.core.utility.TKConverter;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class KTProgressBarView extends TKBase<ProgressBar> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_PROGRESS = 1000;

@@ -22,7 +22,7 @@ import com.facebook.fresco.animation.backend.AnimationBackend;
 import com.facebook.fresco.animation.frame.DropFramesFrameScheduler;
 import com.facebook.fresco.animation.frame.FrameScheduler;
 import javax.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableWithCaches {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_FRAME_SCHEDULING_DELAY_MS = 8;
@@ -49,7 +49,7 @@ public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableW
     public long mLastFrameAnimationTimeMs;
     public long mStartTimeMs;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface DrawListener {
         void onDraw(AnimatedDrawable2 animatedDrawable2, FrameScheduler frameScheduler, int i2, boolean z, boolean z2, long j2, long j3, long j4, long j5, long j6, long j7, long j8);
     }

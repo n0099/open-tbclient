@@ -10,19 +10,19 @@ import i.k;
 import rx.exceptions.CompositeException;
 import rx.exceptions.OnCompletedFailedException;
 import rx.exceptions.OnErrorFailedException;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class b implements i.c, k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i.c f62279e;
+    public final i.c f60629e;
 
     /* renamed from: f  reason: collision with root package name */
-    public k f62280f;
+    public k f60630f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f62281g;
+    public boolean f60631g;
 
     public b(i.c cVar) {
         Interceptable interceptable = $ic;
@@ -39,25 +39,25 @@ public final class b implements i.c, k {
                 return;
             }
         }
-        this.f62279e = cVar;
+        this.f60629e = cVar;
     }
 
     @Override // i.k
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62281g || this.f62280f.isUnsubscribed() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60631g || this.f60630f.isUnsubscribed() : invokeV.booleanValue;
     }
 
     @Override // i.c
     public void onCompleted() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f62281g) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f60631g) {
             return;
         }
-        this.f62281g = true;
+        this.f60631g = true;
         try {
-            this.f62279e.onCompleted();
+            this.f60629e.onCompleted();
         } catch (Throwable th) {
             i.m.a.e(th);
             throw new OnCompletedFailedException(th);
@@ -69,12 +69,12 @@ public final class b implements i.c, k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
             i.r.c.j(th);
-            if (this.f62281g) {
+            if (this.f60631g) {
                 return;
             }
-            this.f62281g = true;
+            this.f60631g = true;
             try {
-                this.f62279e.onError(th);
+                this.f60629e.onError(th);
             } catch (Throwable th2) {
                 i.m.a.e(th2);
                 throw new OnErrorFailedException(new CompositeException(th, th2));
@@ -86,9 +86,9 @@ public final class b implements i.c, k {
     public void onSubscribe(k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, kVar) == null) {
-            this.f62280f = kVar;
+            this.f60630f = kVar;
             try {
-                this.f62279e.onSubscribe(this);
+                this.f60629e.onSubscribe(this);
             } catch (Throwable th) {
                 i.m.a.e(th);
                 kVar.unsubscribe();
@@ -101,7 +101,7 @@ public final class b implements i.c, k {
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f62280f.unsubscribe();
+            this.f60630f.unsubscribe();
         }
     }
 }

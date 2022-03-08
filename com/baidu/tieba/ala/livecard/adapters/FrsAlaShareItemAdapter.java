@@ -2,14 +2,14 @@ package com.baidu.tieba.ala.livecard.adapters;
 
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.t0.s.r.e2;
-import c.a.u0.a0.k.e.c;
-import c.a.u0.e1.j;
-import c.a.u0.e1.k;
-import c.a.u0.g0.b0;
-import c.a.u0.g0.z;
-import c.a.u0.t.e;
-import c.a.u0.t.f;
+import c.a.q0.r.r.e2;
+import c.a.r0.a0.k.e.c;
+import c.a.r0.d1.j;
+import c.a.r0.d1.k;
+import c.a.r0.f0.b0;
+import c.a.r0.f0.z;
+import c.a.r0.t.e;
+import c.a.r0.t.f;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.ListView.TypeAdapter;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class FrsAlaShareItemAdapter extends k<e2, FrsPageAlaShareHolder> implements z, f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class FrsAlaShareItemAdapter extends k<e2, FrsPageAlaShareHolder> impleme
     public c y;
     public String z;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class FrsPageAlaShareHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,13 +59,13 @@ public class FrsAlaShareItemAdapter extends k<e2, FrsPageAlaShareHolder> impleme
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public class a extends b0<e2> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FrsAlaShareItemAdapter f42341b;
+        public final /* synthetic */ FrsAlaShareItemAdapter f40744b;
 
         public a(FrsAlaShareItemAdapter frsAlaShareItemAdapter) {
             Interceptable interceptable = $ic;
@@ -82,11 +82,11 @@ public class FrsAlaShareItemAdapter extends k<e2, FrsPageAlaShareHolder> impleme
                     return;
                 }
             }
-            this.f42341b = frsAlaShareItemAdapter;
+            this.f40744b = frsAlaShareItemAdapter;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.u0.g0.b0
+        @Override // c.a.r0.f0.b0
         /* renamed from: d */
         public void a(View view, e2 e2Var) {
             CustomMessage customMessage;
@@ -99,11 +99,11 @@ public class FrsAlaShareItemAdapter extends k<e2, FrsPageAlaShareHolder> impleme
                 } else {
                     customMessage = new CustomMessage(2921016);
                 }
-                if (customMessage == null || this.f42341b.o == null) {
+                if (customMessage == null || this.f40744b.o == null) {
                     return;
                 }
                 customMessage.setData(e2Var);
-                this.f42341b.o.sendMessage(customMessage);
+                this.f40744b.o.sendMessage(customMessage);
             }
         }
     }
@@ -130,7 +130,7 @@ public class FrsAlaShareItemAdapter extends k<e2, FrsPageAlaShareHolder> impleme
         this.A = new a(this);
     }
 
-    @Override // c.a.u0.g0.z
+    @Override // c.a.r0.f0.z
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -138,7 +138,7 @@ public class FrsAlaShareItemAdapter extends k<e2, FrsPageAlaShareHolder> impleme
         }
     }
 
-    @Override // c.a.u0.t.f
+    @Override // c.a.r0.t.f
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
@@ -157,9 +157,9 @@ public class FrsAlaShareItemAdapter extends k<e2, FrsPageAlaShareHolder> impleme
             if (tbPageContext == null) {
                 return null;
             }
-            c cVar = new c(tbPageContext, this.f2451i);
+            c cVar = new c(tbPageContext, this.f3080i);
             this.y = cVar;
-            cVar.R(this.f2451i);
+            cVar.R(this.f3080i);
             this.y.a(this.x);
             this.y.m(this.A);
             return new FrsPageAlaShareHolder(this.y);
@@ -168,7 +168,7 @@ public class FrsAlaShareItemAdapter extends k<e2, FrsPageAlaShareHolder> impleme
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.u0.e1.k, c.a.d.o.e.a
+    @Override // c.a.r0.d1.k, c.a.d.o.e.a
     /* renamed from: p0 */
     public View S(int i2, View view, ViewGroup viewGroup, e2 e2Var, FrsPageAlaShareHolder frsPageAlaShareHolder) {
         InterceptResult invokeCommon;
@@ -195,7 +195,7 @@ public class FrsAlaShareItemAdapter extends k<e2, FrsPageAlaShareHolder> impleme
         return (View) invokeCommon.objValue;
     }
 
-    @Override // c.a.u0.g0.z
+    @Override // c.a.r0.f0.z
     public void r(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {

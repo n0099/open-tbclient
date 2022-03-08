@@ -12,38 +12,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class ResUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ANIM = "anim";
     public static final String a = "id";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f32960b = "string";
+    public static final String f31363b = "string";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f32961c = "layout";
+    public static final String f31364c = "layout";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f32962d = "style";
+    public static final String f31365d = "style";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f32963e = "drawable";
+    public static final String f31366e = "drawable";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f32964f = "color";
+    public static final String f31367f = "color";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f32965g = "array";
+    public static final String f31368g = "array";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f32966h = "attr";
+    public static final String f31369h = "attr";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f32967i = "dimen";
+    public static final String f31370i = "dimen";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f32968j = "xml";
+    public static final String f31371j = "xml";
     public static final String k = "integer";
     public static final String l = "raw";
     public transient /* synthetic */ FieldHolder $fh;

@@ -21,15 +21,14 @@ import java.util.Random;
 import java.util.regex.Pattern;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public static c a;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Object f60551e;
+    public static final Object f58901e;
     public static final String k;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -40,19 +39,19 @@ public class c {
     public d f26a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.ta.utdid2.b.a.c f60552b;
+    public com.ta.utdid2.b.a.c f58902b;
 
     /* renamed from: b  reason: collision with other field name */
     public Pattern f27b;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f60553h;
+    public String f58903h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f60554i;
+    public String f58904i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f60555j;
+    public String f58905j;
     public Context mContext;
 
     static {
@@ -68,7 +67,7 @@ public class c {
                 return;
             }
         }
-        f60551e = new Object();
+        f58901e = new Object();
         k = ".UTSystemConfig" + File.separator + "Global";
     }
 
@@ -88,19 +87,19 @@ public class c {
             }
         }
         this.mContext = null;
-        this.f60553h = null;
+        this.f58903h = null;
         this.f26a = null;
-        this.f60554i = "xx_utdid_key";
-        this.f60555j = "xx_utdid_domain";
+        this.f58904i = "xx_utdid_key";
+        this.f58905j = "xx_utdid_domain";
         this.f25a = null;
-        this.f60552b = null;
+        this.f58902b = null;
         this.f27b = Pattern.compile("[^0-9a-zA-Z=/+]+");
         this.mContext = context;
-        this.f60552b = new com.ta.utdid2.b.a.c(context, k, "Alvin2", false, true);
+        this.f58902b = new com.ta.utdid2.b.a.c(context, k, "Alvin2", false, true);
         this.f25a = new com.ta.utdid2.b.a.c(context, ".DataStorage", "ContextData", false, true);
         this.f26a = new d();
-        this.f60554i = String.format("K_%d", Integer.valueOf(g.a(this.f60554i)));
-        this.f60555j = String.format("D_%d", Integer.valueOf(g.a(this.f60555j)));
+        this.f58904i = String.format("K_%d", Integer.valueOf(g.a(this.f58904i)));
+        this.f58905j = String.format("D_%d", Integer.valueOf(g.a(this.f58905j)));
     }
 
     public static c a(Context context) {
@@ -108,7 +107,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             if (context != null && a == null) {
-                synchronized (f60551e) {
+                synchronized (f58901e) {
                     if (a == null) {
                         c cVar = new c(context);
                         a = cVar;
@@ -141,32 +140,32 @@ public class c {
     private void c() {
         com.ta.utdid2.b.a.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || (cVar = this.f60552b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || (cVar = this.f58902b) == null) {
             return;
         }
         if (g.m123a(cVar.getString("UTDID2"))) {
-            String string = this.f60552b.getString("UTDID");
+            String string = this.f58902b.getString("UTDID");
             if (!g.m123a(string)) {
                 f(string);
             }
         }
         boolean z = false;
         boolean z2 = true;
-        if (!g.m123a(this.f60552b.getString("DID"))) {
-            this.f60552b.remove("DID");
+        if (!g.m123a(this.f58902b.getString("DID"))) {
+            this.f58902b.remove("DID");
             z = true;
         }
-        if (!g.m123a(this.f60552b.getString("EI"))) {
-            this.f60552b.remove("EI");
+        if (!g.m123a(this.f58902b.getString("EI"))) {
+            this.f58902b.remove("EI");
             z = true;
         }
-        if (g.m123a(this.f60552b.getString("SI"))) {
+        if (g.m123a(this.f58902b.getString("SI"))) {
             z2 = z;
         } else {
-            this.f60552b.remove("SI");
+            this.f58902b.remove("SI");
         }
         if (z2) {
-            this.f60552b.commit();
+            this.f58902b.commit();
         }
     }
 
@@ -177,21 +176,21 @@ public class c {
             if (str.endsWith(StringUtils.LF)) {
                 str = str.substring(0, str.length() - 1);
             }
-            if (str.length() != 24 || (cVar = this.f60552b) == null) {
+            if (str.length() != 24 || (cVar = this.f58902b) == null) {
                 return;
             }
             cVar.putString("UTDID2", str);
-            this.f60552b.commit();
+            this.f58902b.commit();
         }
     }
 
     private void g(String str) {
         com.ta.utdid2.b.a.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, this, str) == null) || str == null || (cVar = this.f25a) == null || str.equals(cVar.getString(this.f60554i))) {
+        if (!(interceptable == null || interceptable.invokeL(65546, this, str) == null) || str == null || (cVar = this.f25a) == null || str.equals(cVar.getString(this.f58904i))) {
             return;
         }
-        this.f25a.putString(this.f60554i, str);
+        this.f25a.putString(this.f58904i, str);
         this.f25a.commit();
     }
 
@@ -249,7 +248,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                String str = this.f60553h;
+                String str = this.f58903h;
                 return str != null ? str : h();
             }
         }
@@ -298,11 +297,11 @@ public class c {
                     }
                     String d3 = this.f26a.d(str);
                     if (b(d3)) {
-                        this.f60553h = d3;
+                        this.f58903h = d3;
                         f(d3);
                         g(str);
-                        h(this.f60553h);
-                        return this.f60553h;
+                        h(this.f58903h);
+                        return this.f58903h;
                     }
                 }
                 String g2 = g();
@@ -313,10 +312,10 @@ public class c {
                     }
                     h(g2);
                     g(c3);
-                    this.f60553h = g2;
+                    this.f58903h = g2;
                     return g2;
                 }
-                String string2 = this.f25a.getString(this.f60554i);
+                String string2 = this.f25a.getString(this.f58904i);
                 if (!g.m123a(string2)) {
                     String d4 = eVar.d(string2);
                     if (!b(d4)) {
@@ -325,12 +324,12 @@ public class c {
                     if (b(d4)) {
                         String c4 = this.f26a.c(d4);
                         if (!g.m123a(d4)) {
-                            this.f60553h = d4;
+                            this.f58903h = d4;
                             if (z) {
                                 j(c4);
                             }
-                            f(this.f60553h);
-                            return this.f60553h;
+                            f(this.f58903h);
+                            return this.f58903h;
                         }
                     }
                 }
@@ -344,9 +343,8 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            byte[] bArr2 = {69, 114, 116, -33, 125, -54, -31, 86, -11, 11, -78, -96, -17, -99, 64, 23, -95, -126, -82, -64, 113, 116, -16, -103, 49, -30, 9, -39, PublicSuffixDatabase.EXCEPTION_MARKER, -80, -68, -78, -117, 53, 30, -122, 64, -104, 74, -49, 106, 85, -38, -93};
             Mac mac = Mac.getInstance("HmacSHA1");
-            mac.init(new SecretKeySpec(f.a(bArr2), mac.getAlgorithm()));
+            mac.init(new SecretKeySpec(f.a(new byte[]{69, 114, 116, -33, 125, -54, -31, 86, -11, 11, -78, -96, -17, -99, 64, 23, -95, -126, -82, -64, 113, 116, -16, -103, 49, -30, 9, -39, 33, -80, -68, -78, -117, 53, 30, -122, 64, -104, 74, -49, 106, 85, -38, -93}), mac.getAlgorithm()));
             return com.ta.utdid2.a.a.b.encodeToString(mac.doFinal(bArr), 2);
         }
         return (String) invokeL.objValue;
@@ -356,7 +354,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            com.ta.utdid2.b.a.c cVar = this.f60552b;
+            com.ta.utdid2.b.a.c cVar = this.f58902b;
             if (cVar != null) {
                 String string = cVar.getString("UTDID2");
                 if (g.m123a(string) || this.f26a.c(string) == null) {
@@ -381,22 +379,22 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
                 String i2 = i();
-                this.f60553h = i2;
+                this.f58903h = i2;
                 if (!TextUtils.isEmpty(i2)) {
-                    return this.f60553h;
+                    return this.f58903h;
                 }
                 try {
                     byte[] m130c = m130c();
                     if (m130c != null) {
                         String encodeToString = com.ta.utdid2.a.a.b.encodeToString(m130c, 2);
-                        this.f60553h = encodeToString;
+                        this.f58903h = encodeToString;
                         f(encodeToString);
                         String c2 = this.f26a.c(m130c);
                         if (c2 != null) {
                             j(c2);
                             g(c2);
                         }
-                        return this.f60553h;
+                        return this.f58903h;
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();

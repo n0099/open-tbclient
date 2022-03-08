@@ -16,9 +16,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
-import c.a.f0.a.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class LoadCircleView extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_ALPHA_VALUE = 255;
@@ -55,7 +55,7 @@ public class LoadCircleView extends View {
     public Timer mTimer;
     public int mWidth;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class MainThreadHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -184,8 +184,8 @@ public class LoadCircleView extends View {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
                     this.this$0.mCurrentRadius = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                    this.this$0.mPrimaryPaint.setShader(new LinearGradient((this.this$0.mWidth / 2) - this.this$0.mCurrentRadius, 0.0f, (this.this$0.mWidth / 2) + this.this$0.mCurrentRadius, 0.0f, this.this$0.getResources().getColor(b.sapi_sdk_mms_voice_primary_start), this.this$0.getResources().getColor(b.sapi_sdk_mms_voice_primary_end), Shader.TileMode.MIRROR));
-                    this.this$0.mSecondaryPaint.setShader(new LinearGradient((this.this$0.mWidth / 2) - this.this$0.mCurrentRadius, 0.0f, (this.this$0.mWidth / 2) + this.this$0.mCurrentRadius, 0.0f, this.this$0.getResources().getColor(b.sapi_sdk_mms_voice_secondary_start), this.this$0.getResources().getColor(b.sapi_sdk_mms_voice_secondary_end), Shader.TileMode.MIRROR));
+                    this.this$0.mPrimaryPaint.setShader(new LinearGradient((this.this$0.mWidth / 2) - this.this$0.mCurrentRadius, 0.0f, (this.this$0.mWidth / 2) + this.this$0.mCurrentRadius, 0.0f, this.this$0.getResources().getColor(R.color.sapi_sdk_mms_voice_primary_start), this.this$0.getResources().getColor(R.color.sapi_sdk_mms_voice_primary_end), Shader.TileMode.MIRROR));
+                    this.this$0.mSecondaryPaint.setShader(new LinearGradient((this.this$0.mWidth / 2) - this.this$0.mCurrentRadius, 0.0f, (this.this$0.mWidth / 2) + this.this$0.mCurrentRadius, 0.0f, this.this$0.getResources().getColor(R.color.sapi_sdk_mms_voice_secondary_start), this.this$0.getResources().getColor(R.color.sapi_sdk_mms_voice_secondary_end), Shader.TileMode.MIRROR));
                 }
             }
         };

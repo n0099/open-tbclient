@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.filedownloader.download.DownloadLaunchRunnable;
 import com.kwai.filedownloader.y;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class g implements y {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final com.kwai.filedownloader.a.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final h f58564b;
+    public final h f56914b;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -35,20 +35,20 @@ public class g implements y {
         }
         com.kwai.filedownloader.download.b a = com.kwai.filedownloader.download.b.a();
         this.a = a.c();
-        this.f58564b = new h(a.d());
+        this.f56914b = new h(a.d());
     }
 
     @Override // com.kwai.filedownloader.y
     public int a(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i2)) == null) ? this.f58564b.a(str, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i2)) == null) ? this.f56914b.a(str, i2) : invokeLI.intValue;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            List<Integer> b2 = this.f58564b.b();
+            List<Integer> b2 = this.f56914b.b();
             if (com.kwai.filedownloader.e.d.a) {
                 com.kwai.filedownloader.e.d.c(this, "pause all tasks %d", Integer.valueOf(b2.size()));
             }
@@ -131,7 +131,7 @@ public class g implements y {
                     if (z4) {
                         this.a.a(cVar);
                     }
-                    this.f58564b.a(new DownloadLaunchRunnable.a().a(cVar).a(bVar).a(this).a(Integer.valueOf(i3)).b(Integer.valueOf(i2)).a(Boolean.valueOf(z2)).b(Boolean.valueOf(z3)).c(Integer.valueOf(i4)).a());
+                    this.f56914b.a(new DownloadLaunchRunnable.a().a(cVar).a(bVar).a(this).a(Integer.valueOf(i3)).b(Integer.valueOf(i2)).a(Boolean.valueOf(z2)).b(Boolean.valueOf(z3)).c(Integer.valueOf(i4)).a());
                 } else {
                     this.a.e(cVar.a());
                     this.a.d(cVar.a());
@@ -147,7 +147,7 @@ public class g implements y {
                 z4 = true;
                 if (z4) {
                 }
-                this.f58564b.a(new DownloadLaunchRunnable.a().a(cVar).a(bVar).a(this).a(Integer.valueOf(i3)).b(Integer.valueOf(i2)).a(Boolean.valueOf(z2)).b(Boolean.valueOf(z3)).c(Integer.valueOf(i4)).a());
+                this.f56914b.a(new DownloadLaunchRunnable.a().a(cVar).a(bVar).a(this).a(Integer.valueOf(i3)).b(Integer.valueOf(i2)).a(Boolean.valueOf(z2)).b(Boolean.valueOf(z3)).c(Integer.valueOf(i4)).a());
             }
         }
     }
@@ -166,7 +166,7 @@ public class g implements y {
             if (cVar == null) {
                 return false;
             }
-            boolean c2 = this.f58564b.c(cVar.a());
+            boolean c2 = this.f56914b.c(cVar.a());
             if (com.kwai.filedownloader.c.d.a(cVar.f())) {
                 if (!c2) {
                     return false;
@@ -189,7 +189,7 @@ public class g implements y {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f58564b.a() <= 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f56914b.a() <= 0 : invokeV.booleanValue;
     }
 
     public boolean b(int i2) {
@@ -204,7 +204,7 @@ public class g implements y {
                 return false;
             }
             b2.a((byte) -2);
-            this.f58564b.b(i2);
+            this.f56914b.b(i2);
             return true;
         }
         return invokeI.booleanValue;
@@ -270,7 +270,7 @@ public class g implements y {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
             synchronized (this) {
-                a = this.f58564b.a(i2);
+                a = this.f56914b.a(i2);
             }
             return a;
         }

@@ -1,10 +1,10 @@
 package com.google.common.base;
 
-import c.i.d.a.g;
-import c.i.d.a.k;
-import c.i.d.a.m;
-import c.i.d.a.n;
-import c.i.d.a.r;
+import c.i.c.a.g;
+import c.i.c.a.k;
+import c.i.c.a.m;
+import c.i.c.a.n;
+import c.i.c.a.r;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -17,12 +17,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class Suppliers {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class ExpiringMemoizingSupplier<T> implements r<T>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -53,7 +53,7 @@ public final class Suppliers {
             n.j(j2 > 0, "duration (%s %s) must be > 0", j2, timeUnit);
         }
 
-        @Override // c.i.d.a.r
+        @Override // c.i.c.a.r
         public T get() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -89,7 +89,7 @@ public final class Suppliers {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class MemoizingSupplier<T> implements r<T>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -117,7 +117,7 @@ public final class Suppliers {
             this.delegate = rVar;
         }
 
-        @Override // c.i.d.a.r
+        @Override // c.i.c.a.r
         public T get() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -157,7 +157,7 @@ public final class Suppliers {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class SupplierComposition<F, T> implements r<T>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -200,7 +200,7 @@ public final class Suppliers {
         }
 
         /* JADX DEBUG: Type inference failed for r1v2. Raw type applied. Possible types: F, ? super F */
-        @Override // c.i.d.a.r
+        @Override // c.i.c.a.r
         public T get() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -224,7 +224,7 @@ public final class Suppliers {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static final class SupplierFunctionImpl implements Object<Object> {
         public static final /* synthetic */ SupplierFunctionImpl[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -295,7 +295,7 @@ public final class Suppliers {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class SupplierOfInstance<T> implements r<T>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -332,7 +332,7 @@ public final class Suppliers {
             return invokeL.booleanValue;
         }
 
-        @Override // c.i.d.a.r
+        @Override // c.i.c.a.r
         public T get() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -355,7 +355,7 @@ public final class Suppliers {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class ThreadSafeSupplier<T> implements r<T>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -381,7 +381,7 @@ public final class Suppliers {
             this.delegate = rVar;
         }
 
-        @Override // c.i.d.a.r
+        @Override // c.i.c.a.r
         public T get() {
             InterceptResult invokeV;
             T t;

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.Arrays;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class DelayConfig implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MODE_PART_SECTION = 2;

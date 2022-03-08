@@ -3,7 +3,7 @@ package com.bytedance.pangle.service;
 import android.content.Intent;
 import android.os.IBinder;
 import com.bytedance.pangle.plugin.Plugin;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface a {
     void attach(Plugin plugin2);
 

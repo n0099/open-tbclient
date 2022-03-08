@@ -4,37 +4,37 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "wallet_stastics";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f34001b = 204800;
+    public static final int f32404b = 204800;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f34002c = 51200;
+    public static final int f32405c = 51200;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f34003d = 200;
+    public static final int f32406d = 200;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final long f34004e = 604800000;
+    public static final long f32407e = 604800000;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final long f34005f = 86400000;
+    public static final long f32408f = 86400000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f34006g = "publish_data";
+    public static final String f32409g = "publish_data";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f34007h = "sign";
+    public static final String f32410h = "sign";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f34008i = "mk";
+    public static final String f32411i = "mk";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f34009j = "array";
+    public static final String f32412j = "array";
     public static final String k = "exception";
     public static final String l = "https://www.baifubao.com/chanpin_stat";
     public static final String m = "http://yf-wallet-rd-red-dc00.epc.baidu.com:8090/chanpin_stat";

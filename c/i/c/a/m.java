@@ -1,77 +1,139 @@
 package c.i.c.a;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.InstallActivity;
-import com.google.ar.core.exceptions.UnavailableException;
-import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
-/* loaded from: classes9.dex */
-public class m {
+import com.google.common.base.JdkPattern;
+import java.util.Locale;
+import java.util.logging.Logger;
+import java.util.regex.Pattern;
+/* loaded from: classes3.dex */
+public final class m {
     public static /* synthetic */ Interceptable $ic;
+    public static final l a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ InstallActivity f30234b;
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
-    public m(InstallActivity installActivity) {
+    /* loaded from: classes3.dex */
+    public static final class b implements l {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // c.i.c.a.l
+        public e a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new JdkPattern(Pattern.compile(str)) : (e) invokeL.objValue;
+        }
+
+        @Override // c.i.c.a.l
+        public boolean b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-500210202, "Lc/i/c/a/m;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-500210202, "Lc/i/c/a/m;");
+                return;
+            }
+        }
+        Logger.getLogger(m.class.getName());
+        a = c();
+    }
+
+    public m() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {installActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f30234b = installActivity;
-        this.a = false;
-    }
-
-    public void a(com.google.ar.core.p pVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, pVar) == null) {
-            synchronized (this.f30234b) {
-                if (this.a) {
-                    return;
-                }
-                InstallActivity.access$402(this.f30234b, pVar);
-                int ordinal = pVar.ordinal();
-                if (ordinal != 0) {
-                    if (ordinal == 1) {
-                        InstallActivity.access$000(this.f30234b, new UnavailableUserDeclinedInstallationException());
-                    } else if (ordinal == 2) {
-                        if (!InstallActivity.access$500(this.f30234b)) {
-                            InstallActivity.access$600(this.f30234b);
-                        }
-                        InstallActivity.access$000(this.f30234b, null);
-                    }
-                    this.a = true;
-                }
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void b(Exception exc) {
+    public static e a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            synchronized (this.f30234b) {
-                if (this.a) {
-                    return;
-                }
-                this.a = true;
-                InstallActivity.access$402(this.f30234b, com.google.ar.core.p.f54614b);
-                boolean z = exc instanceof UnavailableException;
-                InstallActivity.access$000(this.f30234b, exc);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            n.p(str);
+            return a.a(str);
         }
+        return (e) invokeL.objValue;
+    }
+
+    public static String b(double d2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Double.valueOf(d2)})) == null) ? String.format(Locale.ROOT, "%.4g", Double.valueOf(d2)) : (String) invokeCommon.objValue;
+    }
+
+    public static l c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new b(null) : (l) invokeV.objValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? a.b() : invokeV.booleanValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? str == null || str.isEmpty() : invokeL.booleanValue;
+    }
+
+    public static long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? System.nanoTime() : invokeV.longValue;
     }
 }

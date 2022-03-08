@@ -9,12 +9,9 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.s0.a.e;
-import c.a.s0.a.f;
-import c.a.s0.a.g;
-import c.a.s0.a.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.widget.dialog.SwanAppAlertDialog;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,41 +19,41 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class AutoOrientationBtnDialog extends SwanAppAlertDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewGroup f39484h;
+    public ViewGroup f37888h;
 
     /* renamed from: i  reason: collision with root package name */
-    public FrameLayout f39485i;
+    public FrameLayout f37889i;
 
     /* renamed from: j  reason: collision with root package name */
-    public FrameLayout f39486j;
+    public FrameLayout f37890j;
     public View k;
     public List<a> l;
     public int m;
     public Context mContext;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public CharSequence a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CharSequence f39487b;
+        public CharSequence f37891b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f39488c;
+        public int f37892c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f39489d;
+        public int f37893d;
 
         /* renamed from: e  reason: collision with root package name */
-        public c f39490e;
+        public c f37894e;
 
         public a(CharSequence charSequence, int i2, c cVar) {
             Interceptable interceptable = $ic;
@@ -73,21 +70,21 @@ public class AutoOrientationBtnDialog extends SwanAppAlertDialog {
                     return;
                 }
             }
-            this.f39488c = -1;
-            this.f39489d = -1;
+            this.f37892c = -1;
+            this.f37893d = -1;
             this.a = charSequence;
-            this.f39488c = i2;
-            this.f39490e = cVar;
+            this.f37892c = i2;
+            this.f37894e = cVar;
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class b extends SwanAppAlertDialog.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public List<a> f39491f;
+        public List<a> f37895f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(Context context) {
@@ -107,7 +104,7 @@ public class AutoOrientationBtnDialog extends SwanAppAlertDialog {
                     return;
                 }
             }
-            this.f39491f = new ArrayList();
+            this.f37895f = new ArrayList();
             k(false);
             t(false);
         }
@@ -117,7 +114,7 @@ public class AutoOrientationBtnDialog extends SwanAppAlertDialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (aVar != null) {
-                    this.f39491f.add(aVar);
+                    this.f37895f.add(aVar);
                 }
                 return this;
             }
@@ -130,46 +127,46 @@ public class AutoOrientationBtnDialog extends SwanAppAlertDialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 AutoOrientationBtnDialog autoOrientationBtnDialog = (AutoOrientationBtnDialog) super.c();
-                autoOrientationBtnDialog.i(this.f39491f);
+                autoOrientationBtnDialog.i(this.f37895f);
                 return autoOrientationBtnDialog;
             }
             return (SwanAppAlertDialog) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public interface c {
         void a(View view);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f39492b;
+        public TextView f37896b;
 
         /* renamed from: c  reason: collision with root package name */
-        public LinearLayout f39493c;
+        public LinearLayout f37897c;
 
         /* renamed from: d  reason: collision with root package name */
-        public AutoOrientationBtnDialog f39494d;
+        public AutoOrientationBtnDialog f37898d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AutoOrientationBtnDialog f39495e;
+        public final /* synthetic */ AutoOrientationBtnDialog f37899e;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes5.dex */
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f39496e;
+            public final /* synthetic */ a f37900e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ d f39497f;
+            public final /* synthetic */ d f37901f;
 
             public a(d dVar, a aVar) {
                 Interceptable interceptable = $ic;
@@ -186,16 +183,16 @@ public class AutoOrientationBtnDialog extends SwanAppAlertDialog {
                         return;
                     }
                 }
-                this.f39497f = dVar;
-                this.f39496e = aVar;
+                this.f37901f = dVar;
+                this.f37900e = aVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f39497f.f39494d.dismiss();
-                    c cVar = this.f39496e.f39490e;
+                    this.f37901f.f37898d.dismiss();
+                    c cVar = this.f37900e.f37894e;
                     if (cVar != null) {
                         cVar.a(view);
                     }
@@ -218,12 +215,12 @@ public class AutoOrientationBtnDialog extends SwanAppAlertDialog {
                     return;
                 }
             }
-            this.f39495e = autoOrientationBtnDialog;
+            this.f37899e = autoOrientationBtnDialog;
             if (view != null) {
-                this.a = (TextView) view.findViewById(f.hv_btn_text);
-                this.f39492b = (TextView) view.findViewById(f.hv_btn_subtext);
-                this.f39493c = (LinearLayout) view;
-                this.f39494d = autoOrientationBtnDialog2;
+                this.a = (TextView) view.findViewById(R.id.hv_btn_text);
+                this.f37896b = (TextView) view.findViewById(R.id.hv_btn_subtext);
+                this.f37897c = (LinearLayout) view;
+                this.f37898d = autoOrientationBtnDialog2;
             }
         }
 
@@ -233,25 +230,25 @@ public class AutoOrientationBtnDialog extends SwanAppAlertDialog {
                 return;
             }
             this.a.setText(aVar.a);
-            if (aVar.f39488c > 0) {
-                this.a.setTextColor(this.f39495e.f39485i.getResources().getColor(aVar.f39488c));
+            if (aVar.f37892c > 0) {
+                this.a.setTextColor(this.f37899e.f37889i.getResources().getColor(aVar.f37892c));
             }
-            if (!TextUtils.isEmpty(aVar.f39487b)) {
-                this.f39492b.setVisibility(0);
-                this.f39492b.setText(aVar.f39487b);
+            if (!TextUtils.isEmpty(aVar.f37891b)) {
+                this.f37896b.setVisibility(0);
+                this.f37896b.setText(aVar.f37891b);
             } else {
-                this.f39492b.setVisibility(8);
+                this.f37896b.setVisibility(8);
             }
-            if (aVar.f39489d > 0) {
-                this.f39492b.setTextColor(this.f39495e.f39485i.getResources().getColor(aVar.f39489d));
+            if (aVar.f37893d > 0) {
+                this.f37896b.setTextColor(this.f37899e.f37889i.getResources().getColor(aVar.f37893d));
             }
-            this.f39493c.setOnClickListener(new a(this, aVar));
+            this.f37897c.setOnClickListener(new a(this, aVar));
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AutoOrientationBtnDialog(Context context) {
-        super(context, i.SwanAppNoTitleDialog);
+        super(context, R.style.SwanAppNoTitleDialog);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -285,8 +282,8 @@ public class AutoOrientationBtnDialog extends SwanAppAlertDialog {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, linearLayout)) == null) {
-            LinearLayout linearLayout2 = (LinearLayout) LayoutInflater.from(this.mContext).inflate(g.aiapps_item_hv_dialog, (ViewGroup) linearLayout, false);
-            linearLayout2.setBackground(getContext().getResources().getDrawable(e.aiapp_alertdialog_button_day_bg_all_selector));
+            LinearLayout linearLayout2 = (LinearLayout) LayoutInflater.from(this.mContext).inflate(R.layout.aiapps_item_hv_dialog, (ViewGroup) linearLayout, false);
+            linearLayout2.setBackground(getContext().getResources().getDrawable(R.drawable.aiapp_alertdialog_button_day_bg_all_selector));
             new d(this, linearLayout2, this).a(aVar);
             return linearLayout2;
         }
@@ -315,8 +312,8 @@ public class AutoOrientationBtnDialog extends SwanAppAlertDialog {
                 }
             }
         }
-        this.f39486j.removeAllViews();
-        this.f39486j.addView(linearLayout);
+        this.f37890j.removeAllViews();
+        this.f37890j.addView(linearLayout);
     }
 
     public final View g(int i2) {
@@ -324,7 +321,7 @@ public class AutoOrientationBtnDialog extends SwanAppAlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
             View view = new View(this.mContext);
-            view.setBackgroundColor(this.f39485i.getResources().getColor(c.a.s0.a.c.aiapps_dialog_gray));
+            view.setBackgroundColor(this.f37889i.getResources().getColor(R.color.aiapps_dialog_gray));
             if (i2 == 1) {
                 view.setLayoutParams(new LinearLayout.LayoutParams(-1, 1));
             } else {
@@ -340,14 +337,14 @@ public class AutoOrientationBtnDialog extends SwanAppAlertDialog {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             Context context = getContext();
             this.mContext = context;
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(g.aiapps_view_hv_dialog, getBuilder().e(), false);
-            this.f39484h = viewGroup;
-            this.f39485i = (FrameLayout) viewGroup.findViewById(f.hv_content);
-            this.k = this.f39484h.findViewById(f.hv_divider);
-            this.f39486j = (FrameLayout) this.f39484h.findViewById(f.hv_btn_content);
-            View createContentView = createContentView(this.f39485i);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.aiapps_view_hv_dialog, getBuilder().e(), false);
+            this.f37888h = viewGroup;
+            this.f37889i = (FrameLayout) viewGroup.findViewById(R.id.hv_content);
+            this.k = this.f37888h.findViewById(R.id.hv_divider);
+            this.f37890j = (FrameLayout) this.f37888h.findViewById(R.id.hv_btn_content);
+            View createContentView = createContentView(this.f37889i);
             if (createContentView != null) {
-                this.f39485i.addView(createContentView);
+                this.f37889i.addView(createContentView);
             }
             j();
             f(this.l);
@@ -367,7 +364,7 @@ public class AutoOrientationBtnDialog extends SwanAppAlertDialog {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.k.setBackgroundColor(getContext().getResources().getColor(c.a.s0.a.c.aiapps_dialog_gray));
+            this.k.setBackgroundColor(getContext().getResources().getColor(R.color.aiapps_dialog_gray));
         }
     }
 
@@ -377,7 +374,7 @@ public class AutoOrientationBtnDialog extends SwanAppAlertDialog {
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
             h();
-            getBuilder().W(this.f39484h);
+            getBuilder().W(this.f37888h);
         }
     }
 }

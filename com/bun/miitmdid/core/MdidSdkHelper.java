@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.miitmdid.e;
 import com.bun.miitmdid.interfaces.IIdentifierListener;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class MdidSdkHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final int SDK_VERSION_CODE;

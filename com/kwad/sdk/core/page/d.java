@@ -8,10 +8,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
+import com.baidu.tieba.R;
 import com.google.protobuf.CodedInputStream;
 import com.kwad.sdk.KsAdSDKImpl;
-import com.kwad.sdk.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class d extends com.kwad.sdk.h.b {
     public boolean a;
 

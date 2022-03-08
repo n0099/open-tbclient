@@ -13,37 +13,37 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "MIUI";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f55266b = "EMUI";
+    public static final String f53616b = "EMUI";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f55267c = "FLYME";
+    public static final String f53617c = "FLYME";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f55268d = "OPPO";
+    public static final String f53618d = "OPPO";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f55269e = "SMARTISAN";
+    public static final String f53619e = "SMARTISAN";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f55270f = "VIVO";
+    public static final String f53620f = "VIVO";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f55271g = "QIKU";
+    public static final String f53621g = "QIKU";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f55272h = "360";
+    public static final String f53622h = "360";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f55273i = "OnePlus";
+    public static final String f53623i = "OnePlus";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f55274j = "SAMSUNG";
+    public static final String f53624j = "SAMSUNG";
     public static final String k = "ro.miui.ui.version.name";
     public static final String l = "ro.build.version.emui";
     public static final String m = "ro.build.version.opporom";
@@ -109,8 +109,8 @@ public class g {
                                 s = b7;
                                 if (TextUtils.isEmpty(b7)) {
                                     String upperCase2 = b(q).toUpperCase();
-                                    String str3 = f55274j;
-                                    if (!upperCase2.contains(f55274j)) {
+                                    String str3 = f53624j;
+                                    if (!upperCase2.contains(f53624j)) {
                                         String str4 = Build.DISPLAY;
                                         s = str4;
                                         str3 = "FLYME";
@@ -124,7 +124,7 @@ public class g {
                                 }
                                 upperCase = "SMARTISAN";
                             } else {
-                                upperCase = f55273i;
+                                upperCase = f53623i;
                             }
                         } else {
                             upperCase = "MIUI";
@@ -238,7 +238,7 @@ public class g {
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? a("QIKU") || a(f55272h) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? a("QIKU") || a(f53622h) : invokeV.booleanValue;
     }
 
     public static boolean d() {
@@ -290,7 +290,7 @@ public class g {
     public static boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? a(f55273i) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? a(f53623i) : invokeV.booleanValue;
     }
 
     public static boolean j() {
@@ -302,7 +302,7 @@ public class g {
     public static boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? a(f55274j) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? a(f53624j) : invokeV.booleanValue;
     }
 
     public static boolean l() {

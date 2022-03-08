@@ -1,0 +1,263 @@
+package c.a.r0.n4.h;
+
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import c.a.r0.j3.e0.b;
+import c.a.r0.j3.e0.d;
+import c.a.r0.j3.f0.c;
+import c.a.r0.j3.m;
+import c.a.r0.j3.z;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tieba.video.VideoItemModel;
+import com.baidu.tieba.videoplay.VideoPlayView;
+import com.baidu.tieba.videoplay.nad.AdVideoFlowFragment;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+/* loaded from: classes2.dex */
+public class a implements IAdBaseAsyncController.a, d<VideoItemModel> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final TbPageContext<BaseFragmentActivity> a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final List<VideoItemModel> f19574b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final c f19575c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final Queue<AdvertAppInfo> f19576d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final Map<VideoItemModel, AdvertAppInfo> f19577e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f19578f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f19579g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f19580h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public VideoPlayView f19581i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public c.a.r0.j3.e0.a f19582j;
+    public final boolean k;
+    public c.a l;
+    public int m;
+    public VideoItemModel n;
+
+    public a(@NonNull List list, TbPageContext<BaseFragmentActivity> tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        boolean z = false;
+        this.f19578f = 0;
+        this.f19579g = true;
+        this.f19574b = list;
+        this.a = tbPageContext;
+        c cVar = (c) z.q().k(IAdBaseAsyncController.Type.VIDEO_FLOW, this);
+        this.f19575c = cVar;
+        cVar.a(this.a);
+        this.f19576d = new LinkedList();
+        this.f19577e = new HashMap();
+        int s = c.a.r0.a.h().s();
+        int t = c.a.r0.a.h().t();
+        if (s > 0 && t > 0) {
+            z = true;
+        }
+        this.k = z;
+        if (z) {
+            c.a.r0.j3.e0.a aVar = new c.a.r0.j3.e0.a();
+            this.f19582j = aVar;
+            aVar.d(s - 1);
+            this.f19582j.e(t);
+        }
+    }
+
+    @Override // c.a.r0.j3.e0.d
+    public void a(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
+            if (i3 != 0) {
+                this.f19580h = i3;
+            }
+            if (this.f19580h - 2 <= i2 && this.f19576d.isEmpty() && this.f19579g) {
+                this.f19575c.loadAd();
+                this.f19579g = false;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.recapp.async.IAdBaseAsyncController.a
+    public void b(@Nullable List<AdvertAppInfo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.f19579g = true;
+            this.f19576d.addAll(list);
+            VideoItemModel videoItemModel = new VideoItemModel(new VideoItemData(), 5);
+            this.n = videoItemModel;
+            b.b(this.f19574b, this.m, this.f19582j, this.f19578f, videoItemModel, this.f19576d.peek(), this);
+        }
+    }
+
+    public void f(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+            VideoItemModel videoItemModel = this.f19574b.get(i2);
+            if (this.f19577e.containsKey(videoItemModel)) {
+                this.f19575c.n(this.f19577e.get(videoItemModel));
+            }
+        }
+    }
+
+    public AdVideoFlowFragment g(int i2) {
+        InterceptResult invokeI;
+        m j2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
+            AdvertAppInfo advertAppInfo = this.f19577e.get(this.f19574b.get(i2));
+            if (advertAppInfo == null || (j2 = this.f19575c.j(advertAppInfo)) == null) {
+                return null;
+            }
+            j2.setPageChangeHandler(this.l, i2);
+            AdVideoFlowFragment adVideoFlowFragment = new AdVideoFlowFragment();
+            adVideoFlowFragment.setAdView(j2);
+            return adVideoFlowFragment;
+        }
+        return (AdVideoFlowFragment) invokeI.objValue;
+    }
+
+    public List<VideoItemModel> h(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (Map.Entry<VideoItemModel, AdvertAppInfo> entry : this.f19577e.entrySet()) {
+                if (TextUtils.equals(entry.getValue().g4, str)) {
+                    arrayList.add(entry.getKey());
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.k) {
+            this.f19578f = 0;
+            this.f19580h = c.a.r0.a.h().s() - 1;
+            if (this.f19576d.size() >= 1 || !this.f19579g) {
+                return;
+            }
+            this.f19575c.loadAd();
+            this.f19579g = false;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // c.a.r0.j3.e0.d
+    /* renamed from: j */
+    public void c(int i2, int i3, c.a.r0.j3.e0.c cVar, VideoItemModel videoItemModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), cVar, videoItemModel}) == null) {
+            AdvertAppInfo advertAppInfo = (AdvertAppInfo) cVar;
+            this.f19576d.remove(advertAppInfo);
+            this.f19578f = i3;
+            this.f19577e.put(videoItemModel, advertAppInfo);
+            VideoPlayView videoPlayView = this.f19581i;
+            if (videoPlayView != null) {
+                videoPlayView.notifyDataSetChanged();
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // c.a.r0.j3.e0.d
+    /* renamed from: k */
+    public void e(int i2, int i3, VideoItemModel videoItemModel, c.a.r0.j3.e0.c cVar, VideoItemModel videoItemModel2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), videoItemModel, cVar, videoItemModel2}) == null) {
+            AdvertAppInfo advertAppInfo = (AdvertAppInfo) cVar;
+            this.f19576d.remove(advertAppInfo);
+            this.f19578f = i3;
+            this.f19577e.put(videoItemModel, advertAppInfo);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // c.a.r0.j3.e0.d
+    /* renamed from: l */
+    public void d(int i2, int i3, int i4, c.a.r0.j3.e0.c cVar, VideoItemModel videoItemModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), cVar, videoItemModel}) == null) {
+        }
+    }
+
+    public void m(int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048588, this, i2) == null) && this.k) {
+            this.m = i2;
+            VideoItemModel videoItemModel = (VideoItemModel) c.a.r0.z1.o.k.a.d(this.f19574b, i2);
+            if (this.f19577e.containsKey(videoItemModel)) {
+                AdvertAppInfo advertAppInfo = this.f19577e.get(videoItemModel);
+                c.a.r0.j3.m0.d.q(advertAppInfo);
+                c.a.r0.z1.o.h.c.g(c.a.r0.z1.o.h.c.e(advertAppInfo));
+                this.f19575c.c(advertAppInfo, true);
+                return;
+            }
+            this.f19575c.c(null, false);
+            if (i2 <= this.f19578f) {
+                return;
+            }
+            VideoItemModel videoItemModel2 = new VideoItemModel(new VideoItemData(), 5);
+            this.n = videoItemModel2;
+            b.b(this.f19574b, i2, this.f19582j, this.f19578f, videoItemModel2, this.f19576d.peek(), this);
+        }
+    }
+
+    public void n(c.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) {
+            this.l = aVar;
+        }
+    }
+
+    public void o(VideoPlayView videoPlayView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, videoPlayView) == null) {
+            this.f19581i = videoPlayView;
+        }
+    }
+}

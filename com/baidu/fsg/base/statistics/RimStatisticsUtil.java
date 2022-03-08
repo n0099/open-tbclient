@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collection;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public final class RimStatisticsUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "logsender";
@@ -27,7 +27,7 @@ public final class RimStatisticsUtil {
     public boolean hasInit;
     public r mHttpImpl;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static RimStatisticsUtil a;
@@ -124,7 +124,7 @@ public final class RimStatisticsUtil {
     private String getSignKey1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? com.baidu.fsg.base.a.f33877h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? com.baidu.fsg.base.a.f32280h : (String) invokeV.objValue;
     }
 
     private String getSignKey2() {

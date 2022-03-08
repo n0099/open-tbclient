@@ -7,28 +7,28 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.channel.gdt.R;
 import com.fun.ad.sdk.internal.api.utils.GlideHelper;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.fun.module.gdt.w;
 import com.qq.e.ads.nativ.NativeUnifiedADData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class GDTNativeUnifiedImgView extends w {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f54311d;
+    public ImageView f52797d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f54312e;
+    public float f52798e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public GDTNativeUnifiedImgView(Context context) {
@@ -91,7 +91,7 @@ public class GDTNativeUnifiedImgView extends w {
                 return;
             }
         }
-        this.f54312e = 1.78f;
+        this.f52798e = 1.78f;
     }
 
     @Override // com.fun.module.gdt.w
@@ -100,10 +100,10 @@ public class GDTNativeUnifiedImgView extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(this.f54412c);
-            arrayList.add(((w) this).f54411b);
+            arrayList.add(this.f52898c);
+            arrayList.add(((w) this).f52897b);
             arrayList.add(((w) this).a);
-            arrayList.add(this.f54311d);
+            arrayList.add(this.f52797d);
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -115,8 +115,8 @@ public class GDTNativeUnifiedImgView extends w {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nativeUnifiedADData) == null) {
             super.a(nativeUnifiedADData);
             LogPrinter.e("GDTNativeUnifiedAd image width: " + nativeUnifiedADData.getPictureWidth() + ", height: " + nativeUnifiedADData.getPictureHeight(), new Object[0]);
-            this.f54312e = (((float) nativeUnifiedADData.getPictureWidth()) * 1.0f) / (((float) nativeUnifiedADData.getPictureHeight()) * 1.0f);
-            GlideHelper.get().load(getContext(), nativeUnifiedADData.getImgUrl(), this.f54311d);
+            this.f52798e = (((float) nativeUnifiedADData.getPictureWidth()) * 1.0f) / (((float) nativeUnifiedADData.getPictureHeight()) * 1.0f);
+            GlideHelper.get().load(getContext(), nativeUnifiedADData.getImgUrl(), this.f52797d);
         }
     }
 
@@ -125,7 +125,7 @@ public class GDTNativeUnifiedImgView extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onFinishInflate();
-            this.f54311d = (ImageView) findViewById(R.id.ad_img);
+            this.f52797d = (ImageView) findViewById(R.id.ad_img);
         }
     }
 
@@ -134,11 +134,11 @@ public class GDTNativeUnifiedImgView extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f54311d.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f52797d.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
             layoutParams.width = i6;
-            layoutParams.height = (int) (i6 / this.f54312e);
-            this.f54311d.setLayoutParams(layoutParams);
+            layoutParams.height = (int) (i6 / this.f52798e);
+            this.f52797d.setLayoutParams(layoutParams);
         }
     }
 }

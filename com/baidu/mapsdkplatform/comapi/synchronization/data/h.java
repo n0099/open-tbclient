@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.CustomerServiceMenu;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class h extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,16 +40,16 @@ public class h extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
         g.b bVar3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            bVar = this.a.f36267j;
+            bVar = this.a.f34670j;
             Message obtainMessage = bVar.obtainMessage();
             obtainMessage.what = CustomerServiceMenu.TRANSFER_RECORD;
             obtainMessage.obj = aVar;
-            bVar2 = this.a.f36267j;
+            bVar2 = this.a.f34670j;
             if (bVar2 != null) {
-                bVar3 = this.a.f36267j;
+                bVar3 = this.a.f34670j;
                 bVar3.sendMessage(obtainMessage);
             }
-            if (c.a.f36215e == aVar || c.a.f36212b == aVar || c.a.f36213c == aVar) {
+            if (c.a.f34618e == aVar || c.a.f34615b == aVar || c.a.f34616c == aVar) {
                 g.b(this.a);
             }
         }
@@ -62,13 +62,13 @@ public class h extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
         g.b bVar3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            bVar = this.a.f36267j;
+            bVar = this.a.f34670j;
             Message obtainMessage = bVar.obtainMessage();
             obtainMessage.what = 100000;
             obtainMessage.obj = str;
-            bVar2 = this.a.f36267j;
+            bVar2 = this.a.f34670j;
             if (bVar2 != null) {
-                bVar3 = this.a.f36267j;
+                bVar3 = this.a.f34670j;
                 bVar3.sendMessage(obtainMessage);
             }
             this.a.k = 0;

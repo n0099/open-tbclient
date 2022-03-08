@@ -17,7 +17,7 @@ import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.baidu.wallet.paysdk.ui.AuthorizeSignActivity;
 import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.core.utils.StringUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class b extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,9 +48,9 @@ public class b extends a {
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             super.a(z);
             if (z) {
-                this.f52307b = 1;
+                this.f50726b = 1;
             } else {
-                this.f52307b = 2;
+                this.f50726b = 2;
             }
         }
     }

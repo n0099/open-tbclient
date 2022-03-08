@@ -18,6 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
+import com.google.android.exoplayer2.C;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +28,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class UnLoginCastService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BACKPLAY = 1;
@@ -55,7 +56,7 @@ public class UnLoginCastService {
     public long startSeekTime;
     public long startSeekTsTime;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public class Uptask extends UpMessageManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,7 +113,7 @@ public class UnLoginCastService {
                         }
                     }
                     int length2 = jSONArray2.length();
-                    int i6 = (int) (optLong / 1000000000);
+                    int i6 = (int) (optLong / C.NANOS_PER_SECOND);
                     if (i6 == 0) {
                         i3 = i6;
                         i2 = 0;

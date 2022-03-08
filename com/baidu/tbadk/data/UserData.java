@@ -2,8 +2,8 @@ package com.baidu.tbadk.data;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.o.e.n;
-import c.a.t0.s.r.j2;
-import c.a.t0.u.q;
+import c.a.q0.r.r.j2;
+import c.a.q0.t.q;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
@@ -40,7 +40,7 @@ import tbclient.UserPics;
 import tbclient.UserVipInfo;
 import tbclient.VipCloseAd;
 import tbclient.VipShowInfo;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class UserData extends MetaData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int USER_PICS_MAX_COUNT = 9;
@@ -105,7 +105,7 @@ public class UserData extends MetaData {
     public UserVipInfoData vipInfo;
     public int visitorNum;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class Permission extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TRUE = 1;
@@ -822,7 +822,7 @@ public class UserData extends MetaData {
         }
     }
 
-    @Override // com.baidu.tbadk.data.MetaData, c.a.t0.s.l0.t.a
+    @Override // com.baidu.tbadk.data.MetaData, c.a.q0.r.l0.t.a
     public void setLikeStatus(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048647, this, i2) == null) {

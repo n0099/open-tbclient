@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.samsung.android.deviceidservice.IDeviceIdService;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class u extends l implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public Context f53145j;
+    public Context f51564j;
     public String k;
     public ServiceConnection l;
     public IDeviceIdService m;
@@ -38,9 +38,9 @@ public class u extends l implements ServiceConnection {
                 return;
             }
         }
-        this.f53145j = context;
+        this.f51564j = context;
         Context a = a(context);
-        this.f53145j = a;
+        this.f51564j = a;
         this.k = a != null ? a.getPackageName() : "";
     }
 
@@ -48,20 +48,20 @@ public class u extends l implements ServiceConnection {
     public void doStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f53145j = a(this.f53145j);
+            this.f51564j = a(this.f51564j);
             try {
                 Intent intent = new Intent();
                 intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
                 c();
-                if (this.f53145j.bindService(intent, this, 1)) {
+                if (this.f51564j.bindService(intent, this, 1)) {
                     b();
                 } else {
                     a();
-                    a(this.f53119c, this.f53120d, this.f53121e, this.f53122f, this.f53123g);
+                    a(this.f51538c, this.f51539d, this.f51540e, this.f51541f, this.f51542g);
                 }
             } catch (Exception unused) {
                 a();
-                a(this.f53119c, this.f53120d, this.f53121e, this.f53122f, this.f53123g);
+                a(this.f51538c, this.f51539d, this.f51540e, this.f51541f, this.f51542g);
             }
         }
     }
@@ -86,28 +86,28 @@ public class u extends l implements ServiceConnection {
         this.m = asInterface;
         if (asInterface != null) {
             try {
-                this.f53122f = true;
+                this.f51541f = true;
                 String oaid = this.m.getOAID();
                 String vaid = this.m.getVAID(this.k);
                 String aaid = this.m.getAAID(this.k);
                 if (oaid == null) {
                     oaid = "";
                 }
-                this.f53119c = oaid;
+                this.f51538c = oaid;
                 if (vaid == null) {
                     vaid = "";
                 }
-                this.f53120d = vaid;
+                this.f51539d = vaid;
                 if (aaid == null) {
                     aaid = "";
                 }
-                this.f53121e = aaid;
-                this.f53123g = false;
+                this.f51540e = aaid;
+                this.f51542g = false;
             } catch (Exception unused) {
                 a();
             }
         }
-        a(this.f53119c, this.f53120d, this.f53121e, this.f53122f, this.f53123g);
+        a(this.f51538c, this.f51539d, this.f51540e, this.f51541f, this.f51542g);
     }
 
     @Override // android.content.ServiceConnection
@@ -123,7 +123,7 @@ public class u extends l implements ServiceConnection {
         ServiceConnection serviceConnection;
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (serviceConnection = this.l) == null || (context = this.f53145j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (serviceConnection = this.l) == null || (context = this.f51564j) == null) {
             return;
         }
         context.unbindService(serviceConnection);

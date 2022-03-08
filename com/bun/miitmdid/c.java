@@ -13,36 +13,36 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.ManufacturerUtils;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f53086b;
+    public static final c f51505b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final c f53087c;
+    public static final c f51506c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final c f53088d;
+    public static final c f51507d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final c f53089e;
+    public static final c f51508e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final c f53090f;
+    public static final c f51509f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final c f53091g;
+    public static final c f51510g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final c f53092h;
+    public static final c f51511h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final c f53093i;
+    public static final c f51512i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final c f53094j;
+    public static final c f51513j;
     public static final c k;
     public static final c l;
     public static final c m;
@@ -71,30 +71,30 @@ public final class c {
             }
         }
         c cVar = new c("UNSUPPORT", 0, -1, "unsupport");
-        f53086b = cVar;
+        f51505b = cVar;
         c cVar2 = new c("HUAWEI", 1, 0, "HUAWEI");
-        f53087c = cVar2;
+        f51506c = cVar2;
         c cVar3 = new c("XIAOMI", 2, 1, "Xiaomi");
-        f53088d = cVar3;
+        f51507d = cVar3;
         c cVar4 = new c("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
-        f53089e = cVar4;
+        f51508e = cVar4;
         c cVar5 = new c("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
-        f53090f = cVar5;
+        f51509f = cVar5;
         c cVar6 = new c("MOTO", 5, 4, "motorola");
-        f53091g = cVar6;
+        f51510g = cVar6;
         c cVar7 = new c("LENOVO", 6, 5, "lenovo");
-        f53092h = cVar7;
+        f51511h = cVar7;
         c cVar8 = new c("ASUS", 7, 6, "asus");
-        f53093i = cVar8;
-        c cVar9 = new c(com.kuaishou.weapon.un.g.f55274j, 8, 7, ManufacturerUtils.SAMSUNG);
-        f53094j = cVar9;
+        f51512i = cVar8;
+        c cVar9 = new c(com.kuaishou.weapon.un.g.f53624j, 8, 7, ManufacturerUtils.SAMSUNG);
+        f51513j = cVar9;
         c cVar10 = new c("MEIZU", 9, 8, "meizu");
         k = cVar10;
         c cVar11 = new c(RomUtils.ROM_NUBIA, 10, 10, "nubia");
         l = cVar11;
         c cVar12 = new c("ZTE", 11, 11, "ZTE");
         m = cVar12;
-        c cVar13 = new c(RomTypeUtil.ROM_ONEPLUS, 12, 12, com.kuaishou.weapon.un.g.f55273i);
+        c cVar13 = new c(RomTypeUtil.ROM_ONEPLUS, 12, 12, com.kuaishou.weapon.un.g.f53623i);
         n = cVar13;
         c cVar14 = new c("BLACKSHARK", 13, 13, "blackshark");
         o = cVar14;
@@ -138,14 +138,14 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return f53086b;
+                return f51505b;
             }
             for (c cVar : values()) {
                 if (cVar.a.equalsIgnoreCase(str)) {
                     return cVar;
                 }
             }
-            return f53086b;
+            return f51505b;
         }
         return (c) invokeL.objValue;
     }

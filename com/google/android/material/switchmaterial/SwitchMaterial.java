@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,16 +17,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.R;
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.elevation.ElevationOverlayProvider;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class SwitchMaterial extends SwitchCompat {
-    public static /* synthetic */ Interceptable $ic;
-    public static final int DEF_STYLE_RES;
+    public static /* synthetic */ Interceptable $ic = null;
+
+    /* renamed from: DEF_STYLE_RES */
+    public static final int Widget_MaterialComponents_CompoundButton_Switch = 2131755901;
     public static final int[][] ENABLED_CHECKED_STATES;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
@@ -49,7 +51,6 @@ public class SwitchMaterial extends SwitchCompat {
                 return;
             }
         }
-        DEF_STYLE_RES = R.style.Widget_MaterialComponents_CompoundButton_Switch;
         ENABLED_CHECKED_STATES = new int[][]{new int[]{16842910, 16842912}, new int[]{16842910, -16842912}, new int[]{-16842910, 16842912}, new int[]{-16842910, -16842912}};
     }
 
@@ -175,7 +176,7 @@ public class SwitchMaterial extends SwitchCompat {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SwitchMaterial(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, DEF_STYLE_RES), attributeSet, i2);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, Widget_MaterialComponents_CompoundButton_Switch), attributeSet, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -194,8 +195,8 @@ public class SwitchMaterial extends SwitchCompat {
         }
         Context context2 = getContext();
         this.elevationOverlayProvider = new ElevationOverlayProvider(context2);
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, R.styleable.SwitchMaterial, i2, DEF_STYLE_RES, new int[0]);
-        this.useMaterialThemeColors = obtainStyledAttributes.getBoolean(R.styleable.SwitchMaterial_useMaterialThemeColors, false);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.useMaterialThemeColors}, i2, Widget_MaterialComponents_CompoundButton_Switch, new int[0]);
+        this.useMaterialThemeColors = obtainStyledAttributes.getBoolean(0, false);
         obtainStyledAttributes.recycle();
     }
 }

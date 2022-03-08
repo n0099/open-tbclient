@@ -7,17 +7,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Comparator;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class h0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static h0 f27648c;
+    public static h0 f27552c;
     public transient /* synthetic */ FieldHolder $fh;
     public l0 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g f27649b;
+    public g f27553b;
 
     public h0() {
         Interceptable interceptable = $ic;
@@ -37,10 +37,10 @@ public class h0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f27648c == null) {
-                f27648c = new h0();
+            if (f27552c == null) {
+                f27552c = new h0();
             }
-            return f27648c;
+            return f27552c;
         }
         return (h0) invokeV.objValue;
     }
@@ -48,10 +48,10 @@ public class h0 {
     public void b(Object[] objArr, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048576, this, objArr, i2, i3) == null) {
-            if (this.f27649b == null) {
-                this.f27649b = new g();
+            if (this.f27553b == null) {
+                this.f27553b = new g();
             }
-            this.f27649b.c(objArr, i2, i3);
+            this.f27553b.c(objArr, i2, i3);
         }
     }
 

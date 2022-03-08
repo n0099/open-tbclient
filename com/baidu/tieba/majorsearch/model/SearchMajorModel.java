@@ -18,18 +18,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes5.dex */
 public class SearchMajorModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f45940e;
+    public b f44348e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HttpMessageListener f45941f;
+    public HttpMessageListener f44349f;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,14 +76,14 @@ public class SearchMajorModel extends BdBaseModel {
             errorData.setError_msg(str);
             SearchMajorHttpResponsedMessage searchMajorHttpResponsedMessage = httpResponsedMessage instanceof SearchMajorHttpResponsedMessage ? (SearchMajorHttpResponsedMessage) httpResponsedMessage : null;
             if (searchMajorHttpResponsedMessage != null && searchMajorHttpResponsedMessage.getData() != null && !ListUtils.isEmpty(searchMajorHttpResponsedMessage.getData().a)) {
-                this.a.f45940e.onSuccess(searchMajorHttpResponsedMessage.getData().a);
+                this.a.f44348e.onSuccess(searchMajorHttpResponsedMessage.getData().a);
             } else {
-                this.a.f45940e.onError(errorData);
+                this.a.f44348e.onError(errorData);
             }
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void onError(ErrorData errorData);
 
@@ -109,10 +109,10 @@ public class SearchMajorModel extends BdBaseModel {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_SEARCH_MAJOR);
-        this.f45941f = aVar;
+        this.f44349f = aVar;
         aVar.setSelfListener(true);
-        registerListener(this.f45941f);
-        this.f45940e = bVar;
+        registerListener(this.f44349f);
+        this.f44348e = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

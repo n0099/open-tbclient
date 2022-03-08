@@ -8,12 +8,12 @@ import android.widget.BaseAdapter;
 import androidx.core.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.R;
 import com.kwad.v8.V8Object;
 import com.tachikoma.annotation.TK_EXPORT_CLASS;
 import com.tachikoma.core.bridge.TKJSContext;
@@ -23,7 +23,7 @@ import com.tachikoma.core.utility.V8Proxy;
 import java.util.ArrayList;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class TKBaseAdapter extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class TKBaseAdapter extends BaseAdapter {
     public final V8Object mV8Adapter;
     public final List<V8Object> v8Objects;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public final class ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

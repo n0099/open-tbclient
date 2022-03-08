@@ -16,7 +16,7 @@ import io.flutter.plugins.packageinfo.PackageInfoPlugin;
 import io.flutter.plugins.pathprovider.PathProviderPlugin;
 import io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class GeneratedPluginRegistrant {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "GeneratedPluginRegistrant";
@@ -90,7 +90,7 @@ public final class GeneratedPluginRegistrant {
                 Log.e(TAG, "Error registering plugin sqflite, com.tekartik.sqflite.SqflitePlugin", e11);
             }
             try {
-                flutterEngine.getPlugins().add(new c.a.x0.b());
+                flutterEngine.getPlugins().add(new c.a.u0.b());
             } catch (Exception e12) {
                 Log.e(TAG, "Error registering plugin ubcflutter, com.baidu.ubcflutter.UbcflutterPlugin", e12);
             }

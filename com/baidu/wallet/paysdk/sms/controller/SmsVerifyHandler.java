@@ -1,5 +1,5 @@
 package com.baidu.wallet.paysdk.sms.controller;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public interface SmsVerifyHandler extends SmsUpdateUiInterface {
     void onSmsSendFailure(int i2, CharSequence charSequence);
 

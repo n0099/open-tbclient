@@ -6,9 +6,9 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import c.a.t0.s.r.e2;
-import c.a.u0.u2.r.f;
-import c.a.u0.u2.y.e;
+import c.a.q0.r.r.e2;
+import c.a.r0.u2.h.f;
+import c.a.r0.u2.o.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.pb.pb.main.PbModel;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class VideoPbViewModel extends ViewModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FIRST_DATA_TYPE_LOCAL_CACHE = 2;
@@ -28,10 +28,10 @@ public class VideoPbViewModel extends ViewModel {
     public e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PbModel f47051b;
+    public PbModel f45459b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f47052c;
+    public int f45460c;
 
     public VideoPbViewModel() {
         Interceptable interceptable = $ic;
@@ -47,13 +47,13 @@ public class VideoPbViewModel extends ViewModel {
             }
         }
         this.a = new e();
-        this.f47052c = 0;
+        this.f45460c = 0;
     }
 
     public void bindPbModel(PbModel pbModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, pbModel) == null) {
-            this.f47051b = pbModel;
+            this.f45459b = pbModel;
         }
     }
 
@@ -158,14 +158,14 @@ public class VideoPbViewModel extends ViewModel {
         if (!(interceptable == null || interceptable.invokeZ(1048591, this, z) == null) || this.a.f().getValue() == null) {
             return;
         }
-        f b0 = this.f47051b.b0(this.a.f().getValue());
+        f b0 = this.f45459b.b0(this.a.f().getValue());
         if (b0 != null) {
             this.a.j().addLast(this.a.b());
             this.a.o(b0);
             this.a.v(!ListUtils.isEmpty(b0.f()) ? b0.f().get(0) : null);
             this.a.x(this.a.j().getLast() != null ? this.a.j().getLast().O() : null);
-            this.f47051b.p2(z ? 21 : 22);
-            this.f47051b.G1(b0);
+            this.f45459b.p2(z ? 21 : 22);
+            this.f45459b.G1(b0);
             this.a.s(true);
         }
     }
@@ -179,31 +179,31 @@ public class VideoPbViewModel extends ViewModel {
         this.a.o(pollLast);
         this.a.v(!ListUtils.isEmpty(pollLast.f()) ? pollLast.f().get(0) : null);
         this.a.x(this.a.j().peekLast() != null ? this.a.j().peekLast().O() : null);
-        this.f47051b.G1(pollLast);
+        this.f45459b.G1(pollLast);
         this.a.s(true);
     }
 
     public void loadTargetVideo(e2 e2Var) {
         f b0;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, e2Var) == null) || e2Var == null || (b0 = this.f47051b.b0(e2Var)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, e2Var) == null) || e2Var == null || (b0 = this.f45459b.b0(e2Var)) == null) {
             return;
         }
         this.a.j().addLast(this.a.b());
         this.a.o(b0);
         this.a.v(!ListUtils.isEmpty(b0.f()) ? b0.f().get(0) : null);
         this.a.x(this.a.j().getLast() != null ? this.a.j().getLast().O() : null);
-        this.f47051b.p2(20);
-        this.f47051b.G1(b0);
+        this.f45459b.p2(20);
+        this.f45459b.G1(b0);
         this.a.s(true);
     }
 
     public void saveFirstLoadData(f fVar, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048594, this, fVar, i2) == null) || i2 < this.f47052c) {
+        if (!(interceptable == null || interceptable.invokeLI(1048594, this, fVar, i2) == null) || i2 < this.f45460c) {
             return;
         }
-        this.f47052c = i2;
+        this.f45460c = i2;
         this.a.p(fVar);
         if (fVar != null) {
             e eVar = this.a;

@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d0.i0.a.d.b;
+import c.a.b0.i0.a.d.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,22 +16,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class ImageTextView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f37438h;
+    public static final int f35841h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f37439e;
+    public int f35842e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f37440f;
+    public ImageView f35843f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f37441g;
+    public TextView f35844g;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +46,7 @@ public class ImageTextView extends LinearLayout {
                 return;
             }
         }
-        f37438h = b.a(4.0f);
+        f35841h = b.a(4.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -76,23 +76,23 @@ public class ImageTextView extends LinearLayout {
             setOrientation(1);
             setGravity(17);
             ImageView imageView = new ImageView(getContext());
-            this.f37440f = imageView;
+            this.f35843f = imageView;
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            addView(this.f37440f, new LinearLayout.LayoutParams(-2, -2));
+            addView(this.f35843f, new LinearLayout.LayoutParams(-2, -2));
             TextView textView = new TextView(getContext());
-            this.f37441g = textView;
+            this.f35844g = textView;
             textView.setTextColor(-1);
-            this.f37441g.setTextSize(12.0f);
+            this.f35844g.setTextSize(12.0f);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.setMargins(0, f37438h, 0, 0);
-            addView(this.f37441g, layoutParams);
+            layoutParams.setMargins(0, f35841h, 0, 0);
+            addView(this.f35844g, layoutParams);
         }
     }
 
     public void clearTitle() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f37441g.setText((CharSequence) null);
+            this.f35844g.setText((CharSequence) null);
         }
     }
 
@@ -100,8 +100,8 @@ public class ImageTextView extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, drawable)) == null) {
-            this.f37440f.setImageDrawable(drawable);
-            this.f37440f.setVisibility(0);
+            this.f35843f.setImageDrawable(drawable);
+            this.f35843f.setVisibility(0);
             return this;
         }
         return (ImageTextView) invokeL.objValue;
@@ -111,22 +111,22 @@ public class ImageTextView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
             if (i2 != 0) {
-                if (this.f37439e != i2) {
-                    this.f37440f.setImageResource(i2);
-                    this.f37440f.setVisibility(0);
-                    this.f37439e = i2;
+                if (this.f35842e != i2) {
+                    this.f35843f.setImageResource(i2);
+                    this.f35843f.setVisibility(0);
+                    this.f35842e = i2;
                 }
             } else {
-                this.f37440f.setImageDrawable(null);
-                this.f37440f.setVisibility(8);
+                this.f35843f.setImageDrawable(null);
+                this.f35843f.setVisibility(8);
             }
             if (i3 != 0) {
-                this.f37441g.setText(i3);
-                this.f37441g.setVisibility(0);
+                this.f35844g.setText(i3);
+                this.f35844g.setVisibility(0);
                 return;
             }
-            this.f37441g.setText((CharSequence) null);
-            this.f37441g.setVisibility(8);
+            this.f35844g.setText((CharSequence) null);
+            this.f35844g.setVisibility(8);
         }
     }
 
@@ -134,8 +134,8 @@ public class ImageTextView extends LinearLayout {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            this.f37440f.setBackgroundResource(i2);
-            this.f37440f.setVisibility(0);
+            this.f35843f.setBackgroundResource(i2);
+            this.f35843f.setVisibility(0);
             return this;
         }
         return (ImageTextView) invokeI.objValue;
@@ -145,7 +145,7 @@ public class ImageTextView extends LinearLayout {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048582, this, i2, i3)) == null) {
-            this.f37440f.setLayoutParams(new LinearLayout.LayoutParams(i2, i3));
+            this.f35843f.setLayoutParams(new LinearLayout.LayoutParams(i2, i3));
             return this;
         }
         return (ImageTextView) invokeII.objValue;
@@ -155,7 +155,7 @@ public class ImageTextView extends LinearLayout {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            this.f37441g.setTextColor(getResources().getColorStateList(i2));
+            this.f35844g.setTextColor(getResources().getColorStateList(i2));
             return this;
         }
         return (ImageTextView) invokeI.objValue;
@@ -172,11 +172,11 @@ public class ImageTextView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
             if (str != null) {
-                this.f37441g.setText(str);
-                this.f37441g.setVisibility(0);
+                this.f35844g.setText(str);
+                this.f35844g.setVisibility(0);
             } else {
-                this.f37441g.setText((CharSequence) null);
-                this.f37441g.setVisibility(8);
+                this.f35844g.setText((CharSequence) null);
+                this.f35844g.setVisibility(8);
             }
             return this;
         }
@@ -209,8 +209,8 @@ public class ImageTextView extends LinearLayout {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            this.f37440f.setImageResource(i2);
-            this.f37440f.setVisibility(0);
+            this.f35843f.setImageResource(i2);
+            this.f35843f.setVisibility(0);
             return this;
         }
         return (ImageTextView) invokeI.objValue;

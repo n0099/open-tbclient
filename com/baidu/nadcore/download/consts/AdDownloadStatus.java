@@ -1,6 +1,5 @@
 package com.baidu.nadcore.download.consts;
 
-import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public final class AdDownloadStatus {
     public static final /* synthetic */ AdDownloadStatus[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -35,7 +34,7 @@ public final class AdDownloadStatus {
                 return;
             }
         }
-        NONE = new AdDownloadStatus(PolyActivity.NONE_PANEL_TYPE, 0, 0);
+        NONE = new AdDownloadStatus("NONE", 0, 0);
         DOWNLOADING = new AdDownloadStatus("DOWNLOADING", 1, 1);
         PAUSE = new AdDownloadStatus("PAUSE", 2, 2);
         COMPLETED = new AdDownloadStatus("COMPLETED", 3, 3);

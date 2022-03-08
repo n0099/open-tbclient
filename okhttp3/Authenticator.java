@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface Authenticator {
     public static final Authenticator NONE = new Authenticator() { // from class: okhttp3.Authenticator.1
         public static /* synthetic */ Interceptable $ic;

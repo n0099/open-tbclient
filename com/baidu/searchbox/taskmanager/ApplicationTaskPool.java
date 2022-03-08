@@ -14,8 +14,10 @@ import com.baidu.searchbox.task.async.appcreate.InitImgLoaderProcTask;
 import com.baidu.searchbox.task.async.appcreate.InitLaunchAsyncTask;
 import com.baidu.searchbox.task.async.appcreate.InitLocationTask;
 import com.baidu.searchbox.task.async.appcreate.InitPersonalizePageDataTask;
+import com.baidu.searchbox.task.async.appcreate.InitPersonalizeViewTask;
 import com.baidu.searchbox.task.async.appcreate.InitSDKAsyncTask;
 import com.baidu.searchbox.task.async.appcreate.InitSapiTask;
+import com.baidu.searchbox.task.async.appcreate.InitSwanAppTask;
 import com.baidu.searchbox.task.async.appcreate.InitSyncSwitchTask;
 import com.baidu.searchbox.task.async.appcreate.PermissionUtilTask;
 import com.baidu.searchbox.task.async.appcreate.PreInitSwanDataTask;
@@ -64,7 +66,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class ApplicationTaskPool extends BaseTaskPool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -121,6 +123,7 @@ public class ApplicationTaskPool extends BaseTaskPool {
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
             ArrayList arrayList = new ArrayList();
             if (i2 == 2) {
+                arrayList.add(new InitPersonalizeViewTask());
                 arrayList.add(new InitPersonalizePageDataTask());
                 arrayList.add(new InitSapiTask());
                 arrayList.add(new InitSDKAsyncTask());
@@ -179,6 +182,7 @@ public class ApplicationTaskPool extends BaseTaskPool {
                 arrayList.add(new InitTbCrashTask());
                 arrayList.add(new CheckRepackagingTask());
                 arrayList.add(new InitCyberPlayerTask());
+                arrayList.add(new InitSwanAppTask());
             }
             return arrayList;
         }

@@ -6,31 +6,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.security.NoSuchAlgorithmException;
 import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class AES {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f37751d = "UTF-8";
+    public static final String f36154d = "UTF-8";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f37752e = "AES/CBC/NoPadding";
+    public static final String f36155e = "AES/CBC/NoPadding";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f37753f = "AES";
+    public static final String f36156f = "AES";
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f37754b;
+    public String f36157b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f37755c;
+    public String f36158c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AES() {
@@ -57,7 +58,7 @@ public class AES {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             int length = 16 - (str.getBytes().length % 16);
             for (int i2 = 0; i2 < length; i2++) {
-                str = str + ' ';
+                str = str + WebvttCueParser.CHAR_SPACE;
             }
             return str;
         }
@@ -72,8 +73,8 @@ public class AES {
                 byte[] bArr2 = new byte[0];
                 try {
                     IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.a));
-                    SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f37755c);
-                    Cipher cipher = Cipher.getInstance(this.f37754b);
+                    SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f36158c);
+                    Cipher cipher = Cipher.getInstance(this.f36157b);
                     cipher.init(2, secretKeySpec, ivParameterSpec);
                     return cipher.doFinal(bArr);
                 } catch (Throwable unused) {
@@ -92,8 +93,8 @@ public class AES {
             if (str != null && str.length() != 0) {
                 try {
                     IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.a));
-                    SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f37755c);
-                    Cipher cipher = Cipher.getInstance(this.f37754b);
+                    SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f36158c);
+                    Cipher cipher = Cipher.getInstance(this.f36157b);
                     cipher.init(1, secretKeySpec, ivParameterSpec);
                     return cipher.doFinal(a(str).getBytes());
                 } catch (NoSuchAlgorithmException | NoSuchPaddingException unused) {
@@ -142,10 +143,10 @@ public class AES {
             }
         }
         this.a = "UTF-8";
-        this.f37754b = "AES/CBC/NoPadding";
-        this.f37755c = "AES";
-        this.f37755c = str;
-        this.f37754b = str2;
+        this.f36157b = "AES/CBC/NoPadding";
+        this.f36158c = "AES";
+        this.f36158c = str;
+        this.f36157b = str2;
         this.a = str3;
     }
 }

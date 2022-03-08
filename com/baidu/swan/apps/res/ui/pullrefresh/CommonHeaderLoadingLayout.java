@@ -9,39 +9,37 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.a.f;
-import c.a.s0.a.g;
-import c.a.s0.a.h;
-import c.a.s0.a.z2.n0;
+import c.a.p0.a.p2.n0;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class CommonHeaderLoadingLayout extends LoadingLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f39378i;
+    public int f37782i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f39379j;
+    public int f37783j;
     public int k;
     public int l;
     public View m;
     public RefreshingAnimView n;
     public HeaderRefreshIndicator o;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CommonHeaderLoadingLayout f39380e;
+        public final /* synthetic */ CommonHeaderLoadingLayout f37784e;
 
         public a(CommonHeaderLoadingLayout commonHeaderLoadingLayout) {
             Interceptable interceptable = $ic;
@@ -58,28 +56,28 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
                     return;
                 }
             }
-            this.f39380e = commonHeaderLoadingLayout;
+            this.f37784e = commonHeaderLoadingLayout;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f39380e.o.setTranslationY(((Integer) valueAnimator.getAnimatedValue()).intValue());
+                this.f37784e.o.setTranslationY(((Integer) valueAnimator.getAnimatedValue()).intValue());
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class b implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Runnable f39381e;
+        public final /* synthetic */ Runnable f37785e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CommonHeaderLoadingLayout f39382f;
+        public final /* synthetic */ CommonHeaderLoadingLayout f37786f;
 
         public b(CommonHeaderLoadingLayout commonHeaderLoadingLayout, Runnable runnable) {
             Interceptable interceptable = $ic;
@@ -96,8 +94,8 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
                     return;
                 }
             }
-            this.f39382f = commonHeaderLoadingLayout;
-            this.f39381e = runnable;
+            this.f37786f = commonHeaderLoadingLayout;
+            this.f37785e = runnable;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -111,7 +109,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f39382f.postDelayed(this.f39381e, 800L);
+                this.f37786f.postDelayed(this.f37785e, 800L);
             }
         }
 
@@ -126,8 +124,8 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.f39382f.o.setTranslationY(0.0f);
-                this.f39382f.o.setVisibility(0);
+                this.f37786f.o.setTranslationY(0.0f);
+                this.f37786f.o.setVisibility(0);
             }
         }
     }
@@ -150,15 +148,15 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
                 return;
             }
         }
-        this.f39378i = 0;
-        this.n = (RefreshingAnimView) findViewById(f.refreshing_anim_view);
+        this.f37782i = 0;
+        this.n = (RefreshingAnimView) findViewById(R.id.refreshing_anim_view);
         int f2 = n0.f(getContext(), 29.0f);
-        this.f39378i = f2;
-        this.f39379j = (int) (f2 * 2.4f);
+        this.f37782i = f2;
+        this.f37783j = (int) (f2 * 2.4f);
         int i4 = (int) (f2 * 1.5f);
         this.l = i4;
         this.k = i4;
-        HeaderRefreshIndicator headerRefreshIndicator = (HeaderRefreshIndicator) findViewById(f.refresh_over_tip);
+        HeaderRefreshIndicator headerRefreshIndicator = (HeaderRefreshIndicator) findViewById(R.id.refresh_over_tip);
         this.o = headerRefreshIndicator;
         headerRefreshIndicator.initIfNeed();
     }
@@ -168,9 +166,9 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
         float f2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            int i3 = this.f39379j;
+            int i3 = this.f37783j;
             if (i2 < i3) {
-                int i4 = this.f39378i;
+                int i4 = this.f37782i;
                 f2 = i2 < i4 ? 0.0f : (i2 - i4) / (i3 - i4);
             } else {
                 f2 = 1.0f;
@@ -189,7 +187,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, viewGroup, attributeSet)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(g.aiapps_common_pull_to_refresh_header, viewGroup, false);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.aiapps_common_pull_to_refresh_header, viewGroup, false);
             this.m = inflate;
             return inflate;
         }
@@ -200,7 +198,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
     public int getCanRefreshPullLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f39379j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37783j : invokeV.intValue;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -245,7 +243,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
             if (z) {
                 this.n.setAlpha(0.0f);
                 if (TextUtils.isEmpty(str)) {
-                    this.o.setText(getResources().getText(h.aiapps_pull_down_refresh_success));
+                    this.o.setText(getResources().getText(R.string.aiapps_pull_down_refresh_success));
                 } else {
                     this.o.setText(str);
                 }

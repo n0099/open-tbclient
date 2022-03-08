@@ -19,7 +19,7 @@ import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class FontTableBox extends AbstractBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "ftab";
@@ -28,7 +28,7 @@ public class FontTableBox extends AbstractBox {
     public transient /* synthetic */ FieldHolder $fh;
     public List<FontRecord> entries;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class FontRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

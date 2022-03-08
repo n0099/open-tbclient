@@ -1,7 +1,6 @@
 package okhttp3;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +17,7 @@ import javax.annotation.Nullable;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSession;
 import okhttp3.internal.Util;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class Handshake {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +60,7 @@ public final class Handshake {
                     CipherSuite forJavaName = CipherSuite.forJavaName(cipherSuite);
                     String protocol = sSLSession.getProtocol();
                     if (protocol != null) {
-                        if (!PolyActivity.NONE_PANEL_TYPE.equals(protocol)) {
+                        if (!"NONE".equals(protocol)) {
                             TlsVersion forJavaName2 = TlsVersion.forJavaName(protocol);
                             try {
                                 certificateArr = sSLSession.getPeerCertificates();

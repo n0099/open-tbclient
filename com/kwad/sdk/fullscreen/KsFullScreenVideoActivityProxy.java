@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
+import com.baidu.tieba.R;
 import com.kwad.sdk.KsAdSDKImpl;
-import com.kwad.sdk.R;
 import com.kwad.sdk.api.KsFullScreenVideoAd;
 import com.kwad.sdk.api.KsVideoPlayConfig;
 import com.kwad.sdk.api.core.KsAdSdkDynamicImpl;
@@ -33,7 +33,7 @@ import java.io.Serializable;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(KsFullScreenVideoActivity.class)
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kwad.sdk.reward.a> {
     public static final String KEY_TEMPLATE = "key_template_json";
     public static final String KEY_VIDEO_PLAY_CONFIG = "key_video_play_config";
@@ -224,16 +224,16 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kw
     @Override // com.kwad.sdk.core.e.a
     public com.kwad.sdk.reward.a onCreateCallerContext() {
         com.kwad.sdk.reward.a aVar = new com.kwad.sdk.reward.a();
-        aVar.f57420h = getActivity();
-        aVar.f57421i = this.mContext;
-        aVar.f57414b = this.mAdOpenInteractionListener;
-        aVar.f57418f = this.mScreenOrientation;
+        aVar.f55770h = getActivity();
+        aVar.f55771i = this.mContext;
+        aVar.f55764b = this.mAdOpenInteractionListener;
+        aVar.f55768f = this.mScreenOrientation;
         KsVideoPlayConfig ksVideoPlayConfig = this.mVideoPlayConfig;
-        aVar.f57416d = ksVideoPlayConfig;
-        aVar.f57417e = this.mReportExtData;
-        aVar.f57422j = this.mRootContainer;
+        aVar.f55766d = ksVideoPlayConfig;
+        aVar.f55767e = this.mReportExtData;
+        aVar.f55772j = this.mRootContainer;
         AdTemplate adTemplate = this.mAdTemplate;
-        aVar.f57419g = adTemplate;
+        aVar.f55769g = adTemplate;
         com.kwad.sdk.reward.c.a aVar2 = new com.kwad.sdk.reward.c.a(adTemplate, this.mDetailVideoView, ksVideoPlayConfig);
         aVar.k = aVar2;
         aVar.a.add(aVar2);

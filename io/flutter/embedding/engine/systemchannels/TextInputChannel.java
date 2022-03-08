@@ -8,7 +8,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.parser.JSONLexer;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.widget.PolyActivity;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,6 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import io.flutter.Log;
@@ -31,7 +31,7 @@ import org.apache.commons.lang3.CharUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class TextInputChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "TextInputChannel";
@@ -42,7 +42,7 @@ public class TextInputChannel {
     @Nullable
     public TextInputMethodHandler textInputMethodHandler;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class Configuration {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public class TextInputChannel {
         @NonNull
         public final TextCapitalization textCapitalization;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes8.dex */
         public static class Autofill {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -268,7 +268,7 @@ public class TextInputChannel {
                             break;
                         case -549230602:
                             if (str.equals("telephoneNumberCountryCode")) {
-                                c2 = ' ';
+                                c2 = WebvttCueParser.CHAR_SPACE;
                                 break;
                             }
                             c2 = 65535;
@@ -612,7 +612,7 @@ public class TextInputChannel {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class InputType {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -650,7 +650,7 @@ public class TextInputChannel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class TextCapitalization {
         public static final /* synthetic */ TextCapitalization[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -678,7 +678,7 @@ public class TextInputChannel {
             CHARACTERS = new TextCapitalization("CHARACTERS", 0, "TextCapitalization.characters");
             WORDS = new TextCapitalization("WORDS", 1, "TextCapitalization.words");
             SENTENCES = new TextCapitalization("SENTENCES", 2, "TextCapitalization.sentences");
-            TextCapitalization textCapitalization = new TextCapitalization(PolyActivity.NONE_PANEL_TYPE, 3, "TextCapitalization.none");
+            TextCapitalization textCapitalization = new TextCapitalization("NONE", 3, "TextCapitalization.none");
             NONE = textCapitalization;
             $VALUES = new TextCapitalization[]{CHARACTERS, WORDS, SENTENCES, textCapitalization};
         }
@@ -732,7 +732,7 @@ public class TextInputChannel {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class TextEditState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -804,7 +804,7 @@ public class TextInputChannel {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface TextInputMethodHandler {
         void clearClient();
 
@@ -828,7 +828,7 @@ public class TextInputChannel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class TextInputType {
         public static final /* synthetic */ TextInputType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -870,7 +870,7 @@ public class TextInputChannel {
             EMAIL_ADDRESS = new TextInputType("EMAIL_ADDRESS", 7, "TextInputType.emailAddress");
             URL = new TextInputType("URL", 8, "TextInputType.url");
             VISIBLE_PASSWORD = new TextInputType("VISIBLE_PASSWORD", 9, "TextInputType.visiblePassword");
-            TextInputType textInputType = new TextInputType(PolyActivity.NONE_PANEL_TYPE, 10, "TextInputType.none");
+            TextInputType textInputType = new TextInputType("NONE", 10, "TextInputType.none");
             NONE = textInputType;
             $VALUES = new TextInputType[]{TEXT, DATETIME, NAME, POSTAL_ADDRESS, NUMBER, PHONE, MULTILINE, EMAIL_ADDRESS, URL, VISIBLE_PASSWORD, textInputType};
         }

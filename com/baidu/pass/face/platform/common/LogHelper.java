@@ -2,7 +2,6 @@ package com.baidu.pass.face.platform.common;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pass.face.platform.FaceStatusNewEnum;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class LogHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "LogHelper";
@@ -114,7 +113,7 @@ public class LogHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             StringBuilder sb = new StringBuilder();
             try {
-                sb.append(StringUtil.ARRAY_START);
+                sb.append("{");
                 int i2 = 0;
                 for (Map.Entry<String, Object> entry : logMap.entrySet()) {
                     if (i2 == logMap.size() - 1) {

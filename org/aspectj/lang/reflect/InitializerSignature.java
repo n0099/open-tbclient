@@ -1,7 +1,7 @@
 package org.aspectj.lang.reflect;
 
 import java.lang.reflect.Constructor;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface InitializerSignature extends CodeSignature {
     Constructor getInitializer();
 }

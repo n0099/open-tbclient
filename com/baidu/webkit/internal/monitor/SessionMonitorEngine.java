@@ -31,7 +31,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SessionMonitorEngine implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -54,14 +54,14 @@ public class SessionMonitorEngine implements INoProGuard {
     public a sFrameworkBehaviorProvider;
     public WeakReference<IPrototype> sImplement;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface IExtraInfoCollector extends INoProGuard {
         JSONObject onPageSessionFinished(WebView webView, String str);
 
         void onPageSessionStarted(WebView webView, String str, boolean z, boolean z2, boolean z3);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface IPrototype extends INoProGuard {
         void OnAppEnterBackground();
 
@@ -84,7 +84,7 @@ public class SessionMonitorEngine implements INoProGuard {
         void recordImmediately(String str, String str2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface PageSessionObserver extends INoProGuard {
         void onPageSessionDataRecord(WebView webView, String str, String str2, int i2, String str3);
     }
@@ -267,11 +267,11 @@ public class SessionMonitorEngine implements INoProGuard {
                         if (i2 != 3) {
                             return -1L;
                         }
-                        return bVar.f53003f;
+                        return bVar.f51422f;
                     }
-                    return bVar.f53002e;
+                    return bVar.f51421e;
                 }
-                return bVar.f53004g;
+                return bVar.f51423g;
             }
             return -1L;
         }
@@ -303,7 +303,7 @@ public class SessionMonitorEngine implements INoProGuard {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             b bVar = this.sExtraInterfaceProvider;
             if (bVar != null) {
-                return bVar.f53005h;
+                return bVar.f51424h;
             }
             return null;
         }
@@ -454,30 +454,30 @@ public class SessionMonitorEngine implements INoProGuard {
         if (interceptable == null || interceptable.invokeIL(1048598, this, i2, obj) == null) {
             a aVar = this.sFrameworkBehaviorProvider;
             if (aVar.a == null) {
-                aVar.a = new a.C2047a(aVar, (byte) 0);
+                aVar.a = new a.C2023a(aVar, (byte) 0);
             }
             if (i2 == 9) {
                 aVar.a.a();
-                aVar.a.f52996f = true;
+                aVar.a.f51415f = true;
             }
-            a.C2047a c2047a = aVar.a;
-            if (c2047a.f52996f) {
+            a.C2023a c2023a = aVar.a;
+            if (c2023a.f51415f) {
                 switch (i2) {
                     case 7:
-                        c2047a.a = ((Boolean) obj).booleanValue();
+                        c2023a.a = ((Boolean) obj).booleanValue();
                         return;
                     case 8:
-                        c2047a.f52992b = ((Boolean) obj).booleanValue();
+                        c2023a.f51411b = ((Boolean) obj).booleanValue();
                         return;
                     case 9:
-                        c2047a.f52993c = ((Long) obj).longValue();
+                        c2023a.f51412c = ((Long) obj).longValue();
                         return;
                     case 10:
-                        c2047a.f52994d = ((Long) obj).longValue();
-                        aVar.a.f52996f = true;
+                        c2023a.f51413d = ((Long) obj).longValue();
+                        aVar.a.f51415f = true;
                         return;
                     case 11:
-                        c2047a.f52995e = ((Boolean) obj).booleanValue();
+                        c2023a.f51414e = ((Boolean) obj).booleanValue();
                         return;
                     default:
                         return;
@@ -488,12 +488,12 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public void recordFrameworkBehaviorValue(String str, long j2) {
         a aVar;
-        a.C2047a c2047a;
+        a.C2023a c2023a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048599, this, str, j2) == null) || (c2047a = (aVar = this.sFrameworkBehaviorProvider).a) == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(1048599, this, str, j2) == null) || (c2023a = (aVar = this.sFrameworkBehaviorProvider).a) == null) {
             return;
         }
-        aVar.a.f52997g.put(str, Long.valueOf(j2 + (c2047a.f52997g.containsKey(str) ? aVar.a.f52997g.get(str).longValue() : 0L)));
+        aVar.a.f51416g.put(str, Long.valueOf(j2 + (c2023a.f51416g.containsKey(str) ? aVar.a.f51416g.get(str).longValue() : 0L)));
     }
 
     public void recordImmediately(String str, String str2) {
@@ -515,12 +515,12 @@ public class SessionMonitorEngine implements INoProGuard {
             return;
         }
         if (i2 == 1) {
-            bVar.f53004g = j2;
+            bVar.f51423g = j2;
         } else if (i2 == 2) {
-            bVar.f53002e = j2;
+            bVar.f51421e = j2;
         } else if (i2 != 3) {
         } else {
-            bVar.f53003f = j2;
+            bVar.f51422f = j2;
         }
     }
 
@@ -528,7 +528,7 @@ public class SessionMonitorEngine implements INoProGuard {
         b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048602, this, str) == null) && (bVar = this.sExtraInterfaceProvider) != null && !TextUtils.isEmpty(str) && str.startsWith("baiduboxapp://v1/browser/open") && str.contains("isContainer=1")) {
-            bVar.f53001d = System.currentTimeMillis();
+            bVar.f51420d = System.currentTimeMillis();
             Log.d("linhua-x", "recordSearchBoxJsBridgeInvoked: ".concat(String.valueOf(str)));
         }
     }
@@ -542,10 +542,10 @@ public class SessionMonitorEngine implements INoProGuard {
         if (i2 == 1) {
             bVar.a = j2;
         } else if (i2 == 2) {
-            bVar.f52999b = j2;
+            bVar.f51418b = j2;
         } else if (i2 != 3) {
         } else {
-            bVar.f53000c = j2;
+            bVar.f51419c = j2;
         }
     }
 
@@ -555,14 +555,14 @@ public class SessionMonitorEngine implements INoProGuard {
         if (!(interceptable == null || interceptable.invokeLJ(1048604, this, str, j2) == null) || (bVar = this.sExtraInterfaceProvider) == null) {
             return;
         }
-        if (bVar.f53005h == null) {
-            bVar.f53005h = new JSONObject();
+        if (bVar.f51424h == null) {
+            bVar.f51424h = new JSONObject();
         }
         try {
-            if (TextUtils.isEmpty(str) || bVar.f53005h.has(str)) {
+            if (TextUtils.isEmpty(str) || bVar.f51424h.has(str)) {
                 return;
             }
-            bVar.f53005h.put(str, j2);
+            bVar.f51424h.put(str, j2);
         } catch (JSONException e2) {
             Log.printStackTrace(e2);
         }
@@ -626,17 +626,17 @@ public class SessionMonitorEngine implements INoProGuard {
         if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
             a aVar = this.sFrameworkBehaviorProvider;
             if (aVar.a == null) {
-                aVar.a = new a.C2047a(aVar, (byte) 0);
+                aVar.a = new a.C2023a(aVar, (byte) 0);
             }
-            a.C2047a c2047a = aVar.a;
-            if (c2047a.f52993c == -1) {
-                c2047a.a();
+            a.C2023a c2023a = aVar.a;
+            if (c2023a.f51412c == -1) {
+                c2023a.a();
             }
-            a.C2047a c2047a2 = aVar.a;
-            if (c2047a2.f52996f) {
+            a.C2023a c2023a2 = aVar.a;
+            if (c2023a2.f51415f) {
                 return;
             }
-            c2047a2.f52996f = true;
+            c2023a2.f51415f = true;
         }
     }
 

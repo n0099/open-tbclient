@@ -26,38 +26,38 @@ import java.util.Random;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f31084d = "virtualImeiAndImsi";
+    public static final String f29488d = "virtualImeiAndImsi";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f31085e = "virtual_imei";
+    public static final String f29489e = "virtual_imei";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f31086f = "virtual_imsi";
+    public static final String f29490f = "virtual_imsi";
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile b f31087g;
+    public static volatile b f29491g;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f31088b;
+    public String f29492b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f31089c;
+    public String f29493c;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static class a implements APSecuritySdk.InitResultListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ConditionVariable f31090b;
+        public final /* synthetic */ ConditionVariable f29494b;
 
         public a(String[] strArr, ConditionVariable conditionVariable) {
             Interceptable interceptable = $ic;
@@ -75,7 +75,7 @@ public class b {
                 }
             }
             this.a = strArr;
-            this.f31090b = conditionVariable;
+            this.f29494b = conditionVariable;
         }
 
         @Override // com.alipay.apmobilesecuritysdk.face.APSecuritySdk.InitResultListener
@@ -85,25 +85,25 @@ public class b {
                 if (tokenResult != null) {
                     this.a[0] = tokenResult.apdidToken;
                 }
-                this.f31090b.open();
+                this.f29494b.open();
             }
         }
     }
 
     /* renamed from: com.alipay.sdk.data.b$b  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class CallableC1711b implements Callable<String> {
+    /* loaded from: classes3.dex */
+    public static class CallableC1687b implements Callable<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ com.alipay.sdk.sys.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f31091b;
+        public final /* synthetic */ Context f29495b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ HashMap f31092c;
+        public final /* synthetic */ HashMap f29496c;
 
-        public CallableC1711b(com.alipay.sdk.sys.a aVar, Context context, HashMap hashMap) {
+        public CallableC1687b(com.alipay.sdk.sys.a aVar, Context context, HashMap hashMap) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,8 +119,8 @@ public class b {
                 }
             }
             this.a = aVar;
-            this.f31091b = context;
-            this.f31092c = hashMap;
+            this.f29495b = context;
+            this.f29496c = hashMap;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -128,7 +128,7 @@ public class b {
         public String call() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b.c(this.a, this.f31091b, this.f31092c) : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b.c(this.a, this.f29495b, this.f29496c) : (String) invokeV.objValue;
         }
     }
 
@@ -145,12 +145,12 @@ public class b {
                 return;
             }
         }
-        this.f31088b = "sdk-and-lite";
+        this.f29492b = "sdk-and-lite";
         String a2 = com.alipay.sdk.app.a.a();
         if (com.alipay.sdk.app.a.b()) {
             return;
         }
-        this.f31088b += '_' + a2;
+        this.f29492b += '_' + a2;
     }
 
     public static synchronized b b() {
@@ -159,10 +159,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (b.class) {
-                if (f31087g == null) {
-                    f31087g = new b();
+                if (f29491g == null) {
+                    f29491g = new b();
                 }
-                bVar = f31087g;
+                bVar = f29491g;
             }
             return bVar;
         }
@@ -208,8 +208,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
             Context b3 = com.alipay.sdk.sys.b.d().b();
-            SharedPreferences sharedPreferences = b3.getSharedPreferences(f31084d, 0);
-            String string = sharedPreferences.getString(f31085e, null);
+            SharedPreferences sharedPreferences = b3.getSharedPreferences(f29488d, 0);
+            String string = sharedPreferences.getString(f29489e, null);
             if (TextUtils.isEmpty(string)) {
                 if (TextUtils.isEmpty(com.alipay.sdk.tid.a.a(b3).d())) {
                     b2 = c();
@@ -217,7 +217,7 @@ public class b {
                     b2 = com.alipay.sdk.util.a.b(b3).b();
                 }
                 String str = b2;
-                sharedPreferences.edit().putString(f31085e, str).apply();
+                sharedPreferences.edit().putString(f29489e, str).apply();
                 return str;
             }
             return string;
@@ -231,8 +231,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
             Context b2 = com.alipay.sdk.sys.b.d().b();
-            SharedPreferences sharedPreferences = b2.getSharedPreferences(f31084d, 0);
-            String string = sharedPreferences.getString(f31086f, null);
+            SharedPreferences sharedPreferences = b2.getSharedPreferences(f29488d, 0);
+            String string = sharedPreferences.getString(f29490f, null);
             if (TextUtils.isEmpty(string)) {
                 if (TextUtils.isEmpty(com.alipay.sdk.tid.a.a(b2).d())) {
                     String c3 = com.alipay.sdk.sys.b.d().c();
@@ -245,7 +245,7 @@ public class b {
                     c2 = com.alipay.sdk.util.a.b(b2).c();
                 }
                 String str = c2;
-                sharedPreferences.edit().putString(f31086f, str).apply();
+                sharedPreferences.edit().putString(f29490f, str).apply();
                 return str;
             }
             return string;
@@ -256,7 +256,7 @@ public class b {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31089c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29493c : (String) invokeV.objValue;
     }
 
     public static synchronized void a(String str) {
@@ -266,8 +266,8 @@ public class b {
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                PreferenceManager.getDefaultSharedPreferences(com.alipay.sdk.sys.b.d().b()).edit().putString(com.alipay.sdk.cons.b.f31060i, str).apply();
-                com.alipay.sdk.cons.a.f31047e = str;
+                PreferenceManager.getDefaultSharedPreferences(com.alipay.sdk.sys.b.d().b()).edit().putString(com.alipay.sdk.cons.b.f29464i, str).apply();
+                com.alipay.sdk.cons.a.f29451e = str;
             }
         }
     }
@@ -277,7 +277,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, aVar, context, hashMap)) == null) {
             try {
-                return (String) Executors.newFixedThreadPool(2).submit(new CallableC1711b(aVar, context, hashMap)).get(3000L, TimeUnit.MILLISECONDS);
+                return (String) Executors.newFixedThreadPool(2).submit(new CallableC1687b(aVar, context, hashMap)).get(3000L, TimeUnit.MILLISECONDS);
             } catch (Throwable th) {
                 com.alipay.sdk.app.statistic.a.a(aVar, com.alipay.sdk.app.statistic.b.o, com.alipay.sdk.app.statistic.b.u, th);
                 return "";
@@ -372,7 +372,7 @@ public class b {
             String g2 = g();
             String f3 = f();
             if (aVar2 != null) {
-                this.f31089c = aVar2.c();
+                this.f29493c = aVar2.c();
             }
             String replace = Build.MANUFACTURER.replace(";", " ");
             String replace2 = Build.MODEL.replace(";", " ");
@@ -393,7 +393,7 @@ public class b {
             sb.append(";");
             sb.append(b6);
             sb.append(";");
-            sb.append(this.f31089c);
+            sb.append(this.f29493c);
             sb.append(";");
             sb.append(replace);
             sb.append(";");
@@ -405,7 +405,7 @@ public class b {
             sb.append(";");
             sb.append(d());
             sb.append(";");
-            sb.append(this.f31088b);
+            sb.append(this.f29492b);
             sb.append(";");
             sb.append(g2);
             sb.append(";");
@@ -417,7 +417,7 @@ public class b {
             if (aVar2 != null) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("tid", com.alipay.sdk.tid.a.a(b2).d());
-                hashMap.put(com.alipay.sdk.cons.b.f31058g, com.alipay.sdk.sys.b.d().c());
+                hashMap.put(com.alipay.sdk.cons.b.f29462g, com.alipay.sdk.sys.b.d().c());
                 String b7 = b(aVar, b2, hashMap);
                 if (!TextUtils.isEmpty(b7)) {
                     sb.append(";;;");

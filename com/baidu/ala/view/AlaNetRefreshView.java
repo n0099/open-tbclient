@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.g0.a;
+import c.a.q0.f0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class AlaNetRefreshView extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public class AlaNetRefreshView extends a {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             TextView textView = this.mNetFailTipView;
             if (textView != null) {
-                SkinManager.setViewTextColor(textView, R.color.CAM_X0106);
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0106);
             }
             LinearLayout linearLayout = this.mNetRefreshContainer;
             if (linearLayout != null) {
@@ -63,7 +63,7 @@ public class AlaNetRefreshView extends a {
             }
             TextView textView2 = this.mNetRefreshBtn;
             if (textView2 != null) {
-                SkinManager.setViewTextColor(textView2, R.color.CAM_X0106);
+                SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0106);
                 SkinManager.setBackgroundResource(this.mNetRefreshBtn, R.drawable.ala_net_refresh_btn_bg);
             }
             boolean z = TbadkApplication.getInst().getSkinType() == 1;

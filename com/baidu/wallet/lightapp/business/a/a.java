@@ -11,7 +11,7 @@ import com.baidu.wallet.lightapp.business.datamodel.LangBridgeCfg;
 import com.baidu.wallet.paysdk.fingerprint.bean.FingerprintBeanFactory;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class a extends BaseBean {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

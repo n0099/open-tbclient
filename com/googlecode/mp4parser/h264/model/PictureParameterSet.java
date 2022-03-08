@@ -14,7 +14,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Arrays;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class PictureParameterSet extends BitstreamElement {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public class PictureParameterSet extends BitstreamElement {
     public int weighted_bipred_idc;
     public boolean weighted_pred_flag;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class PPSExt {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

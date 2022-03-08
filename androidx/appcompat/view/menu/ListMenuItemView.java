@@ -16,7 +16,10 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.R;
+import androidx.appcompat.R$attr;
+import androidx.appcompat.R$id;
+import androidx.appcompat.R$layout;
+import androidx.appcompat.R$styleable;
 import androidx.appcompat.view.menu.MenuView;
 import androidx.appcompat.widget.TintTypedArray;
 import androidx.core.view.InputDeviceCompat;
@@ -53,7 +56,7 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ListMenuItemView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.listMenuViewStyle);
+        this(context, attributeSet, R$attr.listMenuViewStyle);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -94,7 +97,7 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
     private void insertCheckBox() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            CheckBox checkBox = (CheckBox) getInflater().inflate(R.layout.abc_list_menu_item_checkbox, (ViewGroup) this, false);
+            CheckBox checkBox = (CheckBox) getInflater().inflate(R$layout.abc_list_menu_item_checkbox, (ViewGroup) this, false);
             this.mCheckBox = checkBox;
             addContentView(checkBox);
         }
@@ -103,7 +106,7 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
     private void insertIconView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            ImageView imageView = (ImageView) getInflater().inflate(R.layout.abc_list_menu_item_icon, (ViewGroup) this, false);
+            ImageView imageView = (ImageView) getInflater().inflate(R$layout.abc_list_menu_item_icon, (ViewGroup) this, false);
             this.mIconView = imageView;
             addContentView(imageView, 0);
         }
@@ -112,7 +115,7 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
     private void insertRadioButton() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            RadioButton radioButton = (RadioButton) getInflater().inflate(R.layout.abc_list_menu_item_radio, (ViewGroup) this, false);
+            RadioButton radioButton = (RadioButton) getInflater().inflate(R$layout.abc_list_menu_item_radio, (ViewGroup) this, false);
             this.mRadioButton = radioButton;
             addContentView(radioButton);
         }
@@ -166,20 +169,20 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onFinishInflate();
             ViewCompat.setBackground(this, this.mBackground);
-            TextView textView = (TextView) findViewById(R.id.title);
+            TextView textView = (TextView) findViewById(R$id.title);
             this.mTitleView = textView;
             int i2 = this.mTextAppearance;
             if (i2 != -1) {
                 textView.setTextAppearance(this.mTextAppearanceContext, i2);
             }
-            this.mShortcutView = (TextView) findViewById(R.id.shortcut);
-            ImageView imageView = (ImageView) findViewById(R.id.submenuarrow);
+            this.mShortcutView = (TextView) findViewById(R$id.shortcut);
+            ImageView imageView = (ImageView) findViewById(R$id.submenuarrow);
             this.mSubMenuArrowView = imageView;
             if (imageView != null) {
                 imageView.setImageDrawable(this.mSubMenuArrow);
             }
-            this.mGroupDivider = (ImageView) findViewById(R.id.group_divider);
-            this.mContent = (LinearLayout) findViewById(R.id.content);
+            this.mGroupDivider = (ImageView) findViewById(R$id.group_divider);
+            this.mContent = (LinearLayout) findViewById(R$id.content);
         }
     }
 
@@ -373,13 +376,13 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
                 return;
             }
         }
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getContext(), attributeSet, R.styleable.MenuView, i2, 0);
-        this.mBackground = obtainStyledAttributes.getDrawable(R.styleable.MenuView_android_itemBackground);
-        this.mTextAppearance = obtainStyledAttributes.getResourceId(R.styleable.MenuView_android_itemTextAppearance, -1);
-        this.mPreserveIconSpacing = obtainStyledAttributes.getBoolean(R.styleable.MenuView_preserveIconSpacing, false);
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getContext(), attributeSet, R$styleable.MenuView, i2, 0);
+        this.mBackground = obtainStyledAttributes.getDrawable(R$styleable.MenuView_android_itemBackground);
+        this.mTextAppearance = obtainStyledAttributes.getResourceId(R$styleable.MenuView_android_itemTextAppearance, -1);
+        this.mPreserveIconSpacing = obtainStyledAttributes.getBoolean(R$styleable.MenuView_preserveIconSpacing, false);
         this.mTextAppearanceContext = context;
-        this.mSubMenuArrow = obtainStyledAttributes.getDrawable(R.styleable.MenuView_subMenuArrow);
-        TypedArray obtainStyledAttributes2 = context.getTheme().obtainStyledAttributes(null, new int[]{16843049}, R.attr.dropDownListViewStyle, 0);
+        this.mSubMenuArrow = obtainStyledAttributes.getDrawable(R$styleable.MenuView_subMenuArrow);
+        TypedArray obtainStyledAttributes2 = context.getTheme().obtainStyledAttributes(null, new int[]{16843049}, R$attr.dropDownListViewStyle, 0);
         this.mHasListDivider = obtainStyledAttributes2.hasValue(0);
         obtainStyledAttributes.recycle();
         obtainStyledAttributes2.recycle();

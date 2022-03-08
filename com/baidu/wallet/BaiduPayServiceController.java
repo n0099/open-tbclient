@@ -33,13 +33,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class BaiduPayServiceController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ILightappInvokerCallback a;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static BaiduPayServiceController a;
@@ -121,7 +121,7 @@ public class BaiduPayServiceController {
                 public final /* synthetic */ RouterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BaiduPayServiceController f50522b;
+                public final /* synthetic */ BaiduPayServiceController f48941b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -138,7 +138,7 @@ public class BaiduPayServiceController {
                             return;
                         }
                     }
-                    this.f50522b = this;
+                    this.f48941b = this;
                     this.a = routerCallback;
                 }
 

@@ -23,7 +23,7 @@ import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Converter;
 import retrofit2.Retrofit;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class Retrofit2ConverterFactory extends Converter.Factory {
     public static /* synthetic */ Interceptable $ic;
     @Deprecated
@@ -42,7 +42,7 @@ public class Retrofit2ConverterFactory extends Converter.Factory {
     @Deprecated
     public SerializerFeature[] serializerFeatures;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public final class RequestBodyConverter<T> implements Converter<T, RequestBody> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class Retrofit2ConverterFactory extends Converter.Factory {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public final class ResponseBodyConverter<T> implements Converter<ResponseBody, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

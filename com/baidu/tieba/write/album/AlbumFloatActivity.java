@@ -6,12 +6,12 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.y0.b;
-import c.a.u0.s4.g;
-import c.a.u0.s4.u.e;
+import c.a.q0.x0.b;
+import c.a.r0.q4.k.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.atomData.AlbumFloatActivityConfig;
@@ -23,17 +23,20 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
+import com.baidu.tieba.R;
+import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class AlbumFloatActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public e albumView;
+    public ViewGroup mRootView;
 
     public AlbumFloatActivity() {
         Interceptable interceptable = $ic;
@@ -110,7 +113,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
             if (this.albumView == null) {
-                e eVar = new e(this, null, linearLayout.getId(), g.root_stub);
+                e eVar = new e(this, null, linearLayout.getId(), R.id.root_stub);
                 this.albumView = eVar;
                 eVar.N(navigationBar);
             }
@@ -146,6 +149,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             dealSchema();
             super.onCreate(bundle);
+            this.mRootView = (ViewGroup) findViewById(R.id.suspend_root_view);
         }
     }
 
@@ -239,6 +243,14 @@ public class AlbumFloatActivity extends SuspendedActivity {
     public void requestData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public void showToast(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+            new BdTopToast(this, 3000).setIcon(false).setContent(getResources().getString(i2)).show(this.mRootView);
         }
     }
 }

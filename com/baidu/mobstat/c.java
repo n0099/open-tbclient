@@ -3,7 +3,7 @@ package com.baidu.mobstat;
 import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +20,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65539, null, context, z) == null) {
             f.a.a(context, z);
-            y.a(context).a(z ? g.f37118d : g.f37119e, System.currentTimeMillis());
+            y.a(context).a(z ? g.f35521d : g.f35522e, System.currentTimeMillis());
         }
     }
 
@@ -28,7 +28,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65537, null, context, z) == null) {
             e.a.a(context, z);
-            y.a(context).a(z ? g.f37117c : g.f37116b, System.currentTimeMillis());
+            y.a(context).a(z ? g.f35520c : g.f35519b, System.currentTimeMillis());
         }
     }
 
@@ -36,7 +36,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             d.a.a(context);
-            y.a(context).a(g.f37121g, System.currentTimeMillis());
+            y.a(context).a(g.f35524g, System.currentTimeMillis());
         }
     }
 }

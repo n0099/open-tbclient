@@ -7,11 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.s0.n.i;
-import c.a.s0.n.j;
-import c.a.s0.n.o;
-import c.a.s0.w.e;
+import c.a.p0.n.g;
+import c.a.p0.w.e;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,30 +18,30 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class MenuContentAdapter extends RecyclerView.Adapter<a> {
     public static /* synthetic */ Interceptable $ic;
     public static final int ORIENTATION_PORTRAIT = 0;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<o> a;
+    public List<g> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<o> f40165b;
+    public List<g> f38569b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f40166c;
+    public int f38570c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f40167d;
+    public Context f38571d;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static class a extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public SwanAppMenuItemView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public SwanAppMenuItemView f40168b;
+        public SwanAppMenuItemView f38572b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(View view) {
@@ -62,8 +61,8 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
                     return;
                 }
             }
-            this.a = (SwanAppMenuItemView) view.findViewById(i.first_line_menu_item_view);
-            this.f40168b = (SwanAppMenuItemView) view.findViewById(i.second_line_menu_item_view);
+            this.a = (SwanAppMenuItemView) view.findViewById(R.id.first_line_menu_item_view);
+            this.f38572b = (SwanAppMenuItemView) view.findViewById(R.id.second_line_menu_item_view);
         }
     }
 
@@ -83,31 +82,31 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
             }
         }
         this.a = new ArrayList();
-        this.f40165b = new ArrayList();
-        this.f40167d = context;
+        this.f38569b = new ArrayList();
+        this.f38571d = context;
     }
 
     public final boolean a(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? z || this.a.size() > 5 || this.f40165b.size() > 5 : invokeZ.booleanValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? z || this.a.size() > 5 || this.f38569b.size() > 5 : invokeZ.booleanValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Math.max(this.a.size(), this.f40165b.size()) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Math.max(this.a.size(), this.f38569b.size()) : invokeV.intValue;
     }
 
-    public void updateData(List<List<o>> list, boolean z, int i2) {
+    public void updateData(List<List<g>> list, boolean z, int i2) {
         int max;
-        List<o> list2;
-        List<o> list3;
+        List<g> list2;
+        List<g> list3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{list, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
             this.a.clear();
-            this.f40165b.clear();
+            this.f38569b.clear();
             if (list == null) {
                 return;
             }
@@ -115,9 +114,9 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
                 this.a.addAll(list3);
             }
             if (list.size() > 1 && (list2 = list.get(1)) != null) {
-                this.f40165b.addAll(list2);
+                this.f38569b.addAll(list2);
             }
-            DisplayMetrics displayMetrics = this.f40167d.getResources().getDisplayMetrics();
+            DisplayMetrics displayMetrics = this.f38571d.getResources().getDisplayMetrics();
             if (i2 == 0) {
                 max = Math.min(displayMetrics.widthPixels, displayMetrics.heightPixels);
             } else {
@@ -125,12 +124,12 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
             }
             float f2 = a(z) ? 5.5f : 5.0f;
             if (e.d()) {
-                Context context = this.f40167d;
+                Context context = this.f38571d;
                 if ((context instanceof Activity) && e.e((Activity) context)) {
-                    max = e.a((Activity) this.f40167d);
+                    max = e.a((Activity) this.f38571d);
                 }
             }
-            this.f40166c = (int) (max / f2);
+            this.f38570c = (int) (max / f2);
             notifyDataSetChanged();
         }
     }
@@ -143,7 +142,7 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
             ViewGroup.LayoutParams layoutParams = aVar.itemView.getLayoutParams();
             if (layoutParams != null) {
                 int i3 = layoutParams.width;
-                int i4 = this.f40166c;
+                int i4 = this.f38570c;
                 if (i3 != i4) {
                     layoutParams.width = i4;
                     aVar.itemView.setLayoutParams(layoutParams);
@@ -151,20 +150,20 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
             }
             if (i2 < this.a.size()) {
                 aVar.a.setVisibility(0);
-                aVar.a.h(this.a.get(i2), this.f40166c);
+                aVar.a.h(this.a.get(i2), this.f38570c);
                 aVar.a.setOnClickListener(null);
             } else {
                 aVar.a.setVisibility(this.a.size() == 0 ? 8 : 4);
                 aVar.a.setOnClickListener(null);
             }
-            if (i2 < this.f40165b.size()) {
-                aVar.f40168b.setVisibility(0);
-                aVar.f40168b.h(this.f40165b.get(i2), this.f40166c);
-                aVar.f40168b.setOnClickListener(null);
+            if (i2 < this.f38569b.size()) {
+                aVar.f38572b.setVisibility(0);
+                aVar.f38572b.h(this.f38569b.get(i2), this.f38570c);
+                aVar.f38572b.setOnClickListener(null);
                 return;
             }
-            aVar.f40168b.setVisibility(this.f40165b.size() != 0 ? 4 : 8);
-            aVar.f40168b.setOnClickListener(null);
+            aVar.f38572b.setVisibility(this.f38569b.size() != 0 ? 4 : 8);
+            aVar.f38572b.setOnClickListener(null);
         }
     }
 
@@ -174,12 +173,12 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i2)) == null) {
-            View inflate = LayoutInflater.from(this.f40167d).inflate(j.swan_app_menu_item_layout, viewGroup, false);
+            View inflate = LayoutInflater.from(this.f38571d).inflate(R.layout.swan_app_menu_item_layout, viewGroup, false);
             ViewGroup.LayoutParams layoutParams = inflate.getLayoutParams();
             if (layoutParams == null) {
-                layoutParams = new ViewGroup.LayoutParams(this.f40166c, -2);
+                layoutParams = new ViewGroup.LayoutParams(this.f38570c, -2);
             } else {
-                layoutParams.width = this.f40166c;
+                layoutParams.width = this.f38570c;
             }
             inflate.setLayoutParams(layoutParams);
             return new a(inflate);

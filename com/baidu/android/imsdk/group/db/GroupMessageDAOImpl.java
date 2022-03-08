@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class GroupMessageDAOImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "GroupMessageDAOImpl";
@@ -38,7 +38,7 @@ public class GroupMessageDAOImpl {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.imsdk.group.db.GroupMessageDAOImpl$4  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$imsdk$group$db$GroupMessageDAOImpl$MSGTYPEEXPLAN;
         public static /* synthetic */ Interceptable $ic;
@@ -70,7 +70,7 @@ public class GroupMessageDAOImpl {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class ChatMsgParse implements IResultParse<ChatMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,7 +113,7 @@ public class GroupMessageDAOImpl {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class GroupChatMsgParse implements IResultParse<ChatMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -153,7 +153,7 @@ public class GroupMessageDAOImpl {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class LocalChatMsgParse implements IResultParse<ChatMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -194,7 +194,7 @@ public class GroupMessageDAOImpl {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class MSGTYPEEXPLAN {
         public static final /* synthetic */ MSGTYPEEXPLAN[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -254,7 +254,7 @@ public class GroupMessageDAOImpl {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static final class MessageType {
         public static final /* synthetic */ MessageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

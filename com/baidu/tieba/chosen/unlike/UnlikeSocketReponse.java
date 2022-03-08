@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Unlike.DataRes;
 import tbclient.Unlike.UnlikeResIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class UnlikeSocketReponse extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

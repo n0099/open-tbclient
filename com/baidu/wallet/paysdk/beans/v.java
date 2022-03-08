@@ -20,20 +20,20 @@ import com.dxmpay.wallet.core.beans.BaseBean;
 import com.dxmpay.wallet.core.domain.DomainConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class v extends BaseBean<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f52158b;
+    public String f50577b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f52159c;
+    public boolean f50578c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f52160d;
+    public String f50579d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> v(Context context) {
@@ -53,7 +53,7 @@ public class v extends BaseBean<Object> {
                 return;
             }
         }
-        this.f52159c = true;
+        this.f50578c = true;
     }
 
     public void a(String str) {
@@ -66,14 +66,14 @@ public class v extends BaseBean<Object> {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f52158b = str;
+            this.f50577b = str;
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f52160d = str;
+            this.f50579d = str;
         }
     }
 
@@ -93,11 +93,11 @@ public class v extends BaseBean<Object> {
             ArrayList arrayList = new ArrayList();
             String seed = PasswordController.getSeed();
             String encryptProxy = SecurePay.getInstance().encryptProxy(seed);
-            if (this.f52159c) {
+            if (this.f50578c) {
                 arrayList.add(new RestNameValuePair("mobile_pwd", PasswordController.handlePwd(this.a, seed)));
                 arrayList.add(new RestNameValuePair("seed", encryptProxy));
             } else {
-                String generateOTPKey = WalletFingerprint.getInstance(this.mContext).generateOTPKey(this.f52158b);
+                String generateOTPKey = WalletFingerprint.getInstance(this.mContext).generateOTPKey(this.f50577b);
                 String sn = WalletFingerprint.getInstance(this.mContext).getSN();
                 if (!TextUtils.isEmpty(generateOTPKey) && !TextUtils.isEmpty(sn)) {
                     arrayList.add(new RestNameValuePair("token_code", SecurePay.getInstance().encrypt(generateOTPKey)));
@@ -111,8 +111,8 @@ public class v extends BaseBean<Object> {
             arrayList.add(new RestNameValuePair("request_type", BindFastRequest.getCardRequestType(1)));
             arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, ""));
             BindFastRequest bindFastRequest = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Initiative.name());
-            if (!TextUtils.isEmpty(this.f52160d)) {
-                arrayList.add(new RestNameValuePair("session_id", this.f52160d));
+            if (!TextUtils.isEmpty(this.f50579d)) {
+                arrayList.add(new RestNameValuePair("session_id", this.f50579d));
             } else if (bindFastRequest != null && !TextUtils.isEmpty(bindFastRequest.getSessionId())) {
                 arrayList.add(new RestNameValuePair("session_id", bindFastRequest.getSessionId()));
             } else {
@@ -143,7 +143,7 @@ public class v extends BaseBean<Object> {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f52159c = z;
+            this.f50578c = z;
         }
     }
 }

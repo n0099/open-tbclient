@@ -13,14 +13,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.Locale;
-import kotlin.text.Typography;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f60714b;
+    public static String f59064b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -95,45 +94,45 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
             try {
-                if (f60714b == null) {
+                if (f59064b == null) {
                     DisplayMetrics displayMetrics = new DisplayMetrics();
                     ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
                     StringBuilder sb = new StringBuilder();
                     sb.append("imei=");
                     sb.append(b(context));
-                    sb.append(Typography.amp);
+                    sb.append('&');
                     sb.append("model=");
                     sb.append(Build.MODEL);
-                    sb.append(Typography.amp);
+                    sb.append('&');
                     sb.append("os=");
                     sb.append(Build.VERSION.RELEASE);
-                    sb.append(Typography.amp);
+                    sb.append('&');
                     sb.append("apilevel=");
                     sb.append(Build.VERSION.SDK_INT);
-                    sb.append(Typography.amp);
+                    sb.append('&');
                     String b2 = a.b(context);
                     if (b2 == null) {
                         b2 = "";
                     }
                     sb.append("network=");
                     sb.append(b2);
-                    sb.append(Typography.amp);
+                    sb.append('&');
                     sb.append("sdcard=");
                     sb.append(Environment.getExternalStorageState().equals("mounted") ? 1 : 0);
-                    sb.append(Typography.amp);
+                    sb.append('&');
                     sb.append("display=");
                     sb.append(displayMetrics.widthPixels);
                     sb.append('*');
                     sb.append(displayMetrics.heightPixels);
-                    sb.append(Typography.amp);
+                    sb.append('&');
                     sb.append("manu=");
                     sb.append(Build.MANUFACTURER);
                     sb.append("&");
                     sb.append("wifi=");
                     sb.append(a.e(context));
-                    f60714b = sb.toString();
+                    f59064b = sb.toString();
                 }
-                return f60714b;
+                return f59064b;
             } catch (Exception unused) {
                 return null;
             }

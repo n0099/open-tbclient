@@ -5,10 +5,6 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
-import c.i.b.a.a0.q.h;
-import c.i.b.a.d0.x.e.a;
-import c.i.b.a.h0.o;
-import c.i.b.a.i0.v;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.rtc.PeerConnectionClient;
@@ -18,9 +14,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.sampleentry.AudioSampleEntry;
+import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.ParserException;
 import com.google.android.exoplayer2.drm.DrmInitData;
+import com.google.android.exoplayer2.extractor.mp4.PsshAtomUtil;
+import com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest;
+import com.google.android.exoplayer2.upstream.ParsingLoadable;
+import com.google.android.exoplayer2.util.Assertions;
+import com.google.android.exoplayer2.util.CodecSpecificDataUtil;
+import com.google.android.exoplayer2.util.MimeTypes;
+import com.google.android.exoplayer2.util.Util;
 import com.googlecode.mp4parser.boxes.AC3SpecificBox;
 import com.googlecode.mp4parser.boxes.EC3SpecificBox;
 import java.io.IOException;
@@ -30,17 +34,268 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
-import org.webrtc.MediaStreamTrack;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes3.dex */
-public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
+/* loaded from: classes7.dex */
+public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final XmlPullParserFactory a;
+    public final XmlPullParserFactory xmlParserFactory;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
+    public static abstract class ElementParser {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String baseUri;
+        public final List<Pair<String, Object>> normalizedAttributes;
+        public final ElementParser parent;
+        public final String tag;
+
+        public ElementParser(ElementParser elementParser, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {elementParser, str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.parent = elementParser;
+            this.baseUri = str;
+            this.tag = str2;
+            this.normalizedAttributes = new LinkedList();
+        }
+
+        private ElementParser newChildParser(ElementParser elementParser, String str, String str2) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, elementParser, str, str2)) == null) {
+                if (QualityLevelParser.TAG.equals(str)) {
+                    return new QualityLevelParser(elementParser, str2);
+                }
+                if (ProtectionParser.TAG.equals(str)) {
+                    return new ProtectionParser(elementParser, str2);
+                }
+                if (StreamIndexParser.TAG.equals(str)) {
+                    return new StreamIndexParser(elementParser, str2);
+                }
+                return null;
+            }
+            return (ElementParser) invokeLLL.objValue;
+        }
+
+        public void addChild(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            }
+        }
+
+        public abstract Object build();
+
+        public final Object getNormalizedAttribute(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                for (int i2 = 0; i2 < this.normalizedAttributes.size(); i2++) {
+                    Pair<String, Object> pair = this.normalizedAttributes.get(i2);
+                    if (((String) pair.first).equals(str)) {
+                        return pair.second;
+                    }
+                }
+                ElementParser elementParser = this.parent;
+                if (elementParser == null) {
+                    return null;
+                }
+                return elementParser.getNormalizedAttribute(str);
+            }
+            return invokeL.objValue;
+        }
+
+        public boolean handleChildInline(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public final Object parse(XmlPullParser xmlPullParser) throws XmlPullParserException, IOException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, xmlPullParser)) != null) {
+                return invokeL.objValue;
+            }
+            boolean z = false;
+            int i2 = 0;
+            while (true) {
+                int eventType = xmlPullParser.getEventType();
+                if (eventType == 1) {
+                    return null;
+                }
+                if (eventType == 2) {
+                    String name = xmlPullParser.getName();
+                    if (this.tag.equals(name)) {
+                        parseStartTag(xmlPullParser);
+                        z = true;
+                    } else if (z) {
+                        if (i2 > 0) {
+                            i2++;
+                        } else if (handleChildInline(name)) {
+                            parseStartTag(xmlPullParser);
+                        } else {
+                            ElementParser newChildParser = newChildParser(this, name, this.baseUri);
+                            if (newChildParser == null) {
+                                i2 = 1;
+                            } else {
+                                addChild(newChildParser.parse(xmlPullParser));
+                            }
+                        }
+                    }
+                } else if (eventType != 3) {
+                    if (eventType == 4 && z && i2 == 0) {
+                        parseText(xmlPullParser);
+                    }
+                } else if (!z) {
+                    continue;
+                } else if (i2 > 0) {
+                    i2--;
+                } else {
+                    String name2 = xmlPullParser.getName();
+                    parseEndTag(xmlPullParser);
+                    if (!handleChildInline(name2)) {
+                        return build();
+                    }
+                }
+                xmlPullParser.next();
+            }
+        }
+
+        public final boolean parseBoolean(XmlPullParser xmlPullParser, String str, boolean z) {
+            InterceptResult invokeLLZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048581, this, xmlPullParser, str, z)) == null) {
+                String attributeValue = xmlPullParser.getAttributeValue(null, str);
+                return attributeValue != null ? Boolean.parseBoolean(attributeValue) : z;
+            }
+            return invokeLLZ.booleanValue;
+        }
+
+        public void parseEndTag(XmlPullParser xmlPullParser) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, xmlPullParser) == null) {
+            }
+        }
+
+        public final int parseInt(XmlPullParser xmlPullParser, String str, int i2) throws ParserException {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048583, this, xmlPullParser, str, i2)) == null) {
+                String attributeValue = xmlPullParser.getAttributeValue(null, str);
+                if (attributeValue != null) {
+                    try {
+                        return Integer.parseInt(attributeValue);
+                    } catch (NumberFormatException e2) {
+                        throw new ParserException(e2);
+                    }
+                }
+                return i2;
+            }
+            return invokeLLI.intValue;
+        }
+
+        public final long parseLong(XmlPullParser xmlPullParser, String str, long j2) throws ParserException {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{xmlPullParser, str, Long.valueOf(j2)})) == null) {
+                String attributeValue = xmlPullParser.getAttributeValue(null, str);
+                if (attributeValue != null) {
+                    try {
+                        return Long.parseLong(attributeValue);
+                    } catch (NumberFormatException e2) {
+                        throw new ParserException(e2);
+                    }
+                }
+                return j2;
+            }
+            return invokeCommon.longValue;
+        }
+
+        public final int parseRequiredInt(XmlPullParser xmlPullParser, String str) throws ParserException {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, xmlPullParser, str)) == null) {
+                String attributeValue = xmlPullParser.getAttributeValue(null, str);
+                if (attributeValue != null) {
+                    try {
+                        return Integer.parseInt(attributeValue);
+                    } catch (NumberFormatException e2) {
+                        throw new ParserException(e2);
+                    }
+                }
+                throw new MissingFieldException(str);
+            }
+            return invokeLL.intValue;
+        }
+
+        public final long parseRequiredLong(XmlPullParser xmlPullParser, String str) throws ParserException {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, xmlPullParser, str)) == null) {
+                String attributeValue = xmlPullParser.getAttributeValue(null, str);
+                if (attributeValue != null) {
+                    try {
+                        return Long.parseLong(attributeValue);
+                    } catch (NumberFormatException e2) {
+                        throw new ParserException(e2);
+                    }
+                }
+                throw new MissingFieldException(str);
+            }
+            return invokeLL.longValue;
+        }
+
+        public final String parseRequiredString(XmlPullParser xmlPullParser, String str) throws MissingFieldException {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, xmlPullParser, str)) == null) {
+                String attributeValue = xmlPullParser.getAttributeValue(null, str);
+                if (attributeValue != null) {
+                    return attributeValue;
+                }
+                throw new MissingFieldException(str);
+            }
+            return (String) invokeLL.objValue;
+        }
+
+        public void parseStartTag(XmlPullParser xmlPullParser) throws ParserException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048588, this, xmlPullParser) == null) {
+            }
+        }
+
+        public void parseText(XmlPullParser xmlPullParser) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048589, this, xmlPullParser) == null) {
+            }
+        }
+
+        public final void putNormalizedAttribute(String str, Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048590, this, str, obj) == null) {
+                this.normalizedAttributes.add(Pair.create(str, obj));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
     public static class MissingFieldException extends ParserException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,288 +321,31 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public static abstract class a {
-        public static /* synthetic */ Interceptable $ic;
+    /* loaded from: classes7.dex */
+    public static class ProtectionParser extends ElementParser {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final String KEY_SYSTEM_ID = "SystemID";
+        public static final String TAG = "Protection";
+        public static final String TAG_PROTECTION_HEADER = "ProtectionHeader";
         public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final String f54502b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final a f54503c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final List<Pair<String, Object>> f54504d;
-
-        public a(a aVar, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f54503c = aVar;
-            this.a = str;
-            this.f54502b = str2;
-            this.f54504d = new LinkedList();
-        }
-
-        public void a(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            }
-        }
-
-        public abstract Object b();
-
-        public final Object c(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                for (int i2 = 0; i2 < this.f54504d.size(); i2++) {
-                    Pair<String, Object> pair = this.f54504d.get(i2);
-                    if (((String) pair.first).equals(str)) {
-                        return pair.second;
-                    }
-                }
-                a aVar = this.f54503c;
-                if (aVar == null) {
-                    return null;
-                }
-                return aVar.c(str);
-            }
-            return invokeL.objValue;
-        }
-
-        public boolean d(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public final a e(a aVar, String str, String str2) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, aVar, str, str2)) == null) {
-                if ("QualityLevel".equals(str)) {
-                    return new c(aVar, str2);
-                }
-                if ("Protection".equals(str)) {
-                    return new b(aVar, str2);
-                }
-                if ("StreamIndex".equals(str)) {
-                    return new e(aVar, str2);
-                }
-                return null;
-            }
-            return (a) invokeLLL.objValue;
-        }
-
-        public final Object f(XmlPullParser xmlPullParser) throws XmlPullParserException, IOException {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeL = interceptable.invokeL(1048581, this, xmlPullParser)) != null) {
-                return invokeL.objValue;
-            }
-            boolean z = false;
-            int i2 = 0;
-            while (true) {
-                int eventType = xmlPullParser.getEventType();
-                if (eventType == 1) {
-                    return null;
-                }
-                if (eventType == 2) {
-                    String name = xmlPullParser.getName();
-                    if (this.f54502b.equals(name)) {
-                        n(xmlPullParser);
-                        z = true;
-                    } else if (z) {
-                        if (i2 > 0) {
-                            i2++;
-                        } else if (d(name)) {
-                            n(xmlPullParser);
-                        } else {
-                            a e2 = e(this, name, this.a);
-                            if (e2 == null) {
-                                i2 = 1;
-                            } else {
-                                a(e2.f(xmlPullParser));
-                            }
-                        }
-                    }
-                } else if (eventType != 3) {
-                    if (eventType == 4 && z && i2 == 0) {
-                        o(xmlPullParser);
-                    }
-                } else if (!z) {
-                    continue;
-                } else if (i2 > 0) {
-                    i2--;
-                } else {
-                    String name2 = xmlPullParser.getName();
-                    h(xmlPullParser);
-                    if (!d(name2)) {
-                        return b();
-                    }
-                }
-                xmlPullParser.next();
-            }
-        }
-
-        public final boolean g(XmlPullParser xmlPullParser, String str, boolean z) {
-            InterceptResult invokeLLZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048582, this, xmlPullParser, str, z)) == null) {
-                String attributeValue = xmlPullParser.getAttributeValue(null, str);
-                return attributeValue != null ? Boolean.parseBoolean(attributeValue) : z;
-            }
-            return invokeLLZ.booleanValue;
-        }
-
-        public void h(XmlPullParser xmlPullParser) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, xmlPullParser) == null) {
-            }
-        }
-
-        public final int i(XmlPullParser xmlPullParser, String str, int i2) throws ParserException {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, xmlPullParser, str, i2)) == null) {
-                String attributeValue = xmlPullParser.getAttributeValue(null, str);
-                if (attributeValue != null) {
-                    try {
-                        return Integer.parseInt(attributeValue);
-                    } catch (NumberFormatException e2) {
-                        throw new ParserException(e2);
-                    }
-                }
-                return i2;
-            }
-            return invokeLLI.intValue;
-        }
-
-        public final long j(XmlPullParser xmlPullParser, String str, long j2) throws ParserException {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{xmlPullParser, str, Long.valueOf(j2)})) == null) {
-                String attributeValue = xmlPullParser.getAttributeValue(null, str);
-                if (attributeValue != null) {
-                    try {
-                        return Long.parseLong(attributeValue);
-                    } catch (NumberFormatException e2) {
-                        throw new ParserException(e2);
-                    }
-                }
-                return j2;
-            }
-            return invokeCommon.longValue;
-        }
-
-        public final int k(XmlPullParser xmlPullParser, String str) throws ParserException {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, xmlPullParser, str)) == null) {
-                String attributeValue = xmlPullParser.getAttributeValue(null, str);
-                if (attributeValue != null) {
-                    try {
-                        return Integer.parseInt(attributeValue);
-                    } catch (NumberFormatException e2) {
-                        throw new ParserException(e2);
-                    }
-                }
-                throw new MissingFieldException(str);
-            }
-            return invokeLL.intValue;
-        }
-
-        public final long l(XmlPullParser xmlPullParser, String str) throws ParserException {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, xmlPullParser, str)) == null) {
-                String attributeValue = xmlPullParser.getAttributeValue(null, str);
-                if (attributeValue != null) {
-                    try {
-                        return Long.parseLong(attributeValue);
-                    } catch (NumberFormatException e2) {
-                        throw new ParserException(e2);
-                    }
-                }
-                throw new MissingFieldException(str);
-            }
-            return invokeLL.longValue;
-        }
-
-        public final String m(XmlPullParser xmlPullParser, String str) throws MissingFieldException {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, xmlPullParser, str)) == null) {
-                String attributeValue = xmlPullParser.getAttributeValue(null, str);
-                if (attributeValue != null) {
-                    return attributeValue;
-                }
-                throw new MissingFieldException(str);
-            }
-            return (String) invokeLL.objValue;
-        }
-
-        public abstract void n(XmlPullParser xmlPullParser) throws ParserException;
-
-        public void o(XmlPullParser xmlPullParser) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048590, this, xmlPullParser) == null) {
-            }
-        }
-
-        public final void p(String str, Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048591, this, str, obj) == null) {
-                this.f54504d.add(Pair.create(str, obj));
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class b extends a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public boolean f54505e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public UUID f54506f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public byte[] f54507g;
+        public boolean inProtectionHeader;
+        public byte[] initData;
+        public UUID uuid;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(a aVar, String str) {
-            super(aVar, str, "Protection");
+        public ProtectionParser(ElementParser elementParser, String str) {
+            super(elementParser, str, TAG);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, str};
+                Object[] objArr = {elementParser, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((a) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
+                    super((ElementParser) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -355,78 +353,87 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
             }
         }
 
-        public static String q(String str) {
+        public static String stripCurlyBraces(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? (str.charAt(0) == '{' && str.charAt(str.length() - 1) == '}') ? str.substring(1, str.length() - 1) : str : (String) invokeL.objValue;
         }
 
-        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
-        public Object b() {
+        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.ElementParser
+        public Object build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                UUID uuid = this.f54506f;
-                return new a.C1672a(uuid, h.a(uuid, this.f54507g));
+                UUID uuid = this.uuid;
+                return new SsManifest.ProtectionElement(uuid, PsshAtomUtil.buildPsshAtom(uuid, this.initData));
             }
             return invokeV.objValue;
         }
 
-        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
-        public boolean d(String str) {
+        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.ElementParser
+        public boolean handleChildInline(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? "ProtectionHeader".equals(str) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? TAG_PROTECTION_HEADER.equals(str) : invokeL.booleanValue;
         }
 
-        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
-        public void h(XmlPullParser xmlPullParser) {
+        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.ElementParser
+        public void parseEndTag(XmlPullParser xmlPullParser) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xmlPullParser) == null) && "ProtectionHeader".equals(xmlPullParser.getName())) {
-                this.f54505e = false;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xmlPullParser) == null) && TAG_PROTECTION_HEADER.equals(xmlPullParser.getName())) {
+                this.inProtectionHeader = false;
             }
         }
 
-        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
-        public void n(XmlPullParser xmlPullParser) {
+        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.ElementParser
+        public void parseStartTag(XmlPullParser xmlPullParser) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, xmlPullParser) == null) && "ProtectionHeader".equals(xmlPullParser.getName())) {
-                this.f54505e = true;
-                this.f54506f = UUID.fromString(q(xmlPullParser.getAttributeValue(null, "SystemID")));
+            if ((interceptable == null || interceptable.invokeL(1048579, this, xmlPullParser) == null) && TAG_PROTECTION_HEADER.equals(xmlPullParser.getName())) {
+                this.inProtectionHeader = true;
+                this.uuid = UUID.fromString(stripCurlyBraces(xmlPullParser.getAttributeValue(null, KEY_SYSTEM_ID)));
             }
         }
 
-        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
-        public void o(XmlPullParser xmlPullParser) {
+        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.ElementParser
+        public void parseText(XmlPullParser xmlPullParser) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, xmlPullParser) == null) && this.f54505e) {
-                this.f54507g = Base64.decode(xmlPullParser.getText(), 0);
+            if ((interceptable == null || interceptable.invokeL(1048580, this, xmlPullParser) == null) && this.inProtectionHeader) {
+                this.initData = Base64.decode(xmlPullParser.getText(), 0);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public static class c extends a {
-        public static /* synthetic */ Interceptable $ic;
+    /* loaded from: classes7.dex */
+    public static class QualityLevelParser extends ElementParser {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final String KEY_BITRATE = "Bitrate";
+        public static final String KEY_CHANNELS = "Channels";
+        public static final String KEY_CODEC_PRIVATE_DATA = "CodecPrivateData";
+        public static final String KEY_FOUR_CC = "FourCC";
+        public static final String KEY_INDEX = "Index";
+        public static final String KEY_LANGUAGE = "Language";
+        public static final String KEY_MAX_HEIGHT = "MaxHeight";
+        public static final String KEY_MAX_WIDTH = "MaxWidth";
+        public static final String KEY_SAMPLING_RATE = "SamplingRate";
+        public static final String KEY_TYPE = "Type";
+        public static final String TAG = "QualityLevel";
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public Format f54508e;
+        public Format format;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(a aVar, String str) {
-            super(aVar, str, "QualityLevel");
+        public QualityLevelParser(ElementParser elementParser, String str) {
+            super(elementParser, str, TAG);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, str};
+                Object[] objArr = {elementParser, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((a) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
+                    super((ElementParser) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -434,18 +441,18 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
             }
         }
 
-        public static List<byte[]> q(String str) {
+        public static List<byte[]> buildCodecSpecificData(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
                 ArrayList arrayList = new ArrayList();
                 if (!TextUtils.isEmpty(str)) {
-                    byte[] n = v.n(str);
-                    byte[][] k = c.i.b.a.i0.c.k(n);
-                    if (k == null) {
-                        arrayList.add(n);
+                    byte[] bytesFromHexString = Util.getBytesFromHexString(str);
+                    byte[][] splitNalUnits = CodecSpecificDataUtil.splitNalUnits(bytesFromHexString);
+                    if (splitNalUnits == null) {
+                        arrayList.add(bytesFromHexString);
                     } else {
-                        Collections.addAll(arrayList, k);
+                        Collections.addAll(arrayList, splitNalUnits);
                     }
                 }
                 return arrayList;
@@ -453,7 +460,7 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
             return (List) invokeL.objValue;
         }
 
-        public static String r(String str) {
+        public static String fourCCToMimeType(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
@@ -464,149 +471,145 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
                     return "audio/mp4a-latm";
                 }
                 if (str.equalsIgnoreCase("TTML")) {
-                    return "application/ttml+xml";
+                    return MimeTypes.APPLICATION_TTML;
                 }
                 if (str.equalsIgnoreCase(AudioSampleEntry.TYPE8) || str.equalsIgnoreCase(AC3SpecificBox.TYPE)) {
-                    return "audio/ac3";
+                    return MimeTypes.AUDIO_AC3;
                 }
                 if (str.equalsIgnoreCase(AudioSampleEntry.TYPE9) || str.equalsIgnoreCase(EC3SpecificBox.TYPE)) {
-                    return "audio/eac3";
+                    return MimeTypes.AUDIO_E_AC3;
                 }
                 if (str.equalsIgnoreCase("dtsc")) {
-                    return "audio/vnd.dts";
+                    return MimeTypes.AUDIO_DTS;
                 }
                 if (str.equalsIgnoreCase(AudioSampleEntry.TYPE12) || str.equalsIgnoreCase(AudioSampleEntry.TYPE11)) {
-                    return "audio/vnd.dts.hd";
+                    return MimeTypes.AUDIO_DTS_HD;
                 }
                 if (str.equalsIgnoreCase(AudioSampleEntry.TYPE13)) {
-                    return "audio/vnd.dts.hd;profile=lbr";
+                    return MimeTypes.AUDIO_DTS_EXPRESS;
                 }
                 if (str.equalsIgnoreCase("opus")) {
-                    return "audio/opus";
+                    return MimeTypes.AUDIO_OPUS;
                 }
                 return null;
             }
             return (String) invokeL.objValue;
         }
 
-        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
-        public Object b() {
+        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.ElementParser
+        public Object build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54508e : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.format : invokeV.objValue;
         }
 
-        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
-        public void n(XmlPullParser xmlPullParser) throws ParserException {
+        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.ElementParser
+        public void parseStartTag(XmlPullParser xmlPullParser) throws ParserException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xmlPullParser) == null) {
-                int intValue = ((Integer) c("Type")).intValue();
-                String attributeValue = xmlPullParser.getAttributeValue(null, "Index");
-                int k = k(xmlPullParser, "Bitrate");
-                String r = r(m(xmlPullParser, "FourCC"));
+                int intValue = ((Integer) getNormalizedAttribute("Type")).intValue();
+                String attributeValue = xmlPullParser.getAttributeValue(null, KEY_INDEX);
+                int parseRequiredInt = parseRequiredInt(xmlPullParser, KEY_BITRATE);
+                String fourCCToMimeType = fourCCToMimeType(parseRequiredString(xmlPullParser, KEY_FOUR_CC));
                 if (intValue == 2) {
-                    this.f54508e = Format.createVideoContainerFormat(attributeValue, "video/mp4", r, null, k, k(xmlPullParser, "MaxWidth"), k(xmlPullParser, "MaxHeight"), -1.0f, q(xmlPullParser.getAttributeValue(null, "CodecPrivateData")), 0);
+                    this.format = Format.createVideoContainerFormat(attributeValue, MimeTypes.VIDEO_MP4, fourCCToMimeType, null, parseRequiredInt, parseRequiredInt(xmlPullParser, "MaxWidth"), parseRequiredInt(xmlPullParser, "MaxHeight"), -1.0f, buildCodecSpecificData(xmlPullParser.getAttributeValue(null, KEY_CODEC_PRIVATE_DATA)), 0);
                 } else if (intValue != 1) {
                     if (intValue == 3) {
-                        this.f54508e = Format.createTextContainerFormat(attributeValue, "application/mp4", r, null, k, 0, (String) c("Language"));
+                        this.format = Format.createTextContainerFormat(attributeValue, MimeTypes.APPLICATION_MP4, fourCCToMimeType, null, parseRequiredInt, 0, (String) getNormalizedAttribute("Language"));
                     } else {
-                        this.f54508e = Format.createContainerFormat(attributeValue, "application/mp4", r, null, k, 0, null);
+                        this.format = Format.createContainerFormat(attributeValue, MimeTypes.APPLICATION_MP4, fourCCToMimeType, null, parseRequiredInt, 0, null);
                     }
                 } else {
-                    if (r == null) {
-                        r = "audio/mp4a-latm";
+                    if (fourCCToMimeType == null) {
+                        fourCCToMimeType = "audio/mp4a-latm";
                     }
-                    int k2 = k(xmlPullParser, "Channels");
-                    int k3 = k(xmlPullParser, "SamplingRate");
-                    List<byte[]> q = q(xmlPullParser.getAttributeValue(null, "CodecPrivateData"));
-                    if (q.isEmpty() && "audio/mp4a-latm".equals(r)) {
-                        q = Collections.singletonList(c.i.b.a.i0.c.b(k3, k2));
+                    int parseRequiredInt2 = parseRequiredInt(xmlPullParser, KEY_CHANNELS);
+                    int parseRequiredInt3 = parseRequiredInt(xmlPullParser, KEY_SAMPLING_RATE);
+                    List<byte[]> buildCodecSpecificData = buildCodecSpecificData(xmlPullParser.getAttributeValue(null, KEY_CODEC_PRIVATE_DATA));
+                    if (buildCodecSpecificData.isEmpty() && "audio/mp4a-latm".equals(fourCCToMimeType)) {
+                        buildCodecSpecificData = Collections.singletonList(CodecSpecificDataUtil.buildAacLcAudioSpecificConfig(parseRequiredInt3, parseRequiredInt2));
                     }
-                    this.f54508e = Format.createAudioContainerFormat(attributeValue, "audio/mp4", r, null, k, k2, k3, q, 0, (String) c("Language"));
+                    this.format = Format.createAudioContainerFormat(attributeValue, MimeTypes.AUDIO_MP4, fourCCToMimeType, null, parseRequiredInt, parseRequiredInt2, parseRequiredInt3, buildCodecSpecificData, 0, (String) getNormalizedAttribute("Language"));
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public static class d extends a {
-        public static /* synthetic */ Interceptable $ic;
+    /* loaded from: classes7.dex */
+    public static class SmoothStreamingMediaParser extends ElementParser {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final String KEY_DURATION = "Duration";
+        public static final String KEY_DVR_WINDOW_LENGTH = "DVRWindowLength";
+        public static final String KEY_IS_LIVE = "IsLive";
+        public static final String KEY_LOOKAHEAD_COUNT = "LookaheadCount";
+        public static final String KEY_MAJOR_VERSION = "MajorVersion";
+        public static final String KEY_MINOR_VERSION = "MinorVersion";
+        public static final String KEY_TIME_SCALE = "TimeScale";
+        public static final String TAG = "SmoothStreamingMedia";
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final List<a.b> f54509e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public int f54510f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public int f54511g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public long f54512h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public long f54513i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public long f54514j;
-        public int k;
-        public boolean l;
-        public a.C1672a m;
+        public long duration;
+        public long dvrWindowLength;
+        public boolean isLive;
+        public int lookAheadCount;
+        public int majorVersion;
+        public int minorVersion;
+        public SsManifest.ProtectionElement protectionElement;
+        public final List<SsManifest.StreamElement> streamElements;
+        public long timescale;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(a aVar, String str) {
-            super(aVar, str, "SmoothStreamingMedia");
+        public SmoothStreamingMediaParser(ElementParser elementParser, String str) {
+            super(elementParser, str, TAG);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, str};
+                Object[] objArr = {elementParser, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((a) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
+                    super((ElementParser) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.k = -1;
-            this.m = null;
-            this.f54509e = new LinkedList();
+            this.lookAheadCount = -1;
+            this.protectionElement = null;
+            this.streamElements = new LinkedList();
         }
 
-        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
-        public void a(Object obj) {
+        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.ElementParser
+        public void addChild(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if (obj instanceof a.b) {
-                    this.f54509e.add((a.b) obj);
-                } else if (obj instanceof a.C1672a) {
-                    c.i.b.a.i0.a.f(this.m == null);
-                    this.m = (a.C1672a) obj;
+                if (obj instanceof SsManifest.StreamElement) {
+                    this.streamElements.add((SsManifest.StreamElement) obj);
+                } else if (obj instanceof SsManifest.ProtectionElement) {
+                    Assertions.checkState(this.protectionElement == null);
+                    this.protectionElement = (SsManifest.ProtectionElement) obj;
                 }
             }
         }
 
-        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
-        public Object b() {
+        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.ElementParser
+        public Object build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int size = this.f54509e.size();
-                a.b[] bVarArr = new a.b[size];
-                this.f54509e.toArray(bVarArr);
-                if (this.m != null) {
-                    a.C1672a c1672a = this.m;
-                    DrmInitData drmInitData = new DrmInitData(new DrmInitData.SchemeData(c1672a.a, "video/mp4", c1672a.f29609b));
+                int size = this.streamElements.size();
+                SsManifest.StreamElement[] streamElementArr = new SsManifest.StreamElement[size];
+                this.streamElements.toArray(streamElementArr);
+                if (this.protectionElement != null) {
+                    SsManifest.ProtectionElement protectionElement = this.protectionElement;
+                    DrmInitData drmInitData = new DrmInitData(new DrmInitData.SchemeData(protectionElement.uuid, MimeTypes.VIDEO_MP4, protectionElement.data));
                     for (int i2 = 0; i2 < size; i2++) {
-                        a.b bVar = bVarArr[i2];
+                        SsManifest.StreamElement streamElement = streamElementArr[i2];
                         int i3 = 0;
                         while (true) {
-                            Format[] formatArr = bVar.f29611c;
+                            Format[] formatArr = streamElement.formats;
                             if (i3 < formatArr.length) {
                                 formatArr[i3] = formatArr[i3].copyWithDrmInitData(drmInitData);
                                 i3++;
@@ -614,189 +617,156 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
                         }
                     }
                 }
-                return new c.i.b.a.d0.x.e.a(this.f54510f, this.f54511g, this.f54512h, this.f54513i, this.f54514j, this.k, this.l, this.m, bVarArr);
+                return new SsManifest(this.majorVersion, this.minorVersion, this.timescale, this.duration, this.dvrWindowLength, this.lookAheadCount, this.isLive, this.protectionElement, streamElementArr);
             }
             return invokeV.objValue;
         }
 
-        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
-        public void n(XmlPullParser xmlPullParser) throws ParserException {
+        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.ElementParser
+        public void parseStartTag(XmlPullParser xmlPullParser) throws ParserException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xmlPullParser) == null) {
-                this.f54510f = k(xmlPullParser, "MajorVersion");
-                this.f54511g = k(xmlPullParser, "MinorVersion");
-                this.f54512h = j(xmlPullParser, "TimeScale", 10000000L);
-                this.f54513i = l(xmlPullParser, "Duration");
-                this.f54514j = j(xmlPullParser, "DVRWindowLength", 0L);
-                this.k = i(xmlPullParser, "LookaheadCount", -1);
-                this.l = g(xmlPullParser, "IsLive", false);
-                p("TimeScale", Long.valueOf(this.f54512h));
+                this.majorVersion = parseRequiredInt(xmlPullParser, KEY_MAJOR_VERSION);
+                this.minorVersion = parseRequiredInt(xmlPullParser, KEY_MINOR_VERSION);
+                this.timescale = parseLong(xmlPullParser, "TimeScale", 10000000L);
+                this.duration = parseRequiredLong(xmlPullParser, KEY_DURATION);
+                this.dvrWindowLength = parseLong(xmlPullParser, KEY_DVR_WINDOW_LENGTH, 0L);
+                this.lookAheadCount = parseInt(xmlPullParser, KEY_LOOKAHEAD_COUNT, -1);
+                this.isLive = parseBoolean(xmlPullParser, KEY_IS_LIVE, false);
+                putNormalizedAttribute("TimeScale", Long.valueOf(this.timescale));
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public static class e extends a {
-        public static /* synthetic */ Interceptable $ic;
+    /* loaded from: classes7.dex */
+    public static class StreamIndexParser extends ElementParser {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final String KEY_DISPLAY_HEIGHT = "DisplayHeight";
+        public static final String KEY_DISPLAY_WIDTH = "DisplayWidth";
+        public static final String KEY_FRAGMENT_DURATION = "d";
+        public static final String KEY_FRAGMENT_REPEAT_COUNT = "r";
+        public static final String KEY_FRAGMENT_START_TIME = "t";
+        public static final String KEY_LANGUAGE = "Language";
+        public static final String KEY_MAX_HEIGHT = "MaxHeight";
+        public static final String KEY_MAX_WIDTH = "MaxWidth";
+        public static final String KEY_NAME = "Name";
+        public static final String KEY_SUB_TYPE = "Subtype";
+        public static final String KEY_TIME_SCALE = "TimeScale";
+        public static final String KEY_TYPE = "Type";
+        public static final String KEY_TYPE_AUDIO = "audio";
+        public static final String KEY_TYPE_TEXT = "text";
+        public static final String KEY_TYPE_VIDEO = "video";
+        public static final String KEY_URL = "Url";
+        public static final String TAG = "StreamIndex";
+        public static final String TAG_STREAM_FRAGMENT = "c";
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final String f54515e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final List<Format> f54516f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public int f54517g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public String f54518h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public long f54519i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public String f54520j;
-        public String k;
-        public int l;
-        public int m;
-        public int n;
-        public int o;
-        public String p;
-        public ArrayList<Long> q;
-        public long r;
+        public final String baseUri;
+        public int displayHeight;
+        public int displayWidth;
+        public final List<Format> formats;
+        public String language;
+        public long lastChunkDuration;
+        public int maxHeight;
+        public int maxWidth;
+        public String name;
+        public ArrayList<Long> startTimes;
+        public String subType;
+        public long timescale;
+        public int type;
+        public String url;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(a aVar, String str) {
-            super(aVar, str, "StreamIndex");
+        public StreamIndexParser(ElementParser elementParser, String str) {
+            super(elementParser, str, TAG);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, str};
+                Object[] objArr = {elementParser, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((a) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
+                    super((ElementParser) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f54515e = str;
-            this.f54516f = new LinkedList();
+            this.baseUri = str;
+            this.formats = new LinkedList();
         }
 
-        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
-        public void a(Object obj) {
+        private void parseStreamElementStartTag(XmlPullParser xmlPullParser) throws ParserException {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (obj instanceof Format)) {
-                this.f54516f.add((Format) obj);
-            }
-        }
-
-        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
-        public Object b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                Format[] formatArr = new Format[this.f54516f.size()];
-                this.f54516f.toArray(formatArr);
-                return new a.b(this.f54515e, this.k, this.f54517g, this.f54518h, this.f54519i, this.f54520j, this.l, this.m, this.n, this.o, this.p, formatArr, this.q, this.r);
-            }
-            return invokeV.objValue;
-        }
-
-        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
-        public boolean d(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? "c".equals(str) : invokeL.booleanValue;
-        }
-
-        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
-        public void n(XmlPullParser xmlPullParser) throws ParserException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, xmlPullParser) == null) {
-                if ("c".equals(xmlPullParser.getName())) {
-                    r(xmlPullParser);
+            if (interceptable == null || interceptable.invokeL(65537, this, xmlPullParser) == null) {
+                int parseType = parseType(xmlPullParser);
+                this.type = parseType;
+                putNormalizedAttribute("Type", Integer.valueOf(parseType));
+                if (this.type == 3) {
+                    this.subType = parseRequiredString(xmlPullParser, KEY_SUB_TYPE);
                 } else {
-                    q(xmlPullParser);
+                    this.subType = xmlPullParser.getAttributeValue(null, KEY_SUB_TYPE);
                 }
-            }
-        }
-
-        public final void q(XmlPullParser xmlPullParser) throws ParserException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, xmlPullParser) == null) {
-                int s = s(xmlPullParser);
-                this.f54517g = s;
-                p("Type", Integer.valueOf(s));
-                if (this.f54517g == 3) {
-                    this.f54518h = m(xmlPullParser, "Subtype");
-                } else {
-                    this.f54518h = xmlPullParser.getAttributeValue(null, "Subtype");
-                }
-                this.f54520j = xmlPullParser.getAttributeValue(null, "Name");
-                this.k = m(xmlPullParser, "Url");
-                this.l = i(xmlPullParser, "MaxWidth", -1);
-                this.m = i(xmlPullParser, "MaxHeight", -1);
-                this.n = i(xmlPullParser, "DisplayWidth", -1);
-                this.o = i(xmlPullParser, "DisplayHeight", -1);
+                this.name = xmlPullParser.getAttributeValue(null, KEY_NAME);
+                this.url = parseRequiredString(xmlPullParser, KEY_URL);
+                this.maxWidth = parseInt(xmlPullParser, "MaxWidth", -1);
+                this.maxHeight = parseInt(xmlPullParser, "MaxHeight", -1);
+                this.displayWidth = parseInt(xmlPullParser, KEY_DISPLAY_WIDTH, -1);
+                this.displayHeight = parseInt(xmlPullParser, KEY_DISPLAY_HEIGHT, -1);
                 String attributeValue = xmlPullParser.getAttributeValue(null, "Language");
-                this.p = attributeValue;
-                p("Language", attributeValue);
-                long i2 = i(xmlPullParser, "TimeScale", -1);
-                this.f54519i = i2;
-                if (i2 == -1) {
-                    this.f54519i = ((Long) c("TimeScale")).longValue();
+                this.language = attributeValue;
+                putNormalizedAttribute("Language", attributeValue);
+                long parseInt = parseInt(xmlPullParser, "TimeScale", -1);
+                this.timescale = parseInt;
+                if (parseInt == -1) {
+                    this.timescale = ((Long) getNormalizedAttribute("TimeScale")).longValue();
                 }
-                this.q = new ArrayList<>();
+                this.startTimes = new ArrayList<>();
             }
         }
 
-        public final void r(XmlPullParser xmlPullParser) throws ParserException {
+        private void parseStreamFragmentStartTag(XmlPullParser xmlPullParser) throws ParserException {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048581, this, xmlPullParser) != null) {
+            if (interceptable != null && interceptable.invokeL(65538, this, xmlPullParser) != null) {
                 return;
             }
-            int size = this.q.size();
-            long j2 = j(xmlPullParser, "t", -9223372036854775807L);
+            int size = this.startTimes.size();
+            long parseLong = parseLong(xmlPullParser, "t", C.TIME_UNSET);
             int i2 = 1;
-            if (j2 == -9223372036854775807L) {
+            if (parseLong == C.TIME_UNSET) {
                 if (size == 0) {
-                    j2 = 0;
-                } else if (this.r != -1) {
-                    j2 = this.q.get(size - 1).longValue() + this.r;
+                    parseLong = 0;
+                } else if (this.lastChunkDuration != -1) {
+                    parseLong = this.startTimes.get(size - 1).longValue() + this.lastChunkDuration;
                 } else {
                     throw new ParserException("Unable to infer start time");
                 }
             }
-            this.q.add(Long.valueOf(j2));
-            this.r = j(xmlPullParser, "d", -9223372036854775807L);
-            long j3 = j(xmlPullParser, "r", 1L);
-            if (j3 > 1 && this.r == -9223372036854775807L) {
+            this.startTimes.add(Long.valueOf(parseLong));
+            this.lastChunkDuration = parseLong(xmlPullParser, "d", C.TIME_UNSET);
+            long parseLong2 = parseLong(xmlPullParser, "r", 1L);
+            if (parseLong2 > 1 && this.lastChunkDuration == C.TIME_UNSET) {
                 throw new ParserException("Repeated chunk with unspecified duration");
             }
             while (true) {
-                long j4 = i2;
-                if (j4 >= j3) {
+                long j2 = i2;
+                if (j2 >= parseLong2) {
                     return;
                 }
-                this.q.add(Long.valueOf((this.r * j4) + j2));
+                this.startTimes.add(Long.valueOf((this.lastChunkDuration * j2) + parseLong));
                 i2++;
             }
         }
 
-        public final int s(XmlPullParser xmlPullParser) throws ParserException {
+        private int parseType(XmlPullParser xmlPullParser) throws ParserException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, xmlPullParser)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, xmlPullParser)) == null) {
                 String attributeValue = xmlPullParser.getAttributeValue(null, "Type");
                 if (attributeValue != null) {
-                    if (MediaStreamTrack.AUDIO_TRACK_KIND.equalsIgnoreCase(attributeValue)) {
+                    if ("audio".equalsIgnoreCase(attributeValue)) {
                         return 1;
                     }
                     if ("video".equalsIgnoreCase(attributeValue)) {
@@ -810,6 +780,45 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
                 throw new MissingFieldException("Type");
             }
             return invokeL.intValue;
+        }
+
+        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.ElementParser
+        public void addChild(Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (obj instanceof Format)) {
+                this.formats.add((Format) obj);
+            }
+        }
+
+        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.ElementParser
+        public Object build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                Format[] formatArr = new Format[this.formats.size()];
+                this.formats.toArray(formatArr);
+                return new SsManifest.StreamElement(this.baseUri, this.url, this.type, this.subType, this.timescale, this.name, this.maxWidth, this.maxHeight, this.displayWidth, this.displayHeight, this.language, formatArr, this.startTimes, this.lastChunkDuration);
+            }
+            return invokeV.objValue;
+        }
+
+        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.ElementParser
+        public boolean handleChildInline(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? "c".equals(str) : invokeL.booleanValue;
+        }
+
+        @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.ElementParser
+        public void parseStartTag(XmlPullParser xmlPullParser) throws ParserException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, xmlPullParser) == null) {
+                if ("c".equals(xmlPullParser.getName())) {
+                    parseStreamFragmentStartTag(xmlPullParser);
+                } else {
+                    parseStreamElementStartTag(xmlPullParser);
+                }
+            }
         }
     }
 
@@ -827,27 +836,27 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
             }
         }
         try {
-            this.a = XmlPullParserFactory.newInstance();
+            this.xmlParserFactory = XmlPullParserFactory.newInstance();
         } catch (XmlPullParserException e2) {
             throw new RuntimeException("Couldn't create XmlPullParserFactory instance", e2);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.i.b.a.h0.o.a
-    /* renamed from: b */
-    public c.i.b.a.d0.x.e.a a(Uri uri, InputStream inputStream) throws IOException {
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // com.google.android.exoplayer2.upstream.ParsingLoadable.Parser
+    public SsManifest parse(Uri uri, InputStream inputStream) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, inputStream)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, uri, inputStream)) == null) {
             try {
-                XmlPullParser newPullParser = this.a.newPullParser();
+                XmlPullParser newPullParser = this.xmlParserFactory.newPullParser();
                 newPullParser.setInput(inputStream, null);
-                return (c.i.b.a.d0.x.e.a) new d(null, uri.toString()).f(newPullParser);
+                return (SsManifest) new SmoothStreamingMediaParser(null, uri.toString()).parse(newPullParser);
             } catch (XmlPullParserException e2) {
                 throw new ParserException(e2);
             }
         }
-        return (c.i.b.a.d0.x.e.a) invokeLL.objValue;
+        return (SsManifest) invokeLL.objValue;
     }
 }

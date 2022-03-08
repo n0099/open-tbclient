@@ -1,8 +1,8 @@
 package com.baidu.tieba.newinterest.fragment;
 
 import android.view.View;
-import c.a.u0.q2.a.a;
-import c.a.u0.q2.c.b;
+import c.a.r0.q2.a.a;
+import c.a.r0.q2.c.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -14,18 +14,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes13.dex */
-public abstract class BaseInterestSelectionFragment extends BaseFragment implements a.InterfaceC1312a {
+/* loaded from: classes6.dex */
+public abstract class BaseInterestSelectionFragment extends BaseFragment implements a.InterfaceC1320a {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String KEY_CUSTOM_TITLE = "key_custom_title";
     public static final String SCENE = "scene";
     public transient /* synthetic */ FieldHolder $fh;
+    public String[] mCustomTitle;
     public TBSpecificationBtn mInterestSelectedButton;
-    public c.a.u0.q2.a.a mInterestSelectionAdapter;
+    public c.a.r0.q2.a.a mInterestSelectionAdapter;
     public a mNextStepClickListener;
     public View mRootView;
     public int mScene;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(List<b> list);
     }
@@ -86,12 +88,12 @@ public abstract class BaseInterestSelectionFragment extends BaseFragment impleme
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onResume();
             if (getFragmentManager().getFragments().size() == 1) {
-                c.a.u0.q2.e.a.c(1, this.mScene);
+                c.a.r0.q2.e.a.c(1, this.mScene);
             }
         }
     }
 
-    @Override // c.a.u0.q2.a.a.InterfaceC1312a
+    @Override // c.a.r0.q2.a.a.InterfaceC1320a
     public void onSelectCountChanged(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {

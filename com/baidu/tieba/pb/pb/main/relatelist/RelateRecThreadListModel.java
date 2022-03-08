@@ -1,7 +1,6 @@
 package com.baidu.tieba.pb.pb.main.relatelist;
 
 import c.a.d.a.f;
-import c.a.u0.u2.l;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -11,30 +10,31 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.RelateRecThread.DataRes;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class RelateRecThreadListModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f46848e;
+    public boolean f45256e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelateRecThreadRequestMessage f46849f;
+    public RelateRecThreadRequestMessage f45257f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.t0.n.a f46850g;
+    public c.a.q0.m.a f45258g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.d.c.g.a f46851h;
+    public c.a.d.c.g.a f45259h;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes6.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,8 +67,8 @@ public class RelateRecThreadListModel extends BdBaseModel {
             RelateRecThreadRequestMessage relateRecThreadRequestMessage;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.f46848e = false;
-                if (responsedMessage == null || responsedMessage.getmOrginalMessage() == null || (relateRecThreadRequestMessage = (RelateRecThreadRequestMessage) responsedMessage.getmOrginalMessage().getExtra()) == null || this.a.f46849f == null || this.a.f46849f.threadId != relateRecThreadRequestMessage.threadId) {
+                this.a.f45256e = false;
+                if (responsedMessage == null || responsedMessage.getmOrginalMessage() == null || (relateRecThreadRequestMessage = (RelateRecThreadRequestMessage) responsedMessage.getmOrginalMessage().getExtra()) == null || this.a.f45257f == null || this.a.f45257f.threadId != relateRecThreadRequestMessage.threadId) {
                     return;
                 }
                 int error = responsedMessage.getError();
@@ -78,18 +78,18 @@ public class RelateRecThreadListModel extends BdBaseModel {
                     if (responsedMessage instanceof RelateRecThreadHttpResponseMessage) {
                         data = ((RelateRecThreadHttpResponseMessage) responsedMessage).getData();
                     }
-                    if (this.a.f46850g != null) {
-                        this.a.f46850g.onSuccess(data);
+                    if (this.a.f45258g != null) {
+                        this.a.f45258g.onSuccess(data);
                         return;
                     }
                     return;
                 }
                 String str = "errno=" + error + ",errmsg=" + errorString;
                 if (StringUtils.isNull(errorString)) {
-                    errorString = this.a.A(l.error_unkown_try_again);
+                    errorString = this.a.A(R.string.error_unkown_try_again);
                 }
-                if (this.a.f46850g != null) {
-                    this.a.f46850g.onError(error, errorString);
+                if (this.a.f45258g != null) {
+                    this.a.f45258g.onError(error, errorString);
                 }
             }
         }
@@ -113,8 +113,8 @@ public class RelateRecThreadListModel extends BdBaseModel {
                 return;
             }
         }
-        this.f46848e = false;
-        this.f46851h = new a(this, CmdConfigHttp.CMD_RELATE_REC_THREAD, 309701);
+        this.f45256e = false;
+        this.f45259h = new a(this, CmdConfigHttp.CMD_RELATE_REC_THREAD, 309701);
         setUniqueId(bdUniqueId);
         B();
     }
@@ -128,11 +128,11 @@ public class RelateRecThreadListModel extends BdBaseModel {
     public void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.u0.z3.g0.a.h(309701, RelateRecThreadSocketResponseMessage.class, false, false);
-            c.a.u0.z3.g0.a.c(309701, CmdConfigHttp.CMD_RELATE_REC_THREAD, TbConfig.URL_RELATE_REC_THREAD, RelateRecThreadHttpResponseMessage.class, true, false, true, false);
-            this.f46851h.getHttpMessageListener().setSelfListener(true);
-            this.f46851h.getSocketMessageListener().setSelfListener(true);
-            registerListener(this.f46851h);
+            c.a.r0.y3.g0.a.h(309701, RelateRecThreadSocketResponseMessage.class, false, false);
+            c.a.r0.y3.g0.a.c(309701, CmdConfigHttp.CMD_RELATE_REC_THREAD, TbConfig.URL_RELATE_REC_THREAD, RelateRecThreadHttpResponseMessage.class, true, false, true, false);
+            this.f45259h.getHttpMessageListener().setSelfListener(true);
+            this.f45259h.getSocketMessageListener().setSelfListener(true);
+            registerListener(this.f45259h);
         }
     }
 
@@ -140,7 +140,7 @@ public class RelateRecThreadListModel extends BdBaseModel {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            if (this.f46848e) {
+            if (this.f45256e) {
                 return false;
             }
             RelateRecThreadRequestMessage relateRecThreadRequestMessage = new RelateRecThreadRequestMessage();
@@ -149,18 +149,18 @@ public class RelateRecThreadListModel extends BdBaseModel {
             relateRecThreadRequestMessage.sourceFrom = i3;
             relateRecThreadRequestMessage.sourceType = i2;
             sendMessage(relateRecThreadRequestMessage);
-            this.f46849f = relateRecThreadRequestMessage;
-            this.f46848e = true;
+            this.f45257f = relateRecThreadRequestMessage;
+            this.f45256e = true;
             String str = "sendReqMessage-->forumId=" + j2 + ",threadId=" + j3;
             return true;
         }
         return invokeCommon.booleanValue;
     }
 
-    public void D(c.a.t0.n.a aVar) {
+    public void D(c.a.q0.m.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f46850g = aVar;
+            this.f45258g = aVar;
         }
     }
 
@@ -187,9 +187,9 @@ public class RelateRecThreadListModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f46848e = false;
-            this.f46849f = null;
-            MessageManager.getInstance().unRegisterListener(this.f46851h);
+            this.f45256e = false;
+            this.f45257f = null;
+            MessageManager.getInstance().unRegisterListener(this.f45259h);
         }
     }
 }

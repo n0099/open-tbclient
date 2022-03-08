@@ -11,27 +11,27 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<InterfaceC2023a> a;
+    public final List<InterfaceC1999a> a;
 
     /* renamed from: com.baidu.wallet.paysdk.a$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.wallet.paysdk.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC2023a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC1999a {
         boolean a(CharSequence charSequence);
     }
 
-    /* loaded from: classes2.dex */
-    public static class b implements InterfaceC2023a {
+    /* loaded from: classes6.dex */
+    public static class b implements InterfaceC1999a {
         public static /* synthetic */ Interceptable $ic;
         public static final Pattern a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public class a {
             }
         }
 
-        @Override // com.baidu.wallet.paysdk.a.InterfaceC2023a
+        @Override // com.baidu.wallet.paysdk.a.InterfaceC1999a
         public boolean a(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -78,8 +78,8 @@ public class a {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public static class c implements InterfaceC2023a {
+    /* loaded from: classes6.dex */
+    public static class c implements InterfaceC1999a {
         public static /* synthetic */ Interceptable $ic;
         public static final Pattern a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,7 +114,7 @@ public class a {
             }
         }
 
-        @Override // com.baidu.wallet.paysdk.a.InterfaceC2023a
+        @Override // com.baidu.wallet.paysdk.a.InterfaceC1999a
         public boolean a(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -126,8 +126,8 @@ public class a {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public static class d implements InterfaceC2023a {
+    /* loaded from: classes6.dex */
+    public static class d implements InterfaceC1999a {
         public static /* synthetic */ Interceptable $ic;
         public static final Pattern a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -162,7 +162,7 @@ public class a {
             }
         }
 
-        @Override // com.baidu.wallet.paysdk.a.InterfaceC2023a
+        @Override // com.baidu.wallet.paysdk.a.InterfaceC1999a
         public boolean a(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -174,8 +174,8 @@ public class a {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public static class e implements InterfaceC2023a {
+    /* loaded from: classes6.dex */
+    public static class e implements InterfaceC1999a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -193,7 +193,7 @@ public class a {
             }
         }
 
-        @Override // com.baidu.wallet.paysdk.a.InterfaceC2023a
+        @Override // com.baidu.wallet.paysdk.a.InterfaceC1999a
         public boolean a(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -208,8 +208,8 @@ public class a {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public static class f implements InterfaceC2023a {
+    /* loaded from: classes6.dex */
+    public static class f implements InterfaceC1999a {
         public static /* synthetic */ Interceptable $ic;
         public static final Pattern a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -244,7 +244,7 @@ public class a {
             }
         }
 
-        @Override // com.baidu.wallet.paysdk.a.InterfaceC2023a
+        @Override // com.baidu.wallet.paysdk.a.InterfaceC1999a
         public boolean a(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -287,8 +287,8 @@ public class a {
             if (TextUtils.isEmpty(charSequence)) {
                 return false;
             }
-            for (InterfaceC2023a interfaceC2023a : this.a) {
-                if (interfaceC2023a.a(charSequence)) {
+            for (InterfaceC1999a interfaceC1999a : this.a) {
+                if (interfaceC1999a.a(charSequence)) {
                     return true;
                 }
             }

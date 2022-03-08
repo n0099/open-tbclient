@@ -2,10 +2,10 @@ package com.ss.android.downloadlib.e;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class b {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface a<T> {
         T b();
     }

@@ -1,7 +1,7 @@
 package com.bumptech.glide.load.model;
 
 import androidx.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public interface LazyHeaderFactory {
     @Nullable
     String buildHeader();

@@ -3,7 +3,7 @@ package com.baidu.yunjiasu.tornadosdk;
 import android.os.Handler;
 import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
-import c.a.f1.a.a;
+import c.a.c1.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,7 +20,7 @@ import kotlin.Metadata;
 import kotlin.concurrent.ThreadsKt;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u00004\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0006\bÀ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\b\u0010\r\u001a\u0004\u0018\u00010\nJ\u000e\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\u0006J\u0010\u0010\u0011\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\u0006H\u0002J\u0006\u0010\u0012\u001a\u00020\u000fJ\u0010\u0010\u0013\u001a\u00020\u000f2\b\u0010\u0014\u001a\u0004\u0018\u00010\nR\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u0010\u0010\u0005\u001a\u0004\u0018\u00010\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\t\u001a\u0004\u0018\u00010\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000b\u001a\u0004\u0018\u00010\fX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u0015"}, d2 = {"Lcom/baidu/yunjiasu/tornadosdk/Pinger;", "", "()V", "TAG", "", "addressTarget", "Ljava/net/InetAddress;", "pingHandler", "Landroid/os/Handler;", "pingStatistics", "Lcom/baidu/yunjiasu/ping/PingStatistics;", "threadRun", "Ljava/lang/Thread;", "get", "run", "", "address", "runOnce", IntentConfig.STOP, "update", "ps", "tornadosdk_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class Pinger {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pinger INSTANCE;
@@ -45,7 +45,7 @@ public final class Pinger {
             }
         }
         INSTANCE = new Pinger();
-        pingHandler = new Handler(a.f3698e);
+        pingHandler = new Handler(a.f2371e);
     }
 
     public Pinger() {

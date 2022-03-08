@@ -6,9 +6,8 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
-import c.a.u0.a4.d;
-import c.a.u0.a4.e;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class CircleView extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static int l = 360;
@@ -24,22 +23,22 @@ public class CircleView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f40424e;
+    public int f38828e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f40425f;
+    public int f38829f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f40426g;
+    public int f38830g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f40427h;
+    public Paint f38831h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f40428i;
+    public Paint f38832i;
 
     /* renamed from: j  reason: collision with root package name */
-    public RectF f40429j;
+    public RectF f38833j;
     public int k;
 
     static {
@@ -83,24 +82,24 @@ public class CircleView extends View {
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f40424e = getResources().getDimensionPixelSize(e.ds100);
-            this.f40425f = getResources().getDimensionPixelSize(e.ds4);
-            this.f40426g = getResources().getDimensionPixelSize(e.ds2);
+            this.f38828e = getResources().getDimensionPixelSize(R.dimen.ds100);
+            this.f38829f = getResources().getDimensionPixelSize(R.dimen.ds4);
+            this.f38830g = getResources().getDimensionPixelSize(R.dimen.ds2);
             Paint paint = new Paint();
-            this.f40427h = paint;
-            paint.setStrokeWidth(this.f40425f);
-            this.f40427h.setColor(getResources().getColor(d.CAM_X0111));
-            this.f40427h.setStyle(Paint.Style.STROKE);
-            this.f40427h.setAntiAlias(true);
+            this.f38831h = paint;
+            paint.setStrokeWidth(this.f38829f);
+            this.f38831h.setColor(getResources().getColor(R.color.CAM_X0111));
+            this.f38831h.setStyle(Paint.Style.STROKE);
+            this.f38831h.setAntiAlias(true);
             Paint paint2 = new Paint();
-            this.f40428i = paint2;
-            paint2.setStrokeWidth(this.f40426g);
-            this.f40428i.setColor(getResources().getColor(d.common_color_10042));
-            this.f40428i.setStyle(Paint.Style.STROKE);
-            this.f40428i.setAntiAlias(true);
-            int i2 = this.f40425f;
-            int i3 = this.f40424e;
-            this.f40429j = new RectF(i2, i2, i3 + i2, i3 + i2);
+            this.f38832i = paint2;
+            paint2.setStrokeWidth(this.f38830g);
+            this.f38832i.setColor(getResources().getColor(R.color.common_color_10042));
+            this.f38832i.setStyle(Paint.Style.STROKE);
+            this.f38832i.setAntiAlias(true);
+            int i2 = this.f38829f;
+            int i3 = this.f38828e;
+            this.f38833j = new RectF(i2, i2, i3 + i2, i3 + i2);
         }
     }
 
@@ -108,8 +107,8 @@ public class CircleView extends View {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            canvas.drawArc(this.f40429j, 0.0f, l, false, this.f40428i);
-            canvas.drawArc(this.f40429j, 270.0f, (l * this.k) / m, false, this.f40427h);
+            canvas.drawArc(this.f38833j, 0.0f, l, false, this.f38832i);
+            canvas.drawArc(this.f38833j, 270.0f, (l * this.k) / m, false, this.f38831h);
         }
     }
 

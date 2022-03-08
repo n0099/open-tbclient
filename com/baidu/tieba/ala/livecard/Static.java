@@ -1,13 +1,13 @@
 package com.baidu.tieba.ala.livecard;
 
-import c.a.t0.s.r.e2;
-import c.a.u0.a0.k.a.d;
-import c.a.u0.a0.k.a.e;
-import c.a.u0.a0.k.a.f;
-import c.a.u0.e1.f0;
-import c.a.u0.e1.g0;
-import c.a.u0.z3.g;
-import c.a.u0.z3.h;
+import c.a.q0.r.r.e2;
+import c.a.r0.a0.k.a.d;
+import c.a.r0.a0.k.a.e;
+import c.a.r0.a0.k.a.f;
+import c.a.r0.d1.f0;
+import c.a.r0.d1.g0;
+import c.a.r0.y3.g;
+import c.a.r0.y3.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -28,12 +28,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class Static {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,16 +65,16 @@ public class Static {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
                 CustomMessage customMessage = (CustomMessage) customResponsedMessage.getOrginalMessage();
-                absDelegateAdapterList.add(new c.a.u0.a0.k.a.c(null, e2.J3, null));
+                absDelegateAdapterList.add(new c.a.r0.a0.k.a.c(null, e2.J3, null));
                 absDelegateAdapterList.add(new f(null, e2.I3, null));
                 absDelegateAdapterList.add(new FrsSplitAlaShareItemAdapter(null, e2.K3, null));
-                absDelegateAdapterList.add(new c.a.u0.a0.k.a.a(null, g.f26167g, null));
-                absDelegateAdapterList.add(new d(null, h.f26170f, null));
+                absDelegateAdapterList.add(new c.a.r0.a0.k.a.a(null, g.f24989g, null));
+                absDelegateAdapterList.add(new d(null, h.f24992f, null));
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,15 +105,15 @@ public class Static {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003022 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                absDelegateAdapterList.add(new c.a.u0.a0.k.a.c(null, e2.J3, null));
+                absDelegateAdapterList.add(new c.a.r0.a0.k.a.c(null, e2.J3, null));
                 absDelegateAdapterList.add(new e(null, e2.I3, null));
                 absDelegateAdapterList.add(new FrsAlaShareItemAdapter(null, e2.K3, null));
-                absDelegateAdapterList.add(new e(null, h.f26170f, null));
+                absDelegateAdapterList.add(new e(null, h.f24992f, null));
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,8 +144,8 @@ public class Static {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof f0)) {
                 f0 f0Var = (f0) customResponsedMessage.getData();
-                c.a.u0.a0.k.c.a aVar = new c.a.u0.a0.k.c.a();
-                aVar.h(f0Var.f16530e);
+                c.a.r0.a0.k.c.a aVar = new c.a.r0.a0.k.c.a();
+                aVar.h(f0Var.f15468e);
                 f0Var.a(49, aVar);
             }
         }

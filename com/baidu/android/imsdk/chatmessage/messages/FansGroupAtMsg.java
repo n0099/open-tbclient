@@ -20,7 +20,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class FansGroupAtMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<FansGroupAtMsg> CREATOR;
@@ -29,7 +29,7 @@ public class FansGroupAtMsg extends NormalMsg {
     public ArrayList<AtData> mAtDataList;
     public String mText;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static class AtData implements Parcelable, NoProGuard {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<AtData> CREATOR;

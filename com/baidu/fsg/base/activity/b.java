@@ -4,20 +4,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class b implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f33908b;
+    public final /* synthetic */ int f32311b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f33909c;
+    public final /* synthetic */ String f32312c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ BeanActivity f33910d;
+    public final /* synthetic */ BeanActivity f32313d;
 
     public b(BeanActivity beanActivity, int i2, int i3, String str) {
         Interceptable interceptable = $ic;
@@ -34,19 +34,19 @@ public class b implements Runnable {
                 return;
             }
         }
-        this.f33910d = beanActivity;
+        this.f32313d = beanActivity;
         this.a = i2;
-        this.f33908b = i3;
-        this.f33909c = str;
+        this.f32311b = i3;
+        this.f32312c = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            BeanActivity beanActivity = this.f33910d;
+            BeanActivity beanActivity = this.f32313d;
             if (beanActivity.mAct != null) {
-                beanActivity.handleFailure(this.a, this.f33908b, this.f33909c);
+                beanActivity.handleFailure(this.a, this.f32311b, this.f32312c);
             }
         }
     }

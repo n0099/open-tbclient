@@ -61,13 +61,13 @@ public class h0 extends h {
         }
     }
 
-    public final boolean r(c.a.t0.s.r.a aVar) {
+    public final boolean r(c.a.q0.r.r.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) ? (aVar == null || aVar.getThreadData() == null || !aVar.getThreadData().I2() || aVar.getThreadData().u1() == null) ? false : true : invokeL.booleanValue;
     }
 
-    public final boolean s(c.a.t0.s.r.a aVar) {
+    public final boolean s(c.a.q0.r.r.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) ? (aVar == null || aVar.getThreadData() == null || aVar.getThreadData().K0() == null || aVar.getThreadData().K0().getOptions() == null || aVar.getThreadData().K0().getOptions().size() <= 0) ? false : true : invokeL.booleanValue;
@@ -76,14 +76,14 @@ public class h0 extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: t */
-    public void onBindDataToView(c.a.t0.s.r.a aVar) {
+    public void onBindDataToView(c.a.q0.r.r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             if (!s(aVar) && aVar != null && aVar.getThreadData() != null && !r(aVar) && ((!ListUtils.isEmpty(aVar.getThreadData().C0()) || ListUtils.getCount(aVar.getThreadData().e0()) == 1) && ((!ListUtils.isEmpty(aVar.getThreadData().e0()) || ListUtils.getCount(aVar.getThreadData().C0()) == 1) && ListUtils.getCount(aVar.getThreadData().C0()) + ListUtils.getCount(aVar.getThreadData().e0()) == 1))) {
                 if (aVar.getThreadData().C0().size() >= 1) {
-                    this.l.bindData((c.a.u0.g0.d0.c) ListUtils.getItem(aVar.getThreadData().C0(), 0));
+                    this.l.bindData((c.a.r0.f0.d0.c) ListUtils.getItem(aVar.getThreadData().C0(), 0));
                 } else if (aVar.getThreadData().e0().size() >= 1) {
-                    this.l.bindData((c.a.u0.g0.d0.c) ListUtils.getItem(aVar.getThreadData().e0(), 0));
+                    this.l.bindData((c.a.r0.f0.d0.c) ListUtils.getItem(aVar.getThreadData().e0(), 0));
                 }
                 this.l.setVisibility(0);
                 return;

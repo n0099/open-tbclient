@@ -2,11 +2,11 @@ package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.u0.a4.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.data.UserVipInfoData;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class AccountData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 4126203103788833116L;
@@ -90,7 +90,7 @@ public class AccountData implements Serializable {
             if (!TextUtils.isEmpty(this.mAccount)) {
                 return this.mAccount;
             }
-            return TbadkCoreApplication.getInst().getString(j.account_default_text);
+            return TbadkCoreApplication.getInst().getString(R.string.account_default_text);
         }
         return (String) invokeV.objValue;
     }

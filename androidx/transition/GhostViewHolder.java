@@ -45,7 +45,7 @@ public class GhostViewHolder extends FrameLayout {
         }
         setClipChildren(false);
         this.mParent = viewGroup;
-        viewGroup.setTag(R.id.ghost_view_holder, this);
+        viewGroup.setTag(R$id.ghost_view_holder, this);
         ViewGroupUtils.getOverlay(this.mParent).add(this);
         this.mAttached = true;
     }
@@ -53,7 +53,7 @@ public class GhostViewHolder extends FrameLayout {
     public static GhostViewHolder getHolder(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, viewGroup)) == null) ? (GhostViewHolder) viewGroup.getTag(R.id.ghost_view_holder) : (GhostViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, viewGroup)) == null) ? (GhostViewHolder) viewGroup.getTag(R$id.ghost_view_holder) : (GhostViewHolder) invokeL.objValue;
     }
 
     private int getInsertIndex(ArrayList<View> arrayList) {
@@ -141,7 +141,7 @@ public class GhostViewHolder extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
             super.onViewRemoved(view);
             if ((getChildCount() == 1 && getChildAt(0) == view) || getChildCount() == 0) {
-                this.mParent.setTag(R.id.ghost_view_holder, null);
+                this.mParent.setTag(R$id.ghost_view_holder, null);
                 ViewGroupUtils.getOverlay(this.mParent).remove(this);
                 this.mAttached = false;
             }

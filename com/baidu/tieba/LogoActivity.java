@@ -6,27 +6,24 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.s.h0.a;
-import c.a.u0.m;
+import c.a.q0.r.a0.a;
+import c.a.r0.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
-import com.baidu.tbadk.switchs.AdToMainTabActivitySwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"HandlerLeak"})
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class LogoActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean isLaunchOpOn;
-    public int mTriggerSafeModeStatus;
-    public m newLogoDelegate;
+    public j mLogoActivityDelegate;
 
     public LogoActivity() {
         Interceptable interceptable = $ic;
@@ -38,10 +35,8 @@ public class LogoActivity extends BaseFragmentActivity {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.isLaunchOpOn = AdToMainTabActivitySwitch.getIsOn();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
@@ -60,7 +55,7 @@ public class LogoActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.t0.q0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.q0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -79,7 +74,7 @@ public class LogoActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
-            this.newLogoDelegate.f(configuration);
+            this.mLogoActivityDelegate.d(configuration);
         }
     }
 
@@ -87,19 +82,15 @@ public class LogoActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
-            this.mTriggerSafeModeStatus = a.q().i(this);
             SpeedStatsManager.getInstance().addStatsTimeStamp(3000);
             setIsAddSwipeBackLayout(false);
             setUseStyleImmersiveSticky(false);
             super.onCreate(bundle);
-            if (this.mTriggerSafeModeStatus == 2) {
-                return;
-            }
-            m mVar = new m(this);
-            this.newLogoDelegate = mVar;
-            mVar.d(bundle);
+            j jVar = new j(this);
+            this.mLogoActivityDelegate = jVar;
+            jVar.e(bundle);
             SpeedStatsManager.getInstance().addStatsTimeStamp(3001);
-            c.a.t0.s.a0.a.k();
+            a.l();
         }
     }
 
@@ -109,12 +100,9 @@ public class LogoActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(3004);
             super.onDestroy();
-            if (this.mTriggerSafeModeStatus == 2) {
-                return;
-            }
-            this.newLogoDelegate.e();
+            this.mLogoActivityDelegate.f();
             SpeedStatsManager.getInstance().addStatsTimeStamp(3005);
-            c.a.t0.s.a0.a.l();
+            a.m();
         }
     }
 
@@ -136,7 +124,7 @@ public class LogoActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent) == null) {
             super.onNewIntent(intent);
-            c.a.t0.s.a0.a.k();
+            a.l();
         }
     }
 
@@ -145,7 +133,7 @@ public class LogoActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onPause();
-            this.newLogoDelegate.g();
+            this.mLogoActivityDelegate.g();
         }
     }
 
@@ -155,10 +143,7 @@ public class LogoActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(3002);
             super.onResume();
-            if (this.mTriggerSafeModeStatus == 2) {
-                return;
-            }
-            this.newLogoDelegate.h();
+            this.mLogoActivityDelegate.h();
             SpeedStatsManager.getInstance().addStatsTimeStamp(3003);
         }
     }

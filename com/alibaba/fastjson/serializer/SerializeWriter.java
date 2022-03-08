@@ -23,9 +23,8 @@ import java.io.Writer;
 import java.math.BigDecimal;
 import java.nio.charset.Charset;
 import java.util.List;
-import kotlin.text.Typography;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class SerializeWriter extends Writer {
     public static /* synthetic */ Interceptable $ic;
     public static int BUFFER_THRESHOLD;
@@ -535,7 +534,7 @@ public final class SerializeWriter extends Writer {
                         int i11 = ((bArr[i2] & 255) << 10) | (i10 == 2 ? (bArr[i3] & 255) << 2 : 0);
                         write(cArr[i11 >> 12]);
                         write(cArr[(i11 >>> 6) & 63]);
-                        write(i10 == 2 ? cArr[i11 & 63] : a.f31099h);
+                        write(i10 == 2 ? cArr[i11 & 63] : a.f29503h);
                         write(61);
                     }
                     write(c2);
@@ -570,8 +569,8 @@ public final class SerializeWriter extends Writer {
                 char[] cArr3 = this.buf;
                 cArr3[i5 - 5] = cArr[i23 >> 12];
                 cArr3[i5 - 4] = cArr[(i23 >>> 6) & 63];
-                cArr3[i5 - 3] = i22 == 2 ? cArr[i23 & 63] : a.f31099h;
-                this.buf[i5 - 2] = a.f31099h;
+                cArr3[i5 - 3] = i22 == 2 ? cArr[i23 & 63] : a.f29503h;
+                this.buf[i5 - 2] = a.f29503h;
             }
             this.buf[i5 - 1] = c2;
         }
@@ -1139,9 +1138,8 @@ public final class SerializeWriter extends Writer {
             if (c2 != 0) {
                 i2++;
             }
-            int length2 = this.buf.length;
-            char c3 = Typography.greater;
-            if (i2 > length2) {
+            char c3 = '>';
+            if (i2 > this.buf.length) {
                 if (this.writer != null) {
                     write(34);
                     int i3 = 0;
@@ -1192,7 +1190,7 @@ public final class SerializeWriter extends Writer {
                             write(charAt);
                         }
                         i3++;
-                        c3 = Typography.greater;
+                        c3 = '>';
                     }
                     write(34);
                     if (c2 != 0) {
@@ -2378,9 +2376,8 @@ public final class SerializeWriter extends Writer {
             if (c2 != 0) {
                 i3++;
             }
-            int length2 = this.buf.length;
-            char c3 = Typography.greater;
-            if (i3 > length2) {
+            char c3 = '>';
+            if (i3 > this.buf.length) {
                 if (this.writer != null) {
                     write(34);
                     int i4 = 0;
@@ -2431,7 +2428,7 @@ public final class SerializeWriter extends Writer {
                             write(c4);
                         }
                         i4++;
-                        c3 = Typography.greater;
+                        c3 = '>';
                     }
                     write(34);
                     if (c2 != 0) {

@@ -16,6 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.ttml.TtmlDecoder;
 import com.tachikoma.core.event.base.TKBaseEvent;
 import com.tencent.open.SocialConstants;
 import com.yy.hiidostatis.api.HiidoSDK;
@@ -60,7 +61,7 @@ import java.util.Date;
 import java.util.Map;
 import java.util.UUID;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class StatisAPIOld implements IStatisApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_METRICS_NAME = "DEFAULT_METRICS";
@@ -895,7 +896,7 @@ public class StatisAPIOld implements IStatisApi {
                         if (this.this$0.launchTime != null) {
                             Long valueOf = Long.valueOf(System.currentTimeMillis() - this.this$0.launchTime.longValue());
                             if (valueOf.longValue() > 0) {
-                                statisContent.put("dur", valueOf.longValue());
+                                statisContent.put(TtmlDecoder.ATTR_DURATION, valueOf.longValue());
                             }
                         }
                         statisContent.put("prop", this.this$0.getPropString(this.val$prop));

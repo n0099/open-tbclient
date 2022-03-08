@@ -2,29 +2,29 @@ package com.ss.android.socialbase.appdownloader.f.a;
 
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a implements i {
 
     /* renamed from: b  reason: collision with root package name */
-    public d f59989b;
+    public d f58339b;
 
     /* renamed from: d  reason: collision with root package name */
-    public f f59991d;
+    public f f58341d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int[] f59992e;
+    public int[] f58342e;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f59994g;
+    public boolean f58344g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f59995h;
+    public int f58345h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f59996i;
+    public int f58346i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f59997j;
+    public int f58347j;
     public int k;
     public int[] l;
     public int m;
@@ -32,19 +32,19 @@ public class a implements i {
     public int o;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f59990c = false;
+    public boolean f58340c = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public C2212a f59993f = new C2212a();
+    public C2191a f58343f = new C2191a();
 
     public a() {
         g();
     }
 
     private final void g() {
-        this.f59995h = -1;
-        this.f59996i = -1;
-        this.f59997j = -1;
+        this.f58345h = -1;
+        this.f58346i = -1;
+        this.f58347j = -1;
         this.k = -1;
         this.l = null;
         this.m = -1;
@@ -60,85 +60,85 @@ public class a implements i {
     */
     private final void h() throws IOException {
         int b2;
-        if (this.f59991d == null) {
-            b.a(this.f59989b, 524291);
-            this.f59989b.c();
-            this.f59991d = f.a(this.f59989b);
-            this.f59993f.e();
-            this.f59990c = true;
+        if (this.f58341d == null) {
+            b.a(this.f58339b, 524291);
+            this.f58339b.c();
+            this.f58341d = f.a(this.f58339b);
+            this.f58343f.e();
+            this.f58340c = true;
         }
-        int i2 = this.f59995h;
+        int i2 = this.f58345h;
         if (i2 != 1) {
             g();
             while (true) {
-                if (this.f59994g) {
-                    this.f59994g = false;
-                    this.f59993f.f();
+                if (this.f58344g) {
+                    this.f58344g = false;
+                    this.f58343f.f();
                 }
                 int i3 = 3;
-                if (i2 == 3 && this.f59993f.d() == 1 && this.f59993f.b() == 0) {
-                    this.f59995h = 1;
+                if (i2 == 3 && this.f58343f.d() == 1 && this.f58343f.b() == 0) {
+                    this.f58345h = 1;
                     return;
                 }
-                int b3 = i2 == 0 ? 1048834 : this.f59989b.b();
+                int b3 = i2 == 0 ? 1048834 : this.f58339b.b();
                 if (b3 == 524672) {
-                    b2 = this.f59989b.b();
+                    b2 = this.f58339b.b();
                     if (b2 < 8 || b2 % 4 != 0) {
                         break;
                     }
-                    this.f59992e = this.f59989b.b((b2 / 4) - 2);
+                    this.f58342e = this.f58339b.b((b2 / 4) - 2);
                 } else if (b3 < 1048832 || b3 > 1048836) {
                     break;
                 } else if (b3 == 1048834 && i2 == -1) {
-                    this.f59995h = 0;
+                    this.f58345h = 0;
                     return;
                 } else {
-                    this.f59989b.c();
-                    int b4 = this.f59989b.b();
-                    this.f59989b.c();
+                    this.f58339b.c();
+                    int b4 = this.f58339b.b();
+                    this.f58339b.c();
                     if (b3 != 1048832 && b3 != 1048833) {
-                        this.f59996i = b4;
+                        this.f58346i = b4;
                         if (b3 == 1048834) {
-                            this.k = this.f59989b.b();
-                            this.f59997j = this.f59989b.b();
-                            this.f59989b.c();
-                            int b5 = this.f59989b.b();
+                            this.k = this.f58339b.b();
+                            this.f58347j = this.f58339b.b();
+                            this.f58339b.c();
+                            int b5 = this.f58339b.b();
                             this.m = (b5 >>> 16) - 1;
-                            int b6 = this.f59989b.b();
+                            int b6 = this.f58339b.b();
                             this.n = b6;
                             this.o = (b6 >>> 16) - 1;
                             this.n = (65535 & b6) - 1;
-                            this.l = this.f59989b.b((b5 & 65535) * 5);
+                            this.l = this.f58339b.b((b5 & 65535) * 5);
                             while (true) {
                                 int[] iArr = this.l;
                                 if (i3 < iArr.length) {
                                     iArr[i3] = iArr[i3] >>> 24;
                                     i3 += 5;
                                 } else {
-                                    this.f59993f.e();
-                                    this.f59995h = 2;
+                                    this.f58343f.e();
+                                    this.f58345h = 2;
                                     return;
                                 }
                             }
                         } else if (b3 == 1048835) {
-                            this.k = this.f59989b.b();
-                            this.f59997j = this.f59989b.b();
-                            this.f59995h = 3;
-                            this.f59994g = true;
+                            this.k = this.f58339b.b();
+                            this.f58347j = this.f58339b.b();
+                            this.f58345h = 3;
+                            this.f58344g = true;
                             return;
                         } else if (b3 == 1048836) {
-                            this.f59997j = this.f59989b.b();
-                            this.f59989b.c();
-                            this.f59989b.c();
-                            this.f59995h = 4;
+                            this.f58347j = this.f58339b.b();
+                            this.f58339b.c();
+                            this.f58339b.c();
+                            this.f58345h = 4;
                             return;
                         }
                     } else if (b3 == 1048832) {
-                        this.f59993f.a(this.f59989b.b(), this.f59989b.b());
+                        this.f58343f.a(this.f58339b.b(), this.f58339b.b());
                     } else {
-                        this.f59989b.c();
-                        this.f59989b.c();
-                        this.f59993f.c();
+                        this.f58339b.c();
+                        this.f58339b.c();
+                        this.f58343f.c();
                     }
                 }
             }
@@ -149,15 +149,15 @@ public class a implements i {
     public void a(InputStream inputStream) {
         a();
         if (inputStream != null) {
-            this.f59989b = new d(inputStream, false);
+            this.f58339b = new d(inputStream, false);
         }
     }
 
     public int b() throws h, IOException {
-        if (this.f59989b != null) {
+        if (this.f58339b != null) {
             try {
                 h();
-                return this.f59995h;
+                return this.f58345h;
             } catch (IOException e2) {
                 a();
                 throw e2;
@@ -168,7 +168,7 @@ public class a implements i {
 
     @Override // com.ss.android.socialbase.appdownloader.f.a.g
     public int c() {
-        return this.f59996i;
+        return this.f58346i;
     }
 
     @Override // com.ss.android.socialbase.appdownloader.f.a.g
@@ -177,7 +177,7 @@ public class a implements i {
     }
 
     public int e() {
-        if (this.f59995h != 2) {
+        if (this.f58345h != 2) {
             return -1;
         }
         return this.l.length / 5;
@@ -189,23 +189,23 @@ public class a implements i {
     }
 
     /* renamed from: com.ss.android.socialbase.appdownloader.f.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static final class C2212a {
+    /* loaded from: classes8.dex */
+    public static final class C2191a {
         public int[] a = new int[32];
 
         /* renamed from: b  reason: collision with root package name */
-        public int f59998b;
+        public int f58348b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f59999c;
+        public int f58349c;
 
         public final void a() {
-            this.f59998b = 0;
-            this.f59999c = 0;
+            this.f58348b = 0;
+            this.f58349c = 0;
         }
 
         public final int b() {
-            int i2 = this.f59998b;
+            int i2 = this.f58348b;
             if (i2 == 0) {
                 return 0;
             }
@@ -216,7 +216,7 @@ public class a implements i {
             int i2;
             int[] iArr;
             int i3;
-            int i4 = this.f59998b;
+            int i4 = this.f58348b;
             if (i4 == 0 || (i3 = (iArr = this.a)[i4 - 1]) == 0) {
                 return false;
             }
@@ -224,42 +224,42 @@ public class a implements i {
             int i6 = i2 - 2;
             iArr[i6] = i5;
             iArr[i6 - ((i5 * 2) + 1)] = i5;
-            this.f59998b = i4 - 2;
+            this.f58348b = i4 - 2;
             return true;
         }
 
         public final int d() {
-            return this.f59999c;
+            return this.f58349c;
         }
 
         public final void e() {
             a(2);
-            int i2 = this.f59998b;
+            int i2 = this.f58348b;
             int[] iArr = this.a;
             iArr[i2] = 0;
             iArr[i2 + 1] = 0;
-            this.f59998b = i2 + 2;
-            this.f59999c++;
+            this.f58348b = i2 + 2;
+            this.f58349c++;
         }
 
         public final void f() {
-            int i2 = this.f59998b;
+            int i2 = this.f58348b;
             if (i2 != 0) {
                 int i3 = i2 - 1;
                 int i4 = this.a[i3] * 2;
                 if ((i3 - 1) - i4 != 0) {
-                    this.f59998b = i2 - (i4 + 2);
-                    this.f59999c--;
+                    this.f58348b = i2 - (i4 + 2);
+                    this.f58349c--;
                 }
             }
         }
 
         public final void a(int i2, int i3) {
-            if (this.f59999c == 0) {
+            if (this.f58349c == 0) {
                 e();
             }
             a(2);
-            int i4 = this.f59998b;
+            int i4 = this.f58348b;
             int i5 = i4 - 1;
             int[] iArr = this.a;
             int i6 = iArr[i5];
@@ -268,13 +268,13 @@ public class a implements i {
             iArr[i5] = i2;
             iArr[i5 + 1] = i3;
             iArr[i5 + 2] = i7;
-            this.f59998b = i4 + 2;
+            this.f58348b = i4 + 2;
         }
 
         private void a(int i2) {
             int[] iArr = this.a;
             int length = iArr.length;
-            int i3 = this.f59998b;
+            int i3 = this.f58348b;
             int i4 = length - i3;
             if (i4 <= i2) {
                 int[] iArr2 = new int[(iArr.length + i4) * 2];
@@ -285,7 +285,7 @@ public class a implements i {
     }
 
     private final int e(int i2) {
-        if (this.f59995h == 2) {
+        if (this.f58345h == 2) {
             int i3 = i2 * 5;
             if (i3 < this.l.length) {
                 return i3;
@@ -303,20 +303,20 @@ public class a implements i {
         int e2 = e(i2);
         int[] iArr = this.l;
         if (iArr[e2 + 3] == 3) {
-            return this.f59991d.a(iArr[e2 + 2]);
+            return this.f58341d.a(iArr[e2 + 2]);
         }
         int i3 = iArr[e2 + 4];
         return "";
     }
 
     public void a() {
-        if (this.f59990c) {
-            this.f59990c = false;
-            this.f59989b.a();
-            this.f59989b = null;
-            this.f59991d = null;
-            this.f59992e = null;
-            this.f59993f.a();
+        if (this.f58340c) {
+            this.f58340c = false;
+            this.f58339b.a();
+            this.f58339b = null;
+            this.f58341d = null;
+            this.f58342e = null;
+            this.f58343f.a();
             g();
         }
     }
@@ -327,6 +327,6 @@ public class a implements i {
 
     public String a(int i2) {
         int i3 = this.l[e(i2) + 1];
-        return i3 == -1 ? "" : this.f59991d.a(i3);
+        return i3 == -1 ? "" : this.f58341d.a(i3);
     }
 }

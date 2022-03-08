@@ -17,14 +17,14 @@ import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.qq.e.ads.nativ.express2.AdEventListener;
 import com.qq.e.ads.nativ.express2.NativeExpressADData2;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class k implements FunNativeAd2Bridger<NativeExpressADData2, View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ f f28495b;
+    public final /* synthetic */ f f28333b;
 
     public k(f fVar) {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class k implements FunNativeAd2Bridger<NativeExpressADData2, View> {
                 return;
             }
         }
-        this.f28495b = fVar;
+        this.f28333b = fVar;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -65,9 +65,9 @@ public class k implements FunNativeAd2Bridger<NativeExpressADData2, View> {
     public void showExpress(Activity activity, ExpressInflater expressInflater, String str, NativeExpressADData2 nativeExpressADData2, BaseNativeAd2<NativeExpressADData2, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, nativeExpressADData2, baseNativeAd2, funAdInteractionListener}) == null) {
-            this.f28495b.onShowStart(this.a);
+            this.f28333b.onShowStart(this.a);
             this.a = true;
-            ExpressAdListenerWrapper<AdEventListener> expressAdListenerWrapper = this.f28495b.f28488h.get(nativeExpressADData2);
+            ExpressAdListenerWrapper<AdEventListener> expressAdListenerWrapper = this.f28333b.f28326h.get(nativeExpressADData2);
             if (expressAdListenerWrapper == null) {
                 LogPrinter.e("Can not get correspond listener by gdtNativeExpress2.", new Object[0]);
             } else {

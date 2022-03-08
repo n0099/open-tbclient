@@ -15,16 +15,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.NoProguard;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class PermissionManager implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REQUEST_CODE_CALL_PHONE = 2;
     public static final int REQUEST_CODE_READ_CONTRACT = 3;
     public static final int REQUEST_CODE_READ_SMS = 1;
     public static final int REQUEST_CODE_WRITE_EXTERNAL_STORAGE = 4;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static int f53784e;
+    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -80,10 +78,10 @@ public class PermissionManager implements NoProguard {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:16:0x0025, code lost:
-        if (c.f.a.f.c.a(r4, r5) == 0) goto L9;
+        if (com.dxmpay.apollon.permission.c.a(r4, r5) == 0) goto L9;
      */
     /* JADX WARN: Code restructure failed: missing block: B:8:0x0010, code lost:
-        if (c.f.a.f.c.a(r4, r5) == 0) goto L9;
+        if (com.dxmpay.apollon.permission.c.a(r4, r5) == 0) goto L9;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -110,14 +108,14 @@ public class PermissionManager implements NoProguard {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (f53784e == 0) {
+            if (a == 0) {
                 try {
-                    f53784e = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.targetSdkVersion;
+                    a = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.targetSdkVersion;
                 } catch (PackageManager.NameNotFoundException e2) {
                     e2.printStackTrace();
                 }
             }
-            return f53784e;
+            return a;
         }
         return invokeL.intValue;
     }

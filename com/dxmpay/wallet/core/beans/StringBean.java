@@ -18,7 +18,7 @@ import com.dxmpay.wallet.core.utils.VerSig;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.util.List;
 import org.json.JSONException;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class StringBean extends OtherBean<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,19 +54,19 @@ public abstract class StringBean extends OtherBean<String> {
 
     @Override // com.dxmpay.wallet.core.beans.OtherBean, com.dxmpay.apollon.beans.ApollonBean
     public <T, E> void executeAndHandleResponse(Class<T> cls, Class<E> cls2) {
-        RestResponseEntity<T> n;
+        RestResponseEntity<T> d2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, cls2) == null) {
             if (getHttpMethod() == 0) {
-                n = this.mRestTemplate.i(getUrl(), getRequestParams(), getEncode(), cls);
+                d2 = this.mRestTemplate.b(getUrl(), getRequestParams(), getEncode(), cls);
             } else {
-                n = getHttpMethod() == 1 ? this.mRestTemplate.n(getUrl(), getRequestParams(), getEncode(), cls) : null;
+                d2 = getHttpMethod() == 1 ? this.mRestTemplate.d(getUrl(), getRequestParams(), getEncode(), cls) : null;
             }
             this.mRetCode = -4;
             this.mRetMsg = ResUtils.getString(this.mContext, "dxm_ebpay_resolve_error");
-            if (n != null && this.mRspCallback != null) {
-                handleResponseHeaders(n);
-                String str = (String) n.getBody();
+            if (d2 != null && this.mRspCallback != null) {
+                handleResponseHeaders(d2);
+                String str = (String) d2.getBody();
                 if (str == null) {
                     addOnEventWithValues(-100, "Callback not null, response null");
                     this.mRspCallback.onBeanExecFailure(getBeanId(), this.mRetCode, this.mRetMsg);

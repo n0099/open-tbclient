@@ -15,14 +15,14 @@ import com.baidu.wallet.paysdk.PayUtils;
 import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes6.dex */
 public class e extends BaseBean<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f51219b;
+    public String f49638b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> e(Context context) {
@@ -43,14 +43,14 @@ public class e extends BaseBean<Object> {
             }
         }
         this.a = "";
-        this.f51219b = "";
+        this.f49638b = "";
     }
 
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
             this.a = str;
-            this.f51219b = str2;
+            this.f49638b = str2;
         }
     }
 
@@ -71,7 +71,7 @@ public class e extends BaseBean<Object> {
             arrayList.add(new RestNameValuePair("mobile_num", PayUtils.encrypt("phone_number", this.a)));
             arrayList.add(new RestNameValuePair("cmd", "1067"));
             arrayList.add(new RestNameValuePair(WebChromeClient.KEY_ARG_CALLBACK, "phonePriceInfo_common"));
-            arrayList.add(new RestNameValuePair("device_token", this.f51219b));
+            arrayList.add(new RestNameValuePair("device_token", this.f49638b));
             return arrayList;
         }
         return (List) invokeV.objValue;

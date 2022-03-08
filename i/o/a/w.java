@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import rx.internal.producers.SingleProducer;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class w<T> extends i.i<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final i.j<? super T> f62137f;
+    public final i.j<? super T> f60487f;
 
     public w(i.j<? super T> jVar) {
         Interceptable interceptable = $ic;
@@ -29,14 +29,14 @@ public final class w<T> extends i.i<T> {
                 return;
             }
         }
-        this.f62137f = jVar;
+        this.f60487f = jVar;
     }
 
     @Override // i.i
     public void b(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-            this.f62137f.onError(th);
+            this.f60487f.onError(th);
         }
     }
 
@@ -44,7 +44,7 @@ public final class w<T> extends i.i<T> {
     public void c(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            this.f62137f.f(new SingleProducer(this.f62137f, t));
+            this.f60487f.f(new SingleProducer(this.f60487f, t));
         }
     }
 }
